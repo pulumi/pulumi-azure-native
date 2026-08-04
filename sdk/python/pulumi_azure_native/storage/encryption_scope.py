@@ -24,11 +24,11 @@ class EncryptionScopeArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 encryption_scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_properties: Optional[pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs']] = None,
-                 require_infrastructure_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeSource']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeState']]] = None):
+                 encryption_scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_properties: pulumi.Input[Optional['EncryptionScopeKeyVaultPropertiesArgs']] = None,
+                 require_infrastructure_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeSource']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeState']]] = None):
         """
         The set of arguments for constructing a EncryptionScope resource.
 
@@ -79,62 +79,62 @@ class EncryptionScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionScopeName")
-    def encryption_scope_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_scope_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         """
         return pulumi.get(self, "encryption_scope_name")
 
     @encryption_scope_name.setter
-    def encryption_scope_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_scope_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_scope_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> pulumi.Input[Optional['EncryptionScopeKeyVaultPropertiesArgs']]:
         """
         The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: pulumi.Input[Optional['EncryptionScopeKeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="requireInfrastructureEncryption")
-    def require_infrastructure_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_infrastructure_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         """
         return pulumi.get(self, "require_infrastructure_encryption")
 
     @require_infrastructure_encryption.setter
-    def require_infrastructure_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_infrastructure_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_infrastructure_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeSource']]]:
+    def source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeSource']]]:
         """
         The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeSource']]]):
+    def source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeSource']]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeState']]]:
         """
         The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -144,13 +144,13 @@ class EncryptionScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_properties: Optional[pulumi.Input[Union['EncryptionScopeKeyVaultPropertiesArgs', 'EncryptionScopeKeyVaultPropertiesArgsDict']]] = None,
-                 require_infrastructure_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeSource']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeState']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_properties: pulumi.Input[Optional[Union['EncryptionScopeKeyVaultPropertiesArgs', 'EncryptionScopeKeyVaultPropertiesArgsDict']]] = None,
+                 require_infrastructure_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeSource']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeState']]] = None,
                  __props__=None):
         """
         The Encryption Scope resource.
@@ -158,7 +158,6 @@ class EncryptionScope(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +182,6 @@ class EncryptionScope(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param EncryptionScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,13 +197,13 @@ class EncryptionScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_properties: Optional[pulumi.Input[Union['EncryptionScopeKeyVaultPropertiesArgs', 'EncryptionScopeKeyVaultPropertiesArgsDict']]] = None,
-                 require_infrastructure_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeSource']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionScopeState']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_properties: pulumi.Input[Optional[Union['EncryptionScopeKeyVaultPropertiesArgs', 'EncryptionScopeKeyVaultPropertiesArgsDict']]] = None,
+                 require_infrastructure_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeSource']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionScopeState']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

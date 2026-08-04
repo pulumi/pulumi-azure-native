@@ -187,10 +187,9 @@ def get_schema_registry(namespace_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str namespace_name: The Namespace name
     :param _builtins.str resource_group_name: Name of the resource group within the azure subscription.
-    :param _builtins.str schema_group_name: The Schema Group name 
+    :param _builtins.str schema_group_name: The Schema Group name
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
@@ -212,9 +211,9 @@ def get_schema_registry(namespace_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at_utc=pulumi.get(__ret__, 'updated_at_utc'))
-def get_schema_registry_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               schema_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_registry_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               schema_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryResult]:
     """
     Gets the details of an EventHub schema group.
@@ -223,10 +222,9 @@ def get_schema_registry_output(namespace_name: Optional[pulumi.Input[_builtins.s
 
     Other available API versions: 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str namespace_name: The Namespace name
     :param _builtins.str resource_group_name: Name of the resource group within the azure subscription.
-    :param _builtins.str schema_group_name: The Schema Group name 
+    :param _builtins.str schema_group_name: The Schema Group name
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name

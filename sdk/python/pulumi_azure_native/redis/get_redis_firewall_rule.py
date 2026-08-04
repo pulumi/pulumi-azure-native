@@ -118,7 +118,6 @@ def get_redis_firewall_rule(cache_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-04-01.
 
-
     :param _builtins.str cache_name: The name of the Redis cache.
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str rule_name: The name of the firewall rule.
@@ -137,15 +136,14 @@ def get_redis_firewall_rule(cache_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         start_ip=pulumi.get(__ret__, 'start_ip'),
         type=pulumi.get(__ret__, 'type'))
-def get_redis_firewall_rule_output(cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_redis_firewall_rule_output(cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRedisFirewallRuleResult]:
     """
     Gets a single firewall rule in a specified redis cache.
 
     Uses Azure REST API version 2016-04-01.
-
 
     :param _builtins.str cache_name: The name of the Redis cache.
     :param _builtins.str resource_group_name: The name of the resource group.

@@ -118,7 +118,6 @@ def get_service_group_member_relationship(name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-09-01-preview.
 
-
     :param _builtins.str name: Name of ServiceGroupMember relationship.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -135,14 +134,13 @@ def get_service_group_member_relationship(name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_service_group_member_relationship_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_group_member_relationship_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceGroupMemberRelationshipResult]:
     """
     Get a ServiceGroupMemberRelationship
 
     Uses Azure REST API version 2023-09-01-preview.
-
 
     :param _builtins.str name: Name of ServiceGroupMember relationship.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

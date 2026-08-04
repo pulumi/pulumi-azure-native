@@ -20,12 +20,12 @@ __all__ = [
     'APIServerAccessProfileArgsDict',
     'AbsoluteMonthlyScheduleArgs',
     'AbsoluteMonthlyScheduleArgsDict',
+    'AdvancedNetworkingArgs',
+    'AdvancedNetworkingArgsDict',
     'AdvancedNetworkingObservabilityArgs',
     'AdvancedNetworkingObservabilityArgsDict',
     'AdvancedNetworkingSecurityArgs',
     'AdvancedNetworkingSecurityArgsDict',
-    'AdvancedNetworkingArgs',
-    'AdvancedNetworkingArgsDict',
     'AgentPoolGatewayProfileArgs',
     'AgentPoolGatewayProfileArgsDict',
     'AgentPoolNetworkProfileArgs',
@@ -100,10 +100,10 @@ __all__ = [
     'JWTAuthenticatorValidationRuleArgsDict',
     'KubeletConfigArgs',
     'KubeletConfigArgsDict',
-    'LabelSelectorRequirementArgs',
-    'LabelSelectorRequirementArgsDict',
     'LabelSelectorArgs',
     'LabelSelectorArgsDict',
+    'LabelSelectorRequirementArgs',
+    'LabelSelectorRequirementArgsDict',
     'LinuxOSConfigArgs',
     'LinuxOSConfigArgsDict',
     'LocalDNSOverrideArgs',
@@ -124,12 +124,12 @@ __all__ = [
     'ManagedClusterAgentPoolProfileArgsDict',
     'ManagedClusterAutoUpgradeProfileArgs',
     'ManagedClusterAutoUpgradeProfileArgsDict',
+    'ManagedClusterAzureMonitorProfileArgs',
+    'ManagedClusterAzureMonitorProfileArgsDict',
     'ManagedClusterAzureMonitorProfileKubeStateMetricsArgs',
     'ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict',
     'ManagedClusterAzureMonitorProfileMetricsArgs',
     'ManagedClusterAzureMonitorProfileMetricsArgsDict',
-    'ManagedClusterAzureMonitorProfileArgs',
-    'ManagedClusterAzureMonitorProfileArgsDict',
     'ManagedClusterBootstrapProfileArgs',
     'ManagedClusterBootstrapProfileArgsDict',
     'ManagedClusterCostAnalysisArgs',
@@ -138,20 +138,20 @@ __all__ = [
     'ManagedClusterHTTPProxyConfigArgsDict',
     'ManagedClusterIdentityArgs',
     'ManagedClusterIdentityArgsDict',
+    'ManagedClusterIngressProfileArgs',
+    'ManagedClusterIngressProfileArgsDict',
     'ManagedClusterIngressProfileNginxArgs',
     'ManagedClusterIngressProfileNginxArgsDict',
     'ManagedClusterIngressProfileWebAppRoutingArgs',
     'ManagedClusterIngressProfileWebAppRoutingArgsDict',
-    'ManagedClusterIngressProfileArgs',
-    'ManagedClusterIngressProfileArgsDict',
+    'ManagedClusterLoadBalancerProfileArgs',
+    'ManagedClusterLoadBalancerProfileArgsDict',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict',
     'ManagedClusterLoadBalancerProfileOutboundIPsArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPsArgsDict',
-    'ManagedClusterLoadBalancerProfileArgs',
-    'ManagedClusterLoadBalancerProfileArgsDict',
     'ManagedClusterManagedOutboundIPProfileArgs',
     'ManagedClusterManagedOutboundIPProfileArgsDict',
     'ManagedClusterMetricsProfileArgs',
@@ -164,30 +164,32 @@ __all__ = [
     'ManagedClusterNodeResourceGroupProfileArgsDict',
     'ManagedClusterOIDCIssuerProfileArgs',
     'ManagedClusterOIDCIssuerProfileArgsDict',
+    'ManagedClusterPodIdentityArgs',
+    'ManagedClusterPodIdentityArgsDict',
     'ManagedClusterPodIdentityExceptionArgs',
     'ManagedClusterPodIdentityExceptionArgsDict',
     'ManagedClusterPodIdentityProfileArgs',
     'ManagedClusterPodIdentityProfileArgsDict',
-    'ManagedClusterPodIdentityArgs',
-    'ManagedClusterPodIdentityArgsDict',
     'ManagedClusterPropertiesAutoScalerProfileArgs',
     'ManagedClusterPropertiesAutoScalerProfileArgsDict',
     'ManagedClusterSKUArgs',
     'ManagedClusterSKUArgsDict',
-    'ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs',
-    'ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict',
+    'ManagedClusterSecurityProfileArgs',
+    'ManagedClusterSecurityProfileArgsDict',
     'ManagedClusterSecurityProfileDefenderArgs',
     'ManagedClusterSecurityProfileDefenderArgsDict',
+    'ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs',
+    'ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict',
     'ManagedClusterSecurityProfileImageCleanerArgs',
     'ManagedClusterSecurityProfileImageCleanerArgsDict',
     'ManagedClusterSecurityProfileWorkloadIdentityArgs',
     'ManagedClusterSecurityProfileWorkloadIdentityArgsDict',
-    'ManagedClusterSecurityProfileArgs',
-    'ManagedClusterSecurityProfileArgsDict',
     'ManagedClusterServicePrincipalProfileArgs',
     'ManagedClusterServicePrincipalProfileArgsDict',
     'ManagedClusterStaticEgressGatewayProfileArgs',
     'ManagedClusterStaticEgressGatewayProfileArgsDict',
+    'ManagedClusterStorageProfileArgs',
+    'ManagedClusterStorageProfileArgsDict',
     'ManagedClusterStorageProfileBlobCSIDriverArgs',
     'ManagedClusterStorageProfileBlobCSIDriverArgsDict',
     'ManagedClusterStorageProfileDiskCSIDriverArgs',
@@ -196,20 +198,18 @@ __all__ = [
     'ManagedClusterStorageProfileFileCSIDriverArgsDict',
     'ManagedClusterStorageProfileSnapshotControllerArgs',
     'ManagedClusterStorageProfileSnapshotControllerArgsDict',
-    'ManagedClusterStorageProfileArgs',
-    'ManagedClusterStorageProfileArgsDict',
     'ManagedClusterUpdateArgs',
     'ManagedClusterUpdateArgsDict',
     'ManagedClusterUpgradeSpecArgs',
     'ManagedClusterUpgradeSpecArgsDict',
     'ManagedClusterWindowsProfileArgs',
     'ManagedClusterWindowsProfileArgsDict',
+    'ManagedClusterWorkloadAutoScalerProfileArgs',
+    'ManagedClusterWorkloadAutoScalerProfileArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileKedaArgs',
     'ManagedClusterWorkloadAutoScalerProfileKedaArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs',
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict',
-    'ManagedClusterWorkloadAutoScalerProfileArgs',
-    'ManagedClusterWorkloadAutoScalerProfileArgsDict',
     'ManagedNamespacePropertiesArgs',
     'ManagedNamespacePropertiesArgsDict',
     'ManagedServiceIdentityArgs',
@@ -218,10 +218,10 @@ __all__ = [
     'ManualScaleProfileArgsDict',
     'MeshMembershipPropertiesArgs',
     'MeshMembershipPropertiesArgsDict',
-    'MetaV1LabelSelectorRequirementArgs',
-    'MetaV1LabelSelectorRequirementArgsDict',
     'MetaV1LabelSelectorArgs',
     'MetaV1LabelSelectorArgsDict',
+    'MetaV1LabelSelectorRequirementArgs',
+    'MetaV1LabelSelectorRequirementArgsDict',
     'NamespacePropertiesArgs',
     'NamespacePropertiesArgsDict',
     'NetworkPoliciesArgs',
@@ -236,16 +236,16 @@ __all__ = [
     'PlacementV1ClusterAffinityArgsDict',
     'PlacementV1ClusterResourcePlacementSpecArgs',
     'PlacementV1ClusterResourcePlacementSpecArgsDict',
-    'PlacementV1ClusterSelectorTermArgs',
-    'PlacementV1ClusterSelectorTermArgsDict',
     'PlacementV1ClusterSelectorArgs',
     'PlacementV1ClusterSelectorArgsDict',
+    'PlacementV1ClusterSelectorTermArgs',
+    'PlacementV1ClusterSelectorTermArgsDict',
     'PlacementV1PlacementPolicyArgs',
     'PlacementV1PlacementPolicyArgsDict',
-    'PlacementV1PropertySelectorRequirementArgs',
-    'PlacementV1PropertySelectorRequirementArgsDict',
     'PlacementV1PropertySelectorArgs',
     'PlacementV1PropertySelectorArgsDict',
+    'PlacementV1PropertySelectorRequirementArgs',
+    'PlacementV1PropertySelectorRequirementArgsDict',
     'PlacementV1TolerationArgs',
     'PlacementV1TolerationArgsDict',
     'PortRangeArgs',
@@ -302,15 +302,15 @@ class APIServerAccessProfileArgsDict(TypedDict):
     """
     Access profile for the Fleet hub API server.
     """
-    enable_private_cluster: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_private_cluster: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to create the Fleet hub as a private cluster or not.
     """
-    enable_vnet_integration: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_vnet_integration: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable apiserver vnet integration for the Fleet hub or not.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
     """
@@ -318,9 +318,9 @@ class APIServerAccessProfileArgsDict(TypedDict):
 @pulumi.input_type
 class APIServerAccessProfileArgs:
     def __init__(__self__, *,
-                 enable_private_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_vnet_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_private_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_vnet_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Access profile for the Fleet hub API server.
 
@@ -337,38 +337,38 @@ class APIServerAccessProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="enablePrivateCluster")
-    def enable_private_cluster(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_private_cluster(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create the Fleet hub as a private cluster or not.
         """
         return pulumi.get(self, "enable_private_cluster")
 
     @enable_private_cluster.setter
-    def enable_private_cluster(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_private_cluster(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_private_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="enableVnetIntegration")
-    def enable_vnet_integration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_vnet_integration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable apiserver vnet integration for the Fleet hub or not.
         """
         return pulumi.get(self, "enable_vnet_integration")
 
     @enable_vnet_integration.setter
-    def enable_vnet_integration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_vnet_integration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_vnet_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -424,107 +424,19 @@ class AbsoluteMonthlyScheduleArgs:
         pulumi.set(self, "interval_months", value)
 
 
-class AdvancedNetworkingObservabilityArgsDict(TypedDict):
-    """
-    Observability profile to enable advanced network metrics and flow logs with historical contexts.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates the enablement of Advanced Networking observability functionalities on clusters.
-    """
-
-@pulumi.input_type
-class AdvancedNetworkingObservabilityArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Observability profile to enable advanced network metrics and flow logs with historical contexts.
-
-        :param pulumi.Input[_builtins.bool] enabled: Indicates the enablement of Advanced Networking observability functionalities on clusters.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates the enablement of Advanced Networking observability functionalities on clusters.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-class AdvancedNetworkingSecurityArgsDict(TypedDict):
-    """
-    Security profile to enable security features on cilium based cluster.
-    """
-    advanced_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'AdvancedNetworkPolicies']]]
-    """
-    Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
-    """
-
-@pulumi.input_type
-class AdvancedNetworkingSecurityArgs:
-    def __init__(__self__, *,
-                 advanced_network_policies: Optional[pulumi.Input[Union[_builtins.str, 'AdvancedNetworkPolicies']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Security profile to enable security features on cilium based cluster.
-
-        :param pulumi.Input[Union[_builtins.str, 'AdvancedNetworkPolicies']] advanced_network_policies: Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
-        :param pulumi.Input[_builtins.bool] enabled: This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
-        """
-        if advanced_network_policies is not None:
-            pulumi.set(__self__, "advanced_network_policies", advanced_network_policies)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter(name="advancedNetworkPolicies")
-    def advanced_network_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AdvancedNetworkPolicies']]]:
-        """
-        Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
-        """
-        return pulumi.get(self, "advanced_network_policies")
-
-    @advanced_network_policies.setter
-    def advanced_network_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AdvancedNetworkPolicies']]]):
-        pulumi.set(self, "advanced_network_policies", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
 class AdvancedNetworkingArgsDict(TypedDict):
     """
     Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
     """
-    observability: NotRequired[pulumi.Input['AdvancedNetworkingObservabilityArgsDict']]
+    observability: NotRequired[pulumi.Input[Optional['AdvancedNetworkingObservabilityArgsDict']]]
     """
     Observability profile to enable advanced network metrics and flow logs with historical contexts.
     """
-    security: NotRequired[pulumi.Input['AdvancedNetworkingSecurityArgsDict']]
+    security: NotRequired[pulumi.Input[Optional['AdvancedNetworkingSecurityArgsDict']]]
     """
     Security profile to enable security features on cilium based cluster.
     """
@@ -532,9 +444,9 @@ class AdvancedNetworkingArgsDict(TypedDict):
 @pulumi.input_type
 class AdvancedNetworkingArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 observability: Optional[pulumi.Input['AdvancedNetworkingObservabilityArgs']] = None,
-                 security: Optional[pulumi.Input['AdvancedNetworkingSecurityArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 observability: pulumi.Input[Optional['AdvancedNetworkingObservabilityArgs']] = None,
+                 security: pulumi.Input[Optional['AdvancedNetworkingSecurityArgs']] = None):
         """
         Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
 
@@ -551,46 +463,134 @@ class AdvancedNetworkingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def observability(self) -> Optional[pulumi.Input['AdvancedNetworkingObservabilityArgs']]:
+    def observability(self) -> pulumi.Input[Optional['AdvancedNetworkingObservabilityArgs']]:
         """
         Observability profile to enable advanced network metrics and flow logs with historical contexts.
         """
         return pulumi.get(self, "observability")
 
     @observability.setter
-    def observability(self, value: Optional[pulumi.Input['AdvancedNetworkingObservabilityArgs']]):
+    def observability(self, value: pulumi.Input[Optional['AdvancedNetworkingObservabilityArgs']]):
         pulumi.set(self, "observability", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input['AdvancedNetworkingSecurityArgs']]:
+    def security(self) -> pulumi.Input[Optional['AdvancedNetworkingSecurityArgs']]:
         """
         Security profile to enable security features on cilium based cluster.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input['AdvancedNetworkingSecurityArgs']]):
+    def security(self, value: pulumi.Input[Optional['AdvancedNetworkingSecurityArgs']]):
         pulumi.set(self, "security", value)
+
+
+class AdvancedNetworkingObservabilityArgsDict(TypedDict):
+    """
+    Observability profile to enable advanced network metrics and flow logs with historical contexts.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates the enablement of Advanced Networking observability functionalities on clusters.
+    """
+
+@pulumi.input_type
+class AdvancedNetworkingObservabilityArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Observability profile to enable advanced network metrics and flow logs with historical contexts.
+
+        :param pulumi.Input[_builtins.bool] enabled: Indicates the enablement of Advanced Networking observability functionalities on clusters.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates the enablement of Advanced Networking observability functionalities on clusters.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+class AdvancedNetworkingSecurityArgsDict(TypedDict):
+    """
+    Security profile to enable security features on cilium based cluster.
+    """
+    advanced_network_policies: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AdvancedNetworkPolicies']]]]
+    """
+    Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+    """
+
+@pulumi.input_type
+class AdvancedNetworkingSecurityArgs:
+    def __init__(__self__, *,
+                 advanced_network_policies: pulumi.Input[Optional[Union[_builtins.str, 'AdvancedNetworkPolicies']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Security profile to enable security features on cilium based cluster.
+
+        :param pulumi.Input[Union[_builtins.str, 'AdvancedNetworkPolicies']] advanced_network_policies: Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
+        :param pulumi.Input[_builtins.bool] enabled: This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+        """
+        if advanced_network_policies is not None:
+            pulumi.set(__self__, "advanced_network_policies", advanced_network_policies)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedNetworkPolicies")
+    def advanced_network_policies(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AdvancedNetworkPolicies']]]:
+        """
+        Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
+        """
+        return pulumi.get(self, "advanced_network_policies")
+
+    @advanced_network_policies.setter
+    def advanced_network_policies(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdvancedNetworkPolicies']]]):
+        pulumi.set(self, "advanced_network_policies", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class AgentPoolGatewayProfileArgsDict(TypedDict):
     """
     Profile of the managed cluster gateway agent pool.
     """
-    public_ip_prefix_size: NotRequired[pulumi.Input[_builtins.int]]
+    public_ip_prefix_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Gateway agent pool associates one public IPPrefix for each static egress gateway to provide public egress. The size of Public IPPrefix should be selected by the user. Each node in the agent pool is assigned with one IP from the IPPrefix. The IPPrefix size thus serves as a cap on the size of the Gateway agent pool. Due to Azure public IPPrefix size limitation, the valid value range is [28, 31] (/31 = 2 nodes/IPs, /30 = 4 nodes/IPs, /29 = 8 nodes/IPs, /28 = 16 nodes/IPs). The default value is 31.
     """
@@ -598,7 +598,7 @@ class AgentPoolGatewayProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AgentPoolGatewayProfileArgs:
     def __init__(__self__, *,
-                 public_ip_prefix_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 public_ip_prefix_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Profile of the managed cluster gateway agent pool.
 
@@ -611,14 +611,14 @@ class AgentPoolGatewayProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicIPPrefixSize")
-    def public_ip_prefix_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def public_ip_prefix_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Gateway agent pool associates one public IPPrefix for each static egress gateway to provide public egress. The size of Public IPPrefix should be selected by the user. Each node in the agent pool is assigned with one IP from the IPPrefix. The IPPrefix size thus serves as a cap on the size of the Gateway agent pool. Due to Azure public IPPrefix size limitation, the valid value range is [28, 31] (/31 = 2 nodes/IPs, /30 = 4 nodes/IPs, /29 = 8 nodes/IPs, /28 = 16 nodes/IPs). The default value is 31.
         """
         return pulumi.get(self, "public_ip_prefix_size")
 
     @public_ip_prefix_size.setter
-    def public_ip_prefix_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def public_ip_prefix_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "public_ip_prefix_size", value)
 
 
@@ -626,15 +626,15 @@ class AgentPoolNetworkProfileArgsDict(TypedDict):
     """
     Network settings of an agent pool.
     """
-    allowed_host_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortRangeArgsDict']]]]
+    allowed_host_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PortRangeArgsDict']]]]]
     """
     The port ranges that are allowed to access. The specified ranges are allowed to overlap.
     """
-    application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    application_security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The IDs of the application security groups which agent pool will associate when created.
     """
-    node_public_ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPTagArgsDict']]]]
+    node_public_ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IPTagArgsDict']]]]]
     """
     IPTags of instance-level public IPs.
     """
@@ -642,9 +642,9 @@ class AgentPoolNetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AgentPoolNetworkProfileArgs:
     def __init__(__self__, *,
-                 allowed_host_ports: Optional[pulumi.Input[Sequence[pulumi.Input['PortRangeArgs']]]] = None,
-                 application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 node_public_ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]] = None):
+                 allowed_host_ports: pulumi.Input[Optional[Sequence[pulumi.Input['PortRangeArgs']]]] = None,
+                 application_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 node_public_ip_tags: pulumi.Input[Optional[Sequence[pulumi.Input['IPTagArgs']]]] = None):
         """
         Network settings of an agent pool.
 
@@ -661,38 +661,38 @@ class AgentPoolNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedHostPorts")
-    def allowed_host_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortRangeArgs']]]]:
+    def allowed_host_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PortRangeArgs']]]]:
         """
         The port ranges that are allowed to access. The specified ranges are allowed to overlap.
         """
         return pulumi.get(self, "allowed_host_ports")
 
     @allowed_host_ports.setter
-    def allowed_host_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortRangeArgs']]]]):
+    def allowed_host_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PortRangeArgs']]]]):
         pulumi.set(self, "allowed_host_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationSecurityGroups")
-    def application_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def application_security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the application security groups which agent pool will associate when created.
         """
         return pulumi.get(self, "application_security_groups")
 
     @application_security_groups.setter
-    def application_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def application_security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "application_security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIPTags")
-    def node_public_ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]]:
+    def node_public_ip_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IPTagArgs']]]]:
         """
         IPTags of instance-level public IPs.
         """
         return pulumi.get(self, "node_public_ip_tags")
 
     @node_public_ip_tags.setter
-    def node_public_ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]]):
+    def node_public_ip_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IPTagArgs']]]]):
         pulumi.set(self, "node_public_ip_tags", value)
 
 
@@ -700,15 +700,15 @@ class AgentPoolSecurityProfileArgsDict(TypedDict):
     """
     The security settings of an agent pool.
     """
-    enable_secure_boot: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_secure_boot: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
     """
-    enable_vtpm: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_vtpm: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
     """
-    ssh_access: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentPoolSSHAccess']]]
+    ssh_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolSSHAccess']]]]
     """
     SSH access method of an agent pool.
     """
@@ -716,9 +716,9 @@ class AgentPoolSecurityProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AgentPoolSecurityProfileArgs:
     def __init__(__self__, *,
-                 enable_secure_boot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_vtpm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_access: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolSSHAccess']]] = None):
+                 enable_secure_boot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_vtpm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_access: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolSSHAccess']]] = None):
         """
         The security settings of an agent pool.
 
@@ -735,38 +735,38 @@ class AgentPoolSecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableSecureBoot")
-    def enable_secure_boot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_secure_boot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
         """
         return pulumi.get(self, "enable_secure_boot")
 
     @enable_secure_boot.setter
-    def enable_secure_boot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_secure_boot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_secure_boot", value)
 
     @_builtins.property
     @pulumi.getter(name="enableVTPM")
-    def enable_vtpm(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_vtpm(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
         """
         return pulumi.get(self, "enable_vtpm")
 
     @enable_vtpm.setter
-    def enable_vtpm(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_vtpm(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_vtpm", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAccess")
-    def ssh_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolSSHAccess']]]:
+    def ssh_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolSSHAccess']]]:
         """
         SSH access method of an agent pool.
         """
         return pulumi.get(self, "ssh_access")
 
     @ssh_access.setter
-    def ssh_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolSSHAccess']]]):
+    def ssh_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolSSHAccess']]]):
         pulumi.set(self, "ssh_access", value)
 
 
@@ -774,23 +774,23 @@ class AgentPoolUpgradeSettingsArgsDict(TypedDict):
     """
     Settings for upgrading an agentpool
     """
-    drain_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    drain_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The drain timeout for a node. The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
     """
-    max_surge: NotRequired[pulumi.Input[_builtins.str]]
+    max_surge: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
     """
-    max_unavailable: NotRequired[pulumi.Input[_builtins.str]]
+    max_unavailable: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum number or percentage of nodes that can be simultaneously unavailable during upgrade. This can either be set to an integer (e.g. '1') or a percentage (e.g. '5%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 0. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
     """
-    node_soak_duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    node_soak_duration_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The soak duration for a node. The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
     """
-    undrainable_node_behavior: NotRequired[pulumi.Input[Union[_builtins.str, 'UndrainableNodeBehavior']]]
+    undrainable_node_behavior: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UndrainableNodeBehavior']]]]
     """
     Defines the behavior for undrainable nodes during upgrade. The most common cause of undrainable nodes is Pod Disruption Budgets (PDBs), but other issues, such as pod termination grace period is exceeding the remaining per-node drain timeout or pod is still being in a running state, can also cause undrainable nodes.
     """
@@ -798,11 +798,11 @@ class AgentPoolUpgradeSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class AgentPoolUpgradeSettingsArgs:
     def __init__(__self__, *,
-                 drain_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_surge: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unavailable: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_soak_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 undrainable_node_behavior: Optional[pulumi.Input[Union[_builtins.str, 'UndrainableNodeBehavior']]] = None):
+                 drain_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_surge: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unavailable: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_soak_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 undrainable_node_behavior: pulumi.Input[Optional[Union[_builtins.str, 'UndrainableNodeBehavior']]] = None):
         """
         Settings for upgrading an agentpool
 
@@ -825,62 +825,62 @@ class AgentPoolUpgradeSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="drainTimeoutInMinutes")
-    def drain_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def drain_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The drain timeout for a node. The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
     @drain_timeout_in_minutes.setter
-    def drain_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def drain_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "drain_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSurge")
-    def max_surge(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_surge(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
         """
         return pulumi.get(self, "max_surge")
 
     @max_surge.setter
-    def max_surge(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_surge(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_surge", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUnavailable")
-    def max_unavailable(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_unavailable(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number or percentage of nodes that can be simultaneously unavailable during upgrade. This can either be set to an integer (e.g. '1') or a percentage (e.g. '5%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 0. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
         """
         return pulumi.get(self, "max_unavailable")
 
     @max_unavailable.setter
-    def max_unavailable(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_unavailable(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_unavailable", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeSoakDurationInMinutes")
-    def node_soak_duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_soak_duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The soak duration for a node. The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
 
     @node_soak_duration_in_minutes.setter
-    def node_soak_duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_soak_duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_soak_duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="undrainableNodeBehavior")
-    def undrainable_node_behavior(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UndrainableNodeBehavior']]]:
+    def undrainable_node_behavior(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UndrainableNodeBehavior']]]:
         """
         Defines the behavior for undrainable nodes during upgrade. The most common cause of undrainable nodes is Pod Disruption Budgets (PDBs), but other issues, such as pod termination grace period is exceeding the remaining per-node drain timeout or pod is still being in a running state, can also cause undrainable nodes.
         """
         return pulumi.get(self, "undrainable_node_behavior")
 
     @undrainable_node_behavior.setter
-    def undrainable_node_behavior(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UndrainableNodeBehavior']]]):
+    def undrainable_node_behavior(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UndrainableNodeBehavior']]]):
         pulumi.set(self, "undrainable_node_behavior", value)
 
 
@@ -888,7 +888,7 @@ class AgentPoolWindowsProfileArgsDict(TypedDict):
     """
     The Windows agent pool's specific profile.
     """
-    disable_outbound_nat: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_outbound_nat: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to disable OutboundNAT in windows nodes. The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
     """
@@ -896,7 +896,7 @@ class AgentPoolWindowsProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AgentPoolWindowsProfileArgs:
     def __init__(__self__, *,
-                 disable_outbound_nat: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disable_outbound_nat: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The Windows agent pool's specific profile.
 
@@ -907,14 +907,14 @@ class AgentPoolWindowsProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableOutboundNat")
-    def disable_outbound_nat(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_outbound_nat(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable OutboundNAT in windows nodes. The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
         """
         return pulumi.get(self, "disable_outbound_nat")
 
     @disable_outbound_nat.setter
-    def disable_outbound_nat(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_outbound_nat(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_outbound_nat", value)
 
 
@@ -922,11 +922,11 @@ class AgentProfileArgsDict(TypedDict):
     """
     Agent profile for the Fleet hub.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
     """
-    vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    vm_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The virtual machine size of the Fleet hub.
     """
@@ -934,8 +934,8 @@ class AgentProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AgentProfileArgs:
     def __init__(__self__, *,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Agent profile for the Fleet hub.
 
@@ -949,26 +949,26 @@ class AgentProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The virtual machine size of the Fleet hub.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
 
@@ -1009,19 +1009,19 @@ class AzureKeyVaultKmsArgsDict(TypedDict):
     """
     Azure Key Vault key management service settings for the security profile.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Azure Key Vault key management service. The default is false.
     """
-    key_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of Azure Key Vault key. See [key identifier format](https://docs.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When Azure Key Vault key management service is disabled, leave the field empty.
     """
-    key_vault_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]]
+    key_vault_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]]]
     """
     Network access of the key vault. Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
     """
-    key_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of key vault. When keyVaultNetworkAccess is `Private`, this field is required and must be a valid resource ID. When keyVaultNetworkAccess is `Public`, leave the field empty.
     """
@@ -1029,10 +1029,10 @@ class AzureKeyVaultKmsArgsDict(TypedDict):
 @pulumi.input_type
 class AzureKeyVaultKmsArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_network_access: Optional[pulumi.Input[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]] = None,
-                 key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_network_access: pulumi.Input[Optional[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]] = None,
+                 key_vault_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Azure Key Vault key management service settings for the security profile.
 
@@ -1054,50 +1054,50 @@ class AzureKeyVaultKmsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Azure Key Vault key management service. The default is false.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of Azure Key Vault key. See [key identifier format](https://docs.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When Azure Key Vault key management service is disabled, leave the field empty.
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultNetworkAccess")
-    def key_vault_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]]:
+    def key_vault_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]]:
         """
         Network access of the key vault. Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
         """
         return pulumi.get(self, "key_vault_network_access")
 
     @key_vault_network_access.setter
-    def key_vault_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]]):
+    def key_vault_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KeyVaultNetworkAccessTypes']]]):
         pulumi.set(self, "key_vault_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultResourceId")
-    def key_vault_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of key vault. When keyVaultNetworkAccess is `Private`, this field is required and must be a valid resource ID. When keyVaultNetworkAccess is `Public`, leave the field empty.
         """
         return pulumi.get(self, "key_vault_resource_id")
 
     @key_vault_resource_id.setter
-    def key_vault_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_resource_id", value)
 
 
@@ -1105,7 +1105,7 @@ class ClusterUpgradeSettingsArgsDict(TypedDict):
     """
     Settings for upgrading a cluster.
     """
-    override_settings: NotRequired[pulumi.Input['UpgradeOverrideSettingsArgsDict']]
+    override_settings: NotRequired[pulumi.Input[Optional['UpgradeOverrideSettingsArgsDict']]]
     """
     Settings for overrides.
     """
@@ -1113,7 +1113,7 @@ class ClusterUpgradeSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterUpgradeSettingsArgs:
     def __init__(__self__, *,
-                 override_settings: Optional[pulumi.Input['UpgradeOverrideSettingsArgs']] = None):
+                 override_settings: pulumi.Input[Optional['UpgradeOverrideSettingsArgs']] = None):
         """
         Settings for upgrading a cluster.
 
@@ -1124,14 +1124,14 @@ class ClusterUpgradeSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="overrideSettings")
-    def override_settings(self) -> Optional[pulumi.Input['UpgradeOverrideSettingsArgs']]:
+    def override_settings(self) -> pulumi.Input[Optional['UpgradeOverrideSettingsArgs']]:
         """
         Settings for overrides.
         """
         return pulumi.get(self, "override_settings")
 
     @override_settings.setter
-    def override_settings(self, value: Optional[pulumi.Input['UpgradeOverrideSettingsArgs']]):
+    def override_settings(self, value: pulumi.Input[Optional['UpgradeOverrideSettingsArgs']]):
         pulumi.set(self, "override_settings", value)
 
 
@@ -1191,71 +1191,71 @@ class ContainerServiceNetworkProfileArgsDict(TypedDict):
     """
     Profile of network configuration.
     """
-    advanced_networking: NotRequired[pulumi.Input['AdvancedNetworkingArgsDict']]
+    advanced_networking: NotRequired[pulumi.Input[Optional['AdvancedNetworkingArgsDict']]]
     """
     Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
     """
-    dns_service_ip: NotRequired[pulumi.Input[_builtins.str]]
+    dns_service_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
     """
-    ip_families: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]]
+    ip_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]]]
     """
     The IP families used to specify IP versions available to the cluster. IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
     """
-    load_balancer_profile: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileArgsDict']]
+    load_balancer_profile: NotRequired[pulumi.Input[Optional['ManagedClusterLoadBalancerProfileArgsDict']]]
     """
     Profile of the cluster load balancer.
     """
-    load_balancer_sku: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerSku']]]
+    load_balancer_sku: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancerSku']]]]
     """
     The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
     """
-    nat_gateway_profile: NotRequired[pulumi.Input['ManagedClusterNATGatewayProfileArgsDict']]
+    nat_gateway_profile: NotRequired[pulumi.Input[Optional['ManagedClusterNATGatewayProfileArgsDict']]]
     """
     Profile of the cluster NAT gateway.
     """
-    network_dataplane: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkDataplane']]]
+    network_dataplane: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkDataplane']]]]
     """
     Network dataplane used in the Kubernetes cluster.
     """
-    network_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkMode']]]
+    network_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkMode']]]]
     """
     The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
     """
-    network_plugin: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkPlugin']]]
+    network_plugin: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkPlugin']]]]
     """
     Network plugin used for building the Kubernetes network.
     """
-    network_plugin_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkPluginMode']]]
+    network_plugin_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkPluginMode']]]]
     """
     The mode the network plugin should use.
     """
-    network_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkPolicy']]]
+    network_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkPolicy']]]]
     """
     Network policy used for building the Kubernetes network.
     """
-    outbound_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundType']]]
+    outbound_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]]]
     """
     The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
     """
-    pod_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    pod_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A CIDR notation IP range from which to assign pod IPs when kubenet is used.
     """
-    pod_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    pod_cidrs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
     """
-    service_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    service_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
     """
-    service_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    service_cidrs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
     """
-    static_egress_gateway_profile: NotRequired[pulumi.Input['ManagedClusterStaticEgressGatewayProfileArgsDict']]
+    static_egress_gateway_profile: NotRequired[pulumi.Input[Optional['ManagedClusterStaticEgressGatewayProfileArgsDict']]]
     """
     The profile for Static Egress Gateway addon. For more details about Static Egress Gateway, see https://aka.ms/aks/static-egress-gateway.
     """
@@ -1263,23 +1263,23 @@ class ContainerServiceNetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerServiceNetworkProfileArgs:
     def __init__(__self__, *,
-                 advanced_networking: Optional[pulumi.Input['AdvancedNetworkingArgs']] = None,
-                 dns_service_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]] = None,
-                 load_balancer_profile: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileArgs']] = None,
-                 load_balancer_sku: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerSku']]] = None,
-                 nat_gateway_profile: Optional[pulumi.Input['ManagedClusterNATGatewayProfileArgs']] = None,
-                 network_dataplane: Optional[pulumi.Input[Union[_builtins.str, 'NetworkDataplane']]] = None,
-                 network_mode: Optional[pulumi.Input[Union[_builtins.str, 'NetworkMode']]] = None,
-                 network_plugin: Optional[pulumi.Input[Union[_builtins.str, 'NetworkPlugin']]] = None,
-                 network_plugin_mode: Optional[pulumi.Input[Union[_builtins.str, 'NetworkPluginMode']]] = None,
-                 network_policy: Optional[pulumi.Input[Union[_builtins.str, 'NetworkPolicy']]] = None,
-                 outbound_type: Optional[pulumi.Input[Union[_builtins.str, 'OutboundType']]] = None,
-                 pod_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 static_egress_gateway_profile: Optional[pulumi.Input['ManagedClusterStaticEgressGatewayProfileArgs']] = None):
+                 advanced_networking: pulumi.Input[Optional['AdvancedNetworkingArgs']] = None,
+                 dns_service_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_families: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]] = None,
+                 load_balancer_profile: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileArgs']] = None,
+                 load_balancer_sku: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancerSku']]] = None,
+                 nat_gateway_profile: pulumi.Input[Optional['ManagedClusterNATGatewayProfileArgs']] = None,
+                 network_dataplane: pulumi.Input[Optional[Union[_builtins.str, 'NetworkDataplane']]] = None,
+                 network_mode: pulumi.Input[Optional[Union[_builtins.str, 'NetworkMode']]] = None,
+                 network_plugin: pulumi.Input[Optional[Union[_builtins.str, 'NetworkPlugin']]] = None,
+                 network_plugin_mode: pulumi.Input[Optional[Union[_builtins.str, 'NetworkPluginMode']]] = None,
+                 network_policy: pulumi.Input[Optional[Union[_builtins.str, 'NetworkPolicy']]] = None,
+                 outbound_type: pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]] = None,
+                 pod_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 static_egress_gateway_profile: pulumi.Input[Optional['ManagedClusterStaticEgressGatewayProfileArgs']] = None):
         """
         Profile of network configuration.
 
@@ -1346,206 +1346,206 @@ class ContainerServiceNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedNetworking")
-    def advanced_networking(self) -> Optional[pulumi.Input['AdvancedNetworkingArgs']]:
+    def advanced_networking(self) -> pulumi.Input[Optional['AdvancedNetworkingArgs']]:
         """
         Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
         """
         return pulumi.get(self, "advanced_networking")
 
     @advanced_networking.setter
-    def advanced_networking(self, value: Optional[pulumi.Input['AdvancedNetworkingArgs']]):
+    def advanced_networking(self, value: pulumi.Input[Optional['AdvancedNetworkingArgs']]):
         pulumi.set(self, "advanced_networking", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServiceIP")
-    def dns_service_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_service_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         """
         return pulumi.get(self, "dns_service_ip")
 
     @dns_service_ip.setter
-    def dns_service_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_service_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_service_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="ipFamilies")
-    def ip_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]]:
+    def ip_families(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]]:
         """
         The IP families used to specify IP versions available to the cluster. IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         """
         return pulumi.get(self, "ip_families")
 
     @ip_families.setter
-    def ip_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]]):
+    def ip_families(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'IpFamily']]]]]):
         pulumi.set(self, "ip_families", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerProfile")
-    def load_balancer_profile(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileArgs']]:
+    def load_balancer_profile(self) -> pulumi.Input[Optional['ManagedClusterLoadBalancerProfileArgs']]:
         """
         Profile of the cluster load balancer.
         """
         return pulumi.get(self, "load_balancer_profile")
 
     @load_balancer_profile.setter
-    def load_balancer_profile(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileArgs']]):
+    def load_balancer_profile(self, value: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileArgs']]):
         pulumi.set(self, "load_balancer_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerSku")
-    def load_balancer_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerSku']]]:
+    def load_balancer_sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancerSku']]]:
         """
         The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         """
         return pulumi.get(self, "load_balancer_sku")
 
     @load_balancer_sku.setter
-    def load_balancer_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerSku']]]):
+    def load_balancer_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancerSku']]]):
         pulumi.set(self, "load_balancer_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="natGatewayProfile")
-    def nat_gateway_profile(self) -> Optional[pulumi.Input['ManagedClusterNATGatewayProfileArgs']]:
+    def nat_gateway_profile(self) -> pulumi.Input[Optional['ManagedClusterNATGatewayProfileArgs']]:
         """
         Profile of the cluster NAT gateway.
         """
         return pulumi.get(self, "nat_gateway_profile")
 
     @nat_gateway_profile.setter
-    def nat_gateway_profile(self, value: Optional[pulumi.Input['ManagedClusterNATGatewayProfileArgs']]):
+    def nat_gateway_profile(self, value: pulumi.Input[Optional['ManagedClusterNATGatewayProfileArgs']]):
         pulumi.set(self, "nat_gateway_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="networkDataplane")
-    def network_dataplane(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkDataplane']]]:
+    def network_dataplane(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkDataplane']]]:
         """
         Network dataplane used in the Kubernetes cluster.
         """
         return pulumi.get(self, "network_dataplane")
 
     @network_dataplane.setter
-    def network_dataplane(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkDataplane']]]):
+    def network_dataplane(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkDataplane']]]):
         pulumi.set(self, "network_dataplane", value)
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
-    def network_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkMode']]]:
+    def network_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkMode']]]:
         """
         The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
         """
         return pulumi.get(self, "network_mode")
 
     @network_mode.setter
-    def network_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkMode']]]):
+    def network_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkMode']]]):
         pulumi.set(self, "network_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPlugin")
-    def network_plugin(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkPlugin']]]:
+    def network_plugin(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkPlugin']]]:
         """
         Network plugin used for building the Kubernetes network.
         """
         return pulumi.get(self, "network_plugin")
 
     @network_plugin.setter
-    def network_plugin(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkPlugin']]]):
+    def network_plugin(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkPlugin']]]):
         pulumi.set(self, "network_plugin", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPluginMode")
-    def network_plugin_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkPluginMode']]]:
+    def network_plugin_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkPluginMode']]]:
         """
         The mode the network plugin should use.
         """
         return pulumi.get(self, "network_plugin_mode")
 
     @network_plugin_mode.setter
-    def network_plugin_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkPluginMode']]]):
+    def network_plugin_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkPluginMode']]]):
         pulumi.set(self, "network_plugin_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkPolicy']]]:
+    def network_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkPolicy']]]:
         """
         Network policy used for building the Kubernetes network.
         """
         return pulumi.get(self, "network_policy")
 
     @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkPolicy']]]):
+    def network_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkPolicy']]]):
         pulumi.set(self, "network_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundType")
-    def outbound_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutboundType']]]:
+    def outbound_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]]:
         """
         The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         """
         return pulumi.get(self, "outbound_type")
 
     @outbound_type.setter
-    def outbound_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OutboundType']]]):
+    def outbound_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OutboundType']]]):
         pulumi.set(self, "outbound_type", value)
 
     @_builtins.property
     @pulumi.getter(name="podCidr")
-    def pod_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A CIDR notation IP range from which to assign pod IPs when kubenet is used.
         """
         return pulumi.get(self, "pod_cidr")
 
     @pod_cidr.setter
-    def pod_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="podCidrs")
-    def pod_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def pod_cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         """
         return pulumi.get(self, "pod_cidrs")
 
     @pod_cidrs.setter
-    def pod_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def pod_cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "pod_cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCidr")
-    def service_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         """
         return pulumi.get(self, "service_cidr")
 
     @service_cidr.setter
-    def service_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCidrs")
-    def service_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
         """
         return pulumi.get(self, "service_cidrs")
 
     @service_cidrs.setter
-    def service_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="staticEgressGatewayProfile")
-    def static_egress_gateway_profile(self) -> Optional[pulumi.Input['ManagedClusterStaticEgressGatewayProfileArgs']]:
+    def static_egress_gateway_profile(self) -> pulumi.Input[Optional['ManagedClusterStaticEgressGatewayProfileArgs']]:
         """
         The profile for Static Egress Gateway addon. For more details about Static Egress Gateway, see https://aka.ms/aks/static-egress-gateway.
         """
         return pulumi.get(self, "static_egress_gateway_profile")
 
     @static_egress_gateway_profile.setter
-    def static_egress_gateway_profile(self, value: Optional[pulumi.Input['ManagedClusterStaticEgressGatewayProfileArgs']]):
+    def static_egress_gateway_profile(self, value: pulumi.Input[Optional['ManagedClusterStaticEgressGatewayProfileArgs']]):
         pulumi.set(self, "static_egress_gateway_profile", value)
 
 
@@ -1619,7 +1619,7 @@ class CreationDataArgsDict(TypedDict):
     """
     Data used when creating a target resource from a source resource.
     """
-    source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    source_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the ARM ID of the source object to be used to create the target object.
     """
@@ -1627,7 +1627,7 @@ class CreationDataArgsDict(TypedDict):
 @pulumi.input_type
 class CreationDataArgs:
     def __init__(__self__, *,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Data used when creating a target resource from a source resource.
 
@@ -1638,14 +1638,14 @@ class CreationDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the ARM ID of the source object to be used to create the target object.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
 
@@ -1738,19 +1738,19 @@ class DelegatedResourceArgsDict(TypedDict):
     """
     Delegated resource properties - internal use only.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source resource location - internal use only.
     """
-    referral_resource: NotRequired[pulumi.Input[_builtins.str]]
+    referral_resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delegation id of the referral delegation (optional) - internal use only.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARM resource id of the delegated resource - internal use only.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tenant id of the delegated resource - internal use only.
     """
@@ -1758,10 +1758,10 @@ class DelegatedResourceArgsDict(TypedDict):
 @pulumi.input_type
 class DelegatedResourceArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 referral_resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 referral_resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Delegated resource properties - internal use only.
 
@@ -1781,50 +1781,50 @@ class DelegatedResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source resource location - internal use only.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="referralResource")
-    def referral_resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def referral_resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delegation id of the referral delegation (optional) - internal use only.
         """
         return pulumi.get(self, "referral_resource")
 
     @referral_resource.setter
-    def referral_resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def referral_resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "referral_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource id of the delegated resource - internal use only.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the delegated resource - internal use only.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1832,11 +1832,11 @@ class ExtendedLocationArgsDict(TypedDict):
     """
     The complex type of the extended location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the extended location.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]]
     """
     The type of the extended location.
     """
@@ -1844,8 +1844,8 @@ class ExtendedLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
         """
         The complex type of the extended location.
 
@@ -1859,26 +1859,26 @@ class ExtendedLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the extended location.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]:
         """
         The type of the extended location.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1886,15 +1886,15 @@ class FleetHubProfileArgsDict(TypedDict):
     """
     The FleetHubProfile configures the fleet hub.
     """
-    agent_profile: NotRequired[pulumi.Input['AgentProfileArgsDict']]
+    agent_profile: NotRequired[pulumi.Input[Optional['AgentProfileArgsDict']]]
     """
     The agent profile for the Fleet hub.
     """
-    api_server_access_profile: NotRequired[pulumi.Input['APIServerAccessProfileArgsDict']]
+    api_server_access_profile: NotRequired[pulumi.Input[Optional['APIServerAccessProfileArgsDict']]]
     """
     The access profile for the Fleet hub API server.
     """
-    dns_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    dns_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DNS prefix used to create the FQDN for the Fleet hub.
     """
@@ -1902,9 +1902,9 @@ class FleetHubProfileArgsDict(TypedDict):
 @pulumi.input_type
 class FleetHubProfileArgs:
     def __init__(__self__, *,
-                 agent_profile: Optional[pulumi.Input['AgentProfileArgs']] = None,
-                 api_server_access_profile: Optional[pulumi.Input['APIServerAccessProfileArgs']] = None,
-                 dns_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_profile: pulumi.Input[Optional['AgentProfileArgs']] = None,
+                 api_server_access_profile: pulumi.Input[Optional['APIServerAccessProfileArgs']] = None,
+                 dns_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The FleetHubProfile configures the fleet hub.
 
@@ -1921,38 +1921,38 @@ class FleetHubProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentProfile")
-    def agent_profile(self) -> Optional[pulumi.Input['AgentProfileArgs']]:
+    def agent_profile(self) -> pulumi.Input[Optional['AgentProfileArgs']]:
         """
         The agent profile for the Fleet hub.
         """
         return pulumi.get(self, "agent_profile")
 
     @agent_profile.setter
-    def agent_profile(self, value: Optional[pulumi.Input['AgentProfileArgs']]):
+    def agent_profile(self, value: pulumi.Input[Optional['AgentProfileArgs']]):
         pulumi.set(self, "agent_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="apiServerAccessProfile")
-    def api_server_access_profile(self) -> Optional[pulumi.Input['APIServerAccessProfileArgs']]:
+    def api_server_access_profile(self) -> pulumi.Input[Optional['APIServerAccessProfileArgs']]:
         """
         The access profile for the Fleet hub API server.
         """
         return pulumi.get(self, "api_server_access_profile")
 
     @api_server_access_profile.setter
-    def api_server_access_profile(self, value: Optional[pulumi.Input['APIServerAccessProfileArgs']]):
+    def api_server_access_profile(self, value: pulumi.Input[Optional['APIServerAccessProfileArgs']]):
         pulumi.set(self, "api_server_access_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsPrefix")
-    def dns_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS prefix used to create the FQDN for the Fleet hub.
         """
         return pulumi.get(self, "dns_prefix")
 
     @dns_prefix.setter
-    def dns_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_prefix", value)
 
 
@@ -1968,11 +1968,11 @@ class FleetManagedNamespacePropertiesArgsDict(TypedDict):
     """
     Delete options of a fleet managed namespace. Default is Keep.
     """
-    managed_namespace_properties: NotRequired[pulumi.Input['ManagedNamespacePropertiesArgsDict']]
+    managed_namespace_properties: NotRequired[pulumi.Input[Optional['ManagedNamespacePropertiesArgsDict']]]
     """
     The namespace properties for the fleet managed namespace.
     """
-    propagation_policy: NotRequired[pulumi.Input['PropagationPolicyArgsDict']]
+    propagation_policy: NotRequired[pulumi.Input[Optional['PropagationPolicyArgsDict']]]
     """
     The profile of the propagation to create the namespace.
     """
@@ -1982,8 +1982,8 @@ class FleetManagedNamespacePropertiesArgs:
     def __init__(__self__, *,
                  adoption_policy: pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']],
                  delete_policy: pulumi.Input[Union[_builtins.str, 'DeletePolicy']],
-                 managed_namespace_properties: Optional[pulumi.Input['ManagedNamespacePropertiesArgs']] = None,
-                 propagation_policy: Optional[pulumi.Input['PropagationPolicyArgs']] = None):
+                 managed_namespace_properties: pulumi.Input[Optional['ManagedNamespacePropertiesArgs']] = None,
+                 propagation_policy: pulumi.Input[Optional['PropagationPolicyArgs']] = None):
         """
         The properties of a fleet managed namespace.
 
@@ -2025,26 +2025,26 @@ class FleetManagedNamespacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedNamespaceProperties")
-    def managed_namespace_properties(self) -> Optional[pulumi.Input['ManagedNamespacePropertiesArgs']]:
+    def managed_namespace_properties(self) -> pulumi.Input[Optional['ManagedNamespacePropertiesArgs']]:
         """
         The namespace properties for the fleet managed namespace.
         """
         return pulumi.get(self, "managed_namespace_properties")
 
     @managed_namespace_properties.setter
-    def managed_namespace_properties(self, value: Optional[pulumi.Input['ManagedNamespacePropertiesArgs']]):
+    def managed_namespace_properties(self, value: pulumi.Input[Optional['ManagedNamespacePropertiesArgs']]):
         pulumi.set(self, "managed_namespace_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="propagationPolicy")
-    def propagation_policy(self) -> Optional[pulumi.Input['PropagationPolicyArgs']]:
+    def propagation_policy(self) -> pulumi.Input[Optional['PropagationPolicyArgs']]:
         """
         The profile of the propagation to create the namespace.
         """
         return pulumi.get(self, "propagation_policy")
 
     @propagation_policy.setter
-    def propagation_policy(self, value: Optional[pulumi.Input['PropagationPolicyArgs']]):
+    def propagation_policy(self, value: pulumi.Input[Optional['PropagationPolicyArgs']]):
         pulumi.set(self, "propagation_policy", value)
 
 
@@ -2052,7 +2052,7 @@ class GPUProfileArgsDict(TypedDict):
     """
     GPU settings for the Agent Pool.
     """
-    driver: NotRequired[pulumi.Input[Union[_builtins.str, 'GPUDriver']]]
+    driver: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GPUDriver']]]]
     """
     Whether to install GPU drivers. When it's not specified, default is Install.
     """
@@ -2060,7 +2060,7 @@ class GPUProfileArgsDict(TypedDict):
 @pulumi.input_type
 class GPUProfileArgs:
     def __init__(__self__, *,
-                 driver: Optional[pulumi.Input[Union[_builtins.str, 'GPUDriver']]] = None):
+                 driver: pulumi.Input[Optional[Union[_builtins.str, 'GPUDriver']]] = None):
         """
         GPU settings for the Agent Pool.
 
@@ -2071,14 +2071,14 @@ class GPUProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def driver(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GPUDriver']]]:
+    def driver(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GPUDriver']]]:
         """
         Whether to install GPU drivers. When it's not specified, default is Install.
         """
         return pulumi.get(self, "driver")
 
     @driver.setter
-    def driver(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GPUDriver']]]):
+    def driver(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GPUDriver']]]):
         pulumi.set(self, "driver", value)
 
 
@@ -2086,11 +2086,11 @@ class IPTagArgsDict(TypedDict):
     """
     Contains the IPTag associated with the object.
     """
-    ip_tag_type: NotRequired[pulumi.Input[_builtins.str]]
+    ip_tag_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP tag type. Example: RoutingPreference.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the IP tag associated with the public IP. Example: Internet.
     """
@@ -2098,8 +2098,8 @@ class IPTagArgsDict(TypedDict):
 @pulumi.input_type
 class IPTagArgs:
     def __init__(__self__, *,
-                 ip_tag_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_tag_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains the IPTag associated with the object.
 
@@ -2113,26 +2113,26 @@ class IPTagArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipTagType")
-    def ip_tag_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_tag_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP tag type. Example: RoutingPreference.
         """
         return pulumi.get(self, "ip_tag_type")
 
     @ip_tag_type.setter
-    def ip_tag_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_tag_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_tag_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the IP tag associated with the public IP. Example: Internet.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
 
@@ -2206,7 +2206,7 @@ class IstioCertificateAuthorityArgsDict(TypedDict):
     """
     Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
     """
-    plugin: NotRequired[pulumi.Input['IstioPluginCertificateAuthorityArgsDict']]
+    plugin: NotRequired[pulumi.Input[Optional['IstioPluginCertificateAuthorityArgsDict']]]
     """
     Plugin certificates information for Service Mesh.
     """
@@ -2214,7 +2214,7 @@ class IstioCertificateAuthorityArgsDict(TypedDict):
 @pulumi.input_type
 class IstioCertificateAuthorityArgs:
     def __init__(__self__, *,
-                 plugin: Optional[pulumi.Input['IstioPluginCertificateAuthorityArgs']] = None):
+                 plugin: pulumi.Input[Optional['IstioPluginCertificateAuthorityArgs']] = None):
         """
         Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
 
@@ -2225,14 +2225,14 @@ class IstioCertificateAuthorityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plugin(self) -> Optional[pulumi.Input['IstioPluginCertificateAuthorityArgs']]:
+    def plugin(self) -> pulumi.Input[Optional['IstioPluginCertificateAuthorityArgs']]:
         """
         Plugin certificates information for Service Mesh.
         """
         return pulumi.get(self, "plugin")
 
     @plugin.setter
-    def plugin(self, value: Optional[pulumi.Input['IstioPluginCertificateAuthorityArgs']]):
+    def plugin(self, value: pulumi.Input[Optional['IstioPluginCertificateAuthorityArgs']]):
         pulumi.set(self, "plugin", value)
 
 
@@ -2240,11 +2240,11 @@ class IstioComponentsArgsDict(TypedDict):
     """
     Istio components configuration.
     """
-    egress_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgsDict']]]]
+    egress_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IstioEgressGatewayArgsDict']]]]]
     """
     Istio egress gateways.
     """
-    ingress_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgsDict']]]]
+    ingress_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IstioIngressGatewayArgsDict']]]]]
     """
     Istio ingress gateways.
     """
@@ -2252,8 +2252,8 @@ class IstioComponentsArgsDict(TypedDict):
 @pulumi.input_type
 class IstioComponentsArgs:
     def __init__(__self__, *,
-                 egress_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]] = None,
-                 ingress_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]] = None):
+                 egress_gateways: pulumi.Input[Optional[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]] = None,
+                 ingress_gateways: pulumi.Input[Optional[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]] = None):
         """
         Istio components configuration.
 
@@ -2267,26 +2267,26 @@ class IstioComponentsArgs:
 
     @_builtins.property
     @pulumi.getter(name="egressGateways")
-    def egress_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]:
+    def egress_gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]:
         """
         Istio egress gateways.
         """
         return pulumi.get(self, "egress_gateways")
 
     @egress_gateways.setter
-    def egress_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]):
+    def egress_gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]):
         pulumi.set(self, "egress_gateways", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressGateways")
-    def ingress_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]]:
+    def ingress_gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]]:
         """
         Istio ingress gateways.
         """
         return pulumi.get(self, "ingress_gateways")
 
     @ingress_gateways.setter
-    def ingress_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]]):
+    def ingress_gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]]):
         pulumi.set(self, "ingress_gateways", value)
 
 
@@ -2302,11 +2302,11 @@ class IstioEgressGatewayArgsDict(TypedDict):
     """
     Name of the Istio add-on egress gateway.
     """
-    gateway_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    gateway_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the gateway configuration custom resource for the Istio add-on egress gateway. Must be specified when enabling the Istio egress gateway. Must be deployed in the same namespace that the Istio egress gateway will be deployed in.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Namespace that the Istio add-on egress gateway should be deployed in. If unspecified, the default is aks-istio-egress.
     """
@@ -2316,8 +2316,8 @@ class IstioEgressGatewayArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
-                 gateway_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 gateway_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Istio egress gateway configuration.
 
@@ -2359,26 +2359,26 @@ class IstioEgressGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="gatewayConfigurationName")
-    def gateway_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the gateway configuration custom resource for the Istio add-on egress gateway. Must be specified when enabling the Istio egress gateway. Must be deployed in the same namespace that the Istio egress gateway will be deployed in.
         """
         return pulumi.get(self, "gateway_configuration_name")
 
     @gateway_configuration_name.setter
-    def gateway_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace that the Istio add-on egress gateway should be deployed in. If unspecified, the default is aks-istio-egress.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
 
@@ -2438,23 +2438,23 @@ class IstioPluginCertificateAuthorityArgsDict(TypedDict):
     """
     Plugin certificates information for Service Mesh.
     """
-    cert_chain_object_name: NotRequired[pulumi.Input[_builtins.str]]
+    cert_chain_object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Certificate chain object name in Azure Key Vault.
     """
-    cert_object_name: NotRequired[pulumi.Input[_builtins.str]]
+    cert_object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Intermediate certificate object name in Azure Key Vault.
     """
-    key_object_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Intermediate certificate private key object name in Azure Key Vault.
     """
-    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Key Vault.
     """
-    root_cert_object_name: NotRequired[pulumi.Input[_builtins.str]]
+    root_cert_object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Root certificate object name in Azure Key Vault.
     """
@@ -2462,11 +2462,11 @@ class IstioPluginCertificateAuthorityArgsDict(TypedDict):
 @pulumi.input_type
 class IstioPluginCertificateAuthorityArgs:
     def __init__(__self__, *,
-                 cert_chain_object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cert_object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_object_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_cert_object_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cert_chain_object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cert_object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_object_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_cert_object_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Plugin certificates information for Service Mesh.
 
@@ -2489,62 +2489,62 @@ class IstioPluginCertificateAuthorityArgs:
 
     @_builtins.property
     @pulumi.getter(name="certChainObjectName")
-    def cert_chain_object_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert_chain_object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate chain object name in Azure Key Vault.
         """
         return pulumi.get(self, "cert_chain_object_name")
 
     @cert_chain_object_name.setter
-    def cert_chain_object_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert_chain_object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert_chain_object_name", value)
 
     @_builtins.property
     @pulumi.getter(name="certObjectName")
-    def cert_object_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert_object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Intermediate certificate object name in Azure Key Vault.
         """
         return pulumi.get(self, "cert_object_name")
 
     @cert_object_name.setter
-    def cert_object_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert_object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert_object_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyObjectName")
-    def key_object_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Intermediate certificate private key object name in Azure Key Vault.
         """
         return pulumi.get(self, "key_object_name")
 
     @key_object_name.setter
-    def key_object_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_object_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Key Vault.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rootCertObjectName")
-    def root_cert_object_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_cert_object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Root certificate object name in Azure Key Vault.
         """
         return pulumi.get(self, "root_cert_object_name")
 
     @root_cert_object_name.setter
-    def root_cert_object_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_cert_object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_cert_object_name", value)
 
 
@@ -2552,15 +2552,15 @@ class IstioServiceMeshArgsDict(TypedDict):
     """
     Istio service mesh configuration.
     """
-    certificate_authority: NotRequired[pulumi.Input['IstioCertificateAuthorityArgsDict']]
+    certificate_authority: NotRequired[pulumi.Input[Optional['IstioCertificateAuthorityArgsDict']]]
     """
     Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
     """
-    components: NotRequired[pulumi.Input['IstioComponentsArgsDict']]
+    components: NotRequired[pulumi.Input[Optional['IstioComponentsArgsDict']]]
     """
     Istio components configuration.
     """
-    revisions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    revisions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
     """
@@ -2568,9 +2568,9 @@ class IstioServiceMeshArgsDict(TypedDict):
 @pulumi.input_type
 class IstioServiceMeshArgs:
     def __init__(__self__, *,
-                 certificate_authority: Optional[pulumi.Input['IstioCertificateAuthorityArgs']] = None,
-                 components: Optional[pulumi.Input['IstioComponentsArgs']] = None,
-                 revisions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 certificate_authority: pulumi.Input[Optional['IstioCertificateAuthorityArgs']] = None,
+                 components: pulumi.Input[Optional['IstioComponentsArgs']] = None,
+                 revisions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Istio service mesh configuration.
 
@@ -2587,38 +2587,38 @@ class IstioServiceMeshArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
-    def certificate_authority(self) -> Optional[pulumi.Input['IstioCertificateAuthorityArgs']]:
+    def certificate_authority(self) -> pulumi.Input[Optional['IstioCertificateAuthorityArgs']]:
         """
         Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
         """
         return pulumi.get(self, "certificate_authority")
 
     @certificate_authority.setter
-    def certificate_authority(self, value: Optional[pulumi.Input['IstioCertificateAuthorityArgs']]):
+    def certificate_authority(self, value: pulumi.Input[Optional['IstioCertificateAuthorityArgs']]):
         pulumi.set(self, "certificate_authority", value)
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input['IstioComponentsArgs']]:
+    def components(self) -> pulumi.Input[Optional['IstioComponentsArgs']]:
         """
         Istio components configuration.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input['IstioComponentsArgs']]):
+    def components(self, value: pulumi.Input[Optional['IstioComponentsArgs']]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
-    def revisions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def revisions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
         """
         return pulumi.get(self, "revisions")
 
     @revisions.setter
-    def revisions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def revisions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "revisions", value)
 
 
@@ -2663,15 +2663,15 @@ class JWTAuthenticatorClaimMappingsArgsDict(TypedDict):
     """
     The expression to extract username attribute from the token claims.
     """
-    extra: NotRequired[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgsDict']]]]
+    extra: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgsDict']]]]]
     """
     The expression to extract extra attribute from the token claims. When not provided, no extra attributes are extracted from the token claims.
     """
-    groups: NotRequired[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgsDict']]
+    groups: NotRequired[pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgsDict']]]
     """
     The expression to extract groups attribute from the token claims. When not provided, no groups are extracted from the token claims.
     """
-    uid: NotRequired[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgsDict']]
+    uid: NotRequired[pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgsDict']]]
     """
     The expression to extract uid attribute from the token claims. When not provided, no uid is extracted from the token claims.
     """
@@ -2680,9 +2680,9 @@ class JWTAuthenticatorClaimMappingsArgsDict(TypedDict):
 class JWTAuthenticatorClaimMappingsArgs:
     def __init__(__self__, *,
                  username: pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs'],
-                 extra: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]] = None,
-                 groups: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']] = None,
-                 uid: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']] = None):
+                 extra: pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]] = None,
+                 groups: pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgs']] = None,
+                 uid: pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgs']] = None):
         """
         The claim mappings for JWTAuthenticator.
 
@@ -2713,38 +2713,38 @@ class JWTAuthenticatorClaimMappingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extra(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]]:
+    def extra(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]]:
         """
         The expression to extract extra attribute from the token claims. When not provided, no extra attributes are extracted from the token claims.
         """
         return pulumi.get(self, "extra")
 
     @extra.setter
-    def extra(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]]):
+    def extra(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]]):
         pulumi.set(self, "extra", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]:
+    def groups(self) -> pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgs']]:
         """
         The expression to extract groups attribute from the token claims. When not provided, no groups are extracted from the token claims.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]):
+    def groups(self, value: pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgs']]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def uid(self) -> Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]:
+    def uid(self) -> pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgs']]:
         """
         The expression to extract uid attribute from the token claims. When not provided, no uid is extracted from the token claims.
         """
         return pulumi.get(self, "uid")
 
     @uid.setter
-    def uid(self, value: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]):
+    def uid(self, value: pulumi.Input[Optional['JWTAuthenticatorClaimMappingExpressionArgs']]):
         pulumi.set(self, "uid", value)
 
 
@@ -2864,11 +2864,11 @@ class JWTAuthenticatorPropertiesArgsDict(TypedDict):
     """
     The JWT OIDC issuer details.
     """
-    claim_validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgsDict']]]]
+    claim_validation_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgsDict']]]]]
     """
     The rules that are applied to validate token claims to authenticate users. All the expressions must evaluate to true for validation to succeed.
     """
-    user_validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgsDict']]]]
+    user_validation_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgsDict']]]]]
     """
     The rules that are applied to the mapped user before completing authentication. All the expressions must evaluate to true for validation to succeed.
     """
@@ -2878,8 +2878,8 @@ class JWTAuthenticatorPropertiesArgs:
     def __init__(__self__, *,
                  claim_mappings: pulumi.Input['JWTAuthenticatorClaimMappingsArgs'],
                  issuer: pulumi.Input['JWTAuthenticatorIssuerArgs'],
-                 claim_validation_rules: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]] = None,
-                 user_validation_rules: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]] = None):
+                 claim_validation_rules: pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]] = None,
+                 user_validation_rules: pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]] = None):
         """
         The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.
 
@@ -2921,26 +2921,26 @@ class JWTAuthenticatorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="claimValidationRules")
-    def claim_validation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]:
+    def claim_validation_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]:
         """
         The rules that are applied to validate token claims to authenticate users. All the expressions must evaluate to true for validation to succeed.
         """
         return pulumi.get(self, "claim_validation_rules")
 
     @claim_validation_rules.setter
-    def claim_validation_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]):
+    def claim_validation_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]):
         pulumi.set(self, "claim_validation_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="userValidationRules")
-    def user_validation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]:
+    def user_validation_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]:
         """
         The rules that are applied to the mapped user before completing authentication. All the expressions must evaluate to true for validation to succeed.
         """
         return pulumi.get(self, "user_validation_rules")
 
     @user_validation_rules.setter
-    def user_validation_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]):
+    def user_validation_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]):
         pulumi.set(self, "user_validation_rules", value)
 
 
@@ -2952,7 +2952,7 @@ class JWTAuthenticatorValidationRuleArgsDict(TypedDict):
     """
     The CEL expression used to validate the claim or attribute.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The validation error message.
     """
@@ -2961,7 +2961,7 @@ class JWTAuthenticatorValidationRuleArgsDict(TypedDict):
 class JWTAuthenticatorValidationRuleArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[_builtins.str],
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The validation rule for JWTAuthenticator.
 
@@ -2986,14 +2986,14 @@ class JWTAuthenticatorValidationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The validation error message.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 
@@ -3001,47 +3001,47 @@ class KubeletConfigArgsDict(TypedDict):
     """
     Kubelet configurations of agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     """
-    allowed_unsafe_sysctls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_unsafe_sysctls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
     """
-    container_log_max_files: NotRequired[pulumi.Input[_builtins.int]]
+    container_log_max_files: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of container log files that can be present for a container. The number must be ≥ 2.
     """
-    container_log_max_size_mb: NotRequired[pulumi.Input[_builtins.int]]
+    container_log_max_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum size (e.g. 10Mi) of container log file before it is rotated.
     """
-    cpu_cfs_quota: NotRequired[pulumi.Input[_builtins.bool]]
+    cpu_cfs_quota: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If CPU CFS quota enforcement is enabled for containers that specify CPU limits. The default is true.
     """
-    cpu_cfs_quota_period: NotRequired[pulumi.Input[_builtins.str]]
+    cpu_cfs_quota_period: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CPU CFS quota period value. The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
     """
-    cpu_manager_policy: NotRequired[pulumi.Input[_builtins.str]]
+    cpu_manager_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CPU Manager policy to use. The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
     """
-    fail_swap_on: NotRequired[pulumi.Input[_builtins.bool]]
+    fail_swap_on: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true it will make the Kubelet fail to start if swap is enabled on the node.
     """
-    image_gc_high_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    image_gc_high_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percent of disk usage after which image garbage collection is always run. To disable image garbage collection, set to 100. The default is 85%
     """
-    image_gc_low_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    image_gc_low_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percent of disk usage before which image garbage collection is never run. This cannot be set higher than imageGcHighThreshold. The default is 80%
     """
-    pod_max_pids: NotRequired[pulumi.Input[_builtins.int]]
+    pod_max_pids: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of processes per pod.
     """
-    topology_manager_policy: NotRequired[pulumi.Input[_builtins.str]]
+    topology_manager_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Topology Manager policy to use. For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
     """
@@ -3049,17 +3049,17 @@ class KubeletConfigArgsDict(TypedDict):
 @pulumi.input_type
 class KubeletConfigArgs:
     def __init__(__self__, *,
-                 allowed_unsafe_sysctls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_log_max_files: Optional[pulumi.Input[_builtins.int]] = None,
-                 container_log_max_size_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 cpu_cfs_quota: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cpu_cfs_quota_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_manager_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fail_swap_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_gc_high_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 image_gc_low_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 pod_max_pids: Optional[pulumi.Input[_builtins.int]] = None,
-                 topology_manager_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_unsafe_sysctls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_log_max_files: pulumi.Input[Optional[_builtins.int]] = None,
+                 container_log_max_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 cpu_cfs_quota: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cpu_cfs_quota_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_manager_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fail_swap_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_gc_high_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 image_gc_low_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 pod_max_pids: pulumi.Input[Optional[_builtins.int]] = None,
+                 topology_manager_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Kubelet configurations of agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
 
@@ -3100,150 +3100,204 @@ class KubeletConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedUnsafeSysctls")
-    def allowed_unsafe_sysctls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_unsafe_sysctls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
         """
         return pulumi.get(self, "allowed_unsafe_sysctls")
 
     @allowed_unsafe_sysctls.setter
-    def allowed_unsafe_sysctls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_unsafe_sysctls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_unsafe_sysctls", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxFiles")
-    def container_log_max_files(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def container_log_max_files(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of container log files that can be present for a container. The number must be ≥ 2.
         """
         return pulumi.get(self, "container_log_max_files")
 
     @container_log_max_files.setter
-    def container_log_max_files(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def container_log_max_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_files", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMB")
-    def container_log_max_size_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def container_log_max_size_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum size (e.g. 10Mi) of container log file before it is rotated.
         """
         return pulumi.get(self, "container_log_max_size_mb")
 
     @container_log_max_size_mb.setter
-    def container_log_max_size_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def container_log_max_size_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_size_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuCfsQuota")
-    def cpu_cfs_quota(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cpu_cfs_quota(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If CPU CFS quota enforcement is enabled for containers that specify CPU limits. The default is true.
         """
         return pulumi.get(self, "cpu_cfs_quota")
 
     @cpu_cfs_quota.setter
-    def cpu_cfs_quota(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cpu_cfs_quota(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cpu_cfs_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuCfsQuotaPeriod")
-    def cpu_cfs_quota_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu_cfs_quota_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CPU CFS quota period value. The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
         """
         return pulumi.get(self, "cpu_cfs_quota_period")
 
     @cpu_cfs_quota_period.setter
-    def cpu_cfs_quota_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu_cfs_quota_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu_cfs_quota_period", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuManagerPolicy")
-    def cpu_manager_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu_manager_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CPU Manager policy to use. The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
         """
         return pulumi.get(self, "cpu_manager_policy")
 
     @cpu_manager_policy.setter
-    def cpu_manager_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu_manager_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu_manager_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="failSwapOn")
-    def fail_swap_on(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_swap_on(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true it will make the Kubelet fail to start if swap is enabled on the node.
         """
         return pulumi.get(self, "fail_swap_on")
 
     @fail_swap_on.setter
-    def fail_swap_on(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_swap_on(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_swap_on", value)
 
     @_builtins.property
     @pulumi.getter(name="imageGcHighThreshold")
-    def image_gc_high_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def image_gc_high_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percent of disk usage after which image garbage collection is always run. To disable image garbage collection, set to 100. The default is 85%
         """
         return pulumi.get(self, "image_gc_high_threshold")
 
     @image_gc_high_threshold.setter
-    def image_gc_high_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def image_gc_high_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "image_gc_high_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="imageGcLowThreshold")
-    def image_gc_low_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def image_gc_low_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percent of disk usage before which image garbage collection is never run. This cannot be set higher than imageGcHighThreshold. The default is 80%
         """
         return pulumi.get(self, "image_gc_low_threshold")
 
     @image_gc_low_threshold.setter
-    def image_gc_low_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def image_gc_low_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "image_gc_low_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="podMaxPids")
-    def pod_max_pids(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pod_max_pids(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of processes per pod.
         """
         return pulumi.get(self, "pod_max_pids")
 
     @pod_max_pids.setter
-    def pod_max_pids(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pod_max_pids(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pod_max_pids", value)
 
     @_builtins.property
     @pulumi.getter(name="topologyManagerPolicy")
-    def topology_manager_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topology_manager_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Topology Manager policy to use. For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
         """
         return pulumi.get(self, "topology_manager_policy")
 
     @topology_manager_policy.setter
-    def topology_manager_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topology_manager_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topology_manager_policy", value)
+
+
+class LabelSelectorArgsDict(TypedDict):
+    """
+    A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+    """
+    match_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LabelSelectorRequirementArgsDict']]]]]
+    """
+    matchExpressions is a list of label selector requirements. The requirements are ANDed.
+    """
+    match_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+    """
+
+@pulumi.input_type
+class LabelSelectorArgs:
+    def __init__(__self__, *,
+                 match_expressions: pulumi.Input[Optional[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]]] = None,
+                 match_labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+
+        :param pulumi.Input[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_labels: matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]]]:
+        """
+        matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @match_expressions.setter
+    def match_expressions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]]]):
+        pulumi.set(self, "match_expressions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_labels")
+
+    @match_labels.setter
+    def match_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_labels", value)
 
 
 class LabelSelectorRequirementArgsDict(TypedDict):
     """
     A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     key is the label key that the selector applies to.
     """
-    operator: NotRequired[pulumi.Input[Union[_builtins.str, 'Operator']]]
+    operator: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Operator']]]]
     """
     operator represents a key's relationship to a set of values. Valid operators are In and NotIn
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     values is an array of string values, the values array must be non-empty.
     """
@@ -3251,9 +3305,9 @@ class LabelSelectorRequirementArgsDict(TypedDict):
 @pulumi.input_type
 class LabelSelectorRequirementArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator: Optional[pulumi.Input[Union[_builtins.str, 'Operator']]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator: pulumi.Input[Optional[Union[_builtins.str, 'Operator']]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
@@ -3270,112 +3324,58 @@ class LabelSelectorRequirementArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         key is the label key that the selector applies to.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Operator']]]:
+    def operator(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Operator']]]:
         """
         operator represents a key's relationship to a set of values. Valid operators are In and NotIn
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Operator']]]):
+    def operator(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Operator']]]):
         pulumi.set(self, "operator", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         values is an array of string values, the values array must be non-empty.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
-
-
-class LabelSelectorArgsDict(TypedDict):
-    """
-    A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
-    """
-    match_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LabelSelectorRequirementArgsDict']]]]
-    """
-    matchExpressions is a list of label selector requirements. The requirements are ANDed.
-    """
-    match_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
-    """
-
-@pulumi.input_type
-class LabelSelectorArgs:
-    def __init__(__self__, *,
-                 match_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]]] = None,
-                 match_labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
-
-        :param pulumi.Input[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_labels: matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
-        """
-        if match_expressions is not None:
-            pulumi.set(__self__, "match_expressions", match_expressions)
-        if match_labels is not None:
-            pulumi.set(__self__, "match_labels", match_labels)
-
-    @_builtins.property
-    @pulumi.getter(name="matchExpressions")
-    def match_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]]]:
-        """
-        matchExpressions is a list of label selector requirements. The requirements are ANDed.
-        """
-        return pulumi.get(self, "match_expressions")
-
-    @match_expressions.setter
-    def match_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LabelSelectorRequirementArgs']]]]):
-        pulumi.set(self, "match_expressions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="matchLabels")
-    def match_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
-        """
-        return pulumi.get(self, "match_labels")
-
-    @match_labels.setter
-    def match_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "match_labels", value)
 
 
 class LinuxOSConfigArgsDict(TypedDict):
     """
     OS configurations of Linux agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     """
-    swap_file_size_mb: NotRequired[pulumi.Input[_builtins.int]]
+    swap_file_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size in MB of a swap file that will be created on each node.
     """
-    sysctls: NotRequired[pulumi.Input['SysctlConfigArgsDict']]
+    sysctls: NotRequired[pulumi.Input[Optional['SysctlConfigArgsDict']]]
     """
     Sysctl settings for Linux agent nodes.
     """
-    transparent_huge_page_defrag: NotRequired[pulumi.Input[_builtins.str]]
+    transparent_huge_page_defrag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether the kernel should make aggressive use of memory compaction to make more hugepages available. Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
     """
-    transparent_huge_page_enabled: NotRequired[pulumi.Input[_builtins.str]]
+    transparent_huge_page_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether transparent hugepages are enabled. Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
     """
@@ -3383,10 +3383,10 @@ class LinuxOSConfigArgsDict(TypedDict):
 @pulumi.input_type
 class LinuxOSConfigArgs:
     def __init__(__self__, *,
-                 swap_file_size_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 sysctls: Optional[pulumi.Input['SysctlConfigArgs']] = None,
-                 transparent_huge_page_defrag: Optional[pulumi.Input[_builtins.str]] = None,
-                 transparent_huge_page_enabled: Optional[pulumi.Input[_builtins.str]] = None):
+                 swap_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 sysctls: pulumi.Input[Optional['SysctlConfigArgs']] = None,
+                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None,
+                 transparent_huge_page_enabled: pulumi.Input[Optional[_builtins.str]] = None):
         """
         OS configurations of Linux agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
 
@@ -3406,50 +3406,50 @@ class LinuxOSConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMB")
-    def swap_file_size_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def swap_file_size_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size in MB of a swap file that will be created on each node.
         """
         return pulumi.get(self, "swap_file_size_mb")
 
     @swap_file_size_mb.setter
-    def swap_file_size_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def swap_file_size_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "swap_file_size_mb", value)
 
     @_builtins.property
     @pulumi.getter
-    def sysctls(self) -> Optional[pulumi.Input['SysctlConfigArgs']]:
+    def sysctls(self) -> pulumi.Input[Optional['SysctlConfigArgs']]:
         """
         Sysctl settings for Linux agent nodes.
         """
         return pulumi.get(self, "sysctls")
 
     @sysctls.setter
-    def sysctls(self, value: Optional[pulumi.Input['SysctlConfigArgs']]):
+    def sysctls(self, value: pulumi.Input[Optional['SysctlConfigArgs']]):
         pulumi.set(self, "sysctls", value)
 
     @_builtins.property
     @pulumi.getter(name="transparentHugePageDefrag")
-    def transparent_huge_page_defrag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent_huge_page_defrag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the kernel should make aggressive use of memory compaction to make more hugepages available. Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         """
         return pulumi.get(self, "transparent_huge_page_defrag")
 
     @transparent_huge_page_defrag.setter
-    def transparent_huge_page_defrag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent_huge_page_defrag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_defrag", value)
 
     @_builtins.property
     @pulumi.getter(name="transparentHugePageEnabled")
-    def transparent_huge_page_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent_huge_page_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether transparent hugepages are enabled. Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         """
         return pulumi.get(self, "transparent_huge_page_enabled")
 
     @transparent_huge_page_enabled.setter
-    def transparent_huge_page_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent_huge_page_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_enabled", value)
 
 
@@ -3457,35 +3457,35 @@ class LocalDNSOverrideArgsDict(TypedDict):
     """
     Overrides for localDNS profile.
     """
-    cache_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    cache_duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Cache max TTL in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
     """
-    forward_destination: NotRequired[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardDestination']]]
+    forward_destination: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardDestination']]]]
     """
     Destination server for DNS queries to be forwarded from localDNS.
     """
-    forward_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardPolicy']]]
+    forward_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardPolicy']]]]
     """
     Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
     """
-    max_concurrent: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of concurrent queries. See [forward plugin](https://coredns.io/plugins/forward) for more information.
     """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'LocalDNSProtocol']]]
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSProtocol']]]]
     """
     Enforce TCP or prefer UDP protocol for connections from localDNS to upstream DNS server.
     """
-    query_logging: NotRequired[pulumi.Input[Union[_builtins.str, 'LocalDNSQueryLogging']]]
+    query_logging: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSQueryLogging']]]]
     """
     Log level for DNS queries in localDNS.
     """
-    serve_stale: NotRequired[pulumi.Input[Union[_builtins.str, 'LocalDNSServeStale']]]
+    serve_stale: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSServeStale']]]]
     """
     Policy for serving stale data. See [cache plugin](https://coredns.io/plugins/cache) for more information.
     """
-    serve_stale_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    serve_stale_duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Serve stale duration in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
     """
@@ -3493,14 +3493,14 @@ class LocalDNSOverrideArgsDict(TypedDict):
 @pulumi.input_type
 class LocalDNSOverrideArgs:
     def __init__(__self__, *,
-                 cache_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 forward_destination: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardDestination']]] = None,
-                 forward_policy: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardPolicy']]] = None,
-                 max_concurrent: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSProtocol']]] = None,
-                 query_logging: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSQueryLogging']]] = None,
-                 serve_stale: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSServeStale']]] = None,
-                 serve_stale_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 cache_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 forward_destination: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardDestination']]] = None,
+                 forward_policy: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardPolicy']]] = None,
+                 max_concurrent: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSProtocol']]] = None,
+                 query_logging: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSQueryLogging']]] = None,
+                 serve_stale: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSServeStale']]] = None,
+                 serve_stale_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Overrides for localDNS profile.
 
@@ -3548,98 +3548,98 @@ class LocalDNSOverrideArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheDurationInSeconds")
-    def cache_duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache max TTL in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
         """
         return pulumi.get(self, "cache_duration_in_seconds")
 
     @cache_duration_in_seconds.setter
-    def cache_duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_duration_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardDestination")
-    def forward_destination(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardDestination']]]:
+    def forward_destination(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardDestination']]]:
         """
         Destination server for DNS queries to be forwarded from localDNS.
         """
         return pulumi.get(self, "forward_destination")
 
     @forward_destination.setter
-    def forward_destination(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardDestination']]]):
+    def forward_destination(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardDestination']]]):
         pulumi.set(self, "forward_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardPolicy")
-    def forward_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardPolicy']]]:
+    def forward_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardPolicy']]]:
         """
         Forward policy for selecting upstream DNS server. See [forward plugin](https://coredns.io/plugins/forward) for more information.
         """
         return pulumi.get(self, "forward_policy")
 
     @forward_policy.setter
-    def forward_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSForwardPolicy']]]):
+    def forward_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSForwardPolicy']]]):
         pulumi.set(self, "forward_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrent")
-    def max_concurrent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of concurrent queries. See [forward plugin](https://coredns.io/plugins/forward) for more information.
         """
         return pulumi.get(self, "max_concurrent")
 
     @max_concurrent.setter
-    def max_concurrent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSProtocol']]]:
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSProtocol']]]:
         """
         Enforce TCP or prefer UDP protocol for connections from localDNS to upstream DNS server.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSProtocol']]]):
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSProtocol']]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="queryLogging")
-    def query_logging(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSQueryLogging']]]:
+    def query_logging(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSQueryLogging']]]:
         """
         Log level for DNS queries in localDNS.
         """
         return pulumi.get(self, "query_logging")
 
     @query_logging.setter
-    def query_logging(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSQueryLogging']]]):
+    def query_logging(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSQueryLogging']]]):
         pulumi.set(self, "query_logging", value)
 
     @_builtins.property
     @pulumi.getter(name="serveStale")
-    def serve_stale(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSServeStale']]]:
+    def serve_stale(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSServeStale']]]:
         """
         Policy for serving stale data. See [cache plugin](https://coredns.io/plugins/cache) for more information.
         """
         return pulumi.get(self, "serve_stale")
 
     @serve_stale.setter
-    def serve_stale(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSServeStale']]]):
+    def serve_stale(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSServeStale']]]):
         pulumi.set(self, "serve_stale", value)
 
     @_builtins.property
     @pulumi.getter(name="serveStaleDurationInSeconds")
-    def serve_stale_duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def serve_stale_duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Serve stale duration in seconds. See [cache plugin](https://coredns.io/plugins/cache) for more information.
         """
         return pulumi.get(self, "serve_stale_duration_in_seconds")
 
     @serve_stale_duration_in_seconds.setter
-    def serve_stale_duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def serve_stale_duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "serve_stale_duration_in_seconds", value)
 
 
@@ -3647,15 +3647,15 @@ class LocalDNSProfileArgsDict(TypedDict):
     """
     Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
     """
-    kube_dns_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgsDict']]]]
+    kube_dns_overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgsDict']]]]]
     """
     KubeDNS overrides apply to DNS traffic from pods with dnsPolicy:ClusterFirst (referred to as KubeDNS traffic).
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'LocalDNSMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSMode']]]]
     """
     Mode of enablement for localDNS.
     """
-    vnet_dns_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgsDict']]]]
+    vnet_dns_overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgsDict']]]]]
     """
     VnetDNS overrides apply to DNS traffic from pods with dnsPolicy:default or kubelet (referred to as VnetDNS traffic).
     """
@@ -3663,9 +3663,9 @@ class LocalDNSProfileArgsDict(TypedDict):
 @pulumi.input_type
 class LocalDNSProfileArgs:
     def __init__(__self__, *,
-                 kube_dns_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSMode']]] = None,
-                 vnet_dns_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]] = None):
+                 kube_dns_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSMode']]] = None,
+                 vnet_dns_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]] = None):
         """
         Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
 
@@ -3684,38 +3684,38 @@ class LocalDNSProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="kubeDNSOverrides")
-    def kube_dns_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]:
+    def kube_dns_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]:
         """
         KubeDNS overrides apply to DNS traffic from pods with dnsPolicy:ClusterFirst (referred to as KubeDNS traffic).
         """
         return pulumi.get(self, "kube_dns_overrides")
 
     @kube_dns_overrides.setter
-    def kube_dns_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]):
+    def kube_dns_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]):
         pulumi.set(self, "kube_dns_overrides", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSMode']]]:
         """
         Mode of enablement for localDNS.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LocalDNSMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LocalDNSMode']]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetDNSOverrides")
-    def vnet_dns_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]:
+    def vnet_dns_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]:
         """
         VnetDNS overrides apply to DNS traffic from pods with dnsPolicy:default or kubelet (referred to as VnetDNS traffic).
         """
         return pulumi.get(self, "vnet_dns_overrides")
 
     @vnet_dns_overrides.setter
-    def vnet_dns_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]):
+    def vnet_dns_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['LocalDNSOverrideArgs']]]]):
         pulumi.set(self, "vnet_dns_overrides", value)
 
 
@@ -3735,15 +3735,15 @@ class MaintenanceWindowArgsDict(TypedDict):
     """
     The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
     """
-    not_allowed_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input['DateSpanArgsDict']]]]
+    not_allowed_dates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DateSpanArgsDict']]]]]
     """
     Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
     """
-    start_date: NotRequired[pulumi.Input[_builtins.str]]
+    start_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
     """
-    utc_offset: NotRequired[pulumi.Input[_builtins.str]]
+    utc_offset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
     """
@@ -3751,12 +3751,12 @@ class MaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class MaintenanceWindowArgs:
     def __init__(__self__, *,
-                 duration_hours: Optional[pulumi.Input[_builtins.int]] = None,
+                 duration_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  schedule: pulumi.Input['ScheduleArgs'],
                  start_time: pulumi.Input[_builtins.str],
-                 not_allowed_dates: Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 utc_offset: Optional[pulumi.Input[_builtins.str]] = None):
+                 not_allowed_dates: pulumi.Input[Optional[Sequence[pulumi.Input['DateSpanArgs']]]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 utc_offset: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
 
@@ -3817,38 +3817,38 @@ class MaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="notAllowedDates")
-    def not_allowed_dates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]]:
+    def not_allowed_dates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DateSpanArgs']]]]:
         """
         Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
         """
         return pulumi.get(self, "not_allowed_dates")
 
     @not_allowed_dates.setter
-    def not_allowed_dates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]]):
+    def not_allowed_dates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DateSpanArgs']]]]):
         pulumi.set(self, "not_allowed_dates", value)
 
     @_builtins.property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
         """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date", value)
 
     @_builtins.property
     @pulumi.getter(name="utcOffset")
-    def utc_offset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def utc_offset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
         """
         return pulumi.get(self, "utc_offset")
 
     @utc_offset.setter
-    def utc_offset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def utc_offset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "utc_offset", value)
 
 
@@ -3856,31 +3856,31 @@ class ManagedClusterAADProfileArgsDict(TypedDict):
     """
     AADProfile specifies attributes for Azure Active Directory integration. For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
     """
-    admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    admin_group_object_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of AAD group object IDs that will have admin role of the cluster.
     """
-    client_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
     """
-    enable_azure_rbac: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_azure_rbac: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Azure RBAC for Kubernetes authorization.
     """
-    managed: NotRequired[pulumi.Input[_builtins.bool]]
+    managed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable managed AAD.
     """
-    server_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    server_app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (DEPRECATED) The server AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
     """
-    server_app_secret: NotRequired[pulumi.Input[_builtins.str]]
+    server_app_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (DEPRECATED) The server AAD application secret. Learn more at https://aka.ms/aks/aad-legacy.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
     """
@@ -3888,13 +3888,13 @@ class ManagedClusterAADProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterAADProfileArgs:
     def __init__(__self__, *,
-                 admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_azure_rbac: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_app_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_group_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_azure_rbac: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_app_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         AADProfile specifies attributes for Azure Active Directory integration. For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
 
@@ -3923,86 +3923,86 @@ class ManagedClusterAADProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminGroupObjectIDs")
-    def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_group_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of AAD group object IDs that will have admin role of the cluster.
         """
         return pulumi.get(self, "admin_group_object_ids")
 
     @admin_group_object_ids.setter
-    def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_group_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_group_object_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAppID")
-    def client_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
         """
         return pulumi.get(self, "client_app_id")
 
     @client_app_id.setter
-    def client_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAzureRBAC")
-    def enable_azure_rbac(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_azure_rbac(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Azure RBAC for Kubernetes authorization.
         """
         return pulumi.get(self, "enable_azure_rbac")
 
     @enable_azure_rbac.setter
-    def enable_azure_rbac(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_azure_rbac(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_azure_rbac", value)
 
     @_builtins.property
     @pulumi.getter
-    def managed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def managed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable managed AAD.
         """
         return pulumi.get(self, "managed")
 
     @managed.setter
-    def managed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def managed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "managed", value)
 
     @_builtins.property
     @pulumi.getter(name="serverAppID")
-    def server_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DEPRECATED) The server AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
         """
         return pulumi.get(self, "server_app_id")
 
     @server_app_id.setter
-    def server_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverAppSecret")
-    def server_app_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_app_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DEPRECATED) The server AAD application secret. Learn more at https://aka.ms/aks/aad-legacy.
         """
         return pulumi.get(self, "server_app_secret")
 
     @server_app_secret.setter
-    def server_app_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_app_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_app_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantID")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -4010,7 +4010,7 @@ class ManagedClusterAIToolchainOperatorProfileArgsDict(TypedDict):
     """
     When enabling the operator, a set of AKS managed CRDs and controllers will be installed in the cluster. The operator automates the deployment of OSS models for inference and/or training purposes. It provides a set of preset models and enables distributed inference against them.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable AI toolchain operator to the cluster. Indicates if AI toolchain operator  enabled or not.
     """
@@ -4018,7 +4018,7 @@ class ManagedClusterAIToolchainOperatorProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterAIToolchainOperatorProfileArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         When enabling the operator, a set of AKS managed CRDs and controllers will be installed in the cluster. The operator automates the deployment of OSS models for inference and/or training purposes. It provides a set of preset models and enables distributed inference against them.
 
@@ -4029,14 +4029,14 @@ class ManagedClusterAIToolchainOperatorProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable AI toolchain operator to the cluster. Indicates if AI toolchain operator  enabled or not.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -4044,31 +4044,31 @@ class ManagedClusterAPIServerAccessProfileArgsDict(TypedDict):
     """
     Access profile for managed cluster API server.
     """
-    authorized_ip_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    authorized_ip_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The IP ranges authorized to access the Kubernetes API server. IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
     """
-    disable_run_command: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_run_command: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to disable run command for the cluster or not.
     """
-    enable_private_cluster: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_private_cluster: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to create the cluster as a private cluster or not. For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
     """
-    enable_private_cluster_public_fqdn: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_private_cluster_public_fqdn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to create additional public FQDN for private cluster or not.
     """
-    enable_vnet_integration: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_vnet_integration: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable apiserver vnet integration for the cluster or not. See aka.ms/AksVnetIntegration for more details.
     """
-    private_dns_zone: NotRequired[pulumi.Input[_builtins.str]]
+    private_dns_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private DNS zone mode for the cluster. The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new cluster with BYO Vnet, or when updating an existing cluster to enable apiserver vnet integration.
     """
@@ -4076,13 +4076,13 @@ class ManagedClusterAPIServerAccessProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterAPIServerAccessProfileArgs:
     def __init__(__self__, *,
-                 authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disable_run_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_cluster_public_fqdn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_vnet_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorized_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_run_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_cluster: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_cluster_public_fqdn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_vnet_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Access profile for managed cluster API server.
 
@@ -4111,86 +4111,86 @@ class ManagedClusterAPIServerAccessProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizedIPRanges")
-    def authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorized_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IP ranges authorized to access the Kubernetes API server. IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
         """
         return pulumi.get(self, "authorized_ip_ranges")
 
     @authorized_ip_ranges.setter
-    def authorized_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorized_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorized_ip_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="disableRunCommand")
-    def disable_run_command(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_run_command(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable run command for the cluster or not.
         """
         return pulumi.get(self, "disable_run_command")
 
     @disable_run_command.setter
-    def disable_run_command(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_run_command(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_run_command", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrivateCluster")
-    def enable_private_cluster(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_private_cluster(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create the cluster as a private cluster or not. For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
         """
         return pulumi.get(self, "enable_private_cluster")
 
     @enable_private_cluster.setter
-    def enable_private_cluster(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_private_cluster(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_private_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrivateClusterPublicFQDN")
-    def enable_private_cluster_public_fqdn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_private_cluster_public_fqdn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create additional public FQDN for private cluster or not.
         """
         return pulumi.get(self, "enable_private_cluster_public_fqdn")
 
     @enable_private_cluster_public_fqdn.setter
-    def enable_private_cluster_public_fqdn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_private_cluster_public_fqdn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_private_cluster_public_fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="enableVnetIntegration")
-    def enable_vnet_integration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_vnet_integration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable apiserver vnet integration for the cluster or not. See aka.ms/AksVnetIntegration for more details.
         """
         return pulumi.get(self, "enable_vnet_integration")
 
     @enable_vnet_integration.setter
-    def enable_vnet_integration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_vnet_integration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_vnet_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDNSZone")
-    def private_dns_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private DNS zone mode for the cluster. The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
         """
         return pulumi.get(self, "private_dns_zone")
 
     @private_dns_zone.setter
-    def private_dns_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new cluster with BYO Vnet, or when updating an existing cluster to enable apiserver vnet integration.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -4202,7 +4202,7 @@ class ManagedClusterAddonProfileArgsDict(TypedDict):
     """
     Whether the add-on is enabled or not.
     """
-    config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    config: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key-value pairs for configuring an add-on.
     """
@@ -4211,7 +4211,7 @@ class ManagedClusterAddonProfileArgsDict(TypedDict):
 class ManagedClusterAddonProfileArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A Kubernetes add-on profile for a managed cluster.
 
@@ -4236,14 +4236,14 @@ class ManagedClusterAddonProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs for configuring an add-on.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
 
@@ -4255,199 +4255,199 @@ class ManagedClusterAgentPoolProfileArgsDict(TypedDict):
     """
     Unique name of the agent pool profile in the context of the subscription and resource group. Windows agent pool names must be 6 characters or less.
     """
-    availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
     """
-    capacity_reservation_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    capacity_reservation_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AKS will associate the specified agent pool with the Capacity Reservation Group.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
     """
-    creation_data: NotRequired[pulumi.Input['CreationDataArgsDict']]
+    creation_data: NotRequired[pulumi.Input[Optional['CreationDataArgsDict']]]
     """
     CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
     """
-    enable_auto_scaling: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_auto_scaling: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable auto-scaler
     """
-    enable_encryption_at_host: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_encryption_at_host: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable host based OS and data drive encryption. This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
     """
-    enable_fips: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_fips: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to use a FIPS-enabled OS. See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
     """
-    enable_node_public_ip: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_node_public_ip: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether each node is allocated its own public IP. Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
     """
-    enable_ultra_ssd: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_ultra_ssd: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable UltraSSD
     """
-    gateway_profile: NotRequired[pulumi.Input['AgentPoolGatewayProfileArgsDict']]
+    gateway_profile: NotRequired[pulumi.Input[Optional['AgentPoolGatewayProfileArgsDict']]]
     """
     Profile specific to a managed agent pool in Gateway mode. This field cannot be set if agent pool mode is not Gateway.
     """
-    gpu_instance_profile: NotRequired[pulumi.Input[Union[_builtins.str, 'GPUInstanceProfile']]]
+    gpu_instance_profile: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GPUInstanceProfile']]]]
     """
     GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
     """
-    gpu_profile: NotRequired[pulumi.Input['GPUProfileArgsDict']]
+    gpu_profile: NotRequired[pulumi.Input[Optional['GPUProfileArgsDict']]]
     """
     GPU settings for the Agent Pool.
     """
-    host_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    host_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from, used only in creation scenario and not allowed to changed once set. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
     """
-    kubelet_config: NotRequired[pulumi.Input['KubeletConfigArgsDict']]
+    kubelet_config: NotRequired[pulumi.Input[Optional['KubeletConfigArgsDict']]]
     """
     The Kubelet configuration on the agent pool nodes.
     """
-    kubelet_disk_type: NotRequired[pulumi.Input[Union[_builtins.str, 'KubeletDiskType']]]
+    kubelet_disk_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KubeletDiskType']]]]
     """
     Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
     """
-    linux_os_config: NotRequired[pulumi.Input['LinuxOSConfigArgsDict']]
+    linux_os_config: NotRequired[pulumi.Input[Optional['LinuxOSConfigArgsDict']]]
     """
     The OS configuration of Linux agent nodes.
     """
-    local_dns_profile: NotRequired[pulumi.Input['LocalDNSProfileArgsDict']]
+    local_dns_profile: NotRequired[pulumi.Input[Optional['LocalDNSProfileArgsDict']]]
     """
     Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
     """
-    max_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of nodes for auto-scaling
     """
-    max_pods: NotRequired[pulumi.Input[_builtins.int]]
+    max_pods: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of pods that can run on a node.
     """
-    message_of_the_day: NotRequired[pulumi.Input[_builtins.str]]
+    message_of_the_day: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Message of the day for Linux nodes, base64-encoded. A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
     """
-    min_count: NotRequired[pulumi.Input[_builtins.int]]
+    min_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of nodes for auto-scaling
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentPoolMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolMode']]]]
     """
     The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
     """
-    network_profile: NotRequired[pulumi.Input['AgentPoolNetworkProfileArgsDict']]
+    network_profile: NotRequired[pulumi.Input[Optional['AgentPoolNetworkProfileArgsDict']]]
     """
     Network-related settings of an agent pool.
     """
-    node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    node_labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The node labels to be persisted across all nodes in agent pool.
     """
-    node_public_ip_prefix_id: NotRequired[pulumi.Input[_builtins.str]]
+    node_public_ip_prefix_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The public IP prefix ID which VM nodes should use IPs from. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
     """
-    node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    node_taints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
     """
-    orchestrator_version: NotRequired[pulumi.Input[_builtins.str]]
+    orchestrator_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of Kubernetes specified by the user. Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
     """
-    os_disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    os_disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
     """
-    os_disk_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSDiskType']]]
+    os_disk_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OSDiskType']]]]
     """
     The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
     """
-    os_sku: NotRequired[pulumi.Input[Union[_builtins.str, 'OSSKU']]]
+    os_sku: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OSSKU']]]]
     """
     Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
     """
-    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSType']]]
+    os_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OSType']]]]
     """
     The operating system type. The default is Linux.
     """
-    pod_ip_allocation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PodIPAllocationMode']]]
+    pod_ip_allocation_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PodIPAllocationMode']]]]
     """
     Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
     """
-    pod_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    pod_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the subnet which pods will join when launched. If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
     """
-    power_state: NotRequired[pulumi.Input['PowerStateArgsDict']]
+    power_state: NotRequired[pulumi.Input[Optional['PowerStateArgsDict']]]
     """
     Whether the Agent Pool is running or stopped. When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
     """
-    proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    proximity_placement_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID for Proximity Placement Group.
     """
-    scale_down_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ScaleDownMode']]]
+    scale_down_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ScaleDownMode']]]]
     """
     The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
     """
-    scale_set_eviction_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ScaleSetEvictionPolicy']]]
+    scale_set_eviction_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetEvictionPolicy']]]]
     """
     The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
     """
-    scale_set_priority: NotRequired[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]]
+    scale_set_priority: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]]]
     """
     The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
     """
-    security_profile: NotRequired[pulumi.Input['AgentPoolSecurityProfileArgsDict']]
+    security_profile: NotRequired[pulumi.Input[Optional['AgentPoolSecurityProfileArgsDict']]]
     """
     The security settings of an agent pool.
     """
-    spot_max_price: NotRequired[pulumi.Input[_builtins.float]]
+    spot_max_price: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The max price (in US Dollars) you are willing to pay for spot instances. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand. Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The tags to be persisted on the agent pool virtual machine scale set.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentPoolType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolType']]]]
     """
     The type of Agent Pool.
     """
-    upgrade_settings: NotRequired[pulumi.Input['AgentPoolUpgradeSettingsArgsDict']]
+    upgrade_settings: NotRequired[pulumi.Input[Optional['AgentPoolUpgradeSettingsArgsDict']]]
     """
     Settings for upgrading the agentpool
     """
-    virtual_machine_nodes_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNodesArgsDict']]]]
+    virtual_machine_nodes_status: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineNodesArgsDict']]]]]
     """
     The status of nodes in a VirtualMachines agent pool.
     """
-    virtual_machines_profile: NotRequired[pulumi.Input['VirtualMachinesProfileArgsDict']]
+    virtual_machines_profile: NotRequired[pulumi.Input[Optional['VirtualMachinesProfileArgsDict']]]
     """
     Specifications on VirtualMachines agent pool.
     """
-    vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    vm_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the agent pool VMs. VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
     """
-    vnet_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    vnet_subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the subnet which agent pool nodes and optionally pods will join on startup. If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
     """
-    windows_profile: NotRequired[pulumi.Input['AgentPoolWindowsProfileArgsDict']]
+    windows_profile: NotRequired[pulumi.Input[Optional['AgentPoolWindowsProfileArgsDict']]]
     """
     The Windows agent pool's specific profile.
     """
-    workload_runtime: NotRequired[pulumi.Input[Union[_builtins.str, 'WorkloadRuntime']]]
+    workload_runtime: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'WorkloadRuntime']]]]
     """
     Determines the type of workload a node can run.
     """
@@ -4456,55 +4456,55 @@ class ManagedClusterAgentPoolProfileArgsDict(TypedDict):
 class ManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 creation_data: Optional[pulumi.Input['CreationDataArgs']] = None,
-                 enable_auto_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_encryption_at_host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_fips: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ultra_ssd: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_profile: Optional[pulumi.Input['AgentPoolGatewayProfileArgs']] = None,
-                 gpu_instance_profile: Optional[pulumi.Input[Union[_builtins.str, 'GPUInstanceProfile']]] = None,
-                 gpu_profile: Optional[pulumi.Input['GPUProfileArgs']] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubelet_config: Optional[pulumi.Input['KubeletConfigArgs']] = None,
-                 kubelet_disk_type: Optional[pulumi.Input[Union[_builtins.str, 'KubeletDiskType']]] = None,
-                 linux_os_config: Optional[pulumi.Input['LinuxOSConfigArgs']] = None,
-                 local_dns_profile: Optional[pulumi.Input['LocalDNSProfileArgs']] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_pods: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_of_the_day: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolMode']]] = None,
-                 network_profile: Optional[pulumi.Input['AgentPoolNetworkProfileArgs']] = None,
-                 node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 node_public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 orchestrator_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 os_disk_type: Optional[pulumi.Input[Union[_builtins.str, 'OSDiskType']]] = None,
-                 os_sku: Optional[pulumi.Input[Union[_builtins.str, 'OSSKU']]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OSType']]] = None,
-                 pod_ip_allocation_mode: Optional[pulumi.Input[Union[_builtins.str, 'PodIPAllocationMode']]] = None,
-                 pod_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_state: Optional[pulumi.Input['PowerStateArgs']] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_mode: Optional[pulumi.Input[Union[_builtins.str, 'ScaleDownMode']]] = None,
-                 scale_set_eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetEvictionPolicy']]] = None,
-                 scale_set_priority: Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]] = None,
-                 security_profile: Optional[pulumi.Input['AgentPoolSecurityProfileArgs']] = None,
-                 spot_max_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolType']]] = None,
-                 upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
-                 virtual_machine_nodes_status: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNodesArgs']]]] = None,
-                 virtual_machines_profile: Optional[pulumi.Input['VirtualMachinesProfileArgs']] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows_profile: Optional[pulumi.Input['AgentPoolWindowsProfileArgs']] = None,
-                 workload_runtime: Optional[pulumi.Input[Union[_builtins.str, 'WorkloadRuntime']]] = None):
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 creation_data: pulumi.Input[Optional['CreationDataArgs']] = None,
+                 enable_auto_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_encryption_at_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_fips: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_node_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ultra_ssd: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_profile: pulumi.Input[Optional['AgentPoolGatewayProfileArgs']] = None,
+                 gpu_instance_profile: pulumi.Input[Optional[Union[_builtins.str, 'GPUInstanceProfile']]] = None,
+                 gpu_profile: pulumi.Input[Optional['GPUProfileArgs']] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubelet_config: pulumi.Input[Optional['KubeletConfigArgs']] = None,
+                 kubelet_disk_type: pulumi.Input[Optional[Union[_builtins.str, 'KubeletDiskType']]] = None,
+                 linux_os_config: pulumi.Input[Optional['LinuxOSConfigArgs']] = None,
+                 local_dns_profile: pulumi.Input[Optional['LocalDNSProfileArgs']] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_pods: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_of_the_day: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolMode']]] = None,
+                 network_profile: pulumi.Input[Optional['AgentPoolNetworkProfileArgs']] = None,
+                 node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 orchestrator_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 os_disk_type: pulumi.Input[Optional[Union[_builtins.str, 'OSDiskType']]] = None,
+                 os_sku: pulumi.Input[Optional[Union[_builtins.str, 'OSSKU']]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OSType']]] = None,
+                 pod_ip_allocation_mode: pulumi.Input[Optional[Union[_builtins.str, 'PodIPAllocationMode']]] = None,
+                 pod_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_state: pulumi.Input[Optional['PowerStateArgs']] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_mode: pulumi.Input[Optional[Union[_builtins.str, 'ScaleDownMode']]] = None,
+                 scale_set_eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetEvictionPolicy']]] = None,
+                 scale_set_priority: pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]] = None,
+                 security_profile: pulumi.Input[Optional['AgentPoolSecurityProfileArgs']] = None,
+                 spot_max_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolType']]] = None,
+                 upgrade_settings: pulumi.Input[Optional['AgentPoolUpgradeSettingsArgs']] = None,
+                 virtual_machine_nodes_status: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineNodesArgs']]]] = None,
+                 virtual_machines_profile: pulumi.Input[Optional['VirtualMachinesProfileArgs']] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows_profile: pulumi.Input[Optional['AgentPoolWindowsProfileArgs']] = None,
+                 workload_runtime: pulumi.Input[Optional[Union[_builtins.str, 'WorkloadRuntime']]] = None):
         """
         Profile for the container service agent pool.
 
@@ -4673,590 +4673,590 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupID")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AKS will associate the specified agent pool with the Capacity Reservation Group.
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> Optional[pulumi.Input['CreationDataArgs']]:
+    def creation_data(self) -> pulumi.Input[Optional['CreationDataArgs']]:
         """
         CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         """
         return pulumi.get(self, "creation_data")
 
     @creation_data.setter
-    def creation_data(self, value: Optional[pulumi.Input['CreationDataArgs']]):
+    def creation_data(self, value: pulumi.Input[Optional['CreationDataArgs']]):
         pulumi.set(self, "creation_data", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_scaling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable auto-scaler
         """
         return pulumi.get(self, "enable_auto_scaling")
 
     @enable_auto_scaling.setter
-    def enable_auto_scaling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_scaling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_scaling", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEncryptionAtHost")
-    def enable_encryption_at_host(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_encryption_at_host(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable host based OS and data drive encryption. This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
         """
         return pulumi.get(self, "enable_encryption_at_host")
 
     @enable_encryption_at_host.setter
-    def enable_encryption_at_host(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_encryption_at_host(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_encryption_at_host", value)
 
     @_builtins.property
     @pulumi.getter(name="enableFIPS")
-    def enable_fips(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_fips(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use a FIPS-enabled OS. See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
         """
         return pulumi.get(self, "enable_fips")
 
     @enable_fips.setter
-    def enable_fips(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_fips(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_fips", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNodePublicIP")
-    def enable_node_public_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_node_public_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether each node is allocated its own public IP. Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
     @enable_node_public_ip.setter
-    def enable_node_public_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_node_public_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="enableUltraSSD")
-    def enable_ultra_ssd(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ultra_ssd(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable UltraSSD
         """
         return pulumi.get(self, "enable_ultra_ssd")
 
     @enable_ultra_ssd.setter
-    def enable_ultra_ssd(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ultra_ssd(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ultra_ssd", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayProfile")
-    def gateway_profile(self) -> Optional[pulumi.Input['AgentPoolGatewayProfileArgs']]:
+    def gateway_profile(self) -> pulumi.Input[Optional['AgentPoolGatewayProfileArgs']]:
         """
         Profile specific to a managed agent pool in Gateway mode. This field cannot be set if agent pool mode is not Gateway.
         """
         return pulumi.get(self, "gateway_profile")
 
     @gateway_profile.setter
-    def gateway_profile(self, value: Optional[pulumi.Input['AgentPoolGatewayProfileArgs']]):
+    def gateway_profile(self, value: pulumi.Input[Optional['AgentPoolGatewayProfileArgs']]):
         pulumi.set(self, "gateway_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuInstanceProfile")
-    def gpu_instance_profile(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GPUInstanceProfile']]]:
+    def gpu_instance_profile(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GPUInstanceProfile']]]:
         """
         GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
         """
         return pulumi.get(self, "gpu_instance_profile")
 
     @gpu_instance_profile.setter
-    def gpu_instance_profile(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GPUInstanceProfile']]]):
+    def gpu_instance_profile(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GPUInstanceProfile']]]):
         pulumi.set(self, "gpu_instance_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuProfile")
-    def gpu_profile(self) -> Optional[pulumi.Input['GPUProfileArgs']]:
+    def gpu_profile(self) -> pulumi.Input[Optional['GPUProfileArgs']]:
         """
         GPU settings for the Agent Pool.
         """
         return pulumi.get(self, "gpu_profile")
 
     @gpu_profile.setter
-    def gpu_profile(self, value: Optional[pulumi.Input['GPUProfileArgs']]):
+    def gpu_profile(self, value: pulumi.Input[Optional['GPUProfileArgs']]):
         pulumi.set(self, "gpu_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupID")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from, used only in creation scenario and not allowed to changed once set. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeletConfig")
-    def kubelet_config(self) -> Optional[pulumi.Input['KubeletConfigArgs']]:
+    def kubelet_config(self) -> pulumi.Input[Optional['KubeletConfigArgs']]:
         """
         The Kubelet configuration on the agent pool nodes.
         """
         return pulumi.get(self, "kubelet_config")
 
     @kubelet_config.setter
-    def kubelet_config(self, value: Optional[pulumi.Input['KubeletConfigArgs']]):
+    def kubelet_config(self, value: pulumi.Input[Optional['KubeletConfigArgs']]):
         pulumi.set(self, "kubelet_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeletDiskType")
-    def kubelet_disk_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KubeletDiskType']]]:
+    def kubelet_disk_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KubeletDiskType']]]:
         """
         Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
     @kubelet_disk_type.setter
-    def kubelet_disk_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KubeletDiskType']]]):
+    def kubelet_disk_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KubeletDiskType']]]):
         pulumi.set(self, "kubelet_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxOSConfig")
-    def linux_os_config(self) -> Optional[pulumi.Input['LinuxOSConfigArgs']]:
+    def linux_os_config(self) -> pulumi.Input[Optional['LinuxOSConfigArgs']]:
         """
         The OS configuration of Linux agent nodes.
         """
         return pulumi.get(self, "linux_os_config")
 
     @linux_os_config.setter
-    def linux_os_config(self, value: Optional[pulumi.Input['LinuxOSConfigArgs']]):
+    def linux_os_config(self, value: pulumi.Input[Optional['LinuxOSConfigArgs']]):
         pulumi.set(self, "linux_os_config", value)
 
     @_builtins.property
     @pulumi.getter(name="localDNSProfile")
-    def local_dns_profile(self) -> Optional[pulumi.Input['LocalDNSProfileArgs']]:
+    def local_dns_profile(self) -> pulumi.Input[Optional['LocalDNSProfileArgs']]:
         """
         Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
         """
         return pulumi.get(self, "local_dns_profile")
 
     @local_dns_profile.setter
-    def local_dns_profile(self, value: Optional[pulumi.Input['LocalDNSProfileArgs']]):
+    def local_dns_profile(self, value: pulumi.Input[Optional['LocalDNSProfileArgs']]):
         pulumi.set(self, "local_dns_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of nodes for auto-scaling
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_pods(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of pods that can run on a node.
         """
         return pulumi.get(self, "max_pods")
 
     @max_pods.setter
-    def max_pods(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_pods(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_pods", value)
 
     @_builtins.property
     @pulumi.getter(name="messageOfTheDay")
-    def message_of_the_day(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_of_the_day(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message of the day for Linux nodes, base64-encoded. A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         """
         return pulumi.get(self, "message_of_the_day")
 
     @message_of_the_day.setter
-    def message_of_the_day(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_of_the_day(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_of_the_day", value)
 
     @_builtins.property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of nodes for auto-scaling
         """
         return pulumi.get(self, "min_count")
 
     @min_count.setter
-    def min_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolMode']]]:
         """
         The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolMode']]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['AgentPoolNetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['AgentPoolNetworkProfileArgs']]:
         """
         Network-related settings of an agent pool.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['AgentPoolNetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['AgentPoolNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def node_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The node labels to be persisted across all nodes in agent pool.
         """
         return pulumi.get(self, "node_labels")
 
     @node_labels.setter
-    def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def node_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "node_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIPPrefixID")
-    def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public IP prefix ID which VM nodes should use IPs from. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
     @node_public_ip_prefix_id.setter
-    def node_public_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_public_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_public_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def node_taints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
         return pulumi.get(self, "node_taints")
 
     @node_taints.setter
-    def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def node_taints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "node_taints", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestratorVersion")
-    def orchestrator_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def orchestrator_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Kubernetes specified by the user. Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
         """
         return pulumi.get(self, "orchestrator_version")
 
     @orchestrator_version.setter
-    def orchestrator_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def orchestrator_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "orchestrator_version", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def os_disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def os_disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskType")
-    def os_disk_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OSDiskType']]]:
+    def os_disk_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OSDiskType']]]:
         """
         The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
         """
         return pulumi.get(self, "os_disk_type")
 
     @os_disk_type.setter
-    def os_disk_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OSDiskType']]]):
+    def os_disk_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OSDiskType']]]):
         pulumi.set(self, "os_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="osSKU")
-    def os_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OSSKU']]]:
+    def os_sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OSSKU']]]:
         """
         Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
         """
         return pulumi.get(self, "os_sku")
 
     @os_sku.setter
-    def os_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OSSKU']]]):
+    def os_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OSSKU']]]):
         pulumi.set(self, "os_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OSType']]]:
+    def os_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OSType']]]:
         """
         The operating system type. The default is Linux.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OSType']]]):
+    def os_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OSType']]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="podIPAllocationMode")
-    def pod_ip_allocation_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PodIPAllocationMode']]]:
+    def pod_ip_allocation_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PodIPAllocationMode']]]:
         """
         Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
         """
         return pulumi.get(self, "pod_ip_allocation_mode")
 
     @pod_ip_allocation_mode.setter
-    def pod_ip_allocation_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PodIPAllocationMode']]]):
+    def pod_ip_allocation_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PodIPAllocationMode']]]):
         pulumi.set(self, "pod_ip_allocation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="podSubnetID")
-    def pod_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subnet which pods will join when launched. If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "pod_subnet_id")
 
     @pod_subnet_id.setter
-    def pod_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="powerState")
-    def power_state(self) -> Optional[pulumi.Input['PowerStateArgs']]:
+    def power_state(self) -> pulumi.Input[Optional['PowerStateArgs']]:
         """
         Whether the Agent Pool is running or stopped. When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
         """
         return pulumi.get(self, "power_state")
 
     @power_state.setter
-    def power_state(self, value: Optional[pulumi.Input['PowerStateArgs']]):
+    def power_state(self, value: pulumi.Input[Optional['PowerStateArgs']]):
         pulumi.set(self, "power_state", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupID")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for Proximity Placement Group.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownMode")
-    def scale_down_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScaleDownMode']]]:
+    def scale_down_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScaleDownMode']]]:
         """
         The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
         """
         return pulumi.get(self, "scale_down_mode")
 
     @scale_down_mode.setter
-    def scale_down_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScaleDownMode']]]):
+    def scale_down_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScaleDownMode']]]):
         pulumi.set(self, "scale_down_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleSetEvictionPolicy")
-    def scale_set_eviction_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetEvictionPolicy']]]:
+    def scale_set_eviction_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetEvictionPolicy']]]:
         """
         The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         """
         return pulumi.get(self, "scale_set_eviction_policy")
 
     @scale_set_eviction_policy.setter
-    def scale_set_eviction_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetEvictionPolicy']]]):
+    def scale_set_eviction_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetEvictionPolicy']]]):
         pulumi.set(self, "scale_set_eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleSetPriority")
-    def scale_set_priority(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]]:
+    def scale_set_priority(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]]:
         """
         The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         """
         return pulumi.get(self, "scale_set_priority")
 
     @scale_set_priority.setter
-    def scale_set_priority(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScaleSetPriority']]]):
+    def scale_set_priority(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScaleSetPriority']]]):
         pulumi.set(self, "scale_set_priority", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['AgentPoolSecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['AgentPoolSecurityProfileArgs']]:
         """
         The security settings of an agent pool.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['AgentPoolSecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['AgentPoolSecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="spotMaxPrice")
-    def spot_max_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def spot_max_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The max price (in US Dollars) you are willing to pay for spot instances. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand. Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         """
         return pulumi.get(self, "spot_max_price")
 
     @spot_max_price.setter
-    def spot_max_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def spot_max_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "spot_max_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags to be persisted on the agent pool virtual machine scale set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolType']]]:
         """
         The type of Agent Pool.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']]:
+    def upgrade_settings(self) -> pulumi.Input[Optional['AgentPoolUpgradeSettingsArgs']]:
         """
         Settings for upgrading the agentpool
         """
         return pulumi.get(self, "upgrade_settings")
 
     @upgrade_settings.setter
-    def upgrade_settings(self, value: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']]):
+    def upgrade_settings(self, value: pulumi.Input[Optional['AgentPoolUpgradeSettingsArgs']]):
         pulumi.set(self, "upgrade_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineNodesStatus")
-    def virtual_machine_nodes_status(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNodesArgs']]]]:
+    def virtual_machine_nodes_status(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineNodesArgs']]]]:
         """
         The status of nodes in a VirtualMachines agent pool.
         """
         return pulumi.get(self, "virtual_machine_nodes_status")
 
     @virtual_machine_nodes_status.setter
-    def virtual_machine_nodes_status(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNodesArgs']]]]):
+    def virtual_machine_nodes_status(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineNodesArgs']]]]):
         pulumi.set(self, "virtual_machine_nodes_status", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachinesProfile")
-    def virtual_machines_profile(self) -> Optional[pulumi.Input['VirtualMachinesProfileArgs']]:
+    def virtual_machines_profile(self) -> pulumi.Input[Optional['VirtualMachinesProfileArgs']]:
         """
         Specifications on VirtualMachines agent pool.
         """
         return pulumi.get(self, "virtual_machines_profile")
 
     @virtual_machines_profile.setter
-    def virtual_machines_profile(self, value: Optional[pulumi.Input['VirtualMachinesProfileArgs']]):
+    def virtual_machines_profile(self, value: pulumi.Input[Optional['VirtualMachinesProfileArgs']]):
         pulumi.set(self, "virtual_machines_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the agent pool VMs. VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSubnetID")
-    def vnet_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subnet which agent pool nodes and optionally pods will join on startup. If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "vnet_subnet_id")
 
     @vnet_subnet_id.setter
-    def vnet_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional[pulumi.Input['AgentPoolWindowsProfileArgs']]:
+    def windows_profile(self) -> pulumi.Input[Optional['AgentPoolWindowsProfileArgs']]:
         """
         The Windows agent pool's specific profile.
         """
         return pulumi.get(self, "windows_profile")
 
     @windows_profile.setter
-    def windows_profile(self, value: Optional[pulumi.Input['AgentPoolWindowsProfileArgs']]):
+    def windows_profile(self, value: pulumi.Input[Optional['AgentPoolWindowsProfileArgs']]):
         pulumi.set(self, "windows_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadRuntime")
-    def workload_runtime(self) -> Optional[pulumi.Input[Union[_builtins.str, 'WorkloadRuntime']]]:
+    def workload_runtime(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WorkloadRuntime']]]:
         """
         Determines the type of workload a node can run.
         """
         return pulumi.get(self, "workload_runtime")
 
     @workload_runtime.setter
-    def workload_runtime(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WorkloadRuntime']]]):
+    def workload_runtime(self, value: pulumi.Input[Optional[Union[_builtins.str, 'WorkloadRuntime']]]):
         pulumi.set(self, "workload_runtime", value)
 
 
@@ -5264,11 +5264,11 @@ class ManagedClusterAutoUpgradeProfileArgsDict(TypedDict):
     """
     Auto upgrade profile for a managed cluster.
     """
-    node_os_upgrade_channel: NotRequired[pulumi.Input[Union[_builtins.str, 'NodeOSUpgradeChannel']]]
+    node_os_upgrade_channel: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NodeOSUpgradeChannel']]]]
     """
     Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
     """
-    upgrade_channel: NotRequired[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]]
+    upgrade_channel: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UpgradeChannel']]]]
     """
     The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
     """
@@ -5276,8 +5276,8 @@ class ManagedClusterAutoUpgradeProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterAutoUpgradeProfileArgs:
     def __init__(__self__, *,
-                 node_os_upgrade_channel: Optional[pulumi.Input[Union[_builtins.str, 'NodeOSUpgradeChannel']]] = None,
-                 upgrade_channel: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]] = None):
+                 node_os_upgrade_channel: pulumi.Input[Optional[Union[_builtins.str, 'NodeOSUpgradeChannel']]] = None,
+                 upgrade_channel: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeChannel']]] = None):
         """
         Auto upgrade profile for a managed cluster.
 
@@ -5291,38 +5291,72 @@ class ManagedClusterAutoUpgradeProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="nodeOSUpgradeChannel")
-    def node_os_upgrade_channel(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NodeOSUpgradeChannel']]]:
+    def node_os_upgrade_channel(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NodeOSUpgradeChannel']]]:
         """
         Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
         """
         return pulumi.get(self, "node_os_upgrade_channel")
 
     @node_os_upgrade_channel.setter
-    def node_os_upgrade_channel(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NodeOSUpgradeChannel']]]):
+    def node_os_upgrade_channel(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NodeOSUpgradeChannel']]]):
         pulumi.set(self, "node_os_upgrade_channel", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeChannel")
-    def upgrade_channel(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]]:
+    def upgrade_channel(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpgradeChannel']]]:
         """
         The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         """
         return pulumi.get(self, "upgrade_channel")
 
     @upgrade_channel.setter
-    def upgrade_channel(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]]):
+    def upgrade_channel(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpgradeChannel']]]):
         pulumi.set(self, "upgrade_channel", value)
+
+
+class ManagedClusterAzureMonitorProfileArgsDict(TypedDict):
+    """
+    Azure Monitor addon profiles for monitoring the managed cluster.
+    """
+    metrics: NotRequired[pulumi.Input[Optional['ManagedClusterAzureMonitorProfileMetricsArgsDict']]]
+    """
+    Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
+    """
+
+@pulumi.input_type
+class ManagedClusterAzureMonitorProfileArgs:
+    def __init__(__self__, *,
+                 metrics: pulumi.Input[Optional['ManagedClusterAzureMonitorProfileMetricsArgs']] = None):
+        """
+        Azure Monitor addon profiles for monitoring the managed cluster.
+
+        :param pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgs'] metrics: Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
+        """
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+
+    @_builtins.property
+    @pulumi.getter
+    def metrics(self) -> pulumi.Input[Optional['ManagedClusterAzureMonitorProfileMetricsArgs']]:
+        """
+        Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
+        """
+        return pulumi.get(self, "metrics")
+
+    @metrics.setter
+    def metrics(self, value: pulumi.Input[Optional['ManagedClusterAzureMonitorProfileMetricsArgs']]):
+        pulumi.set(self, "metrics", value)
 
 
 class ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict(TypedDict):
     """
     Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
     """
-    metric_annotations_allow_list: NotRequired[pulumi.Input[_builtins.str]]
+    metric_annotations_allow_list: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric (Example: 'namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...'). By default the metric contains only resource name and namespace labels.
     """
-    metric_labels_allowlist: NotRequired[pulumi.Input[_builtins.str]]
+    metric_labels_allowlist: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric (Example: 'namespaces=[k8s-label-1,k8s-label-n,...],pods=[app],...'). By default the metric contains only resource name and namespace labels.
     """
@@ -5330,8 +5364,8 @@ class ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterAzureMonitorProfileKubeStateMetricsArgs:
     def __init__(__self__, *,
-                 metric_annotations_allow_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_labels_allowlist: Optional[pulumi.Input[_builtins.str]] = None):
+                 metric_annotations_allow_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_labels_allowlist: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
 
@@ -5345,26 +5379,26 @@ class ManagedClusterAzureMonitorProfileKubeStateMetricsArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricAnnotationsAllowList")
-    def metric_annotations_allow_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_annotations_allow_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric (Example: 'namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...'). By default the metric contains only resource name and namespace labels.
         """
         return pulumi.get(self, "metric_annotations_allow_list")
 
     @metric_annotations_allow_list.setter
-    def metric_annotations_allow_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_annotations_allow_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_annotations_allow_list", value)
 
     @_builtins.property
     @pulumi.getter(name="metricLabelsAllowlist")
-    def metric_labels_allowlist(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_labels_allowlist(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric (Example: 'namespaces=[k8s-label-1,k8s-label-n,...],pods=[app],...'). By default the metric contains only resource name and namespace labels.
         """
         return pulumi.get(self, "metric_labels_allowlist")
 
     @metric_labels_allowlist.setter
-    def metric_labels_allowlist(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_labels_allowlist(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_labels_allowlist", value)
 
 
@@ -5376,7 +5410,7 @@ class ManagedClusterAzureMonitorProfileMetricsArgsDict(TypedDict):
     """
     Whether to enable or disable the Azure Managed Prometheus addon for Prometheus monitoring. See aka.ms/AzureManagedPrometheus-aks-enable for details on enabling and disabling.
     """
-    kube_state_metrics: NotRequired[pulumi.Input['ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict']]
+    kube_state_metrics: NotRequired[pulumi.Input[Optional['ManagedClusterAzureMonitorProfileKubeStateMetricsArgsDict']]]
     """
     Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
     """
@@ -5385,7 +5419,7 @@ class ManagedClusterAzureMonitorProfileMetricsArgsDict(TypedDict):
 class ManagedClusterAzureMonitorProfileMetricsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 kube_state_metrics: Optional[pulumi.Input['ManagedClusterAzureMonitorProfileKubeStateMetricsArgs']] = None):
+                 kube_state_metrics: pulumi.Input[Optional['ManagedClusterAzureMonitorProfileKubeStateMetricsArgs']] = None):
         """
         Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
 
@@ -5410,60 +5444,26 @@ class ManagedClusterAzureMonitorProfileMetricsArgs:
 
     @_builtins.property
     @pulumi.getter(name="kubeStateMetrics")
-    def kube_state_metrics(self) -> Optional[pulumi.Input['ManagedClusterAzureMonitorProfileKubeStateMetricsArgs']]:
+    def kube_state_metrics(self) -> pulumi.Input[Optional['ManagedClusterAzureMonitorProfileKubeStateMetricsArgs']]:
         """
         Kube State Metrics profile for the Azure Managed Prometheus addon. These optional settings are for the kube-state-metrics pod that is deployed with the addon. See aka.ms/AzureManagedPrometheus-optional-parameters for details.
         """
         return pulumi.get(self, "kube_state_metrics")
 
     @kube_state_metrics.setter
-    def kube_state_metrics(self, value: Optional[pulumi.Input['ManagedClusterAzureMonitorProfileKubeStateMetricsArgs']]):
+    def kube_state_metrics(self, value: pulumi.Input[Optional['ManagedClusterAzureMonitorProfileKubeStateMetricsArgs']]):
         pulumi.set(self, "kube_state_metrics", value)
-
-
-class ManagedClusterAzureMonitorProfileArgsDict(TypedDict):
-    """
-    Azure Monitor addon profiles for monitoring the managed cluster.
-    """
-    metrics: NotRequired[pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgsDict']]
-    """
-    Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
-    """
-
-@pulumi.input_type
-class ManagedClusterAzureMonitorProfileArgs:
-    def __init__(__self__, *,
-                 metrics: Optional[pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgs']] = None):
-        """
-        Azure Monitor addon profiles for monitoring the managed cluster.
-
-        :param pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgs'] metrics: Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
-        """
-        if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
-
-    @_builtins.property
-    @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgs']]:
-        """
-        Metrics profile for the Azure Monitor managed service for Prometheus addon. Collect out-of-the-box Kubernetes infrastructure metrics to send to an Azure Monitor Workspace and configure additional scraping for custom targets. See aka.ms/AzureManagedPrometheus for an overview.
-        """
-        return pulumi.get(self, "metrics")
-
-    @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input['ManagedClusterAzureMonitorProfileMetricsArgs']]):
-        pulumi.set(self, "metrics", value)
 
 
 class ManagedClusterBootstrapProfileArgsDict(TypedDict):
     """
     The bootstrap profile.
     """
-    artifact_source: NotRequired[pulumi.Input[Union[_builtins.str, 'ArtifactSource']]]
+    artifact_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ArtifactSource']]]]
     """
     The artifact source. The source where the artifacts are downloaded from.
     """
-    container_registry_id: NotRequired[pulumi.Input[_builtins.str]]
+    container_registry_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource Id of Azure Container Registry. The registry must have private network access, premium SKU and zone redundancy.
     """
@@ -5471,8 +5471,8 @@ class ManagedClusterBootstrapProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterBootstrapProfileArgs:
     def __init__(__self__, *,
-                 artifact_source: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactSource']]] = None,
-                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_source: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactSource']]] = None,
+                 container_registry_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The bootstrap profile.
 
@@ -5488,26 +5488,26 @@ class ManagedClusterBootstrapProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactSource")
-    def artifact_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ArtifactSource']]]:
+    def artifact_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ArtifactSource']]]:
         """
         The artifact source. The source where the artifacts are downloaded from.
         """
         return pulumi.get(self, "artifact_source")
 
     @artifact_source.setter
-    def artifact_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ArtifactSource']]]):
+    def artifact_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ArtifactSource']]]):
         pulumi.set(self, "artifact_source", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryId")
-    def container_registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of Azure Container Registry. The registry must have private network access, premium SKU and zone redundancy.
         """
         return pulumi.get(self, "container_registry_id")
 
     @container_registry_id.setter
-    def container_registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_id", value)
 
 
@@ -5515,7 +5515,7 @@ class ManagedClusterCostAnalysisArgsDict(TypedDict):
     """
     The cost analysis configuration for the cluster
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable cost analysis. The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
     """
@@ -5523,7 +5523,7 @@ class ManagedClusterCostAnalysisArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterCostAnalysisArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The cost analysis configuration for the cluster
 
@@ -5534,14 +5534,14 @@ class ManagedClusterCostAnalysisArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable cost analysis. The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -5549,19 +5549,19 @@ class ManagedClusterHTTPProxyConfigArgsDict(TypedDict):
     """
     Cluster HTTP proxy configuration.
     """
-    http_proxy: NotRequired[pulumi.Input[_builtins.str]]
+    http_proxy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP proxy server endpoint to use.
     """
-    https_proxy: NotRequired[pulumi.Input[_builtins.str]]
+    https_proxy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTPS proxy server endpoint to use.
     """
-    no_proxy: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    no_proxy: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The endpoints that should not go through proxy.
     """
-    trusted_ca: NotRequired[pulumi.Input[_builtins.str]]
+    trusted_ca: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Alternative CA cert to use for connecting to proxy servers.
     """
@@ -5569,10 +5569,10 @@ class ManagedClusterHTTPProxyConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterHTTPProxyConfigArgs:
     def __init__(__self__, *,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_proxy: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trusted_ca: Optional[pulumi.Input[_builtins.str]] = None):
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_proxy: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trusted_ca: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Cluster HTTP proxy configuration.
 
@@ -5592,50 +5592,50 @@ class ManagedClusterHTTPProxyConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpProxy")
-    def http_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP proxy server endpoint to use.
         """
         return pulumi.get(self, "http_proxy")
 
     @http_proxy.setter
-    def http_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsProxy")
-    def https_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTPS proxy server endpoint to use.
         """
         return pulumi.get(self, "https_proxy")
 
     @https_proxy.setter
-    def https_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="noProxy")
-    def no_proxy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def no_proxy(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The endpoints that should not go through proxy.
         """
         return pulumi.get(self, "no_proxy")
 
     @no_proxy.setter
-    def no_proxy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def no_proxy(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "no_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedCa")
-    def trusted_ca(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_ca(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alternative CA cert to use for connecting to proxy servers.
         """
         return pulumi.get(self, "trusted_ca")
 
     @trusted_ca.setter
-    def trusted_ca(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_ca(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_ca", value)
 
 
@@ -5643,15 +5643,15 @@ class ManagedClusterIdentityArgsDict(TypedDict):
     """
     Identity for the managed cluster.
     """
-    delegated_resources: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgsDict']]]]
+    delegated_resources: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DelegatedResourceArgsDict']]]]]
     """
     The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The user identity associated with the managed cluster. This identity will be used in control plane. Only one user assigned identity is allowed. The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -5659,9 +5659,9 @@ class ManagedClusterIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterIdentityArgs:
     def __init__(__self__, *,
-                 delegated_resources: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]] = None,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 delegated_resources: pulumi.Input[Optional[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]] = None,
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the managed cluster.
 
@@ -5678,43 +5678,77 @@ class ManagedClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegatedResources")
-    def delegated_resources(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]:
+    def delegated_resources(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]:
         """
         The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
         """
         return pulumi.get(self, "delegated_resources")
 
     @delegated_resources.setter
-    def delegated_resources(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]):
+    def delegated_resources(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]):
         pulumi.set(self, "delegated_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The user identity associated with the managed cluster. This identity will be used in control plane. Only one user assigned identity is allowed. The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
+class ManagedClusterIngressProfileArgsDict(TypedDict):
+    """
+    Ingress profile for the container service cluster.
+    """
+    web_app_routing: NotRequired[pulumi.Input[Optional['ManagedClusterIngressProfileWebAppRoutingArgsDict']]]
+    """
+    App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+    """
+
+@pulumi.input_type
+class ManagedClusterIngressProfileArgs:
+    def __init__(__self__, *,
+                 web_app_routing: pulumi.Input[Optional['ManagedClusterIngressProfileWebAppRoutingArgs']] = None):
+        """
+        Ingress profile for the container service cluster.
+
+        :param pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs'] web_app_routing: App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+        """
+        if web_app_routing is not None:
+            pulumi.set(__self__, "web_app_routing", web_app_routing)
+
+    @_builtins.property
+    @pulumi.getter(name="webAppRouting")
+    def web_app_routing(self) -> pulumi.Input[Optional['ManagedClusterIngressProfileWebAppRoutingArgs']]:
+        """
+        App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+        """
+        return pulumi.get(self, "web_app_routing")
+
+    @web_app_routing.setter
+    def web_app_routing(self, value: pulumi.Input[Optional['ManagedClusterIngressProfileWebAppRoutingArgs']]):
+        pulumi.set(self, "web_app_routing", value)
+
+
 class ManagedClusterIngressProfileNginxArgsDict(TypedDict):
-    default_ingress_controller_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NginxIngressControllerType']]]
+    default_ingress_controller_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NginxIngressControllerType']]]]
     """
     Ingress type for the default NginxIngressController custom resource
     """
@@ -5722,7 +5756,7 @@ class ManagedClusterIngressProfileNginxArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterIngressProfileNginxArgs:
     def __init__(__self__, *,
-                 default_ingress_controller_type: Optional[pulumi.Input[Union[_builtins.str, 'NginxIngressControllerType']]] = None):
+                 default_ingress_controller_type: pulumi.Input[Optional[Union[_builtins.str, 'NginxIngressControllerType']]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'NginxIngressControllerType']] default_ingress_controller_type: Ingress type for the default NginxIngressController custom resource
         """
@@ -5731,14 +5765,14 @@ class ManagedClusterIngressProfileNginxArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultIngressControllerType")
-    def default_ingress_controller_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NginxIngressControllerType']]]:
+    def default_ingress_controller_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NginxIngressControllerType']]]:
         """
         Ingress type for the default NginxIngressController custom resource
         """
         return pulumi.get(self, "default_ingress_controller_type")
 
     @default_ingress_controller_type.setter
-    def default_ingress_controller_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NginxIngressControllerType']]]):
+    def default_ingress_controller_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NginxIngressControllerType']]]):
         pulumi.set(self, "default_ingress_controller_type", value)
 
 
@@ -5746,15 +5780,15 @@ class ManagedClusterIngressProfileWebAppRoutingArgsDict(TypedDict):
     """
     Application Routing add-on settings for the ingress profile.
     """
-    dns_zone_resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_zone_resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable the Application Routing add-on.
     """
-    nginx: NotRequired[pulumi.Input['ManagedClusterIngressProfileNginxArgsDict']]
+    nginx: NotRequired[pulumi.Input[Optional['ManagedClusterIngressProfileNginxArgsDict']]]
     """
     Configuration for the default NginxIngressController. See more at https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller.
     """
@@ -5762,9 +5796,9 @@ class ManagedClusterIngressProfileWebAppRoutingArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterIngressProfileWebAppRoutingArgs:
     def __init__(__self__, *,
-                 dns_zone_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nginx: Optional[pulumi.Input['ManagedClusterIngressProfileNginxArgs']] = None):
+                 dns_zone_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nginx: pulumi.Input[Optional['ManagedClusterIngressProfileNginxArgs']] = None):
         """
         Application Routing add-on settings for the ingress profile.
 
@@ -5781,230 +5815,70 @@ class ManagedClusterIngressProfileWebAppRoutingArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsZoneResourceIds")
-    def dns_zone_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_zone_resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
         """
         return pulumi.get(self, "dns_zone_resource_ids")
 
     @dns_zone_resource_ids.setter
-    def dns_zone_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_zone_resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_zone_resource_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the Application Routing add-on.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def nginx(self) -> Optional[pulumi.Input['ManagedClusterIngressProfileNginxArgs']]:
+    def nginx(self) -> pulumi.Input[Optional['ManagedClusterIngressProfileNginxArgs']]:
         """
         Configuration for the default NginxIngressController. See more at https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller.
         """
         return pulumi.get(self, "nginx")
 
     @nginx.setter
-    def nginx(self, value: Optional[pulumi.Input['ManagedClusterIngressProfileNginxArgs']]):
+    def nginx(self, value: pulumi.Input[Optional['ManagedClusterIngressProfileNginxArgs']]):
         pulumi.set(self, "nginx", value)
-
-
-class ManagedClusterIngressProfileArgsDict(TypedDict):
-    """
-    Ingress profile for the container service cluster.
-    """
-    web_app_routing: NotRequired[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgsDict']]
-    """
-    App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
-    """
-
-@pulumi.input_type
-class ManagedClusterIngressProfileArgs:
-    def __init__(__self__, *,
-                 web_app_routing: Optional[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs']] = None):
-        """
-        Ingress profile for the container service cluster.
-
-        :param pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs'] web_app_routing: App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
-        """
-        if web_app_routing is not None:
-            pulumi.set(__self__, "web_app_routing", web_app_routing)
-
-    @_builtins.property
-    @pulumi.getter(name="webAppRouting")
-    def web_app_routing(self) -> Optional[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs']]:
-        """
-        App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
-        """
-        return pulumi.get(self, "web_app_routing")
-
-    @web_app_routing.setter
-    def web_app_routing(self, value: Optional[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs']]):
-        pulumi.set(self, "web_app_routing", value)
-
-
-class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict(TypedDict):
-    """
-    Desired managed outbound IPs for the cluster load balancer.
-    """
-    count: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-    """
-    count_i_pv6: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
-    """
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
-    def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 count_i_pv6: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        Desired managed outbound IPs for the cluster load balancer.
-
-        :param pulumi.Input[_builtins.int] count: The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        :param pulumi.Input[_builtins.int] count_i_pv6: The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
-        """
-        if count is None:
-            count = 1
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if count_i_pv6 is None:
-            count_i_pv6 = 0
-        if count_i_pv6 is not None:
-            pulumi.set(__self__, "count_i_pv6", count_i_pv6)
-
-    @_builtins.property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "count", value)
-
-    @_builtins.property
-    @pulumi.getter(name="countIPv6")
-    def count_i_pv6(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. 
-        """
-        return pulumi.get(self, "count_i_pv6")
-
-    @count_i_pv6.setter
-    def count_i_pv6(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "count_i_pv6", value)
-
-
-class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict(TypedDict):
-    """
-    Desired outbound IP Prefix resources for the cluster load balancer.
-    """
-    public_ip_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
-    """
-    A list of public IP prefix resources.
-    """
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
-    def __init__(__self__, *,
-                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
-        """
-        Desired outbound IP Prefix resources for the cluster load balancer.
-
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
-        """
-        if public_ip_prefixes is not None:
-            pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
-
-    @_builtins.property
-    @pulumi.getter(name="publicIPPrefixes")
-    def public_ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
-        """
-        A list of public IP prefix resources.
-        """
-        return pulumi.get(self, "public_ip_prefixes")
-
-    @public_ip_prefixes.setter
-    def public_ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
-        pulumi.set(self, "public_ip_prefixes", value)
-
-
-class ManagedClusterLoadBalancerProfileOutboundIPsArgsDict(TypedDict):
-    """
-    Desired outbound IP resources for the cluster load balancer.
-    """
-    public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
-    """
-    A list of public IP resources.
-    """
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
-    def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
-        """
-        Desired outbound IP resources for the cluster load balancer.
-
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
-        """
-        if public_ips is not None:
-            pulumi.set(__self__, "public_ips", public_ips)
-
-    @_builtins.property
-    @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
-        """
-        A list of public IP resources.
-        """
-        return pulumi.get(self, "public_ips")
-
-    @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
-        pulumi.set(self, "public_ips", value)
 
 
 class ManagedClusterLoadBalancerProfileArgsDict(TypedDict):
     """
     Profile of the managed cluster load balancer.
     """
-    allocated_outbound_ports: NotRequired[pulumi.Input[_builtins.int]]
+    allocated_outbound_ports: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
     """
-    backend_pool_type: NotRequired[pulumi.Input[Union[_builtins.str, 'BackendPoolType']]]
+    backend_pool_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BackendPoolType']]]]
     """
     The type of the managed inbound Load Balancer BackendPool.
     """
-    enable_multiple_standard_load_balancers: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_multiple_standard_load_balancers: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable multiple standard load balancers per AKS cluster or not.
     """
-    idle_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    idle_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
     """
-    managed_outbound_ips: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict']]
+    managed_outbound_ips: NotRequired[pulumi.Input[Optional['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict']]]
     """
     Desired managed outbound IPs for the cluster load balancer.
     """
-    outbound_ip_prefixes: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict']]
+    outbound_ip_prefixes: NotRequired[pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict']]]
     """
     Desired outbound IP Prefix resources for the cluster load balancer.
     """
-    outbound_ips: NotRequired[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgsDict']]
+    outbound_ips: NotRequired[pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPsArgsDict']]]
     """
     Desired outbound IP resources for the cluster load balancer.
     """
@@ -6012,13 +5886,13 @@ class ManagedClusterLoadBalancerProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileArgs:
     def __init__(__self__, *,
-                 allocated_outbound_ports: Optional[pulumi.Input[_builtins.int]] = None,
-                 backend_pool_type: Optional[pulumi.Input[Union[_builtins.str, 'BackendPoolType']]] = None,
-                 enable_multiple_standard_load_balancers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 managed_outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']] = None,
-                 outbound_ip_prefixes: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']] = None,
-                 outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']] = None):
+                 allocated_outbound_ports: pulumi.Input[Optional[_builtins.int]] = None,
+                 backend_pool_type: pulumi.Input[Optional[Union[_builtins.str, 'BackendPoolType']]] = None,
+                 enable_multiple_standard_load_balancers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 managed_outbound_ips: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']] = None,
+                 outbound_ip_prefixes: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']] = None,
+                 outbound_ips: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPsArgs']] = None):
         """
         Profile of the managed cluster load balancer.
 
@@ -6053,106 +5927,232 @@ class ManagedClusterLoadBalancerProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedOutboundPorts")
-    def allocated_outbound_ports(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocated_outbound_ports(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         """
         return pulumi.get(self, "allocated_outbound_ports")
 
     @allocated_outbound_ports.setter
-    def allocated_outbound_ports(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocated_outbound_ports(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocated_outbound_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="backendPoolType")
-    def backend_pool_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackendPoolType']]]:
+    def backend_pool_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BackendPoolType']]]:
         """
         The type of the managed inbound Load Balancer BackendPool.
         """
         return pulumi.get(self, "backend_pool_type")
 
     @backend_pool_type.setter
-    def backend_pool_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackendPoolType']]]):
+    def backend_pool_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BackendPoolType']]]):
         pulumi.set(self, "backend_pool_type", value)
 
     @_builtins.property
     @pulumi.getter(name="enableMultipleStandardLoadBalancers")
-    def enable_multiple_standard_load_balancers(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_multiple_standard_load_balancers(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable multiple standard load balancers per AKS cluster or not.
         """
         return pulumi.get(self, "enable_multiple_standard_load_balancers")
 
     @enable_multiple_standard_load_balancers.setter
-    def enable_multiple_standard_load_balancers(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_multiple_standard_load_balancers(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_multiple_standard_load_balancers", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="managedOutboundIPs")
-    def managed_outbound_ips(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]:
+    def managed_outbound_ips(self) -> pulumi.Input[Optional['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]:
         """
         Desired managed outbound IPs for the cluster load balancer.
         """
         return pulumi.get(self, "managed_outbound_ips")
 
     @managed_outbound_ips.setter
-    def managed_outbound_ips(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]):
+    def managed_outbound_ips(self, value: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]):
         pulumi.set(self, "managed_outbound_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIPPrefixes")
-    def outbound_ip_prefixes(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]:
+    def outbound_ip_prefixes(self) -> pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]:
         """
         Desired outbound IP Prefix resources for the cluster load balancer.
         """
         return pulumi.get(self, "outbound_ip_prefixes")
 
     @outbound_ip_prefixes.setter
-    def outbound_ip_prefixes(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]):
+    def outbound_ip_prefixes(self, value: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]):
         pulumi.set(self, "outbound_ip_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIPs")
-    def outbound_ips(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]:
+    def outbound_ips(self) -> pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]:
         """
         Desired outbound IP resources for the cluster load balancer.
         """
         return pulumi.get(self, "outbound_ips")
 
     @outbound_ips.setter
-    def outbound_ips(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]):
+    def outbound_ips(self, value: pulumi.Input[Optional['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]):
         pulumi.set(self, "outbound_ips", value)
+
+
+class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict(TypedDict):
+    """
+    Desired managed outbound IPs for the cluster load balancer.
+    """
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+    """
+    count_i_pv6: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+    """
+
+@pulumi.input_type
+class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 count_i_pv6: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Desired managed outbound IPs for the cluster load balancer.
+
+        :param pulumi.Input[_builtins.int] count: The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        :param pulumi.Input[_builtins.int] count_i_pv6: The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+        """
+        if count is None:
+            count = 1
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if count_i_pv6 is None:
+            count_i_pv6 = 0
+        if count_i_pv6 is not None:
+            pulumi.set(__self__, "count_i_pv6", count_i_pv6)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="countIPv6")
+    def count_i_pv6(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+        """
+        return pulumi.get(self, "count_i_pv6")
+
+    @count_i_pv6.setter
+    def count_i_pv6(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "count_i_pv6", value)
+
+
+class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgsDict(TypedDict):
+    """
+    Desired outbound IP Prefix resources for the cluster load balancer.
+    """
+    public_ip_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]]
+    """
+    A list of public IP prefix resources.
+    """
+
+@pulumi.input_type
+class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
+    def __init__(__self__, *,
+                 public_ip_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
+        """
+        Desired outbound IP Prefix resources for the cluster load balancer.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
+        """
+        if public_ip_prefixes is not None:
+            pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPPrefixes")
+    def public_ip_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        A list of public IP prefix resources.
+        """
+        return pulumi.get(self, "public_ip_prefixes")
+
+    @public_ip_prefixes.setter
+    def public_ip_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "public_ip_prefixes", value)
+
+
+class ManagedClusterLoadBalancerProfileOutboundIPsArgsDict(TypedDict):
+    """
+    Desired outbound IP resources for the cluster load balancer.
+    """
+    public_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]]
+    """
+    A list of public IP resources.
+    """
+
+@pulumi.input_type
+class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
+    def __init__(__self__, *,
+                 public_ips: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
+        """
+        Desired outbound IP resources for the cluster load balancer.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
+        """
+        if public_ips is not None:
+            pulumi.set(__self__, "public_ips", public_ips)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPs")
+    def public_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        A list of public IP resources.
+        """
+        return pulumi.get(self, "public_ips")
+
+    @public_ips.setter
+    def public_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "public_ips", value)
 
 
 class ManagedClusterManagedOutboundIPProfileArgsDict(TypedDict):
     """
     Profile of the managed outbound IP resources of the managed cluster.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
+    The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1.
     """
 
 @pulumi.input_type
 class ManagedClusterManagedOutboundIPProfileArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Profile of the managed outbound IP resources of the managed cluster.
 
-        :param pulumi.Input[_builtins.int] count: The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
+        :param pulumi.Input[_builtins.int] count: The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1.
         """
         if count is None:
             count = 1
@@ -6161,14 +6161,14 @@ class ManagedClusterManagedOutboundIPProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1. 
+        The desired number of outbound IPs created/managed by Azure. Allowed values must be in the range of 1 to 16 (inclusive). The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
 
@@ -6176,7 +6176,7 @@ class ManagedClusterMetricsProfileArgsDict(TypedDict):
     """
     The metrics profile for the ManagedCluster.
     """
-    cost_analysis: NotRequired[pulumi.Input['ManagedClusterCostAnalysisArgsDict']]
+    cost_analysis: NotRequired[pulumi.Input[Optional['ManagedClusterCostAnalysisArgsDict']]]
     """
     The configuration for detailed per-Kubernetes resource cost analysis.
     """
@@ -6184,7 +6184,7 @@ class ManagedClusterMetricsProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterMetricsProfileArgs:
     def __init__(__self__, *,
-                 cost_analysis: Optional[pulumi.Input['ManagedClusterCostAnalysisArgs']] = None):
+                 cost_analysis: pulumi.Input[Optional['ManagedClusterCostAnalysisArgs']] = None):
         """
         The metrics profile for the ManagedCluster.
 
@@ -6195,14 +6195,14 @@ class ManagedClusterMetricsProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="costAnalysis")
-    def cost_analysis(self) -> Optional[pulumi.Input['ManagedClusterCostAnalysisArgs']]:
+    def cost_analysis(self) -> pulumi.Input[Optional['ManagedClusterCostAnalysisArgs']]:
         """
         The configuration for detailed per-Kubernetes resource cost analysis.
         """
         return pulumi.get(self, "cost_analysis")
 
     @cost_analysis.setter
-    def cost_analysis(self, value: Optional[pulumi.Input['ManagedClusterCostAnalysisArgs']]):
+    def cost_analysis(self, value: pulumi.Input[Optional['ManagedClusterCostAnalysisArgs']]):
         pulumi.set(self, "cost_analysis", value)
 
 
@@ -6210,11 +6210,11 @@ class ManagedClusterNATGatewayProfileArgsDict(TypedDict):
     """
     Profile of the managed cluster NAT gateway.
     """
-    idle_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    idle_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.
     """
-    managed_outbound_ip_profile: NotRequired[pulumi.Input['ManagedClusterManagedOutboundIPProfileArgsDict']]
+    managed_outbound_ip_profile: NotRequired[pulumi.Input[Optional['ManagedClusterManagedOutboundIPProfileArgsDict']]]
     """
     Profile of the managed outbound IP resources of the cluster NAT gateway.
     """
@@ -6222,8 +6222,8 @@ class ManagedClusterNATGatewayProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterNATGatewayProfileArgs:
     def __init__(__self__, *,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 managed_outbound_ip_profile: Optional[pulumi.Input['ManagedClusterManagedOutboundIPProfileArgs']] = None):
+                 idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 managed_outbound_ip_profile: pulumi.Input[Optional['ManagedClusterManagedOutboundIPProfileArgs']] = None):
         """
         Profile of the managed cluster NAT gateway.
 
@@ -6239,35 +6239,35 @@ class ManagedClusterNATGatewayProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="managedOutboundIPProfile")
-    def managed_outbound_ip_profile(self) -> Optional[pulumi.Input['ManagedClusterManagedOutboundIPProfileArgs']]:
+    def managed_outbound_ip_profile(self) -> pulumi.Input[Optional['ManagedClusterManagedOutboundIPProfileArgs']]:
         """
         Profile of the managed outbound IP resources of the cluster NAT gateway.
         """
         return pulumi.get(self, "managed_outbound_ip_profile")
 
     @managed_outbound_ip_profile.setter
-    def managed_outbound_ip_profile(self, value: Optional[pulumi.Input['ManagedClusterManagedOutboundIPProfileArgs']]):
+    def managed_outbound_ip_profile(self, value: pulumi.Input[Optional['ManagedClusterManagedOutboundIPProfileArgs']]):
         pulumi.set(self, "managed_outbound_ip_profile", value)
 
 
 class ManagedClusterNodeProvisioningProfileArgsDict(TypedDict):
-    default_node_pools: NotRequired[pulumi.Input[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]]
+    default_node_pools: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]]]
     """
     The set of default Karpenter NodePools (CRDs) configured for node provisioning. This field has no effect unless mode is 'Auto'. Warning: Changing this from Auto to None on an existing cluster will cause the default Karpenter NodePools to be deleted, which will drain and delete the nodes associated with those pools. It is strongly recommended to not do this unless there are idle nodes ready to take the pods evicted by that action. If not specified, the default is Auto. For more information see aka.ms/aks/nap#node-pools.
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NodeProvisioningMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningMode']]]]
     """
     The node provisioning mode. If not specified, the default is Manual.
     """
@@ -6275,8 +6275,8 @@ class ManagedClusterNodeProvisioningProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterNodeProvisioningProfileArgs:
     def __init__(__self__, *,
-                 default_node_pools: Optional[pulumi.Input[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'NodeProvisioningMode']]] = None):
+                 default_node_pools: pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningMode']]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']] default_node_pools: The set of default Karpenter NodePools (CRDs) configured for node provisioning. This field has no effect unless mode is 'Auto'. Warning: Changing this from Auto to None on an existing cluster will cause the default Karpenter NodePools to be deleted, which will drain and delete the nodes associated with those pools. It is strongly recommended to not do this unless there are idle nodes ready to take the pods evicted by that action. If not specified, the default is Auto. For more information see aka.ms/aks/nap#node-pools.
         :param pulumi.Input[Union[_builtins.str, 'NodeProvisioningMode']] mode: The node provisioning mode. If not specified, the default is Manual.
@@ -6290,26 +6290,26 @@ class ManagedClusterNodeProvisioningProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultNodePools")
-    def default_node_pools(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]]:
+    def default_node_pools(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]]:
         """
         The set of default Karpenter NodePools (CRDs) configured for node provisioning. This field has no effect unless mode is 'Auto'. Warning: Changing this from Auto to None on an existing cluster will cause the default Karpenter NodePools to be deleted, which will drain and delete the nodes associated with those pools. It is strongly recommended to not do this unless there are idle nodes ready to take the pods evicted by that action. If not specified, the default is Auto. For more information see aka.ms/aks/nap#node-pools.
         """
         return pulumi.get(self, "default_node_pools")
 
     @default_node_pools.setter
-    def default_node_pools(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]]):
+    def default_node_pools(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningDefaultNodePools']]]):
         pulumi.set(self, "default_node_pools", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NodeProvisioningMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningMode']]]:
         """
         The node provisioning mode. If not specified, the default is Manual.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NodeProvisioningMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NodeProvisioningMode']]]):
         pulumi.set(self, "mode", value)
 
 
@@ -6317,7 +6317,7 @@ class ManagedClusterNodeResourceGroupProfileArgsDict(TypedDict):
     """
     Node resource group lockdown profile for a managed cluster.
     """
-    restriction_level: NotRequired[pulumi.Input[Union[_builtins.str, 'RestrictionLevel']]]
+    restriction_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RestrictionLevel']]]]
     """
     The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
     """
@@ -6325,7 +6325,7 @@ class ManagedClusterNodeResourceGroupProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterNodeResourceGroupProfileArgs:
     def __init__(__self__, *,
-                 restriction_level: Optional[pulumi.Input[Union[_builtins.str, 'RestrictionLevel']]] = None):
+                 restriction_level: pulumi.Input[Optional[Union[_builtins.str, 'RestrictionLevel']]] = None):
         """
         Node resource group lockdown profile for a managed cluster.
 
@@ -6336,14 +6336,14 @@ class ManagedClusterNodeResourceGroupProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="restrictionLevel")
-    def restriction_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RestrictionLevel']]]:
+    def restriction_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RestrictionLevel']]]:
         """
         The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
         """
         return pulumi.get(self, "restriction_level")
 
     @restriction_level.setter
-    def restriction_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RestrictionLevel']]]):
+    def restriction_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RestrictionLevel']]]):
         pulumi.set(self, "restriction_level", value)
 
 
@@ -6351,7 +6351,7 @@ class ManagedClusterOIDCIssuerProfileArgsDict(TypedDict):
     """
     The OIDC issuer profile of the Managed Cluster.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the OIDC issuer is enabled.
     """
@@ -6359,7 +6359,7 @@ class ManagedClusterOIDCIssuerProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterOIDCIssuerProfileArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The OIDC issuer profile of the Managed Cluster.
 
@@ -6370,15 +6370,106 @@ class ManagedClusterOIDCIssuerProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the OIDC issuer is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+class ManagedClusterPodIdentityArgsDict(TypedDict):
+    """
+    Details about the pod identity assigned to the Managed Cluster.
+    """
+    identity: pulumi.Input['UserAssignedIdentityArgsDict']
+    """
+    The user assigned identity details.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the pod identity.
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The namespace of the pod identity.
+    """
+    binding_selector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The binding selector to use for the AzureIdentityBinding resource.
+    """
+
+@pulumi.input_type
+class ManagedClusterPodIdentityArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input['UserAssignedIdentityArgs'],
+                 name: pulumi.Input[_builtins.str],
+                 namespace: pulumi.Input[_builtins.str],
+                 binding_selector: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Details about the pod identity assigned to the Managed Cluster.
+
+        :param pulumi.Input['UserAssignedIdentityArgs'] identity: The user assigned identity details.
+        :param pulumi.Input[_builtins.str] name: The name of the pod identity.
+        :param pulumi.Input[_builtins.str] namespace: The namespace of the pod identity.
+        :param pulumi.Input[_builtins.str] binding_selector: The binding selector to use for the AzureIdentityBinding resource.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        if binding_selector is not None:
+            pulumi.set(__self__, "binding_selector", binding_selector)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['UserAssignedIdentityArgs']:
+        """
+        The user assigned identity details.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['UserAssignedIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the pod identity.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[_builtins.str]:
+        """
+        The namespace of the pod identity.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bindingSelector")
+    def binding_selector(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The binding selector to use for the AzureIdentityBinding resource.
+        """
+        return pulumi.get(self, "binding_selector")
+
+    @binding_selector.setter
+    def binding_selector(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "binding_selector", value)
 
 
 class ManagedClusterPodIdentityExceptionArgsDict(TypedDict):
@@ -6456,19 +6547,19 @@ class ManagedClusterPodIdentityProfileArgsDict(TypedDict):
     """
     The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
     """
-    allow_network_plugin_kubenet: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_network_plugin_kubenet: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether pod identity is allowed to run on clusters with Kubenet networking. Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the pod identity addon is enabled.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgsDict']]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityArgsDict']]]]]
     """
     The pod identities to use in the cluster.
     """
-    user_assigned_identity_exceptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgsDict']]]]
+    user_assigned_identity_exceptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgsDict']]]]]
     """
     The pod identity exceptions to allow.
     """
@@ -6476,10 +6567,10 @@ class ManagedClusterPodIdentityProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterPodIdentityProfileArgs:
     def __init__(__self__, *,
-                 allow_network_plugin_kubenet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]] = None,
-                 user_assigned_identity_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]] = None):
+                 allow_network_plugin_kubenet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]] = None,
+                 user_assigned_identity_exceptions: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]] = None):
         """
         The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
 
@@ -6499,225 +6590,134 @@ class ManagedClusterPodIdentityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowNetworkPluginKubenet")
-    def allow_network_plugin_kubenet(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_network_plugin_kubenet(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether pod identity is allowed to run on clusters with Kubenet networking. Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
         """
         return pulumi.get(self, "allow_network_plugin_kubenet")
 
     @allow_network_plugin_kubenet.setter
-    def allow_network_plugin_kubenet(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_network_plugin_kubenet(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_network_plugin_kubenet", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the pod identity addon is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]]:
         """
         The pod identities to use in the cluster.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityExceptions")
-    def user_assigned_identity_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]]:
+    def user_assigned_identity_exceptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]]:
         """
         The pod identity exceptions to allow.
         """
         return pulumi.get(self, "user_assigned_identity_exceptions")
 
     @user_assigned_identity_exceptions.setter
-    def user_assigned_identity_exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]]):
+    def user_assigned_identity_exceptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]]):
         pulumi.set(self, "user_assigned_identity_exceptions", value)
-
-
-class ManagedClusterPodIdentityArgsDict(TypedDict):
-    """
-    Details about the pod identity assigned to the Managed Cluster.
-    """
-    identity: pulumi.Input['UserAssignedIdentityArgsDict']
-    """
-    The user assigned identity details.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the pod identity.
-    """
-    namespace: pulumi.Input[_builtins.str]
-    """
-    The namespace of the pod identity.
-    """
-    binding_selector: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The binding selector to use for the AzureIdentityBinding resource.
-    """
-
-@pulumi.input_type
-class ManagedClusterPodIdentityArgs:
-    def __init__(__self__, *,
-                 identity: pulumi.Input['UserAssignedIdentityArgs'],
-                 name: pulumi.Input[_builtins.str],
-                 namespace: pulumi.Input[_builtins.str],
-                 binding_selector: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Details about the pod identity assigned to the Managed Cluster.
-
-        :param pulumi.Input['UserAssignedIdentityArgs'] identity: The user assigned identity details.
-        :param pulumi.Input[_builtins.str] name: The name of the pod identity.
-        :param pulumi.Input[_builtins.str] namespace: The namespace of the pod identity.
-        :param pulumi.Input[_builtins.str] binding_selector: The binding selector to use for the AzureIdentityBinding resource.
-        """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        if binding_selector is not None:
-            pulumi.set(__self__, "binding_selector", binding_selector)
-
-    @_builtins.property
-    @pulumi.getter
-    def identity(self) -> pulumi.Input['UserAssignedIdentityArgs']:
-        """
-        The user assigned identity details.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: pulumi.Input['UserAssignedIdentityArgs']):
-        pulumi.set(self, "identity", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the pod identity.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def namespace(self) -> pulumi.Input[_builtins.str]:
-        """
-        The namespace of the pod identity.
-        """
-        return pulumi.get(self, "namespace")
-
-    @namespace.setter
-    def namespace(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "namespace", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bindingSelector")
-    def binding_selector(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The binding selector to use for the AzureIdentityBinding resource.
-        """
-        return pulumi.get(self, "binding_selector")
-
-    @binding_selector.setter
-    def binding_selector(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "binding_selector", value)
 
 
 class ManagedClusterPropertiesAutoScalerProfileArgsDict(TypedDict):
     """
     Parameters to be applied to the cluster-autoscaler when enabled
     """
-    balance_similar_node_groups: NotRequired[pulumi.Input[_builtins.str]]
+    balance_similar_node_groups: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'
     """
-    daemonset_eviction_for_empty_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    daemonset_eviction_for_empty_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
     """
-    daemonset_eviction_for_occupied_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    daemonset_eviction_for_occupied_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
     """
-    expander: NotRequired[pulumi.Input[Union[_builtins.str, 'Expander']]]
+    expander: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Expander']]]]
     """
     The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
     """
-    ignore_daemonsets_utilization: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_daemonsets_utilization: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should CA ignore DaemonSet pods when calculating resource utilization for scaling down. If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
     """
-    max_empty_bulk_delete: NotRequired[pulumi.Input[_builtins.str]]
+    max_empty_bulk_delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum number of empty nodes that can be deleted at the same time. This must be a positive integer. The default is 10.
     """
-    max_graceful_termination_sec: NotRequired[pulumi.Input[_builtins.str]]
+    max_graceful_termination_sec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. The default is 600.
     """
-    max_node_provision_time: NotRequired[pulumi.Input[_builtins.str]]
+    max_node_provision_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum time the autoscaler waits for a node to be provisioned. The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
     """
-    max_total_unready_percentage: NotRequired[pulumi.Input[_builtins.str]]
+    max_total_unready_percentage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum percentage of unready nodes in the cluster. After this percentage is exceeded, cluster autoscaler halts operations. The default is 45. The maximum is 100 and the minimum is 0.
     """
-    new_pod_scale_up_delay: NotRequired[pulumi.Input[_builtins.str]]
+    new_pod_scale_up_delay: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ignore unscheduled pods before they're a certain age. For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
     """
-    ok_total_unready_count: NotRequired[pulumi.Input[_builtins.str]]
+    ok_total_unready_count: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The number of allowed unready nodes, irrespective of max-total-unready-percentage. This must be an integer. The default is 3.
     """
-    scale_down_delay_after_add: NotRequired[pulumi.Input[_builtins.str]]
+    scale_down_delay_after_add: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How long after scale up that scale down evaluation resumes. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
     """
-    scale_down_delay_after_delete: NotRequired[pulumi.Input[_builtins.str]]
+    scale_down_delay_after_delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How long after node deletion that scale down evaluation resumes. The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
     """
-    scale_down_delay_after_failure: NotRequired[pulumi.Input[_builtins.str]]
+    scale_down_delay_after_failure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How long after scale down failure that scale down evaluation resumes. The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
     """
-    scale_down_unneeded_time: NotRequired[pulumi.Input[_builtins.str]]
+    scale_down_unneeded_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How long a node should be unneeded before it is eligible for scale down. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
     """
-    scale_down_unready_time: NotRequired[pulumi.Input[_builtins.str]]
+    scale_down_unready_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How long an unready node should be unneeded before it is eligible for scale down. The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
     """
-    scale_down_utilization_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    scale_down_utilization_threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. The default is '0.5'.
     """
-    scan_interval: NotRequired[pulumi.Input[_builtins.str]]
+    scan_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How often cluster is reevaluated for scale up or down. The default is '10'. Values must be an integer number of seconds.
     """
-    skip_nodes_with_local_storage: NotRequired[pulumi.Input[_builtins.str]]
+    skip_nodes_with_local_storage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If cluster autoscaler will skip deleting nodes with pods with local storage, for example, EmptyDir or HostPath. The default is true.
     """
-    skip_nodes_with_system_pods: NotRequired[pulumi.Input[_builtins.str]]
+    skip_nodes_with_system_pods: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If cluster autoscaler will skip deleting nodes with pods from kube-system (except for DaemonSet or mirror pods). The default is true.
     """
@@ -6725,26 +6725,26 @@ class ManagedClusterPropertiesAutoScalerProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterPropertiesAutoScalerProfileArgs:
     def __init__(__self__, *,
-                 balance_similar_node_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 daemonset_eviction_for_empty_nodes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daemonset_eviction_for_occupied_nodes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expander: Optional[pulumi.Input[Union[_builtins.str, 'Expander']]] = None,
-                 ignore_daemonsets_utilization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_empty_bulk_delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_graceful_termination_sec: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_node_provision_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_total_unready_percentage: Optional[pulumi.Input[_builtins.str]] = None,
-                 new_pod_scale_up_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 ok_total_unready_count: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_delay_after_add: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_delay_after_delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_delay_after_failure: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_unneeded_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_unready_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_utilization_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_nodes_with_local_storage: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_nodes_with_system_pods: Optional[pulumi.Input[_builtins.str]] = None):
+                 balance_similar_node_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 daemonset_eviction_for_empty_nodes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daemonset_eviction_for_occupied_nodes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expander: pulumi.Input[Optional[Union[_builtins.str, 'Expander']]] = None,
+                 ignore_daemonsets_utilization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_empty_bulk_delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_graceful_termination_sec: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_node_provision_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_total_unready_percentage: pulumi.Input[Optional[_builtins.str]] = None,
+                 new_pod_scale_up_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 ok_total_unready_count: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_delay_after_add: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_delay_after_delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_delay_after_failure: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_unneeded_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_unready_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_utilization_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_nodes_with_local_storage: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_nodes_with_system_pods: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters to be applied to the cluster-autoscaler when enabled
 
@@ -6812,242 +6812,242 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="balanceSimilarNodeGroups")
-    def balance_similar_node_groups(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def balance_similar_node_groups(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'
         """
         return pulumi.get(self, "balance_similar_node_groups")
 
     @balance_similar_node_groups.setter
-    def balance_similar_node_groups(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def balance_similar_node_groups(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "balance_similar_node_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="daemonsetEvictionForEmptyNodes")
-    def daemonset_eviction_for_empty_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def daemonset_eviction_for_empty_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         """
         return pulumi.get(self, "daemonset_eviction_for_empty_nodes")
 
     @daemonset_eviction_for_empty_nodes.setter
-    def daemonset_eviction_for_empty_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def daemonset_eviction_for_empty_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "daemonset_eviction_for_empty_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="daemonsetEvictionForOccupiedNodes")
-    def daemonset_eviction_for_occupied_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def daemonset_eviction_for_occupied_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         """
         return pulumi.get(self, "daemonset_eviction_for_occupied_nodes")
 
     @daemonset_eviction_for_occupied_nodes.setter
-    def daemonset_eviction_for_occupied_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def daemonset_eviction_for_occupied_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "daemonset_eviction_for_occupied_nodes", value)
 
     @_builtins.property
     @pulumi.getter
-    def expander(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Expander']]]:
+    def expander(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Expander']]]:
         """
         The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
         """
         return pulumi.get(self, "expander")
 
     @expander.setter
-    def expander(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Expander']]]):
+    def expander(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Expander']]]):
         pulumi.set(self, "expander", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDaemonsetsUtilization")
-    def ignore_daemonsets_utilization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_daemonsets_utilization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should CA ignore DaemonSet pods when calculating resource utilization for scaling down. If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
         """
         return pulumi.get(self, "ignore_daemonsets_utilization")
 
     @ignore_daemonsets_utilization.setter
-    def ignore_daemonsets_utilization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_daemonsets_utilization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_daemonsets_utilization", value)
 
     @_builtins.property
     @pulumi.getter(name="maxEmptyBulkDelete")
-    def max_empty_bulk_delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_empty_bulk_delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of empty nodes that can be deleted at the same time. This must be a positive integer. The default is 10.
         """
         return pulumi.get(self, "max_empty_bulk_delete")
 
     @max_empty_bulk_delete.setter
-    def max_empty_bulk_delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_empty_bulk_delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_empty_bulk_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="maxGracefulTerminationSec")
-    def max_graceful_termination_sec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_graceful_termination_sec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. The default is 600.
         """
         return pulumi.get(self, "max_graceful_termination_sec")
 
     @max_graceful_termination_sec.setter
-    def max_graceful_termination_sec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_graceful_termination_sec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_graceful_termination_sec", value)
 
     @_builtins.property
     @pulumi.getter(name="maxNodeProvisionTime")
-    def max_node_provision_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_node_provision_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum time the autoscaler waits for a node to be provisioned. The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "max_node_provision_time")
 
     @max_node_provision_time.setter
-    def max_node_provision_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_node_provision_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_node_provision_time", value)
 
     @_builtins.property
     @pulumi.getter(name="maxTotalUnreadyPercentage")
-    def max_total_unready_percentage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_total_unready_percentage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum percentage of unready nodes in the cluster. After this percentage is exceeded, cluster autoscaler halts operations. The default is 45. The maximum is 100 and the minimum is 0.
         """
         return pulumi.get(self, "max_total_unready_percentage")
 
     @max_total_unready_percentage.setter
-    def max_total_unready_percentage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_total_unready_percentage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_total_unready_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="newPodScaleUpDelay")
-    def new_pod_scale_up_delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def new_pod_scale_up_delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ignore unscheduled pods before they're a certain age. For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
         """
         return pulumi.get(self, "new_pod_scale_up_delay")
 
     @new_pod_scale_up_delay.setter
-    def new_pod_scale_up_delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def new_pod_scale_up_delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "new_pod_scale_up_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="okTotalUnreadyCount")
-    def ok_total_unready_count(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ok_total_unready_count(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of allowed unready nodes, irrespective of max-total-unready-percentage. This must be an integer. The default is 3.
         """
         return pulumi.get(self, "ok_total_unready_count")
 
     @ok_total_unready_count.setter
-    def ok_total_unready_count(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ok_total_unready_count(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ok_total_unready_count", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownDelayAfterAdd")
-    def scale_down_delay_after_add(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_delay_after_add(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long after scale up that scale down evaluation resumes. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_delay_after_add")
 
     @scale_down_delay_after_add.setter
-    def scale_down_delay_after_add(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_delay_after_add(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_delay_after_add", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownDelayAfterDelete")
-    def scale_down_delay_after_delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_delay_after_delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long after node deletion that scale down evaluation resumes. The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_delay_after_delete")
 
     @scale_down_delay_after_delete.setter
-    def scale_down_delay_after_delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_delay_after_delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_delay_after_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownDelayAfterFailure")
-    def scale_down_delay_after_failure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_delay_after_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long after scale down failure that scale down evaluation resumes. The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_delay_after_failure")
 
     @scale_down_delay_after_failure.setter
-    def scale_down_delay_after_failure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_delay_after_failure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_delay_after_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownUnneededTime")
-    def scale_down_unneeded_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_unneeded_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long a node should be unneeded before it is eligible for scale down. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_unneeded_time")
 
     @scale_down_unneeded_time.setter
-    def scale_down_unneeded_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_unneeded_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_unneeded_time", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownUnreadyTime")
-    def scale_down_unready_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_unready_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long an unready node should be unneeded before it is eligible for scale down. The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_unready_time")
 
     @scale_down_unready_time.setter
-    def scale_down_unready_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_unready_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_unready_time", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownUtilizationThreshold")
-    def scale_down_utilization_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_utilization_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. The default is '0.5'.
         """
         return pulumi.get(self, "scale_down_utilization_threshold")
 
     @scale_down_utilization_threshold.setter
-    def scale_down_utilization_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_utilization_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_utilization_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="scanInterval")
-    def scan_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scan_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How often cluster is reevaluated for scale up or down. The default is '10'. Values must be an integer number of seconds.
         """
         return pulumi.get(self, "scan_interval")
 
     @scan_interval.setter
-    def scan_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scan_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scan_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="skipNodesWithLocalStorage")
-    def skip_nodes_with_local_storage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def skip_nodes_with_local_storage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If cluster autoscaler will skip deleting nodes with pods with local storage, for example, EmptyDir or HostPath. The default is true.
         """
         return pulumi.get(self, "skip_nodes_with_local_storage")
 
     @skip_nodes_with_local_storage.setter
-    def skip_nodes_with_local_storage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def skip_nodes_with_local_storage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "skip_nodes_with_local_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="skipNodesWithSystemPods")
-    def skip_nodes_with_system_pods(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def skip_nodes_with_system_pods(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If cluster autoscaler will skip deleting nodes with pods from kube-system (except for DaemonSet or mirror pods). The default is true.
         """
         return pulumi.get(self, "skip_nodes_with_system_pods")
 
     @skip_nodes_with_system_pods.setter
-    def skip_nodes_with_system_pods(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def skip_nodes_with_system_pods(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "skip_nodes_with_system_pods", value)
 
 
@@ -7055,11 +7055,11 @@ class ManagedClusterSKUArgsDict(TypedDict):
     """
     The SKU of a Managed Cluster.
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUName']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUName']]]]
     """
     The name of a managed cluster SKU.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUTier']]]]
     """
     The tier of a managed cluster SKU. If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
     """
@@ -7067,8 +7067,8 @@ class ManagedClusterSKUArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterSKUArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUName']]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUTier']]] = None):
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUName']]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUTier']]] = None):
         """
         The SKU of a Managed Cluster.
 
@@ -7082,226 +7082,50 @@ class ManagedClusterSKUArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUName']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUName']]]:
         """
         The name of a managed cluster SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUName']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUName']]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUTier']]]:
         """
         The tier of a managed cluster SKU. If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedClusterSKUTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedClusterSKUTier']]]):
         pulumi.set(self, "tier", value)
-
-
-class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict(TypedDict):
-    """
-    Microsoft Defender settings for the security profile threat detection.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to enable Defender threat detection
-    """
-
-@pulumi.input_type
-class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Microsoft Defender settings for the security profile threat detection.
-
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable Defender threat detection
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Defender threat detection
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-class ManagedClusterSecurityProfileDefenderArgsDict(TypedDict):
-    """
-    Microsoft Defender settings for the security profile.
-    """
-    log_analytics_workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
-    """
-    security_monitoring: NotRequired[pulumi.Input['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict']]
-    """
-    Microsoft Defender threat detection for Cloud settings for the security profile.
-    """
-
-@pulumi.input_type
-class ManagedClusterSecurityProfileDefenderArgs:
-    def __init__(__self__, *,
-                 log_analytics_workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_monitoring: Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs']] = None):
-        """
-        Microsoft Defender settings for the security profile.
-
-        :param pulumi.Input[_builtins.str] log_analytics_workspace_resource_id: Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
-        :param pulumi.Input['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs'] security_monitoring: Microsoft Defender threat detection for Cloud settings for the security profile.
-        """
-        if log_analytics_workspace_resource_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_resource_id", log_analytics_workspace_resource_id)
-        if security_monitoring is not None:
-            pulumi.set(__self__, "security_monitoring", security_monitoring)
-
-    @_builtins.property
-    @pulumi.getter(name="logAnalyticsWorkspaceResourceId")
-    def log_analytics_workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
-        """
-        return pulumi.get(self, "log_analytics_workspace_resource_id")
-
-    @log_analytics_workspace_resource_id.setter
-    def log_analytics_workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "log_analytics_workspace_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityMonitoring")
-    def security_monitoring(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs']]:
-        """
-        Microsoft Defender threat detection for Cloud settings for the security profile.
-        """
-        return pulumi.get(self, "security_monitoring")
-
-    @security_monitoring.setter
-    def security_monitoring(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs']]):
-        pulumi.set(self, "security_monitoring", value)
-
-
-class ManagedClusterSecurityProfileImageCleanerArgsDict(TypedDict):
-    """
-    Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to enable Image Cleaner on AKS cluster.
-    """
-    interval_hours: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Image Cleaner scanning interval in hours.
-    """
-
-@pulumi.input_type
-class ManagedClusterSecurityProfileImageCleanerArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interval_hours: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile.
-
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable Image Cleaner on AKS cluster.
-        :param pulumi.Input[_builtins.int] interval_hours: Image Cleaner scanning interval in hours.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if interval_hours is not None:
-            pulumi.set(__self__, "interval_hours", interval_hours)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Image Cleaner on AKS cluster.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="intervalHours")
-    def interval_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Image Cleaner scanning interval in hours.
-        """
-        return pulumi.get(self, "interval_hours")
-
-    @interval_hours.setter
-    def interval_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "interval_hours", value)
-
-
-class ManagedClusterSecurityProfileWorkloadIdentityArgsDict(TypedDict):
-    """
-    Workload identity settings for the security profile.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to enable workload identity.
-    """
-
-@pulumi.input_type
-class ManagedClusterSecurityProfileWorkloadIdentityArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Workload identity settings for the security profile.
-
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable workload identity.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable workload identity.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
 
 
 class ManagedClusterSecurityProfileArgsDict(TypedDict):
     """
     Security profile for the container service cluster.
     """
-    azure_key_vault_kms: NotRequired[pulumi.Input['AzureKeyVaultKmsArgsDict']]
+    azure_key_vault_kms: NotRequired[pulumi.Input[Optional['AzureKeyVaultKmsArgsDict']]]
     """
     Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
     """
-    custom_ca_trust_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    custom_ca_trust_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of up to 10 base64 encoded CAs that will be added to the trust store on all nodes in the cluster. For more information see [Custom CA Trust Certificates](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority).
     """
-    defender: NotRequired[pulumi.Input['ManagedClusterSecurityProfileDefenderArgsDict']]
+    defender: NotRequired[pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderArgsDict']]]
     """
     Microsoft Defender settings for the security profile.
     """
-    image_cleaner: NotRequired[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgsDict']]
+    image_cleaner: NotRequired[pulumi.Input[Optional['ManagedClusterSecurityProfileImageCleanerArgsDict']]]
     """
     Image Cleaner settings for the security profile.
     """
-    workload_identity: NotRequired[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgsDict']]
+    workload_identity: NotRequired[pulumi.Input[Optional['ManagedClusterSecurityProfileWorkloadIdentityArgsDict']]]
     """
     Workload identity settings for the security profile. Workload identity enables Kubernetes applications to access Azure cloud resources securely with Azure AD. See https://aka.ms/aks/wi for more details.
     """
@@ -7309,11 +7133,11 @@ class ManagedClusterSecurityProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterSecurityProfileArgs:
     def __init__(__self__, *,
-                 azure_key_vault_kms: Optional[pulumi.Input['AzureKeyVaultKmsArgs']] = None,
-                 custom_ca_trust_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 defender: Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderArgs']] = None,
-                 image_cleaner: Optional[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgs']] = None,
-                 workload_identity: Optional[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgs']] = None):
+                 azure_key_vault_kms: pulumi.Input[Optional['AzureKeyVaultKmsArgs']] = None,
+                 custom_ca_trust_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 defender: pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderArgs']] = None,
+                 image_cleaner: pulumi.Input[Optional['ManagedClusterSecurityProfileImageCleanerArgs']] = None,
+                 workload_identity: pulumi.Input[Optional['ManagedClusterSecurityProfileWorkloadIdentityArgs']] = None):
         """
         Security profile for the container service cluster.
 
@@ -7336,63 +7160,239 @@ class ManagedClusterSecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureKeyVaultKms")
-    def azure_key_vault_kms(self) -> Optional[pulumi.Input['AzureKeyVaultKmsArgs']]:
+    def azure_key_vault_kms(self) -> pulumi.Input[Optional['AzureKeyVaultKmsArgs']]:
         """
         Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
         """
         return pulumi.get(self, "azure_key_vault_kms")
 
     @azure_key_vault_kms.setter
-    def azure_key_vault_kms(self, value: Optional[pulumi.Input['AzureKeyVaultKmsArgs']]):
+    def azure_key_vault_kms(self, value: pulumi.Input[Optional['AzureKeyVaultKmsArgs']]):
         pulumi.set(self, "azure_key_vault_kms", value)
 
     @_builtins.property
     @pulumi.getter(name="customCATrustCertificates")
-    def custom_ca_trust_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_ca_trust_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of up to 10 base64 encoded CAs that will be added to the trust store on all nodes in the cluster. For more information see [Custom CA Trust Certificates](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority).
         """
         return pulumi.get(self, "custom_ca_trust_certificates")
 
     @custom_ca_trust_certificates.setter
-    def custom_ca_trust_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_ca_trust_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_ca_trust_certificates", value)
 
     @_builtins.property
     @pulumi.getter
-    def defender(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderArgs']]:
+    def defender(self) -> pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderArgs']]:
         """
         Microsoft Defender settings for the security profile.
         """
         return pulumi.get(self, "defender")
 
     @defender.setter
-    def defender(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileDefenderArgs']]):
+    def defender(self, value: pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderArgs']]):
         pulumi.set(self, "defender", value)
 
     @_builtins.property
     @pulumi.getter(name="imageCleaner")
-    def image_cleaner(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgs']]:
+    def image_cleaner(self) -> pulumi.Input[Optional['ManagedClusterSecurityProfileImageCleanerArgs']]:
         """
         Image Cleaner settings for the security profile.
         """
         return pulumi.get(self, "image_cleaner")
 
     @image_cleaner.setter
-    def image_cleaner(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileImageCleanerArgs']]):
+    def image_cleaner(self, value: pulumi.Input[Optional['ManagedClusterSecurityProfileImageCleanerArgs']]):
         pulumi.set(self, "image_cleaner", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentity")
-    def workload_identity(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgs']]:
+    def workload_identity(self) -> pulumi.Input[Optional['ManagedClusterSecurityProfileWorkloadIdentityArgs']]:
         """
         Workload identity settings for the security profile. Workload identity enables Kubernetes applications to access Azure cloud resources securely with Azure AD. See https://aka.ms/aks/wi for more details.
         """
         return pulumi.get(self, "workload_identity")
 
     @workload_identity.setter
-    def workload_identity(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileWorkloadIdentityArgs']]):
+    def workload_identity(self, value: pulumi.Input[Optional['ManagedClusterSecurityProfileWorkloadIdentityArgs']]):
         pulumi.set(self, "workload_identity", value)
+
+
+class ManagedClusterSecurityProfileDefenderArgsDict(TypedDict):
+    """
+    Microsoft Defender settings for the security profile.
+    """
+    log_analytics_workspace_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
+    """
+    security_monitoring: NotRequired[pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict']]]
+    """
+    Microsoft Defender threat detection for Cloud settings for the security profile.
+    """
+
+@pulumi.input_type
+class ManagedClusterSecurityProfileDefenderArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_monitoring: pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs']] = None):
+        """
+        Microsoft Defender settings for the security profile.
+
+        :param pulumi.Input[_builtins.str] log_analytics_workspace_resource_id: Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
+        :param pulumi.Input['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs'] security_monitoring: Microsoft Defender threat detection for Cloud settings for the security profile.
+        """
+        if log_analytics_workspace_resource_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_resource_id", log_analytics_workspace_resource_id)
+        if security_monitoring is not None:
+            pulumi.set(__self__, "security_monitoring", security_monitoring)
+
+    @_builtins.property
+    @pulumi.getter(name="logAnalyticsWorkspaceResourceId")
+    def log_analytics_workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.
+        """
+        return pulumi.get(self, "log_analytics_workspace_resource_id")
+
+    @log_analytics_workspace_resource_id.setter
+    def log_analytics_workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_analytics_workspace_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityMonitoring")
+    def security_monitoring(self) -> pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs']]:
+        """
+        Microsoft Defender threat detection for Cloud settings for the security profile.
+        """
+        return pulumi.get(self, "security_monitoring")
+
+    @security_monitoring.setter
+    def security_monitoring(self, value: pulumi.Input[Optional['ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs']]):
+        pulumi.set(self, "security_monitoring", value)
+
+
+class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgsDict(TypedDict):
+    """
+    Microsoft Defender settings for the security profile threat detection.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable Defender threat detection
+    """
+
+@pulumi.input_type
+class ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Microsoft Defender settings for the security profile threat detection.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable Defender threat detection
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable Defender threat detection
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+class ManagedClusterSecurityProfileImageCleanerArgsDict(TypedDict):
+    """
+    Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable Image Cleaner on AKS cluster.
+    """
+    interval_hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Image Cleaner scanning interval in hours.
+    """
+
+@pulumi.input_type
+class ManagedClusterSecurityProfileImageCleanerArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interval_hours: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Image Cleaner removes unused images from nodes, freeing up disk space and helping to reduce attack surface area. Here are settings for the security profile.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable Image Cleaner on AKS cluster.
+        :param pulumi.Input[_builtins.int] interval_hours: Image Cleaner scanning interval in hours.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if interval_hours is not None:
+            pulumi.set(__self__, "interval_hours", interval_hours)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable Image Cleaner on AKS cluster.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalHours")
+    def interval_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Image Cleaner scanning interval in hours.
+        """
+        return pulumi.get(self, "interval_hours")
+
+    @interval_hours.setter
+    def interval_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "interval_hours", value)
+
+
+class ManagedClusterSecurityProfileWorkloadIdentityArgsDict(TypedDict):
+    """
+    Workload identity settings for the security profile.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable workload identity.
+    """
+
+@pulumi.input_type
+class ManagedClusterSecurityProfileWorkloadIdentityArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Workload identity settings for the security profile.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable workload identity.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable workload identity.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class ManagedClusterServicePrincipalProfileArgsDict(TypedDict):
@@ -7403,7 +7403,7 @@ class ManagedClusterServicePrincipalProfileArgsDict(TypedDict):
     """
     The ID for the service principal.
     """
-    secret: NotRequired[pulumi.Input[_builtins.str]]
+    secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secret password associated with the service principal in plain text.
     """
@@ -7412,7 +7412,7 @@ class ManagedClusterServicePrincipalProfileArgsDict(TypedDict):
 class ManagedClusterServicePrincipalProfileArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
-                 secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 
@@ -7437,14 +7437,14 @@ class ManagedClusterServicePrincipalProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret password associated with the service principal in plain text.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret", value)
 
 
@@ -7452,7 +7452,7 @@ class ManagedClusterStaticEgressGatewayProfileArgsDict(TypedDict):
     """
     The Static Egress Gateway addon configuration for the cluster.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable Static Egress Gateway addon. Indicates if Static Egress Gateway addon is enabled or not.
     """
@@ -7460,7 +7460,7 @@ class ManagedClusterStaticEgressGatewayProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterStaticEgressGatewayProfileArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The Static Egress Gateway addon configuration for the cluster.
 
@@ -7471,150 +7471,14 @@ class ManagedClusterStaticEgressGatewayProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Static Egress Gateway addon. Indicates if Static Egress Gateway addon is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-class ManagedClusterStorageProfileBlobCSIDriverArgsDict(TypedDict):
-    """
-    AzureBlob CSI Driver settings for the storage profile.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to enable AzureBlob CSI Driver. The default value is false.
-    """
-
-@pulumi.input_type
-class ManagedClusterStorageProfileBlobCSIDriverArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        AzureBlob CSI Driver settings for the storage profile.
-
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable AzureBlob CSI Driver. The default value is false.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable AzureBlob CSI Driver. The default value is false.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-class ManagedClusterStorageProfileDiskCSIDriverArgsDict(TypedDict):
-    """
-    AzureDisk CSI Driver settings for the storage profile.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to enable AzureDisk CSI Driver. The default value is true.
-    """
-
-@pulumi.input_type
-class ManagedClusterStorageProfileDiskCSIDriverArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        AzureDisk CSI Driver settings for the storage profile.
-
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable AzureDisk CSI Driver. The default value is true.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable AzureDisk CSI Driver. The default value is true.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-class ManagedClusterStorageProfileFileCSIDriverArgsDict(TypedDict):
-    """
-    AzureFile CSI Driver settings for the storage profile.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to enable AzureFile CSI Driver. The default value is true.
-    """
-
-@pulumi.input_type
-class ManagedClusterStorageProfileFileCSIDriverArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        AzureFile CSI Driver settings for the storage profile.
-
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable AzureFile CSI Driver. The default value is true.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable AzureFile CSI Driver. The default value is true.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-class ManagedClusterStorageProfileSnapshotControllerArgsDict(TypedDict):
-    """
-    Snapshot Controller settings for the storage profile.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether to enable Snapshot Controller. The default value is true.
-    """
-
-@pulumi.input_type
-class ManagedClusterStorageProfileSnapshotControllerArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Snapshot Controller settings for the storage profile.
-
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable Snapshot Controller. The default value is true.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Snapshot Controller. The default value is true.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -7622,19 +7486,19 @@ class ManagedClusterStorageProfileArgsDict(TypedDict):
     """
     Storage profile for the container service cluster.
     """
-    blob_csi_driver: NotRequired[pulumi.Input['ManagedClusterStorageProfileBlobCSIDriverArgsDict']]
+    blob_csi_driver: NotRequired[pulumi.Input[Optional['ManagedClusterStorageProfileBlobCSIDriverArgsDict']]]
     """
     AzureBlob CSI Driver settings for the storage profile.
     """
-    disk_csi_driver: NotRequired[pulumi.Input['ManagedClusterStorageProfileDiskCSIDriverArgsDict']]
+    disk_csi_driver: NotRequired[pulumi.Input[Optional['ManagedClusterStorageProfileDiskCSIDriverArgsDict']]]
     """
     AzureDisk CSI Driver settings for the storage profile.
     """
-    file_csi_driver: NotRequired[pulumi.Input['ManagedClusterStorageProfileFileCSIDriverArgsDict']]
+    file_csi_driver: NotRequired[pulumi.Input[Optional['ManagedClusterStorageProfileFileCSIDriverArgsDict']]]
     """
     AzureFile CSI Driver settings for the storage profile.
     """
-    snapshot_controller: NotRequired[pulumi.Input['ManagedClusterStorageProfileSnapshotControllerArgsDict']]
+    snapshot_controller: NotRequired[pulumi.Input[Optional['ManagedClusterStorageProfileSnapshotControllerArgsDict']]]
     """
     Snapshot Controller settings for the storage profile.
     """
@@ -7642,10 +7506,10 @@ class ManagedClusterStorageProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterStorageProfileArgs:
     def __init__(__self__, *,
-                 blob_csi_driver: Optional[pulumi.Input['ManagedClusterStorageProfileBlobCSIDriverArgs']] = None,
-                 disk_csi_driver: Optional[pulumi.Input['ManagedClusterStorageProfileDiskCSIDriverArgs']] = None,
-                 file_csi_driver: Optional[pulumi.Input['ManagedClusterStorageProfileFileCSIDriverArgs']] = None,
-                 snapshot_controller: Optional[pulumi.Input['ManagedClusterStorageProfileSnapshotControllerArgs']] = None):
+                 blob_csi_driver: pulumi.Input[Optional['ManagedClusterStorageProfileBlobCSIDriverArgs']] = None,
+                 disk_csi_driver: pulumi.Input[Optional['ManagedClusterStorageProfileDiskCSIDriverArgs']] = None,
+                 file_csi_driver: pulumi.Input[Optional['ManagedClusterStorageProfileFileCSIDriverArgs']] = None,
+                 snapshot_controller: pulumi.Input[Optional['ManagedClusterStorageProfileSnapshotControllerArgs']] = None):
         """
         Storage profile for the container service cluster.
 
@@ -7665,51 +7529,187 @@ class ManagedClusterStorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobCSIDriver")
-    def blob_csi_driver(self) -> Optional[pulumi.Input['ManagedClusterStorageProfileBlobCSIDriverArgs']]:
+    def blob_csi_driver(self) -> pulumi.Input[Optional['ManagedClusterStorageProfileBlobCSIDriverArgs']]:
         """
         AzureBlob CSI Driver settings for the storage profile.
         """
         return pulumi.get(self, "blob_csi_driver")
 
     @blob_csi_driver.setter
-    def blob_csi_driver(self, value: Optional[pulumi.Input['ManagedClusterStorageProfileBlobCSIDriverArgs']]):
+    def blob_csi_driver(self, value: pulumi.Input[Optional['ManagedClusterStorageProfileBlobCSIDriverArgs']]):
         pulumi.set(self, "blob_csi_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="diskCSIDriver")
-    def disk_csi_driver(self) -> Optional[pulumi.Input['ManagedClusterStorageProfileDiskCSIDriverArgs']]:
+    def disk_csi_driver(self) -> pulumi.Input[Optional['ManagedClusterStorageProfileDiskCSIDriverArgs']]:
         """
         AzureDisk CSI Driver settings for the storage profile.
         """
         return pulumi.get(self, "disk_csi_driver")
 
     @disk_csi_driver.setter
-    def disk_csi_driver(self, value: Optional[pulumi.Input['ManagedClusterStorageProfileDiskCSIDriverArgs']]):
+    def disk_csi_driver(self, value: pulumi.Input[Optional['ManagedClusterStorageProfileDiskCSIDriverArgs']]):
         pulumi.set(self, "disk_csi_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="fileCSIDriver")
-    def file_csi_driver(self) -> Optional[pulumi.Input['ManagedClusterStorageProfileFileCSIDriverArgs']]:
+    def file_csi_driver(self) -> pulumi.Input[Optional['ManagedClusterStorageProfileFileCSIDriverArgs']]:
         """
         AzureFile CSI Driver settings for the storage profile.
         """
         return pulumi.get(self, "file_csi_driver")
 
     @file_csi_driver.setter
-    def file_csi_driver(self, value: Optional[pulumi.Input['ManagedClusterStorageProfileFileCSIDriverArgs']]):
+    def file_csi_driver(self, value: pulumi.Input[Optional['ManagedClusterStorageProfileFileCSIDriverArgs']]):
         pulumi.set(self, "file_csi_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotController")
-    def snapshot_controller(self) -> Optional[pulumi.Input['ManagedClusterStorageProfileSnapshotControllerArgs']]:
+    def snapshot_controller(self) -> pulumi.Input[Optional['ManagedClusterStorageProfileSnapshotControllerArgs']]:
         """
         Snapshot Controller settings for the storage profile.
         """
         return pulumi.get(self, "snapshot_controller")
 
     @snapshot_controller.setter
-    def snapshot_controller(self, value: Optional[pulumi.Input['ManagedClusterStorageProfileSnapshotControllerArgs']]):
+    def snapshot_controller(self, value: pulumi.Input[Optional['ManagedClusterStorageProfileSnapshotControllerArgs']]):
         pulumi.set(self, "snapshot_controller", value)
+
+
+class ManagedClusterStorageProfileBlobCSIDriverArgsDict(TypedDict):
+    """
+    AzureBlob CSI Driver settings for the storage profile.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable AzureBlob CSI Driver. The default value is false.
+    """
+
+@pulumi.input_type
+class ManagedClusterStorageProfileBlobCSIDriverArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        AzureBlob CSI Driver settings for the storage profile.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable AzureBlob CSI Driver. The default value is false.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable AzureBlob CSI Driver. The default value is false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+class ManagedClusterStorageProfileDiskCSIDriverArgsDict(TypedDict):
+    """
+    AzureDisk CSI Driver settings for the storage profile.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable AzureDisk CSI Driver. The default value is true.
+    """
+
+@pulumi.input_type
+class ManagedClusterStorageProfileDiskCSIDriverArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        AzureDisk CSI Driver settings for the storage profile.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable AzureDisk CSI Driver. The default value is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable AzureDisk CSI Driver. The default value is true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+class ManagedClusterStorageProfileFileCSIDriverArgsDict(TypedDict):
+    """
+    AzureFile CSI Driver settings for the storage profile.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable AzureFile CSI Driver. The default value is true.
+    """
+
+@pulumi.input_type
+class ManagedClusterStorageProfileFileCSIDriverArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        AzureFile CSI Driver settings for the storage profile.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable AzureFile CSI Driver. The default value is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable AzureFile CSI Driver. The default value is true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+class ManagedClusterStorageProfileSnapshotControllerArgsDict(TypedDict):
+    """
+    Snapshot Controller settings for the storage profile.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable Snapshot Controller. The default value is true.
+    """
+
+@pulumi.input_type
+class ManagedClusterStorageProfileSnapshotControllerArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Snapshot Controller settings for the storage profile.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable Snapshot Controller. The default value is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable Snapshot Controller. The default value is true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class ManagedClusterUpdateArgsDict(TypedDict):
@@ -7720,7 +7720,7 @@ class ManagedClusterUpdateArgsDict(TypedDict):
     """
     The upgrade to apply to the ManagedClusters.
     """
-    node_image_selection: NotRequired[pulumi.Input['NodeImageSelectionArgsDict']]
+    node_image_selection: NotRequired[pulumi.Input[Optional['NodeImageSelectionArgsDict']]]
     """
     The node image upgrade to be applied to the target nodes in update run.
     """
@@ -7729,7 +7729,7 @@ class ManagedClusterUpdateArgsDict(TypedDict):
 class ManagedClusterUpdateArgs:
     def __init__(__self__, *,
                  upgrade: pulumi.Input['ManagedClusterUpgradeSpecArgs'],
-                 node_image_selection: Optional[pulumi.Input['NodeImageSelectionArgs']] = None):
+                 node_image_selection: pulumi.Input[Optional['NodeImageSelectionArgs']] = None):
         """
         The update to be applied to the ManagedClusters.
 
@@ -7754,14 +7754,14 @@ class ManagedClusterUpdateArgs:
 
     @_builtins.property
     @pulumi.getter(name="nodeImageSelection")
-    def node_image_selection(self) -> Optional[pulumi.Input['NodeImageSelectionArgs']]:
+    def node_image_selection(self) -> pulumi.Input[Optional['NodeImageSelectionArgs']]:
         """
         The node image upgrade to be applied to the target nodes in update run.
         """
         return pulumi.get(self, "node_image_selection")
 
     @node_image_selection.setter
-    def node_image_selection(self, value: Optional[pulumi.Input['NodeImageSelectionArgs']]):
+    def node_image_selection(self, value: pulumi.Input[Optional['NodeImageSelectionArgs']]):
         pulumi.set(self, "node_image_selection", value)
 
 
@@ -7773,7 +7773,7 @@ class ManagedClusterUpgradeSpecArgsDict(TypedDict):
     """
     ManagedClusterUpgradeType is the type of upgrade to be applied.
     """
-    kubernetes_version: NotRequired[pulumi.Input[_builtins.str]]
+    kubernetes_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kubernetes version to upgrade the member clusters to.
     """
@@ -7782,7 +7782,7 @@ class ManagedClusterUpgradeSpecArgsDict(TypedDict):
 class ManagedClusterUpgradeSpecArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedClusterUpgradeType']],
-                 kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The upgrade to apply to a ManagedCluster.
 
@@ -7807,14 +7807,14 @@ class ManagedClusterUpgradeSpecArgs:
 
     @_builtins.property
     @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kubernetes version to upgrade the member clusters to.
         """
         return pulumi.get(self, "kubernetes_version")
 
     @kubernetes_version.setter
-    def kubernetes_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_version", value)
 
 
@@ -7826,19 +7826,19 @@ class ManagedClusterWindowsProfileArgsDict(TypedDict):
     """
     Specifies the name of the administrator account. <br><br> **Restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
     """
-    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    admin_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
     """
-    enable_csi_proxy: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_csi_proxy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable CSI proxy. For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
     """
-    gmsa_profile: NotRequired[pulumi.Input['WindowsGmsaProfileArgsDict']]
+    gmsa_profile: NotRequired[pulumi.Input[Optional['WindowsGmsaProfileArgsDict']]]
     """
     The Windows gMSA Profile in the Managed Cluster.
     """
-    license_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseType']]]
+    license_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]]
     """
     The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
     """
@@ -7847,10 +7847,10 @@ class ManagedClusterWindowsProfileArgsDict(TypedDict):
 class ManagedClusterWindowsProfileArgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[_builtins.str],
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_csi_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gmsa_profile: Optional[pulumi.Input['WindowsGmsaProfileArgs']] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]] = None):
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_csi_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gmsa_profile: pulumi.Input[Optional['WindowsGmsaProfileArgs']] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None):
         """
         Profile for Windows VMs in the managed cluster.
 
@@ -7884,51 +7884,105 @@ class ManagedClusterWindowsProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCSIProxy")
-    def enable_csi_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_csi_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable CSI proxy. For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
         """
         return pulumi.get(self, "enable_csi_proxy")
 
     @enable_csi_proxy.setter
-    def enable_csi_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_csi_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_csi_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="gmsaProfile")
-    def gmsa_profile(self) -> Optional[pulumi.Input['WindowsGmsaProfileArgs']]:
+    def gmsa_profile(self) -> pulumi.Input[Optional['WindowsGmsaProfileArgs']]:
         """
         The Windows gMSA Profile in the Managed Cluster.
         """
         return pulumi.get(self, "gmsa_profile")
 
     @gmsa_profile.setter
-    def gmsa_profile(self, value: Optional[pulumi.Input['WindowsGmsaProfileArgs']]):
+    def gmsa_profile(self, value: pulumi.Input[Optional['WindowsGmsaProfileArgs']]):
         pulumi.set(self, "gmsa_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]]:
+    def license_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]:
         """
         The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]]):
+    def license_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]):
         pulumi.set(self, "license_type", value)
+
+
+class ManagedClusterWorkloadAutoScalerProfileArgsDict(TypedDict):
+    """
+    Workload Auto-scaler profile for the managed cluster.
+    """
+    keda: NotRequired[pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileKedaArgsDict']]]
+    """
+    KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+    """
+    vertical_pod_autoscaler: NotRequired[pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict']]]
+    """
+    VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+    """
+
+@pulumi.input_type
+class ManagedClusterWorkloadAutoScalerProfileArgs:
+    def __init__(__self__, *,
+                 keda: pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileKedaArgs']] = None,
+                 vertical_pod_autoscaler: pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']] = None):
+        """
+        Workload Auto-scaler profile for the managed cluster.
+
+        :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs'] keda: KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+        :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs'] vertical_pod_autoscaler: VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        """
+        if keda is not None:
+            pulumi.set(__self__, "keda", keda)
+        if vertical_pod_autoscaler is not None:
+            pulumi.set(__self__, "vertical_pod_autoscaler", vertical_pod_autoscaler)
+
+    @_builtins.property
+    @pulumi.getter
+    def keda(self) -> pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileKedaArgs']]:
+        """
+        KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+        """
+        return pulumi.get(self, "keda")
+
+    @keda.setter
+    def keda(self, value: pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileKedaArgs']]):
+        pulumi.set(self, "keda", value)
+
+    @_builtins.property
+    @pulumi.getter(name="verticalPodAutoscaler")
+    def vertical_pod_autoscaler(self) -> pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']]:
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        """
+        return pulumi.get(self, "vertical_pod_autoscaler")
+
+    @vertical_pod_autoscaler.setter
+    def vertical_pod_autoscaler(self, value: pulumi.Input[Optional['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']]):
+        pulumi.set(self, "vertical_pod_autoscaler", value)
 
 
 class ManagedClusterWorkloadAutoScalerProfileKedaArgsDict(TypedDict):
@@ -7976,7 +8030,7 @@ class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict(Typed
 @pulumi.input_type
 class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
 
@@ -7999,77 +8053,23 @@ class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs:
         pulumi.set(self, "enabled", value)
 
 
-class ManagedClusterWorkloadAutoScalerProfileArgsDict(TypedDict):
-    """
-    Workload Auto-scaler profile for the managed cluster.
-    """
-    keda: NotRequired[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgsDict']]
-    """
-    KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
-    """
-    vertical_pod_autoscaler: NotRequired[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict']]
-    """
-    VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
-    """
-
-@pulumi.input_type
-class ManagedClusterWorkloadAutoScalerProfileArgs:
-    def __init__(__self__, *,
-                 keda: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs']] = None,
-                 vertical_pod_autoscaler: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']] = None):
-        """
-        Workload Auto-scaler profile for the managed cluster.
-
-        :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs'] keda: KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
-        :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs'] vertical_pod_autoscaler: VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
-        """
-        if keda is not None:
-            pulumi.set(__self__, "keda", keda)
-        if vertical_pod_autoscaler is not None:
-            pulumi.set(__self__, "vertical_pod_autoscaler", vertical_pod_autoscaler)
-
-    @_builtins.property
-    @pulumi.getter
-    def keda(self) -> Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs']]:
-        """
-        KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
-        """
-        return pulumi.get(self, "keda")
-
-    @keda.setter
-    def keda(self, value: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs']]):
-        pulumi.set(self, "keda", value)
-
-    @_builtins.property
-    @pulumi.getter(name="verticalPodAutoscaler")
-    def vertical_pod_autoscaler(self) -> Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']]:
-        """
-        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
-        """
-        return pulumi.get(self, "vertical_pod_autoscaler")
-
-    @vertical_pod_autoscaler.setter
-    def vertical_pod_autoscaler(self, value: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']]):
-        pulumi.set(self, "vertical_pod_autoscaler", value)
-
-
 class ManagedNamespacePropertiesArgsDict(TypedDict):
     """
     The namespace properties for the fleet managed namespace.
     """
-    annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    annotations: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The annotations for the fleet managed namespace.
     """
-    default_network_policy: NotRequired[pulumi.Input['NetworkPolicy']]
+    default_network_policy: NotRequired[pulumi.Input[Optional['NetworkPolicy']]]
     """
     The default network policy for the fleet managed namespace.
     """
-    default_resource_quota: NotRequired[pulumi.Input['ResourceQuotaArgsDict']]
+    default_resource_quota: NotRequired[pulumi.Input[Optional['ResourceQuotaArgsDict']]]
     """
     The default resource quota for the fleet managed namespace.
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The labels for the fleet managed namespace.
     """
@@ -8077,10 +8077,10 @@ class ManagedNamespacePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedNamespacePropertiesArgs:
     def __init__(__self__, *,
-                 annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 default_network_policy: Optional[pulumi.Input['NetworkPolicy']] = None,
-                 default_resource_quota: Optional[pulumi.Input['ResourceQuotaArgs']] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_network_policy: pulumi.Input[Optional['NetworkPolicy']] = None,
+                 default_resource_quota: pulumi.Input[Optional['ResourceQuotaArgs']] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The namespace properties for the fleet managed namespace.
 
@@ -8100,50 +8100,50 @@ class ManagedNamespacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The annotations for the fleet managed namespace.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultNetworkPolicy")
-    def default_network_policy(self) -> Optional[pulumi.Input['NetworkPolicy']]:
+    def default_network_policy(self) -> pulumi.Input[Optional['NetworkPolicy']]:
         """
         The default network policy for the fleet managed namespace.
         """
         return pulumi.get(self, "default_network_policy")
 
     @default_network_policy.setter
-    def default_network_policy(self, value: Optional[pulumi.Input['NetworkPolicy']]):
+    def default_network_policy(self, value: pulumi.Input[Optional['NetworkPolicy']]):
         pulumi.set(self, "default_network_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultResourceQuota")
-    def default_resource_quota(self) -> Optional[pulumi.Input['ResourceQuotaArgs']]:
+    def default_resource_quota(self) -> pulumi.Input[Optional['ResourceQuotaArgs']]:
         """
         The default resource quota for the fleet managed namespace.
         """
         return pulumi.get(self, "default_resource_quota")
 
     @default_resource_quota.setter
-    def default_resource_quota(self, value: Optional[pulumi.Input['ResourceQuotaArgs']]):
+    def default_resource_quota(self, value: pulumi.Input[Optional['ResourceQuotaArgs']]):
         pulumi.set(self, "default_resource_quota", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The labels for the fleet managed namespace.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
 
@@ -8155,7 +8155,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -8164,7 +8164,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -8189,14 +8189,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -8204,11 +8204,11 @@ class ManualScaleProfileArgsDict(TypedDict):
     """
     Specifications on number of machines.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of nodes.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     VM size that AKS will use when creating and scaling e.g. 'Standard_E4s_v3', 'Standard_E16s_v3' or 'Standard_D16s_v5'.
     """
@@ -8216,8 +8216,8 @@ class ManualScaleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ManualScaleProfileArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifications on number of machines.
 
@@ -8231,26 +8231,26 @@ class ManualScaleProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of nodes.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         VM size that AKS will use when creating and scaling e.g. 'Standard_E4s_v3', 'Standard_E16s_v3' or 'Standard_D16s_v5'.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
 
@@ -8287,6 +8287,60 @@ class MeshMembershipPropertiesArgs:
         pulumi.set(self, "managed_mesh_id", value)
 
 
+class MetaV1LabelSelectorArgsDict(TypedDict):
+    """
+    A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+    """
+    match_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgsDict']]]]]
+    """
+    matchExpressions is a list of label selector requirements. The requirements are ANDed.
+    """
+    match_labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+    """
+
+@pulumi.input_type
+class MetaV1LabelSelectorArgs:
+    def __init__(__self__, *,
+                 match_expressions: pulumi.Input[Optional[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]] = None,
+                 match_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+
+        :param pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]]:
+        """
+        matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @match_expressions.setter
+    def match_expressions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]]):
+        pulumi.set(self, "match_expressions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_labels")
+
+    @match_labels.setter
+    def match_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_labels", value)
+
+
 class MetaV1LabelSelectorRequirementArgsDict(TypedDict):
     """
     A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
@@ -8299,7 +8353,7 @@ class MetaV1LabelSelectorRequirementArgsDict(TypedDict):
     """
     operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
     """
@@ -8309,7 +8363,7 @@ class MetaV1LabelSelectorRequirementArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  operator: pulumi.Input[Union[_builtins.str, 'LabelSelectorOperator']],
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 
@@ -8348,96 +8402,42 @@ class MetaV1LabelSelectorRequirementArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
-
-
-class MetaV1LabelSelectorArgsDict(TypedDict):
-    """
-    A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
-    """
-    match_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgsDict']]]]
-    """
-    matchExpressions is a list of label selector requirements. The requirements are ANDed.
-    """
-    match_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    """
-    matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-    """
-
-@pulumi.input_type
-class MetaV1LabelSelectorArgs:
-    def __init__(__self__, *,
-                 match_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]] = None,
-                 match_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
-        """
-        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
-
-        :param pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-        """
-        if match_expressions is not None:
-            pulumi.set(__self__, "match_expressions", match_expressions)
-        if match_labels is not None:
-            pulumi.set(__self__, "match_labels", match_labels)
-
-    @_builtins.property
-    @pulumi.getter(name="matchExpressions")
-    def match_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]]:
-        """
-        matchExpressions is a list of label selector requirements. The requirements are ANDed.
-        """
-        return pulumi.get(self, "match_expressions")
-
-    @match_expressions.setter
-    def match_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]]):
-        pulumi.set(self, "match_expressions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="matchLabels")
-    def match_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-        """
-        return pulumi.get(self, "match_labels")
-
-    @match_labels.setter
-    def match_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "match_labels", value)
 
 
 class NamespacePropertiesArgsDict(TypedDict):
     """
     Properties of a namespace managed by ARM
     """
-    adoption_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']]]
+    adoption_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AdoptionPolicy']]]]
     """
     Action if Kubernetes namespace with same name already exists.
     """
-    annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    annotations: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The annotations of managed namespace.
     """
-    default_network_policy: NotRequired[pulumi.Input['NetworkPoliciesArgsDict']]
+    default_network_policy: NotRequired[pulumi.Input[Optional['NetworkPoliciesArgsDict']]]
     """
     The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
     """
-    default_resource_quota: NotRequired[pulumi.Input['ResourceQuotaArgsDict']]
+    default_resource_quota: NotRequired[pulumi.Input[Optional['ResourceQuotaArgsDict']]]
     """
     The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
     """
-    delete_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'DeletePolicy']]]
+    delete_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DeletePolicy']]]]
     """
     Delete options of a namespace.
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The labels of managed namespace.
     """
@@ -8445,12 +8445,12 @@ class NamespacePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class NamespacePropertiesArgs:
     def __init__(__self__, *,
-                 adoption_policy: Optional[pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']]] = None,
-                 annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 default_network_policy: Optional[pulumi.Input['NetworkPoliciesArgs']] = None,
-                 default_resource_quota: Optional[pulumi.Input['ResourceQuotaArgs']] = None,
-                 delete_policy: Optional[pulumi.Input[Union[_builtins.str, 'DeletePolicy']]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 adoption_policy: pulumi.Input[Optional[Union[_builtins.str, 'AdoptionPolicy']]] = None,
+                 annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_network_policy: pulumi.Input[Optional['NetworkPoliciesArgs']] = None,
+                 default_resource_quota: pulumi.Input[Optional['ResourceQuotaArgs']] = None,
+                 delete_policy: pulumi.Input[Optional[Union[_builtins.str, 'DeletePolicy']]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Properties of a namespace managed by ARM
 
@@ -8476,74 +8476,74 @@ class NamespacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="adoptionPolicy")
-    def adoption_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']]]:
+    def adoption_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AdoptionPolicy']]]:
         """
         Action if Kubernetes namespace with same name already exists.
         """
         return pulumi.get(self, "adoption_policy")
 
     @adoption_policy.setter
-    def adoption_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']]]):
+    def adoption_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdoptionPolicy']]]):
         pulumi.set(self, "adoption_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The annotations of managed namespace.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultNetworkPolicy")
-    def default_network_policy(self) -> Optional[pulumi.Input['NetworkPoliciesArgs']]:
+    def default_network_policy(self) -> pulumi.Input[Optional['NetworkPoliciesArgs']]:
         """
         The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
         """
         return pulumi.get(self, "default_network_policy")
 
     @default_network_policy.setter
-    def default_network_policy(self, value: Optional[pulumi.Input['NetworkPoliciesArgs']]):
+    def default_network_policy(self, value: pulumi.Input[Optional['NetworkPoliciesArgs']]):
         pulumi.set(self, "default_network_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultResourceQuota")
-    def default_resource_quota(self) -> Optional[pulumi.Input['ResourceQuotaArgs']]:
+    def default_resource_quota(self) -> pulumi.Input[Optional['ResourceQuotaArgs']]:
         """
         The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
         """
         return pulumi.get(self, "default_resource_quota")
 
     @default_resource_quota.setter
-    def default_resource_quota(self, value: Optional[pulumi.Input['ResourceQuotaArgs']]):
+    def default_resource_quota(self, value: pulumi.Input[Optional['ResourceQuotaArgs']]):
         pulumi.set(self, "default_resource_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="deletePolicy")
-    def delete_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeletePolicy']]]:
+    def delete_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DeletePolicy']]]:
         """
         Delete options of a namespace.
         """
         return pulumi.get(self, "delete_policy")
 
     @delete_policy.setter
-    def delete_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeletePolicy']]]):
+    def delete_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeletePolicy']]]):
         pulumi.set(self, "delete_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The labels of managed namespace.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
 
@@ -8551,11 +8551,11 @@ class NetworkPoliciesArgsDict(TypedDict):
     """
     Default network policy of the namespace, specifying ingress and egress rules.
     """
-    egress: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyRule']]]
+    egress: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]]]
     """
     Egress policy for the network.
     """
-    ingress: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyRule']]]
+    ingress: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]]]
     """
     Ingress policy for the network.
     """
@@ -8563,8 +8563,8 @@ class NetworkPoliciesArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkPoliciesArgs:
     def __init__(__self__, *,
-                 egress: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRule']]] = None,
-                 ingress: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRule']]] = None):
+                 egress: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]] = None,
+                 ingress: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]] = None):
         """
         Default network policy of the namespace, specifying ingress and egress rules.
 
@@ -8582,26 +8582,26 @@ class NetworkPoliciesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def egress(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyRule']]]:
+    def egress(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]]:
         """
         Egress policy for the network.
         """
         return pulumi.get(self, "egress")
 
     @egress.setter
-    def egress(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRule']]]):
+    def egress(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]]):
         pulumi.set(self, "egress", value)
 
     @_builtins.property
     @pulumi.getter
-    def ingress(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyRule']]]:
+    def ingress(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]]:
         """
         Ingress policy for the network.
         """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
-    def ingress(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRule']]]):
+    def ingress(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRule']]]):
         pulumi.set(self, "ingress", value)
 
 
@@ -8642,7 +8642,7 @@ class PlacementProfileArgsDict(TypedDict):
     """
     The configuration profile for default ClusterResourcePlacement for placement.
     """
-    default_cluster_resource_placement: NotRequired[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgsDict']]
+    default_cluster_resource_placement: NotRequired[pulumi.Input[Optional['PlacementV1ClusterResourcePlacementSpecArgsDict']]]
     """
     The default ClusterResourcePlacement policy configuration.
     """
@@ -8650,7 +8650,7 @@ class PlacementProfileArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementProfileArgs:
     def __init__(__self__, *,
-                 default_cluster_resource_placement: Optional[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgs']] = None):
+                 default_cluster_resource_placement: pulumi.Input[Optional['PlacementV1ClusterResourcePlacementSpecArgs']] = None):
         """
         The configuration profile for default ClusterResourcePlacement for placement.
 
@@ -8661,14 +8661,14 @@ class PlacementProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultClusterResourcePlacement")
-    def default_cluster_resource_placement(self) -> Optional[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgs']]:
+    def default_cluster_resource_placement(self) -> pulumi.Input[Optional['PlacementV1ClusterResourcePlacementSpecArgs']]:
         """
         The default ClusterResourcePlacement policy configuration.
         """
         return pulumi.get(self, "default_cluster_resource_placement")
 
     @default_cluster_resource_placement.setter
-    def default_cluster_resource_placement(self, value: Optional[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgs']]):
+    def default_cluster_resource_placement(self, value: pulumi.Input[Optional['PlacementV1ClusterResourcePlacementSpecArgs']]):
         pulumi.set(self, "default_cluster_resource_placement", value)
 
 
@@ -8676,7 +8676,7 @@ class PlacementV1AffinityArgsDict(TypedDict):
     """
     Affinity is a group of cluster affinity scheduling rules. More to be added.
     """
-    cluster_affinity: NotRequired[pulumi.Input['PlacementV1ClusterAffinityArgsDict']]
+    cluster_affinity: NotRequired[pulumi.Input[Optional['PlacementV1ClusterAffinityArgsDict']]]
     """
     ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
     """
@@ -8684,7 +8684,7 @@ class PlacementV1AffinityArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementV1AffinityArgs:
     def __init__(__self__, *,
-                 cluster_affinity: Optional[pulumi.Input['PlacementV1ClusterAffinityArgs']] = None):
+                 cluster_affinity: pulumi.Input[Optional['PlacementV1ClusterAffinityArgs']] = None):
         """
         Affinity is a group of cluster affinity scheduling rules. More to be added.
 
@@ -8695,14 +8695,14 @@ class PlacementV1AffinityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterAffinity")
-    def cluster_affinity(self) -> Optional[pulumi.Input['PlacementV1ClusterAffinityArgs']]:
+    def cluster_affinity(self) -> pulumi.Input[Optional['PlacementV1ClusterAffinityArgs']]:
         """
         ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
         """
         return pulumi.get(self, "cluster_affinity")
 
     @cluster_affinity.setter
-    def cluster_affinity(self, value: Optional[pulumi.Input['PlacementV1ClusterAffinityArgs']]):
+    def cluster_affinity(self, value: pulumi.Input[Optional['PlacementV1ClusterAffinityArgs']]):
         pulumi.set(self, "cluster_affinity", value)
 
 
@@ -8710,7 +8710,7 @@ class PlacementV1ClusterAffinityArgsDict(TypedDict):
     """
     ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
     """
-    required_during_scheduling_ignored_during_execution: NotRequired[pulumi.Input['PlacementV1ClusterSelectorArgsDict']]
+    required_during_scheduling_ignored_during_execution: NotRequired[pulumi.Input[Optional['PlacementV1ClusterSelectorArgsDict']]]
     """
     If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
     """
@@ -8718,7 +8718,7 @@ class PlacementV1ClusterAffinityArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementV1ClusterAffinityArgs:
     def __init__(__self__, *,
-                 required_during_scheduling_ignored_during_execution: Optional[pulumi.Input['PlacementV1ClusterSelectorArgs']] = None):
+                 required_during_scheduling_ignored_during_execution: pulumi.Input[Optional['PlacementV1ClusterSelectorArgs']] = None):
         """
         ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
 
@@ -8729,14 +8729,14 @@ class PlacementV1ClusterAffinityArgs:
 
     @_builtins.property
     @pulumi.getter(name="requiredDuringSchedulingIgnoredDuringExecution")
-    def required_during_scheduling_ignored_during_execution(self) -> Optional[pulumi.Input['PlacementV1ClusterSelectorArgs']]:
+    def required_during_scheduling_ignored_during_execution(self) -> pulumi.Input[Optional['PlacementV1ClusterSelectorArgs']]:
         """
         If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
         """
         return pulumi.get(self, "required_during_scheduling_ignored_during_execution")
 
     @required_during_scheduling_ignored_during_execution.setter
-    def required_during_scheduling_ignored_during_execution(self, value: Optional[pulumi.Input['PlacementV1ClusterSelectorArgs']]):
+    def required_during_scheduling_ignored_during_execution(self, value: pulumi.Input[Optional['PlacementV1ClusterSelectorArgs']]):
         pulumi.set(self, "required_during_scheduling_ignored_during_execution", value)
 
 
@@ -8744,7 +8744,7 @@ class PlacementV1ClusterResourcePlacementSpecArgsDict(TypedDict):
     """
     ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
     """
-    policy: NotRequired[pulumi.Input['PlacementV1PlacementPolicyArgsDict']]
+    policy: NotRequired[pulumi.Input[Optional['PlacementV1PlacementPolicyArgsDict']]]
     """
     Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
     """
@@ -8752,7 +8752,7 @@ class PlacementV1ClusterResourcePlacementSpecArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementV1ClusterResourcePlacementSpecArgs:
     def __init__(__self__, *,
-                 policy: Optional[pulumi.Input['PlacementV1PlacementPolicyArgs']] = None):
+                 policy: pulumi.Input[Optional['PlacementV1PlacementPolicyArgs']] = None):
         """
         ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
 
@@ -8763,69 +8763,15 @@ class PlacementV1ClusterResourcePlacementSpecArgs:
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input['PlacementV1PlacementPolicyArgs']]:
+    def policy(self) -> pulumi.Input[Optional['PlacementV1PlacementPolicyArgs']]:
         """
         Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input['PlacementV1PlacementPolicyArgs']]):
+    def policy(self, value: pulumi.Input[Optional['PlacementV1PlacementPolicyArgs']]):
         pulumi.set(self, "policy", value)
-
-
-class PlacementV1ClusterSelectorTermArgsDict(TypedDict):
-    """
-    ClusterSelectorTerm
-    """
-    label_selector: NotRequired[pulumi.Input['MetaV1LabelSelectorArgsDict']]
-    """
-    LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
-    """
-    property_selector: NotRequired[pulumi.Input['PlacementV1PropertySelectorArgsDict']]
-    """
-    PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
-    """
-
-@pulumi.input_type
-class PlacementV1ClusterSelectorTermArgs:
-    def __init__(__self__, *,
-                 label_selector: Optional[pulumi.Input['MetaV1LabelSelectorArgs']] = None,
-                 property_selector: Optional[pulumi.Input['PlacementV1PropertySelectorArgs']] = None):
-        """
-        ClusterSelectorTerm
-
-        :param pulumi.Input['MetaV1LabelSelectorArgs'] label_selector: LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
-        :param pulumi.Input['PlacementV1PropertySelectorArgs'] property_selector: PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
-        """
-        if label_selector is not None:
-            pulumi.set(__self__, "label_selector", label_selector)
-        if property_selector is not None:
-            pulumi.set(__self__, "property_selector", property_selector)
-
-    @_builtins.property
-    @pulumi.getter(name="labelSelector")
-    def label_selector(self) -> Optional[pulumi.Input['MetaV1LabelSelectorArgs']]:
-        """
-        LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
-        """
-        return pulumi.get(self, "label_selector")
-
-    @label_selector.setter
-    def label_selector(self, value: Optional[pulumi.Input['MetaV1LabelSelectorArgs']]):
-        pulumi.set(self, "label_selector", value)
-
-    @_builtins.property
-    @pulumi.getter(name="propertySelector")
-    def property_selector(self) -> Optional[pulumi.Input['PlacementV1PropertySelectorArgs']]:
-        """
-        PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
-        """
-        return pulumi.get(self, "property_selector")
-
-    @property_selector.setter
-    def property_selector(self, value: Optional[pulumi.Input['PlacementV1PropertySelectorArgs']]):
-        pulumi.set(self, "property_selector", value)
 
 
 class PlacementV1ClusterSelectorArgsDict(TypedDict):
@@ -8861,23 +8807,77 @@ class PlacementV1ClusterSelectorArgs:
         pulumi.set(self, "cluster_selector_terms", value)
 
 
+class PlacementV1ClusterSelectorTermArgsDict(TypedDict):
+    """
+    ClusterSelectorTerm
+    """
+    label_selector: NotRequired[pulumi.Input[Optional['MetaV1LabelSelectorArgsDict']]]
+    """
+    LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+    """
+    property_selector: NotRequired[pulumi.Input[Optional['PlacementV1PropertySelectorArgsDict']]]
+    """
+    PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+    """
+
+@pulumi.input_type
+class PlacementV1ClusterSelectorTermArgs:
+    def __init__(__self__, *,
+                 label_selector: pulumi.Input[Optional['MetaV1LabelSelectorArgs']] = None,
+                 property_selector: pulumi.Input[Optional['PlacementV1PropertySelectorArgs']] = None):
+        """
+        ClusterSelectorTerm
+
+        :param pulumi.Input['MetaV1LabelSelectorArgs'] label_selector: LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+        :param pulumi.Input['PlacementV1PropertySelectorArgs'] property_selector: PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+        """
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if property_selector is not None:
+            pulumi.set(__self__, "property_selector", property_selector)
+
+    @_builtins.property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> pulumi.Input[Optional['MetaV1LabelSelectorArgs']]:
+        """
+        LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @label_selector.setter
+    def label_selector(self, value: pulumi.Input[Optional['MetaV1LabelSelectorArgs']]):
+        pulumi.set(self, "label_selector", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertySelector")
+    def property_selector(self) -> pulumi.Input[Optional['PlacementV1PropertySelectorArgs']]:
+        """
+        PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+        """
+        return pulumi.get(self, "property_selector")
+
+    @property_selector.setter
+    def property_selector(self, value: pulumi.Input[Optional['PlacementV1PropertySelectorArgs']]):
+        pulumi.set(self, "property_selector", value)
+
+
 class PlacementV1PlacementPolicyArgsDict(TypedDict):
     """
     PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
     """
-    affinity: NotRequired[pulumi.Input['PlacementV1AffinityArgsDict']]
+    affinity: NotRequired[pulumi.Input[Optional['PlacementV1AffinityArgsDict']]]
     """
     Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
     """
-    cluster_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cluster_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
     """
-    placement_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PlacementType']]]
+    placement_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PlacementType']]]]
     """
     Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
     """
-    tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgsDict']]]]
+    tolerations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlacementV1TolerationArgsDict']]]]]
     """
     If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
     """
@@ -8885,10 +8885,10 @@ class PlacementV1PlacementPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementV1PlacementPolicyArgs:
     def __init__(__self__, *,
-                 affinity: Optional[pulumi.Input['PlacementV1AffinityArgs']] = None,
-                 cluster_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 placement_type: Optional[pulumi.Input[Union[_builtins.str, 'PlacementType']]] = None,
-                 tolerations: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]] = None):
+                 affinity: pulumi.Input[Optional['PlacementV1AffinityArgs']] = None,
+                 cluster_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 placement_type: pulumi.Input[Optional[Union[_builtins.str, 'PlacementType']]] = None,
+                 tolerations: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]] = None):
         """
         PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
 
@@ -8908,51 +8908,84 @@ class PlacementV1PlacementPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def affinity(self) -> Optional[pulumi.Input['PlacementV1AffinityArgs']]:
+    def affinity(self) -> pulumi.Input[Optional['PlacementV1AffinityArgs']]:
         """
         Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
         """
         return pulumi.get(self, "affinity")
 
     @affinity.setter
-    def affinity(self, value: Optional[pulumi.Input['PlacementV1AffinityArgs']]):
+    def affinity(self, value: pulumi.Input[Optional['PlacementV1AffinityArgs']]):
         pulumi.set(self, "affinity", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterNames")
-    def cluster_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
         """
         return pulumi.get(self, "cluster_names")
 
     @cluster_names.setter
-    def cluster_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_names", value)
 
     @_builtins.property
     @pulumi.getter(name="placementType")
-    def placement_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PlacementType']]]:
+    def placement_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PlacementType']]]:
         """
         Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
         """
         return pulumi.get(self, "placement_type")
 
     @placement_type.setter
-    def placement_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PlacementType']]]):
+    def placement_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PlacementType']]]):
         pulumi.set(self, "placement_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tolerations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]]:
+    def tolerations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]]:
         """
         If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
         """
         return pulumi.get(self, "tolerations")
 
     @tolerations.setter
-    def tolerations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]]):
+    def tolerations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]]):
         pulumi.set(self, "tolerations", value)
+
+
+class PlacementV1PropertySelectorArgsDict(TypedDict):
+    """
+    PropertySelector helps user specify property requirements when picking clusters for resource placement.
+    """
+    match_expressions: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgsDict']]]
+    """
+    MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+    """
+
+@pulumi.input_type
+class PlacementV1PropertySelectorArgs:
+    def __init__(__self__, *,
+                 match_expressions: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]):
+        """
+        PropertySelector helps user specify property requirements when picking clusters for resource placement.
+
+        :param pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]] match_expressions: MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        """
+        pulumi.set(__self__, "match_expressions", match_expressions)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]:
+        """
+        MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @match_expressions.setter
+    def match_expressions(self, value: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]):
+        pulumi.set(self, "match_expressions", value)
 
 
 class PlacementV1PropertySelectorRequirementArgsDict(TypedDict):
@@ -9026,56 +9059,23 @@ class PlacementV1PropertySelectorRequirementArgs:
         pulumi.set(self, "values", value)
 
 
-class PlacementV1PropertySelectorArgsDict(TypedDict):
-    """
-    PropertySelector helps user specify property requirements when picking clusters for resource placement.
-    """
-    match_expressions: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgsDict']]]
-    """
-    MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
-    """
-
-@pulumi.input_type
-class PlacementV1PropertySelectorArgs:
-    def __init__(__self__, *,
-                 match_expressions: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]):
-        """
-        PropertySelector helps user specify property requirements when picking clusters for resource placement.
-
-        :param pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]] match_expressions: MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
-        """
-        pulumi.set(__self__, "match_expressions", match_expressions)
-
-    @_builtins.property
-    @pulumi.getter(name="matchExpressions")
-    def match_expressions(self) -> pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]:
-        """
-        MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
-        """
-        return pulumi.get(self, "match_expressions")
-
-    @match_expressions.setter
-    def match_expressions(self, value: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]):
-        pulumi.set(self, "match_expressions", value)
-
-
 class PlacementV1TolerationArgsDict(TypedDict):
     """
     Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
     """
-    effect: NotRequired[pulumi.Input[Union[_builtins.str, 'TaintEffect']]]
+    effect: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TaintEffect']]]]
     """
     Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
     """
-    operator: NotRequired[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]]
+    operator: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TolerationOperator']]]]
     """
     Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
     """
@@ -9083,10 +9083,10 @@ class PlacementV1TolerationArgsDict(TypedDict):
 @pulumi.input_type
 class PlacementV1TolerationArgs:
     def __init__(__self__, *,
-                 effect: Optional[pulumi.Input[Union[_builtins.str, 'TaintEffect']]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator: Optional[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 effect: pulumi.Input[Optional[Union[_builtins.str, 'TaintEffect']]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator: pulumi.Input[Optional[Union[_builtins.str, 'TolerationOperator']]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
 
@@ -9106,50 +9106,50 @@ class PlacementV1TolerationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def effect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TaintEffect']]]:
+    def effect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TaintEffect']]]:
         """
         Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
         """
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TaintEffect']]]):
+    def effect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TaintEffect']]]):
         pulumi.set(self, "effect", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]]:
+    def operator(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TolerationOperator']]]:
         """
         Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]]):
+    def operator(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TolerationOperator']]]):
         pulumi.set(self, "operator", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -9157,15 +9157,15 @@ class PortRangeArgsDict(TypedDict):
     """
     The port range.
     """
-    port_end: NotRequired[pulumi.Input[_builtins.int]]
+    port_end: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
     """
-    port_start: NotRequired[pulumi.Input[_builtins.int]]
+    port_start: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
     """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'Protocol']]]
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]]
     """
     The network protocol of the port.
     """
@@ -9173,9 +9173,9 @@ class PortRangeArgsDict(TypedDict):
 @pulumi.input_type
 class PortRangeArgs:
     def __init__(__self__, *,
-                 port_end: Optional[pulumi.Input[_builtins.int]] = None,
-                 port_start: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]] = None):
+                 port_end: pulumi.Input[Optional[_builtins.int]] = None,
+                 port_start: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]] = None):
         """
         The port range.
 
@@ -9192,38 +9192,38 @@ class PortRangeArgs:
 
     @_builtins.property
     @pulumi.getter(name="portEnd")
-    def port_end(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port_end(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
         """
         return pulumi.get(self, "port_end")
 
     @port_end.setter
-    def port_end(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port_end(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port_end", value)
 
     @_builtins.property
     @pulumi.getter(name="portStart")
-    def port_start(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port_start(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
         """
         return pulumi.get(self, "port_start")
 
     @port_start.setter
-    def port_start(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port_start(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port_start", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]]:
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]:
         """
         The network protocol of the port.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]]):
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -9231,7 +9231,7 @@ class PowerStateArgsDict(TypedDict):
     """
     Describes the Power State of the cluster
     """
-    code: NotRequired[pulumi.Input[Union[_builtins.str, 'Code']]]
+    code: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Code']]]]
     """
     Tells whether the cluster is Running or Stopped
     """
@@ -9239,7 +9239,7 @@ class PowerStateArgsDict(TypedDict):
 @pulumi.input_type
 class PowerStateArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[Union[_builtins.str, 'Code']]] = None):
+                 code: pulumi.Input[Optional[Union[_builtins.str, 'Code']]] = None):
         """
         Describes the Power State of the cluster
 
@@ -9250,14 +9250,14 @@ class PowerStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Code']]]:
+    def code(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Code']]]:
         """
         Tells whether the cluster is Running or Stopped
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Code']]]):
+    def code(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Code']]]):
         pulumi.set(self, "code", value)
 
 
@@ -9265,7 +9265,7 @@ class PrivateEndpointArgsDict(TypedDict):
     """
     Private endpoint which a connection belongs to.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the private endpoint
     """
@@ -9273,7 +9273,7 @@ class PrivateEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Private endpoint which a connection belongs to.
 
@@ -9284,14 +9284,14 @@ class PrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the private endpoint
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -9299,23 +9299,23 @@ class PrivateLinkResourceArgsDict(TypedDict):
     """
     A private link resource
     """
-    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The group ID of the resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the private link resource.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the private link resource.
     """
-    required_members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_members: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The RequiredMembers of the resource
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource type.
     """
@@ -9323,11 +9323,11 @@ class PrivateLinkResourceArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkResourceArgs:
     def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A private link resource
 
@@ -9350,62 +9350,62 @@ class PrivateLinkResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group ID of the resource.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the private link resource.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the private link resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredMembers")
-    def required_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The RequiredMembers of the resource
         """
         return pulumi.get(self, "required_members")
 
     @required_members.setter
-    def required_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_members", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -9413,11 +9413,11 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     The state of a private link service connection.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private link service connection description.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]]]
     """
     The private link service connection status.
     """
@@ -9425,8 +9425,8 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]] = None):
         """
         The state of a private link service connection.
 
@@ -9440,26 +9440,26 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private link service connection description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]]:
         """
         The private link service connection status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -9471,7 +9471,7 @@ class PropagationPolicyArgsDict(TypedDict):
     """
     The type of the policy to be used. Default is Placement.
     """
-    placement_profile: NotRequired[pulumi.Input['PlacementProfileArgsDict']]
+    placement_profile: NotRequired[pulumi.Input[Optional['PlacementProfileArgsDict']]]
     """
     The profile to be used for propagation via placement.
     """
@@ -9480,7 +9480,7 @@ class PropagationPolicyArgsDict(TypedDict):
 class PropagationPolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'PropagationType']],
-                 placement_profile: Optional[pulumi.Input['PlacementProfileArgs']] = None):
+                 placement_profile: pulumi.Input[Optional['PlacementProfileArgs']] = None):
         """
         The propagation to be used for provisioning the namespace among the fleet.
 
@@ -9505,14 +9505,14 @@ class PropagationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="placementProfile")
-    def placement_profile(self) -> Optional[pulumi.Input['PlacementProfileArgs']]:
+    def placement_profile(self) -> pulumi.Input[Optional['PlacementProfileArgs']]:
         """
         The profile to be used for propagation via placement.
         """
         return pulumi.get(self, "placement_profile")
 
     @placement_profile.setter
-    def placement_profile(self, value: Optional[pulumi.Input['PlacementProfileArgs']]):
+    def placement_profile(self, value: pulumi.Input[Optional['PlacementProfileArgs']]):
         pulumi.set(self, "placement_profile", value)
 
 
@@ -9591,19 +9591,19 @@ class ResourceQuotaArgsDict(TypedDict):
     """
     Resource quota for the namespace.
     """
-    cpu_limit: NotRequired[pulumi.Input[_builtins.str]]
+    cpu_limit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CPU limit of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
     """
-    cpu_request: NotRequired[pulumi.Input[_builtins.str]]
+    cpu_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CPU request of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
     """
-    memory_limit: NotRequired[pulumi.Input[_builtins.str]]
+    memory_limit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Memory limit of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
     """
-    memory_request: NotRequired[pulumi.Input[_builtins.str]]
+    memory_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Memory request of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
     """
@@ -9611,10 +9611,10 @@ class ResourceQuotaArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceQuotaArgs:
     def __init__(__self__, *,
-                 cpu_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_request: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_request: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Resource quota for the namespace.
 
@@ -9634,50 +9634,50 @@ class ResourceQuotaArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpuLimit")
-    def cpu_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CPU limit of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
         """
         return pulumi.get(self, "cpu_limit")
 
     @cpu_limit.setter
-    def cpu_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuRequest")
-    def cpu_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CPU request of the namespace in one-thousandth CPU form. See [CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details.
         """
         return pulumi.get(self, "cpu_request")
 
     @cpu_request.setter
-    def cpu_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu_request", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryLimit")
-    def memory_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Memory limit of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
         """
         return pulumi.get(self, "memory_limit")
 
     @memory_limit.setter
-    def memory_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRequest")
-    def memory_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Memory request of the namespace in the power-of-two equivalents form: Ei, Pi, Ti, Gi, Mi, Ki. See [Memory resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) for more details.
         """
         return pulumi.get(self, "memory_request")
 
     @memory_request.setter
-    def memory_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_request", value)
 
 
@@ -9685,7 +9685,7 @@ class ResourceReferenceArgsDict(TypedDict):
     """
     A reference to an Azure resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified Azure resource id.
     """
@@ -9693,7 +9693,7 @@ class ResourceReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A reference to an Azure resource.
 
@@ -9704,14 +9704,14 @@ class ResourceReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified Azure resource id.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -9719,7 +9719,7 @@ class ScaleProfileArgsDict(TypedDict):
     """
     Specifications on how to scale a VirtualMachines agent pool.
     """
-    manual: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgsDict']]]]
+    manual: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManualScaleProfileArgsDict']]]]]
     """
     Specifications on how to scale the VirtualMachines agent pool to a fixed size.
     """
@@ -9727,7 +9727,7 @@ class ScaleProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ScaleProfileArgs:
     def __init__(__self__, *,
-                 manual: Optional[pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgs']]]] = None):
+                 manual: pulumi.Input[Optional[Sequence[pulumi.Input['ManualScaleProfileArgs']]]] = None):
         """
         Specifications on how to scale a VirtualMachines agent pool.
 
@@ -9738,14 +9738,14 @@ class ScaleProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def manual(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgs']]]]:
+    def manual(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManualScaleProfileArgs']]]]:
         """
         Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
         return pulumi.get(self, "manual")
 
     @manual.setter
-    def manual(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgs']]]]):
+    def manual(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManualScaleProfileArgs']]]]):
         pulumi.set(self, "manual", value)
 
 
@@ -9753,19 +9753,19 @@ class ScheduleArgsDict(TypedDict):
     """
     One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
     """
-    absolute_monthly: NotRequired[pulumi.Input['AbsoluteMonthlyScheduleArgsDict']]
+    absolute_monthly: NotRequired[pulumi.Input[Optional['AbsoluteMonthlyScheduleArgsDict']]]
     """
     For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
     """
-    daily: NotRequired[pulumi.Input['DailyScheduleArgsDict']]
+    daily: NotRequired[pulumi.Input[Optional['DailyScheduleArgsDict']]]
     """
     For schedules like: 'recur every day' or 'recur every 3 days'.
     """
-    relative_monthly: NotRequired[pulumi.Input['RelativeMonthlyScheduleArgsDict']]
+    relative_monthly: NotRequired[pulumi.Input[Optional['RelativeMonthlyScheduleArgsDict']]]
     """
     For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
     """
-    weekly: NotRequired[pulumi.Input['WeeklyScheduleArgsDict']]
+    weekly: NotRequired[pulumi.Input[Optional['WeeklyScheduleArgsDict']]]
     """
     For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
     """
@@ -9773,10 +9773,10 @@ class ScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
-                 absolute_monthly: Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']] = None,
-                 daily: Optional[pulumi.Input['DailyScheduleArgs']] = None,
-                 relative_monthly: Optional[pulumi.Input['RelativeMonthlyScheduleArgs']] = None,
-                 weekly: Optional[pulumi.Input['WeeklyScheduleArgs']] = None):
+                 absolute_monthly: pulumi.Input[Optional['AbsoluteMonthlyScheduleArgs']] = None,
+                 daily: pulumi.Input[Optional['DailyScheduleArgs']] = None,
+                 relative_monthly: pulumi.Input[Optional['RelativeMonthlyScheduleArgs']] = None,
+                 weekly: pulumi.Input[Optional['WeeklyScheduleArgs']] = None):
         """
         One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
 
@@ -9796,50 +9796,50 @@ class ScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="absoluteMonthly")
-    def absolute_monthly(self) -> Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']]:
+    def absolute_monthly(self) -> pulumi.Input[Optional['AbsoluteMonthlyScheduleArgs']]:
         """
         For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
         """
         return pulumi.get(self, "absolute_monthly")
 
     @absolute_monthly.setter
-    def absolute_monthly(self, value: Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']]):
+    def absolute_monthly(self, value: pulumi.Input[Optional['AbsoluteMonthlyScheduleArgs']]):
         pulumi.set(self, "absolute_monthly", value)
 
     @_builtins.property
     @pulumi.getter
-    def daily(self) -> Optional[pulumi.Input['DailyScheduleArgs']]:
+    def daily(self) -> pulumi.Input[Optional['DailyScheduleArgs']]:
         """
         For schedules like: 'recur every day' or 'recur every 3 days'.
         """
         return pulumi.get(self, "daily")
 
     @daily.setter
-    def daily(self, value: Optional[pulumi.Input['DailyScheduleArgs']]):
+    def daily(self, value: pulumi.Input[Optional['DailyScheduleArgs']]):
         pulumi.set(self, "daily", value)
 
     @_builtins.property
     @pulumi.getter(name="relativeMonthly")
-    def relative_monthly(self) -> Optional[pulumi.Input['RelativeMonthlyScheduleArgs']]:
+    def relative_monthly(self) -> pulumi.Input[Optional['RelativeMonthlyScheduleArgs']]:
         """
         For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
         """
         return pulumi.get(self, "relative_monthly")
 
     @relative_monthly.setter
-    def relative_monthly(self, value: Optional[pulumi.Input['RelativeMonthlyScheduleArgs']]):
+    def relative_monthly(self, value: pulumi.Input[Optional['RelativeMonthlyScheduleArgs']]):
         pulumi.set(self, "relative_monthly", value)
 
     @_builtins.property
     @pulumi.getter
-    def weekly(self) -> Optional[pulumi.Input['WeeklyScheduleArgs']]:
+    def weekly(self) -> pulumi.Input[Optional['WeeklyScheduleArgs']]:
         """
         For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
         """
         return pulumi.get(self, "weekly")
 
     @weekly.setter
-    def weekly(self, value: Optional[pulumi.Input['WeeklyScheduleArgs']]):
+    def weekly(self, value: pulumi.Input[Optional['WeeklyScheduleArgs']]):
         pulumi.set(self, "weekly", value)
 
 
@@ -9851,7 +9851,7 @@ class ServiceMeshProfileArgsDict(TypedDict):
     """
     Mode of the service mesh.
     """
-    istio: NotRequired[pulumi.Input['IstioServiceMeshArgsDict']]
+    istio: NotRequired[pulumi.Input[Optional['IstioServiceMeshArgsDict']]]
     """
     Istio service mesh configuration.
     """
@@ -9860,7 +9860,7 @@ class ServiceMeshProfileArgsDict(TypedDict):
 class ServiceMeshProfileArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[Union[_builtins.str, 'ServiceMeshMode']],
-                 istio: Optional[pulumi.Input['IstioServiceMeshArgs']] = None):
+                 istio: pulumi.Input[Optional['IstioServiceMeshArgs']] = None):
         """
         Service mesh profile for a managed cluster.
 
@@ -9885,14 +9885,14 @@ class ServiceMeshProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def istio(self) -> Optional[pulumi.Input['IstioServiceMeshArgs']]:
+    def istio(self) -> pulumi.Input[Optional['IstioServiceMeshArgs']]:
         """
         Istio service mesh configuration.
         """
         return pulumi.get(self, "istio")
 
     @istio.setter
-    def istio(self, value: Optional[pulumi.Input['IstioServiceMeshArgs']]):
+    def istio(self, value: pulumi.Input[Optional['IstioServiceMeshArgs']]):
         pulumi.set(self, "istio", value)
 
 
@@ -9900,115 +9900,115 @@ class SysctlConfigArgsDict(TypedDict):
     """
     Sysctl settings for Linux agent nodes.
     """
-    fs_aio_max_nr: NotRequired[pulumi.Input[_builtins.int]]
+    fs_aio_max_nr: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting fs.aio-max-nr.
     """
-    fs_file_max: NotRequired[pulumi.Input[_builtins.int]]
+    fs_file_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting fs.file-max.
     """
-    fs_inotify_max_user_watches: NotRequired[pulumi.Input[_builtins.int]]
+    fs_inotify_max_user_watches: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting fs.inotify.max_user_watches.
     """
-    fs_nr_open: NotRequired[pulumi.Input[_builtins.int]]
+    fs_nr_open: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting fs.nr_open.
     """
-    kernel_threads_max: NotRequired[pulumi.Input[_builtins.int]]
+    kernel_threads_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting kernel.threads-max.
     """
-    net_core_netdev_max_backlog: NotRequired[pulumi.Input[_builtins.int]]
+    net_core_netdev_max_backlog: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.core.netdev_max_backlog.
     """
-    net_core_optmem_max: NotRequired[pulumi.Input[_builtins.int]]
+    net_core_optmem_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.core.optmem_max.
     """
-    net_core_rmem_default: NotRequired[pulumi.Input[_builtins.int]]
+    net_core_rmem_default: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.core.rmem_default.
     """
-    net_core_rmem_max: NotRequired[pulumi.Input[_builtins.int]]
+    net_core_rmem_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.core.rmem_max.
     """
-    net_core_somaxconn: NotRequired[pulumi.Input[_builtins.int]]
+    net_core_somaxconn: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.core.somaxconn.
     """
-    net_core_wmem_default: NotRequired[pulumi.Input[_builtins.int]]
+    net_core_wmem_default: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.core.wmem_default.
     """
-    net_core_wmem_max: NotRequired[pulumi.Input[_builtins.int]]
+    net_core_wmem_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.core.wmem_max.
     """
-    net_ipv4_ip_local_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    net_ipv4_ip_local_port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sysctl setting net.ipv4.ip_local_port_range.
     """
-    net_ipv4_neigh_default_gc_thresh1: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_neigh_default_gc_thresh1: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.neigh.default.gc_thresh1.
     """
-    net_ipv4_neigh_default_gc_thresh2: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_neigh_default_gc_thresh2: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.neigh.default.gc_thresh2.
     """
-    net_ipv4_neigh_default_gc_thresh3: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_neigh_default_gc_thresh3: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.neigh.default.gc_thresh3.
     """
-    net_ipv4_tcp_fin_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_tcp_fin_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.tcp_fin_timeout.
     """
-    net_ipv4_tcp_keepalive_probes: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_tcp_keepalive_probes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.tcp_keepalive_probes.
     """
-    net_ipv4_tcp_keepalive_time: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_tcp_keepalive_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.tcp_keepalive_time.
     """
-    net_ipv4_tcp_max_syn_backlog: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_tcp_max_syn_backlog: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.tcp_max_syn_backlog.
     """
-    net_ipv4_tcp_max_tw_buckets: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_tcp_max_tw_buckets: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.tcp_max_tw_buckets.
     """
-    net_ipv4_tcp_tw_reuse: NotRequired[pulumi.Input[_builtins.bool]]
+    net_ipv4_tcp_tw_reuse: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Sysctl setting net.ipv4.tcp_tw_reuse.
     """
-    net_ipv4_tcpkeepalive_intvl: NotRequired[pulumi.Input[_builtins.int]]
+    net_ipv4_tcpkeepalive_intvl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.ipv4.tcp_keepalive_intvl.
     """
-    net_netfilter_nf_conntrack_buckets: NotRequired[pulumi.Input[_builtins.int]]
+    net_netfilter_nf_conntrack_buckets: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.netfilter.nf_conntrack_buckets.
     """
-    net_netfilter_nf_conntrack_max: NotRequired[pulumi.Input[_builtins.int]]
+    net_netfilter_nf_conntrack_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting net.netfilter.nf_conntrack_max.
     """
-    vm_max_map_count: NotRequired[pulumi.Input[_builtins.int]]
+    vm_max_map_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting vm.max_map_count.
     """
-    vm_swappiness: NotRequired[pulumi.Input[_builtins.int]]
+    vm_swappiness: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting vm.swappiness.
     """
-    vm_vfs_cache_pressure: NotRequired[pulumi.Input[_builtins.int]]
+    vm_vfs_cache_pressure: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sysctl setting vm.vfs_cache_pressure.
     """
@@ -10016,34 +10016,34 @@ class SysctlConfigArgsDict(TypedDict):
 @pulumi.input_type
 class SysctlConfigArgs:
     def __init__(__self__, *,
-                 fs_aio_max_nr: Optional[pulumi.Input[_builtins.int]] = None,
-                 fs_file_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 fs_inotify_max_user_watches: Optional[pulumi.Input[_builtins.int]] = None,
-                 fs_nr_open: Optional[pulumi.Input[_builtins.int]] = None,
-                 kernel_threads_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_core_netdev_max_backlog: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_core_optmem_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_core_rmem_default: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_core_rmem_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_core_somaxconn: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_core_wmem_default: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_core_wmem_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_ip_local_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 net_ipv4_neigh_default_gc_thresh1: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_neigh_default_gc_thresh2: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_neigh_default_gc_thresh3: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_tcp_fin_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_tcp_keepalive_probes: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_tcp_keepalive_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_tcp_max_syn_backlog: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_tcp_max_tw_buckets: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_ipv4_tcp_tw_reuse: Optional[pulumi.Input[_builtins.bool]] = None,
-                 net_ipv4_tcpkeepalive_intvl: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_netfilter_nf_conntrack_buckets: Optional[pulumi.Input[_builtins.int]] = None,
-                 net_netfilter_nf_conntrack_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 vm_max_map_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 vm_swappiness: Optional[pulumi.Input[_builtins.int]] = None,
-                 vm_vfs_cache_pressure: Optional[pulumi.Input[_builtins.int]] = None):
+                 fs_aio_max_nr: pulumi.Input[Optional[_builtins.int]] = None,
+                 fs_file_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 fs_inotify_max_user_watches: pulumi.Input[Optional[_builtins.int]] = None,
+                 fs_nr_open: pulumi.Input[Optional[_builtins.int]] = None,
+                 kernel_threads_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_core_netdev_max_backlog: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_core_optmem_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_core_rmem_default: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_core_rmem_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_core_somaxconn: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_core_wmem_default: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_core_wmem_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_ip_local_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 net_ipv4_neigh_default_gc_thresh1: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_neigh_default_gc_thresh2: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_neigh_default_gc_thresh3: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_tcp_fin_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_tcp_keepalive_probes: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_tcp_keepalive_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_tcp_max_syn_backlog: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_tcp_max_tw_buckets: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_ipv4_tcp_tw_reuse: pulumi.Input[Optional[_builtins.bool]] = None,
+                 net_ipv4_tcpkeepalive_intvl: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_netfilter_nf_conntrack_buckets: pulumi.Input[Optional[_builtins.int]] = None,
+                 net_netfilter_nf_conntrack_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 vm_max_map_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 vm_swappiness: pulumi.Input[Optional[_builtins.int]] = None,
+                 vm_vfs_cache_pressure: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Sysctl settings for Linux agent nodes.
 
@@ -10135,338 +10135,338 @@ class SysctlConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="fsAioMaxNr")
-    def fs_aio_max_nr(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def fs_aio_max_nr(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting fs.aio-max-nr.
         """
         return pulumi.get(self, "fs_aio_max_nr")
 
     @fs_aio_max_nr.setter
-    def fs_aio_max_nr(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def fs_aio_max_nr(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "fs_aio_max_nr", value)
 
     @_builtins.property
     @pulumi.getter(name="fsFileMax")
-    def fs_file_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def fs_file_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting fs.file-max.
         """
         return pulumi.get(self, "fs_file_max")
 
     @fs_file_max.setter
-    def fs_file_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def fs_file_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "fs_file_max", value)
 
     @_builtins.property
     @pulumi.getter(name="fsInotifyMaxUserWatches")
-    def fs_inotify_max_user_watches(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def fs_inotify_max_user_watches(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting fs.inotify.max_user_watches.
         """
         return pulumi.get(self, "fs_inotify_max_user_watches")
 
     @fs_inotify_max_user_watches.setter
-    def fs_inotify_max_user_watches(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def fs_inotify_max_user_watches(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "fs_inotify_max_user_watches", value)
 
     @_builtins.property
     @pulumi.getter(name="fsNrOpen")
-    def fs_nr_open(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def fs_nr_open(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting fs.nr_open.
         """
         return pulumi.get(self, "fs_nr_open")
 
     @fs_nr_open.setter
-    def fs_nr_open(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def fs_nr_open(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "fs_nr_open", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelThreadsMax")
-    def kernel_threads_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kernel_threads_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting kernel.threads-max.
         """
         return pulumi.get(self, "kernel_threads_max")
 
     @kernel_threads_max.setter
-    def kernel_threads_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kernel_threads_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kernel_threads_max", value)
 
     @_builtins.property
     @pulumi.getter(name="netCoreNetdevMaxBacklog")
-    def net_core_netdev_max_backlog(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_core_netdev_max_backlog(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.core.netdev_max_backlog.
         """
         return pulumi.get(self, "net_core_netdev_max_backlog")
 
     @net_core_netdev_max_backlog.setter
-    def net_core_netdev_max_backlog(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_core_netdev_max_backlog(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_core_netdev_max_backlog", value)
 
     @_builtins.property
     @pulumi.getter(name="netCoreOptmemMax")
-    def net_core_optmem_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_core_optmem_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.core.optmem_max.
         """
         return pulumi.get(self, "net_core_optmem_max")
 
     @net_core_optmem_max.setter
-    def net_core_optmem_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_core_optmem_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_core_optmem_max", value)
 
     @_builtins.property
     @pulumi.getter(name="netCoreRmemDefault")
-    def net_core_rmem_default(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_core_rmem_default(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.core.rmem_default.
         """
         return pulumi.get(self, "net_core_rmem_default")
 
     @net_core_rmem_default.setter
-    def net_core_rmem_default(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_core_rmem_default(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_core_rmem_default", value)
 
     @_builtins.property
     @pulumi.getter(name="netCoreRmemMax")
-    def net_core_rmem_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_core_rmem_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.core.rmem_max.
         """
         return pulumi.get(self, "net_core_rmem_max")
 
     @net_core_rmem_max.setter
-    def net_core_rmem_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_core_rmem_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_core_rmem_max", value)
 
     @_builtins.property
     @pulumi.getter(name="netCoreSomaxconn")
-    def net_core_somaxconn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_core_somaxconn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.core.somaxconn.
         """
         return pulumi.get(self, "net_core_somaxconn")
 
     @net_core_somaxconn.setter
-    def net_core_somaxconn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_core_somaxconn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_core_somaxconn", value)
 
     @_builtins.property
     @pulumi.getter(name="netCoreWmemDefault")
-    def net_core_wmem_default(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_core_wmem_default(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.core.wmem_default.
         """
         return pulumi.get(self, "net_core_wmem_default")
 
     @net_core_wmem_default.setter
-    def net_core_wmem_default(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_core_wmem_default(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_core_wmem_default", value)
 
     @_builtins.property
     @pulumi.getter(name="netCoreWmemMax")
-    def net_core_wmem_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_core_wmem_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.core.wmem_max.
         """
         return pulumi.get(self, "net_core_wmem_max")
 
     @net_core_wmem_max.setter
-    def net_core_wmem_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_core_wmem_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_core_wmem_max", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4IpLocalPortRange")
-    def net_ipv4_ip_local_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def net_ipv4_ip_local_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sysctl setting net.ipv4.ip_local_port_range.
         """
         return pulumi.get(self, "net_ipv4_ip_local_port_range")
 
     @net_ipv4_ip_local_port_range.setter
-    def net_ipv4_ip_local_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def net_ipv4_ip_local_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "net_ipv4_ip_local_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4NeighDefaultGcThresh1")
-    def net_ipv4_neigh_default_gc_thresh1(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_neigh_default_gc_thresh1(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.neigh.default.gc_thresh1.
         """
         return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh1")
 
     @net_ipv4_neigh_default_gc_thresh1.setter
-    def net_ipv4_neigh_default_gc_thresh1(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_neigh_default_gc_thresh1(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_neigh_default_gc_thresh1", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4NeighDefaultGcThresh2")
-    def net_ipv4_neigh_default_gc_thresh2(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_neigh_default_gc_thresh2(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.neigh.default.gc_thresh2.
         """
         return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh2")
 
     @net_ipv4_neigh_default_gc_thresh2.setter
-    def net_ipv4_neigh_default_gc_thresh2(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_neigh_default_gc_thresh2(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_neigh_default_gc_thresh2", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4NeighDefaultGcThresh3")
-    def net_ipv4_neigh_default_gc_thresh3(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_neigh_default_gc_thresh3(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.neigh.default.gc_thresh3.
         """
         return pulumi.get(self, "net_ipv4_neigh_default_gc_thresh3")
 
     @net_ipv4_neigh_default_gc_thresh3.setter
-    def net_ipv4_neigh_default_gc_thresh3(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_neigh_default_gc_thresh3(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_neigh_default_gc_thresh3", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4TcpFinTimeout")
-    def net_ipv4_tcp_fin_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_tcp_fin_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.tcp_fin_timeout.
         """
         return pulumi.get(self, "net_ipv4_tcp_fin_timeout")
 
     @net_ipv4_tcp_fin_timeout.setter
-    def net_ipv4_tcp_fin_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_tcp_fin_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_tcp_fin_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4TcpKeepaliveProbes")
-    def net_ipv4_tcp_keepalive_probes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_tcp_keepalive_probes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.tcp_keepalive_probes.
         """
         return pulumi.get(self, "net_ipv4_tcp_keepalive_probes")
 
     @net_ipv4_tcp_keepalive_probes.setter
-    def net_ipv4_tcp_keepalive_probes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_tcp_keepalive_probes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_tcp_keepalive_probes", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4TcpKeepaliveTime")
-    def net_ipv4_tcp_keepalive_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_tcp_keepalive_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.tcp_keepalive_time.
         """
         return pulumi.get(self, "net_ipv4_tcp_keepalive_time")
 
     @net_ipv4_tcp_keepalive_time.setter
-    def net_ipv4_tcp_keepalive_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_tcp_keepalive_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_tcp_keepalive_time", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4TcpMaxSynBacklog")
-    def net_ipv4_tcp_max_syn_backlog(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_tcp_max_syn_backlog(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.tcp_max_syn_backlog.
         """
         return pulumi.get(self, "net_ipv4_tcp_max_syn_backlog")
 
     @net_ipv4_tcp_max_syn_backlog.setter
-    def net_ipv4_tcp_max_syn_backlog(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_tcp_max_syn_backlog(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_tcp_max_syn_backlog", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4TcpMaxTwBuckets")
-    def net_ipv4_tcp_max_tw_buckets(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_tcp_max_tw_buckets(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.tcp_max_tw_buckets.
         """
         return pulumi.get(self, "net_ipv4_tcp_max_tw_buckets")
 
     @net_ipv4_tcp_max_tw_buckets.setter
-    def net_ipv4_tcp_max_tw_buckets(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_tcp_max_tw_buckets(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_tcp_max_tw_buckets", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4TcpTwReuse")
-    def net_ipv4_tcp_tw_reuse(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def net_ipv4_tcp_tw_reuse(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Sysctl setting net.ipv4.tcp_tw_reuse.
         """
         return pulumi.get(self, "net_ipv4_tcp_tw_reuse")
 
     @net_ipv4_tcp_tw_reuse.setter
-    def net_ipv4_tcp_tw_reuse(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def net_ipv4_tcp_tw_reuse(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "net_ipv4_tcp_tw_reuse", value)
 
     @_builtins.property
     @pulumi.getter(name="netIpv4TcpkeepaliveIntvl")
-    def net_ipv4_tcpkeepalive_intvl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_ipv4_tcpkeepalive_intvl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.ipv4.tcp_keepalive_intvl.
         """
         return pulumi.get(self, "net_ipv4_tcpkeepalive_intvl")
 
     @net_ipv4_tcpkeepalive_intvl.setter
-    def net_ipv4_tcpkeepalive_intvl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_ipv4_tcpkeepalive_intvl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_ipv4_tcpkeepalive_intvl", value)
 
     @_builtins.property
     @pulumi.getter(name="netNetfilterNfConntrackBuckets")
-    def net_netfilter_nf_conntrack_buckets(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_netfilter_nf_conntrack_buckets(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.netfilter.nf_conntrack_buckets.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_buckets")
 
     @net_netfilter_nf_conntrack_buckets.setter
-    def net_netfilter_nf_conntrack_buckets(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_netfilter_nf_conntrack_buckets(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_netfilter_nf_conntrack_buckets", value)
 
     @_builtins.property
     @pulumi.getter(name="netNetfilterNfConntrackMax")
-    def net_netfilter_nf_conntrack_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def net_netfilter_nf_conntrack_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting net.netfilter.nf_conntrack_max.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_max")
 
     @net_netfilter_nf_conntrack_max.setter
-    def net_netfilter_nf_conntrack_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def net_netfilter_nf_conntrack_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "net_netfilter_nf_conntrack_max", value)
 
     @_builtins.property
     @pulumi.getter(name="vmMaxMapCount")
-    def vm_max_map_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vm_max_map_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting vm.max_map_count.
         """
         return pulumi.get(self, "vm_max_map_count")
 
     @vm_max_map_count.setter
-    def vm_max_map_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vm_max_map_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vm_max_map_count", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSwappiness")
-    def vm_swappiness(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vm_swappiness(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting vm.swappiness.
         """
         return pulumi.get(self, "vm_swappiness")
 
     @vm_swappiness.setter
-    def vm_swappiness(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vm_swappiness(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vm_swappiness", value)
 
     @_builtins.property
     @pulumi.getter(name="vmVfsCachePressure")
-    def vm_vfs_cache_pressure(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vm_vfs_cache_pressure(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sysctl setting vm.vfs_cache_pressure.
         """
         return pulumi.get(self, "vm_vfs_cache_pressure")
 
     @vm_vfs_cache_pressure.setter
-    def vm_vfs_cache_pressure(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vm_vfs_cache_pressure(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vm_vfs_cache_pressure", value)
 
 
@@ -10474,11 +10474,11 @@ class TimeInWeekArgsDict(TypedDict):
     """
     Time in a week.
     """
-    day: NotRequired[pulumi.Input[Union[_builtins.str, 'WeekDay']]]
+    day: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'WeekDay']]]]
     """
     The day of the week.
     """
-    hour_slots: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    hour_slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     A list of hours in the day used to identify a time range. Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
     """
@@ -10486,8 +10486,8 @@ class TimeInWeekArgsDict(TypedDict):
 @pulumi.input_type
 class TimeInWeekArgs:
     def __init__(__self__, *,
-                 day: Optional[pulumi.Input[Union[_builtins.str, 'WeekDay']]] = None,
-                 hour_slots: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 day: pulumi.Input[Optional[Union[_builtins.str, 'WeekDay']]] = None,
+                 hour_slots: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         Time in a week.
 
@@ -10501,26 +10501,26 @@ class TimeInWeekArgs:
 
     @_builtins.property
     @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[Union[_builtins.str, 'WeekDay']]]:
+    def day(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WeekDay']]]:
         """
         The day of the week.
         """
         return pulumi.get(self, "day")
 
     @day.setter
-    def day(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WeekDay']]]):
+    def day(self, value: pulumi.Input[Optional[Union[_builtins.str, 'WeekDay']]]):
         pulumi.set(self, "day", value)
 
     @_builtins.property
     @pulumi.getter(name="hourSlots")
-    def hour_slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def hour_slots(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of hours in the day used to identify a time range. Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
         """
         return pulumi.get(self, "hour_slots")
 
     @hour_slots.setter
-    def hour_slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def hour_slots(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "hour_slots", value)
 
 
@@ -10528,11 +10528,11 @@ class TimeSpanArgsDict(TypedDict):
     """
     A time range. For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end of a time span
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The start of a time span
     """
@@ -10540,8 +10540,8 @@ class TimeSpanArgsDict(TypedDict):
 @pulumi.input_type
 class TimeSpanArgs:
     def __init__(__self__, *,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A time range. For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
 
@@ -10555,26 +10555,26 @@ class TimeSpanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of a time span
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start of a time span
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -10585,7 +10585,7 @@ class UpdateGroupArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
     Name of the group.
-    It must match a group name of an existing fleet member. 
+    It must match a group name of an existing fleet member.
     """
 
 @pulumi.input_type
@@ -10596,7 +10596,7 @@ class UpdateGroupArgs:
         A group to be updated.
 
         :param pulumi.Input[_builtins.str] name: Name of the group.
-               It must match a group name of an existing fleet member. 
+               It must match a group name of an existing fleet member.
         """
         pulumi.set(__self__, "name", name)
 
@@ -10605,7 +10605,7 @@ class UpdateGroupArgs:
     def name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the group.
-        It must match a group name of an existing fleet member. 
+        It must match a group name of an existing fleet member.
         """
         return pulumi.get(self, "name")
 
@@ -10667,11 +10667,11 @@ class UpdateStageArgsDict(TypedDict):
     """
     The name of the stage. Must be unique within the UpdateRun.
     """
-    after_stage_wait_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    after_stage_wait_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
     """
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgsDict']]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UpdateGroupArgsDict']]]]]
     """
     Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.
     """
@@ -10680,8 +10680,8 @@ class UpdateStageArgsDict(TypedDict):
 class UpdateStageArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 after_stage_wait_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]]] = None):
+                 after_stage_wait_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['UpdateGroupArgs']]]] = None):
         """
         Defines a stage which contains the groups to update and the steps to take (e.g., wait for a time period) before starting the next stage.
 
@@ -10709,26 +10709,26 @@ class UpdateStageArgs:
 
     @_builtins.property
     @pulumi.getter(name="afterStageWaitInSeconds")
-    def after_stage_wait_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def after_stage_wait_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
         """
         return pulumi.get(self, "after_stage_wait_in_seconds")
 
     @after_stage_wait_in_seconds.setter
-    def after_stage_wait_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def after_stage_wait_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "after_stage_wait_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UpdateGroupArgs']]]]:
         """
         Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UpdateGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
 
@@ -10736,11 +10736,11 @@ class UpgradeOverrideSettingsArgsDict(TypedDict):
     """
     Settings for overrides when upgrading a cluster.
     """
-    force_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    force_upgrade: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
     """
-    until: NotRequired[pulumi.Input[_builtins.str]]
+    until: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
     """
@@ -10748,8 +10748,8 @@ class UpgradeOverrideSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class UpgradeOverrideSettingsArgs:
     def __init__(__self__, *,
-                 force_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 until: Optional[pulumi.Input[_builtins.str]] = None):
+                 force_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 until: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Settings for overrides when upgrading a cluster.
 
@@ -10763,26 +10763,26 @@ class UpgradeOverrideSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="forceUpgrade")
-    def force_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
         """
         return pulumi.get(self, "force_upgrade")
 
     @force_upgrade.setter
-    def force_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_upgrade", value)
 
     @_builtins.property
     @pulumi.getter
-    def until(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def until(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
         """
         return pulumi.get(self, "until")
 
     @until.setter
-    def until(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def until(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "until", value)
 
 
@@ -10790,15 +10790,15 @@ class UserAssignedIdentityArgsDict(TypedDict):
     """
     Details about a user assigned identity.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client ID of the user assigned identity.
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object ID of the user assigned identity.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the user assigned identity.
     """
@@ -10806,9 +10806,9 @@ class UserAssignedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details about a user assigned identity.
 
@@ -10825,38 +10825,38 @@ class UserAssignedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client ID of the user assigned identity.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the user assigned identity.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the user assigned identity.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -10864,11 +10864,11 @@ class VirtualMachineNodesArgsDict(TypedDict):
     """
     Current status on a group of nodes of the same vm size.
     """
-    count: NotRequired[pulumi.Input[_builtins.int]]
+    count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of nodes.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The VM size of the agents used to host this group of nodes.
     """
@@ -10876,8 +10876,8 @@ class VirtualMachineNodesArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachineNodesArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Current status on a group of nodes of the same vm size.
 
@@ -10891,26 +10891,26 @@ class VirtualMachineNodesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of nodes.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VM size of the agents used to host this group of nodes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
 
@@ -10918,7 +10918,7 @@ class VirtualMachinesProfileArgsDict(TypedDict):
     """
     Specifications on VirtualMachines agent pool.
     """
-    scale: NotRequired[pulumi.Input['ScaleProfileArgsDict']]
+    scale: NotRequired[pulumi.Input[Optional['ScaleProfileArgsDict']]]
     """
     Specifications on how to scale a VirtualMachines agent pool.
     """
@@ -10926,7 +10926,7 @@ class VirtualMachinesProfileArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachinesProfileArgs:
     def __init__(__self__, *,
-                 scale: Optional[pulumi.Input['ScaleProfileArgs']] = None):
+                 scale: pulumi.Input[Optional['ScaleProfileArgs']] = None):
         """
         Specifications on VirtualMachines agent pool.
 
@@ -10937,14 +10937,14 @@ class VirtualMachinesProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input['ScaleProfileArgs']]:
+    def scale(self) -> pulumi.Input[Optional['ScaleProfileArgs']]:
         """
         Specifications on how to scale a VirtualMachines agent pool.
         """
         return pulumi.get(self, "scale")
 
     @scale.setter
-    def scale(self, value: Optional[pulumi.Input['ScaleProfileArgs']]):
+    def scale(self, value: pulumi.Input[Optional['ScaleProfileArgs']]):
         pulumi.set(self, "scale", value)
 
 
@@ -11004,15 +11004,15 @@ class WindowsGmsaProfileArgsDict(TypedDict):
     """
     Windows gMSA Profile in the managed cluster.
     """
-    dns_server: NotRequired[pulumi.Input[_builtins.str]]
+    dns_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the DNS server for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Windows gMSA. Specifies whether to enable Windows gMSA in the managed cluster.
     """
-    root_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    root_domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the root domain name for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
     """
@@ -11020,9 +11020,9 @@ class WindowsGmsaProfileArgsDict(TypedDict):
 @pulumi.input_type
 class WindowsGmsaProfileArgs:
     def __init__(__self__, *,
-                 dns_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 root_domain_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 root_domain_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Windows gMSA Profile in the managed cluster.
 
@@ -11039,38 +11039,38 @@ class WindowsGmsaProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsServer")
-    def dns_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the DNS server for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
         """
         return pulumi.get(self, "dns_server")
 
     @dns_server.setter
-    def dns_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_server", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Windows gMSA. Specifies whether to enable Windows gMSA in the managed cluster.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rootDomainName")
-    def root_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the root domain name for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
         """
         return pulumi.get(self, "root_domain_name")
 
     @root_domain_name.setter
-    def root_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_domain_name", value)
 
 

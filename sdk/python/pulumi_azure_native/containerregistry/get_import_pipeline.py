@@ -181,7 +181,6 @@ def get_import_pipeline(import_pipeline_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str import_pipeline_name: The name of the import pipeline.
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -205,9 +204,9 @@ def get_import_pipeline(import_pipeline_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         trigger=pulumi.get(__ret__, 'trigger'),
         type=pulumi.get(__ret__, 'type'))
-def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_import_pipeline_output(import_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportPipelineResult]:
     """
     Gets the properties of the import pipeline.
@@ -215,7 +214,6 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2023-01-01-preview.
 
     Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str import_pipeline_name: The name of the import pipeline.
     :param _builtins.str registry_name: The name of the container registry.

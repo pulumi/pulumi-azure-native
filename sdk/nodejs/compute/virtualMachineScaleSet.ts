@@ -284,63 +284,63 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs | undefined>;
     /**
      * Policy for automatic repairs.
      */
-    automaticRepairsPolicy?: pulumi.Input<inputs.compute.AutomaticRepairsPolicyArgs>;
+    automaticRepairsPolicy?: pulumi.Input<inputs.compute.AutomaticRepairsPolicyArgs | undefined>;
     /**
      * Optional property which must either be set to True or omitted.
      */
-    constrainedMaximumCapacity?: pulumi.Input<boolean>;
+    constrainedMaximumCapacity?: pulumi.Input<boolean | undefined>;
     /**
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
-    doNotRunExtensionsOnOverprovisionedVMs?: pulumi.Input<boolean>;
+    doNotRunExtensionsOnOverprovisionedVMs?: pulumi.Input<boolean | undefined>;
     /**
      * The extended location of the Virtual Machine Scale Set.
      */
-    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs | undefined>;
     /**
      * Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
      */
-    hostGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
+    hostGroup?: pulumi.Input<inputs.compute.SubResourceArgs | undefined>;
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    identity?: pulumi.Input<inputs.compute.VirtualMachineScaleSetIdentityArgs>;
+    identity?: pulumi.Input<inputs.compute.VirtualMachineScaleSetIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the orchestration mode for the virtual machine scale set.
      */
-    orchestrationMode?: pulumi.Input<string | enums.compute.OrchestrationMode>;
+    orchestrationMode?: pulumi.Input<string | enums.compute.OrchestrationMode | undefined>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    overprovision?: pulumi.Input<boolean>;
+    overprovision?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    plan?: pulumi.Input<inputs.compute.PlanArgs>;
+    plan?: pulumi.Input<inputs.compute.PlanArgs | undefined>;
     /**
      * Fault Domain count for each placement group.
      */
-    platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
      */
-    priorityMixPolicy?: pulumi.Input<inputs.compute.PriorityMixPolicyArgs>;
+    priorityMixPolicy?: pulumi.Input<inputs.compute.PriorityMixPolicyArgs | undefined>;
     /**
      * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
      */
-    proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
+    proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs | undefined>;
     /**
      * Policy for Resiliency
      */
-    resiliencyPolicy?: pulumi.Input<inputs.compute.ResiliencyPolicyArgs>;
+    resiliencyPolicy?: pulumi.Input<inputs.compute.ResiliencyPolicyArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -348,53 +348,53 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
-    scaleInPolicy?: pulumi.Input<inputs.compute.ScaleInPolicyArgs>;
+    scaleInPolicy?: pulumi.Input<inputs.compute.ScaleInPolicyArgs | undefined>;
     /**
      * The ScheduledEventsPolicy.
      */
-    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs>;
+    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs | undefined>;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
      */
-    singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean | undefined>;
     /**
      * The virtual machine scale set sku.
      */
-    sku?: pulumi.Input<inputs.compute.SkuArgs>;
+    sku?: pulumi.Input<inputs.compute.SkuArgs | undefined>;
     /**
      * Specifies the sku profile for the virtual machine scale set.
      */
-    skuProfile?: pulumi.Input<inputs.compute.SkuProfileArgs>;
+    skuProfile?: pulumi.Input<inputs.compute.SkuProfileArgs | undefined>;
     /**
      * Specifies the Spot Restore properties for the virtual machine scale set.
      */
-    spotRestorePolicy?: pulumi.Input<inputs.compute.SpotRestorePolicyArgs>;
+    spotRestorePolicy?: pulumi.Input<inputs.compute.SpotRestorePolicyArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The upgrade policy.
      */
-    upgradePolicy?: pulumi.Input<inputs.compute.UpgradePolicyArgs>;
+    upgradePolicy?: pulumi.Input<inputs.compute.UpgradePolicyArgs | undefined>;
     /**
      * The virtual machine profile.
      */
-    virtualMachineProfile?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMProfileArgs>;
+    virtualMachineProfile?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMProfileArgs | undefined>;
     /**
      * The name of the VM scale set.
      */
-    vmScaleSetName?: pulumi.Input<string>;
+    vmScaleSetName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
      */
-    zonalPlatformFaultDomainAlignMode?: pulumi.Input<string | enums.compute.ZonalPlatformFaultDomainAlignMode>;
+    zonalPlatformFaultDomainAlignMode?: pulumi.Input<string | enums.compute.ZonalPlatformFaultDomainAlignMode | undefined>;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
-    zoneBalance?: pulumi.Input<boolean>;
+    zoneBalance?: pulumi.Input<boolean | undefined>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

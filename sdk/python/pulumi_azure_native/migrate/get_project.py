@@ -142,7 +142,6 @@ def get_project(project_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-10-01.
 
-
     :param _builtins.str project_name: Name of the Azure Migrate project.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
@@ -161,14 +160,13 @@ def get_project(project_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_project_output(project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Get the project with the specified name.
 
     Uses Azure REST API version 2019-10-01.
-
 
     :param _builtins.str project_name: Name of the Azure Migrate project.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.

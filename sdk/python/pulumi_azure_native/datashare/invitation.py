@@ -23,11 +23,11 @@ class InvitationArgs:
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_object_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_object_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Invitation resource.
 
@@ -94,55 +94,55 @@ class InvitationArgs:
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expiration date for the invitation and share subscription.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="invitationName")
-    def invitation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the invitation.
         """
         return pulumi.get(self, "invitation_name")
 
     @invitation_name.setter
-    def invitation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetActiveDirectoryId")
-    def target_active_directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_active_directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target Azure AD Id. Can't be combined with email.
         """
         return pulumi.get(self, "target_active_directory_id")
 
     @target_active_directory_id.setter
-    def target_active_directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_active_directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_active_directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetEmail")
-    def target_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email the invitation is directed to.
         """
         return pulumi.get(self, "target_email")
 
     @target_email.setter
-    def target_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_email", value)
 
     @_builtins.property
     @pulumi.getter(name="targetObjectId")
-    def target_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target user or application Id that invitation is being sent to.
         Must be specified along TargetActiveDirectoryId. This enables sending
@@ -151,7 +151,7 @@ class InvitationArgs:
         return pulumi.get(self, "target_object_id")
 
     @target_object_id.setter
-    def target_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_object_id", value)
 
 
@@ -161,20 +161,19 @@ class Invitation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A Invitation data transfer object.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class Invitation(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-
         :param str resource_name: The name of the resource.
         :param InvitationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class Invitation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

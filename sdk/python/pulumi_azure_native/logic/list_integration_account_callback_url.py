@@ -62,7 +62,6 @@ def list_integration_account_callback_url(integration_account_name: Optional[_bu
 
     Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str integration_account_name: The integration account name.
     :param Union[_builtins.str, 'KeyType'] key_type: The key type.
     :param _builtins.str not_after: The expiry time.
@@ -78,10 +77,10 @@ def list_integration_account_callback_url(integration_account_name: Optional[_bu
 
     return AwaitableListIntegrationAccountCallbackUrlResult(
         value=pulumi.get(__ret__, 'value'))
-def list_integration_account_callback_url_output(integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 key_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'KeyType']]]] = None,
-                                                 not_after: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_integration_account_callback_url_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 key_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'KeyType']]]] = None,
+                                                 not_after: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountCallbackUrlResult]:
     """
     Gets the integration account callback URL.
@@ -89,7 +88,6 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str integration_account_name: The integration account name.
     :param Union[_builtins.str, 'KeyType'] key_type: The key type.

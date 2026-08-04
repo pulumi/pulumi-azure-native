@@ -110,15 +110,15 @@ export interface RecoveryPlanArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azureresiliencemanagement.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.azureresiliencemanagement.ManagedServiceIdentityArgs | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azureresiliencemanagement.RecoveryPlanPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azureresiliencemanagement.RecoveryPlanPropertiesArgs | undefined>;
     /**
      * The name of the recovery orchestration plan.
      */
-    recoveryPlanName?: pulumi.Input<string>;
+    recoveryPlanName?: pulumi.Input<string | undefined>;
     /**
      * The name of the service group.
      */

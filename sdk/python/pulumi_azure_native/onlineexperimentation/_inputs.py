@@ -38,11 +38,11 @@ class CustomerManagedKeyEncryptionArgsDict(TypedDict):
     """
     Customer-managed key encryption properties for the resource.
     """
-    key_encryption_key_identity: NotRequired[pulumi.Input['KeyEncryptionKeyIdentityArgsDict']]
+    key_encryption_key_identity: NotRequired[pulumi.Input[Optional['KeyEncryptionKeyIdentityArgsDict']]]
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    key_encryption_key_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
     """
@@ -50,8 +50,8 @@ class CustomerManagedKeyEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class CustomerManagedKeyEncryptionArgs:
     def __init__(__self__, *,
-                 key_encryption_key_identity: Optional[pulumi.Input['KeyEncryptionKeyIdentityArgs']] = None,
-                 key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_encryption_key_identity: pulumi.Input[Optional['KeyEncryptionKeyIdentityArgs']] = None,
+                 key_encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Customer-managed key encryption properties for the resource.
 
@@ -65,26 +65,26 @@ class CustomerManagedKeyEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKeyIdentity")
-    def key_encryption_key_identity(self) -> Optional[pulumi.Input['KeyEncryptionKeyIdentityArgs']]:
+    def key_encryption_key_identity(self) -> pulumi.Input[Optional['KeyEncryptionKeyIdentityArgs']]:
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         """
         return pulumi.get(self, "key_encryption_key_identity")
 
     @key_encryption_key_identity.setter
-    def key_encryption_key_identity(self, value: Optional[pulumi.Input['KeyEncryptionKeyIdentityArgs']]):
+    def key_encryption_key_identity(self, value: pulumi.Input[Optional['KeyEncryptionKeyIdentityArgs']]):
         pulumi.set(self, "key_encryption_key_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyEncryptionKeyUrl")
-    def key_encryption_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
         return pulumi.get(self, "key_encryption_key_url")
 
     @key_encryption_key_url.setter
-    def key_encryption_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_encryption_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_encryption_key_url", value)
 
 
@@ -92,15 +92,15 @@ class KeyEncryptionKeyIdentityArgsDict(TypedDict):
     """
     All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
     """
-    federated_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    federated_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
     """
-    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]
+    identity_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]]
     """
     The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
     """
-    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
     """
@@ -108,9 +108,9 @@ class KeyEncryptionKeyIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class KeyEncryptionKeyIdentityArgs:
     def __init__(__self__, *,
-                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]] = None,
-                 user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]] = None,
+                 user_assigned_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
 
@@ -127,38 +127,38 @@ class KeyEncryptionKeyIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="federatedClientId")
-    def federated_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def federated_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
         """
         return pulumi.get(self, "federated_client_id")
 
     @federated_client_id.setter
-    def federated_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def federated_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "federated_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]:
+    def identity_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]:
         """
         The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]):
+    def identity_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KeyEncryptionKeyIdentityType']]]):
         pulumi.set(self, "identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityResourceId")
-    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
         """
         return pulumi.get(self, "user_assigned_identity_resource_id")
 
     @user_assigned_identity_resource_id.setter
-    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
@@ -170,7 +170,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -179,7 +179,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -204,14 +204,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -231,7 +231,7 @@ class OnlineExperimentationWorkspacePropertiesArgsDict(TypedDict):
     """
     The resource identifier of storage account where logs are exported from Log Analytics workspace. online experimentation workspace uses it generating experiment analysis results.
     """
-    encryption: NotRequired[pulumi.Input['ResourceEncryptionConfigurationArgsDict']]
+    encryption: NotRequired[pulumi.Input[Optional['ResourceEncryptionConfigurationArgsDict']]]
     """
     The encryption configuration for the online experimentation workspace resource.
     """
@@ -242,7 +242,7 @@ class OnlineExperimentationWorkspacePropertiesArgs:
                  app_configuration_resource_id: pulumi.Input[_builtins.str],
                  log_analytics_workspace_resource_id: pulumi.Input[_builtins.str],
                  logs_exporter_storage_account_resource_id: pulumi.Input[_builtins.str],
-                 encryption: Optional[pulumi.Input['ResourceEncryptionConfigurationArgs']] = None):
+                 encryption: pulumi.Input[Optional['ResourceEncryptionConfigurationArgs']] = None):
         """
         The properties of an online experimentation workspace.
 
@@ -295,14 +295,14 @@ class OnlineExperimentationWorkspacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['ResourceEncryptionConfigurationArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['ResourceEncryptionConfigurationArgs']]:
         """
         The encryption configuration for the online experimentation workspace resource.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['ResourceEncryptionConfigurationArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['ResourceEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption", value)
 
 
@@ -376,15 +376,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -392,9 +392,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -411,38 +411,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -450,7 +450,7 @@ class ResourceEncryptionConfigurationArgsDict(TypedDict):
     """
     The encryption configuration for the online experimentation workspace resource.
     """
-    customer_managed_key_encryption: NotRequired[pulumi.Input['CustomerManagedKeyEncryptionArgsDict']]
+    customer_managed_key_encryption: NotRequired[pulumi.Input[Optional['CustomerManagedKeyEncryptionArgsDict']]]
     """
     All Customer-managed key encryption properties for the resource.
     """
@@ -458,7 +458,7 @@ class ResourceEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 customer_managed_key_encryption: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']] = None):
+                 customer_managed_key_encryption: pulumi.Input[Optional['CustomerManagedKeyEncryptionArgs']] = None):
         """
         The encryption configuration for the online experimentation workspace resource.
 
@@ -469,14 +469,14 @@ class ResourceEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEncryption")
-    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']]:
+    def customer_managed_key_encryption(self) -> pulumi.Input[Optional['CustomerManagedKeyEncryptionArgs']]:
         """
         All Customer-managed key encryption properties for the resource.
         """
         return pulumi.get(self, "customer_managed_key_encryption")
 
     @customer_managed_key_encryption.setter
-    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['CustomerManagedKeyEncryptionArgs']]):
+    def customer_managed_key_encryption(self, value: pulumi.Input[Optional['CustomerManagedKeyEncryptionArgs']]):
         pulumi.set(self, "customer_managed_key_encryption", value)
 
 

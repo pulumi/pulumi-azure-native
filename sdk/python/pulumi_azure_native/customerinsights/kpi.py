@@ -29,16 +29,16 @@ class KpiArgs:
                  function: pulumi.Input['KpiFunctions'],
                  hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input['KpiAliasArgs']]]] = None,
-                 calculation_window_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extracts: Optional[pulumi.Input[Sequence[pulumi.Input['KpiExtractArgs']]]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kpi_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thres_holds: Optional[pulumi.Input['KpiThresholdsArgs']] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input['KpiAliasArgs']]]] = None,
+                 calculation_window_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extracts: pulumi.Input[Optional[Sequence[pulumi.Input['KpiExtractArgs']]]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_by: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kpi_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thres_holds: pulumi.Input[Optional['KpiThresholdsArgs']] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Kpi resource.
 
@@ -174,122 +174,122 @@ class KpiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KpiAliasArgs']]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KpiAliasArgs']]]]:
         """
         The aliases.
         """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KpiAliasArgs']]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KpiAliasArgs']]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="calculationWindowFieldName")
-    def calculation_window_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def calculation_window_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of calculation window field.
         """
         return pulumi.get(self, "calculation_window_field_name")
 
     @calculation_window_field_name.setter
-    def calculation_window_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def calculation_window_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "calculation_window_field_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def description(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized description for the KPI.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def description(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def display_name(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized display name for the KPI.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def display_name(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def extracts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KpiExtractArgs']]]]:
+    def extracts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KpiExtractArgs']]]]:
         """
         The KPI extracts.
         """
         return pulumi.get(self, "extracts")
 
     @extracts.setter
-    def extracts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KpiExtractArgs']]]]):
+    def extracts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KpiExtractArgs']]]]):
         pulumi.set(self, "extracts", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filter expression for the KPI.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_by(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the group by properties for the KPI.
         """
         return pulumi.get(self, "group_by")
 
     @group_by.setter
-    def group_by(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_by(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_by", value)
 
     @_builtins.property
     @pulumi.getter(name="kpiName")
-    def kpi_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kpi_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the KPI.
         """
         return pulumi.get(self, "kpi_name")
 
     @kpi_name.setter
-    def kpi_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kpi_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kpi_name", value)
 
     @_builtins.property
     @pulumi.getter(name="thresHolds")
-    def thres_holds(self) -> Optional[pulumi.Input['KpiThresholdsArgs']]:
+    def thres_holds(self) -> pulumi.Input[Optional['KpiThresholdsArgs']]:
         """
         The KPI thresholds.
         """
         return pulumi.get(self, "thres_holds")
 
     @thres_holds.setter
-    def thres_holds(self, value: Optional[pulumi.Input['KpiThresholdsArgs']]):
+    def thres_holds(self, value: pulumi.Input[Optional['KpiThresholdsArgs']]):
         pulumi.set(self, "thres_holds", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measurement for the KPI.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -299,29 +299,28 @@ class Kpi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KpiAliasArgs', 'KpiAliasArgsDict']]]]] = None,
-                 calculation_window: Optional[pulumi.Input['CalculationWindowTypes']] = None,
-                 calculation_window_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
-                 entity_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 extracts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KpiExtractArgs', 'KpiExtractArgsDict']]]]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 function: Optional[pulumi.Input['KpiFunctions']] = None,
-                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kpi_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thres_holds: Optional[pulumi.Input[Union['KpiThresholdsArgs', 'KpiThresholdsArgsDict']]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KpiAliasArgs', 'KpiAliasArgsDict']]]]] = None,
+                 calculation_window: pulumi.Input[Optional['CalculationWindowTypes']] = None,
+                 calculation_window_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 entity_type: pulumi.Input[Optional['EntityTypes']] = None,
+                 entity_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 extracts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KpiExtractArgs', 'KpiExtractArgsDict']]]]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 function: pulumi.Input[Optional['KpiFunctions']] = None,
+                 group_by: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kpi_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thres_holds: pulumi.Input[Optional[Union['KpiThresholdsArgs', 'KpiThresholdsArgsDict']]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The KPI resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,7 +353,6 @@ class Kpi(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-
         :param str resource_name: The name of the resource.
         :param KpiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -370,23 +368,23 @@ class Kpi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KpiAliasArgs', 'KpiAliasArgsDict']]]]] = None,
-                 calculation_window: Optional[pulumi.Input['CalculationWindowTypes']] = None,
-                 calculation_window_field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
-                 entity_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 extracts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KpiExtractArgs', 'KpiExtractArgsDict']]]]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 function: Optional[pulumi.Input['KpiFunctions']] = None,
-                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kpi_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thres_holds: Optional[pulumi.Input[Union['KpiThresholdsArgs', 'KpiThresholdsArgsDict']]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KpiAliasArgs', 'KpiAliasArgsDict']]]]] = None,
+                 calculation_window: pulumi.Input[Optional['CalculationWindowTypes']] = None,
+                 calculation_window_field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 entity_type: pulumi.Input[Optional['EntityTypes']] = None,
+                 entity_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 extracts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KpiExtractArgs', 'KpiExtractArgsDict']]]]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 function: pulumi.Input[Optional['KpiFunctions']] = None,
+                 group_by: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kpi_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thres_holds: pulumi.Input[Optional[Union['KpiThresholdsArgs', 'KpiThresholdsArgsDict']]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

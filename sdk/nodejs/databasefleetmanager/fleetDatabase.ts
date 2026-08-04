@@ -110,7 +110,7 @@ export interface FleetDatabaseArgs {
     /**
      * Name of the database.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Name of the database fleet.
      */
@@ -122,7 +122,7 @@ export interface FleetDatabaseArgs {
     /**
      * Fleet database properties.
      */
-    properties?: pulumi.Input<inputs.databasefleetmanager.FleetDatabasePropertiesArgs>;
+    properties?: pulumi.Input<inputs.databasefleetmanager.FleetDatabasePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

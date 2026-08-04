@@ -313,7 +313,6 @@ def get_product(product_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str product_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.
     :param _builtins.str resource_group: Name of the resource group.
@@ -348,9 +347,9 @@ def get_product(product_name: Optional[_builtins.str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'),
         vm_extension_type=pulumi.get(__ret__, 'vm_extension_type'))
-def get_product_output(product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_product_output(product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Returns the specified product.
@@ -358,7 +357,6 @@ def get_product_output(product_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str product_name: Name of the product.
     :param _builtins.str registration_name: Name of the Azure Stack registration.

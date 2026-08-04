@@ -81,7 +81,6 @@ def get_network_device_status(network_device_name: Optional[_builtins.str] = Non
 
     Uses Azure REST API version 2023-02-01-preview.
 
-
     :param _builtins.str network_device_name: Name of the NetworkDevice.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -95,14 +94,13 @@ def get_network_device_status(network_device_name: Optional[_builtins.str] = Non
         operational_status=pulumi.get(__ret__, 'operational_status'),
         power_cycle_state=pulumi.get(__ret__, 'power_cycle_state'),
         serial_number=pulumi.get(__ret__, 'serial_number'))
-def get_network_device_status_output(network_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_device_status_output(network_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkDeviceStatusResult]:
     """
     Get the running status of the Network Device.
 
     Uses Azure REST API version 2023-02-01-preview.
-
 
     :param _builtins.str network_device_name: Name of the NetworkDevice.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

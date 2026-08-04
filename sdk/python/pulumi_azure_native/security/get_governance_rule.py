@@ -286,7 +286,6 @@ def get_governance_rule(rule_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-01-01-preview.
 
-
     :param _builtins.str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -317,14 +316,13 @@ def get_governance_rule(rule_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_governance_rule_output(rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_governance_rule_output(rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               scope: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGovernanceRuleResult]:
     """
     Get a specific governance rule for the requested scope by ruleId
 
     Uses Azure REST API version 2022-01-01-preview.
-
 
     :param _builtins.str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.

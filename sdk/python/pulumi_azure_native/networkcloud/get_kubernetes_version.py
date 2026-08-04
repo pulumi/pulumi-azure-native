@@ -180,7 +180,6 @@ def get_kubernetes_version(kubernetes_version_name: Optional[_builtins.str] = No
 
     Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str kubernetes_version_name: The name of the Kubernetes version resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -202,8 +201,8 @@ def get_kubernetes_version(kubernetes_version_name: Optional[_builtins.str] = No
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         values=pulumi.get(__ret__, 'values'))
-def get_kubernetes_version_output(kubernetes_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kubernetes_version_output(kubernetes_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesVersionResult]:
     """
     Retrieve the Kubernetes version resource that describes the available Kubernetes versions for deployment.
@@ -211,7 +210,6 @@ def get_kubernetes_version_output(kubernetes_version_name: Optional[pulumi.Input
     Uses Azure REST API version 2026-01-01-preview.
 
     Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str kubernetes_version_name: The name of the Kubernetes version resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

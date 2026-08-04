@@ -134,7 +134,6 @@ def get_dapr_component_resiliency_policy(component_name: Optional[_builtins.str]
 
     Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str component_name: Name of the Dapr Component.
     :param _builtins.str environment_name: Name of the Managed Environment.
     :param _builtins.str name: Name of the Dapr Component Resiliency Policy.
@@ -156,10 +155,10 @@ def get_dapr_component_resiliency_policy(component_name: Optional[_builtins.str]
         outbound_policy=pulumi.get(__ret__, 'outbound_policy'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dapr_component_resiliency_policy_output(component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprComponentResiliencyPolicyResult]:
     """
     Dapr Component Resiliency Policy.
@@ -167,7 +166,6 @@ def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.
     Uses Azure REST API version 2025-02-02-preview.
 
     Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str component_name: Name of the Dapr Component.
     :param _builtins.str environment_name: Name of the Managed Environment.

@@ -168,7 +168,6 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
 
     Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -189,8 +188,8 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureBareMetalStorageInstanceResult]:
     """
     Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
@@ -198,7 +197,6 @@ def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instan
     Uses Azure REST API version 2024-08-01-preview.
 
     Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

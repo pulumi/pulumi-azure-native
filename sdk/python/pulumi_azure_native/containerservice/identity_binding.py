@@ -23,8 +23,8 @@ class IdentityBindingArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 identity_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['IdentityBindingPropertiesArgs']] = None):
+                 identity_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['IdentityBindingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a IdentityBinding resource.
 
@@ -66,26 +66,26 @@ class IdentityBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityBindingName")
-    def identity_binding_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the identity binding.
         """
         return pulumi.get(self, "identity_binding_name")
 
     @identity_binding_name.setter
-    def identity_binding_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_binding_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IdentityBindingPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['IdentityBindingPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IdentityBindingPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['IdentityBindingPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class IdentityBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The IdentityBinding resource.
@@ -106,7 +106,6 @@ class IdentityBinding(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-02-preview.
 
         Other available API versions: 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-01, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class IdentityBinding(pulumi.CustomResource):
 
         Other available API versions: 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-01, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IdentityBindingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class IdentityBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

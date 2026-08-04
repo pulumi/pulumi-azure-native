@@ -54,7 +54,6 @@ export class DatabaseMigrationsMongoToCosmosDbvCoreMongo extends pulumi.CustomRe
      */
     declare public /*out*/ readonly endedOn: pulumi.Output<string>;
     /**
-     *
      * Expected value is 'MongoToCosmosDbMongo'.
      */
     declare public readonly kind: pulumi.Output<"MongoToCosmosDbMongo">;
@@ -184,28 +183,27 @@ export interface DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs {
     /**
      * List of Mongo Collections to be migrated.
      */
-    collectionList?: pulumi.Input<pulumi.Input<inputs.datamigration.MongoMigrationCollectionArgs>[]>;
+    collectionList?: pulumi.Input<pulumi.Input<inputs.datamigration.MongoMigrationCollectionArgs>[] | undefined>;
     /**
-     *
      * Expected value is 'MongoToCosmosDbMongo'.
      */
     kind: pulumi.Input<"MongoToCosmosDbMongo">;
     /**
      * Name of the migration.
      */
-    migrationName?: pulumi.Input<string>;
+    migrationName?: pulumi.Input<string | undefined>;
     /**
      * ID for current migration operation.
      */
-    migrationOperationId?: pulumi.Input<string>;
+    migrationOperationId?: pulumi.Input<string | undefined>;
     /**
      * Resource Id of the Migration Service.
      */
-    migrationService?: pulumi.Input<string>;
+    migrationService?: pulumi.Input<string | undefined>;
     /**
      * Error message for migration provisioning failure, if any.
      */
-    provisioningError?: pulumi.Input<string>;
+    provisioningError?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -213,15 +211,15 @@ export interface DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs {
     /**
      * Resource Id of the target resource.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Source Mongo connection details.
      */
-    sourceMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs>;
+    sourceMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs | undefined>;
     /**
      * Target Cosmos DB Mongo connection details.
      */
-    targetMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs>;
+    targetMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs | undefined>;
     /**
      * The name of the target resource/account.
      */

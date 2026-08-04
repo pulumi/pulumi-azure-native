@@ -25,25 +25,25 @@ class CGProfileArgs:
                  containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
                  os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 confidential_compute_properties: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']] = None,
-                 container_group_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnostics: Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']] = None,
-                 encryption_properties: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]] = None,
-                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]] = None,
-                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
-                 ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]] = None,
-                 restart_policy: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
-                 security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
-                 shutdown_grace_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupSku']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_krypton: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 confidential_compute_properties: pulumi.Input[Optional['ConfidentialComputePropertiesArgs']] = None,
+                 container_group_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnostics: pulumi.Input[Optional['ContainerGroupDiagnosticsArgs']] = None,
+                 encryption_properties: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]] = None,
+                 image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]] = None,
+                 init_containers: pulumi.Input[Optional[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
+                 ip_address: pulumi.Input[Optional['IpAddressArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[Union[_builtins.str, 'Priority']]] = None,
+                 restart_policy: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
+                 security_context: pulumi.Input[Optional['SecurityContextDefinitionArgs']] = None,
+                 shutdown_grace_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupSku']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_krypton: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeArgs']]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CGProfile resource.
 
@@ -60,7 +60,7 @@ class CGProfileArgs:
         :param pulumi.Input['IpAddressArgs'] ip_address: The IP address type of the container group.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Union[_builtins.str, 'Priority']] priority: The priority of the container group.
-        :param pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
+        :param pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group.
                - `Always` Always restart
                - `OnFailure` Restart on failure
                - `Never` Never restart
@@ -153,129 +153,129 @@ class CGProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="confidentialComputeProperties")
-    def confidential_compute_properties(self) -> Optional[pulumi.Input['ConfidentialComputePropertiesArgs']]:
+    def confidential_compute_properties(self) -> pulumi.Input[Optional['ConfidentialComputePropertiesArgs']]:
         """
         The properties for confidential container group
         """
         return pulumi.get(self, "confidential_compute_properties")
 
     @confidential_compute_properties.setter
-    def confidential_compute_properties(self, value: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']]):
+    def confidential_compute_properties(self, value: pulumi.Input[Optional['ConfidentialComputePropertiesArgs']]):
         pulumi.set(self, "confidential_compute_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="containerGroupProfileName")
-    def container_group_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_group_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ContainerGroupProfile name.
         """
         return pulumi.get(self, "container_group_profile_name")
 
     @container_group_profile_name.setter
-    def container_group_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_group_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_group_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def diagnostics(self) -> Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']]:
+    def diagnostics(self) -> pulumi.Input[Optional['ContainerGroupDiagnosticsArgs']]:
         """
         The diagnostic information for a container group.
         """
         return pulumi.get(self, "diagnostics")
 
     @diagnostics.setter
-    def diagnostics(self, value: Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']]):
+    def diagnostics(self, value: pulumi.Input[Optional['ContainerGroupDiagnosticsArgs']]):
         pulumi.set(self, "diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionProperties")
-    def encryption_properties(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+    def encryption_properties(self) -> pulumi.Input[Optional['EncryptionPropertiesArgs']]:
         """
         The encryption properties for a container group.
         """
         return pulumi.get(self, "encryption_properties")
 
     @encryption_properties.setter
-    def encryption_properties(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+    def encryption_properties(self, value: pulumi.Input[Optional['EncryptionPropertiesArgs']]):
         pulumi.set(self, "encryption_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]]:
         """
         extensions used by virtual kubelet
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="imageRegistryCredentials")
-    def image_registry_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]:
+    def image_registry_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]:
         """
         The image registry credentials by which the container group is created from.
         """
         return pulumi.get(self, "image_registry_credentials")
 
     @image_registry_credentials.setter
-    def image_registry_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]):
+    def image_registry_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageRegistryCredentialArgs']]]]):
         pulumi.set(self, "image_registry_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="initContainers")
-    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]]:
+    def init_containers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]]:
         """
         The init containers for a container group.
         """
         return pulumi.get(self, "init_containers")
 
     @init_containers.setter
-    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]]):
+    def init_containers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]]):
         pulumi.set(self, "init_containers", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input['IpAddressArgs']]:
+    def ip_address(self) -> pulumi.Input[Optional['IpAddressArgs']]:
         """
         The IP address type of the container group.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input['IpAddressArgs']]):
+    def ip_address(self, value: pulumi.Input[Optional['IpAddressArgs']]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Priority']]]:
+    def priority(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Priority']]]:
         """
         The priority of the container group.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]]):
+    def priority(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Priority']]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="restartPolicy")
-    def restart_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]]:
+    def restart_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupRestartPolicy']]]:
         """
-        Restart policy for all containers within the container group. 
+        Restart policy for all containers within the container group.
         - `Always` Always restart
         - `OnFailure` Restart on failure
         - `Never` Never restart
@@ -283,103 +283,103 @@ class CGProfileArgs:
         return pulumi.get(self, "restart_policy")
 
     @restart_policy.setter
-    def restart_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]]):
+    def restart_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupRestartPolicy']]]):
         pulumi.set(self, "restart_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="securityContext")
-    def security_context(self) -> Optional[pulumi.Input['SecurityContextDefinitionArgs']]:
+    def security_context(self) -> pulumi.Input[Optional['SecurityContextDefinitionArgs']]:
         """
         The container security properties.
         """
         return pulumi.get(self, "security_context")
 
     @security_context.setter
-    def security_context(self, value: Optional[pulumi.Input['SecurityContextDefinitionArgs']]):
+    def security_context(self, value: pulumi.Input[Optional['SecurityContextDefinitionArgs']]):
         pulumi.set(self, "security_context", value)
 
     @_builtins.property
     @pulumi.getter(name="shutdownGracePeriod")
-    def shutdown_grace_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shutdown_grace_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shutdown grace period for containers in a container group.
         """
         return pulumi.get(self, "shutdown_grace_period")
 
     @shutdown_grace_period.setter
-    def shutdown_grace_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shutdown_grace_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shutdown_grace_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupSku']]]:
+    def sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupSku']]]:
         """
         The SKU for a container group.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupSku']]]):
+    def sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupSku']]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_to_live(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Post completion time to live for containers of a CG
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_to_live(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_to_live", value)
 
     @_builtins.property
     @pulumi.getter(name="useKrypton")
-    def use_krypton(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_krypton(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets Krypton use property.
         """
         return pulumi.get(self, "use_krypton")
 
     @use_krypton.setter
-    def use_krypton(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_krypton(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_krypton", value)
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]:
+    def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeArgs']]]]:
         """
         The list of volumes that can be mounted by containers in this container group.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]):
+    def volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The zones for the container group.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -389,28 +389,28 @@ class CGProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confidential_compute_properties: Optional[pulumi.Input[Union['ConfidentialComputePropertiesArgs', 'ConfidentialComputePropertiesArgsDict']]] = None,
-                 container_group_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerArgs', 'ContainerArgsDict']]]]] = None,
-                 diagnostics: Optional[pulumi.Input[Union['ContainerGroupDiagnosticsArgs', 'ContainerGroupDiagnosticsArgsDict']]] = None,
-                 encryption_properties: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentExtensionSpecArgs', 'DeploymentExtensionSpecArgsDict']]]]] = None,
-                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRegistryCredentialArgs', 'ImageRegistryCredentialArgsDict']]]]] = None,
-                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InitContainerDefinitionArgs', 'InitContainerDefinitionArgsDict']]]]] = None,
-                 ip_address: Optional[pulumi.Input[Union['IpAddressArgs', 'IpAddressArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restart_policy: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
-                 security_context: Optional[pulumi.Input[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,
-                 shutdown_grace_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupSku']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_krypton: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeArgs', 'VolumeArgsDict']]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 confidential_compute_properties: pulumi.Input[Optional[Union['ConfidentialComputePropertiesArgs', 'ConfidentialComputePropertiesArgsDict']]] = None,
+                 container_group_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerArgs', 'ContainerArgsDict']]]]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['ContainerGroupDiagnosticsArgs', 'ContainerGroupDiagnosticsArgsDict']]] = None,
+                 encryption_properties: pulumi.Input[Optional[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentExtensionSpecArgs', 'DeploymentExtensionSpecArgsDict']]]]] = None,
+                 image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRegistryCredentialArgs', 'ImageRegistryCredentialArgsDict']]]]] = None,
+                 init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InitContainerDefinitionArgs', 'InitContainerDefinitionArgsDict']]]]] = None,
+                 ip_address: pulumi.Input[Optional[Union['IpAddressArgs', 'IpAddressArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
+                 priority: pulumi.Input[Optional[Union[_builtins.str, 'Priority']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restart_policy: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
+                 security_context: pulumi.Input[Optional[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,
+                 shutdown_grace_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupSku']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_krypton: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeArgs', 'VolumeArgsDict']]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A container group profile object
@@ -418,7 +418,6 @@ class CGProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         Other available API versions: 2025-09-01, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,7 +434,7 @@ class CGProfile(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[Union[_builtins.str, 'Priority']] priority: The priority of the container group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
+        :param pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group.
                - `Always` Always restart
                - `OnFailure` Restart on failure
                - `Never` Never restart
@@ -461,7 +460,6 @@ class CGProfile(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CGProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -477,28 +475,28 @@ class CGProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confidential_compute_properties: Optional[pulumi.Input[Union['ConfidentialComputePropertiesArgs', 'ConfidentialComputePropertiesArgsDict']]] = None,
-                 container_group_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerArgs', 'ContainerArgsDict']]]]] = None,
-                 diagnostics: Optional[pulumi.Input[Union['ContainerGroupDiagnosticsArgs', 'ContainerGroupDiagnosticsArgsDict']]] = None,
-                 encryption_properties: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentExtensionSpecArgs', 'DeploymentExtensionSpecArgsDict']]]]] = None,
-                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRegistryCredentialArgs', 'ImageRegistryCredentialArgsDict']]]]] = None,
-                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InitContainerDefinitionArgs', 'InitContainerDefinitionArgsDict']]]]] = None,
-                 ip_address: Optional[pulumi.Input[Union['IpAddressArgs', 'IpAddressArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restart_policy: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
-                 security_context: Optional[pulumi.Input[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,
-                 shutdown_grace_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupSku']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_krypton: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeArgs', 'VolumeArgsDict']]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 confidential_compute_properties: pulumi.Input[Optional[Union['ConfidentialComputePropertiesArgs', 'ConfidentialComputePropertiesArgsDict']]] = None,
+                 container_group_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerArgs', 'ContainerArgsDict']]]]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['ContainerGroupDiagnosticsArgs', 'ContainerGroupDiagnosticsArgsDict']]] = None,
+                 encryption_properties: pulumi.Input[Optional[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentExtensionSpecArgs', 'DeploymentExtensionSpecArgsDict']]]]] = None,
+                 image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRegistryCredentialArgs', 'ImageRegistryCredentialArgsDict']]]]] = None,
+                 init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InitContainerDefinitionArgs', 'InitContainerDefinitionArgsDict']]]]] = None,
+                 ip_address: pulumi.Input[Optional[Union['IpAddressArgs', 'IpAddressArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
+                 priority: pulumi.Input[Optional[Union[_builtins.str, 'Priority']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restart_policy: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
+                 security_context: pulumi.Input[Optional[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,
+                 shutdown_grace_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union[_builtins.str, 'ContainerGroupSku']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_krypton: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeArgs', 'VolumeArgsDict']]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -710,7 +708,7 @@ class CGProfile(pulumi.CustomResource):
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Restart policy for all containers within the container group. 
+        Restart policy for all containers within the container group.
         - `Always` Always restart
         - `OnFailure` Restart on failure
         - `Never` Never restart

@@ -24,10 +24,10 @@ class VolumeGroupArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 group_meta_data: Optional[pulumi.Input['VolumeGroupMetaDataArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]] = None):
+                 group_meta_data: pulumi.Input[Optional['VolumeGroupMetaDataArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a VolumeGroup resource.
 
@@ -75,50 +75,50 @@ class VolumeGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupMetaData")
-    def group_meta_data(self) -> Optional[pulumi.Input['VolumeGroupMetaDataArgs']]:
+    def group_meta_data(self) -> pulumi.Input[Optional['VolumeGroupMetaDataArgs']]:
         """
         Volume group details
         """
         return pulumi.get(self, "group_meta_data")
 
     @group_meta_data.setter
-    def group_meta_data(self, value: Optional[pulumi.Input['VolumeGroupMetaDataArgs']]):
+    def group_meta_data(self, value: pulumi.Input[Optional['VolumeGroupMetaDataArgs']]):
         pulumi.set(self, "group_meta_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeGroupName")
-    def volume_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the volumeGroup
         """
         return pulumi.get(self, "volume_group_name")
 
     @volume_group_name.setter
-    def volume_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]]:
+    def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]]:
         """
         List of volumes from group
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]]):
+    def volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
@@ -128,12 +128,12 @@ class VolumeGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_meta_data: Optional[pulumi.Input[Union['VolumeGroupMetaDataArgs', 'VolumeGroupMetaDataArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupVolumePropertiesArgs', 'VolumeGroupVolumePropertiesArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_meta_data: pulumi.Input[Optional[Union['VolumeGroupMetaDataArgs', 'VolumeGroupMetaDataArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupVolumePropertiesArgs', 'VolumeGroupVolumePropertiesArgsDict']]]]] = None,
                  __props__=None):
         """
         Volume group resource for create
@@ -141,7 +141,6 @@ class VolumeGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class VolumeGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VolumeGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class VolumeGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_meta_data: Optional[pulumi.Input[Union['VolumeGroupMetaDataArgs', 'VolumeGroupMetaDataArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupVolumePropertiesArgs', 'VolumeGroupVolumePropertiesArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_meta_data: pulumi.Input[Optional[Union['VolumeGroupMetaDataArgs', 'VolumeGroupMetaDataArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupVolumePropertiesArgs', 'VolumeGroupVolumePropertiesArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,11 +25,11 @@ class NetworkTapArgs:
                  destinations: pulumi.Input[Sequence[pulumi.Input['NetworkTapPropertiesDestinationsArgs']]],
                  network_packet_broker_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_tap_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 polling_type: Optional[pulumi.Input[Union[_builtins.str, 'PollingType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_tap_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 polling_type: pulumi.Input[Optional[Union[_builtins.str, 'PollingType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkTap resource.
 
@@ -96,62 +96,62 @@ class NetworkTapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkTapName")
-    def network_tap_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_tap_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Tap.
         """
         return pulumi.get(self, "network_tap_name")
 
     @network_tap_name.setter
-    def network_tap_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_tap_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_tap_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pollingType")
-    def polling_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PollingType']]]:
+    def polling_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PollingType']]]:
         """
         Polling type.
         """
         return pulumi.get(self, "polling_type")
 
     @polling_type.setter
-    def polling_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PollingType']]]):
+    def polling_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PollingType']]]):
         pulumi.set(self, "polling_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class NetworkTap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapPropertiesDestinationsArgs', 'NetworkTapPropertiesDestinationsArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_packet_broker_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_tap_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 polling_type: Optional[pulumi.Input[Union[_builtins.str, 'PollingType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkTapPropertiesDestinationsArgs', 'NetworkTapPropertiesDestinationsArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_packet_broker_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_tap_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 polling_type: pulumi.Input[Optional[Union[_builtins.str, 'PollingType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The Network Tap resource definition.
@@ -176,7 +176,6 @@ class NetworkTap(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
 
         Other available API versions: 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class NetworkTap(pulumi.CustomResource):
 
         Other available API versions: 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkTapArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class NetworkTap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkTapPropertiesDestinationsArgs', 'NetworkTapPropertiesDestinationsArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_packet_broker_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_tap_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 polling_type: Optional[pulumi.Input[Union[_builtins.str, 'PollingType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkTapPropertiesDestinationsArgs', 'NetworkTapPropertiesDestinationsArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_packet_broker_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_tap_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 polling_type: pulumi.Input[Optional[Union[_builtins.str, 'PollingType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

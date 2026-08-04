@@ -103,7 +103,7 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
-     * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
+     * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and
      *  it is hosted on name servers Azure has programmatic access to.
      */
     declare public /*out*/ readonly readyForDnsRecordManagement: pulumi.Output<boolean>;
@@ -215,11 +215,11 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
-    authCode?: pulumi.Input<string>;
+    authCode?: pulumi.Input<string | undefined>;
     /**
      * <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
      */
-    autoRenew?: pulumi.Input<boolean>;
+    autoRenew?: pulumi.Input<boolean | undefined>;
     /**
      * Legal agreement consent.
      */
@@ -243,27 +243,27 @@ export interface DomainArgs {
     /**
      * Current DNS type
      */
-    dnsType?: pulumi.Input<enums.domainregistration.DnsType>;
+    dnsType?: pulumi.Input<enums.domainregistration.DnsType | undefined>;
     /**
      * Azure DNS Zone to use
      */
-    dnsZoneId?: pulumi.Input<string>;
+    dnsZoneId?: pulumi.Input<string | undefined>;
     /**
      * Name of the domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
      */
-    privacy?: pulumi.Input<boolean>;
+    privacy?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -271,9 +271,9 @@ export interface DomainArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target DNS type (would be used for migration)
      */
-    targetDnsType?: pulumi.Input<enums.domainregistration.DnsType>;
+    targetDnsType?: pulumi.Input<enums.domainregistration.DnsType | undefined>;
 }

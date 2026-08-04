@@ -83,7 +83,6 @@ def list_share_synchronization_details(account_name: Optional[_builtins.str] = N
 
     Uses Azure REST API version 2021-08-01.
 
-
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str consumer_email: Email of the user who created the synchronization
     :param _builtins.str consumer_name: Name of the user who created the synchronization
@@ -122,27 +121,26 @@ def list_share_synchronization_details(account_name: Optional[_builtins.str] = N
     return AwaitableListShareSynchronizationDetailsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_share_synchronization_details_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              consumer_email: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              consumer_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              consumer_tenant_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              duration_ms: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                              end_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              message: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              orderby: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              start_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              synchronization_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_share_synchronization_details_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              consumer_email: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              consumer_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              consumer_tenant_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              duration_ms: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                              end_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              message: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              orderby: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              start_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              synchronization_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListShareSynchronizationDetailsResult]:
     """
     List synchronization details
 
     Uses Azure REST API version 2021-08-01.
-
 
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str consumer_email: Email of the user who created the synchronization

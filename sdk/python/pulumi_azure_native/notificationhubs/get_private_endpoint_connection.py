@@ -122,7 +122,6 @@ def get_private_endpoint_connection(namespace_name: Optional[_builtins.str] = No
 
     Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str namespace_name: Namespace name
     :param _builtins.str private_endpoint_connection_name: Private Endpoint Connection Name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -141,9 +140,9 @@ def get_private_endpoint_connection(namespace_name: Optional[_builtins.str] = No
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Returns a Private Endpoint Connection with a given name.
@@ -152,7 +151,6 @@ def get_private_endpoint_connection_output(namespace_name: Optional[pulumi.Input
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str namespace_name: Namespace name
     :param _builtins.str private_endpoint_connection_name: Private Endpoint Connection Name

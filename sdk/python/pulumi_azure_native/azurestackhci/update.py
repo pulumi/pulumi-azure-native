@@ -24,25 +24,25 @@ class UpdateArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_type: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityType']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 installed_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_sbe_version_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_size_in_mb: Optional[pulumi.Input[_builtins.float]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input['UpdatePrerequisiteArgs']]]] = None,
-                 progress_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
-                 update_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_type: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityType']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 installed_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_sbe_version_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_size_in_mb: pulumi.Input[Optional[_builtins.float]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 prerequisites: pulumi.Input[Optional[Sequence[pulumi.Input['UpdatePrerequisiteArgs']]]] = None,
+                 progress_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
+                 update_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Update resource.
 
@@ -135,230 +135,230 @@ class UpdateArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_properties(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_properties(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityType")
-    def availability_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityType']]]:
+    def availability_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityType']]]:
         """
         Indicates the way the update content can be downloaded.
         """
         return pulumi.get(self, "availability_type")
 
     @availability_type.setter
-    def availability_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityType']]]):
+    def availability_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityType']]]):
         pulumi.set(self, "availability_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the update.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the Update
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckDate")
-    def health_check_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last time the package-specific checks were run.
         """
         return pulumi.get(self, "health_check_date")
 
     @health_check_date.setter
-    def health_check_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_date", value)
 
     @_builtins.property
     @pulumi.getter(name="installedDate")
-    def installed_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def installed_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date that the update was installed.
         """
         return pulumi.get(self, "installed_date")
 
     @installed_date.setter
-    def installed_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def installed_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "installed_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minSbeVersionRequired")
-    def min_sbe_version_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_sbe_version_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Minimum Sbe Version of the update.
         """
         return pulumi.get(self, "min_sbe_version_required")
 
     @min_sbe_version_required.setter
-    def min_sbe_version_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_sbe_version_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_sbe_version_required", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyMessage")
-    def notify_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notify_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brief message with instructions for updates of AvailabilityType Notify.
         """
         return pulumi.get(self, "notify_message")
 
     @notify_message.setter
-    def notify_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notify_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notify_message", value)
 
     @_builtins.property
     @pulumi.getter(name="packagePath")
-    def package_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path where the update package is available.
         """
         return pulumi.get(self, "package_path")
 
     @package_path.setter
-    def package_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_path", value)
 
     @_builtins.property
     @pulumi.getter(name="packageSizeInMb")
-    def package_size_in_mb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def package_size_in_mb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Size of the package. This value is a combination of the size from update metadata and size of the payload that results from the live scan operation for OS update content.
         """
         return pulumi.get(self, "package_size_in_mb")
 
     @package_size_in_mb.setter
-    def package_size_in_mb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def package_size_in_mb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "package_size_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer-visible type of the update.
         """
         return pulumi.get(self, "package_type")
 
     @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def prerequisites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UpdatePrerequisiteArgs']]]]:
+    def prerequisites(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UpdatePrerequisiteArgs']]]]:
         """
         If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
         """
         return pulumi.get(self, "prerequisites")
 
     @prerequisites.setter
-    def prerequisites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UpdatePrerequisiteArgs']]]]):
+    def prerequisites(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UpdatePrerequisiteArgs']]]]):
         pulumi.set(self, "prerequisites", value)
 
     @_builtins.property
     @pulumi.getter(name="progressPercentage")
-    def progress_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def progress_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Progress percentage of ongoing operation. Currently this property is only valid when the update is in the Downloading state, where it maps to how much of the update content has been downloaded.
         """
         return pulumi.get(self, "progress_percentage")
 
     @progress_percentage.setter
-    def progress_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def progress_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "progress_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Publisher of the update package.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseLink")
-    def release_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Link to release notes for the update.
         """
         return pulumi.get(self, "release_link")
 
     @release_link.setter
-    def release_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'State']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'State']]]:
         """
         State of the update as it relates to this stamp.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'State']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'State']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="updateName")
-    def update_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Update
         """
         return pulumi.get(self, "update_name")
 
     @update_name.setter
-    def update_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the update.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -368,27 +368,27 @@ class Update(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_type: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityType']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 installed_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_sbe_version_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_size_in_mb: Optional[pulumi.Input[_builtins.float]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UpdatePrerequisiteArgs', 'UpdatePrerequisiteArgsDict']]]]] = None,
-                 progress_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
-                 update_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_type: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityType']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 installed_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_sbe_version_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_size_in_mb: pulumi.Input[Optional[_builtins.float]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 prerequisites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UpdatePrerequisiteArgs', 'UpdatePrerequisiteArgsDict']]]]] = None,
+                 progress_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
+                 update_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Update details
@@ -396,7 +396,6 @@ class Update(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,7 +434,6 @@ class Update(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param UpdateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,27 +449,27 @@ class Update(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_type: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityType']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 installed_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_sbe_version_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_size_in_mb: Optional[pulumi.Input[_builtins.float]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 prerequisites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UpdatePrerequisiteArgs', 'UpdatePrerequisiteArgsDict']]]]] = None,
-                 progress_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
-                 update_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_properties: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_type: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityType']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 installed_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_sbe_version_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_size_in_mb: pulumi.Input[Optional[_builtins.float]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 prerequisites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UpdatePrerequisiteArgs', 'UpdatePrerequisiteArgsDict']]]]] = None,
+                 progress_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
+                 update_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

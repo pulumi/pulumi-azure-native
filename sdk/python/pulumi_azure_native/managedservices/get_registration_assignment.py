@@ -119,7 +119,6 @@ def get_registration_assignment(expand_registration_definition: Optional[_builti
 
     Uses Azure REST API version 2022-10-01.
 
-
     :param _builtins.bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.
     :param _builtins.str registration_assignment_id: The GUID of the registration assignment.
     :param _builtins.str scope: The scope of the resource.
@@ -138,15 +137,14 @@ def get_registration_assignment(expand_registration_definition: Optional[_builti
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_registration_assignment_output(expand_registration_definition: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                       registration_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registration_assignment_output(expand_registration_definition: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                       registration_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       scope: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
     """
     Gets the details of the specified registration assignment.
 
     Uses Azure REST API version 2022-10-01.
-
 
     :param _builtins.bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.
     :param _builtins.str registration_assignment_id: The GUID of the registration assignment.

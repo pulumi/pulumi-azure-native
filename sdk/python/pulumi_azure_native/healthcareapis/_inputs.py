@@ -24,10 +24,10 @@ __all__ = [
     'AnalyticsConnectorFhirToParquetMappingArgsDict',
     'CorsConfigurationArgs',
     'CorsConfigurationArgsDict',
-    'EncryptionCustomerManagedKeyEncryptionArgs',
-    'EncryptionCustomerManagedKeyEncryptionArgsDict',
     'EncryptionArgs',
     'EncryptionArgsDict',
+    'EncryptionCustomerManagedKeyEncryptionArgs',
+    'EncryptionCustomerManagedKeyEncryptionArgsDict',
     'FhirServiceAcrConfigurationArgs',
     'FhirServiceAcrConfigurationArgsDict',
     'FhirServiceAuthenticationConfigurationArgs',
@@ -93,7 +93,7 @@ class AnalyticsConnectorDataLakeDataDestinationArgsDict(TypedDict):
     Type of data destination.
     Expected value is 'datalake'.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of data destination.
     """
@@ -103,7 +103,7 @@ class AnalyticsConnectorDataLakeDataDestinationArgs:
     def __init__(__self__, *,
                  data_lake_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Data Lake data destination for Analytics Connector.
 
@@ -144,14 +144,14 @@ class AnalyticsConnectorDataLakeDataDestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of data destination.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -238,11 +238,11 @@ class AnalyticsConnectorFhirToParquetMappingArgsDict(TypedDict):
     Type of data mapping.
     Expected value is 'fhirToParquet'.
     """
-    extension_schema_reference: NotRequired[pulumi.Input[_builtins.str]]
+    extension_schema_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Artifact reference for extension schema.
     """
-    filter_configuration_reference: NotRequired[pulumi.Input[_builtins.str]]
+    filter_configuration_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Artifact reference for filter configurations.
     """
@@ -251,8 +251,8 @@ class AnalyticsConnectorFhirToParquetMappingArgsDict(TypedDict):
 class AnalyticsConnectorFhirToParquetMappingArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 extension_schema_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_configuration_reference: Optional[pulumi.Input[_builtins.str]] = None):
+                 extension_schema_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_configuration_reference: pulumi.Input[Optional[_builtins.str]] = None):
         """
         FHIR Service data mapping configuration for Analytics Connector.
 
@@ -282,26 +282,26 @@ class AnalyticsConnectorFhirToParquetMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="extensionSchemaReference")
-    def extension_schema_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_schema_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Artifact reference for extension schema.
         """
         return pulumi.get(self, "extension_schema_reference")
 
     @extension_schema_reference.setter
-    def extension_schema_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_schema_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_schema_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="filterConfigurationReference")
-    def filter_configuration_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_configuration_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Artifact reference for filter configurations.
         """
         return pulumi.get(self, "filter_configuration_reference")
 
     @filter_configuration_reference.setter
-    def filter_configuration_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_configuration_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_configuration_reference", value)
 
 
@@ -309,23 +309,23 @@ class CorsConfigurationArgsDict(TypedDict):
     """
     The settings for the CORS configuration of the service instance.
     """
-    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If credentials are allowed via CORS.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The headers to be allowed via CORS.
     """
-    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    max_age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max age to be allowed via CORS.
     """
-    methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The methods to be allowed via CORS.
     """
-    origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The origins to be allowed via CORS.
     """
@@ -333,11 +333,11 @@ class CorsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CorsConfigurationArgs:
     def __init__(__self__, *,
-                 allow_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
 
@@ -360,104 +360,70 @@ class CorsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If credentials are allowed via CORS.
         """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
-    def allow_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The headers to be allowed via CORS.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age", value)
 
     @_builtins.property
     @pulumi.getter
-    def methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The methods to be allowed via CORS.
         """
         return pulumi.get(self, "methods")
 
     @methods.setter
-    def methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The origins to be allowed via CORS.
         """
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "origins", value)
-
-
-class EncryptionCustomerManagedKeyEncryptionArgsDict(TypedDict):
-    """
-    The encryption settings for the customer-managed key
-    """
-    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The URL of the key to use for encryption
-    """
-
-@pulumi.input_type
-class EncryptionCustomerManagedKeyEncryptionArgs:
-    def __init__(__self__, *,
-                 key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The encryption settings for the customer-managed key
-
-        :param pulumi.Input[_builtins.str] key_encryption_key_url: The URL of the key to use for encryption
-        """
-        if key_encryption_key_url is not None:
-            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
-
-    @_builtins.property
-    @pulumi.getter(name="keyEncryptionKeyUrl")
-    def key_encryption_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the key to use for encryption
-        """
-        return pulumi.get(self, "key_encryption_key_url")
-
-    @key_encryption_key_url.setter
-    def key_encryption_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "key_encryption_key_url", value)
 
 
 class EncryptionArgsDict(TypedDict):
     """
     Settings to encrypt a service
     """
-    customer_managed_key_encryption: NotRequired[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgsDict']]
+    customer_managed_key_encryption: NotRequired[pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgsDict']]]
     """
     The encryption settings for the customer-managed key
     """
@@ -465,7 +431,7 @@ class EncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 customer_managed_key_encryption: Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']] = None):
+                 customer_managed_key_encryption: pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgs']] = None):
         """
         Settings to encrypt a service
 
@@ -476,26 +442,60 @@ class EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEncryption")
-    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']]:
+    def customer_managed_key_encryption(self) -> pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgs']]:
         """
         The encryption settings for the customer-managed key
         """
         return pulumi.get(self, "customer_managed_key_encryption")
 
     @customer_managed_key_encryption.setter
-    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']]):
+    def customer_managed_key_encryption(self, value: pulumi.Input[Optional['EncryptionCustomerManagedKeyEncryptionArgs']]):
         pulumi.set(self, "customer_managed_key_encryption", value)
+
+
+class EncryptionCustomerManagedKeyEncryptionArgsDict(TypedDict):
+    """
+    The encryption settings for the customer-managed key
+    """
+    key_encryption_key_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL of the key to use for encryption
+    """
+
+@pulumi.input_type
+class EncryptionCustomerManagedKeyEncryptionArgs:
+    def __init__(__self__, *,
+                 key_encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The encryption settings for the customer-managed key
+
+        :param pulumi.Input[_builtins.str] key_encryption_key_url: The URL of the key to use for encryption
+        """
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @_builtins.property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL of the key to use for encryption
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+    @key_encryption_key_url.setter
+    def key_encryption_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_encryption_key_url", value)
 
 
 class FhirServiceAcrConfigurationArgsDict(TypedDict):
     """
     Azure container registry configuration information
     """
-    login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    login_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of the Azure container registry login servers.
     """
-    oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
+    oci_artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]]
     """
     The list of Open Container Initiative (OCI) artifacts.
     """
@@ -503,8 +503,8 @@ class FhirServiceAcrConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FhirServiceAcrConfigurationArgs:
     def __init__(__self__, *,
-                 login_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
+                 login_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
         """
         Azure container registry configuration information
 
@@ -518,26 +518,26 @@ class FhirServiceAcrConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="loginServers")
-    def login_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def login_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the Azure container registry login servers.
         """
         return pulumi.get(self, "login_servers")
 
     @login_servers.setter
-    def login_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def login_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "login_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="ociArtifacts")
-    def oci_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]:
+    def oci_artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]:
         """
         The list of Open Container Initiative (OCI) artifacts.
         """
         return pulumi.get(self, "oci_artifacts")
 
     @oci_artifacts.setter
-    def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
+    def oci_artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
         pulumi.set(self, "oci_artifacts", value)
 
 
@@ -545,19 +545,19 @@ class FhirServiceAuthenticationConfigurationArgsDict(TypedDict):
     """
     Authentication configuration information
     """
-    audience: NotRequired[pulumi.Input[_builtins.str]]
+    audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The audience url for the service
     """
-    authority: NotRequired[pulumi.Input[_builtins.str]]
+    authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authority url for the service
     """
-    smart_identity_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgsDict']]]]
+    smart_identity_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgsDict']]]]]
     """
     The array of identity provider configurations for SMART on FHIR authentication.
     """
-    smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    smart_proxy_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the SMART on FHIR proxy is enabled
     """
@@ -565,10 +565,10 @@ class FhirServiceAuthenticationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FhirServiceAuthenticationConfigurationArgs:
     def __init__(__self__, *,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 smart_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]] = None,
-                 smart_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 smart_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]] = None,
+                 smart_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Authentication configuration information
 
@@ -588,50 +588,50 @@ class FhirServiceAuthenticationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The audience url for the service
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter
-    def authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authority url for the service
         """
         return pulumi.get(self, "authority")
 
     @authority.setter
-    def authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority", value)
 
     @_builtins.property
     @pulumi.getter(name="smartIdentityProviders")
-    def smart_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]]:
+    def smart_identity_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]]:
         """
         The array of identity provider configurations for SMART on FHIR authentication.
         """
         return pulumi.get(self, "smart_identity_providers")
 
     @smart_identity_providers.setter
-    def smart_identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]]):
+    def smart_identity_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]]):
         pulumi.set(self, "smart_identity_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="smartProxyEnabled")
-    def smart_proxy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smart_proxy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the SMART on FHIR proxy is enabled
         """
         return pulumi.get(self, "smart_proxy_enabled")
 
     @smart_proxy_enabled.setter
-    def smart_proxy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smart_proxy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
 
@@ -639,23 +639,23 @@ class FhirServiceCorsConfigurationArgsDict(TypedDict):
     """
     The settings for the CORS configuration of the service instance.
     """
-    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If credentials are allowed via CORS.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The headers to be allowed via CORS.
     """
-    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    max_age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max age to be allowed via CORS.
     """
-    methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The methods to be allowed via CORS.
     """
-    origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The origins to be allowed via CORS.
     """
@@ -663,11 +663,11 @@ class FhirServiceCorsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FhirServiceCorsConfigurationArgs:
     def __init__(__self__, *,
-                 allow_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
 
@@ -690,62 +690,62 @@ class FhirServiceCorsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If credentials are allowed via CORS.
         """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
-    def allow_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The headers to be allowed via CORS.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age", value)
 
     @_builtins.property
     @pulumi.getter
-    def methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The methods to be allowed via CORS.
         """
         return pulumi.get(self, "methods")
 
     @methods.setter
-    def methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The origins to be allowed via CORS.
         """
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "origins", value)
 
 
@@ -753,7 +753,7 @@ class FhirServiceExportConfigurationArgsDict(TypedDict):
     """
     Export operation configuration information
     """
-    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the default export storage account.
     """
@@ -761,7 +761,7 @@ class FhirServiceExportConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FhirServiceExportConfigurationArgs:
     def __init__(__self__, *,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Export operation configuration information
 
@@ -772,14 +772,14 @@ class FhirServiceExportConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the default export storage account.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 
@@ -787,15 +787,15 @@ class FhirServiceImportConfigurationArgsDict(TypedDict):
     """
     Import operation configuration information
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the import operation is enabled.
     """
-    initial_import_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    initial_import_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the FHIR service is in InitialImportMode.
     """
-    integration_data_store: NotRequired[pulumi.Input[_builtins.str]]
+    integration_data_store: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the default integration storage account.
     """
@@ -803,9 +803,9 @@ class FhirServiceImportConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FhirServiceImportConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_import_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 integration_data_store: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_import_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 integration_data_store: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Import operation configuration information
 
@@ -822,38 +822,38 @@ class FhirServiceImportConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the import operation is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="initialImportMode")
-    def initial_import_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def initial_import_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the FHIR service is in InitialImportMode.
         """
         return pulumi.get(self, "initial_import_mode")
 
     @initial_import_mode.setter
-    def initial_import_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def initial_import_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "initial_import_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationDataStore")
-    def integration_data_store(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_data_store(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the default integration storage account.
         """
         return pulumi.get(self, "integration_data_store")
 
     @integration_data_store.setter
-    def integration_data_store(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_data_store(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_data_store", value)
 
 
@@ -861,7 +861,7 @@ class ImplementationGuidesConfigurationArgsDict(TypedDict):
     """
     The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
     """
-    us_core_missing_data: NotRequired[pulumi.Input[_builtins.bool]]
+    us_core_missing_data: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If US Core Missing Data requirement is enabled.
     """
@@ -869,7 +869,7 @@ class ImplementationGuidesConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ImplementationGuidesConfigurationArgs:
     def __init__(__self__, *,
-                 us_core_missing_data: Optional[pulumi.Input[_builtins.bool]] = None):
+                 us_core_missing_data: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
 
@@ -880,14 +880,14 @@ class ImplementationGuidesConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="usCoreMissingData")
-    def us_core_missing_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def us_core_missing_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If US Core Missing Data requirement is enabled.
         """
         return pulumi.get(self, "us_core_missing_data")
 
     @us_core_missing_data.setter
-    def us_core_missing_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def us_core_missing_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "us_core_missing_data", value)
 
 
@@ -895,15 +895,15 @@ class IotEventHubIngestionEndpointConfigurationArgsDict(TypedDict):
     """
     Event Hub ingestion endpoint configuration
     """
-    consumer_group: NotRequired[pulumi.Input[_builtins.str]]
+    consumer_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Consumer group of the event hub to connected to.
     """
-    event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
+    event_hub_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Event Hub name to connect to.
     """
-    fully_qualified_event_hub_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    fully_qualified_event_hub_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fully qualified namespace of the Event Hub to connect to.
     """
@@ -911,9 +911,9 @@ class IotEventHubIngestionEndpointConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class IotEventHubIngestionEndpointConfigurationArgs:
     def __init__(__self__, *,
-                 consumer_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_event_hub_namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_event_hub_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Event Hub ingestion endpoint configuration
 
@@ -930,38 +930,38 @@ class IotEventHubIngestionEndpointConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerGroup")
-    def consumer_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Consumer group of the event hub to connected to.
         """
         return pulumi.get(self, "consumer_group")
 
     @consumer_group.setter
-    def consumer_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_group", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Event Hub name to connect to.
         """
         return pulumi.get(self, "event_hub_name")
 
     @event_hub_name.setter
-    def event_hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedEventHubNamespace")
-    def fully_qualified_event_hub_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_event_hub_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified namespace of the Event Hub to connect to.
         """
         return pulumi.get(self, "fully_qualified_event_hub_namespace")
 
     @fully_qualified_event_hub_namespace.setter
-    def fully_qualified_event_hub_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_event_hub_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_event_hub_namespace", value)
 
 
@@ -1036,15 +1036,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -1052,9 +1052,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -1071,38 +1071,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -1110,11 +1110,11 @@ class ResourceVersionPolicyConfigurationArgsDict(TypedDict):
     """
     The settings for history tracking for FHIR resources.
     """
-    default: NotRequired[pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]
+    default: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]
     """
     The default value for tracking history across all resources.
     """
-    resource_type_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]
+    resource_type_overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]]
     """
     A list of FHIR Resources and their version policy overrides.
     """
@@ -1122,8 +1122,8 @@ class ResourceVersionPolicyConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceVersionPolicyConfigurationArgs:
     def __init__(__self__, *,
-                 default: Optional[pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]] = None,
-                 resource_type_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]] = None):
+                 default: pulumi.Input[Optional[Union[_builtins.str, 'FhirResourceVersionPolicy']]] = None,
+                 resource_type_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]] = None):
         """
         The settings for history tracking for FHIR resources.
 
@@ -1137,26 +1137,26 @@ class ResourceVersionPolicyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]:
+    def default(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FhirResourceVersionPolicy']]]:
         """
         The default value for tracking history across all resources.
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]):
+    def default(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FhirResourceVersionPolicy']]]):
         pulumi.set(self, "default", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeOverrides")
-    def resource_type_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]:
+    def resource_type_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]:
         """
         A list of FHIR Resources and their version policy overrides.
         """
         return pulumi.get(self, "resource_type_overrides")
 
     @resource_type_overrides.setter
-    def resource_type_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]):
+    def resource_type_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]):
         pulumi.set(self, "resource_type_overrides", value)
 
 
@@ -1197,11 +1197,11 @@ class ServiceAcrConfigurationInfoArgsDict(TypedDict):
     """
     Azure container registry configuration information
     """
-    login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    login_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of the ACR login servers.
     """
-    oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
+    oci_artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]]
     """
     The list of Open Container Initiative (OCI) artifacts.
     """
@@ -1209,8 +1209,8 @@ class ServiceAcrConfigurationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceAcrConfigurationInfoArgs:
     def __init__(__self__, *,
-                 login_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
+                 login_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
         """
         Azure container registry configuration information
 
@@ -1224,26 +1224,26 @@ class ServiceAcrConfigurationInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="loginServers")
-    def login_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def login_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of the ACR login servers.
         """
         return pulumi.get(self, "login_servers")
 
     @login_servers.setter
-    def login_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def login_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "login_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="ociArtifacts")
-    def oci_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]:
+    def oci_artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]:
         """
         The list of Open Container Initiative (OCI) artifacts.
         """
         return pulumi.get(self, "oci_artifacts")
 
     @oci_artifacts.setter
-    def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
+    def oci_artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
         pulumi.set(self, "oci_artifacts", value)
 
 
@@ -1251,15 +1251,15 @@ class ServiceAuthenticationConfigurationInfoArgsDict(TypedDict):
     """
     Authentication configuration information
     """
-    audience: NotRequired[pulumi.Input[_builtins.str]]
+    audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The audience url for the service
     """
-    authority: NotRequired[pulumi.Input[_builtins.str]]
+    authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authority url for the service
     """
-    smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    smart_proxy_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the SMART on FHIR proxy is enabled
     """
@@ -1267,9 +1267,9 @@ class ServiceAuthenticationConfigurationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceAuthenticationConfigurationInfoArgs:
     def __init__(__self__, *,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 smart_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 smart_proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Authentication configuration information
 
@@ -1286,38 +1286,38 @@ class ServiceAuthenticationConfigurationInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The audience url for the service
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter
-    def authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authority url for the service
         """
         return pulumi.get(self, "authority")
 
     @authority.setter
-    def authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority", value)
 
     @_builtins.property
     @pulumi.getter(name="smartProxyEnabled")
-    def smart_proxy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smart_proxy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the SMART on FHIR proxy is enabled
         """
         return pulumi.get(self, "smart_proxy_enabled")
 
     @smart_proxy_enabled.setter
-    def smart_proxy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smart_proxy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
 
@@ -1325,23 +1325,23 @@ class ServiceCorsConfigurationInfoArgsDict(TypedDict):
     """
     The settings for the CORS configuration of the service instance.
     """
-    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If credentials are allowed via CORS.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The headers to be allowed via CORS.
     """
-    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    max_age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max age to be allowed via CORS.
     """
-    methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The methods to be allowed via CORS.
     """
-    origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The origins to be allowed via CORS.
     """
@@ -1349,11 +1349,11 @@ class ServiceCorsConfigurationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceCorsConfigurationInfoArgs:
     def __init__(__self__, *,
-                 allow_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
 
@@ -1376,62 +1376,62 @@ class ServiceCorsConfigurationInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If credentials are allowed via CORS.
         """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
-    def allow_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The headers to be allowed via CORS.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age", value)
 
     @_builtins.property
     @pulumi.getter
-    def methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The methods to be allowed via CORS.
         """
         return pulumi.get(self, "methods")
 
     @methods.setter
-    def methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The origins to be allowed via CORS.
         """
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "origins", value)
 
 
@@ -1439,15 +1439,15 @@ class ServiceCosmosDbConfigurationInfoArgsDict(TypedDict):
     """
     The settings for the Cosmos DB database backing the service.
     """
-    cross_tenant_cmk_application_id: NotRequired[pulumi.Input[_builtins.str]]
+    cross_tenant_cmk_application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The multi-tenant application id used to enable CMK access for services in a data sovereign region.
     """
-    key_vault_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_key_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the customer-managed key for the backing database.
     """
-    offer_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    offer_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The provisioned throughput for the backing database.
     """
@@ -1455,9 +1455,9 @@ class ServiceCosmosDbConfigurationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceCosmosDbConfigurationInfoArgs:
     def __init__(__self__, *,
-                 cross_tenant_cmk_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 cross_tenant_cmk_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The settings for the Cosmos DB database backing the service.
 
@@ -1474,38 +1474,38 @@ class ServiceCosmosDbConfigurationInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossTenantCmkApplicationId")
-    def cross_tenant_cmk_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_tenant_cmk_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The multi-tenant application id used to enable CMK access for services in a data sovereign region.
         """
         return pulumi.get(self, "cross_tenant_cmk_application_id")
 
     @cross_tenant_cmk_application_id.setter
-    def cross_tenant_cmk_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_tenant_cmk_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_tenant_cmk_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyUri")
-    def key_vault_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the customer-managed key for the backing database.
         """
         return pulumi.get(self, "key_vault_key_uri")
 
     @key_vault_key_uri.setter
-    def key_vault_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="offerThroughput")
-    def offer_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def offer_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The provisioned throughput for the backing database.
         """
         return pulumi.get(self, "offer_throughput")
 
     @offer_throughput.setter
-    def offer_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def offer_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "offer_throughput", value)
 
 
@@ -1513,7 +1513,7 @@ class ServiceExportConfigurationInfoArgsDict(TypedDict):
     """
     Export operation configuration information
     """
-    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the default export storage account.
     """
@@ -1521,7 +1521,7 @@ class ServiceExportConfigurationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceExportConfigurationInfoArgs:
     def __init__(__self__, *,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Export operation configuration information
 
@@ -1532,14 +1532,14 @@ class ServiceExportConfigurationInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the default export storage account.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 
@@ -1547,15 +1547,15 @@ class ServiceImportConfigurationInfoArgsDict(TypedDict):
     """
     Import operation configuration information
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the import operation is enabled.
     """
-    initial_import_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    initial_import_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the FHIR service is in InitialImportMode.
     """
-    integration_data_store: NotRequired[pulumi.Input[_builtins.str]]
+    integration_data_store: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the default integration storage account.
     """
@@ -1563,9 +1563,9 @@ class ServiceImportConfigurationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceImportConfigurationInfoArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_import_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 integration_data_store: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_import_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 integration_data_store: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Import operation configuration information
 
@@ -1582,38 +1582,38 @@ class ServiceImportConfigurationInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the import operation is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="initialImportMode")
-    def initial_import_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def initial_import_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the FHIR service is in InitialImportMode.
         """
         return pulumi.get(self, "initial_import_mode")
 
     @initial_import_mode.setter
-    def initial_import_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def initial_import_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "initial_import_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationDataStore")
-    def integration_data_store(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_data_store(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the default integration storage account.
         """
         return pulumi.get(self, "integration_data_store")
 
     @integration_data_store.setter
-    def integration_data_store(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_data_store(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_data_store", value)
 
 
@@ -1625,7 +1625,7 @@ class ServiceManagedIdentityIdentityArgsDict(TypedDict):
     """
     Type of identity being specified, currently SystemAssigned and None are allowed.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -1634,7 +1634,7 @@ class ServiceManagedIdentityIdentityArgsDict(TypedDict):
 class ServiceManagedIdentityIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ServiceManagedIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
 
@@ -1659,14 +1659,14 @@ class ServiceManagedIdentityIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1674,15 +1674,15 @@ class ServiceOciArtifactEntryArgsDict(TypedDict):
     """
     An Open Container Initiative (OCI) artifact.
     """
-    digest: NotRequired[pulumi.Input[_builtins.str]]
+    digest: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The artifact digest.
     """
-    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    image_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The artifact name.
     """
-    login_server: NotRequired[pulumi.Input[_builtins.str]]
+    login_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Container Registry login server.
     """
@@ -1690,9 +1690,9 @@ class ServiceOciArtifactEntryArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceOciArtifactEntryArgs:
     def __init__(__self__, *,
-                 digest: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None):
+                 digest: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An Open Container Initiative (OCI) artifact.
 
@@ -1709,38 +1709,38 @@ class ServiceOciArtifactEntryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def digest(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def digest(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact digest.
         """
         return pulumi.get(self, "digest")
 
     @digest.setter
-    def digest(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def digest(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "digest", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The artifact name.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loginServer")
-    def login_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Container Registry login server.
         """
         return pulumi.get(self, "login_server")
 
     @login_server.setter
-    def login_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_server", value)
 
 
@@ -1748,39 +1748,39 @@ class ServicesPropertiesArgsDict(TypedDict):
     """
     The properties of a service instance.
     """
-    access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgsDict']]]]
+    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgsDict']]]]]
     """
     The access policies of the service instance.
     """
-    acr_configuration: NotRequired[pulumi.Input['ServiceAcrConfigurationInfoArgsDict']]
+    acr_configuration: NotRequired[pulumi.Input[Optional['ServiceAcrConfigurationInfoArgsDict']]]
     """
     The azure container registry settings used for convert data operation of the service instance.
     """
-    authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationInfoArgsDict']]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['ServiceAuthenticationConfigurationInfoArgsDict']]]
     """
     The authentication configuration for the service instance.
     """
-    cors_configuration: NotRequired[pulumi.Input['ServiceCorsConfigurationInfoArgsDict']]
+    cors_configuration: NotRequired[pulumi.Input[Optional['ServiceCorsConfigurationInfoArgsDict']]]
     """
     The settings for the CORS configuration of the service instance.
     """
-    cosmos_db_configuration: NotRequired[pulumi.Input['ServiceCosmosDbConfigurationInfoArgsDict']]
+    cosmos_db_configuration: NotRequired[pulumi.Input[Optional['ServiceCosmosDbConfigurationInfoArgsDict']]]
     """
     The settings for the Cosmos DB database backing the service.
     """
-    export_configuration: NotRequired[pulumi.Input['ServiceExportConfigurationInfoArgsDict']]
+    export_configuration: NotRequired[pulumi.Input[Optional['ServiceExportConfigurationInfoArgsDict']]]
     """
     The settings for the export operation of the service instance.
     """
-    import_configuration: NotRequired[pulumi.Input['ServiceImportConfigurationInfoArgsDict']]
+    import_configuration: NotRequired[pulumi.Input[Optional['ServiceImportConfigurationInfoArgsDict']]]
     """
     The settings for the import operation of the service instance.
     """
-    private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+    private_endpoint_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]]
     """
     The list of private endpoint connections that are set up for this resource.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]]
     """
     Control permission for data plane traffic coming from public networks while private endpoint is enabled.
     """
@@ -1788,15 +1788,15 @@ class ServicesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ServicesPropertiesArgs:
     def __init__(__self__, *,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]] = None,
-                 acr_configuration: Optional[pulumi.Input['ServiceAcrConfigurationInfoArgs']] = None,
-                 authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationInfoArgs']] = None,
-                 cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationInfoArgs']] = None,
-                 cosmos_db_configuration: Optional[pulumi.Input['ServiceCosmosDbConfigurationInfoArgs']] = None,
-                 export_configuration: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']] = None,
-                 import_configuration: Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None):
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]] = None,
+                 acr_configuration: pulumi.Input[Optional['ServiceAcrConfigurationInfoArgs']] = None,
+                 authentication_configuration: pulumi.Input[Optional['ServiceAuthenticationConfigurationInfoArgs']] = None,
+                 cors_configuration: pulumi.Input[Optional['ServiceCorsConfigurationInfoArgs']] = None,
+                 cosmos_db_configuration: pulumi.Input[Optional['ServiceCosmosDbConfigurationInfoArgs']] = None,
+                 export_configuration: pulumi.Input[Optional['ServiceExportConfigurationInfoArgs']] = None,
+                 import_configuration: pulumi.Input[Optional['ServiceImportConfigurationInfoArgs']] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None):
         """
         The properties of a service instance.
 
@@ -1831,110 +1831,110 @@ class ServicesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]:
+    def access_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]:
         """
         The access policies of the service instance.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]):
+    def access_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="acrConfiguration")
-    def acr_configuration(self) -> Optional[pulumi.Input['ServiceAcrConfigurationInfoArgs']]:
+    def acr_configuration(self) -> pulumi.Input[Optional['ServiceAcrConfigurationInfoArgs']]:
         """
         The azure container registry settings used for convert data operation of the service instance.
         """
         return pulumi.get(self, "acr_configuration")
 
     @acr_configuration.setter
-    def acr_configuration(self, value: Optional[pulumi.Input['ServiceAcrConfigurationInfoArgs']]):
+    def acr_configuration(self, value: pulumi.Input[Optional['ServiceAcrConfigurationInfoArgs']]):
         pulumi.set(self, "acr_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['ServiceAuthenticationConfigurationInfoArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['ServiceAuthenticationConfigurationInfoArgs']]:
         """
         The authentication configuration for the service instance.
         """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['ServiceAuthenticationConfigurationInfoArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['ServiceAuthenticationConfigurationInfoArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['ServiceCorsConfigurationInfoArgs']]:
+    def cors_configuration(self) -> pulumi.Input[Optional['ServiceCorsConfigurationInfoArgs']]:
         """
         The settings for the CORS configuration of the service instance.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['ServiceCorsConfigurationInfoArgs']]):
+    def cors_configuration(self, value: pulumi.Input[Optional['ServiceCorsConfigurationInfoArgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosDbConfiguration")
-    def cosmos_db_configuration(self) -> Optional[pulumi.Input['ServiceCosmosDbConfigurationInfoArgs']]:
+    def cosmos_db_configuration(self) -> pulumi.Input[Optional['ServiceCosmosDbConfigurationInfoArgs']]:
         """
         The settings for the Cosmos DB database backing the service.
         """
         return pulumi.get(self, "cosmos_db_configuration")
 
     @cosmos_db_configuration.setter
-    def cosmos_db_configuration(self, value: Optional[pulumi.Input['ServiceCosmosDbConfigurationInfoArgs']]):
+    def cosmos_db_configuration(self, value: pulumi.Input[Optional['ServiceCosmosDbConfigurationInfoArgs']]):
         pulumi.set(self, "cosmos_db_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="exportConfiguration")
-    def export_configuration(self) -> Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']]:
+    def export_configuration(self) -> pulumi.Input[Optional['ServiceExportConfigurationInfoArgs']]:
         """
         The settings for the export operation of the service instance.
         """
         return pulumi.get(self, "export_configuration")
 
     @export_configuration.setter
-    def export_configuration(self, value: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']]):
+    def export_configuration(self, value: pulumi.Input[Optional['ServiceExportConfigurationInfoArgs']]):
         pulumi.set(self, "export_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="importConfiguration")
-    def import_configuration(self) -> Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']]:
+    def import_configuration(self) -> pulumi.Input[Optional['ServiceImportConfigurationInfoArgs']]:
         """
         The settings for the import operation of the service instance.
         """
         return pulumi.get(self, "import_configuration")
 
     @import_configuration.setter
-    def import_configuration(self, value: Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']]):
+    def import_configuration(self, value: pulumi.Input[Optional['ServiceImportConfigurationInfoArgs']]):
         pulumi.set(self, "import_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+    def private_endpoint_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         The list of private endpoint connections that are set up for this resource.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
+    def private_endpoint_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
 
@@ -1942,7 +1942,7 @@ class ServicesResourceIdentityArgsDict(TypedDict):
     """
     Setting indicating whether the service has a managed identity associated with it.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]]]
     """
     Type of identity being specified, currently SystemAssigned and None are allowed.
     """
@@ -1950,7 +1950,7 @@ class ServicesResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ServicesResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
 
@@ -1961,14 +1961,14 @@ class ServicesResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]]:
         """
         Type of identity being specified, currently SystemAssigned and None are allowed.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1976,15 +1976,15 @@ class SmartIdentityProviderApplicationArgsDict(TypedDict):
     """
     An Application configured in the Identity Provider used to access FHIR resources.
     """
-    allowed_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]
+    allowed_data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]]
     """
     The actions that are permitted to be performed on FHIR resources for the application.
     """
-    audience: NotRequired[pulumi.Input[_builtins.str]]
+    audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The audience that will be used to validate bearer tokens against the given authority.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
     """
@@ -1992,9 +1992,9 @@ class SmartIdentityProviderApplicationArgsDict(TypedDict):
 @pulumi.input_type
 class SmartIdentityProviderApplicationArgs:
     def __init__(__self__, *,
-                 allowed_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An Application configured in the Identity Provider used to access FHIR resources.
 
@@ -2011,38 +2011,38 @@ class SmartIdentityProviderApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedDataActions")
-    def allowed_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]:
+    def allowed_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]:
         """
         The actions that are permitted to be performed on FHIR resources for the application.
         """
         return pulumi.get(self, "allowed_data_actions")
 
     @allowed_data_actions.setter
-    def allowed_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]):
+    def allowed_data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]):
         pulumi.set(self, "allowed_data_actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The audience that will be used to validate bearer tokens against the given authority.
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
 
@@ -2050,11 +2050,11 @@ class SmartIdentityProviderConfigurationArgsDict(TypedDict):
     """
     An object to configure an identity provider for use with SMART on FHIR authentication.
     """
-    applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgsDict']]]]
+    applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgsDict']]]]]
     """
     The array of identity provider applications for SMART on FHIR authentication.
     """
-    authority: NotRequired[pulumi.Input[_builtins.str]]
+    authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identity provider token authority also known as the token issuing authority.
     """
@@ -2062,8 +2062,8 @@ class SmartIdentityProviderConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SmartIdentityProviderConfigurationArgs:
     def __init__(__self__, *,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]] = None,
-                 authority: Optional[pulumi.Input[_builtins.str]] = None):
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]] = None,
+                 authority: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object to configure an identity provider for use with SMART on FHIR authentication.
 
@@ -2077,26 +2077,26 @@ class SmartIdentityProviderConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]]:
+    def applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]]:
         """
         The array of identity provider applications for SMART on FHIR authentication.
         """
         return pulumi.get(self, "applications")
 
     @applications.setter
-    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]]):
+    def applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]]):
         pulumi.set(self, "applications", value)
 
     @_builtins.property
     @pulumi.getter
-    def authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity provider token authority also known as the token issuing authority.
         """
         return pulumi.get(self, "authority")
 
     @authority.setter
-    def authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority", value)
 
 
@@ -2104,11 +2104,11 @@ class StorageConfigurationArgsDict(TypedDict):
     """
     The configuration of connected storage
     """
-    file_system_name: NotRequired[pulumi.Input[_builtins.str]]
+    file_system_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filesystem name of connected storage account.
     """
-    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource id of connected storage account.
     """
@@ -2116,8 +2116,8 @@ class StorageConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StorageConfigurationArgs:
     def __init__(__self__, *,
-                 file_system_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 file_system_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration of connected storage
 
@@ -2131,26 +2131,26 @@ class StorageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileSystemName")
-    def file_system_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem name of connected storage account.
         """
         return pulumi.get(self, "file_system_name")
 
     @file_system_name.setter
-    def file_system_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of connected storage account.
         """
         return pulumi.get(self, "storage_resource_id")
 
     @storage_resource_id.setter
-    def storage_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_resource_id", value)
 
 

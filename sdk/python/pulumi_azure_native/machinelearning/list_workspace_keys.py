@@ -69,7 +69,6 @@ def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-10-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
     :param _builtins.str workspace_name: The name of the machine learning workspace.
     """
@@ -82,14 +81,13 @@ def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
     return AwaitableListWorkspaceKeysResult(
         primary_token=pulumi.get(__ret__, 'primary_token'),
         secondary_token=pulumi.get(__ret__, 'secondary_token'))
-def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
     List the authorization keys associated with this workspace.
 
     Uses Azure REST API version 2019-10-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
     :param _builtins.str workspace_name: The name of the machine learning workspace.

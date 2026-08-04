@@ -25,8 +25,8 @@ class HorizonDbReplicaArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['HorizonDbReplicaPropertiesArgs']] = None,
-                 replica_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['HorizonDbReplicaPropertiesArgs']] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HorizonDbReplica resource.
 
@@ -82,26 +82,26 @@ class HorizonDbReplicaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['HorizonDbReplicaPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['HorizonDbReplicaPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['HorizonDbReplicaPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['HorizonDbReplicaPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaName")
-    def replica_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replica_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HorizonDB replica.
         """
         return pulumi.get(self, "replica_name")
 
     @replica_name.setter
-    def replica_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replica_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replica_name", value)
 
 
@@ -111,17 +111,16 @@ class HorizonDbReplica(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['HorizonDbReplicaPropertiesArgs', 'HorizonDbReplicaPropertiesArgsDict']]] = None,
-                 replica_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['HorizonDbReplicaPropertiesArgs', 'HorizonDbReplicaPropertiesArgsDict']]] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents the HorizonDB replica.
 
         Uses Azure REST API version 2026-01-20-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class HorizonDbReplica(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-01-20-preview.
 
-
         :param str resource_name: The name of the resource.
         :param HorizonDbReplicaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class HorizonDbReplica(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['HorizonDbReplicaPropertiesArgs', 'HorizonDbReplicaPropertiesArgsDict']]] = None,
-                 replica_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['HorizonDbReplicaPropertiesArgs', 'HorizonDbReplicaPropertiesArgsDict']]] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

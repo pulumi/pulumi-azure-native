@@ -121,7 +121,6 @@ def get_springbootserver(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str site_name: The springbootsites name.
     :param _builtins.str springbootservers_name: The springbootservers name.
@@ -140,9 +139,9 @@ def get_springbootserver(resource_group_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_springbootserver_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                springbootservers_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_springbootserver_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                springbootservers_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpringbootserverResult]:
     """
     List springbootservers resource.
@@ -150,7 +149,6 @@ def get_springbootserver_output(resource_group_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2024-04-01-preview.
 
     Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str site_name: The springbootsites name.

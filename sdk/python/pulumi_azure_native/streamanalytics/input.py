@@ -24,9 +24,9 @@ class InputInitArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 input_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]] = None):
+                 input_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Input resource.
 
@@ -71,38 +71,38 @@ class InputInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputName")
-    def input_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the input.
         """
         return pulumi.get(self, "input_name")
 
     @input_name.setter
-    def input_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]]:
         """
         The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -112,11 +112,11 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ReferenceInputPropertiesArgs', 'ReferenceInputPropertiesArgsDict'], Union['StreamInputPropertiesArgs', 'StreamInputPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ReferenceInputPropertiesArgs', 'ReferenceInputPropertiesArgsDict'], Union['StreamInputPropertiesArgs', 'StreamInputPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
@@ -124,7 +124,6 @@ class Input(pulumi.CustomResource):
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +146,6 @@ class Input(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param InputInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,11 +161,11 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ReferenceInputPropertiesArgs', 'ReferenceInputPropertiesArgsDict'], Union['StreamInputPropertiesArgs', 'StreamInputPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ReferenceInputPropertiesArgs', 'ReferenceInputPropertiesArgsDict'], Union['StreamInputPropertiesArgs', 'StreamInputPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

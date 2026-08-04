@@ -61,7 +61,6 @@ def get_online_deployment_logs(container_type: Optional[Union[_builtins.str, 'Co
 
     Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Union[_builtins.str, 'ContainerType'] container_type: The type of container to retrieve logs from.
     :param _builtins.str deployment_name: Inference Endpoint Deployment name.
     :param _builtins.str endpoint_name: Online Endpoint name.
@@ -81,12 +80,12 @@ def get_online_deployment_logs(container_type: Optional[Union[_builtins.str, 'Co
 
     return AwaitableGetOnlineDeploymentLogsResult(
         content=pulumi.get(__ret__, 'content'))
-def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ContainerType']]]] = None,
-                                      deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      tail: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                      workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_online_deployment_logs_output(container_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ContainerType']]]] = None,
+                                      deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      tail: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                      workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineDeploymentLogsResult]:
     """
     Polls an Endpoint operation.
@@ -94,7 +93,6 @@ def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Opti
     Uses Azure REST API version 2025-12-01.
 
     Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Union[_builtins.str, 'ContainerType'] container_type: The type of container to retrieve logs from.
     :param _builtins.str deployment_name: Inference Endpoint Deployment name.

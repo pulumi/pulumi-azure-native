@@ -59,7 +59,6 @@ def list_delegation_setting_secrets(resource_group_name: Optional[_builtins.str]
 
     Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str service_name: The name of the API Management service.
     """
@@ -71,8 +70,8 @@ def list_delegation_setting_secrets(resource_group_name: Optional[_builtins.str]
 
     return AwaitableListDelegationSettingSecretsResult(
         validation_key=pulumi.get(__ret__, 'validation_key'))
-def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_delegation_setting_secrets_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDelegationSettingSecretsResult]:
     """
     Gets the secret validation key of the DelegationSettings.
@@ -80,7 +79,6 @@ def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.
     Uses Azure REST API version 2021-08-01.
 
     Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str service_name: The name of the API Management service.

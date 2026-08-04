@@ -63,7 +63,6 @@ def get_user_shared_access_token(expiry: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
     :param 'KeyType' key_type: The Key to be used to generate token for user.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -81,11 +80,11 @@ def get_user_shared_access_token(expiry: Optional[_builtins.str] = None,
 
     return AwaitableGetUserSharedAccessTokenResult(
         value=pulumi.get(__ret__, 'value'))
-def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                                        key_type: Optional[pulumi.Input['KeyType']] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        user_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_shared_access_token_output(expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                                        key_type: pulumi.Input[Optional['KeyType']] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        user_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
     """
     Gets the Shared Access Authorization Token for the User.
@@ -93,7 +92,6 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[_builtins.
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
     :param 'KeyType' key_type: The Key to be used to generate token for user.

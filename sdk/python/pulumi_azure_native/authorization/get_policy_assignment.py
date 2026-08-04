@@ -325,7 +325,6 @@ def get_policy_assignment(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-09-01, 2021-06-01, 2022-06-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param _builtins.str policy_assignment_name: The name of the policy assignment to get.
     :param _builtins.str scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -361,9 +360,9 @@ def get_policy_assignment(expand: Optional[_builtins.str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_assignment_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_assignment_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
@@ -371,7 +370,6 @@ def get_policy_assignment_output(expand: Optional[pulumi.Input[Optional[_builtin
     Uses Azure REST API version 2025-01-01.
 
     Other available API versions: 2020-09-01, 2021-06-01, 2022-06-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param _builtins.str policy_assignment_name: The name of the policy assignment to get.

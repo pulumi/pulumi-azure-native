@@ -25,9 +25,9 @@ class ExecutionV2Args:
                  resource_group_name: pulumi.Input[_builtins.str],
                  version_name: pulumi.Input[_builtins.str],
                  workflow_name: pulumi.Input[_builtins.str],
-                 execution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
-                 properties: Optional[pulumi.Input['ExecutionV2PropertiesArgs']] = None):
+                 execution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
+                 properties: pulumi.Input[Optional['ExecutionV2PropertiesArgs']] = None):
         """
         The set of arguments for constructing a ExecutionV2 resource.
 
@@ -86,38 +86,38 @@ class ExecutionV2Args:
 
     @_builtins.property
     @pulumi.getter(name="executionName")
-    def execution_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ExecutionV2.
         """
         return pulumi.get(self, "execution_name")
 
     @execution_name.setter
-    def execution_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
         """
         The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ExecutionV2PropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ExecutionV2PropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ExecutionV2PropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ExecutionV2PropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -127,18 +127,17 @@ class ExecutionV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['ExecutionV2PropertiesArgs', 'ExecutionV2PropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 execution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['ExecutionV2PropertiesArgs', 'ExecutionV2PropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ExecutionV2 Resource
 
         Uses Azure REST API version 2025-08-15-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class ExecutionV2(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-15-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ExecutionV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,12 +174,12 @@ class ExecutionV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['ExecutionV2PropertiesArgs', 'ExecutionV2PropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 execution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['ExecutionV2PropertiesArgs', 'ExecutionV2PropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

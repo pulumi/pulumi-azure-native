@@ -131,7 +131,6 @@ def get_private_atlase(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2020-02-01-preview.
 
-
     :param _builtins.str account_name: The name of the Maps Account.
     :param _builtins.str private_atlas_name: The name of the Private Atlas instance.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,15 +150,14 @@ def get_private_atlase(account_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_atlase_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              private_atlas_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_atlase_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              private_atlas_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateAtlaseResult]:
     """
     [Deprecated] Get a Private Atlas resource.
 
     Uses Azure REST API version 2020-02-01-preview.
-
 
     :param _builtins.str account_name: The name of the Maps Account.
     :param _builtins.str private_atlas_name: The name of the Private Atlas instance.

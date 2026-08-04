@@ -22,13 +22,13 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_affinity: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 reporting: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 scalable_execution: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_affinity: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 reporting: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 scalable_execution: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -79,86 +79,86 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuth")
-    def local_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]:
+    def local_auth(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]:
         """
         When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         """
         return pulumi.get(self, "local_auth")
 
     @local_auth.setter
-    def local_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]):
+    def local_auth(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]):
         pulumi.set(self, "local_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalAffinity")
-    def regional_affinity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]:
+    def regional_affinity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]:
         """
         This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
         """
         return pulumi.get(self, "regional_affinity")
 
     @regional_affinity.setter
-    def regional_affinity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]):
+    def regional_affinity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]):
         pulumi.set(self, "regional_affinity", value)
 
     @_builtins.property
     @pulumi.getter
-    def reporting(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]:
+    def reporting(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]:
         """
         When enabled, this feature allows the workspace to upload and display test results, including artifacts like traces and screenshots, in the Playwright portal. This enables faster and more efficient troubleshooting.
         """
         return pulumi.get(self, "reporting")
 
     @reporting.setter
-    def reporting(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]):
+    def reporting(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]):
         pulumi.set(self, "reporting", value)
 
     @_builtins.property
     @pulumi.getter(name="scalableExecution")
-    def scalable_execution(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]:
+    def scalable_execution(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]:
         """
         When enabled, Playwright client workers can connect to cloud-hosted browsers. This can increase the number of parallel workers for a test run, significantly minimizing test completion durations.
         """
         return pulumi.get(self, "scalable_execution")
 
     @scalable_execution.setter
-    def scalable_execution(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]):
+    def scalable_execution(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]):
         pulumi.set(self, "scalable_execution", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -168,14 +168,14 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_affinity: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 reporting: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scalable_execution: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_affinity: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 reporting: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scalable_execution: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A Playwright service account resource.
@@ -183,7 +183,6 @@ class Account(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +208,6 @@ class Account(pulumi.CustomResource):
 
         Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,14 +223,14 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_affinity: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 reporting: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scalable_execution: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_affinity: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 reporting: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scalable_execution: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

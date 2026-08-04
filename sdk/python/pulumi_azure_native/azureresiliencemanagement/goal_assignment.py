@@ -23,8 +23,8 @@ __all__ = ['GoalAssignmentArgs', 'GoalAssignment']
 class GoalAssignmentArgs:
     def __init__(__self__, *,
                  service_group_name: pulumi.Input[_builtins.str],
-                 goal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['GoalAssignmentPropertiesArgs']] = None):
+                 goal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['GoalAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GoalAssignment resource.
 
@@ -52,26 +52,26 @@ class GoalAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="goalAssignmentName")
-    def goal_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def goal_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the GoalAssignment
         """
         return pulumi.get(self, "goal_assignment_name")
 
     @goal_assignment_name.setter
-    def goal_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def goal_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "goal_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['GoalAssignmentPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['GoalAssignmentPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['GoalAssignmentPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['GoalAssignmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -81,9 +81,9 @@ class GoalAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 goal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GoalAssignmentPropertiesArgs', 'GoalAssignmentPropertiesArgsDict']]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 goal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GoalAssignmentPropertiesArgs', 'GoalAssignmentPropertiesArgsDict']]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Goal assignment a AzureResilienceProviderHub resource
@@ -91,7 +91,6 @@ class GoalAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2026-03-01-preview.
 
         Other available API versions: 2025-02-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +111,6 @@ class GoalAssignment(pulumi.CustomResource):
 
         Other available API versions: 2025-02-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GoalAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,9 +126,9 @@ class GoalAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 goal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GoalAssignmentPropertiesArgs', 'GoalAssignmentPropertiesArgsDict']]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 goal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GoalAssignmentPropertiesArgs', 'GoalAssignmentPropertiesArgsDict']]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -130,7 +130,6 @@ def get_network(network_resource_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-01-preview.
 
-
     :param _builtins.str network_resource_name: The identity of the network.
     :param _builtins.str resource_group_name: Azure resource group name
     """
@@ -148,14 +147,13 @@ def get_network(network_resource_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_output(network_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_output(network_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
     Gets the information about the network resource with the given name. The information include the description and other properties of the network.
 
     Uses Azure REST API version 2018-09-01-preview.
-
 
     :param _builtins.str network_resource_name: The identity of the network.
     :param _builtins.str resource_group_name: Azure resource group name

@@ -267,7 +267,6 @@ def get_source_control_configuration(cluster_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the kubernetes cluster.
     :param _builtins.str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
     :param _builtins.str cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
@@ -302,11 +301,11 @@ def get_source_control_configuration(cluster_name: Optional[_builtins.str] = Non
         ssh_known_hosts_contents=pulumi.get(__ret__, 'ssh_known_hosts_contents'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            cluster_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            cluster_rp: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            source_control_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_source_control_configuration_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            source_control_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
     """
     Gets details of the Source Control Configuration.
@@ -314,7 +313,6 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
     Uses Azure REST API version 2023-05-01.
 
     Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the kubernetes cluster.
     :param _builtins.str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.

@@ -23,8 +23,8 @@ class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['PrivateLinkConnectionApprovalRequestArgs']] = None):
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['PrivateLinkConnectionApprovalRequestArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
@@ -66,26 +66,26 @@ class PrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private endpoint connection name.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
     @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['PrivateLinkConnectionApprovalRequestArgs']]:
+    def properties(self) -> pulumi.Input[Optional['PrivateLinkConnectionApprovalRequestArgs']]:
         """
         Core resource properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['PrivateLinkConnectionApprovalRequestArgs']]):
+    def properties(self, value: pulumi.Input[Optional['PrivateLinkConnectionApprovalRequestArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,16 +95,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PrivateLinkConnectionApprovalRequestArgs', 'PrivateLinkConnectionApprovalRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['PrivateLinkConnectionApprovalRequestArgs', 'PrivateLinkConnectionApprovalRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Private Endpoint Connection ARM resource.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PrivateLinkConnectionApprovalRequestArgs', 'PrivateLinkConnectionApprovalRequestArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['PrivateLinkConnectionApprovalRequestArgs', 'PrivateLinkConnectionApprovalRequestArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

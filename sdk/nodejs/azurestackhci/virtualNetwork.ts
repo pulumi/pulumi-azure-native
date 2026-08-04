@@ -152,19 +152,19 @@ export interface VirtualNetworkArgs {
     /**
      * DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
      */
-    dhcpOptions?: pulumi.Input<inputs.azurestackhci.VirtualNetworkPropertiesDhcpOptionsArgs>;
+    dhcpOptions?: pulumi.Input<inputs.azurestackhci.VirtualNetworkPropertiesDhcpOptionsArgs | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Type of the network
      */
-    networkType?: pulumi.Input<string | enums.azurestackhci.NetworkTypeEnum>;
+    networkType?: pulumi.Input<string | enums.azurestackhci.NetworkTypeEnum | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -172,17 +172,17 @@ export interface VirtualNetworkArgs {
     /**
      * Subnet - list of subnets under the virtual network
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.azurestackhci.VirtualNetworkPropertiesSubnetsArgs>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.azurestackhci.VirtualNetworkPropertiesSubnetsArgs>[] | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the virtual network
      */
-    virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string | undefined>;
     /**
      * name of the network switch to be used for VMs
      */
-    vmSwitchName?: pulumi.Input<string>;
+    vmSwitchName?: pulumi.Input<string | undefined>;
 }

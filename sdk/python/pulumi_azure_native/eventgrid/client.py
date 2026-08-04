@@ -25,11 +25,11 @@ class ClientArgs:
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  attributes: Optional[Any] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_authentication: Optional[pulumi.Input['ClientCertificateAuthenticationArgs']] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ClientState']]] = None):
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_authentication: pulumi.Input[Optional['ClientCertificateAuthenticationArgs']] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ClientState']]] = None):
         """
         The set of arguments for constructing a Client resource.
 
@@ -101,62 +101,62 @@ class ClientArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationName")
-    def authentication_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name presented by the client for authentication. The default value is the name of the resource.
         """
         return pulumi.get(self, "authentication_name")
 
     @authentication_name.setter
-    def authentication_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateAuthentication")
-    def client_certificate_authentication(self) -> Optional[pulumi.Input['ClientCertificateAuthenticationArgs']]:
+    def client_certificate_authentication(self) -> pulumi.Input[Optional['ClientCertificateAuthenticationArgs']]:
         """
         The client certificate authentication information.
         """
         return pulumi.get(self, "client_certificate_authentication")
 
     @client_certificate_authentication.setter
-    def client_certificate_authentication(self, value: Optional[pulumi.Input['ClientCertificateAuthenticationArgs']]):
+    def client_certificate_authentication(self, value: pulumi.Input[Optional['ClientCertificateAuthenticationArgs']]):
         pulumi.set(self, "client_certificate_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clientName")
-    def client_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client name.
         """
         return pulumi.get(self, "client_name")
 
     @client_name.setter
-    def client_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the Client resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClientState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ClientState']]]:
         """
         Indicates if the client is enabled or not. Default value is Enabled.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClientState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClientState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -167,13 +167,13 @@ class Client(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_authentication: Optional[pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ClientState']]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_authentication: pulumi.Input[Optional[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ClientState']]] = None,
                  __props__=None):
         """
         The Client resource.
@@ -181,7 +181,6 @@ class Client(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +208,6 @@ class Client(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ClientArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,13 +224,13 @@ class Client(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_authentication: Optional[pulumi.Input[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ClientState']]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_authentication: pulumi.Input[Optional[Union['ClientCertificateAuthenticationArgs', 'ClientCertificateAuthenticationArgsDict']]] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ClientState']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

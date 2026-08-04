@@ -192,7 +192,6 @@ def get_virtual_network_appliance(resource_group_name: Optional[_builtins.str] =
 
     Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_network_appliance_name: The name of the virtual network appliance.
     """
@@ -215,8 +214,8 @@ def get_virtual_network_appliance(resource_group_name: Optional[_builtins.str] =
         subnet=pulumi.get(__ret__, 'subnet'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_network_appliance_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_appliance_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkApplianceResult]:
     """
     Gets information about the specified virtual network appliance.
@@ -224,7 +223,6 @@ def get_virtual_network_appliance_output(resource_group_name: Optional[pulumi.In
     Uses Azure REST API version 2025-05-01.
 
     Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_network_appliance_name: The name of the virtual network appliance.

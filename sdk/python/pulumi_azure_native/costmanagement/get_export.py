@@ -217,7 +217,6 @@ def get_export(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
     :param _builtins.str export_name: Export Name.
     :param _builtins.str scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
@@ -244,9 +243,9 @@ def get_export(expand: Optional[_builtins.str] = None,
         run_history=pulumi.get(__ret__, 'run_history'),
         schedule=pulumi.get(__ret__, 'schedule'),
         type=pulumi.get(__ret__, 'type'))
-def get_export_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      export_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_export_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      export_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      scope: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     The operation to get the export for the defined scope by export name.
@@ -254,7 +253,6 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = 
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
     :param _builtins.str export_name: Export Name.

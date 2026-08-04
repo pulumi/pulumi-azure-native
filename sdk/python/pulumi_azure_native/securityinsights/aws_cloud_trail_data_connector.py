@@ -26,8 +26,8 @@ class AwsCloudTrailDataConnectorArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AwsCloudTrailDataConnector resource.
 
@@ -99,26 +99,26 @@ class AwsCloudTrailDataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRoleArn")
-    def aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
         """
         return pulumi.get(self, "aws_role_arn")
 
     @aws_role_arn.setter
-    def aws_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorId")
-    def data_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector ID
         """
         return pulumi.get(self, "data_connector_id")
 
     @data_connector_id.setter
-    def data_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connector_id", value)
 
 
@@ -128,18 +128,17 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['AwsCloudTrailDataConnectorDataTypesArgs', 'AwsCloudTrailDataConnectorDataTypesArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['AwsCloudTrailDataConnectorDataTypesArgs', 'AwsCloudTrailDataConnectorDataTypesArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents Amazon Web Services CloudTrail data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,6 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param AwsCloudTrailDataConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,12 +176,12 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['AwsCloudTrailDataConnectorDataTypesArgs', 'AwsCloudTrailDataConnectorDataTypesArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['AwsCloudTrailDataConnectorDataTypesArgs', 'AwsCloudTrailDataConnectorDataTypesArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

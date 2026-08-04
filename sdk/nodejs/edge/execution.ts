@@ -132,15 +132,15 @@ export interface ExecutionArgs {
     /**
      * The name of the Execution.
      */
-    executionName?: pulumi.Input<string>;
+    executionName?: pulumi.Input<string | undefined>;
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.ExecutionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.ExecutionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,14 +24,14 @@ class RemediationAtManagementGroupArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
                  management_groups_namespace: pulumi.Input[_builtins.str],
-                 failure_threshold: Optional[pulumi.Input['RemediationPropertiesFailureThresholdArgs']] = None,
-                 filters: Optional[pulumi.Input['RemediationFiltersArgs']] = None,
-                 parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[Union[_builtins.str, 'ResourceDiscoveryMode']]] = None):
+                 failure_threshold: pulumi.Input[Optional['RemediationPropertiesFailureThresholdArgs']] = None,
+                 filters: pulumi.Input[Optional['RemediationFiltersArgs']] = None,
+                 parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_discovery_mode: pulumi.Input[Optional[Union[_builtins.str, 'ResourceDiscoveryMode']]] = None):
         """
         The set of arguments for constructing a RemediationAtManagementGroup resource.
 
@@ -91,98 +91,98 @@ class RemediationAtManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input['RemediationPropertiesFailureThresholdArgs']]:
+    def failure_threshold(self) -> pulumi.Input[Optional['RemediationPropertiesFailureThresholdArgs']]:
         """
         The remediation failure threshold settings
         """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input['RemediationPropertiesFailureThresholdArgs']]):
+    def failure_threshold(self, value: pulumi.Input[Optional['RemediationPropertiesFailureThresholdArgs']]):
         pulumi.set(self, "failure_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['RemediationFiltersArgs']]:
+    def filters(self) -> pulumi.Input[Optional['RemediationFiltersArgs']]:
         """
         The filters that will be applied to determine which resources to remediate.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['RemediationFiltersArgs']]):
+    def filters(self, value: pulumi.Input[Optional['RemediationFiltersArgs']]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelDeployments")
-    def parallel_deployments(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parallel_deployments(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         """
         return pulumi.get(self, "parallel_deployments")
 
     @parallel_deployments.setter
-    def parallel_deployments(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parallel_deployments(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parallel_deployments", value)
 
     @_builtins.property
     @pulumi.getter(name="policyAssignmentId")
-    def policy_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the policy assignment that should be remediated.
         """
         return pulumi.get(self, "policy_assignment_id")
 
     @policy_assignment_id.setter
-    def policy_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationName")
-    def remediation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remediation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the remediation.
         """
         return pulumi.get(self, "remediation_name")
 
     @remediation_name.setter
-    def remediation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remediation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remediation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCount")
-    def resource_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def resource_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         """
         return pulumi.get(self, "resource_count")
 
     @resource_count.setter
-    def resource_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def resource_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "resource_count", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceDiscoveryMode")
-    def resource_discovery_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceDiscoveryMode']]]:
+    def resource_discovery_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceDiscoveryMode']]]:
         """
         The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
-    def resource_discovery_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceDiscoveryMode']]]):
+    def resource_discovery_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceDiscoveryMode']]]):
         pulumi.set(self, "resource_discovery_mode", value)
 
 
@@ -192,16 +192,16 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_threshold: Optional[pulumi.Input[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']]] = None,
-                 filters: Optional[pulumi.Input[Union['RemediationFiltersArgs', 'RemediationFiltersArgsDict']]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_groups_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[Union[_builtins.str, 'ResourceDiscoveryMode']]] = None,
+                 failure_threshold: pulumi.Input[Optional[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']]] = None,
+                 filters: pulumi.Input[Optional[Union['RemediationFiltersArgs', 'RemediationFiltersArgsDict']]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_groups_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_discovery_mode: pulumi.Input[Optional[Union[_builtins.str, 'ResourceDiscoveryMode']]] = None,
                  __props__=None):
         """
         The remediation definition.
@@ -209,7 +209,6 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01.
 
         Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RemediationAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failure_threshold: Optional[pulumi.Input[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']]] = None,
-                 filters: Optional[pulumi.Input[Union['RemediationFiltersArgs', 'RemediationFiltersArgsDict']]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_groups_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_deployments: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[Union[_builtins.str, 'ResourceDiscoveryMode']]] = None,
+                 failure_threshold: pulumi.Input[Optional[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']]] = None,
+                 filters: pulumi.Input[Optional[Union['RemediationFiltersArgs', 'RemediationFiltersArgsDict']]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_groups_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_deployments: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_discovery_mode: pulumi.Input[Optional[Union[_builtins.str, 'ResourceDiscoveryMode']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

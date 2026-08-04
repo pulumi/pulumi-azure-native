@@ -23,12 +23,12 @@ __all__ = ['AddressArgs', 'Address']
 class AddressArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 address_classification: Optional[pulumi.Input[Union[_builtins.str, 'AddressClassification']]] = None,
-                 address_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_details: Optional[pulumi.Input['ContactDetailsArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 address_classification: pulumi.Input[Optional[Union[_builtins.str, 'AddressClassification']]] = None,
+                 address_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_details: pulumi.Input[Optional['ContactDetailsArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address: pulumi.Input[Optional['ShippingAddressArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Address resource.
 
@@ -68,74 +68,74 @@ class AddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressClassification")
-    def address_classification(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AddressClassification']]]:
+    def address_classification(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AddressClassification']]]:
         """
         Type of address based on its usage context.
         """
         return pulumi.get(self, "address_classification")
 
     @address_classification.setter
-    def address_classification(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AddressClassification']]]):
+    def address_classification(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AddressClassification']]]):
         pulumi.set(self, "address_classification", value)
 
     @_builtins.property
     @pulumi.getter(name="addressName")
-    def address_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         """
         return pulumi.get(self, "address_name")
 
     @address_name.setter
-    def address_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_name", value)
 
     @_builtins.property
     @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> Optional[pulumi.Input['ContactDetailsArgs']]:
+    def contact_details(self) -> pulumi.Input[Optional['ContactDetailsArgs']]:
         """
         Contact details for the address.
         """
         return pulumi.get(self, "contact_details")
 
     @contact_details.setter
-    def contact_details(self, value: Optional[pulumi.Input['ContactDetailsArgs']]):
+    def contact_details(self, value: pulumi.Input[Optional['ContactDetailsArgs']]):
         pulumi.set(self, "contact_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ShippingAddressArgs']]:
         """
         Shipping details for the address.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,13 +145,13 @@ class Address(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_classification: Optional[pulumi.Input[Union[_builtins.str, 'AddressClassification']]] = None,
-                 address_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_details: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['ShippingAddressArgs', 'ShippingAddressArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_classification: pulumi.Input[Optional[Union[_builtins.str, 'AddressClassification']]] = None,
+                 address_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_details: pulumi.Input[Optional[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['ShippingAddressArgs', 'ShippingAddressArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Address Resource.
@@ -159,7 +159,6 @@ class Address(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
         Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,7 +183,6 @@ class Address(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AddressArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,13 +198,13 @@ class Address(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_classification: Optional[pulumi.Input[Union[_builtins.str, 'AddressClassification']]] = None,
-                 address_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_details: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['ShippingAddressArgs', 'ShippingAddressArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_classification: pulumi.Input[Optional[Union[_builtins.str, 'AddressClassification']]] = None,
+                 address_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_details: pulumi.Input[Optional[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['ShippingAddressArgs', 'ShippingAddressArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

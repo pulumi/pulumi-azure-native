@@ -28,7 +28,7 @@ export interface GetInsightArgs {
      */
     insightName: string;
     /**
-     * workloadImpact resource 
+     * workloadImpact resource
      */
     workloadImpactName: string;
 }
@@ -83,7 +83,7 @@ export interface GetInsightOutputArgs {
      */
     insightName: pulumi.Input<string>;
     /**
-     * workloadImpact resource 
+     * workloadImpact resource
      */
     workloadImpactName: pulumi.Input<string>;
 }

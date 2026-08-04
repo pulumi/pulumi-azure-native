@@ -26,10 +26,10 @@ class MECRoleArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role_status: pulumi.Input[Union[_builtins.str, 'RoleStatus']],
-                 connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
-                 controller_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_unique_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_string: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']] = None,
+                 controller_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_unique_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MECRole resource.
 
@@ -107,50 +107,50 @@ class MECRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+    def connection_string(self) -> pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]:
         """
         Activation key of the MEC.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+    def connection_string(self, value: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="controllerEndpoint")
-    def controller_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def controller_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controller Endpoint.
         """
         return pulumi.get(self, "controller_endpoint")
 
     @controller_endpoint.setter
-    def controller_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def controller_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "controller_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUniqueId")
-    def resource_unique_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_unique_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique Id of the Resource.
         """
         return pulumi.get(self, "resource_unique_id")
 
     @resource_unique_id.setter
-    def resource_unique_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_unique_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_unique_id", value)
 
 
@@ -160,20 +160,19 @@ class MECRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_string: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
-                 controller_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_unique_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_status: Optional[pulumi.Input[Union[_builtins.str, 'RoleStatus']]] = None,
+                 connection_string: pulumi.Input[Optional[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
+                 controller_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_unique_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_status: pulumi.Input[Optional[Union[_builtins.str, 'RoleStatus']]] = None,
                  __props__=None):
         """
         MEC role.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +197,6 @@ class MECRole(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param MECRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,14 +212,14 @@ class MECRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_string: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
-                 controller_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_unique_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_status: Optional[pulumi.Input[Union[_builtins.str, 'RoleStatus']]] = None,
+                 connection_string: pulumi.Input[Optional[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
+                 controller_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_unique_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_status: pulumi.Input[Optional[Union[_builtins.str, 'RoleStatus']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

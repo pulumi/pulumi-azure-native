@@ -63,9 +63,9 @@ export interface GetSignalRResult {
     readonly externalIP: string;
     /**
      * List of the featureFlags.
-     * 
+     *
      * FeatureFlags that are not included in the parameters for the update operation will not be modified.
-     * And the response will only include featureFlags that are explicitly set. 
+     * And the response will only include featureFlags that are explicitly set.
      * When a featureFlag is not explicitly set, its globally default value will be used
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */

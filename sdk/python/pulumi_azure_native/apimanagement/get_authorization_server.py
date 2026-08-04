@@ -123,7 +123,7 @@ class GetAuthorizationServerResult:
     @pulumi.getter(name="bearerTokenSendingMethods")
     def bearer_token_sending_methods(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specifies the mechanism by which access token is passed to the API. 
+        Specifies the mechanism by which access token is passed to the API.
         """
         return pulumi.get(self, "bearer_token_sending_methods")
 
@@ -313,7 +313,6 @@ def get_authorization_server(authsid: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authsid: Identifier of the authorization server.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.
@@ -348,9 +347,9 @@ def get_authorization_server(authsid: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_in_api_documentation=pulumi.get(__ret__, 'use_in_api_documentation'),
         use_in_test_console=pulumi.get(__ret__, 'use_in_test_console'))
-def get_authorization_server_output(authsid: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorization_server_output(authsid: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationServerResult]:
     """
     Gets the details of the authorization server specified by its identifier.
@@ -358,7 +357,6 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authsid: Identifier of the authorization server.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

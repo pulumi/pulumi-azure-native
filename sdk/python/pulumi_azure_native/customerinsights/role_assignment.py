@@ -26,22 +26,22 @@ class RoleAssignmentArgs:
                  principals: pulumi.Input[Sequence[pulumi.Input['AssignmentPrincipalArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input['RoleTypes'],
-                 assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 conflation_policies: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 connectors: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 interactions: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 kpis: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 links: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 profiles: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 relationship_links: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 relationships: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 role_assignments: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 sas_policies: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 segments: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 views: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None,
-                 widget_types: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None):
+                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 conflation_policies: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 connectors: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 interactions: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 kpis: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 links: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 profiles: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 relationship_links: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 relationships: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 role_assignments: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 sas_policies: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 segments: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 views: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None,
+                 widget_types: pulumi.Input[Optional['ResourceSetDescriptionArgs']] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
 
@@ -153,194 +153,194 @@ class RoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignmentName")
-    def assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The assignment name
         """
         return pulumi.get(self, "assignment_name")
 
     @assignment_name.setter
-    def assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="conflationPolicies")
-    def conflation_policies(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def conflation_policies(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Widget types set for the assignment.
         """
         return pulumi.get(self, "conflation_policies")
 
     @conflation_policies.setter
-    def conflation_policies(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def conflation_policies(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "conflation_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def connectors(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def connectors(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Connectors set for the assignment.
         """
         return pulumi.get(self, "connectors")
 
     @connectors.setter
-    def connectors(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def connectors(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "connectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def description(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized description for the metadata.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def description(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def display_name(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized display names for the metadata.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def display_name(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def interactions(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def interactions(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Interactions set for the assignment.
         """
         return pulumi.get(self, "interactions")
 
     @interactions.setter
-    def interactions(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def interactions(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "interactions", value)
 
     @_builtins.property
     @pulumi.getter
-    def kpis(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def kpis(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Kpis set for the assignment.
         """
         return pulumi.get(self, "kpis")
 
     @kpis.setter
-    def kpis(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def kpis(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "kpis", value)
 
     @_builtins.property
     @pulumi.getter
-    def links(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def links(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Links set for the assignment.
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def links(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "links", value)
 
     @_builtins.property
     @pulumi.getter
-    def profiles(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def profiles(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Profiles set for the assignment.
         """
         return pulumi.get(self, "profiles")
 
     @profiles.setter
-    def profiles(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def profiles(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="relationshipLinks")
-    def relationship_links(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def relationship_links(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         The Role assignments set for the relationship links.
         """
         return pulumi.get(self, "relationship_links")
 
     @relationship_links.setter
-    def relationship_links(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def relationship_links(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "relationship_links", value)
 
     @_builtins.property
     @pulumi.getter
-    def relationships(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def relationships(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         The Role assignments set for the relationships.
         """
         return pulumi.get(self, "relationships")
 
     @relationships.setter
-    def relationships(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def relationships(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "relationships", value)
 
     @_builtins.property
     @pulumi.getter(name="roleAssignments")
-    def role_assignments(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def role_assignments(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         The Role assignments set for the assignment.
         """
         return pulumi.get(self, "role_assignments")
 
     @role_assignments.setter
-    def role_assignments(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def role_assignments(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "role_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="sasPolicies")
-    def sas_policies(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def sas_policies(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Sas Policies set for the assignment.
         """
         return pulumi.get(self, "sas_policies")
 
     @sas_policies.setter
-    def sas_policies(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def sas_policies(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "sas_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def segments(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def segments(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         The Role assignments set for the assignment.
         """
         return pulumi.get(self, "segments")
 
     @segments.setter
-    def segments(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def segments(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "segments", value)
 
     @_builtins.property
     @pulumi.getter
-    def views(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def views(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Views set for the assignment.
         """
         return pulumi.get(self, "views")
 
     @views.setter
-    def views(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def views(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "views", value)
 
     @_builtins.property
     @pulumi.getter(name="widgetTypes")
-    def widget_types(self) -> Optional[pulumi.Input['ResourceSetDescriptionArgs']]:
+    def widget_types(self) -> pulumi.Input[Optional['ResourceSetDescriptionArgs']]:
         """
         Widget types set for the assignment.
         """
         return pulumi.get(self, "widget_types")
 
     @widget_types.setter
-    def widget_types(self, value: Optional[pulumi.Input['ResourceSetDescriptionArgs']]):
+    def widget_types(self, value: pulumi.Input[Optional['ResourceSetDescriptionArgs']]):
         pulumi.set(self, "widget_types", value)
 
 
@@ -350,32 +350,31 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 conflation_policies: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 connectors: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 interactions: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 kpis: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 links: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentPrincipalArgs', 'AssignmentPrincipalArgsDict']]]]] = None,
-                 profiles: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 relationship_links: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 relationships: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input['RoleTypes']] = None,
-                 role_assignments: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 sas_policies: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 segments: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 views: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 widget_types: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 conflation_policies: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 connectors: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 interactions: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 kpis: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 links: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssignmentPrincipalArgs', 'AssignmentPrincipalArgsDict']]]]] = None,
+                 profiles: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 relationship_links: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 relationships: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional['RoleTypes']] = None,
+                 role_assignments: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 sas_policies: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 segments: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 views: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 widget_types: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
                  __props__=None):
         """
         The Role Assignment resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,7 +410,6 @@ class RoleAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -427,26 +425,26 @@ class RoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 conflation_policies: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 connectors: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 interactions: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 kpis: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 links: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentPrincipalArgs', 'AssignmentPrincipalArgsDict']]]]] = None,
-                 profiles: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 relationship_links: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 relationships: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input['RoleTypes']] = None,
-                 role_assignments: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 sas_policies: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 segments: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 views: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
-                 widget_types: Optional[pulumi.Input[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 conflation_policies: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 connectors: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 interactions: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 kpis: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 links: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssignmentPrincipalArgs', 'AssignmentPrincipalArgsDict']]]]] = None,
+                 profiles: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 relationship_links: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 relationships: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional['RoleTypes']] = None,
+                 role_assignments: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 sas_policies: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 segments: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 views: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
+                 widget_types: pulumi.Input[Optional[Union['ResourceSetDescriptionArgs', 'ResourceSetDescriptionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

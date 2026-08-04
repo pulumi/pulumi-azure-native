@@ -130,19 +130,19 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The Private Endpoint resource for this Connection.
      */
-    privateEndpoint?: pulumi.Input<inputs.eventhub.PrivateEndpointArgs>;
+    privateEndpoint?: pulumi.Input<inputs.eventhub.PrivateEndpointArgs | undefined>;
     /**
      * The PrivateEndpointConnection name
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Details about the state of the connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.eventhub.ConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.eventhub.ConnectionStateArgs | undefined>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    provisioningState?: pulumi.Input<string | enums.eventhub.EndPointProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.eventhub.EndPointProvisioningState | undefined>;
     /**
      * Name of the resource group within the azure subscription.
      */

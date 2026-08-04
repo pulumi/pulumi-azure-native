@@ -108,7 +108,7 @@ export interface ApplicationLiveViewArgs {
     /**
      * The name of Application Live View.
      */
-    applicationLiveViewName?: pulumi.Input<string>;
+    applicationLiveViewName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -168,7 +168,6 @@ def get_private_link(private_link_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str private_link_name: The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -189,8 +188,8 @@ def get_private_link(private_link_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_link_output(private_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_link_output(private_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkResult]:
     """
     Get a private link resource. Returns the configuration and status of private endpoint connectivity for Microsoft Defender for Cloud services in the specified region.
@@ -198,7 +197,6 @@ def get_private_link_output(private_link_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2025-09-01-preview.
 
     Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str private_link_name: The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

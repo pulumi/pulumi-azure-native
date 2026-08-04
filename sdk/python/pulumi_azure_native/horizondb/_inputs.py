@@ -34,11 +34,11 @@ class HorizonDbClusterParameterGroupConnectionPropertiesArgsDict(TypedDict):
     """
     Connection information for HorizonDB parameter group.
     """
-    apply_immediately: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_immediately: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the parameters should be applied immediately.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the connected parameter group.
     """
@@ -46,8 +46,8 @@ class HorizonDbClusterParameterGroupConnectionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HorizonDbClusterParameterGroupConnectionPropertiesArgs:
     def __init__(__self__, *,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Connection information for HorizonDB parameter group.
 
@@ -61,26 +61,26 @@ class HorizonDbClusterParameterGroupConnectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the parameters should be applied immediately.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the connected parameter group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -92,47 +92,47 @@ class HorizonDbClusterPropertiesArgsDict(TypedDict):
     """
     The administrator login name.
     """
-    administrator_login_password: NotRequired[pulumi.Input[_builtins.str]]
+    administrator_login_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The administrator login password.
     """
-    create_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'CreateModeCluster']]]
+    create_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CreateModeCluster']]]]
     """
     The mode to create a new HorizonDB cluster.
     """
-    parameter_group: NotRequired[pulumi.Input['HorizonDbClusterParameterGroupConnectionPropertiesArgsDict']]
+    parameter_group: NotRequired[pulumi.Input[Optional['HorizonDbClusterParameterGroupConnectionPropertiesArgsDict']]]
     """
     Defines connection to a parameter group.
     """
-    point_in_time_utc: NotRequired[pulumi.Input[_builtins.str]]
+    point_in_time_utc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Restore point creation time specifying the time to restore from.
     """
-    pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pool name for restore or replica operations.
     """
-    processor_type: NotRequired[pulumi.Input[_builtins.str]]
+    processor_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The processor type for the HorizonDB cluster.
     """
-    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    replica_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of replicas.
     """
-    source_cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    source_cluster_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The source cluster resource ID for restore or replica creation.
     """
-    v_cores: NotRequired[pulumi.Input[_builtins.int]]
+    v_cores: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of vCores.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the HorizonDB cluster.
     """
-    zone_placement_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ZonePlacementPolicy']]]
+    zone_placement_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ZonePlacementPolicy']]]]
     """
     Defines how replicas are placed across availability zones.
     """
@@ -141,17 +141,17 @@ class HorizonDbClusterPropertiesArgsDict(TypedDict):
 class HorizonDbClusterPropertiesArgs:
     def __init__(__self__, *,
                  administrator_login: pulumi.Input[_builtins.str],
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateModeCluster']]] = None,
-                 parameter_group: Optional[pulumi.Input['HorizonDbClusterParameterGroupConnectionPropertiesArgs']] = None,
-                 point_in_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 processor_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 v_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_placement_policy: Optional[pulumi.Input[Union[_builtins.str, 'ZonePlacementPolicy']]] = None):
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateModeCluster']]] = None,
+                 parameter_group: pulumi.Input[Optional['HorizonDbClusterParameterGroupConnectionPropertiesArgs']] = None,
+                 point_in_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 processor_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 v_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_placement_policy: pulumi.Input[Optional[Union[_builtins.str, 'ZonePlacementPolicy']]] = None):
         """
         Properties of a HorizonDB cluster.
 
@@ -206,134 +206,134 @@ class HorizonDbClusterPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator login password.
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CreateModeCluster']]]:
+    def create_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CreateModeCluster']]]:
         """
         The mode to create a new HorizonDB cluster.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CreateModeCluster']]]):
+    def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CreateModeCluster']]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterGroup")
-    def parameter_group(self) -> Optional[pulumi.Input['HorizonDbClusterParameterGroupConnectionPropertiesArgs']]:
+    def parameter_group(self) -> pulumi.Input[Optional['HorizonDbClusterParameterGroupConnectionPropertiesArgs']]:
         """
         Defines connection to a parameter group.
         """
         return pulumi.get(self, "parameter_group")
 
     @parameter_group.setter
-    def parameter_group(self, value: Optional[pulumi.Input['HorizonDbClusterParameterGroupConnectionPropertiesArgs']]):
+    def parameter_group(self, value: pulumi.Input[Optional['HorizonDbClusterParameterGroupConnectionPropertiesArgs']]):
         pulumi.set(self, "parameter_group", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeUTC")
-    def point_in_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def point_in_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Restore point creation time specifying the time to restore from.
         """
         return pulumi.get(self, "point_in_time_utc")
 
     @point_in_time_utc.setter
-    def point_in_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def point_in_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "point_in_time_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pool name for restore or replica operations.
         """
         return pulumi.get(self, "pool_name")
 
     @pool_name.setter
-    def pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="processorType")
-    def processor_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def processor_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The processor type for the HorizonDB cluster.
         """
         return pulumi.get(self, "processor_type")
 
     @processor_type.setter
-    def processor_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def processor_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "processor_type", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of replicas.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceClusterResourceId")
-    def source_cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_cluster_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source cluster resource ID for restore or replica creation.
         """
         return pulumi.get(self, "source_cluster_resource_id")
 
     @source_cluster_resource_id.setter
-    def source_cluster_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_cluster_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_cluster_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vCores")
-    def v_cores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def v_cores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of vCores.
         """
         return pulumi.get(self, "v_cores")
 
     @v_cores.setter
-    def v_cores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def v_cores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "v_cores", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the HorizonDB cluster.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="zonePlacementPolicy")
-    def zone_placement_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ZonePlacementPolicy']]]:
+    def zone_placement_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZonePlacementPolicy']]]:
         """
         Defines how replicas are placed across availability zones.
         """
         return pulumi.get(self, "zone_placement_policy")
 
     @zone_placement_policy.setter
-    def zone_placement_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ZonePlacementPolicy']]]):
+    def zone_placement_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ZonePlacementPolicy']]]):
         pulumi.set(self, "zone_placement_policy", value)
 
 
@@ -349,7 +349,7 @@ class HorizonDbFirewallRulePropertiesArgsDict(TypedDict):
     """
     The start IP address of the firewall rule (IPv4).
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the HorizonDB firewall rule.
     """
@@ -359,7 +359,7 @@ class HorizonDbFirewallRulePropertiesArgs:
     def __init__(__self__, *,
                  end_ip_address: pulumi.Input[_builtins.str],
                  start_ip_address: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a HorizonDB firewall rule.
 
@@ -398,14 +398,14 @@ class HorizonDbFirewallRulePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the HorizonDB firewall rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -413,19 +413,19 @@ class HorizonDbParameterGroupPropertiesArgsDict(TypedDict):
     """
     Properties of a HorizonDB parameter group.
     """
-    apply_immediately: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_immediately: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the parameters should be applied immediately.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the parameter group.
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterPropertiesArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ParameterPropertiesArgsDict']]]]]
     """
     Parameters in the parameter group.
     """
-    pg_version: NotRequired[pulumi.Input[_builtins.int]]
+    pg_version: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     PostgreSQL version for the parameter group.
     """
@@ -433,10 +433,10 @@ class HorizonDbParameterGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HorizonDbParameterGroupPropertiesArgs:
     def __init__(__self__, *,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterPropertiesArgs']]]] = None,
-                 pg_version: Optional[pulumi.Input[_builtins.int]] = None):
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterPropertiesArgs']]]] = None,
+                 pg_version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Properties of a HorizonDB parameter group.
 
@@ -456,50 +456,50 @@ class HorizonDbParameterGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the parameters should be applied immediately.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the parameter group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterPropertiesArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ParameterPropertiesArgs']]]]:
         """
         Parameters in the parameter group.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterPropertiesArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ParameterPropertiesArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="pgVersion")
-    def pg_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pg_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         PostgreSQL version for the parameter group.
         """
         return pulumi.get(self, "pg_version")
 
     @pg_version.setter
-    def pg_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pg_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pg_version", value)
 
 
@@ -507,11 +507,11 @@ class HorizonDbReplicaPropertiesArgsDict(TypedDict):
     """
     Properties of a HorizonDB replica.
     """
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The availability zone of the replica.
     """
-    role: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicaRole']]]
+    role: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReplicaRole']]]]
     """
     Role of the replica.
     """
@@ -519,8 +519,8 @@ class HorizonDbReplicaPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HorizonDbReplicaPropertiesArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[Union[_builtins.str, 'ReplicaRole']]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[Union[_builtins.str, 'ReplicaRole']]] = None):
         """
         Properties of a HorizonDB replica.
 
@@ -534,26 +534,26 @@ class HorizonDbReplicaPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The availability zone of the replica.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicaRole']]]:
+    def role(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReplicaRole']]]:
         """
         Role of the replica.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicaRole']]]):
+    def role(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReplicaRole']]]):
         pulumi.set(self, "role", value)
 
 
@@ -561,11 +561,11 @@ class ParameterPropertiesArgsDict(TypedDict):
     """
     Properties of a HorizonDB parameters.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the parameter.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the configuration.
     """
@@ -573,8 +573,8 @@ class ParameterPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ParameterPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a HorizonDB parameters.
 
@@ -588,26 +588,26 @@ class ParameterPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the parameter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the configuration.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

@@ -26,8 +26,8 @@ class FileEventTriggerArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sink_info: pulumi.Input['RoleSinkInfoArgs'],
                  source_info: pulumi.Input['FileSourceInfoArgs'],
-                 custom_context_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_context_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FileEventTrigger resource.
 
@@ -113,26 +113,26 @@ class FileEventTriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="customContextTag")
-    def custom_context_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_context_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
         """
         return pulumi.get(self, "custom_context_tag")
 
     @custom_context_tag.setter
-    def custom_context_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_context_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_context_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The trigger name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -142,19 +142,18 @@ class FileEventTrigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_context_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sink_info: Optional[pulumi.Input[Union['RoleSinkInfoArgs', 'RoleSinkInfoArgsDict']]] = None,
-                 source_info: Optional[pulumi.Input[Union['FileSourceInfoArgs', 'FileSourceInfoArgsDict']]] = None,
+                 custom_context_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sink_info: pulumi.Input[Optional[Union['RoleSinkInfoArgs', 'RoleSinkInfoArgsDict']]] = None,
+                 source_info: pulumi.Input[Optional[Union['FileSourceInfoArgs', 'FileSourceInfoArgsDict']]] = None,
                  __props__=None):
         """
         Trigger details.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +177,6 @@ class FileEventTrigger(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param FileEventTriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,13 +192,13 @@ class FileEventTrigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_context_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sink_info: Optional[pulumi.Input[Union['RoleSinkInfoArgs', 'RoleSinkInfoArgsDict']]] = None,
-                 source_info: Optional[pulumi.Input[Union['FileSourceInfoArgs', 'FileSourceInfoArgsDict']]] = None,
+                 custom_context_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sink_info: pulumi.Input[Optional[Union['RoleSinkInfoArgs', 'RoleSinkInfoArgsDict']]] = None,
+                 source_info: pulumi.Input[Optional[Union['FileSourceInfoArgs', 'FileSourceInfoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

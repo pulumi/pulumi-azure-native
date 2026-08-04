@@ -26,10 +26,10 @@ __all__ = [
     'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
     'KeyVaultPropertiesArgsDict',
-    'LanguageExtensionsListArgs',
-    'LanguageExtensionsListArgsDict',
     'LanguageExtensionArgs',
     'LanguageExtensionArgsDict',
+    'LanguageExtensionsListArgs',
+    'LanguageExtensionsListArgsDict',
     'OptimizedAutoscaleArgs',
     'OptimizedAutoscaleArgsDict',
     'PrivateLinkServiceConnectionStatePropertyArgs',
@@ -46,7 +46,7 @@ class AcceptedAudiencesArgsDict(TypedDict):
     """
     Represents an accepted audience trusted by the cluster.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     GUID or valid URL representing an accepted audience.
     """
@@ -54,7 +54,7 @@ class AcceptedAudiencesArgsDict(TypedDict):
 @pulumi.input_type
 class AcceptedAudiencesArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents an accepted audience trusted by the cluster.
 
@@ -65,14 +65,14 @@ class AcceptedAudiencesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GUID or valid URL representing an accepted audience.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -88,7 +88,7 @@ class AzureSkuArgsDict(TypedDict):
     """
     SKU tier.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of instances of the cluster.
     """
@@ -98,7 +98,7 @@ class AzureSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'AzureSkuName']],
                  tier: pulumi.Input[Union[_builtins.str, 'AzureSkuTier']],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Azure SKU definition.
 
@@ -137,14 +137,14 @@ class AzureSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instances of the cluster.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -152,15 +152,15 @@ class CalloutPolicyArgsDict(TypedDict):
     """
     Configuration for external callout policies, including URI patterns, access types, and service types.
     """
-    callout_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CalloutType']]]
+    callout_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CalloutType']]]]
     """
     Type of the callout service, specifying the kind of external resource or service being accessed.
     """
-    callout_uri_regex: NotRequired[pulumi.Input[_builtins.str]]
+    callout_uri_regex: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Regular expression or FQDN pattern for the callout URI.
     """
-    outbound_access: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundAccess']]]
+    outbound_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OutboundAccess']]]]
     """
     Indicates whether outbound access is permitted for the specified URI pattern.
     """
@@ -168,9 +168,9 @@ class CalloutPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class CalloutPolicyArgs:
     def __init__(__self__, *,
-                 callout_type: Optional[pulumi.Input[Union[_builtins.str, 'CalloutType']]] = None,
-                 callout_uri_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_access: Optional[pulumi.Input[Union[_builtins.str, 'OutboundAccess']]] = None):
+                 callout_type: pulumi.Input[Optional[Union[_builtins.str, 'CalloutType']]] = None,
+                 callout_uri_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_access: pulumi.Input[Optional[Union[_builtins.str, 'OutboundAccess']]] = None):
         """
         Configuration for external callout policies, including URI patterns, access types, and service types.
 
@@ -187,38 +187,38 @@ class CalloutPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="calloutType")
-    def callout_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CalloutType']]]:
+    def callout_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CalloutType']]]:
         """
         Type of the callout service, specifying the kind of external resource or service being accessed.
         """
         return pulumi.get(self, "callout_type")
 
     @callout_type.setter
-    def callout_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CalloutType']]]):
+    def callout_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CalloutType']]]):
         pulumi.set(self, "callout_type", value)
 
     @_builtins.property
     @pulumi.getter(name="calloutUriRegex")
-    def callout_uri_regex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def callout_uri_regex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Regular expression or FQDN pattern for the callout URI.
         """
         return pulumi.get(self, "callout_uri_regex")
 
     @callout_uri_regex.setter
-    def callout_uri_regex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def callout_uri_regex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "callout_uri_regex", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundAccess")
-    def outbound_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutboundAccess']]]:
+    def outbound_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OutboundAccess']]]:
         """
         Indicates whether outbound access is permitted for the specified URI pattern.
         """
         return pulumi.get(self, "outbound_access")
 
     @outbound_access.setter
-    def outbound_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OutboundAccess']]]):
+    def outbound_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OutboundAccess']]]):
         pulumi.set(self, "outbound_access", value)
 
 
@@ -230,7 +230,7 @@ class IdentityArgsDict(TypedDict):
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -239,7 +239,7 @@ class IdentityArgsDict(TypedDict):
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'IdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
 
@@ -264,14 +264,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -279,19 +279,19 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     Properties of the key vault.
     """
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the key vault key.
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Uri of the key vault.
     """
-    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the key vault key.
     """
-    user_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user assigned identity (ARM resource id) that has access to the key.
     """
@@ -299,10 +299,10 @@ class KeyVaultPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of the key vault.
 
@@ -322,100 +322,66 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the key vault key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Uri of the key vault.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the key vault key.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentity")
-    def user_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned identity (ARM resource id) that has access to the key.
         """
         return pulumi.get(self, "user_identity")
 
     @user_identity.setter
-    def user_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identity", value)
-
-
-class LanguageExtensionsListArgsDict(TypedDict):
-    """
-    The list of language extension objects.
-    """
-    value: NotRequired[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgsDict']]]]
-    """
-    The list of language extensions.
-    """
-
-@pulumi.input_type
-class LanguageExtensionsListArgs:
-    def __init__(__self__, *,
-                 value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]] = None):
-        """
-        The list of language extension objects.
-
-        :param pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]] value: The list of language extensions.
-        """
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]:
-        """
-        The list of language extensions.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]):
-        pulumi.set(self, "value", value)
 
 
 class LanguageExtensionArgsDict(TypedDict):
     """
     The language extension object.
     """
-    language_extension_custom_image_name: NotRequired[pulumi.Input[_builtins.str]]
+    language_extension_custom_image_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The language extension custom image name.
     """
-    language_extension_image_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LanguageExtensionImageName']]]
+    language_extension_image_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionImageName']]]]
     """
     The language extension image name.
     """
-    language_extension_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']]]
+    language_extension_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionName']]]]
     """
     The language extension name.
     """
@@ -423,9 +389,9 @@ class LanguageExtensionArgsDict(TypedDict):
 @pulumi.input_type
 class LanguageExtensionArgs:
     def __init__(__self__, *,
-                 language_extension_custom_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 language_extension_image_name: Optional[pulumi.Input[Union[_builtins.str, 'LanguageExtensionImageName']]] = None,
-                 language_extension_name: Optional[pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']]] = None):
+                 language_extension_custom_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 language_extension_image_name: pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionImageName']]] = None,
+                 language_extension_name: pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionName']]] = None):
         """
         The language extension object.
 
@@ -442,39 +408,73 @@ class LanguageExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="languageExtensionCustomImageName")
-    def language_extension_custom_image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language_extension_custom_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language extension custom image name.
         """
         return pulumi.get(self, "language_extension_custom_image_name")
 
     @language_extension_custom_image_name.setter
-    def language_extension_custom_image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language_extension_custom_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language_extension_custom_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="languageExtensionImageName")
-    def language_extension_image_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LanguageExtensionImageName']]]:
+    def language_extension_image_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionImageName']]]:
         """
         The language extension image name.
         """
         return pulumi.get(self, "language_extension_image_name")
 
     @language_extension_image_name.setter
-    def language_extension_image_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LanguageExtensionImageName']]]):
+    def language_extension_image_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionImageName']]]):
         pulumi.set(self, "language_extension_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="languageExtensionName")
-    def language_extension_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']]]:
+    def language_extension_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionName']]]:
         """
         The language extension name.
         """
         return pulumi.get(self, "language_extension_name")
 
     @language_extension_name.setter
-    def language_extension_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']]]):
+    def language_extension_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LanguageExtensionName']]]):
         pulumi.set(self, "language_extension_name", value)
+
+
+class LanguageExtensionsListArgsDict(TypedDict):
+    """
+    The list of language extension objects.
+    """
+    value: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LanguageExtensionArgsDict']]]]]
+    """
+    The list of language extensions.
+    """
+
+@pulumi.input_type
+class LanguageExtensionsListArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[Optional[Sequence[pulumi.Input['LanguageExtensionArgs']]]] = None):
+        """
+        The list of language extension objects.
+
+        :param pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]] value: The list of language extensions.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LanguageExtensionArgs']]]]:
+        """
+        The list of language extensions.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LanguageExtensionArgs']]]]):
+        pulumi.set(self, "value", value)
 
 
 class OptimizedAutoscaleArgsDict(TypedDict):
@@ -571,11 +571,11 @@ class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
     """
     Connection State of the Private Endpoint Connection.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private link service connection description.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private link service connection status.
     """
@@ -583,8 +583,8 @@ class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Connection State of the Private Endpoint Connection.
 
@@ -598,26 +598,26 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private link service connection description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private link service connection status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -625,35 +625,35 @@ class TableLevelSharingPropertiesArgsDict(TypedDict):
     """
     Tables that will be included and excluded in the follower database
     """
-    external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of external tables to exclude from the follower database
     """
-    external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of external tables to include in the follower database
     """
-    functions_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    functions_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of functions to exclude from the follower database
     """
-    functions_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    functions_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of functions to include in the follower database
     """
-    materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of materialized views to exclude from the follower database
     """
-    materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of materialized views to include in the follower database
     """
-    tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of tables to exclude from the follower database
     """
-    tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of tables to include in the follower database
     """
@@ -661,14 +661,14 @@ class TableLevelSharingPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:
     def __init__(__self__, *,
-                 external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 functions_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 functions_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 external_tables_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_tables_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Tables that will be included and excluded in the follower database
 
@@ -700,98 +700,98 @@ class TableLevelSharingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToExclude")
-    def external_tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of external tables to exclude from the follower database
         """
         return pulumi.get(self, "external_tables_to_exclude")
 
     @external_tables_to_exclude.setter
-    def external_tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToInclude")
-    def external_tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of external tables to include in the follower database
         """
         return pulumi.get(self, "external_tables_to_include")
 
     @external_tables_to_include.setter
-    def external_tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="functionsToExclude")
-    def functions_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def functions_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of functions to exclude from the follower database
         """
         return pulumi.get(self, "functions_to_exclude")
 
     @functions_to_exclude.setter
-    def functions_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def functions_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "functions_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="functionsToInclude")
-    def functions_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def functions_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of functions to include in the follower database
         """
         return pulumi.get(self, "functions_to_include")
 
     @functions_to_include.setter
-    def functions_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def functions_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "functions_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToExclude")
-    def materialized_views_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of materialized views to exclude from the follower database
         """
         return pulumi.get(self, "materialized_views_to_exclude")
 
     @materialized_views_to_exclude.setter
-    def materialized_views_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToInclude")
-    def materialized_views_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of materialized views to include in the follower database
         """
         return pulumi.get(self, "materialized_views_to_include")
 
     @materialized_views_to_include.setter
-    def materialized_views_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToExclude")
-    def tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tables to exclude from the follower database
         """
         return pulumi.get(self, "tables_to_exclude")
 
     @tables_to_exclude.setter
-    def tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToInclude")
-    def tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tables to include in the follower database
         """
         return pulumi.get(self, "tables_to_include")
 
     @tables_to_include.setter
-    def tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_include", value)
 
 
@@ -799,7 +799,7 @@ class TrustedExternalTenantArgsDict(TypedDict):
     """
     Represents a tenant ID that is trusted by the cluster.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     GUID representing an external tenant.
     """
@@ -807,7 +807,7 @@ class TrustedExternalTenantArgsDict(TypedDict):
 @pulumi.input_type
 class TrustedExternalTenantArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a tenant ID that is trusted by the cluster.
 
@@ -818,14 +818,14 @@ class TrustedExternalTenantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GUID representing an external tenant.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -845,7 +845,7 @@ class VirtualNetworkConfigurationArgsDict(TypedDict):
     """
     The subnet resource id.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'VnetState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'VnetState']]]]
     """
     When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
     """
@@ -856,7 +856,7 @@ class VirtualNetworkConfigurationArgs:
                  data_management_public_ip_id: pulumi.Input[_builtins.str],
                  engine_public_ip_id: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'VnetState']]] = None):
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'VnetState']]] = None):
         """
         A class that contains virtual network definition.
 
@@ -911,14 +911,14 @@ class VirtualNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VnetState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VnetState']]]:
         """
         When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VnetState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VnetState']]]):
         pulumi.set(self, "state", value)
 
 

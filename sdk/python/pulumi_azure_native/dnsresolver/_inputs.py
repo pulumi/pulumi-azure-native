@@ -30,11 +30,11 @@ class DnsSecurityRuleActionArgsDict(TypedDict):
     """
     The action to take on DNS requests that match the DNS security rule.
     """
-    action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionType']]]
+    action_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ActionType']]]]
     """
     The type of action to take.
     """
-    block_response_code: NotRequired[pulumi.Input[Union[_builtins.str, 'BlockResponseCode']]]
+    block_response_code: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BlockResponseCode']]]]
     """
     The response code for block actions.
     """
@@ -42,8 +42,8 @@ class DnsSecurityRuleActionArgsDict(TypedDict):
 @pulumi.input_type
 class DnsSecurityRuleActionArgs:
     def __init__(__self__, *,
-                 action_type: Optional[pulumi.Input[Union[_builtins.str, 'ActionType']]] = None,
-                 block_response_code: Optional[pulumi.Input[Union[_builtins.str, 'BlockResponseCode']]] = None):
+                 action_type: pulumi.Input[Optional[Union[_builtins.str, 'ActionType']]] = None,
+                 block_response_code: pulumi.Input[Optional[Union[_builtins.str, 'BlockResponseCode']]] = None):
         """
         The action to take on DNS requests that match the DNS security rule.
 
@@ -57,26 +57,26 @@ class DnsSecurityRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ActionType']]]:
+    def action_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ActionType']]]:
         """
         The type of action to take.
         """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ActionType']]]):
+    def action_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ActionType']]]):
         pulumi.set(self, "action_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blockResponseCode")
-    def block_response_code(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BlockResponseCode']]]:
+    def block_response_code(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BlockResponseCode']]]:
         """
         The response code for block actions.
         """
         return pulumi.get(self, "block_response_code")
 
     @block_response_code.setter
-    def block_response_code(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BlockResponseCode']]]):
+    def block_response_code(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BlockResponseCode']]]):
         pulumi.set(self, "block_response_code", value)
 
 
@@ -88,11 +88,11 @@ class IpConfigurationArgsDict(TypedDict):
     """
     The reference to the subnet bound to the IP configuration.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private IP address of the IP configuration.
     """
-    private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethod']]]
+    private_ip_allocation_method: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationMethod']]]]
     """
     Private IP address allocation method.
     """
@@ -101,8 +101,8 @@ class IpConfigurationArgsDict(TypedDict):
 class IpConfigurationArgs:
     def __init__(__self__, *,
                  subnet: pulumi.Input['SubResourceArgs'],
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethod']]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationMethod']]] = None):
         """
         IP configuration.
 
@@ -132,26 +132,26 @@ class IpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethod']]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationMethod']]]:
         """
         Private IP address allocation method.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethod']]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationMethod']]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
 
@@ -205,7 +205,7 @@ class TargetDnsServerArgsDict(TypedDict):
     """
     DNS server IP address.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     DNS server port.
     """
@@ -214,7 +214,7 @@ class TargetDnsServerArgsDict(TypedDict):
 class TargetDnsServerArgs:
     def __init__(__self__, *,
                  ip_address: pulumi.Input[_builtins.str],
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Describes a server to forward the DNS queries to.
 
@@ -241,14 +241,14 @@ class TargetDnsServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         DNS server port.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 

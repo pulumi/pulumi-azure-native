@@ -112,7 +112,6 @@ def get_resource_management_private_link(resource_group_name: Optional[_builtins
 
     Uses Azure REST API version 2020-05-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rmpl_name: The name of the resource management private link.
     """
@@ -129,14 +128,13 @@ def get_resource_management_private_link(resource_group_name: Optional[_builtins
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_management_private_link_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                rmpl_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_management_private_link_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                rmpl_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
     """
     Get a resource management private link(resource-level).
 
     Uses Azure REST API version 2020-05-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rmpl_name: The name of the resource management private link.

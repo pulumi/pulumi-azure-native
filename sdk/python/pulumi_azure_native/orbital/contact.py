@@ -27,7 +27,7 @@ class ContactArgs:
                  reservation_start_time: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  spacecraft_name: pulumi.Input[_builtins.str],
-                 contact_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Contact resource.
 
@@ -122,14 +122,14 @@ class ContactArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactName")
-    def contact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact name.
         """
         return pulumi.get(self, "contact_name")
 
     @contact_name.setter
-    def contact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_name", value)
 
 
@@ -139,19 +139,18 @@ class Contact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_profile: Optional[pulumi.Input[Union['ContactsPropertiesContactProfileArgs', 'ContactsPropertiesContactProfileArgsDict']]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spacecraft_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_profile: pulumi.Input[Optional[Union['ContactsPropertiesContactProfileArgs', 'ContactsPropertiesContactProfileArgsDict']]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spacecraft_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Customer creates a contact resource for a spacecraft resource.
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +173,6 @@ class Contact(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
-
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,13 +188,13 @@ class Contact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_profile: Optional[pulumi.Input[Union['ContactsPropertiesContactProfileArgs', 'ContactsPropertiesContactProfileArgsDict']]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spacecraft_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_profile: pulumi.Input[Optional[Union['ContactsPropertiesContactProfileArgs', 'ContactsPropertiesContactProfileArgsDict']]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spacecraft_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

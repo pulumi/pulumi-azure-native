@@ -445,7 +445,6 @@ def get_auto_import_job(aml_filesystem_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param _builtins.str auto_import_job_name: Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -491,9 +490,9 @@ def get_auto_import_job(aml_filesystem_name: Optional[_builtins.str] = None,
         total_conflicts=pulumi.get(__ret__, 'total_conflicts'),
         total_errors=pulumi.get(__ret__, 'total_errors'),
         type=pulumi.get(__ret__, 'type'))
-def get_auto_import_job_output(aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               auto_import_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_auto_import_job_output(aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               auto_import_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoImportJobResult]:
     """
     Returns an auto import job.
@@ -501,7 +500,6 @@ def get_auto_import_job_output(aml_filesystem_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2025-07-01.
 
     Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param _builtins.str auto_import_job_name: Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.

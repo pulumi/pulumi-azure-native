@@ -27,12 +27,12 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
                  product_filter: pulumi.Input[Union[_builtins.str, 'MicrosoftSecurityProductName']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_names_exclude_filter: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_names_filter: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severities_filter: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]] = None):
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_names_exclude_filter: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_names_filter: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severities_filter: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]] = None):
         """
         The set of arguments for constructing a MicrosoftSecurityIncidentCreationAlertRule resource.
 
@@ -144,74 +144,74 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateName")
-    def alert_rule_template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the alert rule template used to create this rule.
         """
         return pulumi.get(self, "alert_rule_template_name")
 
     @alert_rule_template_name.setter
-    def alert_rule_template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the alert rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNamesExcludeFilter")
-    def display_names_exclude_filter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def display_names_exclude_filter(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the alerts' displayNames on which the cases will not be generated
         """
         return pulumi.get(self, "display_names_exclude_filter")
 
     @display_names_exclude_filter.setter
-    def display_names_exclude_filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def display_names_exclude_filter(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_names_exclude_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="displayNamesFilter")
-    def display_names_filter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def display_names_filter(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the alerts' displayNames on which the cases will be generated
         """
         return pulumi.get(self, "display_names_filter")
 
     @display_names_filter.setter
-    def display_names_filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def display_names_filter(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_names_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alert rule ID
         """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="severitiesFilter")
-    def severities_filter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]]:
+    def severities_filter(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]]:
         """
         the alerts' severities on which the cases will be generated
         """
         return pulumi.get(self, "severities_filter")
 
     @severities_filter.setter
-    def severities_filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]]):
+    def severities_filter(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]]):
         pulumi.set(self, "severities_filter", value)
 
 
@@ -221,24 +221,23 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_names_exclude_filter: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_names_filter: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_filter: Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftSecurityProductName']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severities_filter: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_names_exclude_filter: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_names_filter: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_filter: pulumi.Input[Optional[Union[_builtins.str, 'MicrosoftSecurityProductName']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severities_filter: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents MicrosoftSecurityIncidentCreation rule.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,7 +266,6 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param MicrosoftSecurityIncidentCreationAlertRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,18 +281,18 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_names_exclude_filter: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_names_filter: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_filter: Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftSecurityProductName']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severities_filter: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_names_exclude_filter: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_names_filter: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_filter: pulumi.Input[Optional[Union[_builtins.str, 'MicrosoftSecurityProductName']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severities_filter: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

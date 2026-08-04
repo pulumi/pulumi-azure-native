@@ -202,7 +202,6 @@ def get_vendor_skus(sku_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-01-01-preview.
 
-
     :param _builtins.str sku_name: The name of the sku.
     :param _builtins.str vendor_name: The name of the vendor.
     """
@@ -226,14 +225,13 @@ def get_vendor_skus(sku_name: Optional[_builtins.str] = None,
         sku_type=pulumi.get(__ret__, 'sku_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_vendor_skus_output(sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vendor_skus_output(sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorSkusResult]:
     """
     Gets information about the specified sku.
 
     Uses Azure REST API version 2022-01-01-preview.
-
 
     :param _builtins.str sku_name: The name of the sku.
     :param _builtins.str vendor_name: The name of the vendor.

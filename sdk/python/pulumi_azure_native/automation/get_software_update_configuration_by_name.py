@@ -217,7 +217,6 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
 
     Other available API versions: 2017-05-15-preview, 2019-06-01, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str software_update_configuration_name: The name of the software update configuration to be created.
@@ -244,9 +243,9 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
         tasks=pulumi.get(__ret__, 'tasks'),
         type=pulumi.get(__ret__, 'type'),
         update_configuration=pulumi.get(__ret__, 'update_configuration'))
-def get_software_update_configuration_by_name_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_software_update_configuration_by_name_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     software_update_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
     """
     Get a single software update configuration by name.
@@ -254,7 +253,6 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2017-05-15-preview, 2019-06-01, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

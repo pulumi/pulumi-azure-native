@@ -23,25 +23,25 @@ __all__ = ['BastionHostArgs', 'BastionHost']
 class BastionHostArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bastion_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_copy_paste: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_file_copy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ip_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_kerberos: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_only_bastion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_session_recording: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_shareable_link: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_tunneling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['BastionHostPropertiesFormatNetworkAclsArgs']] = None,
-                 scale_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 bastion_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_copy_paste: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_file_copy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ip_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_kerberos: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_only_bastion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_session_recording: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_shareable_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_tunneling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['BastionHostPropertiesFormatNetworkAclsArgs']] = None,
+                 scale_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
 
@@ -135,227 +135,227 @@ class BastionHostArgs:
 
     @_builtins.property
     @pulumi.getter(name="bastionHostName")
-    def bastion_host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bastion_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bastion Host.
         """
         return pulumi.get(self, "bastion_host_name")
 
     @bastion_host_name.setter
-    def bastion_host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bastion_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bastion_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="disableCopyPaste")
-    def disable_copy_paste(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_copy_paste(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable Copy/Paste feature of the Bastion Host resource.
         """
         return pulumi.get(self, "disable_copy_paste")
 
     @disable_copy_paste.setter
-    def disable_copy_paste(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_copy_paste(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_copy_paste", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         FQDN for the endpoint on which bastion host is accessible.
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableFileCopy")
-    def enable_file_copy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_file_copy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable File Copy feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_file_copy")
 
     @enable_file_copy.setter
-    def enable_file_copy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_file_copy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_file_copy", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIpConnect")
-    def enable_ip_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ip_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable IP Connect feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_ip_connect")
 
     @enable_ip_connect.setter
-    def enable_ip_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ip_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ip_connect", value)
 
     @_builtins.property
     @pulumi.getter(name="enableKerberos")
-    def enable_kerberos(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_kerberos(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable Kerberos feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_kerberos")
 
     @enable_kerberos.setter
-    def enable_kerberos(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_kerberos(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_kerberos", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrivateOnlyBastion")
-    def enable_private_only_bastion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_private_only_bastion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable Private Only feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_private_only_bastion")
 
     @enable_private_only_bastion.setter
-    def enable_private_only_bastion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_private_only_bastion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_private_only_bastion", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSessionRecording")
-    def enable_session_recording(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_session_recording(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable Session Recording feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_session_recording")
 
     @enable_session_recording.setter
-    def enable_session_recording(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_session_recording(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_session_recording", value)
 
     @_builtins.property
     @pulumi.getter(name="enableShareableLink")
-    def enable_shareable_link(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_shareable_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable Shareable Link of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_shareable_link")
 
     @enable_shareable_link.setter
-    def enable_shareable_link(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_shareable_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_shareable_link", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTunneling")
-    def enable_tunneling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_tunneling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable Tunneling feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_tunneling")
 
     @enable_tunneling.setter
-    def enable_tunneling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_tunneling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_tunneling", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]]:
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]]:
         """
         IP configuration of the Bastion Host resource.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]]):
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['BastionHostPropertiesFormatNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['BastionHostPropertiesFormatNetworkAclsArgs']]:
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['BastionHostPropertiesFormatNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['BastionHostPropertiesFormatNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleUnits")
-    def scale_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The scale units for the Bastion Host resource.
         """
         return pulumi.get(self, "scale_units")
 
     @scale_units.setter
-    def scale_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_units", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The sku of this Bastion Host.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def virtual_network(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Reference to an existing virtual network required for Developer Bastion Host only.
         """
         return pulumi.get(self, "virtual_network")
 
     @virtual_network.setter
-    def virtual_network(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def virtual_network(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "virtual_network", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -365,26 +365,26 @@ class BastionHost(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bastion_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_copy_paste: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_file_copy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ip_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_kerberos: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_only_bastion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_session_recording: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_shareable_link: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_tunneling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bastion_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_copy_paste: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_file_copy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ip_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_kerberos: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_only_bastion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_session_recording: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_shareable_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_tunneling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Bastion Host resource.
@@ -392,7 +392,6 @@ class BastionHost(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -429,7 +428,6 @@ class BastionHost(pulumi.CustomResource):
 
         Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BastionHostArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -445,26 +443,26 @@ class BastionHost(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bastion_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_copy_paste: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_file_copy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ip_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_kerberos: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_private_only_bastion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_session_recording: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_shareable_link: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_tunneling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bastion_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_copy_paste: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_file_copy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_ip_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_kerberos: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_private_only_bastion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_session_recording: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_shareable_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_tunneling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

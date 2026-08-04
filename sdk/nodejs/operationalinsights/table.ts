@@ -174,7 +174,7 @@ export interface TableArgs {
     /**
      * Instruct the system how to handle and charge the logs ingested to this table.
      */
-    plan?: pulumi.Input<string | enums.operationalinsights.TablePlanEnum>;
+    plan?: pulumi.Input<string | enums.operationalinsights.TablePlanEnum | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -182,27 +182,27 @@ export interface TableArgs {
     /**
      * Parameters of the restore operation that initiated this table.
      */
-    restoredLogs?: pulumi.Input<inputs.operationalinsights.RestoredLogsArgs>;
+    restoredLogs?: pulumi.Input<inputs.operationalinsights.RestoredLogsArgs | undefined>;
     /**
      * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * Table schema.
      */
-    schema?: pulumi.Input<inputs.operationalinsights.SchemaArgs>;
+    schema?: pulumi.Input<inputs.operationalinsights.SchemaArgs | undefined>;
     /**
      * Parameters of the search job that initiated this table.
      */
-    searchResults?: pulumi.Input<inputs.operationalinsights.SearchResultsArgs>;
+    searchResults?: pulumi.Input<inputs.operationalinsights.SearchResultsArgs | undefined>;
     /**
      * The name of the table.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
      */
-    totalRetentionInDays?: pulumi.Input<number>;
+    totalRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The name of the workspace.
      */

@@ -24,14 +24,14 @@ class SubscriptionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 allow_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['SubscriptionState']] = None):
+                 allow_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['SubscriptionState']] = None):
         """
         The set of arguments for constructing a Subscription resource.
 
@@ -41,9 +41,9 @@ class SubscriptionArgs:
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.bool] allow_tracing: Determines whether tracing can be enabled
         :param pulumi.Input[_builtins.str] app_type: Determines the type of application which send the create user request. Default is legacy publisher portal.
-        :param pulumi.Input[_builtins.bool] notify: Notify change in Subscription State. 
-                - If false, do not send any email notification for change of state of subscription 
-                - If true, send email notification of change of state of subscription 
+        :param pulumi.Input[_builtins.bool] notify: Notify change in Subscription State.
+                - If false, do not send any email notification for change of state of subscription
+                - If true, send email notification of change of state of subscription
         :param pulumi.Input[_builtins.str] owner_id: User (user id path) for whom subscription is being created in form /users/{userId}
         :param pulumi.Input[_builtins.str] primary_key: Primary subscription key. If not specified during request key will be generated automatically.
         :param pulumi.Input[_builtins.str] secondary_key: Secondary subscription key. If not specified during request key will be generated automatically.
@@ -121,100 +121,100 @@ class SubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowTracing")
-    def allow_tracing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_tracing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether tracing can be enabled
         """
         return pulumi.get(self, "allow_tracing")
 
     @allow_tracing.setter
-    def allow_tracing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_tracing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_tracing", value)
 
     @_builtins.property
     @pulumi.getter(name="appType")
-    def app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the type of application which send the create user request. Default is legacy publisher portal.
         """
         return pulumi.get(self, "app_type")
 
     @app_type.setter
-    def app_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Notify change in Subscription State. 
-         - If false, do not send any email notification for change of state of subscription 
-         - If true, send email notification of change of state of subscription 
+        Notify change in Subscription State.
+         - If false, do not send any email notification for change of state of subscription
+         - If true, send email notification of change of state of subscription
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User (user id path) for whom subscription is being created in form /users/{userId}
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary subscription key. If not specified during request key will be generated automatically.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary subscription key. If not specified during request key will be generated automatically.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         """
         return pulumi.get(self, "sid")
 
     @sid.setter
-    def sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sid", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['SubscriptionState']]:
+    def state(self) -> pulumi.Input[Optional['SubscriptionState']]:
         """
         Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['SubscriptionState']]):
+    def state(self, value: pulumi.Input[Optional['SubscriptionState']]):
         pulumi.set(self, "state", value)
 
 
@@ -224,18 +224,18 @@ class Subscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['SubscriptionState']] = None,
+                 allow_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['SubscriptionState']] = None,
                  __props__=None):
         """
         Subscription details.
@@ -244,15 +244,14 @@ class Subscription(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_tracing: Determines whether tracing can be enabled
         :param pulumi.Input[_builtins.str] app_type: Determines the type of application which send the create user request. Default is legacy publisher portal.
         :param pulumi.Input[_builtins.str] display_name: Subscription name.
-        :param pulumi.Input[_builtins.bool] notify: Notify change in Subscription State. 
-                - If false, do not send any email notification for change of state of subscription 
-                - If true, send email notification of change of state of subscription 
+        :param pulumi.Input[_builtins.bool] notify: Notify change in Subscription State.
+                - If false, do not send any email notification for change of state of subscription
+                - If true, send email notification of change of state of subscription
         :param pulumi.Input[_builtins.str] owner_id: User (user id path) for whom subscription is being created in form /users/{userId}
         :param pulumi.Input[_builtins.str] primary_key: Primary subscription key. If not specified during request key will be generated automatically.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -275,7 +274,6 @@ class Subscription(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,18 +289,18 @@ class Subscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['SubscriptionState']] = None,
+                 allow_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['SubscriptionState']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

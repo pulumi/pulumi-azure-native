@@ -148,7 +148,7 @@ export interface EventHubConnectionArgs {
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    dataFormat?: pulumi.Input<string | enums.kusto.DataFormat>;
+    dataFormat?: pulumi.Input<string | enums.kusto.DataFormat | undefined>;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -156,7 +156,7 @@ export interface EventHubConnectionArgs {
     /**
      * The name of the event hub connection.
      */
-    eventHubConnectionName?: pulumi.Input<string>;
+    eventHubConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the event hub to be used to create a data connection.
      */
@@ -164,11 +164,11 @@ export interface EventHubConnectionArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -176,5 +176,5 @@ export interface EventHubConnectionArgs {
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

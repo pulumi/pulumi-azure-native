@@ -120,15 +120,15 @@ export interface OrganizationEnvironmentByIdArgs {
     /**
      * Confluent environment id
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * Type of environment
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Metadata of the record
      */
-    metadata?: pulumi.Input<inputs.confluent.SCMetadataEntityArgs>;
+    metadata?: pulumi.Input<inputs.confluent.SCMetadataEntityArgs | undefined>;
     /**
      * Organization resource name
      */
@@ -140,5 +140,5 @@ export interface OrganizationEnvironmentByIdArgs {
     /**
      * Stream governance configuration
      */
-    streamGovernanceConfig?: pulumi.Input<inputs.confluent.StreamGovernanceConfigArgs>;
+    streamGovernanceConfig?: pulumi.Input<inputs.confluent.StreamGovernanceConfigArgs | undefined>;
 }

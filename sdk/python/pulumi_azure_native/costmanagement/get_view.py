@@ -287,7 +287,6 @@ def get_view(view_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str view_name: View name
     """
     __args__ = dict()
@@ -316,7 +315,7 @@ def get_view(view_name: Optional[_builtins.str] = None,
         time_period=pulumi.get(__ret__, 'time_period'),
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'))
-def get_view_output(view_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_view_output(view_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets the view by view name.
@@ -324,7 +323,6 @@ def get_view_output(view_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str view_name: View name
     """

@@ -24,12 +24,12 @@ class WebAppAuthSettingsV2Args:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
-                 http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
-                 identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input['LoginArgs']] = None,
-                 platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
+                 global_validation: pulumi.Input[Optional['GlobalValidationArgs']] = None,
+                 http_settings: pulumi.Input[Optional['HttpSettingsArgs']] = None,
+                 identity_providers: pulumi.Input[Optional['IdentityProvidersArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional['LoginArgs']] = None,
+                 platform: pulumi.Input[Optional['AuthPlatformArgs']] = None):
         """
         The set of arguments for constructing a WebAppAuthSettingsV2 resource.
 
@@ -83,74 +83,74 @@ class WebAppAuthSettingsV2Args:
 
     @_builtins.property
     @pulumi.getter(name="globalValidation")
-    def global_validation(self) -> Optional[pulumi.Input['GlobalValidationArgs']]:
+    def global_validation(self) -> pulumi.Input[Optional['GlobalValidationArgs']]:
         """
         The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         """
         return pulumi.get(self, "global_validation")
 
     @global_validation.setter
-    def global_validation(self, value: Optional[pulumi.Input['GlobalValidationArgs']]):
+    def global_validation(self, value: pulumi.Input[Optional['GlobalValidationArgs']]):
         pulumi.set(self, "global_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSettings")
-    def http_settings(self) -> Optional[pulumi.Input['HttpSettingsArgs']]:
+    def http_settings(self) -> pulumi.Input[Optional['HttpSettingsArgs']]:
         """
         The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
         """
         return pulumi.get(self, "http_settings")
 
     @http_settings.setter
-    def http_settings(self, value: Optional[pulumi.Input['HttpSettingsArgs']]):
+    def http_settings(self, value: pulumi.Input[Optional['HttpSettingsArgs']]):
         pulumi.set(self, "http_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersArgs']]:
+    def identity_providers(self) -> pulumi.Input[Optional['IdentityProvidersArgs']]:
         """
         The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         """
         return pulumi.get(self, "identity_providers")
 
     @identity_providers.setter
-    def identity_providers(self, value: Optional[pulumi.Input['IdentityProvidersArgs']]):
+    def identity_providers(self, value: pulumi.Input[Optional['IdentityProvidersArgs']]):
         pulumi.set(self, "identity_providers", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginArgs']]:
+    def login(self) -> pulumi.Input[Optional['LoginArgs']]:
         """
         The configuration settings of the login flow of users using App Service Authentication/Authorization.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginArgs']]):
+    def login(self, value: pulumi.Input[Optional['LoginArgs']]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input['AuthPlatformArgs']]:
+    def platform(self) -> pulumi.Input[Optional['AuthPlatformArgs']]:
         """
         The configuration settings of the platform of App Service Authentication/Authorization.
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input['AuthPlatformArgs']]):
+    def platform(self, value: pulumi.Input[Optional['AuthPlatformArgs']]):
         pulumi.set(self, "platform", value)
 
 
@@ -160,14 +160,14 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
-                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_validation: pulumi.Input[Optional[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: pulumi.Input[Optional[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: pulumi.Input[Optional[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[Union['LoginArgs', 'LoginArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
@@ -175,7 +175,6 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         Uses Azure REST API version 2021-02-01. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
 
         Other available API versions: 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
 
         Other available API versions: 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
-                 http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_validation: pulumi.Input[Optional[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
+                 http_settings: pulumi.Input[Optional[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
+                 identity_providers: pulumi.Input[Optional[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[Union['LoginArgs', 'LoginArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

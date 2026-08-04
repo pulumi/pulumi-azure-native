@@ -59,7 +59,6 @@ def list_order_dc_access_code(device_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str device_name: The device name
     :param _builtins.str resource_group_name: The resource group name.
     """
@@ -71,8 +70,8 @@ def list_order_dc_access_code(device_name: Optional[_builtins.str] = None,
 
     return AwaitableListOrderDCAccessCodeResult(
         auth_code=pulumi.get(__ret__, 'auth_code'))
-def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_order_dc_access_code_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOrderDCAccessCodeResult]:
     """
     DC Access code in the case of Self Managed Shipping.
@@ -80,7 +79,6 @@ def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2023-07-01.
 
     Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str device_name: The device name
     :param _builtins.str resource_group_name: The resource group name.

@@ -59,7 +59,6 @@ def get_file_share_limits(location: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-09-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str location: The name of the Azure region.
     """
     __args__ = dict()
@@ -69,7 +68,7 @@ def get_file_share_limits(location: Optional[_builtins.str] = None,
 
     return AwaitableGetFileShareLimitsResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_file_share_limits_output(location: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_share_limits_output(location: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareLimitsResult]:
     """
     Get file shares limits.
@@ -77,7 +76,6 @@ def get_file_share_limits_output(location: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2025-06-01-preview.
 
     Other available API versions: 2025-09-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str location: The name of the Azure region.
     """

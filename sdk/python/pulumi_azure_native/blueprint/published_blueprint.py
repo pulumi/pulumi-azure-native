@@ -24,13 +24,13 @@ class PublishedBlueprintArgs:
     def __init__(__self__, *,
                  blueprint_name: pulumi.Input[_builtins.str],
                  resource_scope: pulumi.Input[_builtins.str],
-                 change_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]] = None,
-                 target_scope: Optional[pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 change_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]] = None,
+                 resource_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]] = None,
+                 target_scope: pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublishedBlueprint resource.
 
@@ -87,86 +87,86 @@ class PublishedBlueprintArgs:
 
     @_builtins.property
     @pulumi.getter(name="changeNotes")
-    def change_notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def change_notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version-specific change notes.
         """
         return pulumi.get(self, "change_notes")
 
     @change_notes.setter
-    def change_notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def change_notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "change_notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Multi-line explain this resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One-liner string explain this resource.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]]:
         """
         Parameters required by this blueprint definition.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]]:
         """
         Resource group placeholders defined by this blueprint definition.
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]]):
         pulumi.set(self, "resource_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="targetScope")
-    def target_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']]]:
+    def target_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]]:
         """
         The scope where this blueprint definition can be assigned.
         """
         return pulumi.get(self, "target_scope")
 
     @target_scope.setter
-    def target_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']]]):
+    def target_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]]):
         pulumi.set(self, "target_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the published blueprint definition.
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
@@ -176,21 +176,20 @@ class PublishedBlueprint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 change_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupDefinitionArgs', 'ResourceGroupDefinitionArgsDict']]]]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_scope: Optional[pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 change_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
+                 resource_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ResourceGroupDefinitionArgs', 'ResourceGroupDefinitionArgsDict']]]]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_scope: pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a published blueprint.
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,7 +214,6 @@ class PublishedBlueprint(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param PublishedBlueprintArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,15 +229,15 @@ class PublishedBlueprint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 change_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ResourceGroupDefinitionArgs', 'ResourceGroupDefinitionArgsDict']]]]] = None,
-                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_scope: Optional[pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 change_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterDefinitionArgs', 'ParameterDefinitionArgsDict']]]]] = None,
+                 resource_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ResourceGroupDefinitionArgs', 'ResourceGroupDefinitionArgsDict']]]]] = None,
+                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_scope: pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

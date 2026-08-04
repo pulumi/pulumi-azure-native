@@ -155,7 +155,6 @@ def get_management_group_subscription(group_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str group_id: Management Group ID.
     """
     __args__ = dict()
@@ -173,7 +172,7 @@ def get_management_group_subscription(group_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant=pulumi.get(__ret__, 'tenant'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_group_subscription_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_management_group_subscription_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupSubscriptionResult]:
     """
     Retrieves details about given subscription which is associated with the management group.
@@ -181,7 +180,6 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str group_id: Management Group ID.
     """

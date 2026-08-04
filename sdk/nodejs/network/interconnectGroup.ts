@@ -142,15 +142,15 @@ export interface InterconnectGroupArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the interconnect group.
      */
-    interconnectGroupName?: pulumi.Input<string>;
+    interconnectGroupName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,7 +158,7 @@ export interface InterconnectGroupArgs {
     /**
      * Scope of interconnect group resource.
      */
-    scope?: pulumi.Input<string | enums.network.InterconnectGroupScope>;
+    scope?: pulumi.Input<string | enums.network.InterconnectGroupScope | undefined>;
     /**
      * The subgroup profile of the interconnect group resource.
      */
@@ -166,5 +166,5 @@ export interface InterconnectGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

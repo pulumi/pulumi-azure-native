@@ -240,7 +240,6 @@ def get_attestation_at_resource(attestation_name: Optional[_builtins.str] = None
 
     Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str attestation_name: The name of the attestation.
     :param _builtins.str resource_id: Resource ID.
     """
@@ -267,8 +266,8 @@ def get_attestation_at_resource(attestation_name: Optional[_builtins.str] = None
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_attestation_at_resource_output(attestation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtResourceResult]:
     """
     Gets an existing attestation at resource scope.
@@ -276,7 +275,6 @@ def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str attestation_name: The name of the attestation.
     :param _builtins.str resource_id: Resource ID.

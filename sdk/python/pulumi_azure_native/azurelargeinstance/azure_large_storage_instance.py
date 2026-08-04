@@ -23,12 +23,12 @@ __all__ = ['AzureLargeStorageInstanceArgs', 'AzureLargeStorageInstance']
 class AzureLargeStorageInstanceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 azure_large_storage_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_large_storage_instance_unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_properties: Optional[pulumi.Input['StoragePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 azure_large_storage_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_large_storage_instance_unique_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_properties: pulumi.Input[Optional['StoragePropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureLargeStorageInstance resource.
 
@@ -68,74 +68,74 @@ class AzureLargeStorageInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureLargeStorageInstanceName")
-    def azure_large_storage_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_large_storage_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the AzureLargeStorageInstance.
         """
         return pulumi.get(self, "azure_large_storage_instance_name")
 
     @azure_large_storage_instance_name.setter
-    def azure_large_storage_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_large_storage_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_large_storage_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureLargeStorageInstanceUniqueIdentifier")
-    def azure_large_storage_instance_unique_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_large_storage_instance_unique_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the AzureLargeStorageInstance unique ID.
         """
         return pulumi.get(self, "azure_large_storage_instance_unique_identifier")
 
     @azure_large_storage_instance_unique_identifier.setter
-    def azure_large_storage_instance_unique_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_large_storage_instance_unique_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_large_storage_instance_unique_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProperties")
-    def storage_properties(self) -> Optional[pulumi.Input['StoragePropertiesArgs']]:
+    def storage_properties(self) -> pulumi.Input[Optional['StoragePropertiesArgs']]:
         """
         Specifies the storage properties for the AzureLargeStorage instance.
         """
         return pulumi.get(self, "storage_properties")
 
     @storage_properties.setter
-    def storage_properties(self, value: Optional[pulumi.Input['StoragePropertiesArgs']]):
+    def storage_properties(self, value: pulumi.Input[Optional['StoragePropertiesArgs']]):
         pulumi.set(self, "storage_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,20 +145,19 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_large_storage_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_large_storage_instance_unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azure_large_storage_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_large_storage_instance_unique_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_properties: pulumi.Input[Optional[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         AzureLargeStorageInstance info on Azure (ARM properties and
         AzureLargeStorageInstance properties)
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AzureLargeStorageInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_large_storage_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_large_storage_instance_unique_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 azure_large_storage_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_large_storage_instance_unique_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_properties: pulumi.Input[Optional[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

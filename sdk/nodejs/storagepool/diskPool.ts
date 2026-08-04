@@ -169,31 +169,31 @@ export interface DiskPoolArgs {
     /**
      * List of additional capabilities for a Disk Pool.
      */
-    additionalCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalCapabilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Logical zone for Disk Pool resource; example: ["1"].
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Disk Pool.
      */
-    diskPoolName?: pulumi.Input<string>;
+    diskPoolName?: pulumi.Input<string | undefined>;
     /**
      * List of Azure Managed Disks to attach to a Disk Pool.
      */
-    disks?: pulumi.Input<pulumi.Input<inputs.storagepool.DiskArgs>[]>;
+    disks?: pulumi.Input<pulumi.Input<inputs.storagepool.DiskArgs>[] | undefined>;
     /**
      * The geo-location where the resource lives.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Azure resource id. Indicates if this resource is managed by another Azure resource.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * List of Azure resource ids that manage this resource.
      */
-    managedByExtended?: pulumi.Input<pulumi.Input<string>[]>;
+    managedByExtended?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -209,5 +209,5 @@ export interface DiskPoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

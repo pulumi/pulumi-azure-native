@@ -24,19 +24,19 @@ class RegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 admin_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
-                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_options: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
-                 network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
-                 policies: Optional[pulumi.Input['PoliciesArgs']] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None):
+                 admin_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionPropertyArgs']] = None,
+                 identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_options: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
+                 network_rule_set: pulumi.Input[Optional['NetworkRuleSetArgs']] = None,
+                 policies: pulumi.Input[Optional['PoliciesArgs']] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None):
         """
         The set of arguments for constructing a Registry resource.
 
@@ -121,158 +121,158 @@ class RegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminUserEnabled")
-    def admin_user_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin_user_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value that indicates whether the admin user is enabled.
         """
         return pulumi.get(self, "admin_user_enabled")
 
     @admin_user_enabled.setter
-    def admin_user_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin_user_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin_user_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="anonymousPullEnabled")
-    def anonymous_pull_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def anonymous_pull_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables registry-wide pull from unauthenticated clients.
         """
         return pulumi.get(self, "anonymous_pull_enabled")
 
     @anonymous_pull_enabled.setter
-    def anonymous_pull_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def anonymous_pull_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "anonymous_pull_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEndpointEnabled")
-    def data_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable a single data endpoint per region for serving data.
         """
         return pulumi.get(self, "data_endpoint_enabled")
 
     @data_endpoint_enabled.setter
-    def data_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertyArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionPropertyArgs']]:
         """
         The encryption settings of container registry.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertyArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionPropertyArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
         """
         The identity of the container registry.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleBypassOptions")
-    def network_rule_bypass_options(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]:
+    def network_rule_bypass_options(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]:
         """
         Whether to allow trusted Azure services to access a network restricted registry.
         """
         return pulumi.get(self, "network_rule_bypass_options")
 
     @network_rule_bypass_options.setter
-    def network_rule_bypass_options(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]]):
+    def network_rule_bypass_options(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]]):
         pulumi.set(self, "network_rule_bypass_options", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
+    def network_rule_set(self) -> pulumi.Input[Optional['NetworkRuleSetArgs']]:
         """
         The network rule set for a container registry.
         """
         return pulumi.get(self, "network_rule_set")
 
     @network_rule_set.setter
-    def network_rule_set(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
+    def network_rule_set(self, value: pulumi.Input[Optional['NetworkRuleSetArgs']]):
         pulumi.set(self, "network_rule_set", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input['PoliciesArgs']]:
+    def policies(self) -> pulumi.Input[Optional['PoliciesArgs']]:
         """
         The policies for a container registry.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input['PoliciesArgs']]):
+    def policies(self, value: pulumi.Input[Optional['PoliciesArgs']]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Whether or not public network access is allowed for the container registry.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
-    def registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the container registry.
         """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
-    def registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancy")
-    def zone_redundancy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]:
+    def zone_redundancy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]:
         """
         Whether or not zone redundancy is enabled for this container registry
         """
         return pulumi.get(self, "zone_redundancy")
 
     @zone_redundancy.setter
-    def zone_redundancy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]):
+    def zone_redundancy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]):
         pulumi.set(self, "zone_redundancy", value)
 
 
@@ -282,21 +282,21 @@ class Registry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_options: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
-                 policies: Optional[pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None,
+                 admin_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_options: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
+                 policies: pulumi.Input[Optional[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None,
                  __props__=None):
         """
         An object that represents a container registry.
@@ -304,7 +304,6 @@ class Registry(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,7 +336,6 @@ class Registry(pulumi.CustomResource):
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,21 +351,21 @@ class Registry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_user_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 anonymous_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_bypass_options: Optional[pulumi.Input[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
-                 policies: Optional[pulumi.Input[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None,
+                 admin_user_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_options: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRuleBypassOptions']]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
+                 policies: pulumi.Input[Optional[Union['PoliciesArgs', 'PoliciesArgsDict']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

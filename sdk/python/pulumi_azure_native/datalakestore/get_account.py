@@ -346,7 +346,6 @@ def get_account(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-11-01.
 
-
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.
     """
@@ -382,14 +381,13 @@ def get_account(account_name: Optional[_builtins.str] = None,
         trusted_id_providers=pulumi.get(__ret__, 'trusted_id_providers'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
-def get_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Gets the specified Data Lake Store account.
 
     Uses Azure REST API version 2016-11-01.
-
 
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.

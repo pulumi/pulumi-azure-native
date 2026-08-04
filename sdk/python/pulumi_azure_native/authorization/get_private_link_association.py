@@ -103,7 +103,6 @@ def get_private_link_association(group_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2020-05-01.
 
-
     :param _builtins.str group_id: The management group ID.
     :param _builtins.str pla_id: The ID of the PLA
     """
@@ -119,14 +118,13 @@ def get_private_link_association(group_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_link_association_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        pla_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_link_association_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        pla_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkAssociationResult]:
     """
     Get a single private link association
 
     Uses Azure REST API version 2020-05-01.
-
 
     :param _builtins.str group_id: The management group ID.
     :param _builtins.str pla_id: The ID of the PLA

@@ -140,7 +140,6 @@ def get_private_endpoint_connection(azure_resource_name: Optional[_builtins.str]
 
     Uses Azure REST API version 2020-06-01.
 
-
     :param _builtins.str azure_resource_name: The name of the Azure resource.
     :param _builtins.str private_endpoint_name: The name of the private endpoint.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -161,15 +160,14 @@ def get_private_endpoint_connection(azure_resource_name: Optional[_builtins.str]
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(azure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_output(azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get a specific private endpoint connection for Power BI by private endpoint name.
 
     Uses Azure REST API version 2020-06-01.
-
 
     :param _builtins.str azure_resource_name: The name of the Azure resource.
     :param _builtins.str private_endpoint_name: The name of the private endpoint.

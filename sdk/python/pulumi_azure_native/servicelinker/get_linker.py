@@ -123,7 +123,7 @@ class GetLinkerResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
-        The provisioning state. 
+        The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -216,7 +216,6 @@ def get_linker(linker_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str linker_name: The name Linker resource.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
@@ -241,8 +240,8 @@ def get_linker(linker_name: Optional[_builtins.str] = None,
         target_service=pulumi.get(__ret__, 'target_service'),
         type=pulumi.get(__ret__, 'type'),
         v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
-def get_linker_output(linker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_linker_output(linker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkerResult]:
     """
     Returns Linker resource for a given name.
@@ -250,7 +249,6 @@ def get_linker_output(linker_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str linker_name: The name Linker resource.
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.

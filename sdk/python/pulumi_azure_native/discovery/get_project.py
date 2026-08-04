@@ -145,7 +145,6 @@ def get_project(project_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str project_name: The name of the Project
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the Workspace
@@ -166,9 +165,9 @@ def get_project(project_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_project_output(project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Get a Project
@@ -176,7 +175,6 @@ def get_project_output(project_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2026-02-01-preview.
 
     Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str project_name: The name of the Project
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

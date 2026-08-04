@@ -123,7 +123,7 @@ export interface HybridUseBenefitArgs {
     /**
      * This is a unique identifier for a plan. Should be a guid.
      */
-    planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string | undefined>;
     /**
      * The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
      */

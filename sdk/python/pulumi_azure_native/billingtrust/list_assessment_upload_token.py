@@ -56,7 +56,6 @@ def list_assessment_upload_token(resource_uri: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-03-17-preview.
 
-
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
@@ -66,13 +65,12 @@ def list_assessment_upload_token(resource_uri: Optional[_builtins.str] = None,
 
     return AwaitableListAssessmentUploadTokenResult(
         token=pulumi.get(__ret__, 'token'))
-def list_assessment_upload_token_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def list_assessment_upload_token_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAssessmentUploadTokenResult]:
     """
     Request a time-bound, principal-bound upload token for supplemental document uploads.
 
     Uses Azure REST API version 2026-03-17-preview.
-
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """

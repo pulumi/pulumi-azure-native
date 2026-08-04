@@ -32,15 +32,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -48,9 +48,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -67,38 +67,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -110,7 +110,7 @@ class RetentionPolicyDetailsArgsDict(TypedDict):
     """
     The retention period in days after which the orchestration will be purged automatically
     """
-    orchestration_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']]]
+    orchestration_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PurgeableOrchestrationState']]]]
     """
     The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
     """
@@ -119,7 +119,7 @@ class RetentionPolicyDetailsArgsDict(TypedDict):
 class RetentionPolicyDetailsArgs:
     def __init__(__self__, *,
                  retention_period_in_days: pulumi.Input[_builtins.int],
-                 orchestration_state: Optional[pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']]] = None):
+                 orchestration_state: pulumi.Input[Optional[Union[_builtins.str, 'PurgeableOrchestrationState']]] = None):
         """
         The properties of a retention policy
 
@@ -144,14 +144,14 @@ class RetentionPolicyDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="orchestrationState")
-    def orchestration_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']]]:
+    def orchestration_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PurgeableOrchestrationState']]]:
         """
         The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
         """
         return pulumi.get(self, "orchestration_state")
 
     @orchestration_state.setter
-    def orchestration_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']]]):
+    def orchestration_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PurgeableOrchestrationState']]]):
         pulumi.set(self, "orchestration_state", value)
 
 
@@ -159,7 +159,7 @@ class RetentionPolicyPropertiesArgsDict(TypedDict):
     """
     The retention policy settings for the resource
     """
-    retention_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgsDict']]]]
+    retention_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RetentionPolicyDetailsArgsDict']]]]]
     """
     The orchestration retention policies
     """
@@ -167,7 +167,7 @@ class RetentionPolicyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class RetentionPolicyPropertiesArgs:
     def __init__(__self__, *,
-                 retention_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]] = None):
+                 retention_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]] = None):
         """
         The retention policy settings for the resource
 
@@ -178,14 +178,14 @@ class RetentionPolicyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicies")
-    def retention_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]]:
+    def retention_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]]:
         """
         The orchestration retention policies
         """
         return pulumi.get(self, "retention_policies")
 
     @retention_policies.setter
-    def retention_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]]):
+    def retention_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]]):
         pulumi.set(self, "retention_policies", value)
 
 
@@ -249,7 +249,7 @@ class SchedulerSkuArgsDict(TypedDict):
     """
     The name of the SKU
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy
     """
@@ -258,7 +258,7 @@ class SchedulerSkuArgsDict(TypedDict):
 class SchedulerSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The SKU (Stock Keeping Unit) assigned to this durable task scheduler
 
@@ -283,14 +283,14 @@ class SchedulerSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 

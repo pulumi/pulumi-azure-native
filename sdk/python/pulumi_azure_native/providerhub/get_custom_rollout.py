@@ -118,7 +118,6 @@ def get_custom_rollout(provider_namespace: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param _builtins.str rollout_name: The rollout name.
     """
@@ -135,14 +134,13 @@ def get_custom_rollout(provider_namespace: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_custom_rollout_output(provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                              rollout_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_rollout_output(provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                              rollout_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomRolloutResult]:
     """
     Gets the custom rollout details.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param _builtins.str rollout_name: The rollout name.

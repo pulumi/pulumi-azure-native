@@ -124,7 +124,7 @@ export interface WorkflowArgs {
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface WorkflowArgs {
     /**
      * Name of the workflow
      */
-    workflowName?: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string | undefined>;
 }

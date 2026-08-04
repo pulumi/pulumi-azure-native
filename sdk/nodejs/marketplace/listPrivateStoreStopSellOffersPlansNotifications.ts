@@ -56,5 +56,5 @@ export interface ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs {
      * The store ID - must use the tenant ID
      */
     privateStoreId: pulumi.Input<string>;
-    subscriptions?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

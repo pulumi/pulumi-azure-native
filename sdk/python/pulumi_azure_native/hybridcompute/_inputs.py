@@ -22,30 +22,30 @@ __all__ = [
     'HybridComputePrivateLinkScopePropertiesArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
-    'LicenseDetailsArgs',
-    'LicenseDetailsArgsDict',
-    'LicenseProfileMachineInstanceViewEsuPropertiesArgs',
-    'LicenseProfileMachineInstanceViewEsuPropertiesArgsDict',
-    'LicenseProfileMachineInstanceViewArgs',
-    'LicenseProfileMachineInstanceViewArgsDict',
     'LicenseArgs',
     'LicenseArgsDict',
+    'LicenseDetailsArgs',
+    'LicenseDetailsArgsDict',
+    'LicenseProfileMachineInstanceViewArgs',
+    'LicenseProfileMachineInstanceViewArgsDict',
+    'LicenseProfileMachineInstanceViewEsuPropertiesArgs',
+    'LicenseProfileMachineInstanceViewEsuPropertiesArgsDict',
     'LocationDataArgs',
     'LocationDataArgsDict',
-    'MachineExtensionInstanceViewStatusArgs',
-    'MachineExtensionInstanceViewStatusArgsDict',
     'MachineExtensionInstanceViewArgs',
     'MachineExtensionInstanceViewArgsDict',
+    'MachineExtensionInstanceViewStatusArgs',
+    'MachineExtensionInstanceViewStatusArgsDict',
     'MachineExtensionPropertiesArgs',
     'MachineExtensionPropertiesArgsDict',
     'MachineRunCommandScriptSourceArgs',
     'MachineRunCommandScriptSourceArgsDict',
+    'OSProfileArgs',
+    'OSProfileArgsDict',
     'OSProfileLinuxConfigurationArgs',
     'OSProfileLinuxConfigurationArgsDict',
     'OSProfileWindowsConfigurationArgs',
     'OSProfileWindowsConfigurationArgsDict',
-    'OSProfileArgs',
-    'OSProfileArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateEndpointPropertyArgs',
@@ -58,10 +58,10 @@ __all__ = [
     'RunCommandInputParameterArgsDict',
     'RunCommandManagedIdentityArgs',
     'RunCommandManagedIdentityArgsDict',
-    'ServiceStatusesArgs',
-    'ServiceStatusesArgsDict',
     'ServiceStatusArgs',
     'ServiceStatusArgsDict',
+    'ServiceStatusesArgs',
+    'ServiceStatusesArgsDict',
     'VolumeLicenseDetailsArgs',
     'VolumeLicenseDetailsArgsDict',
 ]
@@ -70,15 +70,15 @@ class AgentUpgradeArgsDict(TypedDict):
     """
     The info w.r.t Agent Upgrade.
     """
-    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    correlation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The correlation ID passed in from RSM per upgrade.
     """
-    desired_version: NotRequired[pulumi.Input[_builtins.str]]
+    desired_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the version info w.r.t AgentUpgrade for the machine.
     """
-    enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_automatic_upgrade: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if RSM should try to upgrade this machine
     """
@@ -86,9 +86,9 @@ class AgentUpgradeArgsDict(TypedDict):
 @pulumi.input_type
 class AgentUpgradeArgs:
     def __init__(__self__, *,
-                 correlation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None):
+                 correlation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The info w.r.t Agent Upgrade.
 
@@ -105,38 +105,38 @@ class AgentUpgradeArgs:
 
     @_builtins.property
     @pulumi.getter(name="correlationId")
-    def correlation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def correlation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The correlation ID passed in from RSM per upgrade.
         """
         return pulumi.get(self, "correlation_id")
 
     @correlation_id.setter
-    def correlation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def correlation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "correlation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredVersion")
-    def desired_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version info w.r.t AgentUpgrade for the machine.
         """
         return pulumi.get(self, "desired_version")
 
     @desired_version.setter
-    def desired_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_version", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpgrade")
-    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if RSM should try to upgrade this machine
         """
         return pulumi.get(self, "enable_automatic_upgrade")
 
     @enable_automatic_upgrade.setter
-    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_upgrade", value)
 
 
@@ -144,7 +144,7 @@ class HybridComputePrivateLinkScopePropertiesArgsDict(TypedDict):
     """
     Properties that define a Azure Arc PrivateLinkScope resource.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]]
     """
     Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
     """
@@ -152,7 +152,7 @@ class HybridComputePrivateLinkScopePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HybridComputePrivateLinkScopePropertiesArgs:
     def __init__(__self__, *,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None):
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None):
         """
         Properties that define a Azure Arc PrivateLinkScope resource.
 
@@ -163,14 +163,14 @@ class HybridComputePrivateLinkScopePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
         Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access", value)
 
 
@@ -178,7 +178,7 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type.
     """
@@ -186,7 +186,7 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None):
         """
         Identity for the resource.
 
@@ -197,317 +197,15 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
-
-
-class LicenseDetailsArgsDict(TypedDict):
-    """
-    Describes the properties of a License.
-    """
-    edition: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseEdition']]]
-    """
-    Describes the edition of the license. The values are either Standard or Datacenter.
-    """
-    processors: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Describes the number of processors.
-    """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseState']]]
-    """
-    Describes the state of the license.
-    """
-    target: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseTarget']]]
-    """
-    Describes the license target server.
-    """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseCoreType']]]
-    """
-    Describes the license core type (pCore or vCore).
-    """
-    volume_license_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgsDict']]]]
-    """
-    A list of volume license details.
-    """
-
-@pulumi.input_type
-class LicenseDetailsArgs:
-    def __init__(__self__, *,
-                 edition: Optional[pulumi.Input[Union[_builtins.str, 'LicenseEdition']]] = None,
-                 processors: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'LicenseState']]] = None,
-                 target: Optional[pulumi.Input[Union[_builtins.str, 'LicenseTarget']]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseCoreType']]] = None,
-                 volume_license_details: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]] = None):
-        """
-        Describes the properties of a License.
-
-        :param pulumi.Input[Union[_builtins.str, 'LicenseEdition']] edition: Describes the edition of the license. The values are either Standard or Datacenter.
-        :param pulumi.Input[_builtins.int] processors: Describes the number of processors.
-        :param pulumi.Input[Union[_builtins.str, 'LicenseState']] state: Describes the state of the license.
-        :param pulumi.Input[Union[_builtins.str, 'LicenseTarget']] target: Describes the license target server.
-        :param pulumi.Input[Union[_builtins.str, 'LicenseCoreType']] type: Describes the license core type (pCore or vCore).
-        :param pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]] volume_license_details: A list of volume license details.
-        """
-        if edition is not None:
-            pulumi.set(__self__, "edition", edition)
-        if processors is not None:
-            pulumi.set(__self__, "processors", processors)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if volume_license_details is not None:
-            pulumi.set(__self__, "volume_license_details", volume_license_details)
-
-    @_builtins.property
-    @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseEdition']]]:
-        """
-        Describes the edition of the license. The values are either Standard or Datacenter.
-        """
-        return pulumi.get(self, "edition")
-
-    @edition.setter
-    def edition(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseEdition']]]):
-        pulumi.set(self, "edition", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def processors(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Describes the number of processors.
-        """
-        return pulumi.get(self, "processors")
-
-    @processors.setter
-    def processors(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "processors", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseState']]]:
-        """
-        Describes the state of the license.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseState']]]):
-        pulumi.set(self, "state", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseTarget']]]:
-        """
-        Describes the license target server.
-        """
-        return pulumi.get(self, "target")
-
-    @target.setter
-    def target(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseTarget']]]):
-        pulumi.set(self, "target", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseCoreType']]]:
-        """
-        Describes the license core type (pCore or vCore).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseCoreType']]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeLicenseDetails")
-    def volume_license_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]]:
-        """
-        A list of volume license details.
-        """
-        return pulumi.get(self, "volume_license_details")
-
-    @volume_license_details.setter
-    def volume_license_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]]):
-        pulumi.set(self, "volume_license_details", value)
-
-
-class LicenseProfileMachineInstanceViewEsuPropertiesArgsDict(TypedDict):
-    """
-    Properties for the Machine ESU profile.
-    """
-    assigned_license: NotRequired[pulumi.Input['LicenseArgsDict']]
-    """
-    The assigned license resource.
-    """
-    license_assignment_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']]]
-    """
-    Describes the license assignment state (Assigned or NotAssigned).
-    """
-
-@pulumi.input_type
-class LicenseProfileMachineInstanceViewEsuPropertiesArgs:
-    def __init__(__self__, *,
-                 assigned_license: Optional[pulumi.Input['LicenseArgs']] = None,
-                 license_assignment_state: Optional[pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']]] = None):
-        """
-        Properties for the Machine ESU profile.
-
-        :param pulumi.Input['LicenseArgs'] assigned_license: The assigned license resource.
-        :param pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']] license_assignment_state: Describes the license assignment state (Assigned or NotAssigned).
-        """
-        if assigned_license is not None:
-            pulumi.set(__self__, "assigned_license", assigned_license)
-        if license_assignment_state is not None:
-            pulumi.set(__self__, "license_assignment_state", license_assignment_state)
-
-    @_builtins.property
-    @pulumi.getter(name="assignedLicense")
-    def assigned_license(self) -> Optional[pulumi.Input['LicenseArgs']]:
-        """
-        The assigned license resource.
-        """
-        return pulumi.get(self, "assigned_license")
-
-    @assigned_license.setter
-    def assigned_license(self, value: Optional[pulumi.Input['LicenseArgs']]):
-        pulumi.set(self, "assigned_license", value)
-
-    @_builtins.property
-    @pulumi.getter(name="licenseAssignmentState")
-    def license_assignment_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']]]:
-        """
-        Describes the license assignment state (Assigned or NotAssigned).
-        """
-        return pulumi.get(self, "license_assignment_state")
-
-    @license_assignment_state.setter
-    def license_assignment_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']]]):
-        pulumi.set(self, "license_assignment_state", value)
-
-
-class LicenseProfileMachineInstanceViewArgsDict(TypedDict):
-    """
-    License Profile Instance View in Machine Properties.
-    """
-    esu_profile: NotRequired[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgsDict']]
-    """
-    Properties for the Machine ESU profile.
-    """
-    product_features: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgsDict']]]]
-    """
-    The list of product features.
-    """
-    product_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]]
-    """
-    Indicates the product type of the license.
-    """
-    software_assurance_customer: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Specifies if this machine is licensed as part of a Software Assurance agreement.
-    """
-    subscription_status: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]
-    """
-    Indicates the subscription status of the product.
-    """
-
-@pulumi.input_type
-class LicenseProfileMachineInstanceViewArgs:
-    def __init__(__self__, *,
-                 esu_profile: Optional[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs']] = None,
-                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]] = None,
-                 product_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
-                 software_assurance_customer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscription_status: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None):
-        """
-        License Profile Instance View in Machine Properties.
-
-        :param pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs'] esu_profile: Properties for the Machine ESU profile.
-        :param pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]] product_features: The list of product features.
-        :param pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']] product_type: Indicates the product type of the license.
-        :param pulumi.Input[_builtins.bool] software_assurance_customer: Specifies if this machine is licensed as part of a Software Assurance agreement.
-        :param pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']] subscription_status: Indicates the subscription status of the product.
-        """
-        if esu_profile is not None:
-            pulumi.set(__self__, "esu_profile", esu_profile)
-        if product_features is not None:
-            pulumi.set(__self__, "product_features", product_features)
-        if product_type is not None:
-            pulumi.set(__self__, "product_type", product_type)
-        if software_assurance_customer is not None:
-            pulumi.set(__self__, "software_assurance_customer", software_assurance_customer)
-        if subscription_status is not None:
-            pulumi.set(__self__, "subscription_status", subscription_status)
-
-    @_builtins.property
-    @pulumi.getter(name="esuProfile")
-    def esu_profile(self) -> Optional[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs']]:
-        """
-        Properties for the Machine ESU profile.
-        """
-        return pulumi.get(self, "esu_profile")
-
-    @esu_profile.setter
-    def esu_profile(self, value: Optional[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs']]):
-        pulumi.set(self, "esu_profile", value)
-
-    @_builtins.property
-    @pulumi.getter(name="productFeatures")
-    def product_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]:
-        """
-        The list of product features.
-        """
-        return pulumi.get(self, "product_features")
-
-    @product_features.setter
-    def product_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]):
-        pulumi.set(self, "product_features", value)
-
-    @_builtins.property
-    @pulumi.getter(name="productType")
-    def product_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]]:
-        """
-        Indicates the product type of the license.
-        """
-        return pulumi.get(self, "product_type")
-
-    @product_type.setter
-    def product_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]]):
-        pulumi.set(self, "product_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="softwareAssuranceCustomer")
-    def software_assurance_customer(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if this machine is licensed as part of a Software Assurance agreement.
-        """
-        return pulumi.get(self, "software_assurance_customer")
-
-    @software_assurance_customer.setter
-    def software_assurance_customer(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "software_assurance_customer", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subscriptionStatus")
-    def subscription_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]:
-        """
-        Indicates the subscription status of the product.
-        """
-        return pulumi.get(self, "subscription_status")
-
-    @subscription_status.setter
-    def subscription_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]):
-        pulumi.set(self, "subscription_status", value)
 
 
 class LicenseArgsDict(TypedDict):
@@ -518,19 +216,19 @@ class LicenseArgsDict(TypedDict):
     """
     The geo-location where the resource lives
     """
-    license_details: NotRequired[pulumi.Input['LicenseDetailsArgsDict']]
+    license_details: NotRequired[pulumi.Input[Optional['LicenseDetailsArgsDict']]]
     """
     Describes the properties of a License.
     """
-    license_type: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseType']]]
+    license_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]]
     """
     The type of the license resource.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Resource tags.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Describes the tenant id.
     """
@@ -539,10 +237,10 @@ class LicenseArgsDict(TypedDict):
 class LicenseArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
-                 license_details: Optional[pulumi.Input['LicenseDetailsArgs']] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 license_details: pulumi.Input[Optional['LicenseDetailsArgs']] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a license in a hybrid machine.
 
@@ -576,51 +274,353 @@ class LicenseArgs:
 
     @_builtins.property
     @pulumi.getter(name="licenseDetails")
-    def license_details(self) -> Optional[pulumi.Input['LicenseDetailsArgs']]:
+    def license_details(self) -> pulumi.Input[Optional['LicenseDetailsArgs']]:
         """
         Describes the properties of a License.
         """
         return pulumi.get(self, "license_details")
 
     @license_details.setter
-    def license_details(self, value: Optional[pulumi.Input['LicenseDetailsArgs']]):
+    def license_details(self, value: pulumi.Input[Optional['LicenseDetailsArgs']]):
         pulumi.set(self, "license_details", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]]:
+    def license_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]:
         """
         The type of the license resource.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseType']]]):
+    def license_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the tenant id.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+class LicenseDetailsArgsDict(TypedDict):
+    """
+    Describes the properties of a License.
+    """
+    edition: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseEdition']]]]
+    """
+    Describes the edition of the license. The values are either Standard or Datacenter.
+    """
+    processors: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Describes the number of processors.
+    """
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseState']]]]
+    """
+    Describes the state of the license.
+    """
+    target: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseTarget']]]]
+    """
+    Describes the license target server.
+    """
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseCoreType']]]]
+    """
+    Describes the license core type (pCore or vCore).
+    """
+    volume_license_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeLicenseDetailsArgsDict']]]]]
+    """
+    A list of volume license details.
+    """
+
+@pulumi.input_type
+class LicenseDetailsArgs:
+    def __init__(__self__, *,
+                 edition: pulumi.Input[Optional[Union[_builtins.str, 'LicenseEdition']]] = None,
+                 processors: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'LicenseState']]] = None,
+                 target: pulumi.Input[Optional[Union[_builtins.str, 'LicenseTarget']]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseCoreType']]] = None,
+                 volume_license_details: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]] = None):
+        """
+        Describes the properties of a License.
+
+        :param pulumi.Input[Union[_builtins.str, 'LicenseEdition']] edition: Describes the edition of the license. The values are either Standard or Datacenter.
+        :param pulumi.Input[_builtins.int] processors: Describes the number of processors.
+        :param pulumi.Input[Union[_builtins.str, 'LicenseState']] state: Describes the state of the license.
+        :param pulumi.Input[Union[_builtins.str, 'LicenseTarget']] target: Describes the license target server.
+        :param pulumi.Input[Union[_builtins.str, 'LicenseCoreType']] type: Describes the license core type (pCore or vCore).
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]] volume_license_details: A list of volume license details.
+        """
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if volume_license_details is not None:
+            pulumi.set(__self__, "volume_license_details", volume_license_details)
+
+    @_builtins.property
+    @pulumi.getter
+    def edition(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseEdition']]]:
+        """
+        Describes the edition of the license. The values are either Standard or Datacenter.
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseEdition']]]):
+        pulumi.set(self, "edition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def processors(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Describes the number of processors.
+        """
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "processors", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseState']]]:
+        """
+        Describes the state of the license.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseState']]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseTarget']]]:
+        """
+        Describes the license target server.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseTarget']]]):
+        pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseCoreType']]]:
+        """
+        Describes the license core type (pCore or vCore).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseCoreType']]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeLicenseDetails")
+    def volume_license_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]]:
+        """
+        A list of volume license details.
+        """
+        return pulumi.get(self, "volume_license_details")
+
+    @volume_license_details.setter
+    def volume_license_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]]):
+        pulumi.set(self, "volume_license_details", value)
+
+
+class LicenseProfileMachineInstanceViewArgsDict(TypedDict):
+    """
+    License Profile Instance View in Machine Properties.
+    """
+    esu_profile: NotRequired[pulumi.Input[Optional['LicenseProfileMachineInstanceViewEsuPropertiesArgsDict']]]
+    """
+    Properties for the Machine ESU profile.
+    """
+    product_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgsDict']]]]]
+    """
+    The list of product features.
+    """
+    product_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]]]
+    """
+    Indicates the product type of the license.
+    """
+    software_assurance_customer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies if this machine is licensed as part of a Software Assurance agreement.
+    """
+    subscription_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]]
+    """
+    Indicates the subscription status of the product.
+    """
+
+@pulumi.input_type
+class LicenseProfileMachineInstanceViewArgs:
+    def __init__(__self__, *,
+                 esu_profile: pulumi.Input[Optional['LicenseProfileMachineInstanceViewEsuPropertiesArgs']] = None,
+                 product_features: pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgs']]]] = None,
+                 product_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
+                 software_assurance_customer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscription_status: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None):
+        """
+        License Profile Instance View in Machine Properties.
+
+        :param pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs'] esu_profile: Properties for the Machine ESU profile.
+        :param pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]] product_features: The list of product features.
+        :param pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']] product_type: Indicates the product type of the license.
+        :param pulumi.Input[_builtins.bool] software_assurance_customer: Specifies if this machine is licensed as part of a Software Assurance agreement.
+        :param pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']] subscription_status: Indicates the subscription status of the product.
+        """
+        if esu_profile is not None:
+            pulumi.set(__self__, "esu_profile", esu_profile)
+        if product_features is not None:
+            pulumi.set(__self__, "product_features", product_features)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if software_assurance_customer is not None:
+            pulumi.set(__self__, "software_assurance_customer", software_assurance_customer)
+        if subscription_status is not None:
+            pulumi.set(__self__, "subscription_status", subscription_status)
+
+    @_builtins.property
+    @pulumi.getter(name="esuProfile")
+    def esu_profile(self) -> pulumi.Input[Optional['LicenseProfileMachineInstanceViewEsuPropertiesArgs']]:
+        """
+        Properties for the Machine ESU profile.
+        """
+        return pulumi.get(self, "esu_profile")
+
+    @esu_profile.setter
+    def esu_profile(self, value: pulumi.Input[Optional['LicenseProfileMachineInstanceViewEsuPropertiesArgs']]):
+        pulumi.set(self, "esu_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productFeatures")
+    def product_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgs']]]]:
+        """
+        The list of product features.
+        """
+        return pulumi.get(self, "product_features")
+
+    @product_features.setter
+    def product_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgs']]]]):
+        pulumi.set(self, "product_features", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]]:
+        """
+        Indicates the product type of the license.
+        """
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]]):
+        pulumi.set(self, "product_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="softwareAssuranceCustomer")
+    def software_assurance_customer(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies if this machine is licensed as part of a Software Assurance agreement.
+        """
+        return pulumi.get(self, "software_assurance_customer")
+
+    @software_assurance_customer.setter
+    def software_assurance_customer(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "software_assurance_customer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]:
+        """
+        Indicates the subscription status of the product.
+        """
+        return pulumi.get(self, "subscription_status")
+
+    @subscription_status.setter
+    def subscription_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]):
+        pulumi.set(self, "subscription_status", value)
+
+
+class LicenseProfileMachineInstanceViewEsuPropertiesArgsDict(TypedDict):
+    """
+    Properties for the Machine ESU profile.
+    """
+    assigned_license: NotRequired[pulumi.Input[Optional['LicenseArgsDict']]]
+    """
+    The assigned license resource.
+    """
+    license_assignment_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseAssignmentState']]]]
+    """
+    Describes the license assignment state (Assigned or NotAssigned).
+    """
+
+@pulumi.input_type
+class LicenseProfileMachineInstanceViewEsuPropertiesArgs:
+    def __init__(__self__, *,
+                 assigned_license: pulumi.Input[Optional['LicenseArgs']] = None,
+                 license_assignment_state: pulumi.Input[Optional[Union[_builtins.str, 'LicenseAssignmentState']]] = None):
+        """
+        Properties for the Machine ESU profile.
+
+        :param pulumi.Input['LicenseArgs'] assigned_license: The assigned license resource.
+        :param pulumi.Input[Union[_builtins.str, 'LicenseAssignmentState']] license_assignment_state: Describes the license assignment state (Assigned or NotAssigned).
+        """
+        if assigned_license is not None:
+            pulumi.set(__self__, "assigned_license", assigned_license)
+        if license_assignment_state is not None:
+            pulumi.set(__self__, "license_assignment_state", license_assignment_state)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedLicense")
+    def assigned_license(self) -> pulumi.Input[Optional['LicenseArgs']]:
+        """
+        The assigned license resource.
+        """
+        return pulumi.get(self, "assigned_license")
+
+    @assigned_license.setter
+    def assigned_license(self, value: pulumi.Input[Optional['LicenseArgs']]):
+        pulumi.set(self, "assigned_license", value)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseAssignmentState")
+    def license_assignment_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseAssignmentState']]]:
+        """
+        Describes the license assignment state (Assigned or NotAssigned).
+        """
+        return pulumi.get(self, "license_assignment_state")
+
+    @license_assignment_state.setter
+    def license_assignment_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseAssignmentState']]]):
+        pulumi.set(self, "license_assignment_state", value)
 
 
 class LocationDataArgsDict(TypedDict):
@@ -631,15 +631,15 @@ class LocationDataArgsDict(TypedDict):
     """
     A canonical name for the geographic or physical location.
     """
-    city: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The city or locality where the resource is located.
     """
-    country_or_region: NotRequired[pulumi.Input[_builtins.str]]
+    country_or_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The country or region where the resource is located
     """
-    district: NotRequired[pulumi.Input[_builtins.str]]
+    district: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The district, state, or province where the resource is located.
     """
@@ -648,9 +648,9 @@ class LocationDataArgsDict(TypedDict):
 class LocationDataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_or_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 district: Optional[pulumi.Input[_builtins.str]] = None):
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 district: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Metadata pertaining to the geographic location of the resource.
 
@@ -681,62 +681,156 @@ class LocationDataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city or locality where the resource is located.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="countryOrRegion")
-    def country_or_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country_or_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The country or region where the resource is located
         """
         return pulumi.get(self, "country_or_region")
 
     @country_or_region.setter
-    def country_or_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country_or_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_or_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def district(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def district(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The district, state, or province where the resource is located.
         """
         return pulumi.get(self, "district")
 
     @district.setter
-    def district(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def district(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "district", value)
+
+
+class MachineExtensionInstanceViewArgsDict(TypedDict):
+    """
+    Describes the Machine Extension Instance View.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The machine extension name.
+    """
+    status: NotRequired[pulumi.Input[Optional['MachineExtensionInstanceViewStatusArgsDict']]]
+    """
+    Instance view status.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the type of the extension; an example is "CustomScriptExtension".
+    """
+    type_handler_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the version of the script handler.
+    """
+
+@pulumi.input_type
+class MachineExtensionInstanceViewArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['MachineExtensionInstanceViewStatusArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes the Machine Extension Instance View.
+
+        :param pulumi.Input[_builtins.str] name: The machine extension name.
+        :param pulumi.Input['MachineExtensionInstanceViewStatusArgs'] status: Instance view status.
+        :param pulumi.Input[_builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param pulumi.Input[_builtins.str] type_handler_version: Specifies the version of the script handler.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The machine extension name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['MachineExtensionInstanceViewStatusArgs']]:
+        """
+        Instance view status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['MachineExtensionInstanceViewStatusArgs']]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type_handler_version", value)
 
 
 class MachineExtensionInstanceViewStatusArgsDict(TypedDict):
     """
     Instance view status.
     """
-    code: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status code.
     """
-    display_status: NotRequired[pulumi.Input[_builtins.str]]
+    display_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The short localizable label for the status.
     """
-    level: NotRequired[pulumi.Input[Union[_builtins.str, 'StatusLevelTypes']]]
+    level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StatusLevelTypes']]]]
     """
     The level code.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The detailed status message, including for alerts and error messages.
     """
-    time: NotRequired[pulumi.Input[_builtins.str]]
+    time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time of the status.
     """
@@ -744,11 +838,11 @@ class MachineExtensionInstanceViewStatusArgsDict(TypedDict):
 @pulumi.input_type
 class MachineExtensionInstanceViewStatusArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'StatusLevelTypes']]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'StatusLevelTypes']]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Instance view status.
 
@@ -771,176 +865,82 @@ class MachineExtensionInstanceViewStatusArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="displayStatus")
-    def display_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The short localizable label for the status.
         """
         return pulumi.get(self, "display_status")
 
     @display_status.setter
-    def display_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StatusLevelTypes']]]:
+    def level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StatusLevelTypes']]]:
         """
         The level code.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StatusLevelTypes']]]):
+    def level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StatusLevelTypes']]]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The detailed status message, including for alerts and error messages.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time of the status.
         """
         return pulumi.get(self, "time")
 
     @time.setter
-    def time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time", value)
-
-
-class MachineExtensionInstanceViewArgsDict(TypedDict):
-    """
-    Describes the Machine Extension Instance View.
-    """
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The machine extension name.
-    """
-    status: NotRequired[pulumi.Input['MachineExtensionInstanceViewStatusArgsDict']]
-    """
-    Instance view status.
-    """
-    type: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specifies the type of the extension; an example is "CustomScriptExtension".
-    """
-    type_handler_version: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Specifies the version of the script handler.
-    """
-
-@pulumi.input_type
-class MachineExtensionInstanceViewArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Describes the Machine Extension Instance View.
-
-        :param pulumi.Input[_builtins.str] name: The machine extension name.
-        :param pulumi.Input['MachineExtensionInstanceViewStatusArgs'] status: Instance view status.
-        :param pulumi.Input[_builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
-        :param pulumi.Input[_builtins.str] type_handler_version: Specifies the version of the script handler.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The machine extension name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]:
-        """
-        Instance view status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]):
-        pulumi.set(self, "status", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
-
-    @type_handler_version.setter
-    def type_handler_version(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type_handler_version", value)
 
 
 class MachineExtensionPropertiesArgsDict(TypedDict):
     """
     Describes the properties of a Machine Extension.
     """
-    auto_upgrade_minor_version: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_upgrade_minor_version: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
     """
-    enable_automatic_upgrade: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_automatic_upgrade: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
     """
-    force_update_tag: NotRequired[pulumi.Input[_builtins.str]]
+    force_update_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     How the extension handler should be forced to update even if the extension configuration has not changed.
     """
-    instance_view: NotRequired[pulumi.Input['MachineExtensionInstanceViewArgsDict']]
+    instance_view: NotRequired[pulumi.Input[Optional['MachineExtensionInstanceViewArgsDict']]]
     """
     The machine extension instance view.
     """
@@ -948,7 +948,7 @@ class MachineExtensionPropertiesArgsDict(TypedDict):
     """
     The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the extension handler publisher.
     """
@@ -956,11 +956,11 @@ class MachineExtensionPropertiesArgsDict(TypedDict):
     """
     Json formatted public settings for the extension.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the type of the extension; an example is "CustomScriptExtension".
     """
-    type_handler_version: NotRequired[pulumi.Input[_builtins.str]]
+    type_handler_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the version of the script handler.
     """
@@ -968,15 +968,15 @@ class MachineExtensionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MachineExtensionPropertiesArgs:
     def __init__(__self__, *,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_view: Optional[pulumi.Input['MachineExtensionInstanceViewArgs']] = None,
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_view: pulumi.Input[Optional['MachineExtensionInstanceViewArgs']] = None,
                  protected_settings: Optional[Any] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: Optional[Any] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the properties of a Machine Extension.
 
@@ -1011,50 +1011,50 @@ class MachineExtensionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_upgrade_minor_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @auto_upgrade_minor_version.setter
-    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_upgrade_minor_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpgrade")
-    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         """
         return pulumi.get(self, "enable_automatic_upgrade")
 
     @enable_automatic_upgrade.setter
-    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_update_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the extension handler should be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
 
     @force_update_tag.setter
-    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> Optional[pulumi.Input['MachineExtensionInstanceViewArgs']]:
+    def instance_view(self) -> pulumi.Input[Optional['MachineExtensionInstanceViewArgs']]:
         """
         The machine extension instance view.
         """
         return pulumi.get(self, "instance_view")
 
     @instance_view.setter
-    def instance_view(self, value: Optional[pulumi.Input['MachineExtensionInstanceViewArgs']]):
+    def instance_view(self, value: pulumi.Input[Optional['MachineExtensionInstanceViewArgs']]):
         pulumi.set(self, "instance_view", value)
 
     @_builtins.property
@@ -1071,14 +1071,14 @@ class MachineExtensionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the extension handler publisher.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
@@ -1095,26 +1095,26 @@ class MachineExtensionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the extension; an example is "CustomScriptExtension".
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_handler_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the script handler.
         """
         return pulumi.get(self, "type_handler_version")
 
     @type_handler_version.setter
-    def type_handler_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_handler_version", value)
 
 
@@ -1122,19 +1122,19 @@ class MachineRunCommandScriptSourceArgsDict(TypedDict):
     """
     Describes the script sources for run command. Use only one of script, scriptUri, commandId.
     """
-    command_id: NotRequired[pulumi.Input[_builtins.str]]
+    command_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the commandId of predefined built-in script.
     """
-    script: NotRequired[pulumi.Input[_builtins.str]]
+    script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the script content to be executed on the machine.
     """
-    script_uri: NotRequired[pulumi.Input[_builtins.str]]
+    script_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
     """
-    script_uri_managed_identity: NotRequired[pulumi.Input['RunCommandManagedIdentityArgsDict']]
+    script_uri_managed_identity: NotRequired[pulumi.Input[Optional['RunCommandManagedIdentityArgsDict']]]
     """
     User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
     """
@@ -1142,10 +1142,10 @@ class MachineRunCommandScriptSourceArgsDict(TypedDict):
 @pulumi.input_type
 class MachineRunCommandScriptSourceArgs:
     def __init__(__self__, *,
-                 command_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_uri_managed_identity: Optional[pulumi.Input['RunCommandManagedIdentityArgs']] = None):
+                 command_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_uri_managed_identity: pulumi.Input[Optional['RunCommandManagedIdentityArgs']] = None):
         """
         Describes the script sources for run command. Use only one of script, scriptUri, commandId.
 
@@ -1165,210 +1165,62 @@ class MachineRunCommandScriptSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="commandId")
-    def command_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def command_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the commandId of predefined built-in script.
         """
         return pulumi.get(self, "command_id")
 
     @command_id.setter
-    def command_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def command_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "command_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the script content to be executed on the machine.
         """
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptUri")
-    def script_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
         """
         return pulumi.get(self, "script_uri")
 
     @script_uri.setter
-    def script_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptUriManagedIdentity")
-    def script_uri_managed_identity(self) -> Optional[pulumi.Input['RunCommandManagedIdentityArgs']]:
+    def script_uri_managed_identity(self) -> pulumi.Input[Optional['RunCommandManagedIdentityArgs']]:
         """
         User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
         """
         return pulumi.get(self, "script_uri_managed_identity")
 
     @script_uri_managed_identity.setter
-    def script_uri_managed_identity(self, value: Optional[pulumi.Input['RunCommandManagedIdentityArgs']]):
+    def script_uri_managed_identity(self, value: pulumi.Input[Optional['RunCommandManagedIdentityArgs']]):
         pulumi.set(self, "script_uri_managed_identity", value)
-
-
-class OSProfileLinuxConfigurationArgsDict(TypedDict):
-    """
-    Specifies the linux configuration for update management.
-    """
-    assessment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]
-    """
-    Specifies the assessment mode.
-    """
-    enable_hotpatching: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-    """
-    patch_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]
-    """
-    Specifies the patch mode.
-    """
-
-@pulumi.input_type
-class OSProfileLinuxConfigurationArgs:
-    def __init__(__self__, *,
-                 assessment_mode: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]] = None,
-                 enable_hotpatching: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_mode: Optional[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]] = None):
-        """
-        Specifies the linux configuration for update management.
-
-        :param pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
-        :param pulumi.Input[_builtins.bool] enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-        :param pulumi.Input[Union[_builtins.str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
-        """
-        if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
-        if enable_hotpatching is not None:
-            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
-        if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentMode")
-    def assessment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]:
-        """
-        Specifies the assessment mode.
-        """
-        return pulumi.get(self, "assessment_mode")
-
-    @assessment_mode.setter
-    def assessment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]):
-        pulumi.set(self, "assessment_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableHotpatching")
-    def enable_hotpatching(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-        """
-        return pulumi.get(self, "enable_hotpatching")
-
-    @enable_hotpatching.setter
-    def enable_hotpatching(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_hotpatching", value)
-
-    @_builtins.property
-    @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]:
-        """
-        Specifies the patch mode.
-        """
-        return pulumi.get(self, "patch_mode")
-
-    @patch_mode.setter
-    def patch_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]):
-        pulumi.set(self, "patch_mode", value)
-
-
-class OSProfileWindowsConfigurationArgsDict(TypedDict):
-    """
-    Specifies the windows configuration for update management.
-    """
-    assessment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]
-    """
-    Specifies the assessment mode.
-    """
-    enable_hotpatching: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-    """
-    patch_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]
-    """
-    Specifies the patch mode.
-    """
-
-@pulumi.input_type
-class OSProfileWindowsConfigurationArgs:
-    def __init__(__self__, *,
-                 assessment_mode: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]] = None,
-                 enable_hotpatching: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_mode: Optional[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]] = None):
-        """
-        Specifies the windows configuration for update management.
-
-        :param pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
-        :param pulumi.Input[_builtins.bool] enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-        :param pulumi.Input[Union[_builtins.str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
-        """
-        if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
-        if enable_hotpatching is not None:
-            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
-        if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentMode")
-    def assessment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]:
-        """
-        Specifies the assessment mode.
-        """
-        return pulumi.get(self, "assessment_mode")
-
-    @assessment_mode.setter
-    def assessment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']]]):
-        pulumi.set(self, "assessment_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableHotpatching")
-    def enable_hotpatching(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
-        """
-        return pulumi.get(self, "enable_hotpatching")
-
-    @enable_hotpatching.setter
-    def enable_hotpatching(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_hotpatching", value)
-
-    @_builtins.property
-    @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]:
-        """
-        Specifies the patch mode.
-        """
-        return pulumi.get(self, "patch_mode")
-
-    @patch_mode.setter
-    def patch_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PatchModeTypes']]]):
-        pulumi.set(self, "patch_mode", value)
 
 
 class OSProfileArgsDict(TypedDict):
     """
     Specifies the operating system settings for the hybrid machine.
     """
-    linux_configuration: NotRequired[pulumi.Input['OSProfileLinuxConfigurationArgsDict']]
+    linux_configuration: NotRequired[pulumi.Input[Optional['OSProfileLinuxConfigurationArgsDict']]]
     """
     Specifies the linux configuration for update management.
     """
-    windows_configuration: NotRequired[pulumi.Input['OSProfileWindowsConfigurationArgsDict']]
+    windows_configuration: NotRequired[pulumi.Input[Optional['OSProfileWindowsConfigurationArgsDict']]]
     """
     Specifies the windows configuration for update management.
     """
@@ -1376,8 +1228,8 @@ class OSProfileArgsDict(TypedDict):
 @pulumi.input_type
 class OSProfileArgs:
     def __init__(__self__, *,
-                 linux_configuration: Optional[pulumi.Input['OSProfileLinuxConfigurationArgs']] = None,
-                 windows_configuration: Optional[pulumi.Input['OSProfileWindowsConfigurationArgs']] = None):
+                 linux_configuration: pulumi.Input[Optional['OSProfileLinuxConfigurationArgs']] = None,
+                 windows_configuration: pulumi.Input[Optional['OSProfileWindowsConfigurationArgs']] = None):
         """
         Specifies the operating system settings for the hybrid machine.
 
@@ -1391,38 +1243,186 @@ class OSProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="linuxConfiguration")
-    def linux_configuration(self) -> Optional[pulumi.Input['OSProfileLinuxConfigurationArgs']]:
+    def linux_configuration(self) -> pulumi.Input[Optional['OSProfileLinuxConfigurationArgs']]:
         """
         Specifies the linux configuration for update management.
         """
         return pulumi.get(self, "linux_configuration")
 
     @linux_configuration.setter
-    def linux_configuration(self, value: Optional[pulumi.Input['OSProfileLinuxConfigurationArgs']]):
+    def linux_configuration(self, value: pulumi.Input[Optional['OSProfileLinuxConfigurationArgs']]):
         pulumi.set(self, "linux_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsConfiguration")
-    def windows_configuration(self) -> Optional[pulumi.Input['OSProfileWindowsConfigurationArgs']]:
+    def windows_configuration(self) -> pulumi.Input[Optional['OSProfileWindowsConfigurationArgs']]:
         """
         Specifies the windows configuration for update management.
         """
         return pulumi.get(self, "windows_configuration")
 
     @windows_configuration.setter
-    def windows_configuration(self, value: Optional[pulumi.Input['OSProfileWindowsConfigurationArgs']]):
+    def windows_configuration(self, value: pulumi.Input[Optional['OSProfileWindowsConfigurationArgs']]):
         pulumi.set(self, "windows_configuration", value)
+
+
+class OSProfileLinuxConfigurationArgsDict(TypedDict):
+    """
+    Specifies the linux configuration for update management.
+    """
+    assessment_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]]]
+    """
+    Specifies the assessment mode.
+    """
+    enable_hotpatching: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+    """
+    patch_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]]]
+    """
+    Specifies the patch mode.
+    """
+
+@pulumi.input_type
+class OSProfileLinuxConfigurationArgs:
+    def __init__(__self__, *,
+                 assessment_mode: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]] = None,
+                 enable_hotpatching: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_mode: pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]] = None):
+        """
+        Specifies the linux configuration for update management.
+
+        :param pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[_builtins.bool] enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        :param pulumi.Input[Union[_builtins.str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if enable_hotpatching is not None:
+            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]]):
+        pulumi.set(self, "assessment_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableHotpatching")
+    def enable_hotpatching(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
+        return pulumi.get(self, "enable_hotpatching")
+
+    @enable_hotpatching.setter
+    def enable_hotpatching(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_hotpatching", value)
+
+    @_builtins.property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]]):
+        pulumi.set(self, "patch_mode", value)
+
+
+class OSProfileWindowsConfigurationArgsDict(TypedDict):
+    """
+    Specifies the windows configuration for update management.
+    """
+    assessment_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]]]
+    """
+    Specifies the assessment mode.
+    """
+    enable_hotpatching: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+    """
+    patch_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]]]
+    """
+    Specifies the patch mode.
+    """
+
+@pulumi.input_type
+class OSProfileWindowsConfigurationArgs:
+    def __init__(__self__, *,
+                 assessment_mode: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]] = None,
+                 enable_hotpatching: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_mode: pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]] = None):
+        """
+        Specifies the windows configuration for update management.
+
+        :param pulumi.Input[Union[_builtins.str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[_builtins.bool] enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        :param pulumi.Input[Union[_builtins.str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if enable_hotpatching is not None:
+            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentModeTypes']]]):
+        pulumi.set(self, "assessment_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableHotpatching")
+    def enable_hotpatching(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
+        return pulumi.get(self, "enable_hotpatching")
+
+    @enable_hotpatching.setter
+    def enable_hotpatching(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_hotpatching", value)
+
+    @_builtins.property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PatchModeTypes']]]):
+        pulumi.set(self, "patch_mode", value)
 
 
 class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
     """
     Properties of a private endpoint connection.
     """
-    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointPropertyArgsDict']]
+    private_endpoint: NotRequired[pulumi.Input[Optional['PrivateEndpointPropertyArgsDict']]]
     """
     Private endpoint which the connection belongs to.
     """
-    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgsDict']]
+    private_link_service_connection_state: NotRequired[pulumi.Input[Optional['PrivateLinkServiceConnectionStatePropertyArgsDict']]]
     """
     Connection state of the private endpoint connection.
     """
@@ -1430,8 +1430,8 @@ class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointPropertyArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']] = None):
+                 private_endpoint: pulumi.Input[Optional['PrivateEndpointPropertyArgs']] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkServiceConnectionStatePropertyArgs']] = None):
         """
         Properties of a private endpoint connection.
 
@@ -1445,26 +1445,26 @@ class PrivateEndpointConnectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointPropertyArgs']]:
+    def private_endpoint(self) -> pulumi.Input[Optional['PrivateEndpointPropertyArgs']]:
         """
         Private endpoint which the connection belongs to.
         """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointPropertyArgs']]):
+    def private_endpoint(self, value: pulumi.Input[Optional['PrivateEndpointPropertyArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['PrivateLinkServiceConnectionStatePropertyArgs']]:
         """
         Connection state of the private endpoint connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['PrivateLinkServiceConnectionStatePropertyArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
@@ -1472,7 +1472,7 @@ class PrivateEndpointPropertyArgsDict(TypedDict):
     """
     Private endpoint which the connection belongs to.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource id of the private endpoint.
     """
@@ -1480,7 +1480,7 @@ class PrivateEndpointPropertyArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointPropertyArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Private endpoint which the connection belongs to.
 
@@ -1491,14 +1491,14 @@ class PrivateEndpointPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource id of the private endpoint.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1558,11 +1558,11 @@ class ProductFeatureArgsDict(TypedDict):
     """
     Product Feature
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Product feature name.
     """
-    subscription_status: NotRequired[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]
+    subscription_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]]
     """
     Indicates the current status of the product features.
     """
@@ -1570,8 +1570,8 @@ class ProductFeatureArgsDict(TypedDict):
 @pulumi.input_type
 class ProductFeatureArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_status: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_status: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None):
         """
         Product Feature
 
@@ -1585,26 +1585,26 @@ class ProductFeatureArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Product feature name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionStatus")
-    def subscription_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]:
+    def subscription_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]:
         """
         Indicates the current status of the product features.
         """
         return pulumi.get(self, "subscription_status")
 
     @subscription_status.setter
-    def subscription_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]):
+    def subscription_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]):
         pulumi.set(self, "subscription_status", value)
 
 
@@ -1664,11 +1664,11 @@ class RunCommandManagedIdentityArgsDict(TypedDict):
     """
      Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
     """
@@ -1676,8 +1676,8 @@ class RunCommandManagedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class RunCommandManagedIdentityArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
          Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
 
@@ -1691,92 +1691,38 @@ class RunCommandManagedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
-
-
-class ServiceStatusesArgsDict(TypedDict):
-    """
-    Reports the state and behavior of dependent services.
-    """
-    extension_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
-    """
-    The state of the extension service on the Arc-enabled machine.
-    """
-    guest_configuration_service: NotRequired[pulumi.Input['ServiceStatusArgsDict']]
-    """
-    The state of the guest configuration service on the Arc-enabled machine.
-    """
-
-@pulumi.input_type
-class ServiceStatusesArgs:
-    def __init__(__self__, *,
-                 extension_service: Optional[pulumi.Input['ServiceStatusArgs']] = None,
-                 guest_configuration_service: Optional[pulumi.Input['ServiceStatusArgs']] = None):
-        """
-        Reports the state and behavior of dependent services.
-
-        :param pulumi.Input['ServiceStatusArgs'] extension_service: The state of the extension service on the Arc-enabled machine.
-        :param pulumi.Input['ServiceStatusArgs'] guest_configuration_service: The state of the guest configuration service on the Arc-enabled machine.
-        """
-        if extension_service is not None:
-            pulumi.set(__self__, "extension_service", extension_service)
-        if guest_configuration_service is not None:
-            pulumi.set(__self__, "guest_configuration_service", guest_configuration_service)
-
-    @_builtins.property
-    @pulumi.getter(name="extensionService")
-    def extension_service(self) -> Optional[pulumi.Input['ServiceStatusArgs']]:
-        """
-        The state of the extension service on the Arc-enabled machine.
-        """
-        return pulumi.get(self, "extension_service")
-
-    @extension_service.setter
-    def extension_service(self, value: Optional[pulumi.Input['ServiceStatusArgs']]):
-        pulumi.set(self, "extension_service", value)
-
-    @_builtins.property
-    @pulumi.getter(name="guestConfigurationService")
-    def guest_configuration_service(self) -> Optional[pulumi.Input['ServiceStatusArgs']]:
-        """
-        The state of the guest configuration service on the Arc-enabled machine.
-        """
-        return pulumi.get(self, "guest_configuration_service")
-
-    @guest_configuration_service.setter
-    def guest_configuration_service(self, value: Optional[pulumi.Input['ServiceStatusArgs']]):
-        pulumi.set(self, "guest_configuration_service", value)
 
 
 class ServiceStatusArgsDict(TypedDict):
     """
     Describes the status and behavior of a service.
     """
-    startup_type: NotRequired[pulumi.Input[_builtins.str]]
+    startup_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The behavior of the service when the Arc-enabled machine starts up.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The current status of the service.
     """
@@ -1784,8 +1730,8 @@ class ServiceStatusArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceStatusArgs:
     def __init__(__self__, *,
-                 startup_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 startup_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the status and behavior of a service.
 
@@ -1799,35 +1745,89 @@ class ServiceStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="startupType")
-    def startup_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def startup_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The behavior of the service when the Arc-enabled machine starts up.
         """
         return pulumi.get(self, "startup_type")
 
     @startup_type.setter
-    def startup_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def startup_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "startup_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
+class ServiceStatusesArgsDict(TypedDict):
+    """
+    Reports the state and behavior of dependent services.
+    """
+    extension_service: NotRequired[pulumi.Input[Optional['ServiceStatusArgsDict']]]
+    """
+    The state of the extension service on the Arc-enabled machine.
+    """
+    guest_configuration_service: NotRequired[pulumi.Input[Optional['ServiceStatusArgsDict']]]
+    """
+    The state of the guest configuration service on the Arc-enabled machine.
+    """
+
+@pulumi.input_type
+class ServiceStatusesArgs:
+    def __init__(__self__, *,
+                 extension_service: pulumi.Input[Optional['ServiceStatusArgs']] = None,
+                 guest_configuration_service: pulumi.Input[Optional['ServiceStatusArgs']] = None):
+        """
+        Reports the state and behavior of dependent services.
+
+        :param pulumi.Input['ServiceStatusArgs'] extension_service: The state of the extension service on the Arc-enabled machine.
+        :param pulumi.Input['ServiceStatusArgs'] guest_configuration_service: The state of the guest configuration service on the Arc-enabled machine.
+        """
+        if extension_service is not None:
+            pulumi.set(__self__, "extension_service", extension_service)
+        if guest_configuration_service is not None:
+            pulumi.set(__self__, "guest_configuration_service", guest_configuration_service)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionService")
+    def extension_service(self) -> pulumi.Input[Optional['ServiceStatusArgs']]:
+        """
+        The state of the extension service on the Arc-enabled machine.
+        """
+        return pulumi.get(self, "extension_service")
+
+    @extension_service.setter
+    def extension_service(self, value: pulumi.Input[Optional['ServiceStatusArgs']]):
+        pulumi.set(self, "extension_service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="guestConfigurationService")
+    def guest_configuration_service(self) -> pulumi.Input[Optional['ServiceStatusArgs']]:
+        """
+        The state of the guest configuration service on the Arc-enabled machine.
+        """
+        return pulumi.get(self, "guest_configuration_service")
+
+    @guest_configuration_service.setter
+    def guest_configuration_service(self, value: pulumi.Input[Optional['ServiceStatusArgs']]):
+        pulumi.set(self, "guest_configuration_service", value)
+
+
 class VolumeLicenseDetailsArgsDict(TypedDict):
-    invoice_id: NotRequired[pulumi.Input[_builtins.str]]
+    invoice_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The invoice id for the volume license.
     """
-    program_year: NotRequired[pulumi.Input[Union[_builtins.str, 'ProgramYear']]]
+    program_year: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProgramYear']]]]
     """
     Describes the program year the volume license is for.
     """
@@ -1835,8 +1835,8 @@ class VolumeLicenseDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeLicenseDetailsArgs:
     def __init__(__self__, *,
-                 invoice_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 program_year: Optional[pulumi.Input[Union[_builtins.str, 'ProgramYear']]] = None):
+                 invoice_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 program_year: pulumi.Input[Optional[Union[_builtins.str, 'ProgramYear']]] = None):
         """
         :param pulumi.Input[_builtins.str] invoice_id: The invoice id for the volume license.
         :param pulumi.Input[Union[_builtins.str, 'ProgramYear']] program_year: Describes the program year the volume license is for.
@@ -1848,26 +1848,26 @@ class VolumeLicenseDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="invoiceId")
-    def invoice_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invoice_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The invoice id for the volume license.
         """
         return pulumi.get(self, "invoice_id")
 
     @invoice_id.setter
-    def invoice_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invoice_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invoice_id", value)
 
     @_builtins.property
     @pulumi.getter(name="programYear")
-    def program_year(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProgramYear']]]:
+    def program_year(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProgramYear']]]:
         """
         Describes the program year the volume license is for.
         """
         return pulumi.get(self, "program_year")
 
     @program_year.setter
-    def program_year(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProgramYear']]]):
+    def program_year(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProgramYear']]]):
         pulumi.set(self, "program_year", value)
 
 

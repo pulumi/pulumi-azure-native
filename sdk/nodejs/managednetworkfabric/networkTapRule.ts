@@ -179,7 +179,7 @@ export interface NetworkTapRuleArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Input method to configure Network Tap Rule.
      */
@@ -187,23 +187,23 @@ export interface NetworkTapRuleArgs {
     /**
      * List of dynamic match configurations.
      */
-    dynamicMatchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.CommonDynamicMatchConfigurationArgs>[]>;
+    dynamicMatchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.CommonDynamicMatchConfigurationArgs>[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * List of match configurations.
      */
-    matchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.NetworkTapRuleMatchConfigurationArgs>[]>;
+    matchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.NetworkTapRuleMatchConfigurationArgs>[] | undefined>;
     /**
      * Name of the Network Tap Rule.
      */
-    networkTapRuleName?: pulumi.Input<string>;
+    networkTapRuleName?: pulumi.Input<string | undefined>;
     /**
      * Polling interval in seconds.
      */
-    pollingIntervalInSeconds?: pulumi.Input<number>;
+    pollingIntervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -211,9 +211,9 @@ export interface NetworkTapRuleArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Network Tap Rules file URL.
      */
-    tapRulesUrl?: pulumi.Input<string>;
+    tapRulesUrl?: pulumi.Input<string | undefined>;
 }

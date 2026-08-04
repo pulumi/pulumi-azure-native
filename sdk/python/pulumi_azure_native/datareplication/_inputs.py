@@ -42,10 +42,10 @@ __all__ = [
     'IdentityModelArgsDict',
     'PolicyModelPropertiesArgs',
     'PolicyModelPropertiesArgsDict',
-    'PrivateEndpointConnectionResponsePropertiesArgs',
-    'PrivateEndpointConnectionResponsePropertiesArgsDict',
     'PrivateEndpointArgs',
     'PrivateEndpointArgsDict',
+    'PrivateEndpointConnectionResponsePropertiesArgs',
+    'PrivateEndpointConnectionResponsePropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
     'ProtectedItemDynamicMemoryConfigArgs',
@@ -604,12 +604,12 @@ class HyperVToAzStackHCIDiskInputArgsDict(TypedDict):
     """
     Gets or sets a value indicating whether disk is os disk.
     """
-    is_dynamic: NotRequired[pulumi.Input[_builtins.bool]]
+    is_dynamic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
     disk.
     """
-    storage_container_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_container_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target storage account ARM Id.
     """
@@ -621,8 +621,8 @@ class HyperVToAzStackHCIDiskInputArgs:
                  disk_id: pulumi.Input[_builtins.str],
                  disk_size_gb: pulumi.Input[_builtins.float],
                  is_os_disk: pulumi.Input[_builtins.bool],
-                 is_dynamic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_dynamic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         HyperVToAzStack disk input.
 
@@ -693,7 +693,7 @@ class HyperVToAzStackHCIDiskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="isDynamic")
-    def is_dynamic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_dynamic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
         disk.
@@ -701,19 +701,19 @@ class HyperVToAzStackHCIDiskInputArgs:
         return pulumi.get(self, "is_dynamic")
 
     @is_dynamic.setter
-    def is_dynamic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_dynamic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_dynamic", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target storage account ARM Id.
         """
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
-    def storage_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_id", value)
 
 
@@ -960,31 +960,31 @@ class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgsDict(TypedDict):
     """
     Gets or sets the target resource group ARM Id.
     """
-    dynamic_memory_config: NotRequired[pulumi.Input['ProtectedItemDynamicMemoryConfigArgsDict']]
+    dynamic_memory_config: NotRequired[pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgsDict']]]
     """
     Protected item dynamic memory config.
     """
-    is_dynamic_ram: NotRequired[pulumi.Input[_builtins.bool]]
+    is_dynamic_ram: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets or sets a value indicating whether memory is dynamical.
     """
-    target_cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
+    target_cpu_cores: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the target CPU cores.
     """
-    target_memory_in_mega_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    target_memory_in_mega_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the target memory in mega-bytes.
     """
-    target_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target network Id within AzStackHCI Cluster.
     """
-    target_vm_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_vm_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target VM display name.
     """
-    test_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    test_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target test network Id within AzStackHCI Cluster.
     """
@@ -1005,13 +1005,13 @@ class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgs:
                  target_dra_name: pulumi.Input[_builtins.str],
                  target_hci_cluster_id: pulumi.Input[_builtins.str],
                  target_resource_group_id: pulumi.Input[_builtins.str],
-                 dynamic_memory_config: Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']] = None,
-                 is_dynamic_ram: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_cpu_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_memory_in_mega_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_memory_config: pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgs']] = None,
+                 is_dynamic_ram: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_cpu_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_memory_in_mega_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         HyperV to AzStackHCI Protected item model custom properties.
 
@@ -1224,86 +1224,86 @@ class HyperVToAzStackHCIProtectedItemModelCustomPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicMemoryConfig")
-    def dynamic_memory_config(self) -> Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']]:
+    def dynamic_memory_config(self) -> pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgs']]:
         """
         Protected item dynamic memory config.
         """
         return pulumi.get(self, "dynamic_memory_config")
 
     @dynamic_memory_config.setter
-    def dynamic_memory_config(self, value: Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']]):
+    def dynamic_memory_config(self, value: pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgs']]):
         pulumi.set(self, "dynamic_memory_config", value)
 
     @_builtins.property
     @pulumi.getter(name="isDynamicRam")
-    def is_dynamic_ram(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_dynamic_ram(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a value indicating whether memory is dynamical.
         """
         return pulumi.get(self, "is_dynamic_ram")
 
     @is_dynamic_ram.setter
-    def is_dynamic_ram(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_dynamic_ram(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_dynamic_ram", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCpuCores")
-    def target_cpu_cores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_cpu_cores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the target CPU cores.
         """
         return pulumi.get(self, "target_cpu_cores")
 
     @target_cpu_cores.setter
-    def target_cpu_cores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_cpu_cores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_cpu_cores", value)
 
     @_builtins.property
     @pulumi.getter(name="targetMemoryInMegaBytes")
-    def target_memory_in_mega_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_memory_in_mega_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the target memory in mega-bytes.
         """
         return pulumi.get(self, "target_memory_in_mega_bytes")
 
     @target_memory_in_mega_bytes.setter
-    def target_memory_in_mega_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_memory_in_mega_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_memory_in_mega_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target network Id within AzStackHCI Cluster.
         """
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVmName")
-    def target_vm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_vm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target VM display name.
         """
         return pulumi.get(self, "target_vm_name")
 
     @target_vm_name.setter
-    def target_vm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_vm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_vm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="testNetworkId")
-    def test_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target test network Id within AzStackHCI Cluster.
         """
         return pulumi.get(self, "test_network_id")
 
     @test_network_id.setter
-    def test_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_network_id", value)
 
 
@@ -1324,11 +1324,11 @@ class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict(TypedD
     Gets or sets the instance type.
     Expected value is 'HyperVToAzStackHCI'.
     """
-    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the storage account Id.
     """
-    storage_account_sas_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_sas_secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the Sas Secret of storage account.
     """
@@ -1339,8 +1339,8 @@ class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
                  az_stack_hci_fabric_arm_id: pulumi.Input[_builtins.str],
                  hyper_v_fabric_arm_id: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_sas_secret_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_sas_secret_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         HyperV to AzStackHCI Replication extension model custom properties.
 
@@ -1398,26 +1398,26 @@ class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the storage account Id.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSasSecretName")
-    def storage_account_sas_secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_sas_secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the Sas Secret of storage account.
         """
         return pulumi.get(self, "storage_account_sas_secret_name")
 
     @storage_account_sas_secret_name.setter
-    def storage_account_sas_secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_sas_secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_sas_secret_name", value)
 
 
@@ -1563,15 +1563,49 @@ class PolicyModelPropertiesArgs:
         pulumi.set(self, "custom_properties", value)
 
 
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Gets or sets the id.
+    """
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+
+        :param pulumi.Input[_builtins.str] id: Gets or sets the id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gets or sets the id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
 class PrivateEndpointConnectionResponsePropertiesArgsDict(TypedDict):
     """
     Represents Private endpoint connection response properties.
     """
-    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+    private_endpoint: NotRequired[pulumi.Input[Optional['PrivateEndpointArgsDict']]]
     """
     Represent private Endpoint network resource that is linked to the Private Endpoint connection.
     """
-    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    private_link_service_connection_state: NotRequired[pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgsDict']]]
     """
     Represents Private link service connection state.
     """
@@ -1579,8 +1613,8 @@ class PrivateEndpointConnectionResponsePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateEndpointConnectionResponsePropertiesArgs:
     def __init__(__self__, *,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+                 private_endpoint: pulumi.Input[Optional['PrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         Represents Private endpoint connection response properties.
 
@@ -1594,76 +1628,42 @@ class PrivateEndpointConnectionResponsePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+    def private_endpoint(self) -> pulumi.Input[Optional['PrivateEndpointArgs']]:
         """
         Represent private Endpoint network resource that is linked to the Private Endpoint connection.
         """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+    def private_endpoint(self, value: pulumi.Input[Optional['PrivateEndpointArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+    def private_link_service_connection_state(self) -> pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']]:
         """
         Represents Private link service connection state.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+    def private_link_service_connection_state(self, value: pulumi.Input[Optional['PrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
-
-
-class PrivateEndpointArgsDict(TypedDict):
-    """
-    Represent private Endpoint network resource that is linked to the Private Endpoint connection.
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Gets or sets the id.
-    """
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Represent private Endpoint network resource that is linked to the Private Endpoint connection.
-
-        :param pulumi.Input[_builtins.str] id: Gets or sets the id.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Gets or sets the id.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
 
 class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     Represents Private link service connection state.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets actions required.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets description.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]]
     """
     Gets or sets the status.
     """
@@ -1671,9 +1671,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]] = None):
         """
         Represents Private link service connection state.
 
@@ -1690,38 +1690,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets actions required.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]:
         """
         Gets or sets the status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -2194,12 +2194,12 @@ class VMwareToAzStackHCIDiskInputArgsDict(TypedDict):
     """
     Gets or sets a value indicating whether disk is os disk.
     """
-    is_dynamic: NotRequired[pulumi.Input[_builtins.bool]]
+    is_dynamic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
     disk.
     """
-    storage_container_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_container_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target storage account ARM Id.
     """
@@ -2211,8 +2211,8 @@ class VMwareToAzStackHCIDiskInputArgs:
                  disk_id: pulumi.Input[_builtins.str],
                  disk_size_gb: pulumi.Input[_builtins.float],
                  is_os_disk: pulumi.Input[_builtins.bool],
-                 is_dynamic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_container_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_dynamic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         VMwareToAzStack disk input.
 
@@ -2283,7 +2283,7 @@ class VMwareToAzStackHCIDiskInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="isDynamic")
-    def is_dynamic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_dynamic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
         disk.
@@ -2291,19 +2291,19 @@ class VMwareToAzStackHCIDiskInputArgs:
         return pulumi.get(self, "is_dynamic")
 
     @is_dynamic.setter
-    def is_dynamic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_dynamic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_dynamic", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target storage account ARM Id.
         """
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
-    def storage_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_id", value)
 
 
@@ -2569,35 +2569,35 @@ class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgsDict(TypedDict):
     """
     Gets or sets the target resource group ARM Id.
     """
-    dynamic_memory_config: NotRequired[pulumi.Input['ProtectedItemDynamicMemoryConfigArgsDict']]
+    dynamic_memory_config: NotRequired[pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgsDict']]]
     """
     Protected item dynamic memory config.
     """
-    is_dynamic_ram: NotRequired[pulumi.Input[_builtins.bool]]
+    is_dynamic_ram: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets or sets a value indicating whether memory is dynamical.
     """
-    perform_auto_resync: NotRequired[pulumi.Input[_builtins.bool]]
+    perform_auto_resync: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Gets or sets a value indicating whether auto resync is to be done.
     """
-    target_cpu_cores: NotRequired[pulumi.Input[_builtins.int]]
+    target_cpu_cores: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the target CPU cores.
     """
-    target_memory_in_mega_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    target_memory_in_mega_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets the target memory in mega-bytes.
     """
-    target_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target network Id within AzStackHCI Cluster.
     """
-    target_vm_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_vm_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target VM display name.
     """
-    test_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    test_network_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the target test network Id within AzStackHCI Cluster.
     """
@@ -2618,14 +2618,14 @@ class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgs:
                  target_dra_name: pulumi.Input[_builtins.str],
                  target_hci_cluster_id: pulumi.Input[_builtins.str],
                  target_resource_group_id: pulumi.Input[_builtins.str],
-                 dynamic_memory_config: Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']] = None,
-                 is_dynamic_ram: Optional[pulumi.Input[_builtins.bool]] = None,
-                 perform_auto_resync: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_cpu_cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_memory_in_mega_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_memory_config: pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgs']] = None,
+                 is_dynamic_ram: pulumi.Input[Optional[_builtins.bool]] = None,
+                 perform_auto_resync: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_cpu_cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_memory_in_mega_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         VMware to AzStackHCI Protected item model custom properties.
 
@@ -2841,98 +2841,98 @@ class VMwareToAzStackHCIProtectedItemModelCustomPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicMemoryConfig")
-    def dynamic_memory_config(self) -> Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']]:
+    def dynamic_memory_config(self) -> pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgs']]:
         """
         Protected item dynamic memory config.
         """
         return pulumi.get(self, "dynamic_memory_config")
 
     @dynamic_memory_config.setter
-    def dynamic_memory_config(self, value: Optional[pulumi.Input['ProtectedItemDynamicMemoryConfigArgs']]):
+    def dynamic_memory_config(self, value: pulumi.Input[Optional['ProtectedItemDynamicMemoryConfigArgs']]):
         pulumi.set(self, "dynamic_memory_config", value)
 
     @_builtins.property
     @pulumi.getter(name="isDynamicRam")
-    def is_dynamic_ram(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_dynamic_ram(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a value indicating whether memory is dynamical.
         """
         return pulumi.get(self, "is_dynamic_ram")
 
     @is_dynamic_ram.setter
-    def is_dynamic_ram(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_dynamic_ram(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_dynamic_ram", value)
 
     @_builtins.property
     @pulumi.getter(name="performAutoResync")
-    def perform_auto_resync(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def perform_auto_resync(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Gets or sets a value indicating whether auto resync is to be done.
         """
         return pulumi.get(self, "perform_auto_resync")
 
     @perform_auto_resync.setter
-    def perform_auto_resync(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def perform_auto_resync(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "perform_auto_resync", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCpuCores")
-    def target_cpu_cores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_cpu_cores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the target CPU cores.
         """
         return pulumi.get(self, "target_cpu_cores")
 
     @target_cpu_cores.setter
-    def target_cpu_cores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_cpu_cores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_cpu_cores", value)
 
     @_builtins.property
     @pulumi.getter(name="targetMemoryInMegaBytes")
-    def target_memory_in_mega_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_memory_in_mega_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets the target memory in mega-bytes.
         """
         return pulumi.get(self, "target_memory_in_mega_bytes")
 
     @target_memory_in_mega_bytes.setter
-    def target_memory_in_mega_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_memory_in_mega_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_memory_in_mega_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target network Id within AzStackHCI Cluster.
         """
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVmName")
-    def target_vm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_vm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target VM display name.
         """
         return pulumi.get(self, "target_vm_name")
 
     @target_vm_name.setter
-    def target_vm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_vm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_vm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="testNetworkId")
-    def test_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the target test network Id within AzStackHCI Cluster.
         """
         return pulumi.get(self, "test_network_id")
 
     @test_network_id.setter
-    def test_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_network_id", value)
 
 
@@ -2953,11 +2953,11 @@ class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgsDict(TypedD
     """
     Gets or sets the ARM Id of the source VMware fabric.
     """
-    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the storage account Id.
     """
-    storage_account_sas_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_sas_secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the Sas Secret of storage account.
     """
@@ -2968,8 +2968,8 @@ class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
                  az_stack_hci_fabric_arm_id: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
                  vmware_fabric_arm_id: pulumi.Input[_builtins.str],
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_sas_secret_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_sas_secret_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         VMware to AzStackHCI Replication extension model custom properties.
 
@@ -3027,26 +3027,26 @@ class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the storage account Id.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSasSecretName")
-    def storage_account_sas_secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_sas_secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the Sas Secret of storage account.
         """
         return pulumi.get(self, "storage_account_sas_secret_name")
 
     @storage_account_sas_secret_name.setter
-    def storage_account_sas_secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_sas_secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_sas_secret_name", value)
 
 
@@ -3054,7 +3054,7 @@ class VaultModelPropertiesArgsDict(TypedDict):
     """
     Vault properties.
     """
-    vault_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationVaultType']]]
+    vault_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReplicationVaultType']]]]
     """
     Gets or sets the type of vault.
     """
@@ -3062,7 +3062,7 @@ class VaultModelPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VaultModelPropertiesArgs:
     def __init__(__self__, *,
-                 vault_type: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationVaultType']]] = None):
+                 vault_type: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationVaultType']]] = None):
         """
         Vault properties.
 
@@ -3073,14 +3073,14 @@ class VaultModelPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="vaultType")
-    def vault_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationVaultType']]]:
+    def vault_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReplicationVaultType']]]:
         """
         Gets or sets the type of vault.
         """
         return pulumi.get(self, "vault_type")
 
     @vault_type.setter
-    def vault_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationVaultType']]]):
+    def vault_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationVaultType']]]):
         pulumi.set(self, "vault_type", value)
 
 

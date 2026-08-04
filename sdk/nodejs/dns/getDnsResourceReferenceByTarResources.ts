@@ -57,5 +57,5 @@ export interface GetDnsResourceReferenceByTarResourcesOutputArgs {
     /**
      * A list of references to azure resources for which referencing dns records need to be queried.
      */
-    targetResources?: pulumi.Input<pulumi.Input<inputs.dns.SubResourceArgs>[]>;
+    targetResources?: pulumi.Input<pulumi.Input<inputs.dns.SubResourceArgs>[] | undefined>;
 }

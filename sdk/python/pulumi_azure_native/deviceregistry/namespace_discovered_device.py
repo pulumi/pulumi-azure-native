@@ -28,15 +28,15 @@ class NamespaceDiscoveredDeviceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.float],
                  attributes: Optional[Any] = None,
-                 discovered_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input['DiscoveredMessagingEndpointsArgs']] = None,
-                 external_device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 discovered_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional['DiscoveredMessagingEndpointsArgs']] = None,
+                 external_device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NamespaceDiscoveredDevice resource.
 
@@ -156,110 +156,110 @@ class NamespaceDiscoveredDeviceArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoveredDeviceName")
-    def discovered_device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovered_device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the discovered device.
         """
         return pulumi.get(self, "discovered_device_name")
 
     @discovered_device_name.setter
-    def discovered_device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovered_device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovered_device_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input['DiscoveredMessagingEndpointsArgs']]:
+    def endpoints(self) -> pulumi.Input[Optional['DiscoveredMessagingEndpointsArgs']]:
         """
         Endpoints for discovered devices.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input['DiscoveredMessagingEndpointsArgs']]):
+    def endpoints(self, value: pulumi.Input[Optional['DiscoveredMessagingEndpointsArgs']]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="externalDeviceId")
-    def external_device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_device_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A device ID that represents the device in a system external to Azure. Unique within scope of an Azure tenant.
         """
         return pulumi.get(self, "external_device_id")
 
     @external_device_id.setter
-    def external_device_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_device_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_device_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def manufacturer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manufacturer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device manufacturer.
         """
         return pulumi.get(self, "manufacturer")
 
     @manufacturer.setter
-    def manufacturer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manufacturer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manufacturer", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device model.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operating_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device operating system name.
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operating_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operating_system", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystemVersion")
-    def operating_system_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operating_system_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device operating system version.
         """
         return pulumi.get(self, "operating_system_version")
 
     @operating_system_version.setter
-    def operating_system_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operating_system_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operating_system_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -270,20 +270,20 @@ class NamespaceDiscoveredDevice(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
-                 discovered_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input[Union['DiscoveredMessagingEndpointsArgs', 'DiscoveredMessagingEndpointsArgsDict']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 external_device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
+                 discovered_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional[Union['DiscoveredMessagingEndpointsArgs', 'DiscoveredMessagingEndpointsArgsDict']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 external_device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Discovered device definition.
@@ -291,7 +291,6 @@ class NamespaceDiscoveredDevice(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-10-01, 2025-11-01-preview, 2026-03-01-preview, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,7 +323,6 @@ class NamespaceDiscoveredDevice(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01, 2025-11-01-preview, 2026-03-01-preview, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NamespaceDiscoveredDeviceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,20 +339,20 @@ class NamespaceDiscoveredDevice(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[Any] = None,
-                 discovered_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input[Union['DiscoveredMessagingEndpointsArgs', 'DiscoveredMessagingEndpointsArgsDict']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 external_device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 manufacturer: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
+                 discovered_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional[Union['DiscoveredMessagingEndpointsArgs', 'DiscoveredMessagingEndpointsArgsDict']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 external_device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 manufacturer: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

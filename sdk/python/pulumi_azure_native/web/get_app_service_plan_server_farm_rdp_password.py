@@ -71,7 +71,6 @@ def get_app_service_plan_server_farm_rdp_password(name: Optional[_builtins.str] 
 
     Other available API versions: 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str name: Name of the App Service plan.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -84,8 +83,8 @@ def get_app_service_plan_server_farm_rdp_password(name: Optional[_builtins.str] 
     return AwaitableGetAppServicePlanServerFarmRdpPasswordResult(
         rdp_password=pulumi.get(__ret__, 'rdp_password'),
         rdp_password_expiry=pulumi.get(__ret__, 'rdp_password_expiry'))
-def get_app_service_plan_server_farm_rdp_password_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_plan_server_farm_rdp_password_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServicePlanServerFarmRdpPasswordResult]:
     """
     Description for Get the RDP password for an IsCustomMode ServerFarm.
@@ -93,7 +92,6 @@ def get_app_service_plan_server_farm_rdp_password_output(name: Optional[pulumi.I
     Uses Azure REST API version 2025-05-01.
 
     Other available API versions: 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str name: Name of the App Service plan.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

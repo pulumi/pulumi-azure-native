@@ -29,9 +29,9 @@ class BmcKeySetArgs:
                  privilege_level: pulumi.Input[Union[_builtins.str, 'BmcKeySetPrivilegeLevel']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_list: pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]],
-                 bmc_key_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bmc_key_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BmcKeySet resource.
 
@@ -146,38 +146,38 @@ class BmcKeySetArgs:
 
     @_builtins.property
     @pulumi.getter(name="bmcKeySetName")
-    def bmc_key_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bmc_key_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the baseboard management controller key set.
         """
         return pulumi.get(self, "bmc_key_set_name")
 
     @bmc_key_set_name.setter
-    def bmc_key_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bmc_key_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bmc_key_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -187,22 +187,21 @@ class BmcKeySet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bmc_key_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 privilege_level: Optional[pulumi.Input[Union[_builtins.str, 'BmcKeySetPrivilegeLevel']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
+                 azure_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bmc_key_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 privilege_level: pulumi.Input[Optional[Union[_builtins.str, 'BmcKeySetPrivilegeLevel']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,7 +227,6 @@ class BmcKeySet(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BmcKeySetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,16 +242,16 @@ class BmcKeySet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bmc_key_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 privilege_level: Optional[pulumi.Input[Union[_builtins.str, 'BmcKeySetPrivilegeLevel']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
+                 azure_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bmc_key_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 privilege_level: pulumi.Input[Optional[Union[_builtins.str, 'BmcKeySetPrivilegeLevel']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeySetUserArgs', 'KeySetUserArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -3002,7 +3002,7 @@ class PlanResponse(dict):
         Plan for the resource.
 
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param _builtins.str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param _builtins.str version: The version of the desired product/artifact.
@@ -3027,7 +3027,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def product(self) -> _builtins.str:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 

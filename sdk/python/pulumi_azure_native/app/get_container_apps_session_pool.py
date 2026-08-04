@@ -288,7 +288,6 @@ def get_container_apps_session_pool(resource_group_name: Optional[_builtins.str]
 
     Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str session_pool_name: Name of the session pool.
     """
@@ -319,8 +318,8 @@ def get_container_apps_session_pool(resource_group_name: Optional[_builtins.str]
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           session_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_container_apps_session_pool_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           session_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsSessionPoolResult]:
     """
     Container App session pool.
@@ -328,7 +327,6 @@ def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.
     Uses Azure REST API version 2025-02-02-preview.
 
     Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str session_pool_name: Name of the session pool.

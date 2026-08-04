@@ -158,7 +158,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Encrypted storage key.
      */
-    accountKey?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs>;
+    accountKey?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs | undefined>;
     /**
      * Type of storage accessed on the storage account.
      */
@@ -170,11 +170,11 @@ export interface StorageAccountCredentialArgs {
     /**
      * Blob end point for private clouds.
      */
-    blobDomainName?: pulumi.Input<string>;
+    blobDomainName?: pulumi.Input<string | undefined>;
     /**
      * Connection string for the storage account. Use this string if username and account key are not specified.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The device name.
      */
@@ -182,7 +182,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The storage account credential name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */
@@ -194,9 +194,9 @@ export interface StorageAccountCredentialArgs {
     /**
      * Id of the storage account.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Username for the storage account.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

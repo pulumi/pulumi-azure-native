@@ -192,7 +192,6 @@ def get_dns_resolver(dns_resolver_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str dns_resolver_name: The name of the DNS resolver.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -215,8 +214,8 @@ def get_dns_resolver(dns_resolver_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dns_resolver_output(dns_resolver_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverResult]:
     """
     Gets properties of a DNS resolver.
@@ -224,7 +223,6 @@ def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str dns_resolver_name: The name of the DNS resolver.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

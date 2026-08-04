@@ -130,19 +130,19 @@ export interface AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs {
     /**
      * The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
      */
-    certificateUrl?: pulumi.Input<string>;
+    certificateUrl?: pulumi.Input<string | undefined>;
     /**
      * The default custom domain suffix to use for all sites deployed on the ASE.
      */
-    dnsSuffix?: pulumi.Input<string>;
+    dnsSuffix?: pulumi.Input<string | undefined>;
     /**
      * The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
      */
-    keyVaultReferenceIdentity?: pulumi.Input<string>;
+    keyVaultReferenceIdentity?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the App Service Environment.
      */

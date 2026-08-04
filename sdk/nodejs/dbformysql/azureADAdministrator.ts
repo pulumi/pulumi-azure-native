@@ -132,19 +132,19 @@ export interface AzureADAdministratorArgs {
     /**
      * The name of the Azure AD Administrator.
      */
-    administratorName?: pulumi.Input<string>;
+    administratorName?: pulumi.Input<string | undefined>;
     /**
      * Type of the sever administrator.
      */
-    administratorType?: pulumi.Input<string | enums.dbformysql.AdministratorType>;
+    administratorType?: pulumi.Input<string | enums.dbformysql.AdministratorType | undefined>;
     /**
      * The resource id of the identity used for AAD Authentication.
      */
-    identityResourceId?: pulumi.Input<string>;
+    identityResourceId?: pulumi.Input<string | undefined>;
     /**
      * Login name of the server administrator.
      */
-    login?: pulumi.Input<string>;
+    login?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -156,9 +156,9 @@ export interface AzureADAdministratorArgs {
     /**
      * SID (object ID) of the server administrator.
      */
-    sid?: pulumi.Input<string>;
+    sid?: pulumi.Input<string | undefined>;
     /**
      * Tenant ID of the administrator.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

@@ -120,7 +120,6 @@ def get_relationship(azure_monitor_workspace_name: Optional[_builtins.str] = Non
 
     Uses Azure REST API version 2025-05-03-preview.
 
-
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str health_model_name: Name of health model resource
     :param _builtins.str relationship_name: Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
@@ -141,16 +140,15 @@ def get_relationship(azure_monitor_workspace_name: Optional[_builtins.str] = Non
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_relationship_output(azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            relationship_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_relationship_output(azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            relationship_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRelationshipResult]:
     """
     Get a Relationship
 
     Uses Azure REST API version 2025-05-03-preview.
-
 
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str health_model_name: Name of health model resource

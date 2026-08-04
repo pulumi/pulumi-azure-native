@@ -123,7 +123,6 @@ def get_graph_ql_api_resolver_policy(api_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param _builtins.str format: Policy Export Format.
     :param _builtins.str policy_id: The identifier of the Policy.
@@ -148,12 +147,12 @@ def get_graph_ql_api_resolver_policy(api_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_graph_ql_api_resolver_policy_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            format: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_graph_ql_api_resolver_policy_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            format: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphQLApiResolverPolicyResult]:
     """
     Get the policy configuration at the GraphQL API Resolver level.
@@ -161,7 +160,6 @@ def get_graph_ql_api_resolver_policy_output(api_id: Optional[pulumi.Input[_built
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param _builtins.str format: Policy Export Format.

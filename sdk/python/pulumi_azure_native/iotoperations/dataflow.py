@@ -26,8 +26,8 @@ class DataflowArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dataflow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DataflowPropertiesArgs']] = None):
+                 dataflow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DataflowPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Dataflow resource.
 
@@ -97,26 +97,26 @@ class DataflowArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataflowName")
-    def dataflow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Instance dataflowProfile dataflow resource
         """
         return pulumi.get(self, "dataflow_name")
 
     @dataflow_name.setter
-    def dataflow_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataflow_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DataflowPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DataflowPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DataflowPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DataflowPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -126,12 +126,12 @@ class Dataflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataflow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataflow_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataflow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataflow_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Instance dataflowProfile dataflow resource
@@ -139,7 +139,6 @@ class Dataflow(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +162,6 @@ class Dataflow(pulumi.CustomResource):
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DataflowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,12 +177,12 @@ class Dataflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataflow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataflow_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataflow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataflow_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataflowPropertiesArgs', 'DataflowPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

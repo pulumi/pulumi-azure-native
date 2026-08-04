@@ -23,8 +23,8 @@ __all__ = ['PrivateLinkAssociationArgs', 'PrivateLinkAssociation']
 class PrivateLinkAssociationArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
-                 pla_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['PrivateLinkAssociationPropertiesArgs']] = None):
+                 pla_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['PrivateLinkAssociationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAssociation resource.
 
@@ -52,26 +52,26 @@ class PrivateLinkAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="plaId")
-    def pla_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pla_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the PLA
         """
         return pulumi.get(self, "pla_id")
 
     @pla_id.setter
-    def pla_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pla_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pla_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['PrivateLinkAssociationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['PrivateLinkAssociationPropertiesArgs']]:
         """
         The properties of the PrivateLinkAssociation.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['PrivateLinkAssociationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['PrivateLinkAssociationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -81,13 +81,12 @@ class PrivateLinkAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pla_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pla_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +103,6 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         """
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateLinkAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +118,9 @@ class PrivateLinkAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pla_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pla_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['PrivateLinkAssociationPropertiesArgs', 'PrivateLinkAssociationPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

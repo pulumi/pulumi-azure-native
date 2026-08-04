@@ -21,8 +21,8 @@ class NamespaceVirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceVirtualNetworkRule resource.
 
@@ -64,26 +64,26 @@ class NamespaceVirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRuleName")
-    def virtual_network_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Network Rule name.
         """
         return pulumi.get(self, "virtual_network_rule_name")
 
     @virtual_network_rule_name.setter
-    def virtual_network_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of Virtual Network Subnet
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
@@ -93,16 +93,15 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Single item in a List or Get VirtualNetworkRules operation
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +121,6 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param NamespaceVirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,10 +136,10 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

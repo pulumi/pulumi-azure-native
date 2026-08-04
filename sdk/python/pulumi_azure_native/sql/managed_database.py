@@ -22,26 +22,26 @@ class ManagedDatabaseArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_complete_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 catalog_collation: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'ManagedDatabaseCreateMode']]] = None,
-                 cross_subscription_restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_subscription_source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_subscription_target_managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_ledger_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_retention_backup_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_complete_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 catalog_collation: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'ManagedDatabaseCreateMode']]] = None,
+                 cross_subscription_restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_subscription_source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_subscription_target_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_ledger_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_retention_backup_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedDatabase resource.
 
@@ -137,242 +137,242 @@ class ManagedDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoCompleteRestore")
-    def auto_complete_restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_complete_restore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to auto complete restore of this managed database.
         """
         return pulumi.get(self, "auto_complete_restore")
 
     @auto_complete_restore.setter
-    def auto_complete_restore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_complete_restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_complete_restore", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogCollation")
-    def catalog_collation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]]:
+    def catalog_collation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]]:
         """
         Collation of the metadata catalog.
         """
         return pulumi.get(self, "catalog_collation")
 
     @catalog_collation.setter
-    def catalog_collation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]]):
+    def catalog_collation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]]):
         pulumi.set(self, "catalog_collation", value)
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collation of the managed database.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedDatabaseCreateMode']]]:
+    def create_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedDatabaseCreateMode']]]:
         """
         Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedDatabaseCreateMode']]]):
+    def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedDatabaseCreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="crossSubscriptionRestorableDroppedDatabaseId")
-    def cross_subscription_restorable_dropped_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_subscription_restorable_dropped_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The restorable cross-subscription dropped database resource id to restore when creating this database.
         """
         return pulumi.get(self, "cross_subscription_restorable_dropped_database_id")
 
     @cross_subscription_restorable_dropped_database_id.setter
-    def cross_subscription_restorable_dropped_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_subscription_restorable_dropped_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_subscription_restorable_dropped_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="crossSubscriptionSourceDatabaseId")
-    def cross_subscription_source_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_subscription_source_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the cross-subscription source database associated with create operation of this database.
         """
         return pulumi.get(self, "cross_subscription_source_database_id")
 
     @cross_subscription_source_database_id.setter
-    def cross_subscription_source_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_subscription_source_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_subscription_source_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="crossSubscriptionTargetManagedInstanceId")
-    def cross_subscription_target_managed_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cross_subscription_target_managed_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target managed instance id used in cross-subscription restore.
         """
         return pulumi.get(self, "cross_subscription_target_managed_instance_id")
 
     @cross_subscription_target_managed_instance_id.setter
-    def cross_subscription_target_managed_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cross_subscription_target_managed_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cross_subscription_target_managed_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isLedgerOn")
-    def is_ledger_on(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_ledger_on(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         """
         return pulumi.get(self, "is_ledger_on")
 
     @is_ledger_on.setter
-    def is_ledger_on(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_ledger_on(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_ledger_on", value)
 
     @_builtins.property
     @pulumi.getter(name="lastBackupName")
-    def last_backup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last backup file name for restore of this managed database.
         """
         return pulumi.get(self, "last_backup_name")
 
     @last_backup_name.setter
-    def last_backup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_backup_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="longTermRetentionBackupResourceId")
-    def long_term_retention_backup_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def long_term_retention_backup_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Long Term Retention backup to be used for restore of this managed database.
         """
         return pulumi.get(self, "long_term_retention_backup_resource_id")
 
     @long_term_retention_backup_resource_id.setter
-    def long_term_retention_backup_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def long_term_retention_backup_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "long_term_retention_backup_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recoverableDatabaseId")
-    def recoverable_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recoverable_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the recoverable database associated with create operation of this database.
         """
         return pulumi.get(self, "recoverable_database_id")
 
     @recoverable_database_id.setter
-    def recoverable_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recoverable_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recoverable_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="restorableDroppedDatabaseId")
-    def restorable_dropped_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restorable_dropped_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The restorable dropped database resource id to restore when creating this database.
         """
         return pulumi.get(self, "restorable_dropped_database_id")
 
     @restorable_dropped_database_id.setter
-    def restorable_dropped_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restorable_dropped_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restorable_dropped_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_in_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         """
         return pulumi.get(self, "restore_point_in_time")
 
     @restore_point_in_time.setter
-    def restore_point_in_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_in_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_in_time", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the source database associated with create operation of this database.
         """
         return pulumi.get(self, "source_database_id")
 
     @source_database_id.setter
-    def source_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerIdentity")
-    def storage_container_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Conditional. If createMode is RestoreExternalBackup, this value is used. Specifies the identity used for storage container authentication. Can be 'SharedAccessSignature' or 'ManagedIdentity'; if not specified 'SharedAccessSignature' is assumed.
         """
         return pulumi.get(self, "storage_container_identity")
 
     @storage_container_identity.setter
-    def storage_container_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerSasToken")
-    def storage_container_sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_sas_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Conditional. If createMode is RestoreExternalBackup and storageContainerIdentity is not ManagedIdentity, this value is required. Specifies the storage container sas token.
         """
         return pulumi.get(self, "storage_container_sas_token")
 
     @storage_container_sas_token.setter
-    def storage_container_sas_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_sas_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_sas_token", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerUri")
-    def storage_container_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
         """
         return pulumi.get(self, "storage_container_uri")
 
     @storage_container_uri.setter
-    def storage_container_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -382,28 +382,28 @@ class ManagedDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_complete_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 catalog_collation: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'ManagedDatabaseCreateMode']]] = None,
-                 cross_subscription_restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_subscription_source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_subscription_target_managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_ledger_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_retention_backup_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_complete_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 catalog_collation: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'ManagedDatabaseCreateMode']]] = None,
+                 cross_subscription_restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_subscription_source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_subscription_target_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_ledger_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_retention_backup_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A managed database resource.
@@ -411,7 +411,6 @@ class ManagedDatabase(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-03-01-preview, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,7 +450,6 @@ class ManagedDatabase(pulumi.CustomResource):
 
         Other available API versions: 2017-03-01-preview, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ManagedDatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -467,28 +465,28 @@ class ManagedDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_complete_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 catalog_collation: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'ManagedDatabaseCreateMode']]] = None,
-                 cross_subscription_restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_subscription_source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_subscription_target_managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_ledger_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_retention_backup_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_complete_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 catalog_collation: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'ManagedDatabaseCreateMode']]] = None,
+                 cross_subscription_restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_subscription_source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_subscription_target_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_ledger_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_retention_backup_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

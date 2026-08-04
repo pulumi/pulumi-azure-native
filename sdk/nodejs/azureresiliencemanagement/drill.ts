@@ -110,15 +110,15 @@ export interface DrillArgs {
     /**
      * The name of the Drill
      */
-    drillName?: pulumi.Input<string>;
+    drillName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azureresiliencemanagement.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.azureresiliencemanagement.ManagedServiceIdentityArgs | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azureresiliencemanagement.RegionalDrillPropertiesArgs | inputs.azureresiliencemanagement.ZonalDrillPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azureresiliencemanagement.RegionalDrillPropertiesArgs | inputs.azureresiliencemanagement.ZonalDrillPropertiesArgs | undefined>;
     /**
      * The name of the service group.
      */

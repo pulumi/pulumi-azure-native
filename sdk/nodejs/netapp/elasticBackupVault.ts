@@ -130,11 +130,11 @@ export interface ElasticBackupVaultArgs {
     /**
      * The name of the ElasticBackupVault
      */
-    backupVaultName?: pulumi.Input<string>;
+    backupVaultName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,5 +142,5 @@ export interface ElasticBackupVaultArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

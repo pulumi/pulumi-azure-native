@@ -23,8 +23,8 @@ class ComponentCurrentBillingFeatureArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 current_billing_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_volume_cap: Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']] = None):
+                 current_billing_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_volume_cap: pulumi.Input[Optional['ApplicationInsightsComponentDataVolumeCapArgs']] = None):
         """
         The set of arguments for constructing a ComponentCurrentBillingFeature resource.
 
@@ -66,26 +66,26 @@ class ComponentCurrentBillingFeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentBillingFeatures")
-    def current_billing_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def current_billing_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
         """
         return pulumi.get(self, "current_billing_features")
 
     @current_billing_features.setter
-    def current_billing_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def current_billing_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "current_billing_features", value)
 
     @_builtins.property
     @pulumi.getter(name="dataVolumeCap")
-    def data_volume_cap(self) -> Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']]:
+    def data_volume_cap(self) -> pulumi.Input[Optional['ApplicationInsightsComponentDataVolumeCapArgs']]:
         """
         An Application Insights component daily data volume cap
         """
         return pulumi.get(self, "data_volume_cap")
 
     @data_volume_cap.setter
-    def data_volume_cap(self, value: Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']]):
+    def data_volume_cap(self, value: pulumi.Input[Optional['ApplicationInsightsComponentDataVolumeCapArgs']]):
         pulumi.set(self, "data_volume_cap", value)
 
 
@@ -95,16 +95,15 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 current_billing_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_volume_cap: Optional[pulumi.Input[Union['ApplicationInsightsComponentDataVolumeCapArgs', 'ApplicationInsightsComponentDataVolumeCapArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 current_billing_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_volume_cap: pulumi.Input[Optional[Union['ApplicationInsightsComponentDataVolumeCapArgs', 'ApplicationInsightsComponentDataVolumeCapArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Application Insights component billing features
 
         Uses Azure REST API version 2015-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param ComponentCurrentBillingFeatureArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 current_billing_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_volume_cap: Optional[pulumi.Input[Union['ApplicationInsightsComponentDataVolumeCapArgs', 'ApplicationInsightsComponentDataVolumeCapArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 current_billing_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_volume_cap: pulumi.Input[Optional[Union['ApplicationInsightsComponentDataVolumeCapArgs', 'ApplicationInsightsComponentDataVolumeCapArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

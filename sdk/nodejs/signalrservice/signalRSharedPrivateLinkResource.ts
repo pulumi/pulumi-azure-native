@@ -146,7 +146,7 @@ export interface SignalRSharedPrivateLinkResourceArgs {
     /**
      * The request message for requesting approval of the shared private link resource
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,5 +158,5 @@ export interface SignalRSharedPrivateLinkResourceArgs {
     /**
      * The name of the shared private link resource.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string>;
+    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
 }

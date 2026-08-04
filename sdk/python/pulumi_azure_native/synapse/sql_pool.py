@@ -24,19 +24,19 @@ class SqlPoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 source_database_deletion_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 source_database_deletion_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageAccountType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlPool resource.
 
@@ -123,19 +123,19 @@ class SqlPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collation mode
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]]:
+    def create_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]]:
         """
         Specifies the mode of sql pool creation.
 
@@ -150,139 +150,139 @@ class SqlPoolArgs:
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]]):
+    def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_size_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum size in bytes
         """
         return pulumi.get(self, "max_size_bytes")
 
     @max_size_bytes.setter
-    def max_size_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_size_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource state
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="recoverableDatabaseId")
-    def recoverable_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recoverable_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Backup database to restore from
         """
         return pulumi.get(self, "recoverable_database_id")
 
     @recoverable_database_id.setter
-    def recoverable_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recoverable_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recoverable_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_in_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Snapshot time to restore
         """
         return pulumi.get(self, "restore_point_in_time")
 
     @restore_point_in_time.setter
-    def restore_point_in_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_in_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_in_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         SQL pool SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_deletion_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time that the sql pool was deleted
         """
         return pulumi.get(self, "source_database_deletion_date")
 
     @source_database_deletion_date.setter
-    def source_database_deletion_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_deletion_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_deletion_date", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source database to create from
         """
         return pulumi.get(self, "source_database_id")
 
     @source_database_id.setter
-    def source_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlPoolName")
-    def sql_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SQL pool name
         """
         return pulumi.get(self, "sql_pool_name")
 
     @sql_pool_name.setter
-    def sql_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]:
+    def storage_account_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageAccountType']]]:
         """
         The storage account type used to store backups for this sql pool.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]]):
+    def storage_account_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageAccountType']]]):
         pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -292,21 +292,21 @@ class SqlPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 source_database_deletion_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 source_database_deletion_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageAccountType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A SQL Analytics pool
@@ -314,7 +314,6 @@ class SqlPool(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,7 +354,6 @@ class SqlPool(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SqlPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -371,21 +369,21 @@ class SqlPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 source_database_deletion_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageAccountType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 source_database_deletion_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageAccountType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

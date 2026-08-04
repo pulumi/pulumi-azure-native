@@ -114,7 +114,7 @@ class GetNamespaceNetworkRuleSetResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[_builtins.str]:
         """
-        This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+        This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -180,7 +180,6 @@ def get_namespace_network_rule_set(namespace_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str namespace_name: The Namespace name
     :param _builtins.str resource_group_name: Name of the resource group within the azure subscription.
     """
@@ -202,8 +201,8 @@ def get_namespace_network_rule_set(namespace_name: Optional[_builtins.str] = Non
         trusted_service_access_enabled=pulumi.get(__ret__, 'trusted_service_access_enabled'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
-def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_network_rule_set_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
     """
     Gets NetworkRuleSet for a Namespace.
@@ -211,7 +210,6 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str namespace_name: The Namespace name
     :param _builtins.str resource_group_name: Name of the resource group within the azure subscription.

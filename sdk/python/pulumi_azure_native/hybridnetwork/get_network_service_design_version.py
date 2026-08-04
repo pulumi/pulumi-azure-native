@@ -146,7 +146,6 @@ def get_network_service_design_version(network_service_design_group_name: Option
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str network_service_design_group_name: The name of the network service design group.
     :param _builtins.str network_service_design_version_name: The name of the network service design version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
     :param _builtins.str publisher_name: The name of the publisher.
@@ -169,10 +168,10 @@ def get_network_service_design_version(network_service_design_group_name: Option
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_service_design_version_output(network_service_design_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              network_service_design_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_service_design_version_output(network_service_design_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              network_service_design_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkServiceDesignVersionResult]:
     """
     Gets information about a network service design version.
@@ -180,7 +179,6 @@ def get_network_service_design_version_output(network_service_design_group_name:
     Uses Azure REST API version 2024-04-15.
 
     Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str network_service_design_group_name: The name of the network service design group.
     :param _builtins.str network_service_design_version_name: The name of the network service design version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.

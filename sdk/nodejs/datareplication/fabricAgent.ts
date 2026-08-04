@@ -108,7 +108,7 @@ export interface FabricAgentArgs {
     /**
      * The fabric agent name.
      */
-    fabricAgentName?: pulumi.Input<string>;
+    fabricAgentName?: pulumi.Input<string | undefined>;
     /**
      * The fabric name.
      */
@@ -116,7 +116,7 @@ export interface FabricAgentArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.datareplication.FabricAgentModelPropertiesArgs>;
+    properties?: pulumi.Input<inputs.datareplication.FabricAgentModelPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

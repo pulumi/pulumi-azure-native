@@ -105,9 +105,9 @@ export interface NamespaceVirtualNetworkRuleArgs {
     /**
      * The Virtual Network Rule name.
      */
-    virtualNetworkRuleName?: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID of Virtual Network Subnet
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
 }

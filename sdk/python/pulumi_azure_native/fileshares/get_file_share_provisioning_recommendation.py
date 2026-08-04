@@ -61,7 +61,6 @@ def get_file_share_provisioning_recommendation(location: Optional[_builtins.str]
 
     Other available API versions: 2025-09-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str location: The name of the Azure region.
     :param Union['FileShareProvisioningRecommendationInput', 'FileShareProvisioningRecommendationInputDict'] properties: The properties of the file share provisioning recommendation input.
     """
@@ -73,8 +72,8 @@ def get_file_share_provisioning_recommendation(location: Optional[_builtins.str]
 
     return AwaitableGetFileShareProvisioningRecommendationResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_file_share_provisioning_recommendation_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      properties: Optional[pulumi.Input[Union['FileShareProvisioningRecommendationInput', 'FileShareProvisioningRecommendationInputDict']]] = None,
+def get_file_share_provisioning_recommendation_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      properties: pulumi.Input[Optional[Union['FileShareProvisioningRecommendationInput', 'FileShareProvisioningRecommendationInputDict']]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareProvisioningRecommendationResult]:
     """
     Get file shares provisioning parameters recommendation.
@@ -82,7 +81,6 @@ def get_file_share_provisioning_recommendation_output(location: Optional[pulumi.
     Uses Azure REST API version 2025-06-01-preview.
 
     Other available API versions: 2025-09-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str location: The name of the Azure region.
     :param Union['FileShareProvisioningRecommendationInput', 'FileShareProvisioningRecommendationInputDict'] properties: The properties of the file share provisioning recommendation input.

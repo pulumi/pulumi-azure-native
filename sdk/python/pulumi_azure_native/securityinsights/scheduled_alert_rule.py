@@ -35,17 +35,17 @@ class ScheduledAlertRuleArgs:
                  trigger_operator: pulumi.Input['TriggerOperator'],
                  trigger_threshold: pulumi.Input[_builtins.int],
                  workspace_name: pulumi.Input[_builtins.str],
-                 alert_details_override: Optional[pulumi.Input['AlertDetailsOverrideArgs']] = None,
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]] = None,
-                 event_grouping_settings: Optional[pulumi.Input['EventGroupingSettingsArgs']] = None,
-                 incident_configuration: Optional[pulumi.Input['IncidentConfigurationArgs']] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_details_override: pulumi.Input[Optional['AlertDetailsOverrideArgs']] = None,
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['EntityMappingArgs']]]] = None,
+                 event_grouping_settings: pulumi.Input[Optional['EventGroupingSettingsArgs']] = None,
+                 incident_configuration: pulumi.Input[Optional['IncidentConfigurationArgs']] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAlertRule resource.
 
@@ -270,134 +270,134 @@ class ScheduledAlertRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertDetailsOverride")
-    def alert_details_override(self) -> Optional[pulumi.Input['AlertDetailsOverrideArgs']]:
+    def alert_details_override(self) -> pulumi.Input[Optional['AlertDetailsOverrideArgs']]:
         """
         The alert details override settings
         """
         return pulumi.get(self, "alert_details_override")
 
     @alert_details_override.setter
-    def alert_details_override(self, value: Optional[pulumi.Input['AlertDetailsOverrideArgs']]):
+    def alert_details_override(self, value: pulumi.Input[Optional['AlertDetailsOverrideArgs']]):
         pulumi.set(self, "alert_details_override", value)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateName")
-    def alert_rule_template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_rule_template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the alert rule template used to create this rule.
         """
         return pulumi.get(self, "alert_rule_template_name")
 
     @alert_rule_template_name.setter
-    def alert_rule_template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_rule_template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_rule_template_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customDetails")
-    def custom_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_details(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of string key-value pairs of columns to be attached to the alert
         """
         return pulumi.get(self, "custom_details")
 
     @custom_details.setter
-    def custom_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_details(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the alert rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="entityMappings")
-    def entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]]:
+    def entity_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntityMappingArgs']]]]:
         """
         Array of the entity mappings of the alert rule
         """
         return pulumi.get(self, "entity_mappings")
 
     @entity_mappings.setter
-    def entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]]]):
+    def entity_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntityMappingArgs']]]]):
         pulumi.set(self, "entity_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="eventGroupingSettings")
-    def event_grouping_settings(self) -> Optional[pulumi.Input['EventGroupingSettingsArgs']]:
+    def event_grouping_settings(self) -> pulumi.Input[Optional['EventGroupingSettingsArgs']]:
         """
         The event grouping settings.
         """
         return pulumi.get(self, "event_grouping_settings")
 
     @event_grouping_settings.setter
-    def event_grouping_settings(self, value: Optional[pulumi.Input['EventGroupingSettingsArgs']]):
+    def event_grouping_settings(self, value: pulumi.Input[Optional['EventGroupingSettingsArgs']]):
         pulumi.set(self, "event_grouping_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentConfiguration")
-    def incident_configuration(self) -> Optional[pulumi.Input['IncidentConfigurationArgs']]:
+    def incident_configuration(self) -> pulumi.Input[Optional['IncidentConfigurationArgs']]:
         """
         The settings of the incidents that created from alerts triggered by this analytics rule
         """
         return pulumi.get(self, "incident_configuration")
 
     @incident_configuration.setter
-    def incident_configuration(self, value: Optional[pulumi.Input['IncidentConfigurationArgs']]):
+    def incident_configuration(self, value: pulumi.Input[Optional['IncidentConfigurationArgs']]):
         pulumi.set(self, "incident_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alert rule ID
         """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]:
+    def tactics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]:
         """
         The tactics of the alert rule
         """
         return pulumi.get(self, "tactics")
 
     @tactics.setter
-    def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]):
+    def tactics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]):
         pulumi.set(self, "tactics", value)
 
     @_builtins.property
     @pulumi.getter
-    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def techniques(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The techniques of the alert rule
         """
         return pulumi.get(self, "techniques")
 
     @techniques.setter
-    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def techniques(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "techniques", value)
 
     @_builtins.property
     @pulumi.getter(name="templateVersion")
-    def template_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
         """
         return pulumi.get(self, "template_version")
 
     @template_version.setter
-    def template_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_version", value)
 
 
@@ -407,36 +407,35 @@ class ScheduledAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_override: Optional[pulumi.Input[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']]] = None,
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityMappingArgs', 'EntityMappingArgsDict']]]]] = None,
-                 event_grouping_settings: Optional[pulumi.Input[Union['EventGroupingSettingsArgs', 'EventGroupingSettingsArgsDict']]] = None,
-                 incident_configuration: Optional[pulumi.Input[Union['IncidentConfigurationArgs', 'IncidentConfigurationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]] = None,
-                 suppression_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_operator: Optional[pulumi.Input['TriggerOperator']] = None,
-                 trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_details_override: pulumi.Input[Optional[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']]] = None,
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityMappingArgs', 'EntityMappingArgsDict']]]]] = None,
+                 event_grouping_settings: pulumi.Input[Optional[Union['EventGroupingSettingsArgs', 'EventGroupingSettingsArgsDict']]] = None,
+                 incident_configuration: pulumi.Input[Optional[Union['IncidentConfigurationArgs', 'IncidentConfigurationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[Union[_builtins.str, 'AlertSeverity']]] = None,
+                 suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_operator: pulumi.Input[Optional['TriggerOperator']] = None,
+                 trigger_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents scheduled alert rule.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -477,7 +476,6 @@ class ScheduledAlertRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param ScheduledAlertRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -493,30 +491,30 @@ class ScheduledAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_override: Optional[pulumi.Input[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']]] = None,
-                 alert_rule_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityMappingArgs', 'EntityMappingArgsDict']]]]] = None,
-                 event_grouping_settings: Optional[pulumi.Input[Union['EventGroupingSettingsArgs', 'EventGroupingSettingsArgsDict']]] = None,
-                 incident_configuration: Optional[pulumi.Input[Union['IncidentConfigurationArgs', 'IncidentConfigurationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[Union[_builtins.str, 'AlertSeverity']]] = None,
-                 suppression_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppression_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_operator: Optional[pulumi.Input['TriggerOperator']] = None,
-                 trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_details_override: pulumi.Input[Optional[Union['AlertDetailsOverrideArgs', 'AlertDetailsOverrideArgsDict']]] = None,
+                 alert_rule_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntityMappingArgs', 'EntityMappingArgsDict']]]]] = None,
+                 event_grouping_settings: pulumi.Input[Optional[Union['EventGroupingSettingsArgs', 'EventGroupingSettingsArgsDict']]] = None,
+                 incident_configuration: pulumi.Input[Optional[Union['IncidentConfigurationArgs', 'IncidentConfigurationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[Union[_builtins.str, 'AlertSeverity']]] = None,
+                 suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_operator: pulumi.Input[Optional['TriggerOperator']] = None,
+                 trigger_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

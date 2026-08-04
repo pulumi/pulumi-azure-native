@@ -27,11 +27,11 @@ class SecretSyncArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  secret_provider_class_name: pulumi.Input[_builtins.str],
                  service_account_name: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
-                 force_synchronization: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_sync_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
+                 force_synchronization: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_sync_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecretSync resource.
 
@@ -124,62 +124,62 @@ class SecretSyncArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
         """
         The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="forceSynchronization")
-    def force_synchronization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def force_synchronization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ForceSynchronization can be used to force the secret synchronization. The secret synchronization is triggered by changing the value in this field. This field is not used to resolve synchronization conflicts.
         """
         return pulumi.get(self, "force_synchronization")
 
     @force_synchronization.setter
-    def force_synchronization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def force_synchronization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_synchronization", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="secretSyncName")
-    def secret_sync_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_sync_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SecretSync
         """
         return pulumi.get(self, "secret_sync_name")
 
     @secret_sync_name.setter
-    def secret_sync_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_sync_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_sync_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -189,22 +189,21 @@ class SecretSync(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 force_synchronization: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_secret_type: Optional[pulumi.Input[Union[_builtins.str, 'KubernetesSecretType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_secret_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesSecretObjectMappingArgs', 'KubernetesSecretObjectMappingArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_provider_class_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_sync_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 force_synchronization: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_secret_type: pulumi.Input[Optional[Union[_builtins.str, 'KubernetesSecretType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_secret_mapping: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesSecretObjectMappingArgs', 'KubernetesSecretObjectMappingArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_provider_class_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_sync_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The SecretSync resource.
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,7 +229,6 @@ class SecretSync(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
 
-
         :param str resource_name: The name of the resource.
         :param SecretSyncArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,16 +244,16 @@ class SecretSync(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
-                 force_synchronization: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_secret_type: Optional[pulumi.Input[Union[_builtins.str, 'KubernetesSecretType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_secret_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesSecretObjectMappingArgs', 'KubernetesSecretObjectMappingArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_provider_class_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_sync_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
+                 force_synchronization: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_secret_type: pulumi.Input[Optional[Union[_builtins.str, 'KubernetesSecretType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_secret_mapping: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesSecretObjectMappingArgs', 'KubernetesSecretObjectMappingArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_provider_class_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_sync_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

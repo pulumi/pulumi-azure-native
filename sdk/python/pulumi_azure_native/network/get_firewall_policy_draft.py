@@ -228,7 +228,6 @@ def get_firewall_policy_draft(firewall_policy_name: Optional[_builtins.str] = No
 
     Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str firewall_policy_name: The name of the Firewall Policy.
     :param _builtins.str resource_group_name: The name of the resource group.
     """
@@ -254,8 +253,8 @@ def get_firewall_policy_draft(firewall_policy_name: Optional[_builtins.str] = No
         threat_intel_mode=pulumi.get(__ret__, 'threat_intel_mode'),
         threat_intel_whitelist=pulumi.get(__ret__, 'threat_intel_whitelist'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_policy_draft_output(firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_policy_draft_output(firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyDraftResult]:
     """
     Get a draft Firewall Policy.
@@ -263,7 +262,6 @@ def get_firewall_policy_draft_output(firewall_policy_name: Optional[pulumi.Input
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str firewall_policy_name: The name of the Firewall Policy.
     :param _builtins.str resource_group_name: The name of the resource group.

@@ -171,23 +171,23 @@ export interface RelationshipArgs {
     /**
      * The Relationship Cardinality.
      */
-    cardinality?: pulumi.Input<enums.customerinsights.CardinalityTypes>;
+    cardinality?: pulumi.Input<enums.customerinsights.CardinalityTypes | undefined>;
     /**
      * Localized descriptions for the Relationship.
      */
-    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Localized display name for the Relationship.
      */
-    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The expiry date time in UTC.
      */
-    expiryDateTimeUtc?: pulumi.Input<string>;
+    expiryDateTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * The properties of the Relationship.
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinitionArgs>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinitionArgs>[] | undefined>;
     /**
      * The name of the hub.
      */
@@ -195,7 +195,7 @@ export interface RelationshipArgs {
     /**
      * Optional property to be used to map fields in profile to their strong ids in related profile.
      */
-    lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipTypeMappingArgs>[]>;
+    lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipTypeMappingArgs>[] | undefined>;
     /**
      * Profile type.
      */
@@ -207,7 +207,7 @@ export interface RelationshipArgs {
     /**
      * The name of the Relationship.
      */
-    relationshipName?: pulumi.Input<string>;
+    relationshipName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

@@ -23,8 +23,8 @@ class HybridRunbookWorkerArgs:
                  automation_account_name: pulumi.Input[_builtins.str],
                  hybrid_runbook_worker_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 hybrid_runbook_worker_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 hybrid_runbook_worker_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridRunbookWorker resource.
 
@@ -80,26 +80,26 @@ class HybridRunbookWorkerArgs:
 
     @_builtins.property
     @pulumi.getter(name="hybridRunbookWorkerId")
-    def hybrid_runbook_worker_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hybrid_runbook_worker_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hybrid runbook worker id
         """
         return pulumi.get(self, "hybrid_runbook_worker_id")
 
     @hybrid_runbook_worker_id.setter
-    def hybrid_runbook_worker_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hybrid_runbook_worker_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hybrid_runbook_worker_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmResourceId")
-    def vm_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Resource Manager Id for a virtual machine.
         """
         return pulumi.get(self, "vm_resource_id")
 
     @vm_resource_id.setter
-    def vm_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_resource_id", value)
 
 
@@ -109,11 +109,11 @@ class HybridRunbookWorker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hybrid_runbook_worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hybrid_runbook_worker_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hybrid_runbook_worker_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of hybrid runbook worker.
@@ -121,7 +121,6 @@ class HybridRunbookWorker(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class HybridRunbookWorker(pulumi.CustomResource):
 
         Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class HybridRunbookWorker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hybrid_runbook_worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hybrid_runbook_worker_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hybrid_runbook_worker_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

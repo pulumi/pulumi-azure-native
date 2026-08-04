@@ -72,7 +72,6 @@ def get_business_case_operation_report_download_url(business_case_name: Optional
 
     Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str business_case_name: Business case ARM name
     :param _builtins.str project_name: Assessment Project Name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -87,9 +86,9 @@ def get_business_case_operation_report_download_url(business_case_name: Optional
     return AwaitableGetBusinessCaseOperationReportDownloadUrlResult(
         business_case_report_url=pulumi.get(__ret__, 'business_case_report_url'),
         expiration_time=pulumi.get(__ret__, 'expiration_time'))
-def get_business_case_operation_report_download_url_output(business_case_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                           project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_business_case_operation_report_download_url_output(business_case_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                           project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessCaseOperationReportDownloadUrlResult]:
     """
     Get the URL for downloading the business case in a report format.
@@ -97,7 +96,6 @@ def get_business_case_operation_report_download_url_output(business_case_name: O
     Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str business_case_name: Business case ARM name
     :param _builtins.str project_name: Assessment Project Name

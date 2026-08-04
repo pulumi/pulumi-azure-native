@@ -213,39 +213,39 @@ export interface FirewallPolicyArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    basePolicy?: pulumi.Input<inputs.network.SubResourceArgs>;
+    basePolicy?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * DNS Proxy Settings definition.
      */
-    dnsSettings?: pulumi.Input<inputs.network.DnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.DnsSettingsArgs | undefined>;
     /**
      * Explicit Proxy Settings definition.
      */
-    explicitProxy?: pulumi.Input<inputs.network.ExplicitProxyArgs>;
+    explicitProxy?: pulumi.Input<inputs.network.ExplicitProxyArgs | undefined>;
     /**
      * The name of the Firewall Policy.
      */
-    firewallPolicyName?: pulumi.Input<string>;
+    firewallPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The identity of the firewall policy.
      */
-    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs | undefined>;
     /**
      * Insights on Firewall Policy.
      */
-    insights?: pulumi.Input<inputs.network.FirewallPolicyInsightsArgs>;
+    insights?: pulumi.Input<inputs.network.FirewallPolicyInsightsArgs | undefined>;
     /**
      * The configuration for Intrusion detection.
      */
-    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetectionArgs>;
+    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetectionArgs | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -253,29 +253,29 @@ export interface FirewallPolicyArgs {
     /**
      * The Firewall Policy SKU.
      */
-    sku?: pulumi.Input<inputs.network.FirewallPolicySkuArgs>;
+    sku?: pulumi.Input<inputs.network.FirewallPolicySkuArgs | undefined>;
     /**
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
-    snat?: pulumi.Input<inputs.network.FirewallPolicySNATArgs>;
+    snat?: pulumi.Input<inputs.network.FirewallPolicySNATArgs | undefined>;
     /**
      * SQL Settings definition.
      */
-    sql?: pulumi.Input<inputs.network.FirewallPolicySQLArgs>;
+    sql?: pulumi.Input<inputs.network.FirewallPolicySQLArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    threatIntelMode?: pulumi.Input<string | enums.network.AzureFirewallThreatIntelMode>;
+    threatIntelMode?: pulumi.Input<string | enums.network.AzureFirewallThreatIntelMode | undefined>;
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    threatIntelWhitelist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelWhitelistArgs>;
+    threatIntelWhitelist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelWhitelistArgs | undefined>;
     /**
      * TLS Configuration definition.
      */
-    transportSecurity?: pulumi.Input<inputs.network.FirewallPolicyTransportSecurityArgs>;
+    transportSecurity?: pulumi.Input<inputs.network.FirewallPolicyTransportSecurityArgs | undefined>;
 }

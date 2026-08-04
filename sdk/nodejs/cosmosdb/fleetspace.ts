@@ -132,7 +132,7 @@ export interface FleetspaceArgs {
     /**
      * List of data regions assigned to the fleetspace. Eg [westus2]
      */
-    dataRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    dataRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
@@ -140,11 +140,11 @@ export interface FleetspaceArgs {
     /**
      * The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
      */
-    fleetspaceApiKind?: pulumi.Input<string | enums.cosmosdb.FleetspaceApiKind>;
+    fleetspaceApiKind?: pulumi.Input<string | enums.cosmosdb.FleetspaceApiKind | undefined>;
     /**
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */
-    fleetspaceName?: pulumi.Input<string>;
+    fleetspaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,9 +152,9 @@ export interface FleetspaceArgs {
     /**
      * Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
      */
-    serviceTier?: pulumi.Input<string | enums.cosmosdb.ServiceTier>;
+    serviceTier?: pulumi.Input<string | enums.cosmosdb.ServiceTier | undefined>;
     /**
      * Configuration for throughput pool in the fleetspace.
      */
-    throughputPoolConfiguration?: pulumi.Input<inputs.cosmosdb.FleetspacePropertiesThroughputPoolConfigurationArgs>;
+    throughputPoolConfiguration?: pulumi.Input<inputs.cosmosdb.FleetspacePropertiesThroughputPoolConfigurationArgs | undefined>;
 }

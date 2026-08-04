@@ -155,7 +155,6 @@ def get_peer_asn(peer_asn_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str peer_asn_name: The peer ASN name.
     """
     __args__ = dict()
@@ -173,7 +172,7 @@ def get_peer_asn(peer_asn_name: Optional[_builtins.str] = None,
         peer_name=pulumi.get(__ret__, 'peer_name'),
         type=pulumi.get(__ret__, 'type'),
         validation_state=pulumi.get(__ret__, 'validation_state'))
-def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_peer_asn_output(peer_asn_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeerAsnResult]:
     """
     Gets the peer ASN with the specified name under the given subscription.
@@ -181,7 +180,6 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2022-10-01.
 
     Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str peer_asn_name: The peer ASN name.
     """

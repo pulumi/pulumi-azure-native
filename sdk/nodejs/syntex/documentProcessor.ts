@@ -114,15 +114,15 @@ export interface DocumentProcessorArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of document processor resource.
      */
-    processorName?: pulumi.Input<string>;
+    processorName?: pulumi.Input<string | undefined>;
     /**
      * Document processor properties.
      */
-    properties?: pulumi.Input<inputs.syntex.DocumentProcessorPropertiesArgs>;
+    properties?: pulumi.Input<inputs.syntex.DocumentProcessorPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,5 +130,5 @@ export interface DocumentProcessorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

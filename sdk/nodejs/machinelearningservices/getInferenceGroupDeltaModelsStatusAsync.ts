@@ -101,7 +101,7 @@ export interface GetInferenceGroupDeltaModelsStatusAsyncOutputArgs {
     /**
      * Gets or sets collection of delta models to retrieve status for.
      */
-    deltaModels?: pulumi.Input<pulumi.Input<string>[]>;
+    deltaModels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * InferenceGroup name.
      */
@@ -117,7 +117,7 @@ export interface GetInferenceGroupDeltaModelsStatusAsyncOutputArgs {
     /**
      * Gets or sets target base model.
      */
-    targetBaseModel?: pulumi.Input<string>;
+    targetBaseModel?: pulumi.Input<string | undefined>;
     /**
      * Name of Azure Machine Learning workspace.
      */

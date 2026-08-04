@@ -728,7 +728,6 @@ def get_avs_assessments_operation(assessment_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str assessment_name: AVS Assessment ARM name
     :param _builtins.str group_name: Group ARM name
     :param _builtins.str project_name: Assessment Project Name
@@ -799,10 +798,10 @@ def get_avs_assessments_operation(assessment_name: Optional[_builtins.str] = Non
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         vcpu_oversubscription=pulumi.get(__ret__, 'vcpu_oversubscription'))
-def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_avs_assessments_operation_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvsAssessmentsOperationResult]:
     """
     Get a AvsAssessment
@@ -810,7 +809,6 @@ def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[
     Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str assessment_name: AVS Assessment ARM name
     :param _builtins.str group_name: Group ARM name

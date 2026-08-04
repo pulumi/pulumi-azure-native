@@ -82,7 +82,6 @@ def get_component_current_billing_feature(resource_group_name: Optional[_builtin
 
     Uses Azure REST API version 2015-05-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Application Insights component resource.
     """
@@ -96,14 +95,13 @@ def get_component_current_billing_feature(resource_group_name: Optional[_builtin
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         current_billing_features=pulumi.get(__ret__, 'current_billing_features'),
         data_volume_cap=pulumi.get(__ret__, 'data_volume_cap'))
-def get_component_current_billing_feature_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_component_current_billing_feature_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentCurrentBillingFeatureResult]:
     """
     Returns current billing features for an Application Insights component.
 
     Uses Azure REST API version 2015-05-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Application Insights component resource.

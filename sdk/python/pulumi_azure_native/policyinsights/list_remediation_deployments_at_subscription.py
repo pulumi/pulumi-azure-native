@@ -72,7 +72,6 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[_bui
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str remediation_name: The name of the remediation.
     :param _builtins.int top: Maximum number of records to return.
     """
@@ -85,8 +84,8 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[_bui
     return AwaitableListRemediationDeploymentsAtSubscriptionResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_remediation_deployments_at_subscription_output(remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_remediation_deployments_at_subscription_output(remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtSubscriptionResult]:
     """
     Gets all deployments for a remediation at subscription scope.
@@ -94,7 +93,6 @@ def list_remediation_deployments_at_subscription_output(remediation_name: Option
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str remediation_name: The name of the remediation.
     :param _builtins.int top: Maximum number of records to return.

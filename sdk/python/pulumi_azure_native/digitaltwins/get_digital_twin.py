@@ -214,7 +214,6 @@ def get_digital_twin(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-01-31.
 
-
     :param _builtins.str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param _builtins.str resource_name: The name of the DigitalTwinsInstance.
     """
@@ -239,14 +238,13 @@ def get_digital_twin(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_digital_twin_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDigitalTwinResult]:
     """
     Get DigitalTwinsInstances resource.
 
     Uses Azure REST API version 2023-01-31.
-
 
     :param _builtins.str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param _builtins.str resource_name: The name of the DigitalTwinsInstance.

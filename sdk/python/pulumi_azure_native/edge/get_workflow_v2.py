@@ -166,7 +166,6 @@ def get_workflow_v2(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-08-15-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workflow_name: Name of the workflow
     """
@@ -187,14 +186,13 @@ def get_workflow_v2(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_workflow_v2_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_v2_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowV2Result]:
     """
     Get a Workflow resource
 
     Uses Azure REST API version 2025-08-15-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workflow_name: Name of the workflow

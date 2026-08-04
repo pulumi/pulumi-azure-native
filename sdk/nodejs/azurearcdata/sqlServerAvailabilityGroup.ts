@@ -123,11 +123,11 @@ export interface SqlServerAvailabilityGroupArgs {
     /**
      * Name of SQL Availability Group
      */
-    availabilityGroupName?: pulumi.Input<string>;
+    availabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of Arc Sql Server availability group
      */
@@ -143,5 +143,5 @@ export interface SqlServerAvailabilityGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

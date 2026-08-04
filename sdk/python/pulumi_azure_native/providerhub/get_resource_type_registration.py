@@ -129,7 +129,6 @@ def get_resource_type_registration(provider_namespace: Optional[_builtins.str] =
 
     Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param _builtins.str resource_type: The resource type.
     """
@@ -147,8 +146,8 @@ def get_resource_type_registration(provider_namespace: Optional[_builtins.str] =
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_type_registration_output(provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_type_registration_output(provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
     """
     Gets a resource type details in the given subscription and provider.
@@ -156,7 +155,6 @@ def get_resource_type_registration_output(provider_namespace: Optional[pulumi.In
     Uses Azure REST API version 2024-09-01.
 
     Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param _builtins.str resource_type: The resource type.

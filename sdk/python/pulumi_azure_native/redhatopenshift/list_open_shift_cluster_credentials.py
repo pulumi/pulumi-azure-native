@@ -71,7 +71,6 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[_builtins.
 
     Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview, 2025-07-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the OpenShift cluster resource.
     """
@@ -84,8 +83,8 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[_builtins.
     return AwaitableListOpenShiftClusterCredentialsResult(
         kubeadmin_password=pulumi.get(__ret__, 'kubeadmin_password'),
         kubeadmin_username=pulumi.get(__ret__, 'kubeadmin_username'))
-def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_open_shift_cluster_credentials_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOpenShiftClusterCredentialsResult]:
     """
     The operation returns the credentials.
@@ -93,7 +92,6 @@ def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pul
     Uses Azure REST API version 2023-11-22.
 
     Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview, 2025-07-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the OpenShift cluster resource.

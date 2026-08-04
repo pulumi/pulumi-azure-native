@@ -181,7 +181,7 @@ export interface ConsoleArgs {
     /**
      * The name of the virtual machine console.
      */
-    consoleName?: pulumi.Input<string>;
+    consoleName?: pulumi.Input<string | undefined>;
     /**
      * The indicator of whether the console access is enabled.
      */
@@ -189,7 +189,7 @@ export interface ConsoleArgs {
     /**
      * The date and time after which the key will be disallowed access.
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * The extended location of the cluster manager associated with the cluster this virtual machine is created on.
      */
@@ -197,7 +197,7 @@ export interface ConsoleArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -209,7 +209,7 @@ export interface ConsoleArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the virtual machine.
      */

@@ -244,101 +244,101 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
     /**
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
-    autoApplyDecisionsEnabled?: pulumi.Input<boolean>;
+    autoApplyDecisionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * This is the collection of backup reviewers.
      */
-    backupReviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewerArgs>[]>;
+    backupReviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewerArgs>[] | undefined>;
     /**
      * This specifies the behavior for the autoReview feature when an access review completes.
      */
-    defaultDecision?: pulumi.Input<string | enums.authorization.DefaultDecisionType>;
+    defaultDecision?: pulumi.Input<string | enums.authorization.DefaultDecisionType | undefined>;
     /**
      * Flag to indicate whether reviewers are required to provide a justification when reviewing access.
      */
-    defaultDecisionEnabled?: pulumi.Input<boolean>;
+    defaultDecisionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The description provided by the access review creator and visible to admins.
      */
-    descriptionForAdmins?: pulumi.Input<string>;
+    descriptionForAdmins?: pulumi.Input<string | undefined>;
     /**
      * The description provided by the access review creator to be shown to reviewers.
      */
-    descriptionForReviewers?: pulumi.Input<string>;
+    descriptionForReviewers?: pulumi.Input<string | undefined>;
     /**
      * The display name for the schedule definition.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * This is used to indicate the resource id(s) to exclude
      */
-    excludeResourceId?: pulumi.Input<string>;
+    excludeResourceId?: pulumi.Input<string | undefined>;
     /**
      * This is used to indicate the role definition id(s) to exclude
      */
-    excludeRoleDefinitionId?: pulumi.Input<string>;
+    excludeRoleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * Flag to indicate whether to expand nested memberships or not.
      */
-    expandNestedMemberships?: pulumi.Input<boolean>;
+    expandNestedMemberships?: pulumi.Input<boolean | undefined>;
     /**
      * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
-    inactiveDuration?: pulumi.Input<string>;
+    inactiveDuration?: pulumi.Input<string | undefined>;
     /**
      * Flag to indicate whether to expand nested memberships or not.
      */
-    includeAccessBelowResource?: pulumi.Input<boolean>;
+    includeAccessBelowResource?: pulumi.Input<boolean | undefined>;
     /**
      * Flag to indicate whether to expand nested memberships or not.
      */
-    includeInheritedAccess?: pulumi.Input<boolean>;
+    includeInheritedAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The duration in days for an instance.
      */
-    instanceDurationInDays?: pulumi.Input<number>;
+    instanceDurationInDays?: pulumi.Input<number | undefined>;
     /**
      * This is the collection of instances returned when one does an expand on it.
      */
-    instances?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewInstanceArgs>[]>;
+    instances?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewInstanceArgs>[] | undefined>;
     /**
      * The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Flag to indicate whether the reviewer is required to pass justification when recording a decision.
      */
-    justificationRequiredOnApproval?: pulumi.Input<boolean>;
+    justificationRequiredOnApproval?: pulumi.Input<boolean | undefined>;
     /**
      * Flag to indicate whether sending mails to reviewers and the review creator is enabled.
      */
-    mailNotificationsEnabled?: pulumi.Input<boolean>;
+    mailNotificationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Access Review schedule definition recurrence range.
      */
-    range?: pulumi.Input<inputs.authorization.AccessReviewRecurrenceRangeArgs>;
+    range?: pulumi.Input<inputs.authorization.AccessReviewRecurrenceRangeArgs | undefined>;
     /**
      * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
-    recommendationLookBackDuration?: pulumi.Input<string>;
+    recommendationLookBackDuration?: pulumi.Input<string | undefined>;
     /**
      * Flag to indicate whether showing recommendations to reviewers is enabled.
      */
-    recommendationsEnabled?: pulumi.Input<boolean>;
+    recommendationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Flag to indicate whether sending reminder emails to reviewers are enabled.
      */
-    reminderNotificationsEnabled?: pulumi.Input<boolean>;
+    reminderNotificationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * This is the collection of reviewers.
      */
-    reviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewerArgs>[]>;
+    reviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewerArgs>[] | undefined>;
     /**
      * The id of the access review schedule definition.
      */
-    scheduleDefinitionId?: pulumi.Input<string>;
+    scheduleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The recurrence type : weekly, monthly, etc.
      */
-    type?: pulumi.Input<string | enums.authorization.AccessReviewRecurrencePatternType>;
+    type?: pulumi.Input<string | enums.authorization.AccessReviewRecurrencePatternType | undefined>;
 }

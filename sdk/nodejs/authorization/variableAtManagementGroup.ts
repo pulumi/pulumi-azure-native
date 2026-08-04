@@ -115,5 +115,5 @@ export interface VariableAtManagementGroupArgs {
     /**
      * The name of the variable to operate on.
      */
-    variableName?: pulumi.Input<string>;
+    variableName?: pulumi.Input<string | undefined>;
 }

@@ -26,10 +26,10 @@ class MarkupRuleArgs:
                  customer_details: pulumi.Input['CustomerMetadataArgs'],
                  percentage: pulumi.Input[_builtins.float],
                  start_date: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MarkupRule resource.
 
@@ -119,50 +119,50 @@ class MarkupRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the markup rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ending date of the markup rule.
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Markup rule name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -172,21 +172,20 @@ class MarkupRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_details: Optional[pulumi.Input[Union['CustomerMetadataArgs', 'CustomerMetadataArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_details: pulumi.Input[Optional[Union['CustomerMetadataArgs', 'CustomerMetadataArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Markup rule
 
         Uses Azure REST API version 2022-10-05-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +210,6 @@ class MarkupRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-05-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MarkupRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,15 +225,15 @@ class MarkupRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_details: Optional[pulumi.Input[Union['CustomerMetadataArgs', 'CustomerMetadataArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_details: pulumi.Input[Optional[Union['CustomerMetadataArgs', 'CustomerMetadataArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

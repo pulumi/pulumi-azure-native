@@ -26,55 +26,55 @@ class NodeTypeArgs:
                  is_primary: pulumi.Input[_builtins.bool],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_instance_count: pulumi.Input[_builtins.int],
-                 additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]] = None,
-                 additional_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]] = None,
-                 application_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
-                 capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_letter: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_disk_type: Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]] = None,
-                 dscp_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_encryption_at_host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_node_public_i_pv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_over_provisioning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ephemeral_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicyType']]] = None,
-                 frontend_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_spot_vm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_stateless: Optional[pulumi.Input[_builtins.bool]] = None,
-                 multiple_placement_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nat_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
-                 node_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_type: Optional[pulumi.Input[Union[_builtins.str, 'SecurityType']]] = None,
-                 service_artifact_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['NodeTypeSkuArgs']] = None,
-                 spot_restore_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_default_public_load_balancer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_ephemeral_os_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_temp_data_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]] = None,
-                 vm_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_plan: Optional[pulumi.Input['VmImagePlanArgs']] = None,
-                 vm_image_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_managed_identity: Optional[pulumi.Input['VmManagedIdentityArgs']] = None,
-                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]] = None,
-                 vm_setup_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]] = None,
-                 vm_shared_gallery_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['VmssDataDiskArgs']]]] = None,
+                 additional_network_interface_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]] = None,
+                 application_ports: pulumi.Input[Optional['EndpointRangeDescriptionArgs']] = None,
+                 capacities: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_letter: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_disk_type: pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]] = None,
+                 dscp_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_encryption_at_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_node_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_node_public_i_pv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_over_provisioning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ephemeral_ports: pulumi.Input[Optional['EndpointRangeDescriptionArgs']] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicyType']]] = None,
+                 frontend_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FrontendConfigurationArgs']]]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_spot_vm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_stateless: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multiple_placement_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nat_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
+                 node_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_type: pulumi.Input[Optional[Union[_builtins.str, 'SecurityType']]] = None,
+                 service_artifact_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['NodeTypeSkuArgs']] = None,
+                 spot_restore_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_default_public_load_balancer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_ephemeral_os_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_temp_data_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_extensions: pulumi.Input[Optional[Sequence[pulumi.Input['VMSSExtensionArgs']]]] = None,
+                 vm_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_plan: pulumi.Input[Optional['VmImagePlanArgs']] = None,
+                 vm_image_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_managed_identity: pulumi.Input[Optional['VmManagedIdentityArgs']] = None,
+                 vm_secrets: pulumi.Input[Optional[Sequence[pulumi.Input['VaultSecretGroupArgs']]]] = None,
+                 vm_setup_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]] = None,
+                 vm_shared_gallery_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NodeType resource.
 
@@ -291,590 +291,590 @@ class NodeTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalDataDisks")
-    def additional_data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]]:
+    def additional_data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VmssDataDiskArgs']]]]:
         """
         Additional managed data disks.
         """
         return pulumi.get(self, "additional_data_disks")
 
     @additional_data_disks.setter
-    def additional_data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]]):
+    def additional_data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VmssDataDiskArgs']]]]):
         pulumi.set(self, "additional_data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalNetworkInterfaceConfigurations")
-    def additional_network_interface_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]]:
+    def additional_network_interface_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]]:
         """
         Specifies the settings for any additional secondary network interfaces to attach to the node type.
         """
         return pulumi.get(self, "additional_network_interface_configurations")
 
     @additional_network_interface_configurations.setter
-    def additional_network_interface_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]]):
+    def additional_network_interface_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]]):
         pulumi.set(self, "additional_network_interface_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationPorts")
-    def application_ports(self) -> Optional[pulumi.Input['EndpointRangeDescriptionArgs']]:
+    def application_ports(self) -> pulumi.Input[Optional['EndpointRangeDescriptionArgs']]:
         """
         The range of ports from which cluster assigned port to Service Fabric applications.
         """
         return pulumi.get(self, "application_ports")
 
     @application_ports.setter
-    def application_ports(self, value: Optional[pulumi.Input['EndpointRangeDescriptionArgs']]):
+    def application_ports(self, value: pulumi.Input[Optional['EndpointRangeDescriptionArgs']]):
         pulumi.set(self, "application_ports", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def capacities(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         """
         return pulumi.get(self, "capacities")
 
     @capacities.setter
-    def capacities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def capacities(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capacities", value)
 
     @_builtins.property
     @pulumi.getter(name="computerNamePrefix")
-    def computer_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
         """
         return pulumi.get(self, "computer_name_prefix")
 
     @computer_name_prefix.setter
-    def computer_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDiskLetter")
-    def data_disk_letter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_disk_letter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         """
         return pulumi.get(self, "data_disk_letter")
 
     @data_disk_letter.setter
-    def data_disk_letter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_disk_letter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_disk_letter", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Disk size for the managed disk attached to the vms on the node type in GBs.
         """
         return pulumi.get(self, "data_disk_size_gb")
 
     @data_disk_size_gb.setter
-    def data_disk_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_disk_size_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDiskType")
-    def data_disk_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]]:
+    def data_disk_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]]:
         """
         Managed data disk type. Specifies the storage account type for the managed disk
         """
         return pulumi.get(self, "data_disk_type")
 
     @data_disk_type.setter
-    def data_disk_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]]):
+    def data_disk_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]]):
         pulumi.set(self, "data_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dscpConfigurationId")
-    def dscp_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dscp_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the resource id of the DSCP configuration to apply to the node type network interface.
         """
         return pulumi.get(self, "dscp_configuration_id")
 
     @dscp_configuration_id.setter
-    def dscp_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dscp_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dscp_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_accelerated_networking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the network interface is accelerated networking-enabled.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_accelerated_networking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_accelerated_networking", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEncryptionAtHost")
-    def enable_encryption_at_host(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_encryption_at_host(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
         """
         return pulumi.get(self, "enable_encryption_at_host")
 
     @enable_encryption_at_host.setter
-    def enable_encryption_at_host(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_encryption_at_host(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_encryption_at_host", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNodePublicIP")
-    def enable_node_public_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_node_public_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
     @enable_node_public_ip.setter
-    def enable_node_public_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_node_public_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNodePublicIPv6")
-    def enable_node_public_i_pv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_node_public_i_pv6(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
         """
         return pulumi.get(self, "enable_node_public_i_pv6")
 
     @enable_node_public_i_pv6.setter
-    def enable_node_public_i_pv6(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_node_public_i_pv6(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_node_public_i_pv6", value)
 
     @_builtins.property
     @pulumi.getter(name="enableOverProvisioning")
-    def enable_over_provisioning(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_over_provisioning(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
         """
         return pulumi.get(self, "enable_over_provisioning")
 
     @enable_over_provisioning.setter
-    def enable_over_provisioning(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_over_provisioning(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_over_provisioning", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralPorts")
-    def ephemeral_ports(self) -> Optional[pulumi.Input['EndpointRangeDescriptionArgs']]:
+    def ephemeral_ports(self) -> pulumi.Input[Optional['EndpointRangeDescriptionArgs']]:
         """
         The range of ephemeral ports that nodes in this node type should be configured with.
         """
         return pulumi.get(self, "ephemeral_ports")
 
     @ephemeral_ports.setter
-    def ephemeral_ports(self, value: Optional[pulumi.Input['EndpointRangeDescriptionArgs']]):
+    def ephemeral_ports(self, value: pulumi.Input[Optional['EndpointRangeDescriptionArgs']]):
         pulumi.set(self, "ephemeral_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicyType']]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicyType']]]:
         """
         Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
         """
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicyType']]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicyType']]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendConfigurations")
-    def frontend_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]]]:
+    def frontend_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontendConfigurationArgs']]]]:
         """
         Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
         """
         return pulumi.get(self, "frontend_configurations")
 
     @frontend_configurations.setter
-    def frontend_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendConfigurationArgs']]]]):
+    def frontend_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontendConfigurationArgs']]]]):
         pulumi.set(self, "frontend_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupId")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the full host group resource Id. This property is used for deploying on azure dedicated hosts.
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isSpotVM")
-    def is_spot_vm(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_spot_vm(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
         """
         return pulumi.get(self, "is_spot_vm")
 
     @is_spot_vm.setter
-    def is_spot_vm(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_spot_vm(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_spot_vm", value)
 
     @_builtins.property
     @pulumi.getter(name="isStateless")
-    def is_stateless(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_stateless(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the node type can only host Stateless workloads.
         """
         return pulumi.get(self, "is_stateless")
 
     @is_stateless.setter
-    def is_stateless(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_stateless(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_stateless", value)
 
     @_builtins.property
     @pulumi.getter(name="multiplePlacementGroups")
-    def multiple_placement_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multiple_placement_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if scale set associated with the node type can be composed of multiple placement groups.
         """
         return pulumi.get(self, "multiple_placement_groups")
 
     @multiple_placement_groups.setter
-    def multiple_placement_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multiple_placement_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multiple_placement_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="natConfigurations")
-    def nat_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]]:
+    def nat_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]]:
         """
         Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
         """
         return pulumi.get(self, "nat_configurations")
 
     @nat_configurations.setter
-    def nat_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]]):
+    def nat_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]]):
         pulumi.set(self, "nat_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
-    def nat_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityRules")
-    def network_security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]:
+    def network_security_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]:
         """
         The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         """
         return pulumi.get(self, "network_security_rules")
 
     @network_security_rules.setter
-    def network_security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]):
+    def network_security_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]):
         pulumi.set(self, "network_security_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTypeName")
-    def node_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the node type.
         """
         return pulumi.get(self, "node_type_name")
 
     @node_type_name.setter
-    def node_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="placementProperties")
-    def placement_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def placement_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         """
         return pulumi.get(self, "placement_properties")
 
     @placement_properties.setter
-    def placement_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def placement_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "placement_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="securityType")
-    def security_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecurityType']]]:
+    def security_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SecurityType']]]:
         """
         Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         """
         return pulumi.get(self, "security_type")
 
     @security_type.setter
-    def security_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SecurityType']]]):
+    def security_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SecurityType']]]):
         pulumi.set(self, "security_type", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceArtifactReferenceId")
-    def service_artifact_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_artifact_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
         """
         return pulumi.get(self, "service_artifact_reference_id")
 
     @service_artifact_reference_id.setter
-    def service_artifact_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_artifact_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_artifact_reference_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['NodeTypeSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['NodeTypeSkuArgs']]:
         """
         The node type sku.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['NodeTypeSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['NodeTypeSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="spotRestoreTimeout")
-    def spot_restore_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spot_restore_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
         """
         return pulumi.get(self, "spot_restore_timeout")
 
     @spot_restore_timeout.setter
-    def spot_restore_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spot_restore_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spot_restore_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the resource id of the subnet for the node type.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Azure resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useDefaultPublicLoadBalancer")
-    def use_default_public_load_balancer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_default_public_load_balancer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
         """
         return pulumi.get(self, "use_default_public_load_balancer")
 
     @use_default_public_load_balancer.setter
-    def use_default_public_load_balancer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_default_public_load_balancer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_default_public_load_balancer", value)
 
     @_builtins.property
     @pulumi.getter(name="useEphemeralOSDisk")
-    def use_ephemeral_os_disk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_ephemeral_os_disk(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.
         """
         return pulumi.get(self, "use_ephemeral_os_disk")
 
     @use_ephemeral_os_disk.setter
-    def use_ephemeral_os_disk(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_ephemeral_os_disk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_ephemeral_os_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="useTempDataDisk")
-    def use_temp_data_disk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_temp_data_disk(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
         """
         return pulumi.get(self, "use_temp_data_disk")
 
     @use_temp_data_disk.setter
-    def use_temp_data_disk(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_temp_data_disk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_temp_data_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="vmExtensions")
-    def vm_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]]:
+    def vm_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VMSSExtensionArgs']]]]:
         """
         Set of extensions that should be installed onto the virtual machines.
         """
         return pulumi.get(self, "vm_extensions")
 
     @vm_extensions.setter
-    def vm_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]]):
+    def vm_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VMSSExtensionArgs']]]]):
         pulumi.set(self, "vm_extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImageOffer")
-    def vm_image_offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_image_offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         """
         return pulumi.get(self, "vm_image_offer")
 
     @vm_image_offer.setter
-    def vm_image_offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_image_offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_image_offer", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImagePlan")
-    def vm_image_plan(self) -> Optional[pulumi.Input['VmImagePlanArgs']]:
+    def vm_image_plan(self) -> pulumi.Input[Optional['VmImagePlanArgs']]:
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
         """
         return pulumi.get(self, "vm_image_plan")
 
     @vm_image_plan.setter
-    def vm_image_plan(self, value: Optional[pulumi.Input['VmImagePlanArgs']]):
+    def vm_image_plan(self, value: pulumi.Input[Optional['VmImagePlanArgs']]):
         pulumi.set(self, "vm_image_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImagePublisher")
-    def vm_image_publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_image_publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         """
         return pulumi.get(self, "vm_image_publisher")
 
     @vm_image_publisher.setter
-    def vm_image_publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_image_publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_image_publisher", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImageResourceId")
-    def vm_image_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_image_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the resource id of the vm image. This parameter is used for custom vm image.
         """
         return pulumi.get(self, "vm_image_resource_id")
 
     @vm_image_resource_id.setter
-    def vm_image_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_image_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_image_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImageSku")
-    def vm_image_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_image_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         """
         return pulumi.get(self, "vm_image_sku")
 
     @vm_image_sku.setter
-    def vm_image_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_image_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_image_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImageVersion")
-    def vm_image_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_image_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
         """
         return pulumi.get(self, "vm_image_version")
 
     @vm_image_version.setter
-    def vm_image_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_image_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_image_version", value)
 
     @_builtins.property
     @pulumi.getter(name="vmManagedIdentity")
-    def vm_managed_identity(self) -> Optional[pulumi.Input['VmManagedIdentityArgs']]:
+    def vm_managed_identity(self) -> pulumi.Input[Optional['VmManagedIdentityArgs']]:
         """
         Identities to assign to the virtual machine scale set under the node type.
         """
         return pulumi.get(self, "vm_managed_identity")
 
     @vm_managed_identity.setter
-    def vm_managed_identity(self, value: Optional[pulumi.Input['VmManagedIdentityArgs']]):
+    def vm_managed_identity(self, value: pulumi.Input[Optional['VmManagedIdentityArgs']]):
         pulumi.set(self, "vm_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSecrets")
-    def vm_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]:
+    def vm_secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]:
         """
         The secrets to install in the virtual machines.
         """
         return pulumi.get(self, "vm_secrets")
 
     @vm_secrets.setter
-    def vm_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]):
+    def vm_secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]):
         pulumi.set(self, "vm_secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSetupActions")
-    def vm_setup_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]]:
+    def vm_setup_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]]:
         """
         Specifies the actions to be performed on the vms before bootstrapping the service fabric runtime.
         """
         return pulumi.get(self, "vm_setup_actions")
 
     @vm_setup_actions.setter
-    def vm_setup_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]]):
+    def vm_setup_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]]):
         pulumi.set(self, "vm_setup_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSharedGalleryImageId")
-    def vm_shared_gallery_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_shared_gallery_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the resource id of the vm shared galleries image. This parameter is used for custom vm image.
         """
         return pulumi.get(self, "vm_shared_gallery_image_id")
 
     @vm_shared_gallery_image_id.setter
-    def vm_shared_gallery_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_shared_gallery_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_shared_gallery_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -884,59 +884,59 @@ class NodeType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmssDataDiskArgs', 'VmssDataDiskArgsDict']]]]] = None,
-                 additional_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalNetworkInterfaceConfigurationArgs', 'AdditionalNetworkInterfaceConfigurationArgsDict']]]]] = None,
-                 application_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
-                 capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_letter: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_disk_type: Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]] = None,
-                 dscp_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_encryption_at_host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_node_public_i_pv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_over_provisioning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ephemeral_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicyType']]] = None,
-                 frontend_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendConfigurationArgs', 'FrontendConfigurationArgsDict']]]]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_spot_vm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_stateless: Optional[pulumi.Input[_builtins.bool]] = None,
-                 multiple_placement_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nat_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeNatConfigArgs', 'NodeTypeNatConfigArgsDict']]]]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
-                 node_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_type: Optional[pulumi.Input[Union[_builtins.str, 'SecurityType']]] = None,
-                 service_artifact_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']]] = None,
-                 spot_restore_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_default_public_load_balancer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_ephemeral_os_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_temp_data_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VMSSExtensionArgs', 'VMSSExtensionArgsDict']]]]] = None,
-                 vm_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_plan: Optional[pulumi.Input[Union['VmImagePlanArgs', 'VmImagePlanArgsDict']]] = None,
-                 vm_image_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 vm_managed_identity: Optional[pulumi.Input[Union['VmManagedIdentityArgs', 'VmManagedIdentityArgsDict']]] = None,
-                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VaultSecretGroupArgs', 'VaultSecretGroupArgsDict']]]]] = None,
-                 vm_setup_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]] = None,
-                 vm_shared_gallery_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmssDataDiskArgs', 'VmssDataDiskArgsDict']]]]] = None,
+                 additional_network_interface_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AdditionalNetworkInterfaceConfigurationArgs', 'AdditionalNetworkInterfaceConfigurationArgsDict']]]]] = None,
+                 application_ports: pulumi.Input[Optional[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
+                 capacities: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_letter: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_disk_type: pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]] = None,
+                 dscp_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_encryption_at_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_node_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_node_public_i_pv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_over_provisioning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ephemeral_ports: pulumi.Input[Optional[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicyType']]] = None,
+                 frontend_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontendConfigurationArgs', 'FrontendConfigurationArgsDict']]]]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_spot_vm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_stateless: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multiple_placement_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nat_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeTypeNatConfigArgs', 'NodeTypeNatConfigArgsDict']]]]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
+                 node_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_type: pulumi.Input[Optional[Union[_builtins.str, 'SecurityType']]] = None,
+                 service_artifact_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']]] = None,
+                 spot_restore_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_default_public_load_balancer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_ephemeral_os_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_temp_data_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VMSSExtensionArgs', 'VMSSExtensionArgsDict']]]]] = None,
+                 vm_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_plan: pulumi.Input[Optional[Union['VmImagePlanArgs', 'VmImagePlanArgsDict']]] = None,
+                 vm_image_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 vm_managed_identity: pulumi.Input[Optional[Union['VmManagedIdentityArgs', 'VmManagedIdentityArgsDict']]] = None,
+                 vm_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VaultSecretGroupArgs', 'VaultSecretGroupArgsDict']]]]] = None,
+                 vm_setup_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]] = None,
+                 vm_shared_gallery_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
@@ -944,7 +944,6 @@ class NodeType(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1015,7 +1014,6 @@ class NodeType(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NodeTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1031,59 +1029,59 @@ class NodeType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmssDataDiskArgs', 'VmssDataDiskArgsDict']]]]] = None,
-                 additional_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalNetworkInterfaceConfigurationArgs', 'AdditionalNetworkInterfaceConfigurationArgsDict']]]]] = None,
-                 application_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
-                 capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_letter: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_disk_type: Optional[pulumi.Input[Union[_builtins.str, 'DiskType']]] = None,
-                 dscp_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_encryption_at_host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_node_public_i_pv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_over_provisioning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ephemeral_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicyType']]] = None,
-                 frontend_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontendConfigurationArgs', 'FrontendConfigurationArgsDict']]]]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_spot_vm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_stateless: Optional[pulumi.Input[_builtins.bool]] = None,
-                 multiple_placement_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 nat_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeNatConfigArgs', 'NodeTypeNatConfigArgsDict']]]]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
-                 node_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_type: Optional[pulumi.Input[Union[_builtins.str, 'SecurityType']]] = None,
-                 service_artifact_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']]] = None,
-                 spot_restore_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_default_public_load_balancer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_ephemeral_os_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_temp_data_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VMSSExtensionArgs', 'VMSSExtensionArgsDict']]]]] = None,
-                 vm_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_plan: Optional[pulumi.Input[Union['VmImagePlanArgs', 'VmImagePlanArgsDict']]] = None,
-                 vm_image_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 vm_managed_identity: Optional[pulumi.Input[Union['VmManagedIdentityArgs', 'VmManagedIdentityArgsDict']]] = None,
-                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VaultSecretGroupArgs', 'VaultSecretGroupArgsDict']]]]] = None,
-                 vm_setup_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]] = None,
-                 vm_shared_gallery_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmssDataDiskArgs', 'VmssDataDiskArgsDict']]]]] = None,
+                 additional_network_interface_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AdditionalNetworkInterfaceConfigurationArgs', 'AdditionalNetworkInterfaceConfigurationArgsDict']]]]] = None,
+                 application_ports: pulumi.Input[Optional[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
+                 capacities: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_letter: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_disk_type: pulumi.Input[Optional[Union[_builtins.str, 'DiskType']]] = None,
+                 dscp_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_encryption_at_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_node_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_node_public_i_pv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_over_provisioning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ephemeral_ports: pulumi.Input[Optional[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicyType']]] = None,
+                 frontend_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontendConfigurationArgs', 'FrontendConfigurationArgsDict']]]]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_spot_vm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_stateless: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multiple_placement_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nat_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeTypeNatConfigArgs', 'NodeTypeNatConfigArgsDict']]]]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
+                 node_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_type: pulumi.Input[Optional[Union[_builtins.str, 'SecurityType']]] = None,
+                 service_artifact_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']]] = None,
+                 spot_restore_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_default_public_load_balancer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_ephemeral_os_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_temp_data_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VMSSExtensionArgs', 'VMSSExtensionArgsDict']]]]] = None,
+                 vm_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_plan: pulumi.Input[Optional[Union['VmImagePlanArgs', 'VmImagePlanArgsDict']]] = None,
+                 vm_image_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 vm_managed_identity: pulumi.Input[Optional[Union['VmManagedIdentityArgs', 'VmManagedIdentityArgsDict']]] = None,
+                 vm_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VaultSecretGroupArgs', 'VaultSecretGroupArgsDict']]]]] = None,
+                 vm_setup_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'VmSetupAction']]]]] = None,
+                 vm_shared_gallery_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

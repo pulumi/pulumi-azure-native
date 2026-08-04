@@ -83,7 +83,6 @@ def get_monitor_default_application_key(monitor_name: Optional[_builtins.str] = 
 
     Other available API versions: 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str monitor_name: Monitor resource name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -97,8 +96,8 @@ def get_monitor_default_application_key(monitor_name: Optional[_builtins.str] = 
         created_by=pulumi.get(__ret__, 'created_by'),
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'))
-def get_monitor_default_application_key_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitor_default_application_key_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorDefaultApplicationKeyResult]:
     """
     Get the default application key.
@@ -106,7 +105,6 @@ def get_monitor_default_application_key_output(monitor_name: Optional[pulumi.Inp
     Uses Azure REST API version 2025-11-03-preview.
 
     Other available API versions: 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str monitor_name: Monitor resource name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -23,8 +23,8 @@ class AgentsConnectorArgs:
     def __init__(__self__, *,
                  agent_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['AgentConnectorPropertiesArgs']] = None):
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['AgentConnectorPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AgentsConnector resource.
 
@@ -66,26 +66,26 @@ class AgentsConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AgentConnector
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AgentConnectorPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['AgentConnectorPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AgentConnectorPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['AgentConnectorPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,16 +95,15 @@ class AgentsConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AgentConnectorPropertiesArgs', 'AgentConnectorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AgentConnectorPropertiesArgs', 'AgentConnectorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Agent Connector used to connect to data sources
 
         Uses Azure REST API version 2026-01-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class AgentsConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-01-01.
 
-
         :param str resource_name: The name of the resource.
         :param AgentsConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class AgentsConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AgentConnectorPropertiesArgs', 'AgentConnectorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AgentConnectorPropertiesArgs', 'AgentConnectorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

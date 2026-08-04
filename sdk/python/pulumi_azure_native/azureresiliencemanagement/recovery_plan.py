@@ -23,9 +23,9 @@ __all__ = ['RecoveryPlanArgs', 'RecoveryPlan']
 class RecoveryPlanArgs:
     def __init__(__self__, *,
                  service_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 properties: Optional[pulumi.Input['RecoveryPlanPropertiesArgs']] = None,
-                 recovery_plan_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 properties: pulumi.Input[Optional['RecoveryPlanPropertiesArgs']] = None,
+                 recovery_plan_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RecoveryPlan resource.
 
@@ -56,38 +56,38 @@ class RecoveryPlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['RecoveryPlanPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['RecoveryPlanPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['RecoveryPlanPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['RecoveryPlanPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPlanName")
-    def recovery_plan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the recovery orchestration plan.
         """
         return pulumi.get(self, "recovery_plan_name")
 
     @recovery_plan_name.setter
-    def recovery_plan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_plan_name", value)
 
 
@@ -97,10 +97,10 @@ class RecoveryPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['RecoveryPlanPropertiesArgs', 'RecoveryPlanPropertiesArgsDict']]] = None,
-                 recovery_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['RecoveryPlanPropertiesArgs', 'RecoveryPlanPropertiesArgsDict']]] = None,
+                 recovery_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a recovery orchestration plan resource in the Azure Resilience Management provider namespace.
@@ -108,7 +108,6 @@ class RecoveryPlan(pulumi.CustomResource):
         Uses Azure REST API version 2026-03-01-preview.
 
         Other available API versions: 2025-02-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +129,6 @@ class RecoveryPlan(pulumi.CustomResource):
 
         Other available API versions: 2025-02-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RecoveryPlanArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,10 +144,10 @@ class RecoveryPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union['RecoveryPlanPropertiesArgs', 'RecoveryPlanPropertiesArgsDict']]] = None,
-                 recovery_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union['RecoveryPlanPropertiesArgs', 'RecoveryPlanPropertiesArgsDict']]] = None,
+                 recovery_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

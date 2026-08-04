@@ -25,12 +25,12 @@ class RoutePolicyArgs:
                  network_fabric_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  statements: pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]],
-                 address_family_type: Optional[pulumi.Input[Union[_builtins.str, 'AddressFamilyType']]] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 address_family_type: pulumi.Input[Optional[Union[_builtins.str, 'AddressFamilyType']]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'CommunityActionTypes']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RoutePolicy resource.
 
@@ -102,74 +102,74 @@ class RoutePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressFamilyType")
-    def address_family_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AddressFamilyType']]]:
+    def address_family_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AddressFamilyType']]]:
         """
         AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
         """
         return pulumi.get(self, "address_family_type")
 
     @address_family_type.setter
-    def address_family_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AddressFamilyType']]]):
+    def address_family_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AddressFamilyType']]]):
         pulumi.set(self, "address_family_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]]:
+    def default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CommunityActionTypes']]]:
         """
         Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]]):
+    def default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CommunityActionTypes']]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="routePolicyName")
-    def route_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Route Policy.
         """
         return pulumi.get(self, "route_policy_name")
 
     @route_policy_name.setter
-    def route_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -179,15 +179,15 @@ class RoutePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family_type: Optional[pulumi.Input[Union[_builtins.str, 'AddressFamilyType']]] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_family_type: pulumi.Input[Optional[Union[_builtins.str, 'AddressFamilyType']]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'CommunityActionTypes']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The RoutePolicy resource definition.
@@ -195,7 +195,6 @@ class RoutePolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,7 +221,6 @@ class RoutePolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RoutePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,15 +236,15 @@ class RoutePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family_type: Optional[pulumi.Input[Union[_builtins.str, 'AddressFamilyType']]] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_fabric_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_family_type: pulumi.Input[Optional[Union[_builtins.str, 'AddressFamilyType']]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'CommunityActionTypes']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutePolicyStatementPropertiesArgs', 'RoutePolicyStatementPropertiesArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

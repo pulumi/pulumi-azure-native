@@ -62,7 +62,6 @@ def get_sql_server_instance_jobs_status(feature_name: Optional[_builtins.str] = 
 
     Other available API versions: 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str feature_name: The name of the feature to retrieve the job status for.
     :param _builtins.str job_type: The type of the job to retrieve the status for.
     :param _builtins.str resource_group_name: The name of the Azure resource group
@@ -78,10 +77,10 @@ def get_sql_server_instance_jobs_status(feature_name: Optional[_builtins.str] = 
 
     return AwaitableGetSqlServerInstanceJobsStatusResult(
         jobs_status=pulumi.get(__ret__, 'jobs_status'))
-def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               job_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               sql_server_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_server_instance_jobs_status_output(feature_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               job_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               sql_server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceJobsStatusResult]:
     """
     Gets jobs status details for sql arc resource
@@ -89,7 +88,6 @@ def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Inp
     Uses Azure REST API version 2025-03-01-preview.
 
     Other available API versions: 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str feature_name: The name of the feature to retrieve the job status for.
     :param _builtins.str job_type: The type of the job to retrieve the status for.

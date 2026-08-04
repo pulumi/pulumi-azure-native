@@ -24,18 +24,18 @@ class ServerEndpointArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
                  sync_group_name: pulumi.Input[_builtins.str],
-                 cloud_tiering: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_download_policy: Optional[pulumi.Input[Union[_builtins.str, 'InitialDownloadPolicy']]] = None,
-                 initial_upload_policy: Optional[pulumi.Input[Union[_builtins.str, 'InitialUploadPolicy']]] = None,
-                 local_cache_mode: Optional[pulumi.Input[Union[_builtins.str, 'LocalCacheMode']]] = None,
-                 offline_data_transfer: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]] = None,
-                 offline_data_transfer_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_local_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 cloud_tiering: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_download_policy: pulumi.Input[Optional[Union[_builtins.str, 'InitialDownloadPolicy']]] = None,
+                 initial_upload_policy: pulumi.Input[Optional[Union[_builtins.str, 'InitialUploadPolicy']]] = None,
+                 local_cache_mode: pulumi.Input[Optional[Union[_builtins.str, 'LocalCacheMode']]] = None,
+                 offline_data_transfer: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
+                 offline_data_transfer_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ServerEndpoint resource.
 
@@ -131,146 +131,146 @@ class ServerEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudTiering")
-    def cloud_tiering(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]]:
+    def cloud_tiering(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]]:
         """
         Cloud Tiering.
         """
         return pulumi.get(self, "cloud_tiering")
 
     @cloud_tiering.setter
-    def cloud_tiering(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]]):
+    def cloud_tiering(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]]):
         pulumi.set(self, "cloud_tiering", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="initialDownloadPolicy")
-    def initial_download_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InitialDownloadPolicy']]]:
+    def initial_download_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InitialDownloadPolicy']]]:
         """
         Policy for how namespace and files are recalled during FastDr.
         """
         return pulumi.get(self, "initial_download_policy")
 
     @initial_download_policy.setter
-    def initial_download_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InitialDownloadPolicy']]]):
+    def initial_download_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InitialDownloadPolicy']]]):
         pulumi.set(self, "initial_download_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="initialUploadPolicy")
-    def initial_upload_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InitialUploadPolicy']]]:
+    def initial_upload_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InitialUploadPolicy']]]:
         """
         Policy for how the initial upload sync session is performed.
         """
         return pulumi.get(self, "initial_upload_policy")
 
     @initial_upload_policy.setter
-    def initial_upload_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InitialUploadPolicy']]]):
+    def initial_upload_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InitialUploadPolicy']]]):
         pulumi.set(self, "initial_upload_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="localCacheMode")
-    def local_cache_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LocalCacheMode']]]:
+    def local_cache_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LocalCacheMode']]]:
         """
         Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         """
         return pulumi.get(self, "local_cache_mode")
 
     @local_cache_mode.setter
-    def local_cache_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LocalCacheMode']]]):
+    def local_cache_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LocalCacheMode']]]):
         pulumi.set(self, "local_cache_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="offlineDataTransfer")
-    def offline_data_transfer(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]]:
+    def offline_data_transfer(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]]:
         """
         Offline data transfer
         """
         return pulumi.get(self, "offline_data_transfer")
 
     @offline_data_transfer.setter
-    def offline_data_transfer(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]]):
+    def offline_data_transfer(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]]):
         pulumi.set(self, "offline_data_transfer", value)
 
     @_builtins.property
     @pulumi.getter(name="offlineDataTransferShareName")
-    def offline_data_transfer_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offline_data_transfer_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Offline data transfer share name
         """
         return pulumi.get(self, "offline_data_transfer_share_name")
 
     @offline_data_transfer_share_name.setter
-    def offline_data_transfer_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offline_data_transfer_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offline_data_transfer_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverEndpointName")
-    def server_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Server Endpoint object.
         """
         return pulumi.get(self, "server_endpoint_name")
 
     @server_endpoint_name.setter
-    def server_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverLocalPath")
-    def server_local_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_local_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server Local path.
         """
         return pulumi.get(self, "server_local_path")
 
     @server_local_path.setter
-    def server_local_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_local_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_local_path", value)
 
     @_builtins.property
     @pulumi.getter(name="serverResourceId")
-    def server_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server Resource Id.
         """
         return pulumi.get(self, "server_resource_id")
 
     @server_resource_id.setter
-    def server_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tierFilesOlderThanDays")
-    def tier_files_older_than_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_files_older_than_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Tier files older than days.
         """
         return pulumi.get(self, "tier_files_older_than_days")
 
     @tier_files_older_than_days.setter
-    def tier_files_older_than_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_files_older_than_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_files_older_than_days", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_free_space_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
         return pulumi.get(self, "volume_free_space_percent")
 
     @volume_free_space_percent.setter
-    def volume_free_space_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_free_space_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_free_space_percent", value)
 
 
@@ -280,21 +280,21 @@ class ServerEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_tiering: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_download_policy: Optional[pulumi.Input[Union[_builtins.str, 'InitialDownloadPolicy']]] = None,
-                 initial_upload_policy: Optional[pulumi.Input[Union[_builtins.str, 'InitialUploadPolicy']]] = None,
-                 local_cache_mode: Optional[pulumi.Input[Union[_builtins.str, 'LocalCacheMode']]] = None,
-                 offline_data_transfer: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]] = None,
-                 offline_data_transfer_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_local_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 cloud_tiering: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_download_policy: pulumi.Input[Optional[Union[_builtins.str, 'InitialDownloadPolicy']]] = None,
+                 initial_upload_policy: pulumi.Input[Optional[Union[_builtins.str, 'InitialUploadPolicy']]] = None,
+                 local_cache_mode: pulumi.Input[Optional[Union[_builtins.str, 'LocalCacheMode']]] = None,
+                 offline_data_transfer: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
+                 offline_data_transfer_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Server Endpoint object.
@@ -302,7 +302,6 @@ class ServerEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,7 +334,6 @@ class ServerEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServerEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -351,21 +349,21 @@ class ServerEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_tiering: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_download_policy: Optional[pulumi.Input[Union[_builtins.str, 'InitialDownloadPolicy']]] = None,
-                 initial_upload_policy: Optional[pulumi.Input[Union[_builtins.str, 'InitialUploadPolicy']]] = None,
-                 local_cache_mode: Optional[pulumi.Input[Union[_builtins.str, 'LocalCacheMode']]] = None,
-                 offline_data_transfer: Optional[pulumi.Input[Union[_builtins.str, 'FeatureStatus']]] = None,
-                 offline_data_transfer_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_local_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 cloud_tiering: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_download_policy: pulumi.Input[Optional[Union[_builtins.str, 'InitialDownloadPolicy']]] = None,
+                 initial_upload_policy: pulumi.Input[Optional[Union[_builtins.str, 'InitialUploadPolicy']]] = None,
+                 local_cache_mode: pulumi.Input[Optional[Union[_builtins.str, 'LocalCacheMode']]] = None,
+                 offline_data_transfer: pulumi.Input[Optional[Union[_builtins.str, 'FeatureStatus']]] = None,
+                 offline_data_transfer_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

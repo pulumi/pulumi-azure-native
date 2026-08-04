@@ -117,11 +117,11 @@ export interface GuestConfigurationConnectedVMwarevSphereAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    guestConfigurationAssignmentName?: pulumi.Input<string>;
+    guestConfigurationAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * Region where the VM is located.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The guest configuration assignment name.
      */
@@ -129,7 +129,7 @@ export interface GuestConfigurationConnectedVMwarevSphereAssignmentArgs {
     /**
      * Properties of the Guest configuration assignment.
      */
-    properties?: pulumi.Input<inputs.guestconfiguration.GuestConfigurationAssignmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.guestconfiguration.GuestConfigurationAssignmentPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

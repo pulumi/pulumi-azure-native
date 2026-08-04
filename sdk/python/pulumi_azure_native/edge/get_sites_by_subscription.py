@@ -119,7 +119,6 @@ def get_sites_by_subscription(site_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str site_name: The name of the Site
     """
     __args__ = dict()
@@ -134,7 +133,7 @@ def get_sites_by_subscription(site_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_sites_by_subscription_output(site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sites_by_subscription_output(site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesBySubscriptionResult]:
     """
     Get a Site
@@ -142,7 +141,6 @@ def get_sites_by_subscription_output(site_name: Optional[pulumi.Input[_builtins.
     Uses Azure REST API version 2024-02-01-preview.
 
     Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str site_name: The name of the Site
     """

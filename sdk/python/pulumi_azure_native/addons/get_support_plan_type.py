@@ -105,7 +105,6 @@ def get_support_plan_type(plan_type_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-03-01.
 
-
     :param _builtins.str plan_type_name: The Canonical support plan type.
     :param _builtins.str provider_name: The support plan type. For now the only valid type is "canonical".
     """
@@ -121,14 +120,13 @@ def get_support_plan_type(plan_type_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_support_plan_type_output(plan_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSupportPlanTypeResult]:
     """
     Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
 
     Uses Azure REST API version 2018-03-01.
-
 
     :param _builtins.str plan_type_name: The Canonical support plan type.
     :param _builtins.str provider_name: The support plan type. For now the only valid type is "canonical".

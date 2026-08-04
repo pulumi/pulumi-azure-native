@@ -193,7 +193,6 @@ def get_build(build_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str build_name: The name of a build.
     :param _builtins.str builder_name: The name of the builder.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -218,9 +217,9 @@ def get_build(build_name: Optional[_builtins.str] = None,
         token_endpoint=pulumi.get(__ret__, 'token_endpoint'),
         type=pulumi.get(__ret__, 'type'),
         upload_endpoint=pulumi.get(__ret__, 'upload_endpoint'))
-def get_build_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_build_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildResult]:
     """
     Get a BuildResource
@@ -228,7 +227,6 @@ def get_build_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2025-02-02-preview.
 
     Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str build_name: The name of a build.
     :param _builtins.str builder_name: The name of the builder.

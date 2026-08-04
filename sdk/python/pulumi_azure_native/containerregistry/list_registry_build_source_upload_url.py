@@ -71,7 +71,6 @@ def list_registry_build_source_upload_url(registry_name: Optional[_builtins.str]
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.
     """
@@ -84,8 +83,8 @@ def list_registry_build_source_upload_url(registry_name: Optional[_builtins.str]
     return AwaitableListRegistryBuildSourceUploadUrlResult(
         relative_path=pulumi.get(__ret__, 'relative_path'),
         upload_url=pulumi.get(__ret__, 'upload_url'))
-def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_registry_build_source_upload_url_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryBuildSourceUploadUrlResult]:
     """
     Get the upload location for the user to be able to upload the source.
@@ -93,7 +92,6 @@ def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.
     Uses Azure REST API version 2019-06-01-preview.
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.

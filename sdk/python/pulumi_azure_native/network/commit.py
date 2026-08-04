@@ -24,8 +24,8 @@ class CommitArgs:
     def __init__(__self__, *,
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 commit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['CommitPropertiesArgs']] = None):
+                 commit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['CommitPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Commit resource.
 
@@ -67,26 +67,26 @@ class CommitArgs:
 
     @_builtins.property
     @pulumi.getter(name="commitName")
-    def commit_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the commit.
         """
         return pulumi.get(self, "commit_name")
 
     @commit_name.setter
-    def commit_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CommitPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['CommitPropertiesArgs']]:
         """
         The Commit properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CommitPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['CommitPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,16 +96,15 @@ class Commit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 commit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CommitPropertiesArgs', 'CommitPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 commit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CommitPropertiesArgs', 'CommitPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The commit resource
 
         Uses Azure REST API version 2025-07-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class Commit(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
-
         :param str resource_name: The name of the resource.
         :param CommitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class Commit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 commit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CommitPropertiesArgs', 'CommitPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 commit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CommitPropertiesArgs', 'CommitPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

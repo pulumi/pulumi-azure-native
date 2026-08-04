@@ -26,7 +26,7 @@ class HciEdgeDeviceJobArgs:
                  kind: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['HciCollectLogJobPropertiesArgs', 'HciRemoteSupportJobPropertiesArgs']],
                  resource_uri: pulumi.Input[_builtins.str],
-                 jobs_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HciEdgeDeviceJob resource.
 
@@ -95,14 +95,14 @@ class HciEdgeDeviceJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobsName")
-    def jobs_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jobs_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of EdgeDevice Job
         """
         return pulumi.get(self, "jobs_name")
 
     @jobs_name.setter
-    def jobs_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jobs_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jobs_name", value)
 
 
@@ -112,17 +112,16 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['HciCollectLogJobPropertiesArgs', 'HciCollectLogJobPropertiesArgsDict'], Union['HciRemoteSupportJobPropertiesArgs', 'HciRemoteSupportJobPropertiesArgsDict']]]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 edge_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['HciCollectLogJobPropertiesArgs', 'HciCollectLogJobPropertiesArgsDict'], Union['HciRemoteSupportJobPropertiesArgs', 'HciRemoteSupportJobPropertiesArgsDict']]]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Edge device job for Azure Stack HCI solution.
 
         Uses Azure REST API version 2024-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param HciEdgeDeviceJobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['HciCollectLogJobPropertiesArgs', 'HciCollectLogJobPropertiesArgsDict'], Union['HciRemoteSupportJobPropertiesArgs', 'HciRemoteSupportJobPropertiesArgsDict']]]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 edge_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['HciCollectLogJobPropertiesArgs', 'HciCollectLogJobPropertiesArgsDict'], Union['HciRemoteSupportJobPropertiesArgs', 'HciRemoteSupportJobPropertiesArgsDict']]]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

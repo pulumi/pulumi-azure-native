@@ -397,7 +397,6 @@ def get_sql_virtual_machine(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: The child resources to include in the response.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sql_virtual_machine_name: Name of the SQL virtual machine.
@@ -439,9 +438,9 @@ def get_sql_virtual_machine(expand: Optional[_builtins.str] = None,
         virtual_machine_resource_id=pulumi.get(__ret__, 'virtual_machine_resource_id'),
         wsfc_domain_credentials=pulumi.get(__ret__, 'wsfc_domain_credentials'),
         wsfc_static_ip=pulumi.get(__ret__, 'wsfc_static_ip'))
-def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   sql_virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_virtual_machine_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   sql_virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
     Gets a SQL virtual machine.
@@ -449,7 +448,6 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[_built
     Uses Azure REST API version 2023-10-01.
 
     Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: The child resources to include in the response.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

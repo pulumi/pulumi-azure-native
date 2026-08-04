@@ -23,17 +23,17 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 ingestion_storage: Optional[pulumi.Input['IngestionStorageArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_event_hub_state: Optional[pulumi.Input[Union[_builtins.str, 'ManagedEventHubState']]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources_public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 sku: Optional[pulumi.Input['AccountSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_endpoint_state: Optional[pulumi.Input[Union[_builtins.str, 'TenantEndpointState']]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 ingestion_storage: pulumi.Input[Optional['IngestionStorageArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_event_hub_state: pulumi.Input[Optional[Union[_builtins.str, 'ManagedEventHubState']]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources_public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 sku: pulumi.Input[Optional['AccountSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_endpoint_state: pulumi.Input[Optional[Union[_builtins.str, 'TenantEndpointState']]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -94,134 +94,134 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         The Managed Identity of the resource
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionStorage")
-    def ingestion_storage(self) -> Optional[pulumi.Input['IngestionStorageArgs']]:
+    def ingestion_storage(self) -> pulumi.Input[Optional['IngestionStorageArgs']]:
         """
         Ingestion Storage Account Info
         """
         return pulumi.get(self, "ingestion_storage")
 
     @ingestion_storage.setter
-    def ingestion_storage(self, value: Optional[pulumi.Input['IngestionStorageArgs']]):
+    def ingestion_storage(self, value: pulumi.Input[Optional['IngestionStorageArgs']]):
         pulumi.set(self, "ingestion_storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedEventHubState")
-    def managed_event_hub_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedEventHubState']]]:
+    def managed_event_hub_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedEventHubState']]]:
         """
         Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         """
         return pulumi.get(self, "managed_event_hub_state")
 
     @managed_event_hub_state.setter
-    def managed_event_hub_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedEventHubState']]]):
+    def managed_event_hub_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedEventHubState']]]):
         pulumi.set(self, "managed_event_hub_state", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the managed resource group name
         """
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourcesPublicNetworkAccess")
-    def managed_resources_public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def managed_resources_public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Gets or sets the public network access for managed resources.
         """
         return pulumi.get(self, "managed_resources_public_network_access")
 
     @managed_resources_public_network_access.setter
-    def managed_resources_public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def managed_resources_public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "managed_resources_public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Gets or sets the public network access.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['AccountSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['AccountSkuArgs']]:
         """
         Gets or sets the Sku.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['AccountSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['AccountSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantEndpointState")
-    def tenant_endpoint_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TenantEndpointState']]]:
+    def tenant_endpoint_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TenantEndpointState']]]:
         """
         Gets or sets the state of tenant endpoint.
         """
         return pulumi.get(self, "tenant_endpoint_state")
 
     @tenant_endpoint_state.setter
-    def tenant_endpoint_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TenantEndpointState']]]):
+    def tenant_endpoint_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TenantEndpointState']]]):
         pulumi.set(self, "tenant_endpoint_state", value)
 
 
@@ -231,18 +231,18 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 ingestion_storage: Optional[pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_event_hub_state: Optional[pulumi.Input[Union[_builtins.str, 'ManagedEventHubState']]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources_public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_endpoint_state: Optional[pulumi.Input[Union[_builtins.str, 'TenantEndpointState']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ingestion_storage: pulumi.Input[Optional[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_event_hub_state: pulumi.Input[Optional[Union[_builtins.str, 'ManagedEventHubState']]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources_public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['AccountSkuArgs', 'AccountSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_endpoint_state: pulumi.Input[Optional[Union[_builtins.str, 'TenantEndpointState']]] = None,
                  __props__=None):
         """
         Account resource
@@ -250,7 +250,6 @@ class Account(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
 
         Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,7 +279,6 @@ class Account(pulumi.CustomResource):
 
         Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,18 +294,18 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 ingestion_storage: Optional[pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_event_hub_state: Optional[pulumi.Input[Union[_builtins.str, 'ManagedEventHubState']]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resources_public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_endpoint_state: Optional[pulumi.Input[Union[_builtins.str, 'TenantEndpointState']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ingestion_storage: pulumi.Input[Optional[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_event_hub_state: pulumi.Input[Optional[Union[_builtins.str, 'ManagedEventHubState']]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resources_public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['AccountSkuArgs', 'AccountSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_endpoint_state: pulumi.Input[Optional[Union[_builtins.str, 'TenantEndpointState']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

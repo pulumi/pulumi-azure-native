@@ -2008,7 +2008,7 @@ class RoutingEventHubPropertiesResponse(dict):
 
         :param _builtins.str name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
         :param _builtins.str authentication_type: Method used to authenticate against the event hub endpoint
-        :param _builtins.str connection_string: The connection string of the event hub endpoint. 
+        :param _builtins.str connection_string: The connection string of the event hub endpoint.
         :param _builtins.str endpoint_uri: The url of the event hub endpoint. It must include the protocol sb://
         :param _builtins.str entity_path: Event hub name on the event hub namespace
         :param _builtins.str id: Id of the event hub endpoint
@@ -2054,7 +2054,7 @@ class RoutingEventHubPropertiesResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[_builtins.str]:
         """
-        The connection string of the event hub endpoint. 
+        The connection string of the event hub endpoint.
         """
         return pulumi.get(self, "connection_string")
 

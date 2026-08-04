@@ -58,7 +58,6 @@ def list_manufacturing_data_service_available_versions(mds_resource_name: Option
 
     Uses Azure REST API version 2025-03-01.
 
-
     :param _builtins.str mds_resource_name: Name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -70,14 +69,13 @@ def list_manufacturing_data_service_available_versions(mds_resource_name: Option
 
     return AwaitableListManufacturingDataServiceAvailableVersionsResult(
         versions=pulumi.get(__ret__, 'versions'))
-def list_manufacturing_data_service_available_versions_output(mds_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_manufacturing_data_service_available_versions_output(mds_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManufacturingDataServiceAvailableVersionsResult]:
     """
     Returns the list of available versions
 
     Uses Azure REST API version 2025-03-01.
-
 
     :param _builtins.str mds_resource_name: Name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

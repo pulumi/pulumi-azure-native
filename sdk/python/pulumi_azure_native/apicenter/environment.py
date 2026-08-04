@@ -28,10 +28,10 @@ class EnvironmentArgs:
                  title: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  custom_properties: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 onboarding: Optional[pulumi.Input['OnboardingArgs']] = None,
-                 server: Optional[pulumi.Input['EnvironmentServerArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 onboarding: pulumi.Input[Optional['OnboardingArgs']] = None,
+                 server: pulumi.Input[Optional['EnvironmentServerArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -136,50 +136,50 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def onboarding(self) -> Optional[pulumi.Input['OnboardingArgs']]:
+    def onboarding(self) -> pulumi.Input[Optional['OnboardingArgs']]:
         """
         Environment onboarding information
         """
         return pulumi.get(self, "onboarding")
 
     @onboarding.setter
-    def onboarding(self, value: Optional[pulumi.Input['OnboardingArgs']]):
+    def onboarding(self, value: pulumi.Input[Optional['OnboardingArgs']]):
         pulumi.set(self, "onboarding", value)
 
     @_builtins.property
     @pulumi.getter
-    def server(self) -> Optional[pulumi.Input['EnvironmentServerArgs']]:
+    def server(self) -> pulumi.Input[Optional['EnvironmentServerArgs']]:
         """
         Server information of the environment.
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: Optional[pulumi.Input['EnvironmentServerArgs']]):
+    def server(self, value: pulumi.Input[Optional['EnvironmentServerArgs']]):
         pulumi.set(self, "server", value)
 
 
@@ -190,15 +190,15 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_properties: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentKind']]] = None,
-                 onboarding: Optional[pulumi.Input[Union['OnboardingArgs', 'OnboardingArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[Union['EnvironmentServerArgs', 'EnvironmentServerArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentKind']]] = None,
+                 onboarding: pulumi.Input[Optional[Union['OnboardingArgs', 'OnboardingArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[Union['EnvironmentServerArgs', 'EnvironmentServerArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Environment entity.
@@ -206,7 +206,6 @@ class Environment(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,7 +233,6 @@ class Environment(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,15 +249,15 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_properties: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentKind']]] = None,
-                 onboarding: Optional[pulumi.Input[Union['OnboardingArgs', 'OnboardingArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[Union['EnvironmentServerArgs', 'EnvironmentServerArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentKind']]] = None,
+                 onboarding: pulumi.Input[Optional[Union['OnboardingArgs', 'OnboardingArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[Union['EnvironmentServerArgs', 'EnvironmentServerArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

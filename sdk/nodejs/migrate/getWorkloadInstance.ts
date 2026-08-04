@@ -98,7 +98,7 @@ export interface GetWorkloadInstanceOutputArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Workload instance name.
      */

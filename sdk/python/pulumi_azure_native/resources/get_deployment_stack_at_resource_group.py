@@ -336,7 +336,6 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[_buil
 
     Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str deployment_stack_name: Name of the deployment stack.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -371,8 +370,8 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[_buil
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_stack_at_resource_group_output(deployment_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtResourceGroupResult]:
     """
     Gets the Deployment stack with the given name.
@@ -380,7 +379,6 @@ def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optiona
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str deployment_stack_name: Name of the deployment stack.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

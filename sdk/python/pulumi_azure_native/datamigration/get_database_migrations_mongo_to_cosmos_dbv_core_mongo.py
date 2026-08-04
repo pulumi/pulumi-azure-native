@@ -119,7 +119,6 @@ class GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult:
     @pulumi.getter
     def kind(self) -> _builtins.str:
         """
-
         Expected value is 'MongoToCosmosDbMongo'.
         """
         return pulumi.get(self, "kind")
@@ -266,7 +265,6 @@ def get_database_migrations_mongo_to_cosmos_dbv_core_mongo(migration_name: Optio
 
     Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str migration_name: Name of the migration.
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str target_resource_name: The name of the target resource/account.
@@ -297,9 +295,9 @@ def get_database_migrations_mongo_to_cosmos_dbv_core_mongo(migration_name: Optio
         system_data=pulumi.get(__ret__, 'system_data'),
         target_mongo_connection=pulumi.get(__ret__, 'target_mongo_connection'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_migrations_mongo_to_cosmos_dbv_core_mongo_output(migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                  target_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_migrations_mongo_to_cosmos_dbv_core_mongo_output(migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                  target_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult]:
     """
     Get Database Migration resource.
@@ -307,7 +305,6 @@ def get_database_migrations_mongo_to_cosmos_dbv_core_mongo_output(migration_name
     Uses Azure REST API version 2023-07-15-preview.
 
     Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str migration_name: Name of the migration.
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

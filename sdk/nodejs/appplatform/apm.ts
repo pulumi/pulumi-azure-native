@@ -108,11 +108,11 @@ export interface ApmArgs {
     /**
      * The name of the APM
      */
-    apmName?: pulumi.Input<string>;
+    apmName?: pulumi.Input<string | undefined>;
     /**
      * Properties of an APM
      */
-    properties?: pulumi.Input<inputs.appplatform.ApmPropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.ApmPropertiesArgs | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

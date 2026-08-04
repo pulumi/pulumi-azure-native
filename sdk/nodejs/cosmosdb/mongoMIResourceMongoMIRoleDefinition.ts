@@ -125,15 +125,15 @@ export interface MongoMIResourceMongoMIRoleDefinitionArgs {
     /**
      * A set of fully qualified Scopes at or below which MongoMI Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
      */
-    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The path id for the Role Definition.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The set of operations allowed through this Role Definition.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.cosmosdb.PermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.cosmosdb.PermissionArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,13 +141,13 @@ export interface MongoMIResourceMongoMIRoleDefinitionArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Role Definition was built-in or user created.
      */
-    type?: pulumi.Input<enums.cosmosdb.RoleDefinitionType>;
+    type?: pulumi.Input<enums.cosmosdb.RoleDefinitionType | undefined>;
 }

@@ -123,7 +123,7 @@ export interface ReplicationMigrationItemArgs {
     /**
      * Migration item name.
      */
-    migrationItemName?: pulumi.Input<string>;
+    migrationItemName?: pulumi.Input<string | undefined>;
     /**
      * Enable migration input properties.
      */

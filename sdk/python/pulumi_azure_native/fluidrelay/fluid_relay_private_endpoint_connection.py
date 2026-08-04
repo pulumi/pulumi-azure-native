@@ -25,7 +25,7 @@ class FluidRelayPrivateEndpointConnectionArgs:
                  fluid_relay_server_name: pulumi.Input[_builtins.str],
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FluidRelayPrivateEndpointConnection resource.
 
@@ -78,14 +78,14 @@ class FluidRelayPrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the private endpoint connection associated with the Azure resource.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
     @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
@@ -95,16 +95,15 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The private endpoint connection resource.
 
         Uses Azure REST API version 2025-06-20-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-20-preview.
 
-
         :param str resource_name: The name of the resource.
         :param FluidRelayPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_connection_state: pulumi.Input[Optional[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

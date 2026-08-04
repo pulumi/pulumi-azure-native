@@ -24,15 +24,15 @@ class DistributedAvailabilityGroupArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]] = None,
-                 distributed_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 failover_mode: Optional[pulumi.Input[Union[_builtins.str, 'FailoverModeType']]] = None,
-                 instance_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_link_role: Optional[pulumi.Input[Union[_builtins.str, 'LinkRole']]] = None,
-                 partner_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_mode: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationModeType']]] = None,
-                 seeding_mode: Optional[pulumi.Input[Union[_builtins.str, 'SeedingModeType']]] = None):
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]] = None,
+                 distributed_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 failover_mode: pulumi.Input[Optional[Union[_builtins.str, 'FailoverModeType']]] = None,
+                 instance_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_link_role: pulumi.Input[Optional[Union[_builtins.str, 'LinkRole']]] = None,
+                 partner_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_mode: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationModeType']]] = None,
+                 seeding_mode: pulumi.Input[Optional[Union[_builtins.str, 'SeedingModeType']]] = None):
         """
         The set of arguments for constructing a DistributedAvailabilityGroup resource.
 
@@ -95,110 +95,110 @@ class DistributedAvailabilityGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]]:
+    def databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]]:
         """
         Databases in the distributed availability group
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]]):
+    def databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributedAvailabilityGroupDatabaseArgs']]]]):
         pulumi.set(self, "databases", value)
 
     @_builtins.property
     @pulumi.getter(name="distributedAvailabilityGroupName")
-    def distributed_availability_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distributed_availability_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The distributed availability group name.
         """
         return pulumi.get(self, "distributed_availability_group_name")
 
     @distributed_availability_group_name.setter
-    def distributed_availability_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distributed_availability_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distributed_availability_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverMode")
-    def failover_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FailoverModeType']]]:
+    def failover_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FailoverModeType']]]:
         """
         The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
         """
         return pulumi.get(self, "failover_mode")
 
     @failover_mode.setter
-    def failover_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FailoverModeType']]]):
+    def failover_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FailoverModeType']]]):
         pulumi.set(self, "failover_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceAvailabilityGroupName")
-    def instance_availability_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_availability_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Managed instance side availability group name
         """
         return pulumi.get(self, "instance_availability_group_name")
 
     @instance_availability_group_name.setter
-    def instance_availability_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_availability_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_availability_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceLinkRole")
-    def instance_link_role(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LinkRole']]]:
+    def instance_link_role(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LinkRole']]]:
         """
         Managed instance side link role
         """
         return pulumi.get(self, "instance_link_role")
 
     @instance_link_role.setter
-    def instance_link_role(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LinkRole']]]):
+    def instance_link_role(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LinkRole']]]):
         pulumi.set(self, "instance_link_role", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerAvailabilityGroupName")
-    def partner_availability_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_availability_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SQL server side availability group name
         """
         return pulumi.get(self, "partner_availability_group_name")
 
     @partner_availability_group_name.setter
-    def partner_availability_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_availability_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_availability_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerEndpoint")
-    def partner_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SQL server side endpoint - IP or DNS resolvable name
         """
         return pulumi.get(self, "partner_endpoint")
 
     @partner_endpoint.setter
-    def partner_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationMode")
-    def replication_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationModeType']]]:
+    def replication_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReplicationModeType']]]:
         """
         Replication mode of the link
         """
         return pulumi.get(self, "replication_mode")
 
     @replication_mode.setter
-    def replication_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationModeType']]]):
+    def replication_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationModeType']]]):
         pulumi.set(self, "replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="seedingMode")
-    def seeding_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SeedingModeType']]]:
+    def seeding_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SeedingModeType']]]:
         """
         Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
         """
         return pulumi.get(self, "seeding_mode")
 
     @seeding_mode.setter
-    def seeding_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SeedingModeType']]]):
+    def seeding_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SeedingModeType']]]):
         pulumi.set(self, "seeding_mode", value)
 
 
@@ -208,17 +208,17 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributedAvailabilityGroupDatabaseArgs', 'DistributedAvailabilityGroupDatabaseArgsDict']]]]] = None,
-                 distributed_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 failover_mode: Optional[pulumi.Input[Union[_builtins.str, 'FailoverModeType']]] = None,
-                 instance_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_link_role: Optional[pulumi.Input[Union[_builtins.str, 'LinkRole']]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_mode: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationModeType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 seeding_mode: Optional[pulumi.Input[Union[_builtins.str, 'SeedingModeType']]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributedAvailabilityGroupDatabaseArgs', 'DistributedAvailabilityGroupDatabaseArgsDict']]]]] = None,
+                 distributed_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 failover_mode: pulumi.Input[Optional[Union[_builtins.str, 'FailoverModeType']]] = None,
+                 instance_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_link_role: pulumi.Input[Optional[Union[_builtins.str, 'LinkRole']]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_mode: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationModeType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 seeding_mode: pulumi.Input[Optional[Union[_builtins.str, 'SeedingModeType']]] = None,
                  __props__=None):
         """
         Distributed availability group between box and Sql Managed Instance.
@@ -226,7 +226,6 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +254,6 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
 
         Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DistributedAvailabilityGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,17 +269,17 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributedAvailabilityGroupDatabaseArgs', 'DistributedAvailabilityGroupDatabaseArgsDict']]]]] = None,
-                 distributed_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 failover_mode: Optional[pulumi.Input[Union[_builtins.str, 'FailoverModeType']]] = None,
-                 instance_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_link_role: Optional[pulumi.Input[Union[_builtins.str, 'LinkRole']]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_availability_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_mode: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationModeType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 seeding_mode: Optional[pulumi.Input[Union[_builtins.str, 'SeedingModeType']]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributedAvailabilityGroupDatabaseArgs', 'DistributedAvailabilityGroupDatabaseArgsDict']]]]] = None,
+                 distributed_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 failover_mode: pulumi.Input[Optional[Union[_builtins.str, 'FailoverModeType']]] = None,
+                 instance_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_link_role: pulumi.Input[Optional[Union[_builtins.str, 'LinkRole']]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_mode: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationModeType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 seeding_mode: pulumi.Input[Optional[Union[_builtins.str, 'SeedingModeType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

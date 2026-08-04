@@ -119,7 +119,6 @@ def get_connector(connector_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str connector_name: The name of the connector
     """
     __args__ = dict()
@@ -134,7 +133,7 @@ def get_connector(connector_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_connector_output(connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Get a Connector
@@ -142,7 +141,6 @@ def get_connector_output(connector_name: Optional[pulumi.Input[_builtins.str]] =
     Uses Azure REST API version 2024-05-01-preview.
 
     Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str connector_name: The name of the connector
     """

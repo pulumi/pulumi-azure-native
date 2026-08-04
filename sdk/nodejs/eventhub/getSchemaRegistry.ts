@@ -33,7 +33,7 @@ export interface GetSchemaRegistryArgs {
      */
     resourceGroupName: string;
     /**
-     * The Schema Group name 
+     * The Schema Group name
      */
     schemaGroupName: string;
 }
@@ -111,7 +111,7 @@ export interface GetSchemaRegistryOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The Schema Group name 
+     * The Schema Group name
      */
     schemaGroupName: pulumi.Input<string>;
 }

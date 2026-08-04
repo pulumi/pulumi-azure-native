@@ -432,7 +432,6 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -475,8 +474,8 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         trial_days_remaining=pulumi.get(__ret__, 'trial_days_remaining'),
         type=pulumi.get(__ret__, 'type'),
         user_assigned_identities=pulumi.get(__ret__, 'user_assigned_identities'))
-def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get HCI cluster.
@@ -484,7 +483,6 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

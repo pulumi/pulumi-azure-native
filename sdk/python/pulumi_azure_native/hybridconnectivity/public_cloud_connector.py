@@ -25,9 +25,9 @@ class PublicCloudConnectorArgs:
                  aws_cloud_profile: pulumi.Input['AwsCloudProfileArgs'],
                  host_type: pulumi.Input[Union[_builtins.str, 'HostType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_cloud_connector: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_cloud_connector: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicCloudConnector resource.
 
@@ -86,38 +86,38 @@ class PublicCloudConnectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicCloudConnector")
-    def public_cloud_connector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_cloud_connector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Represent public cloud connectors resource.
         """
         return pulumi.get(self, "public_cloud_connector")
 
     @public_cloud_connector.setter
-    def public_cloud_connector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_cloud_connector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_cloud_connector", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,18 +127,17 @@ class PublicCloudConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_cloud_profile: Optional[pulumi.Input[Union['AwsCloudProfileArgs', 'AwsCloudProfileArgsDict']]] = None,
-                 host_type: Optional[pulumi.Input[Union[_builtins.str, 'HostType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_cloud_connector: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aws_cloud_profile: pulumi.Input[Optional[Union['AwsCloudProfileArgs', 'AwsCloudProfileArgsDict']]] = None,
+                 host_type: pulumi.Input[Optional[Union[_builtins.str, 'HostType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_cloud_connector: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Public Cloud Connector
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class PublicCloudConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-
         :param str resource_name: The name of the resource.
         :param PublicCloudConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,12 +174,12 @@ class PublicCloudConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_cloud_profile: Optional[pulumi.Input[Union['AwsCloudProfileArgs', 'AwsCloudProfileArgsDict']]] = None,
-                 host_type: Optional[pulumi.Input[Union[_builtins.str, 'HostType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_cloud_connector: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aws_cloud_profile: pulumi.Input[Optional[Union['AwsCloudProfileArgs', 'AwsCloudProfileArgsDict']]] = None,
+                 host_type: pulumi.Input[Optional[Union[_builtins.str, 'HostType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_cloud_connector: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

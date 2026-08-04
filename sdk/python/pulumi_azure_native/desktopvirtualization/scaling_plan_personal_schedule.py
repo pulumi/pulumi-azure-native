@@ -24,33 +24,33 @@ class ScalingPlanPersonalScheduleArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scaling_plan_name: pulumi.Input[_builtins.str],
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 off_peak_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 off_peak_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 off_peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 off_peak_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 peak_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 peak_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 peak_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 ramp_down_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_down_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_down_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 ramp_down_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 ramp_up_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_up_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_up_auto_start_hosts: Optional[pulumi.Input[Union[_builtins.str, 'StartupBehavior']]] = None,
-                 ramp_up_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 ramp_up_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 scaling_plan_schedule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 off_peak_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 off_peak_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 off_peak_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 off_peak_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 off_peak_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 off_peak_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 peak_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 peak_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 peak_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 peak_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 peak_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 peak_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 ramp_down_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_down_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_down_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 ramp_down_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 ramp_up_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_up_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_up_auto_start_hosts: pulumi.Input[Optional[Union[_builtins.str, 'StartupBehavior']]] = None,
+                 ramp_up_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 ramp_up_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScalingPlanPersonalSchedule resource.
 
@@ -175,326 +175,326 @@ class ScalingPlanPersonalScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]:
+    def days_of_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]:
         """
         Set of days of the week on which this schedule is active.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]):
+    def days_of_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]):
         pulumi.set(self, "days_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakActionOnDisconnect")
-    def off_peak_action_on_disconnect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def off_peak_action_on_disconnect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a user disconnect during the off-peak period.
         """
         return pulumi.get(self, "off_peak_action_on_disconnect")
 
     @off_peak_action_on_disconnect.setter
-    def off_peak_action_on_disconnect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def off_peak_action_on_disconnect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "off_peak_action_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakActionOnLogoff")
-    def off_peak_action_on_logoff(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def off_peak_action_on_logoff(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a logoff during the off-peak period.
         """
         return pulumi.get(self, "off_peak_action_on_logoff")
 
     @off_peak_action_on_logoff.setter
-    def off_peak_action_on_logoff(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def off_peak_action_on_logoff(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "off_peak_action_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakMinutesToWaitOnDisconnect")
-    def off_peak_minutes_to_wait_on_disconnect(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def off_peak_minutes_to_wait_on_disconnect(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user disconnects during the off-peak period.
         """
         return pulumi.get(self, "off_peak_minutes_to_wait_on_disconnect")
 
     @off_peak_minutes_to_wait_on_disconnect.setter
-    def off_peak_minutes_to_wait_on_disconnect(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def off_peak_minutes_to_wait_on_disconnect(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "off_peak_minutes_to_wait_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakMinutesToWaitOnLogoff")
-    def off_peak_minutes_to_wait_on_logoff(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def off_peak_minutes_to_wait_on_logoff(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user logs off during the off-peak period.
         """
         return pulumi.get(self, "off_peak_minutes_to_wait_on_logoff")
 
     @off_peak_minutes_to_wait_on_logoff.setter
-    def off_peak_minutes_to_wait_on_logoff(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def off_peak_minutes_to_wait_on_logoff(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "off_peak_minutes_to_wait_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def off_peak_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for off-peak period.
         """
         return pulumi.get(self, "off_peak_start_time")
 
     @off_peak_start_time.setter
-    def off_peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def off_peak_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "off_peak_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakStartVMOnConnect")
-    def off_peak_start_vm_on_connect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]:
+    def off_peak_start_vm_on_connect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]:
         """
         The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
         """
         return pulumi.get(self, "off_peak_start_vm_on_connect")
 
     @off_peak_start_vm_on_connect.setter
-    def off_peak_start_vm_on_connect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]):
+    def off_peak_start_vm_on_connect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]):
         pulumi.set(self, "off_peak_start_vm_on_connect", value)
 
     @_builtins.property
     @pulumi.getter(name="peakActionOnDisconnect")
-    def peak_action_on_disconnect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def peak_action_on_disconnect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a user disconnect during the peak period.
         """
         return pulumi.get(self, "peak_action_on_disconnect")
 
     @peak_action_on_disconnect.setter
-    def peak_action_on_disconnect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def peak_action_on_disconnect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "peak_action_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="peakActionOnLogoff")
-    def peak_action_on_logoff(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def peak_action_on_logoff(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a logoff during the peak period.
         """
         return pulumi.get(self, "peak_action_on_logoff")
 
     @peak_action_on_logoff.setter
-    def peak_action_on_logoff(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def peak_action_on_logoff(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "peak_action_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="peakMinutesToWaitOnDisconnect")
-    def peak_minutes_to_wait_on_disconnect(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peak_minutes_to_wait_on_disconnect(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user disconnects during the peak period.
         """
         return pulumi.get(self, "peak_minutes_to_wait_on_disconnect")
 
     @peak_minutes_to_wait_on_disconnect.setter
-    def peak_minutes_to_wait_on_disconnect(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peak_minutes_to_wait_on_disconnect(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peak_minutes_to_wait_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="peakMinutesToWaitOnLogoff")
-    def peak_minutes_to_wait_on_logoff(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peak_minutes_to_wait_on_logoff(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user logs off during the peak period.
         """
         return pulumi.get(self, "peak_minutes_to_wait_on_logoff")
 
     @peak_minutes_to_wait_on_logoff.setter
-    def peak_minutes_to_wait_on_logoff(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peak_minutes_to_wait_on_logoff(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peak_minutes_to_wait_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def peak_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for peak period.
         """
         return pulumi.get(self, "peak_start_time")
 
     @peak_start_time.setter
-    def peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def peak_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "peak_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="peakStartVMOnConnect")
-    def peak_start_vm_on_connect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]:
+    def peak_start_vm_on_connect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]:
         """
         The desired configuration of Start VM On Connect for the hostpool during the peak phase.
         """
         return pulumi.get(self, "peak_start_vm_on_connect")
 
     @peak_start_vm_on_connect.setter
-    def peak_start_vm_on_connect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]):
+    def peak_start_vm_on_connect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]):
         pulumi.set(self, "peak_start_vm_on_connect", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownActionOnDisconnect")
-    def ramp_down_action_on_disconnect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def ramp_down_action_on_disconnect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a user disconnect during the ramp down period.
         """
         return pulumi.get(self, "ramp_down_action_on_disconnect")
 
     @ramp_down_action_on_disconnect.setter
-    def ramp_down_action_on_disconnect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def ramp_down_action_on_disconnect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "ramp_down_action_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownActionOnLogoff")
-    def ramp_down_action_on_logoff(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def ramp_down_action_on_logoff(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a logoff during the ramp down period.
         """
         return pulumi.get(self, "ramp_down_action_on_logoff")
 
     @ramp_down_action_on_logoff.setter
-    def ramp_down_action_on_logoff(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def ramp_down_action_on_logoff(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "ramp_down_action_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownMinutesToWaitOnDisconnect")
-    def ramp_down_minutes_to_wait_on_disconnect(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_minutes_to_wait_on_disconnect(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp down period.
         """
         return pulumi.get(self, "ramp_down_minutes_to_wait_on_disconnect")
 
     @ramp_down_minutes_to_wait_on_disconnect.setter
-    def ramp_down_minutes_to_wait_on_disconnect(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_minutes_to_wait_on_disconnect(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_minutes_to_wait_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownMinutesToWaitOnLogoff")
-    def ramp_down_minutes_to_wait_on_logoff(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_minutes_to_wait_on_logoff(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp down period.
         """
         return pulumi.get(self, "ramp_down_minutes_to_wait_on_logoff")
 
     @ramp_down_minutes_to_wait_on_logoff.setter
-    def ramp_down_minutes_to_wait_on_logoff(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_minutes_to_wait_on_logoff(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_minutes_to_wait_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def ramp_down_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for ramp down period.
         """
         return pulumi.get(self, "ramp_down_start_time")
 
     @ramp_down_start_time.setter
-    def ramp_down_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def ramp_down_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "ramp_down_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownStartVMOnConnect")
-    def ramp_down_start_vm_on_connect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]:
+    def ramp_down_start_vm_on_connect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]:
         """
         The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
         """
         return pulumi.get(self, "ramp_down_start_vm_on_connect")
 
     @ramp_down_start_vm_on_connect.setter
-    def ramp_down_start_vm_on_connect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]):
+    def ramp_down_start_vm_on_connect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]):
         pulumi.set(self, "ramp_down_start_vm_on_connect", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpActionOnDisconnect")
-    def ramp_up_action_on_disconnect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def ramp_up_action_on_disconnect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a user disconnect during the ramp up period.
         """
         return pulumi.get(self, "ramp_up_action_on_disconnect")
 
     @ramp_up_action_on_disconnect.setter
-    def ramp_up_action_on_disconnect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def ramp_up_action_on_disconnect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "ramp_up_action_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpActionOnLogoff")
-    def ramp_up_action_on_logoff(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]:
+    def ramp_up_action_on_logoff(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]:
         """
         Action to be taken after a logoff during the ramp up period.
         """
         return pulumi.get(self, "ramp_up_action_on_logoff")
 
     @ramp_up_action_on_logoff.setter
-    def ramp_up_action_on_logoff(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]]):
+    def ramp_up_action_on_logoff(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]]):
         pulumi.set(self, "ramp_up_action_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpAutoStartHosts")
-    def ramp_up_auto_start_hosts(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StartupBehavior']]]:
+    def ramp_up_auto_start_hosts(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StartupBehavior']]]:
         """
         The desired startup behavior during the ramp up period for personal vms in the hostpool.
         """
         return pulumi.get(self, "ramp_up_auto_start_hosts")
 
     @ramp_up_auto_start_hosts.setter
-    def ramp_up_auto_start_hosts(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StartupBehavior']]]):
+    def ramp_up_auto_start_hosts(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StartupBehavior']]]):
         pulumi.set(self, "ramp_up_auto_start_hosts", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpMinutesToWaitOnDisconnect")
-    def ramp_up_minutes_to_wait_on_disconnect(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_minutes_to_wait_on_disconnect(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp up period.
         """
         return pulumi.get(self, "ramp_up_minutes_to_wait_on_disconnect")
 
     @ramp_up_minutes_to_wait_on_disconnect.setter
-    def ramp_up_minutes_to_wait_on_disconnect(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_minutes_to_wait_on_disconnect(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_minutes_to_wait_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpMinutesToWaitOnLogoff")
-    def ramp_up_minutes_to_wait_on_logoff(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_minutes_to_wait_on_logoff(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp up period.
         """
         return pulumi.get(self, "ramp_up_minutes_to_wait_on_logoff")
 
     @ramp_up_minutes_to_wait_on_logoff.setter
-    def ramp_up_minutes_to_wait_on_logoff(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_minutes_to_wait_on_logoff(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_minutes_to_wait_on_logoff", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def ramp_up_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for ramp up period.
         """
         return pulumi.get(self, "ramp_up_start_time")
 
     @ramp_up_start_time.setter
-    def ramp_up_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def ramp_up_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "ramp_up_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpStartVMOnConnect")
-    def ramp_up_start_vm_on_connect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]:
+    def ramp_up_start_vm_on_connect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]:
         """
         The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
         """
         return pulumi.get(self, "ramp_up_start_vm_on_connect")
 
     @ramp_up_start_vm_on_connect.setter
-    def ramp_up_start_vm_on_connect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]]):
+    def ramp_up_start_vm_on_connect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]):
         pulumi.set(self, "ramp_up_start_vm_on_connect", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPlanScheduleName")
-    def scaling_plan_schedule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_plan_schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ScalingPlanSchedule
         """
         return pulumi.get(self, "scaling_plan_schedule_name")
 
     @scaling_plan_schedule_name.setter
-    def scaling_plan_schedule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_plan_schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_plan_schedule_name", value)
 
 
@@ -504,35 +504,35 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 off_peak_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 off_peak_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 off_peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 off_peak_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 peak_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 peak_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 peak_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 ramp_down_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_down_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_down_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_down_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 ramp_up_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_up_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_up_auto_start_hosts: Optional[pulumi.Input[Union[_builtins.str, 'StartupBehavior']]] = None,
-                 ramp_up_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_up_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 off_peak_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 off_peak_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 off_peak_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 off_peak_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 off_peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 off_peak_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 peak_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 peak_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 peak_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 peak_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 peak_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 ramp_down_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_down_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_down_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_down_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 ramp_up_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_up_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_up_auto_start_hosts: pulumi.Input[Optional[Union[_builtins.str, 'StartupBehavior']]] = None,
+                 ramp_up_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_up_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a ScalingPlanPersonalSchedule definition.
@@ -540,7 +540,6 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -587,7 +586,6 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
         Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ScalingPlanPersonalScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -603,35 +601,35 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 off_peak_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 off_peak_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 off_peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 off_peak_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 peak_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 peak_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 peak_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 ramp_down_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_down_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_down_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_down_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 ramp_up_action_on_disconnect: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_up_action_on_logoff: Optional[pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
-                 ramp_up_auto_start_hosts: Optional[pulumi.Input[Union[_builtins.str, 'StartupBehavior']]] = None,
-                 ramp_up_minutes_to_wait_on_disconnect: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_minutes_to_wait_on_logoff: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_up_start_vm_on_connect: Optional[pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 off_peak_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 off_peak_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 off_peak_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 off_peak_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 off_peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 off_peak_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 peak_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 peak_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 peak_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 peak_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 peak_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 ramp_down_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_down_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_down_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_down_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 ramp_up_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_up_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
+                 ramp_up_auto_start_hosts: pulumi.Input[Optional[Union[_builtins.str, 'StartupBehavior']]] = None,
+                 ramp_up_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_up_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

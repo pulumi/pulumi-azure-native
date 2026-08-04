@@ -162,11 +162,11 @@ export interface IdentityProviderArgs {
     /**
      * List of Allowed Tenants when configuring Azure Active Directory login.
      */
-    allowedTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedTenants?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
      */
-    authority?: pulumi.Input<string>;
+    authority?: pulumi.Input<string | undefined>;
     /**
      * Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
      */
@@ -174,7 +174,7 @@ export interface IdentityProviderArgs {
     /**
      * The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
      */
-    clientLibrary?: pulumi.Input<string>;
+    clientLibrary?: pulumi.Input<string | undefined>;
     /**
      * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
@@ -182,15 +182,15 @@ export interface IdentityProviderArgs {
     /**
      * Identity Provider Type identifier.
      */
-    identityProviderName?: pulumi.Input<string>;
+    identityProviderName?: pulumi.Input<string | undefined>;
     /**
      * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    passwordResetPolicyName?: pulumi.Input<string>;
+    passwordResetPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    profileEditingPolicyName?: pulumi.Input<string>;
+    profileEditingPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -202,17 +202,17 @@ export interface IdentityProviderArgs {
     /**
      * Signin Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    signinPolicyName?: pulumi.Input<string>;
+    signinPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The TenantId to use instead of Common when logging into Active Directory
      */
-    signinTenant?: pulumi.Input<string>;
+    signinTenant?: pulumi.Input<string | undefined>;
     /**
      * Signup Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    signupPolicyName?: pulumi.Input<string>;
+    signupPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Identity Provider Type identifier.
      */
-    type?: pulumi.Input<string | enums.apimanagement.IdentityProviderType>;
+    type?: pulumi.Input<string | enums.apimanagement.IdentityProviderType | undefined>;
 }

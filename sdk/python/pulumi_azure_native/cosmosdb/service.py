@@ -24,8 +24,8 @@ class ServiceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -67,26 +67,26 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]:
         """
         Properties in ServiceResourceCreateUpdateParameters.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cosmos DB service name.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
 
@@ -96,10 +96,10 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'DataTransferServiceResourceCreateUpdatePropertiesArgsDict'], Union['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict'], Union['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict'], Union['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'DataTransferServiceResourceCreateUpdatePropertiesArgsDict'], Union['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict'], Union['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict'], Union['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Properties for the database account.
@@ -107,7 +107,6 @@ class Service(pulumi.CustomResource):
         Uses Azure REST API version 2025-10-15.
 
         Other available API versions: 2021-04-01-preview, 2021-07-01-preview, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview, 2026-03-15, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class Service(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-07-01-preview, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview, 2026-03-15, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'DataTransferServiceResourceCreateUpdatePropertiesArgsDict'], Union['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict'], Union['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict'], Union['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'DataTransferServiceResourceCreateUpdatePropertiesArgsDict'], Union['GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict'], Union['MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict'], Union['SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

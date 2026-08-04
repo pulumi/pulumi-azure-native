@@ -69,7 +69,6 @@ def list_service_group_ancestors(service_group_name: Optional[_builtins.str] = N
 
     Uses Azure REST API version 2024-02-01-preview.
 
-
     :param _builtins.str service_group_name: ServiceGroup Name.
     """
     __args__ = dict()
@@ -80,13 +79,12 @@ def list_service_group_ancestors(service_group_name: Optional[_builtins.str] = N
     return AwaitableListServiceGroupAncestorsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_service_group_ancestors_output(service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_service_group_ancestors_output(service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServiceGroupAncestorsResult]:
     """
     Get the details of the serviceGroup's ancestors
 
     Uses Azure REST API version 2024-02-01-preview.
-
 
     :param _builtins.str service_group_name: ServiceGroup Name.
     """

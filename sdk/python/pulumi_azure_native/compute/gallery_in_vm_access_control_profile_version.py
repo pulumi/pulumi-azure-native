@@ -27,12 +27,12 @@ class GalleryInVMAccessControlProfileVersionArgs:
                  in_vm_access_control_profile_name: pulumi.Input[_builtins.str],
                  mode: pulumi.Input[Union[_builtins.str, 'AccessControlRulesMode']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 in_vm_access_control_profile_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input['AccessControlRulesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_locations: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 in_vm_access_control_profile_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional['AccessControlRulesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_locations: pulumi.Input[Optional[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
         """
         The set of arguments for constructing a GalleryInVMAccessControlProfileVersion resource.
 
@@ -128,74 +128,74 @@ class GalleryInVMAccessControlProfileVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludeFromLatest")
-    def exclude_from_latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_from_latest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, Virtual Machines deployed from the latest version of the Resource Profile won't use this Profile version.
         """
         return pulumi.get(self, "exclude_from_latest")
 
     @exclude_from_latest.setter
-    def exclude_from_latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_from_latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_from_latest", value)
 
     @_builtins.property
     @pulumi.getter(name="inVMAccessControlProfileVersionName")
-    def in_vm_access_control_profile_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def in_vm_access_control_profile_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the gallery inVMAccessControlProfile version to be retrieved.
         """
         return pulumi.get(self, "in_vm_access_control_profile_version_name")
 
     @in_vm_access_control_profile_version_name.setter
-    def in_vm_access_control_profile_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def in_vm_access_control_profile_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "in_vm_access_control_profile_version_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input['AccessControlRulesArgs']]:
+    def rules(self) -> pulumi.Input[Optional['AccessControlRulesArgs']]:
         """
         This is the Access Control Rules specification for an inVMAccessControlProfile version.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input['AccessControlRulesArgs']]):
+    def rules(self, value: pulumi.Input[Optional['AccessControlRulesArgs']]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetLocations")
-    def target_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]:
+    def target_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TargetRegionArgs']]]]:
         """
         The target regions where the Resource Profile version is going to be replicated to. This property is updatable.
         """
         return pulumi.get(self, "target_locations")
 
     @target_locations.setter
-    def target_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]]):
+    def target_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TargetRegionArgs']]]]):
         pulumi.set(self, "target_locations", value)
 
 
@@ -205,17 +205,17 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_access: Optional[pulumi.Input[Union[_builtins.str, 'EndpointAccess']]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_vm_access_control_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_vm_access_control_profile_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'AccessControlRulesMode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Union['AccessControlRulesArgs', 'AccessControlRulesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetRegionArgs', 'TargetRegionArgsDict']]]]] = None,
+                 default_access: pulumi.Input[Optional[Union[_builtins.str, 'EndpointAccess']]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_vm_access_control_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_vm_access_control_profile_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'AccessControlRulesMode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Union['AccessControlRulesArgs', 'AccessControlRulesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetRegionArgs', 'TargetRegionArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies information about the gallery inVMAccessControlProfile version that you want to create or update.
@@ -223,7 +223,6 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
 
         Other available API versions: 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,7 +251,6 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
 
         Other available API versions: 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GalleryInVMAccessControlProfileVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,17 +266,17 @@ class GalleryInVMAccessControlProfileVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_access: Optional[pulumi.Input[Union[_builtins.str, 'EndpointAccess']]] = None,
-                 exclude_from_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_vm_access_control_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_vm_access_control_profile_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'AccessControlRulesMode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Union['AccessControlRulesArgs', 'AccessControlRulesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetRegionArgs', 'TargetRegionArgsDict']]]]] = None,
+                 default_access: pulumi.Input[Optional[Union[_builtins.str, 'EndpointAccess']]] = None,
+                 exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_vm_access_control_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_vm_access_control_profile_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'AccessControlRulesMode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Union['AccessControlRulesArgs', 'AccessControlRulesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetRegionArgs', 'TargetRegionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

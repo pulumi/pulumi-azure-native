@@ -23,7 +23,7 @@ class TriggerArgs:
                  image_template_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
 
@@ -76,14 +76,14 @@ class TriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="triggerName")
-    def trigger_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the trigger
         """
         return pulumi.get(self, "trigger_name")
 
     @trigger_name.setter
-    def trigger_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_name", value)
 
 
@@ -93,10 +93,10 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a trigger that can invoke an image template build.
@@ -104,7 +104,6 @@ class Trigger(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-07-01.
 
         Other available API versions: 2022-07-01, 2023-07-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +125,6 @@ class Trigger(pulumi.CustomResource):
 
         Other available API versions: 2022-07-01, 2023-07-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,10 +140,10 @@ class Trigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

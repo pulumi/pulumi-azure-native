@@ -144,28 +144,28 @@ export interface ExpressRouteGatewayArgs {
     /**
      * Configures this gateway to accept traffic from non Virtual WAN networks.
      */
-    allowNonVirtualWanTraffic?: pulumi.Input<boolean>;
+    allowNonVirtualWanTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration for auto scaling.
      */
-    autoScaleConfiguration?: pulumi.Input<inputs.network.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>;
+    autoScaleConfiguration?: pulumi.Input<inputs.network.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs | undefined>;
     /**
      * List of ExpressRoute connections to the ExpressRoute gateway.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    expressRouteConnections?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteConnectionArgs>[]>;
+    expressRouteConnections?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteConnectionArgs>[] | undefined>;
     /**
      * The name of the ExpressRoute gateway.
      */
-    expressRouteGatewayName?: pulumi.Input<string>;
+    expressRouteGatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -173,7 +173,7 @@ export interface ExpressRouteGatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Virtual Hub where the ExpressRoute gateway is or will be deployed.
      */

@@ -23,16 +23,16 @@ class UpdateSummaryArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 current_oem_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_sbe_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_checked: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 oem_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UpdateSummariesPropertiesState']]] = None):
+                 current_oem_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_sbe_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_checked: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 oem_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UpdateSummariesPropertiesState']]] = None):
         """
         The set of arguments for constructing a UpdateSummary resource.
 
@@ -98,122 +98,122 @@ class UpdateSummaryArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentOemVersion")
-    def current_oem_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_oem_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current OEM Version.
         """
         return pulumi.get(self, "current_oem_version")
 
     @current_oem_version.setter
-    def current_oem_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_oem_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_oem_version", value)
 
     @_builtins.property
     @pulumi.getter(name="currentSbeVersion")
-    def current_sbe_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_sbe_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current Sbe version of the stamp.
         """
         return pulumi.get(self, "current_sbe_version")
 
     @current_sbe_version.setter
-    def current_sbe_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_sbe_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_sbe_version", value)
 
     @_builtins.property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current Solution Bundle version of the stamp.
         """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_version", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareModel")
-    def hardware_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hardware_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the hardware model.
         """
         return pulumi.get(self, "hardware_model")
 
     @hardware_model.setter
-    def hardware_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hardware_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hardware_model", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckDate")
-    def health_check_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last time the package-specific checks were run.
         """
         return pulumi.get(self, "health_check_date")
 
     @health_check_date.setter
-    def health_check_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_date", value)
 
     @_builtins.property
     @pulumi.getter(name="lastChecked")
-    def last_checked(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_checked(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last time the update service successfully checked for updates
         """
         return pulumi.get(self, "last_checked")
 
     @last_checked.setter
-    def last_checked(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_checked(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_checked", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last time an update installation completed successfully.
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="oemFamily")
-    def oem_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oem_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OEM family name.
         """
         return pulumi.get(self, "oem_family")
 
     @oem_family.setter
-    def oem_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oem_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oem_family", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpdateSummariesPropertiesState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpdateSummariesPropertiesState']]]:
         """
         Overall update state of the stamp.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpdateSummariesPropertiesState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpdateSummariesPropertiesState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -223,18 +223,18 @@ class UpdateSummary(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_oem_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_sbe_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_checked: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 oem_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UpdateSummariesPropertiesState']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_oem_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_sbe_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_checked: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 oem_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UpdateSummariesPropertiesState']]] = None,
                  __props__=None):
         """
         Get the update summaries for the cluster
@@ -242,7 +242,6 @@ class UpdateSummary(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,7 +271,6 @@ class UpdateSummary(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param UpdateSummaryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,18 +286,18 @@ class UpdateSummary(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_oem_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_sbe_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_checked: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 oem_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UpdateSummariesPropertiesState']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_oem_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_sbe_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_checked: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 oem_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UpdateSummariesPropertiesState']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

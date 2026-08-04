@@ -120,7 +120,6 @@ def get_guest_subscription(guest_subscription_id: Optional[_builtins.str] = None
 
     Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str guest_subscription_id: The name of the GuestSubscription
     :param _builtins.str location: The name of the Azure region.
     """
@@ -137,8 +136,8 @@ def get_guest_subscription(guest_subscription_id: Optional[_builtins.str] = None
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_guest_subscription_output(guest_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  location: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guest_subscription_output(guest_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  location: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestSubscriptionResult]:
     """
     Gets the properties of a guest subscription.
@@ -146,7 +145,6 @@ def get_guest_subscription_output(guest_subscription_id: Optional[pulumi.Input[_
     Uses Azure REST API version 2025-08-15.
 
     Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str guest_subscription_id: The name of the GuestSubscription
     :param _builtins.str location: The name of the Azure region.

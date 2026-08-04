@@ -24,12 +24,12 @@ class AFDOriginGroupArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication: Optional[pulumi.Input['OriginAuthenticationPropertiesArgs']] = None,
-                 health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
-                 load_balancing_settings: Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']] = None,
-                 origin_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_affinity_state: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]] = None,
-                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 authentication: pulumi.Input[Optional['OriginAuthenticationPropertiesArgs']] = None,
+                 health_probe_settings: pulumi.Input[Optional['HealthProbeParametersArgs']] = None,
+                 load_balancing_settings: pulumi.Input[Optional['LoadBalancingSettingsParametersArgs']] = None,
+                 origin_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_affinity_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a AFDOriginGroup resource.
 
@@ -83,74 +83,74 @@ class AFDOriginGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['OriginAuthenticationPropertiesArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['OriginAuthenticationPropertiesArgs']]:
         """
         Authentication settings for origin in origin group.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['OriginAuthenticationPropertiesArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['OriginAuthenticationPropertiesArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional[pulumi.Input['HealthProbeParametersArgs']]:
+    def health_probe_settings(self) -> pulumi.Input[Optional['HealthProbeParametersArgs']]:
         """
         Health probe settings to the origin that is used to determine the health of the origin.
         """
         return pulumi.get(self, "health_probe_settings")
 
     @health_probe_settings.setter
-    def health_probe_settings(self, value: Optional[pulumi.Input['HealthProbeParametersArgs']]):
+    def health_probe_settings(self, value: pulumi.Input[Optional['HealthProbeParametersArgs']]):
         pulumi.set(self, "health_probe_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingSettings")
-    def load_balancing_settings(self) -> Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']]:
+    def load_balancing_settings(self) -> pulumi.Input[Optional['LoadBalancingSettingsParametersArgs']]:
         """
         Load balancing settings for a backend pool
         """
         return pulumi.get(self, "load_balancing_settings")
 
     @load_balancing_settings.setter
-    def load_balancing_settings(self, value: Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']]):
+    def load_balancing_settings(self, value: pulumi.Input[Optional['LoadBalancingSettingsParametersArgs']]):
         pulumi.set(self, "load_balancing_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="originGroupName")
-    def origin_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the origin group which is unique within the endpoint.
         """
         return pulumi.get(self, "origin_group_name")
 
     @origin_group_name.setter
-    def origin_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionAffinityState")
-    def session_affinity_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]]:
+    def session_affinity_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]]:
         """
         Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "session_affinity_state")
 
     @session_affinity_state.setter
-    def session_affinity_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]]):
+    def session_affinity_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]]):
         pulumi.set(self, "session_affinity_state", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
 
     @traffic_restoration_time_to_healed_or_new_endpoints_in_minutes.setter
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
@@ -160,14 +160,14 @@ class AFDOriginGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['OriginAuthenticationPropertiesArgs', 'OriginAuthenticationPropertiesArgsDict']]] = None,
-                 health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
-                 load_balancing_settings: Optional[pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
-                 origin_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_affinity_state: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]] = None,
-                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 authentication: pulumi.Input[Optional[Union['OriginAuthenticationPropertiesArgs', 'OriginAuthenticationPropertiesArgsDict']]] = None,
+                 health_probe_settings: pulumi.Input[Optional[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
+                 load_balancing_settings: pulumi.Input[Optional[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
+                 origin_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_affinity_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
@@ -175,7 +175,6 @@ class AFDOriginGroup(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class AFDOriginGroup(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AFDOriginGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class AFDOriginGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['OriginAuthenticationPropertiesArgs', 'OriginAuthenticationPropertiesArgsDict']]] = None,
-                 health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
-                 load_balancing_settings: Optional[pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
-                 origin_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_affinity_state: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]] = None,
-                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 authentication: pulumi.Input[Optional[Union['OriginAuthenticationPropertiesArgs', 'OriginAuthenticationPropertiesArgsDict']]] = None,
+                 health_probe_settings: pulumi.Input[Optional[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
+                 load_balancing_settings: pulumi.Input[Optional[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
+                 origin_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_affinity_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

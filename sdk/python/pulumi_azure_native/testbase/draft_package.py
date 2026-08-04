@@ -24,30 +24,30 @@ class DraftPackageArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
-                 app_file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 edit_package: Optional[pulumi.Input[_builtins.bool]] = None,
-                 executable_launch_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]] = None,
-                 flighting_ring: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_apps: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryAppDefinitionArgs']]]] = None,
-                 highlighted_files: Optional[pulumi.Input[Sequence[pulumi.Input['HighlightedFileArgs']]]] = None,
-                 inplace_upgrade_os_pair: Optional[pulumi.Input['InplaceUpgradeOSInfoArgs']] = None,
-                 intune_enrollment_metadata: Optional[pulumi.Input['IntuneEnrollmentMetadataArgs']] = None,
-                 intune_metadata: Optional[pulumi.Input['DraftPackageIntuneAppMetadataArgs']] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'DraftPackageSourceType']]] = None,
-                 tab_state: Optional[pulumi.Input['TabStateArgs']] = None,
-                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]] = None,
-                 test_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input['TestArgs']]]] = None,
-                 use_autofill: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edit_package: pulumi.Input[Optional[_builtins.bool]] = None,
+                 executable_launch_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_party_apps: pulumi.Input[Optional[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]] = None,
+                 flighting_ring: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_apps: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryAppDefinitionArgs']]]] = None,
+                 highlighted_files: pulumi.Input[Optional[Sequence[pulumi.Input['HighlightedFileArgs']]]] = None,
+                 inplace_upgrade_os_pair: pulumi.Input[Optional['InplaceUpgradeOSInfoArgs']] = None,
+                 intune_enrollment_metadata: pulumi.Input[Optional['IntuneEnrollmentMetadataArgs']] = None,
+                 intune_metadata: pulumi.Input[Optional['DraftPackageIntuneAppMetadataArgs']] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'DraftPackageSourceType']]] = None,
+                 tab_state: pulumi.Input[Optional['TabStateArgs']] = None,
+                 target_os_list: pulumi.Input[Optional[Sequence[pulumi.Input['TargetOSInfoArgs']]]] = None,
+                 test_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input['TestArgs']]]] = None,
+                 use_autofill: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DraftPackage resource.
 
@@ -159,290 +159,290 @@ class DraftPackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="appFileName")
-    def app_file_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_file_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the app file.
         """
         return pulumi.get(self, "app_file_name")
 
     @app_file_name.setter
-    def app_file_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_file_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_file_name", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application name
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def comments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comments added by user.
         """
         return pulumi.get(self, "comments")
 
     @comments.setter
-    def comments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comments", value)
 
     @_builtins.property
     @pulumi.getter(name="draftPackageName")
-    def draft_package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def draft_package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource name of the Test Base Draft Package.
         """
         return pulumi.get(self, "draft_package_name")
 
     @draft_package_name.setter
-    def draft_package_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def draft_package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "draft_package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="editPackage")
-    def edit_package(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def edit_package(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether this draft package is used to edit a package.
         """
         return pulumi.get(self, "edit_package")
 
     @edit_package.setter
-    def edit_package(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def edit_package(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "edit_package", value)
 
     @_builtins.property
     @pulumi.getter(name="executableLaunchCommand")
-    def executable_launch_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def executable_launch_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The executable launch command for script auto-fill. Will be used to run the application.
         """
         return pulumi.get(self, "executable_launch_command")
 
     @executable_launch_command.setter
-    def executable_launch_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def executable_launch_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "executable_launch_command", value)
 
     @_builtins.property
     @pulumi.getter(name="firstPartyApps")
-    def first_party_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]]:
+    def first_party_apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]]:
         """
         The list of first party applications to test along with user application.
         """
         return pulumi.get(self, "first_party_apps")
 
     @first_party_apps.setter
-    def first_party_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]]):
+    def first_party_apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]]):
         pulumi.set(self, "first_party_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="flightingRing")
-    def flighting_ring(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flighting_ring(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The flighting ring for feature update.
         """
         return pulumi.get(self, "flighting_ring")
 
     @flighting_ring.setter
-    def flighting_ring(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flighting_ring(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flighting_ring", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApps")
-    def gallery_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GalleryAppDefinitionArgs']]]]:
+    def gallery_apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GalleryAppDefinitionArgs']]]]:
         """
         The list of gallery apps to test along with user application.
         """
         return pulumi.get(self, "gallery_apps")
 
     @gallery_apps.setter
-    def gallery_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryAppDefinitionArgs']]]]):
+    def gallery_apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryAppDefinitionArgs']]]]):
         pulumi.set(self, "gallery_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="highlightedFiles")
-    def highlighted_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HighlightedFileArgs']]]]:
+    def highlighted_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HighlightedFileArgs']]]]:
         """
         The highlight files in the package.
         """
         return pulumi.get(self, "highlighted_files")
 
     @highlighted_files.setter
-    def highlighted_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HighlightedFileArgs']]]]):
+    def highlighted_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HighlightedFileArgs']]]]):
         pulumi.set(self, "highlighted_files", value)
 
     @_builtins.property
     @pulumi.getter(name="inplaceUpgradeOSPair")
-    def inplace_upgrade_os_pair(self) -> Optional[pulumi.Input['InplaceUpgradeOSInfoArgs']]:
+    def inplace_upgrade_os_pair(self) -> pulumi.Input[Optional['InplaceUpgradeOSInfoArgs']]:
         """
         Specifies the baseline os and target os for inplace upgrade.
         """
         return pulumi.get(self, "inplace_upgrade_os_pair")
 
     @inplace_upgrade_os_pair.setter
-    def inplace_upgrade_os_pair(self, value: Optional[pulumi.Input['InplaceUpgradeOSInfoArgs']]):
+    def inplace_upgrade_os_pair(self, value: pulumi.Input[Optional['InplaceUpgradeOSInfoArgs']]):
         pulumi.set(self, "inplace_upgrade_os_pair", value)
 
     @_builtins.property
     @pulumi.getter(name="intuneEnrollmentMetadata")
-    def intune_enrollment_metadata(self) -> Optional[pulumi.Input['IntuneEnrollmentMetadataArgs']]:
+    def intune_enrollment_metadata(self) -> pulumi.Input[Optional['IntuneEnrollmentMetadataArgs']]:
         """
         The metadata of Intune enrollment.
         """
         return pulumi.get(self, "intune_enrollment_metadata")
 
     @intune_enrollment_metadata.setter
-    def intune_enrollment_metadata(self, value: Optional[pulumi.Input['IntuneEnrollmentMetadataArgs']]):
+    def intune_enrollment_metadata(self, value: pulumi.Input[Optional['IntuneEnrollmentMetadataArgs']]):
         pulumi.set(self, "intune_enrollment_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="intuneMetadata")
-    def intune_metadata(self) -> Optional[pulumi.Input['DraftPackageIntuneAppMetadataArgs']]:
+    def intune_metadata(self) -> pulumi.Input[Optional['DraftPackageIntuneAppMetadataArgs']]:
         """
         Metadata used to generate draft package folder and scripts.
         """
         return pulumi.get(self, "intune_metadata")
 
     @intune_metadata.setter
-    def intune_metadata(self, value: Optional[pulumi.Input['DraftPackageIntuneAppMetadataArgs']]):
+    def intune_metadata(self, value: pulumi.Input[Optional['DraftPackageIntuneAppMetadataArgs']]):
         pulumi.set(self, "intune_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="packageId")
-    def package_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the package id from which the draft package copied.
         """
         return pulumi.get(self, "package_id")
 
     @package_id.setter
-    def package_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_id", value)
 
     @_builtins.property
     @pulumi.getter(name="packageTags")
-    def package_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def package_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags of the package to be created.
         """
         return pulumi.get(self, "package_tags")
 
     @package_tags.setter
-    def package_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def package_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "package_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="processName")
-    def process_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The process name for script auto-fill. Will be used to identify the application process.
         """
         return pulumi.get(self, "process_name")
 
     @process_name.setter
-    def process_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DraftPackageSourceType']]]:
+    def source_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DraftPackageSourceType']]]:
         """
         The source type.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DraftPackageSourceType']]]):
+    def source_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DraftPackageSourceType']]]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tabState")
-    def tab_state(self) -> Optional[pulumi.Input['TabStateArgs']]:
+    def tab_state(self) -> pulumi.Input[Optional['TabStateArgs']]:
         """
         Tab state.
         """
         return pulumi.get(self, "tab_state")
 
     @tab_state.setter
-    def tab_state(self, value: Optional[pulumi.Input['TabStateArgs']]):
+    def tab_state(self, value: pulumi.Input[Optional['TabStateArgs']]):
         pulumi.set(self, "tab_state", value)
 
     @_builtins.property
     @pulumi.getter(name="targetOSList")
-    def target_os_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]]:
+    def target_os_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TargetOSInfoArgs']]]]:
         """
         Specifies the target OSs of specific OS Update types.
         """
         return pulumi.get(self, "target_os_list")
 
     @target_os_list.setter
-    def target_os_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]]):
+    def target_os_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TargetOSInfoArgs']]]]):
         pulumi.set(self, "target_os_list", value)
 
     @_builtins.property
     @pulumi.getter(name="testTypes")
-    def test_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]]:
+    def test_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]]:
         """
         OOB, functional or flow driven. Mapped to the data in 'tests' property.
         """
         return pulumi.get(self, "test_types")
 
     @test_types.setter
-    def test_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]]):
+    def test_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]]):
         pulumi.set(self, "test_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def tests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TestArgs']]]]:
+    def tests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TestArgs']]]]:
         """
         The detailed test information.
         """
         return pulumi.get(self, "tests")
 
     @tests.setter
-    def tests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TestArgs']]]]):
+    def tests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TestArgs']]]]):
         pulumi.set(self, "tests", value)
 
     @_builtins.property
     @pulumi.getter(name="useAutofill")
-    def use_autofill(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_autofill(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether user choose to enable script auto-fill.
         """
         return pulumi.get(self, "use_autofill")
 
     @use_autofill.setter
-    def use_autofill(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_autofill(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_autofill", value)
 
     @_builtins.property
     @pulumi.getter(name="useSample")
-    def use_sample(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_sample(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a sample package should be used instead of the one uploaded by the user.
         """
         return pulumi.get(self, "use_sample")
 
     @use_sample.setter
-    def use_sample(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_sample(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_sample", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application version
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -452,38 +452,37 @@ class DraftPackage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 edit_package: Optional[pulumi.Input[_builtins.bool]] = None,
-                 executable_launch_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
-                 flighting_ring: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryAppDefinitionArgs', 'GalleryAppDefinitionArgsDict']]]]] = None,
-                 highlighted_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HighlightedFileArgs', 'HighlightedFileArgsDict']]]]] = None,
-                 inplace_upgrade_os_pair: Optional[pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
-                 intune_enrollment_metadata: Optional[pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
-                 intune_metadata: Optional[pulumi.Input[Union['DraftPackageIntuneAppMetadataArgs', 'DraftPackageIntuneAppMetadataArgsDict']]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'DraftPackageSourceType']]] = None,
-                 tab_state: Optional[pulumi.Input[Union['TabStateArgs', 'TabStateArgsDict']]] = None,
-                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
-                 use_autofill: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edit_package: pulumi.Input[Optional[_builtins.bool]] = None,
+                 executable_launch_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_party_apps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
+                 flighting_ring: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_apps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryAppDefinitionArgs', 'GalleryAppDefinitionArgsDict']]]]] = None,
+                 highlighted_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HighlightedFileArgs', 'HighlightedFileArgsDict']]]]] = None,
+                 inplace_upgrade_os_pair: pulumi.Input[Optional[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
+                 intune_enrollment_metadata: pulumi.Input[Optional[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
+                 intune_metadata: pulumi.Input[Optional[Union['DraftPackageIntuneAppMetadataArgs', 'DraftPackageIntuneAppMetadataArgsDict']]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'DraftPackageSourceType']]] = None,
+                 tab_state: pulumi.Input[Optional[Union['TabStateArgs', 'TabStateArgsDict']]] = None,
+                 target_os_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
+                 use_autofill: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Test Base Draft Package resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -525,7 +524,6 @@ class DraftPackage(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DraftPackageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -541,32 +539,32 @@ class DraftPackage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 draft_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 edit_package: Optional[pulumi.Input[_builtins.bool]] = None,
-                 executable_launch_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
-                 flighting_ring: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryAppDefinitionArgs', 'GalleryAppDefinitionArgsDict']]]]] = None,
-                 highlighted_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HighlightedFileArgs', 'HighlightedFileArgsDict']]]]] = None,
-                 inplace_upgrade_os_pair: Optional[pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
-                 intune_enrollment_metadata: Optional[pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
-                 intune_metadata: Optional[pulumi.Input[Union['DraftPackageIntuneAppMetadataArgs', 'DraftPackageIntuneAppMetadataArgsDict']]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[Union[_builtins.str, 'DraftPackageSourceType']]] = None,
-                 tab_state: Optional[pulumi.Input[Union['TabStateArgs', 'TabStateArgsDict']]] = None,
-                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]] = None,
-                 tests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
-                 use_autofill: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_sample: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edit_package: pulumi.Input[Optional[_builtins.bool]] = None,
+                 executable_launch_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_party_apps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
+                 flighting_ring: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_apps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryAppDefinitionArgs', 'GalleryAppDefinitionArgsDict']]]]] = None,
+                 highlighted_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HighlightedFileArgs', 'HighlightedFileArgsDict']]]]] = None,
+                 inplace_upgrade_os_pair: pulumi.Input[Optional[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
+                 intune_enrollment_metadata: pulumi.Input[Optional[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
+                 intune_metadata: pulumi.Input[Optional[Union['DraftPackageIntuneAppMetadataArgs', 'DraftPackageIntuneAppMetadataArgsDict']]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[Union[_builtins.str, 'DraftPackageSourceType']]] = None,
+                 tab_state: pulumi.Input[Optional[Union['TabStateArgs', 'TabStateArgsDict']]] = None,
+                 target_os_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TestType']]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]]] = None,
+                 use_autofill: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

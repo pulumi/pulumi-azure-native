@@ -24,35 +24,35 @@ class ThreatIntelligenceIndicatorArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 confidence: Optional[pulumi.Input[_builtins.int]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 defanged: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 confidence: pulumi.Input[Optional[_builtins.int]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 defanged: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extensions: Optional[Any] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceExternalReferenceArgs']]]] = None,
-                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceGranularMarkingModelArgs']]]] = None,
-                 indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceKillChainPhaseArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 threat_intelligence_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_references: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceExternalReferenceArgs']]]] = None,
+                 granular_markings: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceGranularMarkingModelArgs']]]] = None,
+                 indicator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kill_chain_phases: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceKillChainPhaseArgs']]]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_marking_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parsed_pattern: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 threat_intelligence_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threat_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThreatIntelligenceIndicator resource.
 
@@ -191,74 +191,74 @@ class ThreatIntelligenceIndicatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def confidence(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def confidence(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Confidence of threat intelligence entity
         """
         return pulumi.get(self, "confidence")
 
     @confidence.setter
-    def confidence(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def confidence(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "confidence", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Created by
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdByRef")
-    def created_by_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Created by reference of threat intelligence entity
         """
         return pulumi.get(self, "created_by_ref")
 
     @created_by_ref.setter
-    def created_by_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by_ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def defanged(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def defanged(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is threat intelligence entity defanged
         """
         return pulumi.get(self, "defanged")
 
     @defanged.setter
-    def defanged(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def defanged(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "defanged", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of a threat intelligence entity
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of a threat intelligence entity
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
@@ -275,266 +275,266 @@ class ThreatIntelligenceIndicatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External ID of threat intelligence entity
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="externalLastUpdatedTimeUtc")
-    def external_last_updated_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_last_updated_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External last updated time in UTC
         """
         return pulumi.get(self, "external_last_updated_time_utc")
 
     @external_last_updated_time_utc.setter
-    def external_last_updated_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_last_updated_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_last_updated_time_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="externalReferences")
-    def external_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceExternalReferenceArgs']]]]:
+    def external_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceExternalReferenceArgs']]]]:
         """
         External References
         """
         return pulumi.get(self, "external_references")
 
     @external_references.setter
-    def external_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceExternalReferenceArgs']]]]):
+    def external_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceExternalReferenceArgs']]]]):
         pulumi.set(self, "external_references", value)
 
     @_builtins.property
     @pulumi.getter(name="granularMarkings")
-    def granular_markings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceGranularMarkingModelArgs']]]]:
+    def granular_markings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceGranularMarkingModelArgs']]]]:
         """
         Granular Markings
         """
         return pulumi.get(self, "granular_markings")
 
     @granular_markings.setter
-    def granular_markings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceGranularMarkingModelArgs']]]]):
+    def granular_markings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceGranularMarkingModelArgs']]]]):
         pulumi.set(self, "granular_markings", value)
 
     @_builtins.property
     @pulumi.getter(name="indicatorTypes")
-    def indicator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def indicator_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Indicator types of threat intelligence entities
         """
         return pulumi.get(self, "indicator_types")
 
     @indicator_types.setter
-    def indicator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def indicator_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "indicator_types", value)
 
     @_builtins.property
     @pulumi.getter(name="killChainPhases")
-    def kill_chain_phases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceKillChainPhaseArgs']]]]:
+    def kill_chain_phases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceKillChainPhaseArgs']]]]:
         """
         Kill chain phases
         """
         return pulumi.get(self, "kill_chain_phases")
 
     @kill_chain_phases.setter
-    def kill_chain_phases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceKillChainPhaseArgs']]]]):
+    def kill_chain_phases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceKillChainPhaseArgs']]]]):
         pulumi.set(self, "kill_chain_phases", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Labels  of threat intelligence entity
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language of threat intelligence entity
         """
         return pulumi.get(self, "language")
 
     @language.setter
-    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTimeUtc")
-    def last_updated_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last updated time in UTC
         """
         return pulumi.get(self, "last_updated_time_utc")
 
     @last_updated_time_utc.setter
-    def last_updated_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time_utc", value)
 
     @_builtins.property
     @pulumi.getter
-    def modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Modified by
         """
         return pulumi.get(self, "modified")
 
     @modified.setter
-    def modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Threat intelligence indicator name field.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectMarkingRefs")
-    def object_marking_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def object_marking_refs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Threat intelligence entity object marking references
         """
         return pulumi.get(self, "object_marking_refs")
 
     @object_marking_refs.setter
-    def object_marking_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def object_marking_refs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "object_marking_refs", value)
 
     @_builtins.property
     @pulumi.getter(name="parsedPattern")
-    def parsed_pattern(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]]:
+    def parsed_pattern(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]]:
         """
         Parsed patterns
         """
         return pulumi.get(self, "parsed_pattern")
 
     @parsed_pattern.setter
-    def parsed_pattern(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]]):
+    def parsed_pattern(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternArgs']]]]):
         pulumi.set(self, "parsed_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pattern of a threat intelligence entity
         """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="patternType")
-    def pattern_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pattern type of a threat intelligence entity
         """
         return pulumi.get(self, "pattern_type")
 
     @pattern_type.setter
-    def pattern_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_type", value)
 
     @_builtins.property
     @pulumi.getter(name="patternVersion")
-    def pattern_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pattern version of a threat intelligence entity
         """
         return pulumi.get(self, "pattern_version")
 
     @pattern_version.setter
-    def pattern_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def revoked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def revoked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is threat intelligence entity revoked
         """
         return pulumi.get(self, "revoked")
 
     @revoked.setter
-    def revoked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def revoked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "revoked", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source of a threat intelligence entity
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelligenceTags")
-    def threat_intelligence_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def threat_intelligence_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags
         """
         return pulumi.get(self, "threat_intelligence_tags")
 
     @threat_intelligence_tags.setter
-    def threat_intelligence_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def threat_intelligence_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "threat_intelligence_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatTypes")
-    def threat_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def threat_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Threat types
         """
         return pulumi.get(self, "threat_types")
 
     @threat_types.setter
-    def threat_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def threat_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "threat_types", value)
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
-    def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid from
         """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
-    def valid_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_from", value)
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_until(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid until
         """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
-    def valid_until(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_until(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_until", value)
 
 
@@ -544,38 +544,38 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confidence: Optional[pulumi.Input[_builtins.int]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 defanged: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 confidence: pulumi.Input[Optional[_builtins.int]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 defanged: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extensions: Optional[Any] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceExternalReferenceArgs', 'ThreatIntelligenceExternalReferenceArgsDict']]]]] = None,
-                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceGranularMarkingModelArgs', 'ThreatIntelligenceGranularMarkingModelArgsDict']]]]] = None,
-                 indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceKillChainPhaseArgs', 'ThreatIntelligenceKillChainPhaseArgsDict']]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceParsedPatternArgs', 'ThreatIntelligenceParsedPatternArgsDict']]]]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 threat_intelligence_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceExternalReferenceArgs', 'ThreatIntelligenceExternalReferenceArgsDict']]]]] = None,
+                 granular_markings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceGranularMarkingModelArgs', 'ThreatIntelligenceGranularMarkingModelArgsDict']]]]] = None,
+                 indicator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kill_chain_phases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceKillChainPhaseArgs', 'ThreatIntelligenceKillChainPhaseArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_marking_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parsed_pattern: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceParsedPatternArgs', 'ThreatIntelligenceParsedPatternArgsDict']]]]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 threat_intelligence_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threat_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Threat intelligence information object.
@@ -583,7 +583,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -634,7 +633,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ThreatIntelligenceIndicatorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -650,38 +648,38 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confidence: Optional[pulumi.Input[_builtins.int]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 defanged: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 confidence: pulumi.Input[Optional[_builtins.int]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 defanged: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extensions: Optional[Any] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceExternalReferenceArgs', 'ThreatIntelligenceExternalReferenceArgsDict']]]]] = None,
-                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceGranularMarkingModelArgs', 'ThreatIntelligenceGranularMarkingModelArgsDict']]]]] = None,
-                 indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceKillChainPhaseArgs', 'ThreatIntelligenceKillChainPhaseArgsDict']]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceParsedPatternArgs', 'ThreatIntelligenceParsedPatternArgsDict']]]]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 threat_intelligence_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceExternalReferenceArgs', 'ThreatIntelligenceExternalReferenceArgsDict']]]]] = None,
+                 granular_markings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceGranularMarkingModelArgs', 'ThreatIntelligenceGranularMarkingModelArgsDict']]]]] = None,
+                 indicator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kill_chain_phases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceKillChainPhaseArgs', 'ThreatIntelligenceKillChainPhaseArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_marking_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parsed_pattern: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThreatIntelligenceParsedPatternArgs', 'ThreatIntelligenceParsedPatternArgsDict']]]]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 threat_intelligence_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 threat_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

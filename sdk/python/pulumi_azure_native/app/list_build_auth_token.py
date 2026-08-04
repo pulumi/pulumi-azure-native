@@ -72,7 +72,6 @@ def list_build_auth_token(build_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str build_name: The name of a build.
     :param _builtins.str builder_name: The name of the builder.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -87,9 +86,9 @@ def list_build_auth_token(build_name: Optional[_builtins.str] = None,
     return AwaitableListBuildAuthTokenResult(
         expires=pulumi.get(__ret__, 'expires'),
         token=pulumi.get(__ret__, 'token'))
-def list_build_auth_token_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_build_auth_token_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBuildAuthTokenResult]:
     """
     Gets the token used to connect to the endpoint where source code can be uploaded for a build.
@@ -97,7 +96,6 @@ def list_build_auth_token_output(build_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2025-02-02-preview.
 
     Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str build_name: The name of a build.
     :param _builtins.str builder_name: The name of the builder.

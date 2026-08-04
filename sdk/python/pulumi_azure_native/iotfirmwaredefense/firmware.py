@@ -24,15 +24,15 @@ class FirmwareArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 firmware_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]]] = None,
-                 vendor: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 firmware_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 status_messages: pulumi.Input[Optional[Sequence[pulumi.Input['StatusMessageArgs']]]] = None,
+                 vendor: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Firmware resource.
 
@@ -97,110 +97,110 @@ class FirmwareArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-specified description of the firmware.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File name for a firmware that user uploaded.
         """
         return pulumi.get(self, "file_name")
 
     @file_name.setter
-    def file_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSize")
-    def file_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def file_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         File size of the uploaded firmware image.
         """
         return pulumi.get(self, "file_size")
 
     @file_size.setter
-    def file_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def file_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "file_size", value)
 
     @_builtins.property
     @pulumi.getter(name="firmwareId")
-    def firmware_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firmware_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the firmware.
         """
         return pulumi.get(self, "firmware_id")
 
     @firmware_id.setter
-    def firmware_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firmware_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firmware_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Firmware model.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Status']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Status']]]:
         """
         The status of firmware scan.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Status']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Status']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusMessages")
-    def status_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]]]:
+    def status_messages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StatusMessageArgs']]]]:
         """
         A list of errors or other messages generated during firmware analysis
         """
         return pulumi.get(self, "status_messages")
 
     @status_messages.setter
-    def status_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]]]):
+    def status_messages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StatusMessageArgs']]]]):
         pulumi.set(self, "status_messages", value)
 
     @_builtins.property
     @pulumi.getter
-    def vendor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vendor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Firmware vendor.
         """
         return pulumi.get(self, "vendor")
 
     @vendor.setter
-    def vendor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vendor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vendor", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Firmware version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -210,17 +210,17 @@ class Firmware(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 firmware_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
-                 vendor: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 firmware_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 status_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
+                 vendor: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Firmware definition
@@ -228,7 +228,6 @@ class Firmware(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-10. In version 2.x of the Azure Native provider, it used API version 2023-02-08-preview.
 
         Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,7 +256,6 @@ class Firmware(pulumi.CustomResource):
 
         Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FirmwareArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,17 +271,17 @@ class Firmware(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 firmware_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
-                 vendor: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 firmware_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 status_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
+                 vendor: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

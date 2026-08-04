@@ -25,13 +25,13 @@ class StorageTargetArgs:
                  cache_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_type: pulumi.Input[Union[_builtins.str, 'StorageTargetType']],
-                 blob_nfs: Optional[pulumi.Input['BlobNfsTargetArgs']] = None,
-                 clfs: Optional[pulumi.Input['ClfsTargetArgs']] = None,
-                 junctions: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]]] = None,
-                 nfs3: Optional[pulumi.Input['Nfs3TargetArgs']] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'OperationalStateType']]] = None,
-                 storage_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unknown: Optional[pulumi.Input['UnknownTargetArgs']] = None):
+                 blob_nfs: pulumi.Input[Optional['BlobNfsTargetArgs']] = None,
+                 clfs: pulumi.Input[Optional['ClfsTargetArgs']] = None,
+                 junctions: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceJunctionArgs']]]] = None,
+                 nfs3: pulumi.Input[Optional['Nfs3TargetArgs']] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'OperationalStateType']]] = None,
+                 storage_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unknown: pulumi.Input[Optional['UnknownTargetArgs']] = None):
         """
         The set of arguments for constructing a StorageTarget resource.
 
@@ -102,86 +102,86 @@ class StorageTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobNfs")
-    def blob_nfs(self) -> Optional[pulumi.Input['BlobNfsTargetArgs']]:
+    def blob_nfs(self) -> pulumi.Input[Optional['BlobNfsTargetArgs']]:
         """
         Properties when targetType is blobNfs.
         """
         return pulumi.get(self, "blob_nfs")
 
     @blob_nfs.setter
-    def blob_nfs(self, value: Optional[pulumi.Input['BlobNfsTargetArgs']]):
+    def blob_nfs(self, value: pulumi.Input[Optional['BlobNfsTargetArgs']]):
         pulumi.set(self, "blob_nfs", value)
 
     @_builtins.property
     @pulumi.getter
-    def clfs(self) -> Optional[pulumi.Input['ClfsTargetArgs']]:
+    def clfs(self) -> pulumi.Input[Optional['ClfsTargetArgs']]:
         """
         Properties when targetType is clfs.
         """
         return pulumi.get(self, "clfs")
 
     @clfs.setter
-    def clfs(self, value: Optional[pulumi.Input['ClfsTargetArgs']]):
+    def clfs(self, value: pulumi.Input[Optional['ClfsTargetArgs']]):
         pulumi.set(self, "clfs", value)
 
     @_builtins.property
     @pulumi.getter
-    def junctions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]]]:
+    def junctions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceJunctionArgs']]]]:
         """
         List of cache namespace junctions to target for namespace associations.
         """
         return pulumi.get(self, "junctions")
 
     @junctions.setter
-    def junctions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]]]):
+    def junctions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceJunctionArgs']]]]):
         pulumi.set(self, "junctions", value)
 
     @_builtins.property
     @pulumi.getter
-    def nfs3(self) -> Optional[pulumi.Input['Nfs3TargetArgs']]:
+    def nfs3(self) -> pulumi.Input[Optional['Nfs3TargetArgs']]:
         """
         Properties when targetType is nfs3.
         """
         return pulumi.get(self, "nfs3")
 
     @nfs3.setter
-    def nfs3(self, value: Optional[pulumi.Input['Nfs3TargetArgs']]):
+    def nfs3(self, value: pulumi.Input[Optional['Nfs3TargetArgs']]):
         pulumi.set(self, "nfs3", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OperationalStateType']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OperationalStateType']]]:
         """
         Storage target operational state.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OperationalStateType']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OperationalStateType']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="storageTargetName")
-    def storage_target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Storage Target.
         """
         return pulumi.get(self, "storage_target_name")
 
     @storage_target_name.setter
-    def storage_target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_target_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def unknown(self) -> Optional[pulumi.Input['UnknownTargetArgs']]:
+    def unknown(self) -> pulumi.Input[Optional['UnknownTargetArgs']]:
         """
         Properties when targetType is unknown.
         """
         return pulumi.get(self, "unknown")
 
     @unknown.setter
-    def unknown(self, value: Optional[pulumi.Input['UnknownTargetArgs']]):
+    def unknown(self, value: pulumi.Input[Optional['UnknownTargetArgs']]):
         pulumi.set(self, "unknown", value)
 
 
@@ -191,16 +191,16 @@ class StorageTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_nfs: Optional[pulumi.Input[Union['BlobNfsTargetArgs', 'BlobNfsTargetArgsDict']]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 clfs: Optional[pulumi.Input[Union['ClfsTargetArgs', 'ClfsTargetArgsDict']]] = None,
-                 junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NamespaceJunctionArgs', 'NamespaceJunctionArgsDict']]]]] = None,
-                 nfs3: Optional[pulumi.Input[Union['Nfs3TargetArgs', 'Nfs3TargetArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'OperationalStateType']]] = None,
-                 storage_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageTargetType']]] = None,
-                 unknown: Optional[pulumi.Input[Union['UnknownTargetArgs', 'UnknownTargetArgsDict']]] = None,
+                 blob_nfs: pulumi.Input[Optional[Union['BlobNfsTargetArgs', 'BlobNfsTargetArgsDict']]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 clfs: pulumi.Input[Optional[Union['ClfsTargetArgs', 'ClfsTargetArgsDict']]] = None,
+                 junctions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceJunctionArgs', 'NamespaceJunctionArgsDict']]]]] = None,
+                 nfs3: pulumi.Input[Optional[Union['Nfs3TargetArgs', 'Nfs3TargetArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'OperationalStateType']]] = None,
+                 storage_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageTargetType']]] = None,
+                 unknown: pulumi.Input[Optional[Union['UnknownTargetArgs', 'UnknownTargetArgsDict']]] = None,
                  __props__=None):
         """
         Type of the Storage Target.
@@ -208,7 +208,6 @@ class StorageTarget(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +235,6 @@ class StorageTarget(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param StorageTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,16 +250,16 @@ class StorageTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_nfs: Optional[pulumi.Input[Union['BlobNfsTargetArgs', 'BlobNfsTargetArgsDict']]] = None,
-                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 clfs: Optional[pulumi.Input[Union['ClfsTargetArgs', 'ClfsTargetArgsDict']]] = None,
-                 junctions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NamespaceJunctionArgs', 'NamespaceJunctionArgsDict']]]]] = None,
-                 nfs3: Optional[pulumi.Input[Union['Nfs3TargetArgs', 'Nfs3TargetArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'OperationalStateType']]] = None,
-                 storage_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageTargetType']]] = None,
-                 unknown: Optional[pulumi.Input[Union['UnknownTargetArgs', 'UnknownTargetArgsDict']]] = None,
+                 blob_nfs: pulumi.Input[Optional[Union['BlobNfsTargetArgs', 'BlobNfsTargetArgsDict']]] = None,
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 clfs: pulumi.Input[Optional[Union['ClfsTargetArgs', 'ClfsTargetArgsDict']]] = None,
+                 junctions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceJunctionArgs', 'NamespaceJunctionArgsDict']]]]] = None,
+                 nfs3: pulumi.Input[Optional[Union['Nfs3TargetArgs', 'Nfs3TargetArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'OperationalStateType']]] = None,
+                 storage_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageTargetType']]] = None,
+                 unknown: pulumi.Input[Optional[Union['UnknownTargetArgs', 'UnknownTargetArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -24,12 +24,12 @@ class PrivateStoreCollectionOfferArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[_builtins.str],
                  private_store_id: pulumi.Input[_builtins.str],
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_file_uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plans: Optional[pulumi.Input[Sequence[pulumi.Input['PlanArgs']]]] = None,
-                 specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 update_suppressed_due_idempotence: Optional[pulumi.Input[_builtins.bool]] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_file_uris: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plans: pulumi.Input[Optional[Sequence[pulumi.Input['PlanArgs']]]] = None,
+                 specific_plan_ids_limitation: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 update_suppressed_due_idempotence: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PrivateStoreCollectionOffer resource.
 
@@ -83,74 +83,74 @@ class PrivateStoreCollectionOfferArgs:
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for purposes of race condition
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="iconFileUris")
-    def icon_file_uris(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def icon_file_uris(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Icon File Uris
         """
         return pulumi.get(self, "icon_file_uris")
 
     @icon_file_uris.setter
-    def icon_file_uris(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def icon_file_uris(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "icon_file_uris", value)
 
     @_builtins.property
     @pulumi.getter(name="offerId")
-    def offer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offer ID to update or delete
         """
         return pulumi.get(self, "offer_id")
 
     @offer_id.setter
-    def offer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def plans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanArgs']]]]:
+    def plans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanArgs']]]]:
         """
         Offer plans
         """
         return pulumi.get(self, "plans")
 
     @plans.setter
-    def plans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanArgs']]]]):
+    def plans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanArgs']]]]):
         pulumi.set(self, "plans", value)
 
     @_builtins.property
     @pulumi.getter(name="specificPlanIdsLimitation")
-    def specific_plan_ids_limitation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def specific_plan_ids_limitation(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Plan ids limitation for this offer
         """
         return pulumi.get(self, "specific_plan_ids_limitation")
 
     @specific_plan_ids_limitation.setter
-    def specific_plan_ids_limitation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def specific_plan_ids_limitation(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "specific_plan_ids_limitation", value)
 
     @_builtins.property
     @pulumi.getter(name="updateSuppressedDueIdempotence")
-    def update_suppressed_due_idempotence(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def update_suppressed_due_idempotence(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
         return pulumi.get(self, "update_suppressed_due_idempotence")
 
     @update_suppressed_due_idempotence.setter
-    def update_suppressed_due_idempotence(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def update_suppressed_due_idempotence(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "update_suppressed_due_idempotence", value)
 
 
@@ -160,14 +160,14 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_file_uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]]]] = None,
-                 private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 update_suppressed_due_idempotence: Optional[pulumi.Input[_builtins.bool]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_file_uris: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plans: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]]]] = None,
+                 private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 specific_plan_ids_limitation: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 update_suppressed_due_idempotence: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The privateStore offer data structure.
@@ -175,7 +175,6 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateStoreCollectionOfferArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_file_uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 plans: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]]]] = None,
-                 private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 update_suppressed_due_idempotence: Optional[pulumi.Input[_builtins.bool]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_file_uris: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 plans: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]]]] = None,
+                 private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 specific_plan_ids_limitation: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 update_suppressed_due_idempotence: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

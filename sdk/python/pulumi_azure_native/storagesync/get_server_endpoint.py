@@ -362,7 +362,6 @@ def get_server_endpoint(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_endpoint_name: Name of Server Endpoint object.
     :param _builtins.str storage_sync_service_name: Name of Storage Sync Service resource.
@@ -403,10 +402,10 @@ def get_server_endpoint(resource_group_name: Optional[_builtins.str] = None,
         tier_files_older_than_days=pulumi.get(__ret__, 'tier_files_older_than_days'),
         type=pulumi.get(__ret__, 'type'),
         volume_free_space_percent=pulumi.get(__ret__, 'volume_free_space_percent'))
-def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               server_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_endpoint_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               server_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerEndpointResult]:
     """
     Get a ServerEndpoint.
@@ -414,7 +413,6 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_endpoint_name: Name of Server Endpoint object.

@@ -240,7 +240,6 @@ def get_gen1_environment(environment_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2020-05-15.
 
-
     :param _builtins.str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param _builtins.str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param _builtins.str resource_group_name: Name of an Azure Resource group.
@@ -269,15 +268,14 @@ def get_gen1_environment(environment_name: Optional[_builtins.str] = None,
         storage_limit_exceeded_behavior=pulumi.get(__ret__, 'storage_limit_exceeded_behavior'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_gen1_environment_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gen1_environment_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGen1EnvironmentResult]:
     """
     Gets the environment with the specified name in the specified subscription and resource group.
 
     Uses Azure REST API version 2020-05-15.
-
 
     :param _builtins.str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param _builtins.str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.

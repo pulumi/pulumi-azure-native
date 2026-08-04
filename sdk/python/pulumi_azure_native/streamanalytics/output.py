@@ -24,12 +24,12 @@ class OutputInitArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
-                 size_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_window: Optional[pulumi.Input[_builtins.str]] = None):
+                 datasource: pulumi.Input[Optional[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+                 size_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_window: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Output resource.
 
@@ -83,74 +83,74 @@ class OutputInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
+    def datasource(self) -> pulumi.Input[Optional[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
+    def datasource(self, value: pulumi.Input[Optional[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputName")
-    def output_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the output.
         """
         return pulumi.get(self, "output_name")
 
     @output_name.setter
-    def output_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
+    def serialization(self) -> pulumi.Input[Optional[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
+    def serialization(self, value: pulumi.Input[Optional[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
         pulumi.set(self, "serialization", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeWindow")
-    def size_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size window to constrain a Stream Analytics output to.
         """
         return pulumi.get(self, "size_window")
 
     @size_window.setter
-    def size_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_window(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_window", value)
 
     @_builtins.property
     @pulumi.getter(name="timeWindow")
-    def time_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time frame for filtering Stream Analytics job outputs.
         """
         return pulumi.get(self, "time_window")
 
     @time_window.setter
-    def time_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_window", value)
 
 
@@ -160,14 +160,14 @@ class Output(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasource: Optional[pulumi.Input[Union[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgsDict'], Union['AzureFunctionOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgsDict'], Union['AzureSqlDatabaseOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgsDict'], Union['AzureSynapseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgsDict'], Union['AzureTableOutputDataSourceArgs', 'AzureTableOutputDataSourceArgsDict'], Union['BlobOutputDataSourceArgs', 'BlobOutputDataSourceArgsDict'], Union['DocumentDbOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgsDict'], Union['EventHubOutputDataSourceArgs', 'EventHubOutputDataSourceArgsDict'], Union['EventHubV2OutputDataSourceArgs', 'EventHubV2OutputDataSourceArgsDict'], Union['GatewayMessageBusOutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgsDict'], Union['PowerBIOutputDataSourceArgs', 'PowerBIOutputDataSourceArgsDict'], Union['ServiceBusQueueOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgsDict'], Union['ServiceBusTopicOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgsDict']]]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union[Union['AvroSerializationArgs', 'AvroSerializationArgsDict'], Union['CsvSerializationArgs', 'CsvSerializationArgsDict'], Union['JsonSerializationArgs', 'JsonSerializationArgsDict'], Union['ParquetSerializationArgs', 'ParquetSerializationArgsDict']]]] = None,
-                 size_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 datasource: pulumi.Input[Optional[Union[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgsDict'], Union['AzureFunctionOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgsDict'], Union['AzureSqlDatabaseOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgsDict'], Union['AzureSynapseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgsDict'], Union['AzureTableOutputDataSourceArgs', 'AzureTableOutputDataSourceArgsDict'], Union['BlobOutputDataSourceArgs', 'BlobOutputDataSourceArgsDict'], Union['DocumentDbOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgsDict'], Union['EventHubOutputDataSourceArgs', 'EventHubOutputDataSourceArgsDict'], Union['EventHubV2OutputDataSourceArgs', 'EventHubV2OutputDataSourceArgsDict'], Union['GatewayMessageBusOutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgsDict'], Union['PowerBIOutputDataSourceArgs', 'PowerBIOutputDataSourceArgsDict'], Union['ServiceBusQueueOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgsDict'], Union['ServiceBusTopicOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgsDict']]]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union[Union['AvroSerializationArgs', 'AvroSerializationArgsDict'], Union['CsvSerializationArgs', 'CsvSerializationArgsDict'], Union['JsonSerializationArgs', 'JsonSerializationArgsDict'], Union['ParquetSerializationArgs', 'ParquetSerializationArgsDict']]]] = None,
+                 size_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_window: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
@@ -175,7 +175,6 @@ class Output(pulumi.CustomResource):
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class Output(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OutputInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class Output(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasource: Optional[pulumi.Input[Union[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgsDict'], Union['AzureFunctionOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgsDict'], Union['AzureSqlDatabaseOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgsDict'], Union['AzureSynapseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgsDict'], Union['AzureTableOutputDataSourceArgs', 'AzureTableOutputDataSourceArgsDict'], Union['BlobOutputDataSourceArgs', 'BlobOutputDataSourceArgsDict'], Union['DocumentDbOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgsDict'], Union['EventHubOutputDataSourceArgs', 'EventHubOutputDataSourceArgsDict'], Union['EventHubV2OutputDataSourceArgs', 'EventHubV2OutputDataSourceArgsDict'], Union['GatewayMessageBusOutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgsDict'], Union['PowerBIOutputDataSourceArgs', 'PowerBIOutputDataSourceArgsDict'], Union['ServiceBusQueueOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgsDict'], Union['ServiceBusTopicOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgsDict']]]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union[Union['AvroSerializationArgs', 'AvroSerializationArgsDict'], Union['CsvSerializationArgs', 'CsvSerializationArgsDict'], Union['JsonSerializationArgs', 'JsonSerializationArgsDict'], Union['ParquetSerializationArgs', 'ParquetSerializationArgsDict']]]] = None,
-                 size_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 datasource: pulumi.Input[Optional[Union[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgsDict'], Union['AzureFunctionOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgsDict'], Union['AzureSqlDatabaseOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgsDict'], Union['AzureSynapseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgsDict'], Union['AzureTableOutputDataSourceArgs', 'AzureTableOutputDataSourceArgsDict'], Union['BlobOutputDataSourceArgs', 'BlobOutputDataSourceArgsDict'], Union['DocumentDbOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgsDict'], Union['EventHubOutputDataSourceArgs', 'EventHubOutputDataSourceArgsDict'], Union['EventHubV2OutputDataSourceArgs', 'EventHubV2OutputDataSourceArgsDict'], Union['GatewayMessageBusOutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgsDict'], Union['PowerBIOutputDataSourceArgs', 'PowerBIOutputDataSourceArgsDict'], Union['ServiceBusQueueOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgsDict'], Union['ServiceBusTopicOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgsDict']]]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union[Union['AvroSerializationArgs', 'AvroSerializationArgsDict'], Union['CsvSerializationArgs', 'CsvSerializationArgsDict'], Union['JsonSerializationArgs', 'JsonSerializationArgsDict'], Union['ParquetSerializationArgs', 'ParquetSerializationArgsDict']]]] = None,
+                 size_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_window: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

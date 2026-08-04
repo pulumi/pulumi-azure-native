@@ -276,7 +276,6 @@ def get_monitor(monitor_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str monitor_name: Name of the SAP monitor resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -306,8 +305,8 @@ def get_monitor(monitor_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundancy_preference=pulumi.get(__ret__, 'zone_redundancy_preference'))
-def get_monitor_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitor_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
@@ -315,7 +314,6 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2024-02-01-preview.
 
     Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str monitor_name: Name of the SAP monitor resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

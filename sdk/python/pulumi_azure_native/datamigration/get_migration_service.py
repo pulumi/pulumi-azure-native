@@ -156,7 +156,6 @@ def get_migration_service(migration_service_name: Optional[_builtins.str] = None
 
     Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str migration_service_name: Name of the Migration Service.
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
@@ -176,8 +175,8 @@ def get_migration_service(migration_service_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_migration_service_output(migration_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_migration_service_output(migration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationServiceResult]:
     """
     Retrieve the Database Migration Service
@@ -185,7 +184,6 @@ def get_migration_service_output(migration_service_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2023-07-15-preview.
 
     Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str migration_service_name: Name of the Migration Service.
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

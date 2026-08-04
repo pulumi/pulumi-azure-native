@@ -21,12 +21,12 @@ __all__ = ['PrivateStoreCollectionArgs', 'PrivateStoreCollection']
 class PrivateStoreCollectionArgs:
     def __init__(__self__, *,
                  private_store_id: pulumi.Input[_builtins.str],
-                 all_subscriptions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscriptions_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 all_subscriptions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscriptions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateStoreCollection resource.
 
@@ -66,74 +66,74 @@ class PrivateStoreCollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allSubscriptions")
-    def all_subscriptions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def all_subscriptions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicating whether all subscriptions are selected (=true) or not (=false).
         """
         return pulumi.get(self, "all_subscriptions")
 
     @all_subscriptions.setter
-    def all_subscriptions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def all_subscriptions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "all_subscriptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the association with Commercial's Billing Account.
         """
         return pulumi.get(self, "claim")
 
     @claim.setter
-    def claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "claim", value)
 
     @_builtins.property
     @pulumi.getter(name="collectionId")
-    def collection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The collection ID
         """
         return pulumi.get(self, "collection_id")
 
     @collection_id.setter
-    def collection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets collection name.
         """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
-    def collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicating whether the collection is enabled or disabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionsList")
-    def subscriptions_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscriptions_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
         """
         return pulumi.get(self, "subscriptions_list")
 
     @subscriptions_list.setter
-    def subscriptions_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscriptions_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscriptions_list", value)
 
 
@@ -143,13 +143,13 @@ class PrivateStoreCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_subscriptions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriptions_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 all_subscriptions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriptions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The Collection data structure.
@@ -157,7 +157,6 @@ class PrivateStoreCollection(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class PrivateStoreCollection(pulumi.CustomResource):
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateStoreCollectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class PrivateStoreCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_subscriptions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 claim: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriptions_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 all_subscriptions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 claim: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriptions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

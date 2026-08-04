@@ -65,7 +65,7 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
     /**
      * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
      * Tags can consist of alphanumeric characters and the following:
-     * '_', '@', '#', '.', ':', '-'. 
+     * '_', '@', '#', '.', ':', '-'.
      * Validation should be performed at the PushRequestHandler.
      */
     declare public readonly tagsRequiringAuth: pulumi.Output<string | undefined>;
@@ -127,7 +127,7 @@ export interface WebAppSitePushSettingsArgs {
     /**
      * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
      */
-    dynamicTagsJson?: pulumi.Input<string>;
+    dynamicTagsJson?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets a flag indicating whether the Push endpoint is enabled.
      */
@@ -135,7 +135,7 @@ export interface WebAppSitePushSettingsArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -147,12 +147,12 @@ export interface WebAppSitePushSettingsArgs {
     /**
      * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
-    tagWhitelistJson?: pulumi.Input<string>;
+    tagWhitelistJson?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
      * Tags can consist of alphanumeric characters and the following:
-     * '_', '@', '#', '.', ':', '-'. 
+     * '_', '@', '#', '.', ':', '-'.
      * Validation should be performed at the PushRequestHandler.
      */
-    tagsRequiringAuth?: pulumi.Input<string>;
+    tagsRequiringAuth?: pulumi.Input<string | undefined>;
 }

@@ -125,7 +125,7 @@ export interface GetVirtualNetworkOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($expand=externalSubnets)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */

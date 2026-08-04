@@ -138,23 +138,23 @@ export interface SecurityStandardArgs {
     /**
      * List of assessment keys to apply to standard scope.
      */
-    assessments?: pulumi.Input<pulumi.Input<inputs.security.PartialAssessmentPropertiesArgs>[]>;
+    assessments?: pulumi.Input<pulumi.Input<inputs.security.PartialAssessmentPropertiesArgs>[] | undefined>;
     /**
      * List of all standard supported clouds.
      */
-    cloudProviders?: pulumi.Input<pulumi.Input<string | enums.security.StandardSupportedCloud>[]>;
+    cloudProviders?: pulumi.Input<pulumi.Input<string | enums.security.StandardSupportedCloud>[] | undefined>;
     /**
      * Description of the standard
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Display name of the standard, equivalent to the standardId
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The policy set definition id associated with the standard.
      */
-    policySetDefinitionId?: pulumi.Input<string>;
+    policySetDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -162,5 +162,5 @@ export interface SecurityStandardArgs {
     /**
      * The Security Standard key - unique key for the standard type
      */
-    standardId?: pulumi.Input<string>;
+    standardId?: pulumi.Input<string | undefined>;
 }

@@ -120,11 +120,11 @@ export interface MachineExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    extensionName?: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the machine where the extension should be created or updated.
      */
@@ -132,7 +132,7 @@ export interface MachineExtensionArgs {
     /**
      * Describes Machine Extension Properties.
      */
-    properties?: pulumi.Input<inputs.hybridcompute.MachineExtensionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.hybridcompute.MachineExtensionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface MachineExtensionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

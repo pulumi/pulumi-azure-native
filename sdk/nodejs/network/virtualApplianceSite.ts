@@ -121,15 +121,15 @@ export interface VirtualApplianceSiteArgs {
     /**
      * Address Prefix.
      */
-    addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual appliance site.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Virtual Appliance.
      */
@@ -137,7 +137,7 @@ export interface VirtualApplianceSiteArgs {
     /**
      * Office 365 Policy.
      */
-    o365Policy?: pulumi.Input<inputs.network.Office365PolicyPropertiesArgs>;
+    o365Policy?: pulumi.Input<inputs.network.Office365PolicyPropertiesArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -145,5 +145,5 @@ export interface VirtualApplianceSiteArgs {
     /**
      * The name of the site.
      */
-    siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

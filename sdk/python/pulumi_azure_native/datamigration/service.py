@@ -22,16 +22,16 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[_builtins.str],
-                 auto_stop_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_resources_on_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_nic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_stop_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_resources_on_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['ServiceSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_nic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -81,116 +81,116 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoStopDelay")
-    def auto_stop_delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_stop_delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time delay before the service is auto-stopped when idle.
         """
         return pulumi.get(self, "auto_stop_delay")
 
     @auto_stop_delay.setter
-    def auto_stop_delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_stop_delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_stop_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteResourcesOnStop")
-    def delete_resources_on_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_resources_on_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether service resources should be deleted when stopped. (Turned on by default)
         """
         return pulumi.get(self, "delete_resources_on_stop")
 
     @delete_resources_on_stop.setter
-    def delete_resources_on_stop(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_resources_on_stop(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_resources_on_stop", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource kind. Only 'vm' (the default) is supported.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public key of the service, used to encrypt secrets sent to the service
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the service
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ServiceSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ServiceSkuArgs']]:
         """
         Service SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ServiceSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ServiceSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNicId")
-    def virtual_nic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_nic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Microsoft.Network/networkInterfaces resource which the service have
         """
         return pulumi.get(self, "virtual_nic_id")
 
     @virtual_nic_id.setter
-    def virtual_nic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_nic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_nic_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualSubnetId")
-    def virtual_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
         return pulumi.get(self, "virtual_subnet_id")
 
     @virtual_subnet_id.setter
-    def virtual_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_subnet_id", value)
 
 
@@ -200,17 +200,17 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_stop_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_resources_on_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_nic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_stop_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_resources_on_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_nic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure Database Migration Service (classic) resource
@@ -218,7 +218,6 @@ class Service(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-30.
 
         Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +244,6 @@ class Service(pulumi.CustomResource):
 
         Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,17 +259,17 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_stop_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_resources_on_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_nic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_stop_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_resources_on_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_nic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

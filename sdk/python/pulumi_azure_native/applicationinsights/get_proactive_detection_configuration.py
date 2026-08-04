@@ -121,7 +121,6 @@ def get_proactive_detection_configuration(configuration_id: Optional[_builtins.s
 
     Other available API versions: 2015-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Application Insights component resource.
@@ -140,9 +139,9 @@ def get_proactive_detection_configuration(configuration_id: Optional[_builtins.s
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_proactive_detection_configuration_output(configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_proactive_detection_configuration_output(configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
     """
     Get the ProactiveDetection configuration for this configuration id.
@@ -150,7 +149,6 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
     Uses Azure REST API version 2018-05-01-preview.
 
     Other available API versions: 2015-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

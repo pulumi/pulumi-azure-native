@@ -60,7 +60,6 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str action_name: The workflow action name.
     :param _builtins.str repetition_name: The workflow repetition.
     :param _builtins.str resource_group_name: The resource group name.
@@ -78,11 +77,11 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
 
     return AwaitableListWorkflowRunActionRepetitionExpressionTracesResult(
         inputs=pulumi.get(__ret__, 'inputs'))
-def list_workflow_run_action_repetition_expression_traces_output(action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 repetition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workflow_run_action_repetition_expression_traces_output(action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 repetition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowRunActionRepetitionExpressionTracesResult]:
     """
     Lists a workflow run expression trace.
@@ -90,7 +89,6 @@ def list_workflow_run_action_repetition_expression_traces_output(action_name: Op
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str action_name: The workflow action name.
     :param _builtins.str repetition_name: The workflow repetition.

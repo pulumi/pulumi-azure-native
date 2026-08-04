@@ -18,10 +18,10 @@ from ._enums import *
 __all__ = [
     'AddRemoveReplicaScalingMechanismArgs',
     'AddRemoveReplicaScalingMechanismArgsDict',
-    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs',
-    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict',
     'ApplicationScopedVolumeArgs',
     'ApplicationScopedVolumeArgsDict',
+    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs',
+    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict',
     'AutoScalingPolicyArgs',
     'AutoScalingPolicyArgsDict',
     'AutoScalingResourceMetricArgs',
@@ -179,81 +179,6 @@ class AddRemoveReplicaScalingMechanismArgs:
         pulumi.set(self, "scale_increment", value)
 
 
-class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict(TypedDict):
-    """
-    Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
-    """
-    kind: pulumi.Input[_builtins.str]
-    """
-    Specifies the application-scoped volume kind.
-    Expected value is 'ServiceFabricVolumeDisk'.
-    """
-    size_disk: pulumi.Input[Union[_builtins.str, 'SizeTypes']]
-    """
-    Volume size
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    User readable description of the volume.
-    """
-
-@pulumi.input_type
-class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
-    def __init__(__self__, *,
-                 kind: pulumi.Input[_builtins.str],
-                 size_disk: pulumi.Input[Union[_builtins.str, 'SizeTypes']],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
-
-        :param pulumi.Input[_builtins.str] kind: Specifies the application-scoped volume kind.
-               Expected value is 'ServiceFabricVolumeDisk'.
-        :param pulumi.Input[Union[_builtins.str, 'SizeTypes']] size_disk: Volume size
-        :param pulumi.Input[_builtins.str] description: User readable description of the volume.
-        """
-        pulumi.set(__self__, "kind", 'ServiceFabricVolumeDisk')
-        pulumi.set(__self__, "size_disk", size_disk)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @_builtins.property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the application-scoped volume kind.
-        Expected value is 'ServiceFabricVolumeDisk'.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "kind", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sizeDisk")
-    def size_disk(self) -> pulumi.Input[Union[_builtins.str, 'SizeTypes']]:
-        """
-        Volume size
-        """
-        return pulumi.get(self, "size_disk")
-
-    @size_disk.setter
-    def size_disk(self, value: pulumi.Input[Union[_builtins.str, 'SizeTypes']]):
-        pulumi.set(self, "size_disk", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User readable description of the volume.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-
 class ApplicationScopedVolumeArgsDict(TypedDict):
     """
     Describes a volume whose lifetime is scoped to the application's lifetime.
@@ -270,7 +195,7 @@ class ApplicationScopedVolumeArgsDict(TypedDict):
     """
     Name of the volume being referenced.
     """
-    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag indicating whether the volume is read only. Default is 'false'.
     """
@@ -281,7 +206,7 @@ class ApplicationScopedVolumeArgs:
                  creation_parameters: pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs'],
                  destination_path: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Describes a volume whose lifetime is scoped to the application's lifetime.
 
@@ -334,15 +259,90 @@ class ApplicationScopedVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag indicating whether the volume is read only. Default is 'false'.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
+
+
+class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict(TypedDict):
+    """
+    Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Specifies the application-scoped volume kind.
+    Expected value is 'ServiceFabricVolumeDisk'.
+    """
+    size_disk: pulumi.Input[Union[_builtins.str, 'SizeTypes']]
+    """
+    Volume size
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    User readable description of the volume.
+    """
+
+@pulumi.input_type
+class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[_builtins.str],
+                 size_disk: pulumi.Input[Union[_builtins.str, 'SizeTypes']],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+
+        :param pulumi.Input[_builtins.str] kind: Specifies the application-scoped volume kind.
+               Expected value is 'ServiceFabricVolumeDisk'.
+        :param pulumi.Input[Union[_builtins.str, 'SizeTypes']] size_disk: Volume size
+        :param pulumi.Input[_builtins.str] description: User readable description of the volume.
+        """
+        pulumi.set(__self__, "kind", 'ServiceFabricVolumeDisk')
+        pulumi.set(__self__, "size_disk", size_disk)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the application-scoped volume kind.
+        Expected value is 'ServiceFabricVolumeDisk'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeDisk")
+    def size_disk(self) -> pulumi.Input[Union[_builtins.str, 'SizeTypes']]:
+        """
+        Volume size
+        """
+        return pulumi.get(self, "size_disk")
+
+    @size_disk.setter
+    def size_disk(self, value: pulumi.Input[Union[_builtins.str, 'SizeTypes']]):
+        pulumi.set(self, "size_disk", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User readable description of the volume.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
 
 class AutoScalingPolicyArgsDict(TypedDict):
@@ -592,15 +592,15 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgsDict(TypedDict):
     The kind of DiagnosticsSink.
     Expected value is 'AzureInternalMonitoringPipeline'.
     """
-    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Internal monitoring pipeline account.
     """
-    auto_key_config_url: NotRequired[pulumi.Input[_builtins.str]]
+    auto_key_config_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Internal monitoring pipeline autokey associated with the certificate.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the sink.
     """
@@ -608,15 +608,15 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgsDict(TypedDict):
     """
     Azure Internal monitoring agent fluentd configuration.
     """
-    ma_config_url: NotRequired[pulumi.Input[_builtins.str]]
+    ma_config_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Internal monitoring agent configuration.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the sink. This value is referenced by DiagnosticsReferenceDescription
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Internal monitoring pipeline account namespace.
     """
@@ -625,13 +625,13 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgsDict(TypedDict):
 class AzureInternalMonitoringPipelineSinkDescriptionArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_key_config_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_key_config_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  fluentd_config_url: Optional[Any] = None,
-                 ma_config_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 ma_config_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Diagnostics settings for Geneva.
 
@@ -676,38 +676,38 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Internal monitoring pipeline account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoKeyConfigUrl")
-    def auto_key_config_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_key_config_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Internal monitoring pipeline autokey associated with the certificate.
         """
         return pulumi.get(self, "auto_key_config_url")
 
     @auto_key_config_url.setter
-    def auto_key_config_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_key_config_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_key_config_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the sink.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
@@ -724,38 +724,38 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="maConfigUrl")
-    def ma_config_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ma_config_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Internal monitoring agent configuration.
         """
         return pulumi.get(self, "ma_config_url")
 
     @ma_config_url.setter
-    def ma_config_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ma_config_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ma_config_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the sink. This value is referenced by DiagnosticsReferenceDescription
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Internal monitoring pipeline account namespace.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
 
@@ -775,47 +775,47 @@ class ContainerCodePackagePropertiesArgsDict(TypedDict):
     """
     The resources required by this container.
     """
-    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    commands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Command array to execute within the container in exec form.
     """
-    diagnostics: NotRequired[pulumi.Input['DiagnosticsRefArgsDict']]
+    diagnostics: NotRequired[pulumi.Input[Optional['DiagnosticsRefArgsDict']]]
     """
     Reference to sinks in DiagnosticsDescription.
     """
-    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgsDict']]]]
+    endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesArgsDict']]]]]
     """
     The endpoints exposed by this container.
     """
-    entrypoint: NotRequired[pulumi.Input[_builtins.str]]
+    entrypoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Override for the default entry point in the container.
     """
-    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]]
     """
     The environment variables to set in this container
     """
-    image_registry_credential: NotRequired[pulumi.Input['ImageRegistryCredentialArgsDict']]
+    image_registry_credential: NotRequired[pulumi.Input[Optional['ImageRegistryCredentialArgsDict']]]
     """
     Image registry credential.
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgsDict']]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerLabelArgsDict']]]]]
     """
     The labels to set in this container.
     """
-    reliable_collections_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgsDict']]]]
+    reliable_collections_refs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReliableCollectionsRefArgsDict']]]]]
     """
     A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
     """
-    settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SettingArgsDict']]]]
+    settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SettingArgsDict']]]]]
     """
     The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
     """
-    volume_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgsDict']]]]
+    volume_refs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeReferenceArgsDict']]]]]
     """
     Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
     """
-    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgsDict']]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationScopedVolumeArgsDict']]]]]
     """
     Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
     """
@@ -826,17 +826,17 @@ class ContainerCodePackagePropertiesArgs:
                  image: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resources: pulumi.Input['ResourceRequirementsArgs'],
-                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]] = None,
-                 entrypoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 image_registry_credential: Optional[pulumi.Input['ImageRegistryCredentialArgs']] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]] = None,
-                 reliable_collections_refs: Optional[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]] = None,
-                 volume_refs: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgs']]]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]] = None):
+                 commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 diagnostics: pulumi.Input[Optional['DiagnosticsRefArgs']] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesArgs']]]] = None,
+                 entrypoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 image_registry_credential: pulumi.Input[Optional['ImageRegistryCredentialArgs']] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerLabelArgs']]]] = None,
+                 reliable_collections_refs: pulumi.Input[Optional[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input['SettingArgs']]]] = None,
+                 volume_refs: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeReferenceArgs']]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]] = None):
         """
         Describes a container and its runtime properties.
 
@@ -919,134 +919,134 @@ class ContainerCodePackagePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def commands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Command array to execute within the container in exec form.
         """
         return pulumi.get(self, "commands")
 
     @commands.setter
-    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def commands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "commands", value)
 
     @_builtins.property
     @pulumi.getter
-    def diagnostics(self) -> Optional[pulumi.Input['DiagnosticsRefArgs']]:
+    def diagnostics(self) -> pulumi.Input[Optional['DiagnosticsRefArgs']]:
         """
         Reference to sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "diagnostics")
 
     @diagnostics.setter
-    def diagnostics(self, value: Optional[pulumi.Input['DiagnosticsRefArgs']]):
+    def diagnostics(self, value: pulumi.Input[Optional['DiagnosticsRefArgs']]):
         pulumi.set(self, "diagnostics", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]:
         """
         The endpoints exposed by this container.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def entrypoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entrypoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override for the default entry point in the container.
         """
         return pulumi.get(self, "entrypoint")
 
     @entrypoint.setter
-    def entrypoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entrypoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entrypoint", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to set in this container
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="imageRegistryCredential")
-    def image_registry_credential(self) -> Optional[pulumi.Input['ImageRegistryCredentialArgs']]:
+    def image_registry_credential(self) -> pulumi.Input[Optional['ImageRegistryCredentialArgs']]:
         """
         Image registry credential.
         """
         return pulumi.get(self, "image_registry_credential")
 
     @image_registry_credential.setter
-    def image_registry_credential(self, value: Optional[pulumi.Input['ImageRegistryCredentialArgs']]):
+    def image_registry_credential(self, value: pulumi.Input[Optional['ImageRegistryCredentialArgs']]):
         pulumi.set(self, "image_registry_credential", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerLabelArgs']]]]:
         """
         The labels to set in this container.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="reliableCollectionsRefs")
-    def reliable_collections_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]]:
+    def reliable_collections_refs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]]:
         """
         A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
         """
         return pulumi.get(self, "reliable_collections_refs")
 
     @reliable_collections_refs.setter
-    def reliable_collections_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]]):
+    def reliable_collections_refs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]]):
         pulumi.set(self, "reliable_collections_refs", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]]:
+    def settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SettingArgs']]]]:
         """
         The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]]):
+    def settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SettingArgs']]]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeRefs")
-    def volume_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgs']]]]:
+    def volume_refs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeReferenceArgs']]]]:
         """
         Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
         """
         return pulumi.get(self, "volume_refs")
 
     @volume_refs.setter
-    def volume_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgs']]]]):
+    def volume_refs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeReferenceArgs']]]]):
         pulumi.set(self, "volume_refs", value)
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]]:
+    def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]]:
         """
         Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]]):
+    def volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
@@ -1106,15 +1106,15 @@ class DiagnosticsDescriptionArgsDict(TypedDict):
     """
     Describes the diagnostics options available
     """
-    default_sink_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    default_sink_refs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Status of whether or not sinks are enabled.
     """
-    sinks: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgsDict']]]]
+    sinks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgsDict']]]]]
     """
     List of supported sinks that can be referenced.
     """
@@ -1122,9 +1122,9 @@ class DiagnosticsDescriptionArgsDict(TypedDict):
 @pulumi.input_type
 class DiagnosticsDescriptionArgs:
     def __init__(__self__, *,
-                 default_sink_refs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
+                 default_sink_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
         """
         Describes the diagnostics options available
 
@@ -1141,38 +1141,38 @@ class DiagnosticsDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultSinkRefs")
-    def default_sink_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def default_sink_refs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         """
         return pulumi.get(self, "default_sink_refs")
 
     @default_sink_refs.setter
-    def default_sink_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def default_sink_refs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_sink_refs", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Status of whether or not sinks are enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]:
+    def sinks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]:
         """
         List of supported sinks that can be referenced.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]):
+    def sinks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]):
         pulumi.set(self, "sinks", value)
 
 
@@ -1180,11 +1180,11 @@ class DiagnosticsRefArgsDict(TypedDict):
     """
     Reference to sinks in DiagnosticsDescription.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Status of whether or not sinks are enabled.
     """
-    sink_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    sink_refs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
     """
@@ -1192,8 +1192,8 @@ class DiagnosticsRefArgsDict(TypedDict):
 @pulumi.input_type
 class DiagnosticsRefArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sink_refs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sink_refs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Reference to sinks in DiagnosticsDescription.
 
@@ -1207,26 +1207,26 @@ class DiagnosticsRefArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Status of whether or not sinks are enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sinkRefs")
-    def sink_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sink_refs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "sink_refs")
 
     @sink_refs.setter
-    def sink_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sink_refs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sink_refs", value)
 
 
@@ -1238,7 +1238,7 @@ class EndpointPropertiesArgsDict(TypedDict):
     """
     The name of the endpoint.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port used by the container.
     """
@@ -1247,7 +1247,7 @@ class EndpointPropertiesArgsDict(TypedDict):
 class EndpointPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Describes a container endpoint.
 
@@ -1272,14 +1272,14 @@ class EndpointPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port used by the container.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
@@ -1287,7 +1287,7 @@ class EndpointRefArgsDict(TypedDict):
     """
     Describes a reference to a service endpoint.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the endpoint.
     """
@@ -1295,7 +1295,7 @@ class EndpointRefArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointRefArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a reference to a service endpoint.
 
@@ -1306,14 +1306,14 @@ class EndpointRefArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the endpoint.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1321,11 +1321,11 @@ class EnvironmentVariableArgsDict(TypedDict):
     """
     Describes an environment variable for the container.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the environment variable.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the environment variable.
     """
@@ -1333,8 +1333,8 @@ class EnvironmentVariableArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentVariableArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes an environment variable for the container.
 
@@ -1348,26 +1348,26 @@ class EnvironmentVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment variable.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the environment variable.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1644,11 +1644,11 @@ class HttpRouteMatchHeaderArgsDict(TypedDict):
     """
     Name of header to match in request.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'HeaderMatchType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'HeaderMatchType']]]]
     """
     how to match header value
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of header to match in request.
     """
@@ -1657,8 +1657,8 @@ class HttpRouteMatchHeaderArgsDict(TypedDict):
 class HttpRouteMatchHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'HeaderMatchType']]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'HeaderMatchType']]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes header information for http route matching.
 
@@ -1686,26 +1686,26 @@ class HttpRouteMatchHeaderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HeaderMatchType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HeaderMatchType']]]:
         """
         how to match header value
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HeaderMatchType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HeaderMatchType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of header to match in request.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1721,7 +1721,7 @@ class HttpRouteMatchPathArgsDict(TypedDict):
     """
     Uri path to match for request.
     """
-    rewrite: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     replacement string for matched part of the Uri.
     """
@@ -1731,7 +1731,7 @@ class HttpRouteMatchPathArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'PathMatchType']],
                  value: pulumi.Input[_builtins.str],
-                 rewrite: Optional[pulumi.Input[_builtins.str]] = None):
+                 rewrite: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Path to match for routing.
 
@@ -1770,14 +1770,14 @@ class HttpRouteMatchPathArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rewrite(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         replacement string for matched part of the Uri.
         """
         return pulumi.get(self, "rewrite")
 
     @rewrite.setter
-    def rewrite(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite", value)
 
 
@@ -1789,7 +1789,7 @@ class HttpRouteMatchRuleArgsDict(TypedDict):
     """
     Path to match for routing.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HttpRouteMatchHeaderArgsDict']]]]]
     """
     headers and their values to match in request.
     """
@@ -1798,7 +1798,7 @@ class HttpRouteMatchRuleArgsDict(TypedDict):
 class HttpRouteMatchRuleArgs:
     def __init__(__self__, *,
                  path: pulumi.Input['HttpRouteMatchPathArgs'],
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]] = None):
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]] = None):
         """
         Describes a rule for http route matching.
 
@@ -1823,14 +1823,14 @@ class HttpRouteMatchRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]]:
         """
         headers and their values to match in request.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
 
@@ -1846,7 +1846,7 @@ class ImageRegistryCredentialArgsDict(TypedDict):
     """
     The username for the private registry.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
     """
@@ -1856,7 +1856,7 @@ class ImageRegistryCredentialArgs:
     def __init__(__self__, *,
                  server: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Image registry credential.
 
@@ -1895,14 +1895,14 @@ class ImageRegistryCredentialArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
 
@@ -1910,11 +1910,11 @@ class NetworkRefArgsDict(TypedDict):
     """
     Describes a network reference in a service.
     """
-    endpoint_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgsDict']]]]
+    endpoint_refs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointRefArgsDict']]]]]
     """
     A list of endpoints that are exposed on this network.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the network
     """
@@ -1922,8 +1922,8 @@ class NetworkRefArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkRefArgs:
     def __init__(__self__, *,
-                 endpoint_refs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_refs: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointRefArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a network reference in a service.
 
@@ -1937,26 +1937,26 @@ class NetworkRefArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointRefs")
-    def endpoint_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]]]:
+    def endpoint_refs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointRefArgs']]]]:
         """
         A list of endpoints that are exposed on this network.
         """
         return pulumi.get(self, "endpoint_refs")
 
     @endpoint_refs.setter
-    def endpoint_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]]]):
+    def endpoint_refs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointRefArgs']]]]):
         pulumi.set(self, "endpoint_refs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the network
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1969,7 +1969,7 @@ class NetworkResourcePropertiesArgsDict(TypedDict):
     The type of a Service Fabric container network.
     Expected value is 'NetworkResourceProperties'.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User readable description of the network.
     """
@@ -1978,7 +1978,7 @@ class NetworkResourcePropertiesArgsDict(TypedDict):
 class NetworkResourcePropertiesArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes properties of a network resource.
 
@@ -2005,14 +2005,14 @@ class NetworkResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User readable description of the network.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2024,7 +2024,7 @@ class ReliableCollectionsRefArgsDict(TypedDict):
     """
     Name of ReliableCollection resource. Right now it's not used and you can use any string.
     """
-    do_not_persist_state: NotRequired[pulumi.Input[_builtins.bool]]
+    do_not_persist_state: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
     """
@@ -2033,7 +2033,7 @@ class ReliableCollectionsRefArgsDict(TypedDict):
 class ReliableCollectionsRefArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 do_not_persist_state: Optional[pulumi.Input[_builtins.bool]] = None):
+                 do_not_persist_state: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Specifying this parameter adds support for reliable collections
 
@@ -2058,14 +2058,14 @@ class ReliableCollectionsRefArgs:
 
     @_builtins.property
     @pulumi.getter(name="doNotPersistState")
-    def do_not_persist_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_persist_state(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
         """
         return pulumi.get(self, "do_not_persist_state")
 
     @do_not_persist_state.setter
-    def do_not_persist_state(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_persist_state(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_persist_state", value)
 
 
@@ -2073,11 +2073,11 @@ class ResourceLimitsArgsDict(TypedDict):
     """
     This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
     """
-    cpu: NotRequired[pulumi.Input[_builtins.float]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     CPU limits in cores. At present, only full cores are supported.
     """
-    memory_in_gb: NotRequired[pulumi.Input[_builtins.float]]
+    memory_in_gb: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The memory limit in GB.
     """
@@ -2085,8 +2085,8 @@ class ResourceLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceLimitsArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.float]] = None,
-                 memory_in_gb: Optional[pulumi.Input[_builtins.float]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.float]] = None,
+                 memory_in_gb: pulumi.Input[Optional[_builtins.float]] = None):
         """
         This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
 
@@ -2100,26 +2100,26 @@ class ResourceLimitsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         CPU limits in cores. At present, only full cores are supported.
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryInGB")
-    def memory_in_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def memory_in_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The memory limit in GB.
         """
         return pulumi.get(self, "memory_in_gb")
 
     @memory_in_gb.setter
-    def memory_in_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def memory_in_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "memory_in_gb", value)
 
 
@@ -2183,7 +2183,7 @@ class ResourceRequirementsArgsDict(TypedDict):
     """
     Describes the requested resources for a given container.
     """
-    limits: NotRequired[pulumi.Input['ResourceLimitsArgsDict']]
+    limits: NotRequired[pulumi.Input[Optional['ResourceLimitsArgsDict']]]
     """
     Describes the maximum limits on the resources for a given container.
     """
@@ -2192,7 +2192,7 @@ class ResourceRequirementsArgsDict(TypedDict):
 class ResourceRequirementsArgs:
     def __init__(__self__, *,
                  requests: pulumi.Input['ResourceRequestsArgs'],
-                 limits: Optional[pulumi.Input['ResourceLimitsArgs']] = None):
+                 limits: pulumi.Input[Optional['ResourceLimitsArgs']] = None):
         """
         This type describes the resource requirements for a container or a service.
 
@@ -2217,14 +2217,14 @@ class ResourceRequirementsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def limits(self) -> Optional[pulumi.Input['ResourceLimitsArgs']]:
+    def limits(self) -> pulumi.Input[Optional['ResourceLimitsArgs']]:
         """
         Describes the maximum limits on the resources for a given container.
         """
         return pulumi.get(self, "limits")
 
     @limits.setter
-    def limits(self, value: Optional[pulumi.Input['ResourceLimitsArgs']]):
+    def limits(self, value: pulumi.Input[Optional['ResourceLimitsArgs']]):
         pulumi.set(self, "limits", value)
 
 
@@ -2237,11 +2237,11 @@ class SecretResourcePropertiesArgsDict(TypedDict):
     Describes the kind of secret.
     Expected value is 'SecretResourceProperties'.
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User readable description of the secret.
     """
@@ -2250,8 +2250,8 @@ class SecretResourcePropertiesArgsDict(TypedDict):
 class SecretResourcePropertiesArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the properties of a secret resource.
 
@@ -2281,26 +2281,26 @@ class SecretResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User readable description of the secret.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2316,27 +2316,27 @@ class ServiceResourceDescriptionArgsDict(TypedDict):
     """
     The operation system required by the code in service.
     """
-    auto_scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgsDict']]]]
+    auto_scaling_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingPolicyArgsDict']]]]]
     """
     Auto scaling policies
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User readable description of the service.
     """
-    diagnostics: NotRequired[pulumi.Input['DiagnosticsRefArgsDict']]
+    diagnostics: NotRequired[pulumi.Input[Optional['DiagnosticsRefArgsDict']]]
     """
     Reference to sinks in DiagnosticsDescription.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the resource
     """
-    network_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgsDict']]]]
+    network_refs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRefArgsDict']]]]]
     """
     The names of the private networks that this service needs to be part of.
     """
-    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    replica_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of replicas of the service to create. Defaults to 1 if not specified.
     """
@@ -2346,12 +2346,12 @@ class ServiceResourceDescriptionArgs:
     def __init__(__self__, *,
                  code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
                  os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemType']],
-                 auto_scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_refs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 auto_scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnostics: pulumi.Input[Optional['DiagnosticsRefArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_refs: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRefArgs']]]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         This type describes a service resource.
 
@@ -2405,74 +2405,74 @@ class ServiceResourceDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingPolicies")
-    def auto_scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]]:
+    def auto_scaling_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]]:
         """
         Auto scaling policies
         """
         return pulumi.get(self, "auto_scaling_policies")
 
     @auto_scaling_policies.setter
-    def auto_scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]]):
+    def auto_scaling_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]]):
         pulumi.set(self, "auto_scaling_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User readable description of the service.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def diagnostics(self) -> Optional[pulumi.Input['DiagnosticsRefArgs']]:
+    def diagnostics(self) -> pulumi.Input[Optional['DiagnosticsRefArgs']]:
         """
         Reference to sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "diagnostics")
 
     @diagnostics.setter
-    def diagnostics(self, value: Optional[pulumi.Input['DiagnosticsRefArgs']]):
+    def diagnostics(self, value: pulumi.Input[Optional['DiagnosticsRefArgs']]):
         pulumi.set(self, "diagnostics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRefs")
-    def network_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]]:
+    def network_refs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRefArgs']]]]:
         """
         The names of the private networks that this service needs to be part of.
         """
         return pulumi.get(self, "network_refs")
 
     @network_refs.setter
-    def network_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]]):
+    def network_refs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRefArgs']]]]):
         pulumi.set(self, "network_refs", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
 
@@ -2480,11 +2480,11 @@ class SettingArgsDict(TypedDict):
     """
     Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the setting.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the setting.
     """
@@ -2492,8 +2492,8 @@ class SettingArgsDict(TypedDict):
 @pulumi.input_type
 class SettingArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
 
@@ -2507,26 +2507,26 @@ class SettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the setting.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the setting.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -2613,7 +2613,7 @@ class VolumeProviderParametersAzureFileArgsDict(TypedDict):
     """
     Name of the Azure Files file share that provides storage for the volume.
     """
-    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Access key of the Azure storage account for the File Share.
     """
@@ -2623,7 +2623,7 @@ class VolumeProviderParametersAzureFileArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         This type describes a volume provided by an Azure Files file share.
 
@@ -2662,14 +2662,14 @@ class VolumeProviderParametersAzureFileArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access key of the Azure storage account for the File Share.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
 
@@ -2685,7 +2685,7 @@ class VolumeReferenceArgsDict(TypedDict):
     """
     Name of the volume being referenced.
     """
-    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag indicating whether the volume is read only. Default is 'false'.
     """
@@ -2695,7 +2695,7 @@ class VolumeReferenceArgs:
     def __init__(__self__, *,
                  destination_path: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Describes a reference to a volume resource.
 
@@ -2734,14 +2734,14 @@ class VolumeReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag indicating whether the volume is read only. Default is 'false'.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
 

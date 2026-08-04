@@ -118,7 +118,6 @@ def get_firewall_rule(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-11-01.
 
-
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str firewall_rule_name: The name of the firewall rule to retrieve.
     :param _builtins.str resource_group_name: The name of the Azure resource group.
@@ -137,15 +136,14 @@ def get_firewall_rule(account_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_rule_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_rule_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets the specified Data Lake Store firewall rule.
 
     Uses Azure REST API version 2016-11-01.
-
 
     :param _builtins.str account_name: The name of the Data Lake Store account.
     :param _builtins.str firewall_rule_name: The name of the firewall rule to retrieve.

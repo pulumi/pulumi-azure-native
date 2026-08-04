@@ -126,7 +126,7 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
  * The set of arguments for constructing a ManagedInstanceAdministrator resource.
  */
 export interface ManagedInstanceAdministratorArgs {
-    administratorName?: pulumi.Input<string>;
+    administratorName?: pulumi.Input<string | undefined>;
     /**
      * Type of the managed instance administrator.
      */
@@ -150,5 +150,5 @@ export interface ManagedInstanceAdministratorArgs {
     /**
      * Tenant ID of the managed instance administrator.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

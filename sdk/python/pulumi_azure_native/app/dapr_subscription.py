@@ -23,14 +23,14 @@ class DaprSubscriptionArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bulk_subscribe: Optional[pulumi.Input['DaprSubscriptionBulkSubscribeOptionsArgs']] = None,
-                 dead_letter_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pubsub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input['DaprSubscriptionRoutesArgs']] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None):
+                 bulk_subscribe: pulumi.Input[Optional['DaprSubscriptionBulkSubscribeOptionsArgs']] = None,
+                 dead_letter_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pubsub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional['DaprSubscriptionRoutesArgs']] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DaprSubscription resource.
 
@@ -90,98 +90,98 @@ class DaprSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="bulkSubscribe")
-    def bulk_subscribe(self) -> Optional[pulumi.Input['DaprSubscriptionBulkSubscribeOptionsArgs']]:
+    def bulk_subscribe(self) -> pulumi.Input[Optional['DaprSubscriptionBulkSubscribeOptionsArgs']]:
         """
         Bulk subscription options
         """
         return pulumi.get(self, "bulk_subscribe")
 
     @bulk_subscribe.setter
-    def bulk_subscribe(self, value: Optional[pulumi.Input['DaprSubscriptionBulkSubscribeOptionsArgs']]):
+    def bulk_subscribe(self, value: pulumi.Input[Optional['DaprSubscriptionBulkSubscribeOptionsArgs']]):
         pulumi.set(self, "bulk_subscribe", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetterTopic")
-    def dead_letter_topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dead_letter_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deadletter topic name
         """
         return pulumi.get(self, "dead_letter_topic")
 
     @dead_letter_topic.setter
-    def dead_letter_topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dead_letter_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dead_letter_topic", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Subscription metadata
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dapr subscription.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pubsubName")
-    def pubsub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pubsub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Dapr PubSub component name
         """
         return pulumi.get(self, "pubsub_name")
 
     @pubsub_name.setter
-    def pubsub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pubsub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pubsub_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input['DaprSubscriptionRoutesArgs']]:
+    def routes(self) -> pulumi.Input[Optional['DaprSubscriptionRoutesArgs']]:
         """
         Subscription routes
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input['DaprSubscriptionRoutesArgs']]):
+    def routes(self, value: pulumi.Input[Optional['DaprSubscriptionRoutesArgs']]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Application scopes to restrict the subscription to specific apps.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Topic name
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
 
@@ -191,16 +191,16 @@ class DaprSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bulk_subscribe: Optional[pulumi.Input[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']]] = None,
-                 dead_letter_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pubsub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Union['DaprSubscriptionRoutesArgs', 'DaprSubscriptionRoutesArgsDict']]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None,
+                 bulk_subscribe: pulumi.Input[Optional[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']]] = None,
+                 dead_letter_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pubsub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Union['DaprSubscriptionRoutesArgs', 'DaprSubscriptionRoutesArgsDict']]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Dapr PubSub Event Subscription.
@@ -208,7 +208,6 @@ class DaprSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +235,6 @@ class DaprSubscription(pulumi.CustomResource):
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DaprSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,16 +250,16 @@ class DaprSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bulk_subscribe: Optional[pulumi.Input[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']]] = None,
-                 dead_letter_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pubsub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Union['DaprSubscriptionRoutesArgs', 'DaprSubscriptionRoutesArgsDict']]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None,
+                 bulk_subscribe: pulumi.Input[Optional[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']]] = None,
+                 dead_letter_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pubsub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Union['DaprSubscriptionRoutesArgs', 'DaprSubscriptionRoutesArgsDict']]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

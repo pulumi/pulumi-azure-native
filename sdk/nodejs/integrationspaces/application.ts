@@ -130,15 +130,15 @@ export interface ApplicationArgs {
     /**
      * The name of the Application
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The description of the resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,9 +150,9 @@ export interface ApplicationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The tracking data stores.
      */
-    trackingDataStores?: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.TrackingDataStoreArgs>}>;
+    trackingDataStores?: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.TrackingDataStoreArgs>} | undefined>;
 }

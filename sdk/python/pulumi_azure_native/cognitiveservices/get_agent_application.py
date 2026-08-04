@@ -122,7 +122,6 @@ def get_agent_application(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of Cognitive Services account.
     :param _builtins.str name: Name for the Agent Application.
     :param _builtins.str project_name: The name of Cognitive Services account's project.
@@ -143,10 +142,10 @@ def get_agent_application(account_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_agent_application_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_application_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentApplicationResult]:
     """
     Gets an Agent Application by name.
@@ -154,7 +153,6 @@ def get_agent_application_output(account_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2025-10-01-preview.
 
     Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of Cognitive Services account.
     :param _builtins.str name: Name for the Agent Application.

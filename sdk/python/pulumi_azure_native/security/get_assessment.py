@@ -181,7 +181,6 @@ def get_assessment(assessment_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-01-01-preview, 2020-01-01, 2025-05-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str assessment_name: The Assessment Key - Unique key for the assessment type
     :param _builtins.str expand: OData expand. Optional.
     :param _builtins.str resource_id: The identifier of the resource.
@@ -205,9 +204,9 @@ def get_assessment(assessment_name: Optional[_builtins.str] = None,
         resource_details=pulumi.get(__ret__, 'resource_details'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_assessment_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assessment_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get a security assessment on your scanned resource
@@ -215,7 +214,6 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2021-06-01.
 
     Other available API versions: 2019-01-01-preview, 2020-01-01, 2025-05-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str assessment_name: The Assessment Key - Unique key for the assessment type
     :param _builtins.str expand: OData expand. Optional.

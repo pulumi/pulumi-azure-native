@@ -23,8 +23,8 @@ class MigrationEntityArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 migration_entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['MigrationEntityPropertiesArgs']] = None):
+                 migration_entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['MigrationEntityPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MigrationEntity resource.
 
@@ -66,26 +66,26 @@ class MigrationEntityArgs:
 
     @_builtins.property
     @pulumi.getter(name="migrationEntityName")
-    def migration_entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_entity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Migration Entity ARM name
         """
         return pulumi.get(self, "migration_entity_name")
 
     @migration_entity_name.setter
-    def migration_entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_entity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_entity_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['MigrationEntityPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['MigrationEntityPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['MigrationEntityPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['MigrationEntityPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class MigrationEntity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 migration_entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MigrationEntityPropertiesArgs', 'MigrationEntityPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 migration_entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MigrationEntityPropertiesArgs', 'MigrationEntityPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Migration Entity resource.
@@ -106,7 +106,6 @@ class MigrationEntity(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-30-preview.
 
         Other available API versions: 2025-12-01-preview, 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class MigrationEntity(pulumi.CustomResource):
 
         Other available API versions: 2025-12-01-preview, 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MigrationEntityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class MigrationEntity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 migration_entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MigrationEntityPropertiesArgs', 'MigrationEntityPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 migration_entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MigrationEntityPropertiesArgs', 'MigrationEntityPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

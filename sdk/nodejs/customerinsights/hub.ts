@@ -132,15 +132,15 @@ export interface HubArgs {
     /**
      * Billing settings of the hub.
      */
-    hubBillingInfo?: pulumi.Input<inputs.customerinsights.HubBillingInfoFormatArgs>;
+    hubBillingInfo?: pulumi.Input<inputs.customerinsights.HubBillingInfoFormatArgs | undefined>;
     /**
      * The name of the Hub.
      */
-    hubName?: pulumi.Input<string>;
+    hubName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -148,9 +148,9 @@ export interface HubArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
      */
-    tenantFeatures?: pulumi.Input<number>;
+    tenantFeatures?: pulumi.Input<number | undefined>;
 }

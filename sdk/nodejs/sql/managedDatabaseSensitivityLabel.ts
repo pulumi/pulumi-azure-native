@@ -166,7 +166,7 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
  * The set of arguments for constructing a ManagedDatabaseSensitivityLabel resource.
  */
 export interface ManagedDatabaseSensitivityLabelArgs {
-    clientClassificationSource?: pulumi.Input<string | enums.sql.ClientClassificationSource>;
+    clientClassificationSource?: pulumi.Input<string | enums.sql.ClientClassificationSource | undefined>;
     /**
      * The name of the column.
      */
@@ -178,24 +178,24 @@ export interface ManagedDatabaseSensitivityLabelArgs {
     /**
      * The information type.
      */
-    informationType?: pulumi.Input<string>;
+    informationType?: pulumi.Input<string | undefined>;
     /**
      * The information type ID.
      */
-    informationTypeId?: pulumi.Input<string>;
+    informationTypeId?: pulumi.Input<string | undefined>;
     /**
      * The label ID.
      */
-    labelId?: pulumi.Input<string>;
+    labelId?: pulumi.Input<string | undefined>;
     /**
      * The label name.
      */
-    labelName?: pulumi.Input<string>;
+    labelName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */
     managedInstanceName: pulumi.Input<string>;
-    rank?: pulumi.Input<enums.sql.SensitivityLabelRank>;
+    rank?: pulumi.Input<enums.sql.SensitivityLabelRank | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -207,7 +207,7 @@ export interface ManagedDatabaseSensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource?: pulumi.Input<string>;
+    sensitivityLabelSource?: pulumi.Input<string | undefined>;
     /**
      * The name of the table.
      */

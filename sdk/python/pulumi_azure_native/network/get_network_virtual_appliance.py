@@ -373,7 +373,6 @@ def get_network_virtual_appliance(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: Expands referenced resources.
     :param _builtins.str network_virtual_appliance_name: The name of Network Virtual Appliance.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -413,9 +412,9 @@ def get_network_virtual_appliance(expand: Optional[_builtins.str] = None,
         virtual_appliance_nics=pulumi.get(__ret__, 'virtual_appliance_nics'),
         virtual_appliance_sites=pulumi.get(__ret__, 'virtual_appliance_sites'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
-def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         network_virtual_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_virtual_appliance_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
     """
     Gets the specified Network Virtual Appliance.
@@ -423,7 +422,6 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: Expands referenced resources.
     :param _builtins.str network_virtual_appliance_name: The name of Network Virtual Appliance.

@@ -131,7 +131,6 @@ def get_invoice_section(billing_account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-01.
 
-
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str billing_profile_name: The ID that uniquely identifies a billing profile.
     :param _builtins.str invoice_section_name: The ID that uniquely identifies an invoice section.
@@ -151,15 +150,14 @@ def get_invoice_section(billing_account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_invoice_section_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_invoice_section_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvoiceSectionResult]:
     """
     Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
 
     Uses Azure REST API version 2024-04-01.
-
 
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str billing_profile_name: The ID that uniquely identifies a billing profile.

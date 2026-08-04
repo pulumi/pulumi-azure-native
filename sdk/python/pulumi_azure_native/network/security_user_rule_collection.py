@@ -25,8 +25,8 @@ class SecurityUserRuleCollectionArgs:
                  configuration_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityUserRuleCollection resource.
 
@@ -96,26 +96,26 @@ class SecurityUserRuleCollectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the security user rule collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleCollectionName")
-    def rule_collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network manager security Configuration rule collection.
         """
         return pulumi.get(self, "rule_collection_name")
 
     @rule_collection_name.setter
-    def rule_collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_collection_name", value)
 
 
@@ -125,12 +125,12 @@ class SecurityUserRuleCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityUserGroupItemArgs', 'SecurityUserGroupItemArgsDict']]]]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityUserGroupItemArgs', 'SecurityUserGroupItemArgsDict']]]]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the security user rule collection.
@@ -138,7 +138,6 @@ class SecurityUserRuleCollection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,6 @@ class SecurityUserRuleCollection(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SecurityUserRuleCollectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,12 +176,12 @@ class SecurityUserRuleCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityUserGroupItemArgs', 'SecurityUserGroupItemArgsDict']]]]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityUserGroupItemArgs', 'SecurityUserGroupItemArgsDict']]]]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

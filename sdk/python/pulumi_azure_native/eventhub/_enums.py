@@ -191,7 +191,7 @@ class PublicNetworkAccess(_builtins.str, Enum):
 @pulumi.type_token("azure-native:eventhub:PublicNetworkAccessFlag")
 class PublicNetworkAccessFlag(_builtins.str, Enum):
     """
-    This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+    This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

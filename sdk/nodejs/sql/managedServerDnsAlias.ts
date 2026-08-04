@@ -106,8 +106,8 @@ export interface ManagedServerDnsAliasArgs {
     /**
      * Whether or not DNS record should be created for this alias.
      */
-    createDnsRecord?: pulumi.Input<boolean>;
-    dnsAliasName?: pulumi.Input<string>;
+    createDnsRecord?: pulumi.Input<boolean | undefined>;
+    dnsAliasName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */

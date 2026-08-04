@@ -27,11 +27,11 @@ class JobDefinitionArgs:
                  source_name: pulumi.Input[_builtins.str],
                  storage_mover_name: pulumi.Input[_builtins.str],
                  target_name: pulumi.Input[_builtins.str],
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_subpath: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subpath: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_subpath: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subpath: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
 
@@ -138,62 +138,62 @@ class JobDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Agent to assign for new Job Runs of this Job Definition.
         """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
-    def agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Job Definition. OnPremToCloud is for migrating data from on-premises to cloud. CloudToCloud is for migrating data between cloud to cloud.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="jobDefinitionName")
-    def job_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Job Definition resource.
         """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
-    def job_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSubpath")
-    def source_subpath(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_subpath(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subpath to use when reading from the source Endpoint.
         """
         return pulumi.get(self, "source_subpath")
 
     @source_subpath.setter
-    def source_subpath(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_subpath(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_subpath", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSubpath")
-    def target_subpath(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_subpath(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subpath to use when writing to the target Endpoint.
         """
         return pulumi.get(self, "target_subpath")
 
     @target_subpath.setter
-    def target_subpath(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_subpath(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_subpath", value)
 
 
@@ -203,17 +203,17 @@ class JobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_mode: Optional[pulumi.Input[Union[_builtins.str, 'CopyMode']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_subpath: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subpath: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_mode: pulumi.Input[Optional[Union[_builtins.str, 'CopyMode']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_subpath: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subpath: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Job Definition resource.
@@ -221,7 +221,6 @@ class JobDefinition(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01, 2025-08-01, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,7 +249,6 @@ class JobDefinition(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01, 2025-08-01, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,17 +264,17 @@ class JobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_mode: Optional[pulumi.Input[Union[_builtins.str, 'CopyMode']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_subpath: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subpath: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_mode: pulumi.Input[Optional[Union[_builtins.str, 'CopyMode']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_subpath: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subpath: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

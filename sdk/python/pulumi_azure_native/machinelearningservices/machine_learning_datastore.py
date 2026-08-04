@@ -24,37 +24,37 @@ class MachineLearningDatastoreArgs:
                  data_store_type: pulumi.Input[Union[_builtins.str, 'DatastoreTypeArm']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 adls_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 adls_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_system_assigned_identity: Optional[pulumi.Input[_builtins.bool]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 adls_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 adls_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_system_assigned_identity: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a MachineLearningDatastore resource.
 
@@ -201,374 +201,374 @@ class MachineLearningDatastoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account Key of storage account.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="adlsResourceGroup")
-    def adls_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def adls_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource group the ADLS store belongs to. Defaults to selected resource group.
         """
         return pulumi.get(self, "adls_resource_group")
 
     @adls_resource_group.setter
-    def adls_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def adls_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "adls_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="adlsSubscriptionId")
-    def adls_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def adls_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subscription the ADLS store belongs to. Defaults to selected subscription.
         """
         return pulumi.get(self, "adls_subscription_id")
 
     @adls_subscription_id.setter
-    def adls_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def adls_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "adls_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorityUrl")
-    def authority_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authority_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authority url used to authenticate the user.
         """
         return pulumi.get(self, "authority_url")
 
     @authority_url.setter
-    def authority_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authority_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authority_url", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal's client/application ID.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal's secret.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the azure blob container.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database name.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="datastoreName")
-    def datastore_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datastore_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Datastore name.
         """
         return pulumi.get(self, "datastore_name")
 
     @datastore_name.setter
-    def datastore_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datastore_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datastore_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the datastore.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint of the server.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceSSL")
-    def enforce_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This sets the ssl value of the server. Defaults to true if not set.
         """
         return pulumi.get(self, "enforce_ssl")
 
     @enforce_ssl.setter
-    def enforce_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file system name of the ADLS Gen2.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSecret")
-    def include_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Include datastore secret in response.
         """
         return pulumi.get(self, "include_secret")
 
     @include_secret.setter
-    def include_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the datastore.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port number.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol to be used
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUrl")
-    def resource_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines what operations will be performed.
         """
         return pulumi.get(self, "resource_url")
 
     @resource_url.setter
-    def resource_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_url", value)
 
     @_builtins.property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sas Token of storage account.
         """
         return pulumi.get(self, "sas_token")
 
     @sas_token.setter
-    def sas_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_token", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SQL/MySQL/PostgreSQL server name
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the file share.
         """
         return pulumi.get(self, "share_name")
 
     @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidation")
-    def skip_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip validation that ensures data can be loaded from the dataset before registration.
         """
         return pulumi.get(self, "skip_validation")
 
     @skip_validation.setter
-    def skip_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceGroup")
-    def storage_account_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource group of the storage account. Defaults to selected resource group
         """
         return pulumi.get(self, "storage_account_resource_group")
 
     @storage_account_resource_group.setter
-    def storage_account_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription ID of the storage account. Defaults to selected subscription
         """
         return pulumi.get(self, "storage_account_subscription_id")
 
     @storage_account_subscription_id.setter
-    def storage_account_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storeName")
-    def store_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def store_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ADLS store name.
         """
         return pulumi.get(self, "store_name")
 
     @store_name.setter
-    def store_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def store_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "store_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal Tenant ID.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user ID.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the database user.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceSystemAssignedIdentity")
-    def workspace_system_assigned_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def workspace_system_assigned_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, datastore support data access authenticated with Workspace MSI.
         """
         return pulumi.get(self, "workspace_system_assigned_identity")
 
     @workspace_system_assigned_identity.setter
-    def workspace_system_assigned_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def workspace_system_assigned_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "workspace_system_assigned_identity", value)
 
 
@@ -578,46 +578,45 @@ class MachineLearningDatastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 adls_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 adls_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_store_type: Optional[pulumi.Input[Union[_builtins.str, 'DatastoreTypeArm']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_system_assigned_identity: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 adls_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 adls_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_store_type: pulumi.Input[Optional[Union[_builtins.str, 'DatastoreTypeArm']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_system_assigned_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -667,7 +666,6 @@ class MachineLearningDatastore(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MachineLearningDatastoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -683,40 +681,40 @@ class MachineLearningDatastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 adls_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 adls_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authority_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_store_type: Optional[pulumi.Input[Union[_builtins.str, 'DatastoreTypeArm']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_system_assigned_identity: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 adls_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 adls_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authority_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_store_type: pulumi.Input[Optional[Union[_builtins.str, 'DatastoreTypeArm']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_system_assigned_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

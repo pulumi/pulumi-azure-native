@@ -23,12 +23,12 @@ class DedicatedHostGroupArgs:
     def __init__(__self__, *,
                  platform_fault_domain_count: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_capabilities: Optional[pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] = None,
-                 host_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_automatic_placement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_capabilities: pulumi.Input[Optional['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] = None,
+                 host_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_automatic_placement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DedicatedHostGroup resource.
 
@@ -82,74 +82,74 @@ class DedicatedHostGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]:
         """
         Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupName")
-    def host_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dedicated host group.
         """
         return pulumi.get(self, "host_group_name")
 
     @host_group_name.setter
-    def host_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="supportAutomaticPlacement")
-    def support_automatic_placement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def support_automatic_placement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "support_automatic_placement")
 
     @support_automatic_placement.setter
-    def support_automatic_placement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def support_automatic_placement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "support_automatic_placement", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The availability zones.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -159,14 +159,14 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']]] = None,
-                 host_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_automatic_placement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']]] = None,
+                 host_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_automatic_placement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
@@ -174,7 +174,6 @@ class DedicatedHostGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DedicatedHostGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']]] = None,
-                 host_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_automatic_placement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']]] = None,
+                 host_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_automatic_placement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

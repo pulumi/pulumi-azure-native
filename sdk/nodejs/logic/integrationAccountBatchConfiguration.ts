@@ -117,7 +117,7 @@ export interface IntegrationAccountBatchConfigurationArgs {
     /**
      * The batch configuration name.
      */
-    batchConfigurationName?: pulumi.Input<string>;
+    batchConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The integration account name.
      */
@@ -125,7 +125,7 @@ export interface IntegrationAccountBatchConfigurationArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The batch configuration properties.
      */
@@ -137,5 +137,5 @@ export interface IntegrationAccountBatchConfigurationArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

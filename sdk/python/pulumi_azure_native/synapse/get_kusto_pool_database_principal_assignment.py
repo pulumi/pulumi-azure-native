@@ -205,7 +205,6 @@ def get_kusto_pool_database_principal_assignment(database_name: Optional[_builti
 
     Uses Azure REST API version 2021-06-01-preview.
 
-
     :param _builtins.str database_name: The name of the database in the Kusto pool.
     :param _builtins.str kusto_pool_name: The name of the Kusto pool.
     :param _builtins.str principal_assignment_name: The name of the Kusto principalAssignment.
@@ -235,17 +234,16 @@ def get_kusto_pool_database_principal_assignment(database_name: Optional[_builti
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         tenant_name=pulumi.get(__ret__, 'tenant_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_kusto_pool_database_principal_assignment_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        principal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kusto_pool_database_principal_assignment_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolDatabasePrincipalAssignmentResult]:
     """
     Gets a Kusto pool database principalAssignment.
 
     Uses Azure REST API version 2021-06-01-preview.
-
 
     :param _builtins.str database_name: The name of the database in the Kusto pool.
     :param _builtins.str kusto_pool_name: The name of the Kusto pool.

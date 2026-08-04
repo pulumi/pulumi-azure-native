@@ -26,8 +26,8 @@ class ReplicationProtectionClusterArgs:
                  protection_container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['ReplicationProtectionClusterPropertiesArgs']] = None,
-                 replication_protection_cluster_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['ReplicationProtectionClusterPropertiesArgs']] = None,
+                 replication_protection_cluster_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationProtectionCluster resource.
 
@@ -97,26 +97,26 @@ class ReplicationProtectionClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ReplicationProtectionClusterPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ReplicationProtectionClusterPropertiesArgs']]:
         """
         The custom data.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ReplicationProtectionClusterPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ReplicationProtectionClusterPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationProtectionClusterName")
-    def replication_protection_cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_protection_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Replication protection cluster name.
         """
         return pulumi.get(self, "replication_protection_cluster_name")
 
     @replication_protection_cluster_name.setter
-    def replication_protection_cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_protection_cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_protection_cluster_name", value)
 
 
@@ -126,12 +126,12 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ReplicationProtectionClusterPropertiesArgs', 'ReplicationProtectionClusterPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_protection_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReplicationProtectionClusterPropertiesArgs', 'ReplicationProtectionClusterPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_protection_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Replication protection Cluster.
@@ -139,7 +139,6 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
 
         Other available API versions: 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01, 2026-01-01, 2026-02-01, 2026-03-31-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +162,6 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
 
         Other available API versions: 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01, 2026-01-01, 2026-02-01, 2026-03-31-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ReplicationProtectionClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,12 +177,12 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ReplicationProtectionClusterPropertiesArgs', 'ReplicationProtectionClusterPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_protection_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReplicationProtectionClusterPropertiesArgs', 'ReplicationProtectionClusterPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_protection_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

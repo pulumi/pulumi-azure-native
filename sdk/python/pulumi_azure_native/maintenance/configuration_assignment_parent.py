@@ -28,11 +28,11 @@ class ConfigurationAssignmentParentArgs:
                  resource_parent_name: pulumi.Input[_builtins.str],
                  resource_parent_type: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional['ConfigurationAssignmentFilterPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationAssignmentParent resource.
 
@@ -139,62 +139,62 @@ class ConfigurationAssignmentParentArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationAssignmentName")
-    def configuration_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ConfigurationAssignment
         """
         return pulumi.get(self, "configuration_assignment_name")
 
     @configuration_assignment_name.setter
-    def configuration_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']]:
+    def filter(self) -> pulumi.Input[Optional['ConfigurationAssignmentFilterPropertiesArgs']]:
         """
         Properties of the configuration assignment
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']]):
+    def filter(self, value: pulumi.Input[Optional['ConfigurationAssignmentFilterPropertiesArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the resource
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maintenance configuration Id
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique resourceId
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -204,17 +204,17 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_parent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_parent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_parent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_parent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration Assignment
@@ -222,7 +222,6 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
         Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,7 +250,6 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConfigurationAssignmentParentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,17 +265,17 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_parent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_parent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['ConfigurationAssignmentFilterPropertiesArgs', 'ConfigurationAssignmentFilterPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_parent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_parent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

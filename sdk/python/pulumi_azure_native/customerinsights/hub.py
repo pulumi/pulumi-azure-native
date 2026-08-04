@@ -22,11 +22,11 @@ __all__ = ['HubArgs', 'Hub']
 class HubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 hub_billing_info: Optional[pulumi.Input['HubBillingInfoFormatArgs']] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_features: Optional[pulumi.Input[_builtins.int]] = None):
+                 hub_billing_info: pulumi.Input[Optional['HubBillingInfoFormatArgs']] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_features: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Hub resource.
 
@@ -63,62 +63,62 @@ class HubArgs:
 
     @_builtins.property
     @pulumi.getter(name="hubBillingInfo")
-    def hub_billing_info(self) -> Optional[pulumi.Input['HubBillingInfoFormatArgs']]:
+    def hub_billing_info(self) -> pulumi.Input[Optional['HubBillingInfoFormatArgs']]:
         """
         Billing settings of the hub.
         """
         return pulumi.get(self, "hub_billing_info")
 
     @hub_billing_info.setter
-    def hub_billing_info(self, value: Optional[pulumi.Input['HubBillingInfoFormatArgs']]):
+    def hub_billing_info(self, value: pulumi.Input[Optional['HubBillingInfoFormatArgs']]):
         pulumi.set(self, "hub_billing_info", value)
 
     @_builtins.property
     @pulumi.getter(name="hubName")
-    def hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Hub.
         """
         return pulumi.get(self, "hub_name")
 
     @hub_name.setter
-    def hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantFeatures")
-    def tenant_features(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tenant_features(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
         """
         return pulumi.get(self, "tenant_features")
 
     @tenant_features.setter
-    def tenant_features(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tenant_features(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tenant_features", value)
 
 
@@ -128,18 +128,17 @@ class Hub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_billing_info: Optional[pulumi.Input[Union['HubBillingInfoFormatArgs', 'HubBillingInfoFormatArgsDict']]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_features: Optional[pulumi.Input[_builtins.int]] = None,
+                 hub_billing_info: pulumi.Input[Optional[Union['HubBillingInfoFormatArgs', 'HubBillingInfoFormatArgsDict']]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_features: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Hub resource.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class Hub(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class Hub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_billing_info: Optional[pulumi.Input[Union['HubBillingInfoFormatArgs', 'HubBillingInfoFormatArgsDict']]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_features: Optional[pulumi.Input[_builtins.int]] = None,
+                 hub_billing_info: pulumi.Input[Optional[Union['HubBillingInfoFormatArgs', 'HubBillingInfoFormatArgsDict']]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_features: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

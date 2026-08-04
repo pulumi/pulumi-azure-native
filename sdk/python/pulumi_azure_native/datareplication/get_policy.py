@@ -118,7 +118,6 @@ def get_policy(policy_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-09-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str policy_name: The policy name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str vault_name: The vault name.
@@ -137,9 +136,9 @@ def get_policy(policy_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_output(policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Gets the details of the policy.
@@ -147,7 +146,6 @@ def get_policy_output(policy_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2021-02-16-preview.
 
     Other available API versions: 2024-09-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str policy_name: The policy name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -128,19 +128,19 @@ export interface ActiveDirectoryConfigArgs {
     /**
      * The name of the ActiveDirectoryConfig
      */
-    activeDirectoryConfigName?: pulumi.Input<string>;
+    activeDirectoryConfigName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.netapp.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.netapp.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.netapp.ActiveDirectoryConfigPropertiesArgs>;
+    properties?: pulumi.Input<inputs.netapp.ActiveDirectoryConfigPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -148,5 +148,5 @@ export interface ActiveDirectoryConfigArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

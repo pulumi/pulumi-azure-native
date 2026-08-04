@@ -143,7 +143,6 @@ def get_backup_long_term_retention_policy(database_name: Optional[_builtins.str]
 
     Uses Azure REST API version 2017-03-01-preview.
 
-
     :param _builtins.str database_name: The name of the database.
     :param _builtins.str policy_name: The policy name. Should always be Default.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -166,16 +165,15 @@ def get_backup_long_term_retention_policy(database_name: Optional[_builtins.str]
         week_of_year=pulumi.get(__ret__, 'week_of_year'),
         weekly_retention=pulumi.get(__ret__, 'weekly_retention'),
         yearly_retention=pulumi.get(__ret__, 'yearly_retention'))
-def get_backup_long_term_retention_policy_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_backup_long_term_retention_policy_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupLongTermRetentionPolicyResult]:
     """
     Gets a database's long term retention policy.
 
     Uses Azure REST API version 2017-03-01-preview.
-
 
     :param _builtins.str database_name: The name of the database.
     :param _builtins.str policy_name: The policy name. Should always be Default.

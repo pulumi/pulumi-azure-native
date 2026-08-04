@@ -118,7 +118,6 @@ def get_machine_pool(child_resource_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str child_resource_name: The name of the MachinePool resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the OpenShift cluster resource.
@@ -137,9 +136,9 @@ def get_machine_pool(child_resource_name: Optional[_builtins.str] = None,
         resources=pulumi.get(__ret__, 'resources'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_machine_pool_output(child_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_machine_pool_output(child_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachinePoolResult]:
     """
     The operation returns properties of a MachinePool.
@@ -147,7 +146,6 @@ def get_machine_pool_output(child_resource_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2023-11-22.
 
     Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str child_resource_name: The name of the MachinePool resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

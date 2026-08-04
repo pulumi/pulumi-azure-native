@@ -89,7 +89,7 @@ export class EncryptionScope extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["encryptionScopeName"] = args?.encryptionScopeName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.cognitiveservices.encryptionScopePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.cognitiveservices.encryptionScopePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -124,11 +124,11 @@ export interface EncryptionScopeArgs {
     /**
      * The name of the encryptionScope associated with the Cognitive Services Account
      */
-    encryptionScopeName?: pulumi.Input<string>;
+    encryptionScopeName?: pulumi.Input<string | undefined>;
     /**
      * Properties of Cognitive Services EncryptionScope.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.EncryptionScopePropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.EncryptionScopePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +136,5 @@ export interface EncryptionScopeArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

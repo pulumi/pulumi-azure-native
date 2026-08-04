@@ -111,7 +111,7 @@ export interface SecretArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Describes the properties of a secret resource.
      */
@@ -123,9 +123,9 @@ export interface SecretArgs {
     /**
      * The name of the secret resource.
      */
-    secretResourceName?: pulumi.Input<string>;
+    secretResourceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

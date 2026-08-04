@@ -169,7 +169,6 @@ def get_managed_private_endpoint(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str managed_private_endpoint_name: The name of the managed private endpoint.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -192,9 +191,9 @@ def get_managed_private_endpoint(cluster_name: Optional[_builtins.str] = None,
         request_message=pulumi.get(__ret__, 'request_message'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_private_endpoint_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        managed_private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_private_endpoint_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        managed_private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
     Gets a managed private endpoint.
@@ -202,7 +201,6 @@ def get_managed_private_endpoint_output(cluster_name: Optional[pulumi.Input[_bui
     Uses Azure REST API version 2024-04-13.
 
     Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str managed_private_endpoint_name: The name of the managed private endpoint.

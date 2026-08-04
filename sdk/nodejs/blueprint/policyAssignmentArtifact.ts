@@ -146,7 +146,7 @@ export interface PolicyAssignmentArtifactArgs {
     /**
      * Name of the blueprint artifact.
      */
-    artifactName?: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string | undefined>;
     /**
      * Name of the blueprint definition.
      */
@@ -154,15 +154,15 @@ export interface PolicyAssignmentArtifactArgs {
     /**
      * Artifacts which need to be deployed before the specified artifact.
      */
-    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
+    dependsOn?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Multi-line explain this resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * One-liner string explain this resource.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the kind of blueprint artifact.
      * Expected value is 'policyAssignment'.
@@ -179,7 +179,7 @@ export interface PolicyAssignmentArtifactArgs {
     /**
      * Name of the resource group placeholder to which the policy will be assigned.
      */
-    resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */

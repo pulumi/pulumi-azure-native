@@ -168,7 +168,6 @@ def get_ti_data_connector(data_connector_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str data_connector_id: Connector ID
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -191,15 +190,14 @@ def get_ti_data_connector(data_connector_id: Optional[_builtins.str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         tip_lookback_period=pulumi.get(__ret__, 'tip_lookback_period'),
         type=pulumi.get(__ret__, 'type'))
-def get_ti_data_connector_output(data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ti_data_connector_output(data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTIDataConnectorResult]:
     """
     Gets a data connector.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str data_connector_id: Connector ID
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

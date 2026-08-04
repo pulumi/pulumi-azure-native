@@ -130,7 +130,6 @@ def get_billing_profile(billing_account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-01.
 
-
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str billing_profile_name: The ID that uniquely identifies a billing profile.
     """
@@ -148,14 +147,13 @@ def get_billing_profile(billing_account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_billing_profile_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_billing_profile_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingProfileResult]:
     """
     Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
 
     Uses Azure REST API version 2024-04-01.
-
 
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str billing_profile_name: The ID that uniquely identifies a billing profile.

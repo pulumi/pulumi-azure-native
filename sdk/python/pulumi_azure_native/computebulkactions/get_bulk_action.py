@@ -167,7 +167,6 @@ def get_bulk_action(location: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-02-01-preview.
 
-
     :param _builtins.str location: The location name.
     :param _builtins.str name: The name of the LaunchBulkInstancesOperation.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,15 +189,14 @@ def get_bulk_action(location: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_bulk_action_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                           name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bulk_action_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                           name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBulkActionResult]:
     """
     Gets an instance of LaunchBulkInstancesOperations.
 
     Uses Azure REST API version 2026-02-01-preview.
-
 
     :param _builtins.str location: The location name.
     :param _builtins.str name: The name of the LaunchBulkInstancesOperation.

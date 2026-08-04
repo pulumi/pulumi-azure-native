@@ -24,13 +24,13 @@ class ChannelArgs:
     def __init__(__self__, *,
                  partner_namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_type: Optional[pulumi.Input[Union[_builtins.str, 'ChannelType']]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_info: Optional[pulumi.Input['PartnerTopicInfoArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ChannelProvisioningState']]] = None,
-                 readiness_state: Optional[pulumi.Input[Union[_builtins.str, 'ReadinessState']]] = None):
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_type: pulumi.Input[Optional[Union[_builtins.str, 'ChannelType']]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_info: pulumi.Input[Optional['PartnerTopicInfoArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ChannelProvisioningState']]] = None,
+                 readiness_state: pulumi.Input[Optional[Union[_builtins.str, 'ReadinessState']]] = None):
         """
         The set of arguments for constructing a Channel resource.
 
@@ -88,31 +88,31 @@ class ChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the channel.
         """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="channelType")
-    def channel_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ChannelType']]]:
+    def channel_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ChannelType']]]:
         """
         The type of the event channel which represents the direction flow of events.
         """
         return pulumi.get(self, "channel_type")
 
     @channel_type.setter
-    def channel_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ChannelType']]]):
+    def channel_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ChannelType']]]):
         pulumi.set(self, "channel_type", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationTimeIfNotActivatedUtc")
-    def expiration_time_if_not_activated_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_time_if_not_activated_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
         the channel and corresponding partner topic are deleted.
@@ -120,55 +120,55 @@ class ChannelArgs:
         return pulumi.get(self, "expiration_time_if_not_activated_utc")
 
     @expiration_time_if_not_activated_utc.setter
-    def expiration_time_if_not_activated_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_time_if_not_activated_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_time_if_not_activated_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="messageForActivation")
-    def message_for_activation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_for_activation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Context or helpful message that can be used during the approval process by the subscriber.
         """
         return pulumi.get(self, "message_for_activation")
 
     @message_for_activation.setter
-    def message_for_activation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_for_activation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_for_activation", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerTopicInfo")
-    def partner_topic_info(self) -> Optional[pulumi.Input['PartnerTopicInfoArgs']]:
+    def partner_topic_info(self) -> pulumi.Input[Optional['PartnerTopicInfoArgs']]:
         """
         This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
         """
         return pulumi.get(self, "partner_topic_info")
 
     @partner_topic_info.setter
-    def partner_topic_info(self, value: Optional[pulumi.Input['PartnerTopicInfoArgs']]):
+    def partner_topic_info(self, value: pulumi.Input[Optional['PartnerTopicInfoArgs']]):
         pulumi.set(self, "partner_topic_info", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ChannelProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ChannelProvisioningState']]]:
         """
         Provisioning state of the channel.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ChannelProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ChannelProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="readinessState")
-    def readiness_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReadinessState']]]:
+    def readiness_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReadinessState']]]:
         """
         The readiness state of the corresponding partner topic.
         """
         return pulumi.get(self, "readiness_state")
 
     @readiness_state.setter
-    def readiness_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReadinessState']]]):
+    def readiness_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReadinessState']]]):
         pulumi.set(self, "readiness_state", value)
 
 
@@ -178,15 +178,15 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_type: Optional[pulumi.Input[Union[_builtins.str, 'ChannelType']]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_info: Optional[pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ChannelProvisioningState']]] = None,
-                 readiness_state: Optional[pulumi.Input[Union[_builtins.str, 'ReadinessState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_type: pulumi.Input[Optional[Union[_builtins.str, 'ChannelType']]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_info: pulumi.Input[Optional[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ChannelProvisioningState']]] = None,
+                 readiness_state: pulumi.Input[Optional[Union[_builtins.str, 'ReadinessState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Channel info.
@@ -194,7 +194,6 @@ class Channel(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,7 +221,6 @@ class Channel(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,15 +236,15 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_type: Optional[pulumi.Input[Union[_builtins.str, 'ChannelType']]] = None,
-                 expiration_time_if_not_activated_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_for_activation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_info: Optional[pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ChannelProvisioningState']]] = None,
-                 readiness_state: Optional[pulumi.Input[Union[_builtins.str, 'ReadinessState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_type: pulumi.Input[Optional[Union[_builtins.str, 'ChannelType']]] = None,
+                 expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_info: pulumi.Input[Optional[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ChannelProvisioningState']]] = None,
+                 readiness_state: pulumi.Input[Optional[Union[_builtins.str, 'ReadinessState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

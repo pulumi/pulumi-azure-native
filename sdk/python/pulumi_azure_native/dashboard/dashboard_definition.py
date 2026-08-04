@@ -23,8 +23,8 @@ class DashboardDefinitionArgs:
     def __init__(__self__, *,
                  dashboard_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DashboardDefinitionPropertiesArgs']] = None):
+                 definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DashboardDefinitionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DashboardDefinition resource.
 
@@ -66,26 +66,26 @@ class DashboardDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="definitionName")
-    def definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Dashboard Definition.
         """
         return pulumi.get(self, "definition_name")
 
     @definition_name.setter
-    def definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DashboardDefinitionPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DashboardDefinitionPropertiesArgs']]:
         """
         Properties specific to the dashboard definition resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DashboardDefinitionPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DashboardDefinitionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,16 +95,15 @@ class DashboardDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DashboardDefinitionPropertiesArgs', 'DashboardDefinitionPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DashboardDefinitionPropertiesArgs', 'DashboardDefinitionPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The dashboard definition resource type.
 
         Uses Azure REST API version 2025-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class DashboardDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DashboardDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class DashboardDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DashboardDefinitionPropertiesArgs', 'DashboardDefinitionPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DashboardDefinitionPropertiesArgs', 'DashboardDefinitionPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

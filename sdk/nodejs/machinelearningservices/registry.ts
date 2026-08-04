@@ -177,52 +177,52 @@ export interface RegistryArgs {
     /**
      * Discovery URL for the Registry
      */
-    discoveryUrl?: pulumi.Input<string>;
+    discoveryUrl?: pulumi.Input<string | undefined>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs | undefined>;
     /**
      * IntellectualPropertyPublisher for the registry
      */
-    intellectualPropertyPublisher?: pulumi.Input<string>;
+    intellectualPropertyPublisher?: pulumi.Input<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * ResourceId of the managed RG if the registry has system created resources
      */
-    managedResourceGroup?: pulumi.Input<inputs.machinelearningservices.ArmResourceIdArgs>;
+    managedResourceGroup?: pulumi.Input<inputs.machinelearningservices.ArmResourceIdArgs | undefined>;
     /**
      * Managed resource group specific settings
      */
-    managedResourceGroupSettings?: pulumi.Input<inputs.machinelearningservices.ManagedResourceGroupSettingsArgs>;
+    managedResourceGroupSettings?: pulumi.Input<inputs.machinelearningservices.ManagedResourceGroupSettingsArgs | undefined>;
     /**
      * MLFlow Registry URI for the Registry
      */
-    mlFlowRegistryUri?: pulumi.Input<string>;
+    mlFlowRegistryUri?: pulumi.Input<string | undefined>;
     /**
      * Is the Registry accessible from the internet?
      * Possible values: "Enabled" or "Disabled"
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * Details of each region the registry is in
      */
-    regionDetails?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.RegistryRegionArmDetailsArgs>[]>;
+    regionDetails?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.RegistryRegionArmDetailsArgs>[] | undefined>;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
-    registryName?: pulumi.Input<string>;
+    registryName?: pulumi.Input<string | undefined>;
     /**
      * Private endpoint connections info used for pending connections in private link portal
      */
-    registryPrivateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.RegistryPrivateEndpointConnectionArgs>[]>;
+    registryPrivateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.RegistryPrivateEndpointConnectionArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -230,9 +230,9 @@ export interface RegistryArgs {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

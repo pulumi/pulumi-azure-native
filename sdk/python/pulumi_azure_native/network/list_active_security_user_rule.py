@@ -72,7 +72,6 @@ def list_active_security_user_rule(network_manager_name: Optional[_builtins.str]
 
     Uses Azure REST API version 2021-02-01-preview.
 
-
     :param _builtins.str network_manager_name: The name of the network manager.
     :param Sequence[_builtins.str] regions: List of regions.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -89,16 +88,15 @@ def list_active_security_user_rule(network_manager_name: Optional[_builtins.str]
     return AwaitableListActiveSecurityUserRuleResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_active_security_user_rule_output(network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          regions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_active_security_user_rule_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          regions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListActiveSecurityUserRuleResult]:
     """
     Lists Active Security User Rules in a network manager.
 
     Uses Azure REST API version 2021-02-01-preview.
-
 
     :param _builtins.str network_manager_name: The name of the network manager.
     :param Sequence[_builtins.str] regions: List of regions.

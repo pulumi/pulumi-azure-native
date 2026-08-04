@@ -27,47 +27,47 @@ class CapacityPoolVolumeArgs:
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 usage_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 avs_data_store: Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_pool_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cool_access_retrieval_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
-                 cool_access_tiering_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
-                 coolness_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
-                 default_group_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 default_user_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 delete_base_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_subvolumes: Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]] = None,
-                 encryption_key_source: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]] = None,
-                 export_policy: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']] = None,
-                 is_default_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_large_volume: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_restoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_private_endpoint_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_features: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]] = None,
-                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]] = None,
-                 service_level: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]] = None,
-                 smb_access_based_enumeration: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
-                 smb_continuously_available: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_non_browsable: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
-                 snapshot_directory_visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_mibps: Optional[pulumi.Input[_builtins.float]] = None,
-                 unix_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_spec_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 usage_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 avs_data_store: pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_pool_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cool_access_retrieval_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
+                 coolness_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_protection: pulumi.Input[Optional['VolumePropertiesDataProtectionArgs']] = None,
+                 default_group_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 default_user_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 delete_base_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_subvolumes: pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]] = None,
+                 encryption_key_source: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]] = None,
+                 export_policy: pulumi.Input[Optional['VolumePropertiesExportPolicyArgs']] = None,
+                 is_default_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_large_volume: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_restoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_private_endpoint_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_features: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]] = None,
+                 placement_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
+                 protocol_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]] = None,
+                 service_level: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]] = None,
+                 smb_access_based_enumeration: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
+                 smb_continuously_available: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_non_browsable: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
+                 snapshot_directory_visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityPoolVolume resource.
 
@@ -81,7 +81,7 @@ class CapacityPoolVolumeArgs:
         :param pulumi.Input[_builtins.str] backup_id: Resource identifier used to identify the Backup.
         :param pulumi.Input[_builtins.str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
         :param pulumi.Input[_builtins.bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
-        :param pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']] cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        :param pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']] cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
@@ -311,57 +311,57 @@ class CapacityPoolVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="avsDataStore")
-    def avs_data_store(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]]:
+    def avs_data_store(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]]:
         """
         Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         """
         return pulumi.get(self, "avs_data_store")
 
     @avs_data_store.setter
-    def avs_data_store(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]]):
+    def avs_data_store(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]]):
         pulumi.set(self, "avs_data_store", value)
 
     @_builtins.property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource identifier used to identify the Backup.
         """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
-    def backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityPoolResourceId")
-    def capacity_pool_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_pool_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pool Resource Id used in case of creating a volume through volume group
         """
         return pulumi.get(self, "capacity_pool_resource_id")
 
     @capacity_pool_resource_id.setter
-    def capacity_pool_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_pool_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_pool_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccess")
-    def cool_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cool_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Cool Access(tiering) is enabled for the volume.
         """
         return pulumi.get(self, "cool_access")
 
     @cool_access.setter
-    def cool_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cool_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cool_access", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccessRetrievalPolicy")
-    def cool_access_retrieval_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]:
+    def cool_access_retrieval_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]:
         """
-        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
          Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
          OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
          Never - No client-driven data is pulled from cool tier to standard storage.
@@ -369,424 +369,424 @@ class CapacityPoolVolumeArgs:
         return pulumi.get(self, "cool_access_retrieval_policy")
 
     @cool_access_retrieval_policy.setter
-    def cool_access_retrieval_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]):
+    def cool_access_retrieval_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]]):
         pulumi.set(self, "cool_access_retrieval_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="coolAccessTieringPolicy")
-    def cool_access_tiering_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]]:
+    def cool_access_tiering_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]]:
         """
         coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
         """
         return pulumi.get(self, "cool_access_tiering_policy")
 
     @cool_access_tiering_policy.setter
-    def cool_access_tiering_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]]):
+    def cool_access_tiering_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]]):
         pulumi.set(self, "cool_access_tiering_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="coolnessPeriod")
-    def coolness_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def coolness_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days after which data that is not accessed by clients will be tiered.
         """
         return pulumi.get(self, "coolness_period")
 
     @coolness_period.setter
-    def coolness_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def coolness_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "coolness_period", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtection")
-    def data_protection(self) -> Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']]:
+    def data_protection(self) -> pulumi.Input[Optional['VolumePropertiesDataProtectionArgs']]:
         """
         DataProtection type volumes include an object containing details of the replication
         """
         return pulumi.get(self, "data_protection")
 
     @data_protection.setter
-    def data_protection(self, value: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']]):
+    def data_protection(self, value: pulumi.Input[Optional['VolumePropertiesDataProtectionArgs']]):
         pulumi.set(self, "data_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultGroupQuotaInKiBs")
-    def default_group_quota_in_ki_bs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def default_group_quota_in_ki_bs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         """
         return pulumi.get(self, "default_group_quota_in_ki_bs")
 
     @default_group_quota_in_ki_bs.setter
-    def default_group_quota_in_ki_bs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def default_group_quota_in_ki_bs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "default_group_quota_in_ki_bs", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultUserQuotaInKiBs")
-    def default_user_quota_in_ki_bs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def default_user_quota_in_ki_bs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         """
         return pulumi.get(self, "default_user_quota_in_ki_bs")
 
     @default_user_quota_in_ki_bs.setter
-    def default_user_quota_in_ki_bs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def default_user_quota_in_ki_bs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "default_user_quota_in_ki_bs", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteBaseSnapshot")
-    def delete_base_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_base_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
         """
         return pulumi.get(self, "delete_base_snapshot")
 
     @delete_base_snapshot.setter
-    def delete_base_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_base_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_base_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSubvolumes")
-    def enable_subvolumes(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]]:
+    def enable_subvolumes(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]]:
         """
         Flag indicating whether subvolume operations are enabled on the volume
         """
         return pulumi.get(self, "enable_subvolumes")
 
     @enable_subvolumes.setter
-    def enable_subvolumes(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]]):
+    def enable_subvolumes(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]]):
         pulumi.set(self, "enable_subvolumes", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeySource")
-    def encryption_key_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]]:
+    def encryption_key_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]]:
         """
         Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         """
         return pulumi.get(self, "encryption_key_source")
 
     @encryption_key_source.setter
-    def encryption_key_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]]):
+    def encryption_key_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]]):
         pulumi.set(self, "encryption_key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]:
+    def export_policy(self) -> pulumi.Input[Optional['VolumePropertiesExportPolicyArgs']]:
         """
         Set of export policy rules
         """
         return pulumi.get(self, "export_policy")
 
     @export_policy.setter
-    def export_policy(self, value: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']]):
+    def export_policy(self, value: pulumi.Input[Optional['VolumePropertiesExportPolicyArgs']]):
         pulumi.set(self, "export_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefaultQuotaEnabled")
-    def is_default_quota_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default_quota_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if default quota is enabled for the volume.
         """
         return pulumi.get(self, "is_default_quota_enabled")
 
     @is_default_quota_enabled.setter
-    def is_default_quota_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default_quota_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default_quota_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isLargeVolume")
-    def is_large_volume(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_large_volume(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether volume is a Large Volume or Regular Volume.
         """
         return pulumi.get(self, "is_large_volume")
 
     @is_large_volume.setter
-    def is_large_volume(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_large_volume(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_large_volume", value)
 
     @_builtins.property
     @pulumi.getter(name="isRestoring")
-    def is_restoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_restoring(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Restoring
         """
         return pulumi.get(self, "is_restoring")
 
     @is_restoring.setter
-    def is_restoring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_restoring(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_restoring", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosEnabled")
-    def kerberos_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos_enabled")
 
     @kerberos_enabled.setter
-    def kerberos_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
-    def key_vault_private_endpoint_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_private_endpoint_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
         """
         return pulumi.get(self, "key_vault_private_endpoint_resource_id")
 
     @key_vault_private_endpoint_resource_id.setter
-    def key_vault_private_endpoint_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_private_endpoint_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_private_endpoint_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapEnabled")
-    def ldap_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether LDAP is enabled or not for a given NFS volume.
         """
         return pulumi.get(self, "ldap_enabled")
 
     @ldap_enabled.setter
-    def ldap_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFeatures")
-    def network_features(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]]:
+    def network_features(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]]:
         """
         The original value of the network features type available to the volume at the time it was created.
         """
         return pulumi.get(self, "network_features")
 
     @network_features.setter
-    def network_features(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]]):
+    def network_features(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]]):
         pulumi.set(self, "network_features", value)
 
     @_builtins.property
     @pulumi.getter(name="placementRules")
-    def placement_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]:
+    def placement_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]:
         """
         Application specific placement rules for the particular volume
         """
         return pulumi.get(self, "placement_rules")
 
     @placement_rules.setter
-    def placement_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]):
+    def placement_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]]):
         pulumi.set(self, "placement_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def protocol_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of protocol types, default NFSv3, CIFS for SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 
     @protocol_types.setter
-    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def protocol_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "protocol_types", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proximity placement group associated with the volume
         """
         return pulumi.get(self, "proximity_placement_group")
 
     @proximity_placement_group.setter
-    def proximity_placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="securityStyle")
-    def security_style(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]]:
+    def security_style(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]]:
         """
         The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         """
         return pulumi.get(self, "security_style")
 
     @security_style.setter
-    def security_style(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]]):
+    def security_style(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]]):
         pulumi.set(self, "security_style", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]]:
+    def service_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]]:
         """
         The service level of the file system
         """
         return pulumi.get(self, "service_level")
 
     @service_level.setter
-    def service_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]]):
+    def service_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]]):
         pulumi.set(self, "service_level", value)
 
     @_builtins.property
     @pulumi.getter(name="smbAccessBasedEnumeration")
-    def smb_access_based_enumeration(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]:
+    def smb_access_based_enumeration(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]:
         """
         Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_access_based_enumeration")
 
     @smb_access_based_enumeration.setter
-    def smb_access_based_enumeration(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]):
+    def smb_access_based_enumeration(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]]):
         pulumi.set(self, "smb_access_based_enumeration", value)
 
     @_builtins.property
     @pulumi.getter(name="smbContinuouslyAvailable")
-    def smb_continuously_available(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_continuously_available(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables continuously available share property for smb volume. Only applicable for SMB volume
         """
         return pulumi.get(self, "smb_continuously_available")
 
     @smb_continuously_available.setter
-    def smb_continuously_available(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_continuously_available(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_continuously_available", value)
 
     @_builtins.property
     @pulumi.getter(name="smbEncryption")
-    def smb_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         """
         return pulumi.get(self, "smb_encryption")
 
     @smb_encryption.setter
-    def smb_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="smbNonBrowsable")
-    def smb_non_browsable(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]:
+    def smb_non_browsable(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]:
         """
         Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_non_browsable")
 
     @smb_non_browsable.setter
-    def smb_non_browsable(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]]):
+    def smb_non_browsable(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]]):
         pulumi.set(self, "smb_non_browsable", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotDirectoryVisible")
-    def snapshot_directory_visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def snapshot_directory_visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
     @snapshot_directory_visible.setter
-    def snapshot_directory_visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def snapshot_directory_visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "snapshot_directory_visible", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource identifier used to identify the Snapshot.
         """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputMibps")
-    def throughput_mibps(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def throughput_mibps(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "throughput_mibps")
 
     @throughput_mibps.setter
-    def throughput_mibps(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def throughput_mibps(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "throughput_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="unixPermissions")
-    def unix_permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unix_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         """
         return pulumi.get(self, "unix_permissions")
 
     @unix_permissions.setter
-    def unix_permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unix_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unix_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeName")
-    def volume_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the volume
         """
         return pulumi.get(self, "volume_name")
 
     @volume_name.setter
-    def volume_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeSpecName")
-    def volume_spec_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_spec_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         """
         return pulumi.get(self, "volume_spec_name")
 
     @volume_spec_name.setter
-    def volume_spec_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_spec_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_spec_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Availability Zone
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -796,52 +796,52 @@ class CapacityPoolVolume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 avs_data_store: Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_pool_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cool_access_retrieval_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
-                 cool_access_tiering_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
-                 coolness_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 creation_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_protection: Optional[pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
-                 default_group_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 default_user_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 delete_base_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_subvolumes: Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]] = None,
-                 encryption_key_source: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]] = None,
-                 export_policy: Optional[pulumi.Input[Union['VolumePropertiesExportPolicyArgs', 'VolumePropertiesExportPolicyArgsDict']]] = None,
-                 is_default_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_large_volume: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_restoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_private_endpoint_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_features: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]] = None,
-                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlacementKeyValuePairsArgs', 'PlacementKeyValuePairsArgsDict']]]]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]] = None,
-                 service_level: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]] = None,
-                 smb_access_based_enumeration: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
-                 smb_continuously_available: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_non_browsable: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
-                 snapshot_directory_visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_mibps: Optional[pulumi.Input[_builtins.float]] = None,
-                 unix_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_spec_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 avs_data_store: pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_pool_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cool_access_retrieval_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
+                 coolness_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 creation_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_protection: pulumi.Input[Optional[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
+                 default_group_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 default_user_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 delete_base_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_subvolumes: pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]] = None,
+                 encryption_key_source: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]] = None,
+                 export_policy: pulumi.Input[Optional[Union['VolumePropertiesExportPolicyArgs', 'VolumePropertiesExportPolicyArgsDict']]] = None,
+                 is_default_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_large_volume: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_restoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_private_endpoint_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_features: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]] = None,
+                 placement_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlacementKeyValuePairsArgs', 'PlacementKeyValuePairsArgsDict']]]]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]] = None,
+                 service_level: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]] = None,
+                 smb_access_based_enumeration: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
+                 smb_continuously_available: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_non_browsable: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
+                 snapshot_directory_visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Volume resource
@@ -850,7 +850,6 @@ class CapacityPoolVolume(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
@@ -858,7 +857,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] backup_id: Resource identifier used to identify the Backup.
         :param pulumi.Input[_builtins.str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
         :param pulumi.Input[_builtins.bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
-        :param pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']] cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        :param pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']] cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
@@ -915,7 +914,6 @@ class CapacityPoolVolume(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CapacityPoolVolumeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -931,52 +929,52 @@ class CapacityPoolVolume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 avs_data_store: Optional[pulumi.Input[Union[_builtins.str, 'AvsDataStore']]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_pool_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cool_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cool_access_retrieval_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
-                 cool_access_tiering_policy: Optional[pulumi.Input[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
-                 coolness_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 creation_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_protection: Optional[pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
-                 default_group_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 default_user_quota_in_ki_bs: Optional[pulumi.Input[_builtins.float]] = None,
-                 delete_base_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_subvolumes: Optional[pulumi.Input[Union[_builtins.str, 'EnableSubvolumes']]] = None,
-                 encryption_key_source: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]] = None,
-                 export_policy: Optional[pulumi.Input[Union['VolumePropertiesExportPolicyArgs', 'VolumePropertiesExportPolicyArgsDict']]] = None,
-                 is_default_quota_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_large_volume: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_restoring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_private_endpoint_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_features: Optional[pulumi.Input[Union[_builtins.str, 'NetworkFeatures']]] = None,
-                 placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlacementKeyValuePairsArgs', 'PlacementKeyValuePairsArgsDict']]]]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[Union[_builtins.str, 'SecurityStyle']]] = None,
-                 service_level: Optional[pulumi.Input[Union[_builtins.str, 'ServiceLevel']]] = None,
-                 smb_access_based_enumeration: Optional[pulumi.Input[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
-                 smb_continuously_available: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_non_browsable: Optional[pulumi.Input[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
-                 snapshot_directory_visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_mibps: Optional[pulumi.Input[_builtins.float]] = None,
-                 unix_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_spec_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 avs_data_store: pulumi.Input[Optional[Union[_builtins.str, 'AvsDataStore']]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_pool_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cool_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cool_access_retrieval_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: pulumi.Input[Optional[Union[_builtins.str, 'CoolAccessTieringPolicy']]] = None,
+                 coolness_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 creation_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_protection: pulumi.Input[Optional[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
+                 default_group_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 default_user_quota_in_ki_bs: pulumi.Input[Optional[_builtins.float]] = None,
+                 delete_base_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_subvolumes: pulumi.Input[Optional[Union[_builtins.str, 'EnableSubvolumes']]] = None,
+                 encryption_key_source: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionKeySource']]] = None,
+                 export_policy: pulumi.Input[Optional[Union['VolumePropertiesExportPolicyArgs', 'VolumePropertiesExportPolicyArgsDict']]] = None,
+                 is_default_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_large_volume: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_restoring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_private_endpoint_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_features: pulumi.Input[Optional[Union[_builtins.str, 'NetworkFeatures']]] = None,
+                 placement_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlacementKeyValuePairsArgs', 'PlacementKeyValuePairsArgsDict']]]]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[Union[_builtins.str, 'SecurityStyle']]] = None,
+                 service_level: pulumi.Input[Optional[Union[_builtins.str, 'ServiceLevel']]] = None,
+                 smb_access_based_enumeration: pulumi.Input[Optional[Union[_builtins.str, 'SmbAccessBasedEnumeration']]] = None,
+                 smb_continuously_available: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_non_browsable: pulumi.Input[Optional[Union[_builtins.str, 'SmbNonBrowsable']]] = None,
+                 snapshot_directory_visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_mibps: pulumi.Input[Optional[_builtins.float]] = None,
+                 unix_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1254,7 +1252,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
     @pulumi.getter(name="coolAccessRetrievalPolicy")
     def cool_access_retrieval_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
          Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
          OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
          Never - No client-driven data is pulled from cool tier to standard storage.

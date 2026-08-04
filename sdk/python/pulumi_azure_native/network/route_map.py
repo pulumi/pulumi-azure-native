@@ -24,11 +24,11 @@ class RouteMapArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
-                 associated_inbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_outbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]]] = None):
+                 associated_inbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_outbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleArgs']]]] = None):
         """
         The set of arguments for constructing a RouteMap resource.
 
@@ -79,62 +79,62 @@ class RouteMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedInboundConnections")
-    def associated_inbound_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associated_inbound_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of connections which have this RoutMap associated for inbound traffic.
         """
         return pulumi.get(self, "associated_inbound_connections")
 
     @associated_inbound_connections.setter
-    def associated_inbound_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associated_inbound_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associated_inbound_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedOutboundConnections")
-    def associated_outbound_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associated_outbound_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of connections which have this RoutMap associated for outbound traffic.
         """
         return pulumi.get(self, "associated_outbound_connections")
 
     @associated_outbound_connections.setter
-    def associated_outbound_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associated_outbound_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associated_outbound_connections", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="routeMapName")
-    def route_map_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the RouteMap.
         """
         return pulumi.get(self, "route_map_name")
 
     @route_map_name.setter
-    def route_map_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_map_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleArgs']]]]:
         """
         List of RouteMap rules to be applied.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -144,13 +144,13 @@ class RouteMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_inbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_outbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_inbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_outbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The RouteMap child resource of a Virtual hub.
@@ -158,7 +158,6 @@ class RouteMap(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +182,6 @@ class RouteMap(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RouteMapArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,13 +197,13 @@ class RouteMap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_inbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_outbound_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_inbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_outbound_connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

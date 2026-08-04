@@ -94,7 +94,7 @@ class ContainerGroupPriority(_builtins.str, Enum):
 @pulumi.type_token("azure-native:containerinstance:ContainerGroupRestartPolicy")
 class ContainerGroupRestartPolicy(_builtins.str, Enum):
     """
-    Restart policy for all containers within the container group. 
+    Restart policy for all containers within the container group.
     - `Always` Always restart
     - `OnFailure` Restart on failure
     - `Never` Never restart

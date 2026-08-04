@@ -25,11 +25,11 @@ class NamespaceTopicEventSubscriptionArgs:
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  topic_name: pulumi.Input[_builtins.str],
-                 delivery_configuration: Optional[pulumi.Input['DeliveryConfigurationArgs']] = None,
-                 event_delivery_schema: Optional[pulumi.Input[Union[_builtins.str, 'DeliverySchema']]] = None,
-                 event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters_configuration: Optional[pulumi.Input['FiltersConfigurationArgs']] = None):
+                 delivery_configuration: pulumi.Input[Optional['DeliveryConfigurationArgs']] = None,
+                 event_delivery_schema: pulumi.Input[Optional[Union[_builtins.str, 'DeliverySchema']]] = None,
+                 event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters_configuration: pulumi.Input[Optional['FiltersConfigurationArgs']] = None):
         """
         The set of arguments for constructing a NamespaceTopicEventSubscription resource.
 
@@ -94,62 +94,62 @@ class NamespaceTopicEventSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryConfiguration")
-    def delivery_configuration(self) -> Optional[pulumi.Input['DeliveryConfigurationArgs']]:
+    def delivery_configuration(self) -> pulumi.Input[Optional['DeliveryConfigurationArgs']]:
         """
         Information about the delivery configuration of the event subscription.
         """
         return pulumi.get(self, "delivery_configuration")
 
     @delivery_configuration.setter
-    def delivery_configuration(self, value: Optional[pulumi.Input['DeliveryConfigurationArgs']]):
+    def delivery_configuration(self, value: pulumi.Input[Optional['DeliveryConfigurationArgs']]):
         pulumi.set(self, "delivery_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="eventDeliverySchema")
-    def event_delivery_schema(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeliverySchema']]]:
+    def event_delivery_schema(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DeliverySchema']]]:
         """
         The event delivery schema for the event subscription.
         """
         return pulumi.get(self, "event_delivery_schema")
 
     @event_delivery_schema.setter
-    def event_delivery_schema(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeliverySchema']]]):
+    def event_delivery_schema(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeliverySchema']]]):
         pulumi.set(self, "event_delivery_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="eventSubscriptionName")
-    def event_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
         """
         return pulumi.get(self, "event_subscription_name")
 
     @event_subscription_name.setter
-    def event_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationTimeUtc")
-    def expiration_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration time of the event subscription.
         """
         return pulumi.get(self, "expiration_time_utc")
 
     @expiration_time_utc.setter
-    def expiration_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_time_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="filtersConfiguration")
-    def filters_configuration(self) -> Optional[pulumi.Input['FiltersConfigurationArgs']]:
+    def filters_configuration(self) -> pulumi.Input[Optional['FiltersConfigurationArgs']]:
         """
         Information about the filter for the event subscription.
         """
         return pulumi.get(self, "filters_configuration")
 
     @filters_configuration.setter
-    def filters_configuration(self, value: Optional[pulumi.Input['FiltersConfigurationArgs']]):
+    def filters_configuration(self, value: pulumi.Input[Optional['FiltersConfigurationArgs']]):
         pulumi.set(self, "filters_configuration", value)
 
 
@@ -159,14 +159,14 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_configuration: Optional[pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
-                 event_delivery_schema: Optional[pulumi.Input[Union[_builtins.str, 'DeliverySchema']]] = None,
-                 event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters_configuration: Optional[pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 delivery_configuration: pulumi.Input[Optional[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
+                 event_delivery_schema: pulumi.Input[Optional[Union[_builtins.str, 'DeliverySchema']]] = None,
+                 event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters_configuration: pulumi.Input[Optional[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Event Subscription.
@@ -174,7 +174,6 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NamespaceTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_configuration: Optional[pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
-                 event_delivery_schema: Optional[pulumi.Input[Union[_builtins.str, 'DeliverySchema']]] = None,
-                 event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters_configuration: Optional[pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 delivery_configuration: pulumi.Input[Optional[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
+                 event_delivery_schema: pulumi.Input[Optional[Union[_builtins.str, 'DeliverySchema']]] = None,
+                 event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters_configuration: pulumi.Input[Optional[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -122,11 +122,11 @@ export interface StorageMoverArgs {
     /**
      * A description for the Storage Mover.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -134,9 +134,9 @@ export interface StorageMoverArgs {
     /**
      * The name of the Storage Mover resource.
      */
-    storageMoverName?: pulumi.Input<string>;
+    storageMoverName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

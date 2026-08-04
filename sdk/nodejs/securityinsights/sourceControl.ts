@@ -191,7 +191,7 @@ export interface SourceControlArgs {
     /**
      * A description of the source control
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the source control
      */
@@ -207,11 +207,11 @@ export interface SourceControlArgs {
     /**
      * Repository access credentials. This is write-only object and it never returns back to a user.
      */
-    repositoryAccess?: pulumi.Input<inputs.securityinsights.RepositoryAccessArgs>;
+    repositoryAccess?: pulumi.Input<inputs.securityinsights.RepositoryAccessArgs | undefined>;
     /**
      * Information regarding the resources created in user's repository.
      */
-    repositoryResourceInfo?: pulumi.Input<inputs.securityinsights.RepositoryResourceInfoArgs>;
+    repositoryResourceInfo?: pulumi.Input<inputs.securityinsights.RepositoryResourceInfoArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -219,11 +219,11 @@ export interface SourceControlArgs {
     /**
      * Service principal metadata.
      */
-    servicePrincipal?: pulumi.Input<inputs.securityinsights.ServicePrincipalArgs>;
+    servicePrincipal?: pulumi.Input<inputs.securityinsights.ServicePrincipalArgs | undefined>;
     /**
      * Source control Id
      */
-    sourceControlId?: pulumi.Input<string>;
+    sourceControlId?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

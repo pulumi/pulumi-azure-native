@@ -78,7 +78,7 @@ class CorsRuleResponse(dict):
 @pulumi.output_type
 class CorsRulesResponse(dict):
     """
-    Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+    Sets the CORS rules. You can include up to five CorsRule elements in the request.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -100,9 +100,9 @@ class CorsRulesResponse(dict):
     def __init__(__self__, *,
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
-        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        Sets the CORS rules. You can include up to five CorsRule elements in the request.
 
-        :param Sequence['CorsRuleResponse'] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponse'] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request.
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -111,7 +111,7 @@ class CorsRulesResponse(dict):
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> Optional[Sequence['outputs.CorsRuleResponse']]:
         """
-        The list of CORS rules. You can include up to five CorsRule elements in the request. 
+        The list of CORS rules. You can include up to five CorsRule elements in the request.
         """
         return pulumi.get(self, "cors_rules")
 

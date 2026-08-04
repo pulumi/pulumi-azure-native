@@ -63,7 +63,7 @@ export class TopicSpace extends pulumi.CustomResource {
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * The topic filters in the topic space.
-     * Example: "topicTemplates": [ 
+     * Example: "topicTemplates": [
      *               "devices/foo/bar",
      *               "devices/topic1/+",
      *               "devices/${principal.name}/${principal.attributes.keyName}" ].
@@ -124,7 +124,7 @@ export interface TopicSpaceArgs {
     /**
      * Description for the Topic Space resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      */
@@ -136,13 +136,13 @@ export interface TopicSpaceArgs {
     /**
      * The topic space name.
      */
-    topicSpaceName?: pulumi.Input<string>;
+    topicSpaceName?: pulumi.Input<string | undefined>;
     /**
      * The topic filters in the topic space.
-     * Example: "topicTemplates": [ 
+     * Example: "topicTemplates": [
      *               "devices/foo/bar",
      *               "devices/topic1/+",
      *               "devices/${principal.name}/${principal.attributes.keyName}" ].
      */
-    topicTemplates?: pulumi.Input<pulumi.Input<string>[]>;
+    topicTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

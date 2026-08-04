@@ -25,10 +25,10 @@ class NetworkServiceDesignVersionArgs:
                  network_service_design_group_name: pulumi.Input[_builtins.str],
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['NetworkServiceDesignVersionPropertiesFormatArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['NetworkServiceDesignVersionPropertiesFormatArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkServiceDesignVersion resource.
 
@@ -90,50 +90,50 @@ class NetworkServiceDesignVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkServiceDesignVersionName")
-    def network_service_design_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_service_design_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network service design version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
         """
         return pulumi.get(self, "network_service_design_version_name")
 
     @network_service_design_version_name.setter
-    def network_service_design_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_service_design_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_service_design_version_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['NetworkServiceDesignVersionPropertiesFormatArgs']]:
+    def properties(self) -> pulumi.Input[Optional['NetworkServiceDesignVersionPropertiesFormatArgs']]:
         """
         network service design version properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['NetworkServiceDesignVersionPropertiesFormatArgs']]):
+    def properties(self, value: pulumi.Input[Optional['NetworkServiceDesignVersionPropertiesFormatArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,13 +143,13 @@ class NetworkServiceDesignVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NetworkServiceDesignVersionPropertiesFormatArgs', 'NetworkServiceDesignVersionPropertiesFormatArgsDict']]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['NetworkServiceDesignVersionPropertiesFormatArgs', 'NetworkServiceDesignVersionPropertiesFormatArgsDict']]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         network service design version.
@@ -157,7 +157,6 @@ class NetworkServiceDesignVersion(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class NetworkServiceDesignVersion(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkServiceDesignVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class NetworkServiceDesignVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_service_design_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NetworkServiceDesignVersionPropertiesFormatArgs', 'NetworkServiceDesignVersionPropertiesFormatArgsDict']]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_service_design_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['NetworkServiceDesignVersionPropertiesFormatArgs', 'NetworkServiceDesignVersionPropertiesFormatArgsDict']]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

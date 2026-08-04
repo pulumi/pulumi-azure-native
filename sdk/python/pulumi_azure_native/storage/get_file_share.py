@@ -422,7 +422,6 @@ def get_file_share(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str expand: Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -468,10 +467,10 @@ def get_file_share(account_name: Optional[_builtins.str] = None,
         snapshot_time=pulumi.get(__ret__, 'snapshot_time'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_file_share_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          share_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_share_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          share_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareResult]:
     """
     Gets properties of a specified share.
@@ -479,7 +478,6 @@ def get_file_share_output(account_name: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param _builtins.str expand: Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.

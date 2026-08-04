@@ -28,8 +28,8 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_skus_present: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_skus_present: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PremiumMicrosoftDefenderForThreatIntelligence resource.
 
@@ -129,26 +129,26 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorId")
-    def data_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector ID
         """
         return pulumi.get(self, "data_connector_id")
 
     @data_connector_id.setter
-    def data_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredSKUsPresent")
-    def required_skus_present(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required_skus_present(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to indicate whether the tenant has the premium SKU required to access this connector.
         """
         return pulumi.get(self, "required_skus_present")
 
     @required_skus_present.setter
-    def required_skus_present(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required_skus_present(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required_skus_present", value)
 
 
@@ -158,20 +158,19 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['PremiumMdtiDataConnectorDataTypesArgs', 'PremiumMdtiDataConnectorDataTypesArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_skus_present: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['PremiumMdtiDataConnectorDataTypesArgs', 'PremiumMdtiDataConnectorDataTypesArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_skus_present: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents Microsoft Defender for Threat Intelligence Premium data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,7 +195,6 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param PremiumMicrosoftDefenderForThreatIntelligenceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,14 +210,14 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['PremiumMdtiDataConnectorDataTypesArgs', 'PremiumMdtiDataConnectorDataTypesArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 lookback_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_skus_present: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['PremiumMdtiDataConnectorDataTypesArgs', 'PremiumMdtiDataConnectorDataTypesArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 lookback_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_skus_present: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

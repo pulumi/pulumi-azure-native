@@ -25,11 +25,11 @@ class WebAppDiagnosticLogsConfigurationSlotArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
-                 application_logs: Optional[pulumi.Input['ApplicationLogsConfigArgs']] = None,
-                 detailed_error_messages: Optional[pulumi.Input['EnabledConfigArgs']] = None,
-                 failed_requests_tracing: Optional[pulumi.Input['EnabledConfigArgs']] = None,
-                 http_logs: Optional[pulumi.Input['HttpLogsConfigArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_logs: pulumi.Input[Optional['ApplicationLogsConfigArgs']] = None,
+                 detailed_error_messages: pulumi.Input[Optional['EnabledConfigArgs']] = None,
+                 failed_requests_tracing: pulumi.Input[Optional['EnabledConfigArgs']] = None,
+                 http_logs: pulumi.Input[Optional['HttpLogsConfigArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppDiagnosticLogsConfigurationSlot resource.
 
@@ -94,62 +94,62 @@ class WebAppDiagnosticLogsConfigurationSlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional[pulumi.Input['ApplicationLogsConfigArgs']]:
+    def application_logs(self) -> pulumi.Input[Optional['ApplicationLogsConfigArgs']]:
         """
         Application logs configuration.
         """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
-    def application_logs(self, value: Optional[pulumi.Input['ApplicationLogsConfigArgs']]):
+    def application_logs(self, value: pulumi.Input[Optional['ApplicationLogsConfigArgs']]):
         pulumi.set(self, "application_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="detailedErrorMessages")
-    def detailed_error_messages(self) -> Optional[pulumi.Input['EnabledConfigArgs']]:
+    def detailed_error_messages(self) -> pulumi.Input[Optional['EnabledConfigArgs']]:
         """
         Detailed error messages configuration.
         """
         return pulumi.get(self, "detailed_error_messages")
 
     @detailed_error_messages.setter
-    def detailed_error_messages(self, value: Optional[pulumi.Input['EnabledConfigArgs']]):
+    def detailed_error_messages(self, value: pulumi.Input[Optional['EnabledConfigArgs']]):
         pulumi.set(self, "detailed_error_messages", value)
 
     @_builtins.property
     @pulumi.getter(name="failedRequestsTracing")
-    def failed_requests_tracing(self) -> Optional[pulumi.Input['EnabledConfigArgs']]:
+    def failed_requests_tracing(self) -> pulumi.Input[Optional['EnabledConfigArgs']]:
         """
         Failed requests tracing configuration.
         """
         return pulumi.get(self, "failed_requests_tracing")
 
     @failed_requests_tracing.setter
-    def failed_requests_tracing(self, value: Optional[pulumi.Input['EnabledConfigArgs']]):
+    def failed_requests_tracing(self, value: pulumi.Input[Optional['EnabledConfigArgs']]):
         pulumi.set(self, "failed_requests_tracing", value)
 
     @_builtins.property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional[pulumi.Input['HttpLogsConfigArgs']]:
+    def http_logs(self) -> pulumi.Input[Optional['HttpLogsConfigArgs']]:
         """
         HTTP logs configuration.
         """
         return pulumi.get(self, "http_logs")
 
     @http_logs.setter
-    def http_logs(self, value: Optional[pulumi.Input['HttpLogsConfigArgs']]):
+    def http_logs(self, value: pulumi.Input[Optional['HttpLogsConfigArgs']]):
         pulumi.set(self, "http_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
 
@@ -159,14 +159,14 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_logs: Optional[pulumi.Input[Union['ApplicationLogsConfigArgs', 'ApplicationLogsConfigArgsDict']]] = None,
-                 detailed_error_messages: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
-                 failed_requests_tracing: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
-                 http_logs: Optional[pulumi.Input[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_logs: pulumi.Input[Optional[Union['ApplicationLogsConfigArgs', 'ApplicationLogsConfigArgsDict']]] = None,
+                 detailed_error_messages: pulumi.Input[Optional[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 failed_requests_tracing: pulumi.Input[Optional[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 http_logs: pulumi.Input[Optional[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration of App Service site logs.
@@ -174,7 +174,6 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppDiagnosticLogsConfigurationSlotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_logs: Optional[pulumi.Input[Union['ApplicationLogsConfigArgs', 'ApplicationLogsConfigArgsDict']]] = None,
-                 detailed_error_messages: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
-                 failed_requests_tracing: Optional[pulumi.Input[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
-                 http_logs: Optional[pulumi.Input[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_logs: pulumi.Input[Optional[Union['ApplicationLogsConfigArgs', 'ApplicationLogsConfigArgsDict']]] = None,
+                 detailed_error_messages: pulumi.Input[Optional[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 failed_requests_tracing: pulumi.Input[Optional[Union['EnabledConfigArgs', 'EnabledConfigArgsDict']]] = None,
+                 http_logs: pulumi.Input[Optional[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

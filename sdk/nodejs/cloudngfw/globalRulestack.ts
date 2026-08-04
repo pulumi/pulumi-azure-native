@@ -160,45 +160,45 @@ export interface GlobalRulestackArgs {
     /**
      * subscription scope of global rulestack
      */
-    associatedSubscriptions?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedSubscriptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Mode for default rules creation
      */
-    defaultMode?: pulumi.Input<string | enums.cloudngfw.DefaultMode>;
+    defaultMode?: pulumi.Input<string | enums.cloudngfw.DefaultMode | undefined>;
     /**
      * rulestack description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * GlobalRulestack resource name
      */
-    globalRulestackName?: pulumi.Input<string>;
+    globalRulestackName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesArgs | undefined>;
     /**
      * Global Location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * minimum version
      */
-    minAppIdVersion?: pulumi.Input<string>;
+    minAppIdVersion?: pulumi.Input<string | undefined>;
     /**
      * PanEtag info
      */
-    panEtag?: pulumi.Input<string>;
+    panEtag?: pulumi.Input<string | undefined>;
     /**
      * Rulestack Location, Required for GlobalRulestacks, Not for LocalRulestacks
      */
-    panLocation?: pulumi.Input<string>;
+    panLocation?: pulumi.Input<string | undefined>;
     /**
      * Rulestack Type
      */
-    scope?: pulumi.Input<string | enums.cloudngfw.ScopeType>;
+    scope?: pulumi.Input<string | enums.cloudngfw.ScopeType | undefined>;
     /**
      * Security Profile
      */
-    securityServices?: pulumi.Input<inputs.cloudngfw.SecurityServicesArgs>;
+    securityServices?: pulumi.Input<inputs.cloudngfw.SecurityServicesArgs | undefined>;
 }

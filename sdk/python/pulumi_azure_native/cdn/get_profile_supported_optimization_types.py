@@ -59,7 +59,6 @@ def get_profile_supported_optimization_types(profile_name: Optional[_builtins.st
 
     Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -71,8 +70,8 @@ def get_profile_supported_optimization_types(profile_name: Optional[_builtins.st
 
     return AwaitableGetProfileSupportedOptimizationTypesResult(
         supported_optimization_types=pulumi.get(__ret__, 'supported_optimization_types'))
-def get_profile_supported_optimization_types_output(profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_supported_optimization_types_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileSupportedOptimizationTypesResult]:
     """
     Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
@@ -80,7 +79,6 @@ def get_profile_supported_optimization_types_output(profile_name: Optional[pulum
     Uses Azure REST API version 2025-06-01.
 
     Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

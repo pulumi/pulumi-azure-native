@@ -23,10 +23,10 @@ __all__ = ['MigrateProjectsControllerMigrateProjectArgs', 'MigrateProjectsContro
 class MigrateProjectsControllerMigrateProjectArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['MigrateProjectPropertiesArgs']] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['MigrateProjectPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MigrateProjectsControllerMigrateProject resource.
 
@@ -60,50 +60,50 @@ class MigrateProjectsControllerMigrateProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure location in which project is created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="migrateProjectName")
-    def migrate_project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migrate_project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Migrate project name.
         """
         return pulumi.get(self, "migrate_project_name")
 
     @migrate_project_name.setter
-    def migrate_project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migrate_project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migrate_project_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['MigrateProjectPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['MigrateProjectPropertiesArgs']]:
         """
         Properties of a migrate project.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['MigrateProjectPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['MigrateProjectPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -113,11 +113,11 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Migrate project.
@@ -125,7 +125,6 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +147,6 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MigrateProjectsControllerMigrateProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,11 +162,11 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MigrateProjectPropertiesArgs', 'MigrateProjectPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

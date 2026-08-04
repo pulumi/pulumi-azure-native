@@ -72,7 +72,6 @@ def list_registry_credentials(registry_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -85,8 +84,8 @@ def list_registry_credentials(registry_name: Optional[_builtins.str] = None,
     return AwaitableListRegistryCredentialsResult(
         passwords=pulumi.get(__ret__, 'passwords'),
         username=pulumi.get(__ret__, 'username'))
-def list_registry_credentials_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_registry_credentials_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
     """
     Lists the login credentials for the specified container registry.
@@ -94,7 +93,6 @@ def list_registry_credentials_output(registry_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2024-11-01-preview.
 
     Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

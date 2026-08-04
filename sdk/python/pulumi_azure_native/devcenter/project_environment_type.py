@@ -24,15 +24,15 @@ class ProjectEnvironmentTypeArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 creator_role_assignment: Optional[pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']] = None,
-                 deployment_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]] = None):
+                 creator_role_assignment: pulumi.Input[Optional['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']] = None,
+                 deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_role_assignments: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]] = None):
         """
         The set of arguments for constructing a ProjectEnvironmentType resource.
 
@@ -95,110 +95,110 @@ class ProjectEnvironmentTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="creatorRoleAssignment")
-    def creator_role_assignment(self) -> Optional[pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']]:
+    def creator_role_assignment(self) -> pulumi.Input[Optional['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']]:
         """
         The role definition assigned to the environment creator on backing resources.
         """
         return pulumi.get(self, "creator_role_assignment")
 
     @creator_role_assignment.setter
-    def creator_role_assignment(self, value: Optional[pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']]):
+    def creator_role_assignment(self, value: pulumi.Input[Optional['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']]):
         pulumi.set(self, "creator_role_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentTargetId")
-    def deployment_target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
         """
         return pulumi.get(self, "deployment_target_id")
 
     @deployment_target_id.setter
-    def deployment_target_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_target_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_target_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the project environment type.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentTypeName")
-    def environment_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment type.
         """
         return pulumi.get(self, "environment_type_name")
 
     @environment_type_name.setter
-    def environment_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_type_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         Managed identity properties
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location for the environment type
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]]:
         """
         Defines whether this Environment Type can be used in this Project.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userRoleAssignments")
-    def user_role_assignments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]]:
+    def user_role_assignments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]]:
         """
         Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
         """
         return pulumi.get(self, "user_role_assignments")
 
     @user_role_assignments.setter
-    def user_role_assignments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]]):
+    def user_role_assignments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserRoleAssignmentArgs']]]]):
         pulumi.set(self, "user_role_assignments", value)
 
 
@@ -208,17 +208,17 @@ class ProjectEnvironmentType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creator_role_assignment: Optional[pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
-                 deployment_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['UserRoleAssignmentArgs', 'UserRoleAssignmentArgsDict']]]]] = None,
+                 creator_role_assignment: pulumi.Input[Optional[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
+                 deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_role_assignments: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['UserRoleAssignmentArgs', 'UserRoleAssignmentArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents an environment type.
@@ -226,7 +226,6 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +254,6 @@ class ProjectEnvironmentType(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProjectEnvironmentTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,17 +269,17 @@ class ProjectEnvironmentType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creator_role_assignment: Optional[pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
-                 deployment_target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['UserRoleAssignmentArgs', 'UserRoleAssignmentArgsDict']]]]] = None,
+                 creator_role_assignment: pulumi.Input[Optional[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
+                 deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'EnvironmentTypeEnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_role_assignments: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['UserRoleAssignmentArgs', 'UserRoleAssignmentArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

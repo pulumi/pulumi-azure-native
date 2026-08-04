@@ -142,19 +142,19 @@ export interface RuntimeEnvironmentArgs {
     /**
      * List of Default packages for Environment
      */
-    defaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    defaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Gets or sets the description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Language of Runtime Environment
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -162,13 +162,13 @@ export interface RuntimeEnvironmentArgs {
     /**
      * The name of the Runtime Environment.
      */
-    runtimeEnvironmentName?: pulumi.Input<string>;
+    runtimeEnvironmentName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Version of Language
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

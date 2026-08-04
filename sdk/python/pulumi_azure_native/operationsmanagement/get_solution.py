@@ -142,7 +142,6 @@ def get_solution(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2015-11-01-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param _builtins.str solution_name: User Solution Name.
     """
@@ -161,14 +160,13 @@ def get_solution(resource_group_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_solution_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        solution_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_solution_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        solution_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Retrieves the user solution.
 
     Uses Azure REST API version 2015-11-01-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param _builtins.str solution_name: User Solution Name.

@@ -26,10 +26,10 @@ class GalleryApplicationVersionArgs:
                  gallery_name: pulumi.Input[_builtins.str],
                  publishing_profile: pulumi.Input['GalleryApplicationVersionPublishingProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 gallery_application_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 safety_profile: Optional[pulumi.Input['GalleryApplicationVersionSafetyProfileArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 gallery_application_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 safety_profile: pulumi.Input[Optional['GalleryApplicationVersionSafetyProfileArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplicationVersion resource.
 
@@ -105,50 +105,50 @@ class GalleryApplicationVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="galleryApplicationVersionName")
-    def gallery_application_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_application_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the gallery Application Version to be retrieved.
         """
         return pulumi.get(self, "gallery_application_version_name")
 
     @gallery_application_version_name.setter
-    def gallery_application_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_application_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_application_version_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="safetyProfile")
-    def safety_profile(self) -> Optional[pulumi.Input['GalleryApplicationVersionSafetyProfileArgs']]:
+    def safety_profile(self) -> pulumi.Input[Optional['GalleryApplicationVersionSafetyProfileArgs']]:
         """
         The safety profile of the Gallery Application Version.
         """
         return pulumi.get(self, "safety_profile")
 
     @safety_profile.setter
-    def safety_profile(self, value: Optional[pulumi.Input['GalleryApplicationVersionSafetyProfileArgs']]):
+    def safety_profile(self, value: pulumi.Input[Optional['GalleryApplicationVersionSafetyProfileArgs']]):
         pulumi.set(self, "safety_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,14 +158,14 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gallery_application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_application_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 publishing_profile: Optional[pulumi.Input[Union['GalleryApplicationVersionPublishingProfileArgs', 'GalleryApplicationVersionPublishingProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 safety_profile: Optional[pulumi.Input[Union['GalleryApplicationVersionSafetyProfileArgs', 'GalleryApplicationVersionSafetyProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 gallery_application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_application_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 publishing_profile: pulumi.Input[Optional[Union['GalleryApplicationVersionPublishingProfileArgs', 'GalleryApplicationVersionPublishingProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 safety_profile: pulumi.Input[Optional[Union['GalleryApplicationVersionSafetyProfileArgs', 'GalleryApplicationVersionSafetyProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Specifies information about the gallery Application Version that you want to create or update.
@@ -173,7 +173,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,7 +198,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GalleryApplicationVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,14 +213,14 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gallery_application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_application_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 publishing_profile: Optional[pulumi.Input[Union['GalleryApplicationVersionPublishingProfileArgs', 'GalleryApplicationVersionPublishingProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 safety_profile: Optional[pulumi.Input[Union['GalleryApplicationVersionSafetyProfileArgs', 'GalleryApplicationVersionSafetyProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 gallery_application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_application_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 publishing_profile: pulumi.Input[Optional[Union['GalleryApplicationVersionPublishingProfileArgs', 'GalleryApplicationVersionPublishingProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 safety_profile: pulumi.Input[Optional[Union['GalleryApplicationVersionSafetyProfileArgs', 'GalleryApplicationVersionSafetyProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

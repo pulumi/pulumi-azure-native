@@ -23,8 +23,8 @@ __all__ = ['LinkerDryrunArgs', 'LinkerDryrun']
 class LinkerDryrunArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 dryrun_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']] = None):
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']] = None):
         """
         The set of arguments for constructing a LinkerDryrun resource.
 
@@ -52,26 +52,26 @@ class LinkerDryrunArgs:
 
     @_builtins.property
     @pulumi.getter(name="dryrunName")
-    def dryrun_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dryrun_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of dryrun.
         """
         return pulumi.get(self, "dryrun_name")
 
     @dryrun_name.setter
-    def dryrun_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dryrun_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dryrun_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']]:
         """
         The parameters of the dryrun
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
 
@@ -81,9 +81,9 @@ class LinkerDryrun(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dryrun_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         a dryrun job resource
@@ -91,7 +91,6 @@ class LinkerDryrun(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +111,6 @@ class LinkerDryrun(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LinkerDryrunArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,9 +126,9 @@ class LinkerDryrun(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dryrun_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['CreateOrUpdateDryrunParametersArgs', 'CreateOrUpdateDryrunParametersArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,7 +228,7 @@ class LinkerDryrun(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
-        The provisioning state. 
+        The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 

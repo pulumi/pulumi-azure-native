@@ -119,7 +119,7 @@ export interface SqlServerEsuLicenseArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * SQL Server ESU license properties
      */
@@ -131,9 +131,9 @@ export interface SqlServerEsuLicenseArgs {
     /**
      * Name of SQL Server ESU License
      */
-    sqlServerEsuLicenseName?: pulumi.Input<string>;
+    sqlServerEsuLicenseName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

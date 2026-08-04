@@ -166,7 +166,6 @@ def get_sql_server_registration(resource_group_name: Optional[_builtins.str] = N
 
     Uses Azure REST API version 2019-07-24-preview.
 
-
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str sql_server_registration_name: Name of the SQL Server registration.
     """
@@ -187,14 +186,13 @@ def get_sql_server_registration(resource_group_name: Optional[_builtins.str] = N
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_server_registration_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       sql_server_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_server_registration_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       sql_server_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerRegistrationResult]:
     """
     Gets a SQL Server registration.
 
     Uses Azure REST API version 2019-07-24-preview.
-
 
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str sql_server_registration_name: Name of the SQL Server registration.

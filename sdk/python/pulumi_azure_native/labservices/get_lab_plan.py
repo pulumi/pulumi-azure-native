@@ -252,7 +252,6 @@ def get_lab_plan(lab_plan_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -280,8 +279,8 @@ def get_lab_plan(lab_plan_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lab_plan_output(lab_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabPlanResult]:
     """
     Retrieves the properties of a Lab Plan.
@@ -289,7 +288,6 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2023-06-07.
 
     Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

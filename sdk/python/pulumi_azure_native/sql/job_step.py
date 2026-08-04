@@ -28,11 +28,11 @@ class JobStepArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  target_group: pulumi.Input[_builtins.str],
-                 credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_options: Optional[pulumi.Input['JobStepExecutionOptionsArgs']] = None,
-                 output: Optional[pulumi.Input['JobStepOutputArgs']] = None,
-                 step_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 step_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_options: pulumi.Input[Optional['JobStepExecutionOptionsArgs']] = None,
+                 output: pulumi.Input[Optional['JobStepOutputArgs']] = None,
+                 step_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 step_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobStep resource.
 
@@ -139,62 +139,62 @@ class JobStepArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credential(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the job credential that will be used to connect to the targets.
         """
         return pulumi.get(self, "credential")
 
     @credential.setter
-    def credential(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential", value)
 
     @_builtins.property
     @pulumi.getter(name="executionOptions")
-    def execution_options(self) -> Optional[pulumi.Input['JobStepExecutionOptionsArgs']]:
+    def execution_options(self) -> pulumi.Input[Optional['JobStepExecutionOptionsArgs']]:
         """
         Execution options for the job step.
         """
         return pulumi.get(self, "execution_options")
 
     @execution_options.setter
-    def execution_options(self, value: Optional[pulumi.Input['JobStepExecutionOptionsArgs']]):
+    def execution_options(self, value: pulumi.Input[Optional['JobStepExecutionOptionsArgs']]):
         pulumi.set(self, "execution_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def output(self) -> Optional[pulumi.Input['JobStepOutputArgs']]:
+    def output(self) -> pulumi.Input[Optional['JobStepOutputArgs']]:
         """
         Output destination properties of the job step.
         """
         return pulumi.get(self, "output")
 
     @output.setter
-    def output(self, value: Optional[pulumi.Input['JobStepOutputArgs']]):
+    def output(self, value: pulumi.Input[Optional['JobStepOutputArgs']]):
         pulumi.set(self, "output", value)
 
     @_builtins.property
     @pulumi.getter(name="stepId")
-    def step_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def step_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
         """
         return pulumi.get(self, "step_id")
 
     @step_id.setter
-    def step_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def step_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "step_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stepName")
-    def step_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def step_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the job step.
         """
         return pulumi.get(self, "step_name")
 
     @step_name.setter
-    def step_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def step_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "step_name", value)
 
 
@@ -204,17 +204,17 @@ class JobStep(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['JobStepActionArgs', 'JobStepActionArgsDict']]] = None,
-                 credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_options: Optional[pulumi.Input[Union['JobStepExecutionOptionsArgs', 'JobStepExecutionOptionsArgsDict']]] = None,
-                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output: Optional[pulumi.Input[Union['JobStepOutputArgs', 'JobStepOutputArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 step_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['JobStepActionArgs', 'JobStepActionArgsDict']]] = None,
+                 credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_options: pulumi.Input[Optional[Union['JobStepExecutionOptionsArgs', 'JobStepExecutionOptionsArgsDict']]] = None,
+                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output: pulumi.Input[Optional[Union['JobStepOutputArgs', 'JobStepOutputArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 step_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A job step.
@@ -222,7 +222,6 @@ class JobStep(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,7 +250,6 @@ class JobStep(pulumi.CustomResource):
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param JobStepArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,17 +265,17 @@ class JobStep(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['JobStepActionArgs', 'JobStepActionArgsDict']]] = None,
-                 credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_options: Optional[pulumi.Input[Union['JobStepExecutionOptionsArgs', 'JobStepExecutionOptionsArgsDict']]] = None,
-                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output: Optional[pulumi.Input[Union['JobStepOutputArgs', 'JobStepOutputArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 step_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['JobStepActionArgs', 'JobStepActionArgsDict']]] = None,
+                 credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_options: pulumi.Input[Optional[Union['JobStepExecutionOptionsArgs', 'JobStepExecutionOptionsArgsDict']]] = None,
+                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output: pulumi.Input[Optional[Union['JobStepOutputArgs', 'JobStepOutputArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 step_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

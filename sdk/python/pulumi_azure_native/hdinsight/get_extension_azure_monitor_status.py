@@ -96,7 +96,6 @@ def get_extension_azure_monitor_status(cluster_name: Optional[_builtins.str] = N
 
     Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str resource_group_name: The name of the resource group.
     """
@@ -111,8 +110,8 @@ def get_extension_azure_monitor_status(cluster_name: Optional[_builtins.str] = N
         cluster_monitoring_enabled=pulumi.get(__ret__, 'cluster_monitoring_enabled'),
         selected_configurations=pulumi.get(__ret__, 'selected_configurations'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_extension_azure_monitor_status_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_extension_azure_monitor_status_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionAzureMonitorStatusResult]:
     """
     Gets the status of Azure Monitor on the HDInsight cluster.
@@ -120,7 +119,6 @@ def get_extension_azure_monitor_status_output(cluster_name: Optional[pulumi.Inpu
     Uses Azure REST API version 2024-08-01-preview.
 
     Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str resource_group_name: The name of the resource group.

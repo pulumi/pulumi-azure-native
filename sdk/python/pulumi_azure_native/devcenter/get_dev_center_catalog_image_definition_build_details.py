@@ -171,7 +171,6 @@ def get_dev_center_catalog_image_definition_build_details(build_name: Optional[_
 
     Other available API versions: 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str build_name: The ID of the Image Definition Build.
     :param _builtins.str catalog_name: The name of the Catalog.
     :param _builtins.str dev_center_name: The name of the devcenter.
@@ -198,11 +197,11 @@ def get_dev_center_catalog_image_definition_build_details(build_name: Optional[_
         system_data=pulumi.get(__ret__, 'system_data'),
         task_groups=pulumi.get(__ret__, 'task_groups'),
         type=pulumi.get(__ret__, 'type'))
-def get_dev_center_catalog_image_definition_build_details_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 image_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dev_center_catalog_image_definition_build_details_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 image_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevCenterCatalogImageDefinitionBuildDetailsResult]:
     """
     Gets Build details
@@ -210,7 +209,6 @@ def get_dev_center_catalog_image_definition_build_details_output(build_name: Opt
     Uses Azure REST API version 2025-04-01-preview.
 
     Other available API versions: 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str build_name: The ID of the Image Definition Build.
     :param _builtins.str catalog_name: The name of the Catalog.

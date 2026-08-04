@@ -324,7 +324,6 @@ def get_cache(cache_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -358,8 +357,8 @@ def get_cache(cache_name: Optional[_builtins.str] = None,
         upgrade_settings=pulumi.get(__ret__, 'upgrade_settings'),
         upgrade_status=pulumi.get(__ret__, 'upgrade_status'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_cache_output(cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cache_output(cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheResult]:
     """
     Returns a cache.
@@ -367,7 +366,6 @@ def get_cache_output(cache_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

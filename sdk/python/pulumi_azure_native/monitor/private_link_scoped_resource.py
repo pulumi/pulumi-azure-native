@@ -23,10 +23,10 @@ class PrivateLinkScopedResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope_name: pulumi.Input[_builtins.str],
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScopedResourceKind']]] = None,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScopedResourceKind']]] = None,
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedResource resource.
 
@@ -74,50 +74,50 @@ class PrivateLinkScopedResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScopedResourceKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScopedResourceKind']]]:
         """
         The kind of scoped Azure monitor resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScopedResourceKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScopedResourceKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedResourceId")
-    def linked_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the scoped Azure monitor resource.
         """
         return pulumi.get(self, "linked_resource_id")
 
     @linked_resource_id.setter
-    def linked_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the scoped resource object.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLocation")
-    def subscription_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
         """
         return pulumi.get(self, "subscription_location")
 
     @subscription_location.setter
-    def subscription_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_location", value)
 
 
@@ -127,12 +127,12 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScopedResourceKind']]] = None,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScopedResourceKind']]] = None,
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A private link scoped resource
@@ -140,7 +140,6 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +163,6 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,12 +178,12 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScopedResourceKind']]] = None,
-                 linked_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScopedResourceKind']]] = None,
+                 linked_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

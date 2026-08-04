@@ -109,7 +109,6 @@ def get_managed_cluster_fault_simulation(cluster_name: Optional[_builtins.str] =
 
     Other available API versions: 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the cluster resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str simulation_id: unique identifier for the fault simulation.
@@ -127,9 +126,9 @@ def get_managed_cluster_fault_simulation(cluster_name: Optional[_builtins.str] =
         simulation_id=pulumi.get(__ret__, 'simulation_id'),
         start_time=pulumi.get(__ret__, 'start_time'),
         status=pulumi.get(__ret__, 'status'))
-def get_managed_cluster_fault_simulation_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                simulation_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_cluster_fault_simulation_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                simulation_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterFaultSimulationResult]:
     """
     Gets a fault simulation by the simulationId.
@@ -137,7 +136,6 @@ def get_managed_cluster_fault_simulation_output(cluster_name: Optional[pulumi.In
     Uses Azure REST API version 2024-11-01-preview.
 
     Other available API versions: 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the cluster resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

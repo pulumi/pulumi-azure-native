@@ -4128,7 +4128,7 @@ class KeyVaultPropertiesResponse(dict):
 @pulumi.output_type
 class LdapSearchScopeOptResponse(dict):
     """
-    LDAP search scope 
+    LDAP search scope
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4156,7 +4156,7 @@ class LdapSearchScopeOptResponse(dict):
                  group_membership_filter: Optional[_builtins.str] = None,
                  user_dn: Optional[_builtins.str] = None):
         """
-        LDAP search scope 
+        LDAP search scope
 
         :param _builtins.str group_dn: This specifies the group DN, which overrides the base DN for group lookups.
         :param _builtins.str group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
@@ -5805,7 +5805,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param _builtins.str backup_id: Resource identifier used to identify the Backup.
         :param _builtins.str capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
         :param _builtins.bool cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
-        :param _builtins.str cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        :param _builtins.str cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
@@ -6188,7 +6188,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
     @pulumi.getter(name="coolAccessRetrievalPolicy")
     def cool_access_retrieval_policy(self) -> Optional[_builtins.str]:
         """
-        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are:
          Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
          OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
          Never - No client-driven data is pulled from cool tier to standard storage.

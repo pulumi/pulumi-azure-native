@@ -107,7 +107,7 @@ export interface GetTemplateSpecOutputArgs {
     /**
      * Allows for expansion of additional Template Spec details in the response. Optional.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

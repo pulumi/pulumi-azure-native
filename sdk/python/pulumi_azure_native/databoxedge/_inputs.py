@@ -50,10 +50,10 @@ __all__ = [
     'KubernetesRoleStorageArgsDict',
     'MetricConfigurationArgs',
     'MetricConfigurationArgsDict',
-    'MetricCounterSetArgs',
-    'MetricCounterSetArgsDict',
     'MetricCounterArgs',
     'MetricCounterArgsDict',
+    'MetricCounterSetArgs',
+    'MetricCounterSetArgsDict',
     'MetricDimensionArgs',
     'MetricDimensionArgsDict',
     'MountPointMapArgs',
@@ -82,27 +82,27 @@ class AddressArgsDict(TypedDict):
     """
     The country name.
     """
-    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    address_line1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address line1.
     """
-    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    address_line2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address line2.
     """
-    address_line3: NotRequired[pulumi.Input[_builtins.str]]
+    address_line3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address line3.
     """
-    city: NotRequired[pulumi.Input[_builtins.str]]
+    city: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The city name.
     """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The postal code.
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The state name.
     """
@@ -111,12 +111,12 @@ class AddressArgsDict(TypedDict):
 class AddressArgs:
     def __init__(__self__, *,
                  country: pulumi.Input[_builtins.str],
-                 address_line1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_line1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The shipping address of the customer.
 
@@ -156,74 +156,74 @@ class AddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressLine1")
-    def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address line1.
         """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
-    def address_line1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line1", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address line2.
         """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
-    def address_line2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line2", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address line3.
         """
         return pulumi.get(self, "address_line3")
 
     @address_line3.setter
-    def address_line3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line3", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city name.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The postal code.
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state name.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -239,7 +239,7 @@ class AsymmetricEncryptedSecretArgsDict(TypedDict):
     """
     The value of the secret.
     """
-    encryption_cert_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_cert_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
     """
@@ -249,7 +249,7 @@ class AsymmetricEncryptedSecretArgs:
     def __init__(__self__, *,
                  encryption_algorithm: pulumi.Input[Union[_builtins.str, 'EncryptionAlgorithm']],
                  value: pulumi.Input[_builtins.str],
-                 encryption_cert_thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_cert_thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represent the secrets intended for encryption with asymmetric key pair.
 
@@ -288,14 +288,14 @@ class AsymmetricEncryptedSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionCertThumbprint")
-    def encryption_cert_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_cert_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
         """
         return pulumi.get(self, "encryption_cert_thumbprint")
 
     @encryption_cert_thumbprint.setter
-    def encryption_cert_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_cert_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_cert_thumbprint", value)
 
 
@@ -303,7 +303,7 @@ class AuthenticationArgsDict(TypedDict):
     """
     Authentication mechanism for IoT devices.
     """
-    symmetric_key: NotRequired[pulumi.Input['SymmetricKeyArgsDict']]
+    symmetric_key: NotRequired[pulumi.Input[Optional['SymmetricKeyArgsDict']]]
     """
     Symmetric key for authentication.
     """
@@ -311,7 +311,7 @@ class AuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class AuthenticationArgs:
     def __init__(__self__, *,
-                 symmetric_key: Optional[pulumi.Input['SymmetricKeyArgs']] = None):
+                 symmetric_key: pulumi.Input[Optional['SymmetricKeyArgs']] = None):
         """
         Authentication mechanism for IoT devices.
 
@@ -322,14 +322,14 @@ class AuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="symmetricKey")
-    def symmetric_key(self) -> Optional[pulumi.Input['SymmetricKeyArgs']]:
+    def symmetric_key(self) -> pulumi.Input[Optional['SymmetricKeyArgs']]:
         """
         Symmetric key for authentication.
         """
         return pulumi.get(self, "symmetric_key")
 
     @symmetric_key.setter
-    def symmetric_key(self, value: Optional[pulumi.Input['SymmetricKeyArgs']]):
+    def symmetric_key(self, value: pulumi.Input[Optional['SymmetricKeyArgs']]):
         pulumi.set(self, "symmetric_key", value)
 
 
@@ -602,7 +602,7 @@ class DataResidencyArgsDict(TypedDict):
     """
     Wraps data-residency related information for edge-resource and this should be used with ARM layer.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataResidencyType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataResidencyType']]]]
     """
     DataResidencyType enum
     """
@@ -610,7 +610,7 @@ class DataResidencyArgsDict(TypedDict):
 @pulumi.input_type
 class DataResidencyArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'DataResidencyType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'DataResidencyType']]] = None):
         """
         Wraps data-residency related information for edge-resource and this should be used with ARM layer.
 
@@ -621,14 +621,14 @@ class DataResidencyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataResidencyType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataResidencyType']]]:
         """
         DataResidencyType enum
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataResidencyType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataResidencyType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -677,7 +677,7 @@ class ImageRepositoryCredentialArgsDict(TypedDict):
     """
     Repository user name.
     """
-    password: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
+    password: NotRequired[pulumi.Input[Optional['AsymmetricEncryptedSecretArgsDict']]]
     """
     Repository user password.
     """
@@ -687,7 +687,7 @@ class ImageRepositoryCredentialArgs:
     def __init__(__self__, *,
                  image_repository_url: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
+                 password: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']] = None):
         """
         Image repository credential.
 
@@ -726,14 +726,14 @@ class ImageRepositoryCredentialArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+    def password(self) -> pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]:
         """
         Repository user password.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+    def password(self, value: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "password", value)
 
 
@@ -749,11 +749,11 @@ class IoTDeviceInfoArgsDict(TypedDict):
     """
     Host name for the IoT hub associated to the device.
     """
-    authentication: NotRequired[pulumi.Input['AuthenticationArgsDict']]
+    authentication: NotRequired[pulumi.Input[Optional['AuthenticationArgsDict']]]
     """
     Encrypted IoT device/IoT edge device connection string.
     """
-    io_t_host_hub_id: NotRequired[pulumi.Input[_builtins.str]]
+    io_t_host_hub_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id for the IoT hub associated to the device.
     """
@@ -763,8 +763,8 @@ class IoTDeviceInfoArgs:
     def __init__(__self__, *,
                  device_id: pulumi.Input[_builtins.str],
                  io_t_host_hub: pulumi.Input[_builtins.str],
-                 authentication: Optional[pulumi.Input['AuthenticationArgs']] = None,
-                 io_t_host_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['AuthenticationArgs']] = None,
+                 io_t_host_hub_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Metadata of IoT device/IoT Edge device to be configured.
 
@@ -806,26 +806,26 @@ class IoTDeviceInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['AuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['AuthenticationArgs']]:
         """
         Encrypted IoT device/IoT edge device connection string.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['AuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['AuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="ioTHostHubId")
-    def io_t_host_hub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def io_t_host_hub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id for the IoT hub associated to the device.
         """
         return pulumi.get(self, "io_t_host_hub_id")
 
     @io_t_host_hub_id.setter
-    def io_t_host_hub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def io_t_host_hub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "io_t_host_hub_id", value)
 
 
@@ -841,7 +841,7 @@ class IoTEdgeAgentInfoArgsDict(TypedDict):
     """
     Image Tag.
     """
-    image_repository: NotRequired[pulumi.Input['ImageRepositoryCredentialArgsDict']]
+    image_repository: NotRequired[pulumi.Input[Optional['ImageRepositoryCredentialArgsDict']]]
     """
     Image repository details.
     """
@@ -851,7 +851,7 @@ class IoTEdgeAgentInfoArgs:
     def __init__(__self__, *,
                  image_name: pulumi.Input[_builtins.str],
                  tag: pulumi.Input[_builtins.str],
-                 image_repository: Optional[pulumi.Input['ImageRepositoryCredentialArgs']] = None):
+                 image_repository: pulumi.Input[Optional['ImageRepositoryCredentialArgs']] = None):
         """
         IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
 
@@ -890,14 +890,14 @@ class IoTEdgeAgentInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageRepository")
-    def image_repository(self) -> Optional[pulumi.Input['ImageRepositoryCredentialArgs']]:
+    def image_repository(self) -> pulumi.Input[Optional['ImageRepositoryCredentialArgs']]:
         """
         Image repository details.
         """
         return pulumi.get(self, "image_repository")
 
     @image_repository.setter
-    def image_repository(self, value: Optional[pulumi.Input['ImageRepositoryCredentialArgs']]):
+    def image_repository(self, value: pulumi.Input[Optional['ImageRepositoryCredentialArgs']]):
         pulumi.set(self, "image_repository", value)
 
 
@@ -975,7 +975,7 @@ class KubernetesRoleResourcesArgsDict(TypedDict):
     """
     Kubernetes role compute resource
     """
-    storage: NotRequired[pulumi.Input['KubernetesRoleStorageArgsDict']]
+    storage: NotRequired[pulumi.Input[Optional['KubernetesRoleStorageArgsDict']]]
     """
     Kubernetes role storage resource
     """
@@ -984,7 +984,7 @@ class KubernetesRoleResourcesArgsDict(TypedDict):
 class KubernetesRoleResourcesArgs:
     def __init__(__self__, *,
                  compute: pulumi.Input['KubernetesRoleComputeArgs'],
-                 storage: Optional[pulumi.Input['KubernetesRoleStorageArgs']] = None):
+                 storage: pulumi.Input[Optional['KubernetesRoleStorageArgs']] = None):
         """
         Kubernetes role resources
 
@@ -1009,14 +1009,14 @@ class KubernetesRoleResourcesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['KubernetesRoleStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['KubernetesRoleStorageArgs']]:
         """
         Kubernetes role storage resource
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['KubernetesRoleStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['KubernetesRoleStorageArgs']]):
         pulumi.set(self, "storage", value)
 
 
@@ -1024,7 +1024,7 @@ class KubernetesRoleStorageArgsDict(TypedDict):
     """
     Kubernetes role storage resource
     """
-    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgsDict']]]]
+    endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MountPointMapArgsDict']]]]]
     """
     Mount points of shares in role(s).
     """
@@ -1032,7 +1032,7 @@ class KubernetesRoleStorageArgsDict(TypedDict):
 @pulumi.input_type
 class KubernetesRoleStorageArgs:
     def __init__(__self__, *,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]] = None):
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['MountPointMapArgs']]]] = None):
         """
         Kubernetes role storage resource
 
@@ -1043,14 +1043,14 @@ class KubernetesRoleStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MountPointMapArgs']]]]:
         """
         Mount points of shares in role(s).
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MountPointMapArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
 
@@ -1066,11 +1066,11 @@ class MetricConfigurationArgsDict(TypedDict):
     """
     The Resource ID on which the metrics should be pushed.
     """
-    mdm_account: NotRequired[pulumi.Input[_builtins.str]]
+    mdm_account: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MDM account to which the counters should be pushed.
     """
-    metric_name_space: NotRequired[pulumi.Input[_builtins.str]]
+    metric_name_space: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
     """
@@ -1080,8 +1080,8 @@ class MetricConfigurationArgs:
     def __init__(__self__, *,
                  counter_sets: pulumi.Input[Sequence[pulumi.Input['MetricCounterSetArgs']]],
                  resource_id: pulumi.Input[_builtins.str],
-                 mdm_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name_space: Optional[pulumi.Input[_builtins.str]] = None):
+                 mdm_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name_space: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Metric configuration.
 
@@ -1123,27 +1123,120 @@ class MetricConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="mdmAccount")
-    def mdm_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mdm_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MDM account to which the counters should be pushed.
         """
         return pulumi.get(self, "mdm_account")
 
     @mdm_account.setter
-    def mdm_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mdm_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mdm_account", value)
 
     @_builtins.property
     @pulumi.getter(name="metricNameSpace")
-    def metric_name_space(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name_space(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
         """
         return pulumi.get(self, "metric_name_space")
 
     @metric_name_space.setter
-    def metric_name_space(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name_space(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name_space", value)
+
+
+class MetricCounterArgsDict(TypedDict):
+    """
+    The metric counter
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The counter name.
+    """
+    additional_dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]]
+    """
+    The additional dimensions to be added to metric.
+    """
+    dimension_filter: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]]
+    """
+    The dimension filter.
+    """
+    instance: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The instance from which counter should be collected.
+    """
+
+@pulumi.input_type
+class MetricCounterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 additional_dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 dimension_filter: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 instance: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The metric counter
+
+        :param pulumi.Input[_builtins.str] name: The counter name.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] additional_dimensions: The additional dimensions to be added to metric.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimension_filter: The dimension filter.
+        :param pulumi.Input[_builtins.str] instance: The instance from which counter should be collected.
+        """
+        pulumi.set(__self__, "name", name)
+        if additional_dimensions is not None:
+            pulumi.set(__self__, "additional_dimensions", additional_dimensions)
+        if dimension_filter is not None:
+            pulumi.set(__self__, "dimension_filter", dimension_filter)
+        if instance is not None:
+            pulumi.set(__self__, "instance", instance)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The counter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalDimensions")
+    def additional_dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
+        """
+        The additional dimensions to be added to metric.
+        """
+        return pulumi.get(self, "additional_dimensions")
+
+    @additional_dimensions.setter
+    def additional_dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
+        pulumi.set(self, "additional_dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionFilter")
+    def dimension_filter(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
+        """
+        The dimension filter.
+        """
+        return pulumi.get(self, "dimension_filter")
+
+    @dimension_filter.setter
+    def dimension_filter(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
+        pulumi.set(self, "dimension_filter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def instance(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The instance from which counter should be collected.
+        """
+        return pulumi.get(self, "instance")
+
+    @instance.setter
+    def instance(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance", value)
 
 
 class MetricCounterSetArgsDict(TypedDict):
@@ -1177,99 +1270,6 @@ class MetricCounterSetArgs:
     @counters.setter
     def counters(self, value: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]):
         pulumi.set(self, "counters", value)
-
-
-class MetricCounterArgsDict(TypedDict):
-    """
-    The metric counter
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The counter name.
-    """
-    additional_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
-    """
-    The additional dimensions to be added to metric.
-    """
-    dimension_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
-    """
-    The dimension filter.
-    """
-    instance: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The instance from which counter should be collected.
-    """
-
-@pulumi.input_type
-class MetricCounterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 additional_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
-                 dimension_filter: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
-                 instance: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The metric counter
-
-        :param pulumi.Input[_builtins.str] name: The counter name.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] additional_dimensions: The additional dimensions to be added to metric.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimension_filter: The dimension filter.
-        :param pulumi.Input[_builtins.str] instance: The instance from which counter should be collected.
-        """
-        pulumi.set(__self__, "name", name)
-        if additional_dimensions is not None:
-            pulumi.set(__self__, "additional_dimensions", additional_dimensions)
-        if dimension_filter is not None:
-            pulumi.set(__self__, "dimension_filter", dimension_filter)
-        if instance is not None:
-            pulumi.set(__self__, "instance", instance)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The counter name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="additionalDimensions")
-    def additional_dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
-        """
-        The additional dimensions to be added to metric.
-        """
-        return pulumi.get(self, "additional_dimensions")
-
-    @additional_dimensions.setter
-    def additional_dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
-        pulumi.set(self, "additional_dimensions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dimensionFilter")
-    def dimension_filter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]:
-        """
-        The dimension filter.
-        """
-        return pulumi.get(self, "dimension_filter")
-
-    @dimension_filter.setter
-    def dimension_filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]]):
-        pulumi.set(self, "dimension_filter", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def instance(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The instance from which counter should be collected.
-        """
-        return pulumi.get(self, "instance")
-
-    @instance.setter
-    def instance(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "instance", value)
 
 
 class MetricDimensionArgsDict(TypedDict):
@@ -1369,7 +1369,7 @@ class PeriodicTimerSourceInfoArgsDict(TypedDict):
     """
     The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
     """
-    topic: NotRequired[pulumi.Input[_builtins.str]]
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Topic where periodic events are published to IoT device.
     """
@@ -1379,7 +1379,7 @@ class PeriodicTimerSourceInfoArgs:
     def __init__(__self__, *,
                  schedule: pulumi.Input[_builtins.str],
                  start_time: pulumi.Input[_builtins.str],
-                 topic: Optional[pulumi.Input[_builtins.str]] = None):
+                 topic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Periodic timer event source.
 
@@ -1418,14 +1418,14 @@ class PeriodicTimerSourceInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Topic where periodic events are published to IoT device.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
 
@@ -1433,19 +1433,19 @@ class RefreshDetailsArgsDict(TypedDict):
     """
     Fields for tracking refresh job on the share or container.
     """
-    error_manifest_file: NotRequired[pulumi.Input[_builtins.str]]
+    error_manifest_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
     """
-    in_progress_refresh_job_id: NotRequired[pulumi.Input[_builtins.str]]
+    in_progress_refresh_job_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
     """
-    last_completed_refresh_job_time_in_utc: NotRequired[pulumi.Input[_builtins.str]]
+    last_completed_refresh_job_time_in_utc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
     """
-    last_job: NotRequired[pulumi.Input[_builtins.str]]
+    last_job: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
     """
@@ -1453,10 +1453,10 @@ class RefreshDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class RefreshDetailsArgs:
     def __init__(__self__, *,
-                 error_manifest_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_progress_refresh_job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_completed_refresh_job_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_job: Optional[pulumi.Input[_builtins.str]] = None):
+                 error_manifest_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_progress_refresh_job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_completed_refresh_job_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_job: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Fields for tracking refresh job on the share or container.
 
@@ -1476,50 +1476,50 @@ class RefreshDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorManifestFile")
-    def error_manifest_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_manifest_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
         """
         return pulumi.get(self, "error_manifest_file")
 
     @error_manifest_file.setter
-    def error_manifest_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_manifest_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_manifest_file", value)
 
     @_builtins.property
     @pulumi.getter(name="inProgressRefreshJobId")
-    def in_progress_refresh_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def in_progress_refresh_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
         """
         return pulumi.get(self, "in_progress_refresh_job_id")
 
     @in_progress_refresh_job_id.setter
-    def in_progress_refresh_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def in_progress_refresh_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "in_progress_refresh_job_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastCompletedRefreshJobTimeInUTC")
-    def last_completed_refresh_job_time_in_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_completed_refresh_job_time_in_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
         """
         return pulumi.get(self, "last_completed_refresh_job_time_in_utc")
 
     @last_completed_refresh_job_time_in_utc.setter
-    def last_completed_refresh_job_time_in_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_completed_refresh_job_time_in_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_completed_refresh_job_time_in_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="lastJob")
-    def last_job(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_job(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
         """
         return pulumi.get(self, "last_job")
 
     @last_job.setter
-    def last_job(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_job(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_job", value)
 
 
@@ -1527,7 +1527,7 @@ class ResourceIdentityArgsDict(TypedDict):
     """
     Msi identity details of the resource
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'MsiIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MsiIdentityType']]]]
     """
     Identity type
     """
@@ -1535,7 +1535,7 @@ class ResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'MsiIdentityType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'MsiIdentityType']]] = None):
         """
         Msi identity details of the resource
 
@@ -1546,14 +1546,14 @@ class ResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MsiIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MsiIdentityType']]]:
         """
         Identity type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MsiIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MsiIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1594,11 +1594,11 @@ class SkuArgsDict(TypedDict):
     """
     The SKU type.
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]]
     """
     SKU name.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]]
     """
     The SKU tier. This is based on the SKU name.
     """
@@ -1606,8 +1606,8 @@ class SkuArgsDict(TypedDict):
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]] = None):
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]] = None):
         """
         The SKU type.
 
@@ -1621,26 +1621,26 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]:
         """
         SKU name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuName']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]:
         """
         The SKU tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -1648,7 +1648,7 @@ class SymmetricKeyArgsDict(TypedDict):
     """
     Symmetric key for authentication.
     """
-    connection_string: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
+    connection_string: NotRequired[pulumi.Input[Optional['AsymmetricEncryptedSecretArgsDict']]]
     """
     Connection string based on the symmetric key.
     """
@@ -1656,7 +1656,7 @@ class SymmetricKeyArgsDict(TypedDict):
 @pulumi.input_type
 class SymmetricKeyArgs:
     def __init__(__self__, *,
-                 connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
+                 connection_string: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']] = None):
         """
         Symmetric key for authentication.
 
@@ -1667,14 +1667,14 @@ class SymmetricKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+    def connection_string(self) -> pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]:
         """
         Connection string based on the symmetric key.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+    def connection_string(self, value: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "connection_string", value)
 
 

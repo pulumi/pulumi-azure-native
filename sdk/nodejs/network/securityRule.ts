@@ -215,27 +215,27 @@ export interface SecurityRuleArgs {
     /**
      * A description for this rule. Restricted to 140 chars.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
      */
-    destinationAddressPrefix?: pulumi.Input<string>;
+    destinationAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * The destination address prefixes. CIDR or destination IP ranges.
      */
-    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The application security group specified as destination.
      */
-    destinationApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationSecurityGroupArgs>[]>;
+    destinationApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationSecurityGroupArgs>[] | undefined>;
     /**
      * The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    destinationPortRange?: pulumi.Input<string>;
+    destinationPortRange?: pulumi.Input<string | undefined>;
     /**
      * The destination port ranges.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
@@ -243,11 +243,11 @@ export interface SecurityRuleArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security group.
      */
@@ -267,29 +267,29 @@ export interface SecurityRuleArgs {
     /**
      * The name of the security rule.
      */
-    securityRuleName?: pulumi.Input<string>;
+    securityRuleName?: pulumi.Input<string | undefined>;
     /**
      * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
      */
-    sourceAddressPrefix?: pulumi.Input<string>;
+    sourceAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * The CIDR or source IP ranges.
      */
-    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The application security group specified as source.
      */
-    sourceApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationSecurityGroupArgs>[]>;
+    sourceApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationSecurityGroupArgs>[] | undefined>;
     /**
      * The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    sourcePortRange?: pulumi.Input<string>;
+    sourcePortRange?: pulumi.Input<string | undefined>;
     /**
      * The source port ranges.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of the resource.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

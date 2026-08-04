@@ -26,8 +26,8 @@ class AADDataConnectorArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None):
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional['AlertsDataTypeOfDataConnectorArgs']] = None):
         """
         The set of arguments for constructing a AADDataConnector resource.
 
@@ -99,26 +99,26 @@ class AADDataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorId")
-    def data_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector ID
         """
         return pulumi.get(self, "data_connector_id")
 
     @data_connector_id.setter
-    def data_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
-    def data_types(self) -> Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']]:
+    def data_types(self) -> pulumi.Input[Optional['AlertsDataTypeOfDataConnectorArgs']]:
         """
         The available data types for the connector.
         """
         return pulumi.get(self, "data_types")
 
     @data_types.setter
-    def data_types(self, value: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']]):
+    def data_types(self, value: pulumi.Input[Optional['AlertsDataTypeOfDataConnectorArgs']]):
         pulumi.set(self, "data_types", value)
 
 
@@ -128,18 +128,17 @@ class AADDataConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['AlertsDataTypeOfDataConnectorArgs', 'AlertsDataTypeOfDataConnectorArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['AlertsDataTypeOfDataConnectorArgs', 'AlertsDataTypeOfDataConnectorArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents Microsoft Entra ID data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,6 @@ class AADDataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param AADDataConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,12 +176,12 @@ class AADDataConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input[Union['AlertsDataTypeOfDataConnectorArgs', 'AlertsDataTypeOfDataConnectorArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_types: pulumi.Input[Optional[Union['AlertsDataTypeOfDataConnectorArgs', 'AlertsDataTypeOfDataConnectorArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

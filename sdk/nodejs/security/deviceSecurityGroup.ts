@@ -122,15 +122,15 @@ export interface DeviceSecurityGroupArgs {
     /**
      * The allow-list custom alert rules.
      */
-    allowlistRules?: pulumi.Input<pulumi.Input<inputs.security.AllowlistCustomAlertRuleArgs>[]>;
+    allowlistRules?: pulumi.Input<pulumi.Input<inputs.security.AllowlistCustomAlertRuleArgs>[] | undefined>;
     /**
      * The deny-list custom alert rules.
      */
-    denylistRules?: pulumi.Input<pulumi.Input<inputs.security.DenylistCustomAlertRuleArgs>[]>;
+    denylistRules?: pulumi.Input<pulumi.Input<inputs.security.DenylistCustomAlertRuleArgs>[] | undefined>;
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    deviceSecurityGroupName?: pulumi.Input<string>;
+    deviceSecurityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -138,9 +138,9 @@ export interface DeviceSecurityGroupArgs {
     /**
      * The list of custom alert threshold rules.
      */
-    thresholdRules?: pulumi.Input<pulumi.Input<inputs.security.ThresholdCustomAlertRuleArgs>[]>;
+    thresholdRules?: pulumi.Input<pulumi.Input<inputs.security.ThresholdCustomAlertRuleArgs>[] | undefined>;
     /**
      * The list of custom alert time-window rules.
      */
-    timeWindowRules?: pulumi.Input<pulumi.Input<inputs.security.TimeWindowCustomAlertRuleArgs>[]>;
+    timeWindowRules?: pulumi.Input<pulumi.Input<inputs.security.TimeWindowCustomAlertRuleArgs>[] | undefined>;
 }

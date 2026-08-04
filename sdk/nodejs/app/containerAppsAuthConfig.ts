@@ -138,7 +138,7 @@ export interface ContainerAppsAuthConfigArgs {
     /**
      * Name of the Container App AuthConfig.
      */
-    authConfigName?: pulumi.Input<string>;
+    authConfigName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Container App.
      */
@@ -146,27 +146,27 @@ export interface ContainerAppsAuthConfigArgs {
     /**
      * The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
      */
-    encryptionSettings?: pulumi.Input<inputs.app.EncryptionSettingsArgs>;
+    encryptionSettings?: pulumi.Input<inputs.app.EncryptionSettingsArgs | undefined>;
     /**
      * The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
      */
-    globalValidation?: pulumi.Input<inputs.app.GlobalValidationArgs>;
+    globalValidation?: pulumi.Input<inputs.app.GlobalValidationArgs | undefined>;
     /**
      * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
      */
-    httpSettings?: pulumi.Input<inputs.app.HttpSettingsArgs>;
+    httpSettings?: pulumi.Input<inputs.app.HttpSettingsArgs | undefined>;
     /**
      * The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
      */
-    identityProviders?: pulumi.Input<inputs.app.IdentityProvidersArgs>;
+    identityProviders?: pulumi.Input<inputs.app.IdentityProvidersArgs | undefined>;
     /**
      * The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
      */
-    login?: pulumi.Input<inputs.app.LoginArgs>;
+    login?: pulumi.Input<inputs.app.LoginArgs | undefined>;
     /**
      * The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
      */
-    platform?: pulumi.Input<inputs.app.AuthPlatformArgs>;
+    platform?: pulumi.Input<inputs.app.AuthPlatformArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

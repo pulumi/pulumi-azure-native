@@ -118,7 +118,7 @@ export interface AppLinkMemberArgs {
     /**
      * The name of the AppLinkMember
      */
-    appLinkMemberName?: pulumi.Input<string>;
+    appLinkMemberName?: pulumi.Input<string | undefined>;
     /**
      * The name of the AppLink
      */
@@ -126,11 +126,11 @@ export interface AppLinkMemberArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.applink.AppLinkMemberPropertiesArgs>;
+    properties?: pulumi.Input<inputs.applink.AppLinkMemberPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,5 +138,5 @@ export interface AppLinkMemberArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

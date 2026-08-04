@@ -23,10 +23,10 @@ __all__ = ['PrivateLinkScopeArgs', 'PrivateLinkScope']
 class PrivateLinkScopeArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['KubernetesConfigurationPrivateLinkScopePropertiesArgs']] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['KubernetesConfigurationPrivateLinkScopePropertiesArgs']] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkScope resource.
 
@@ -60,50 +60,50 @@ class PrivateLinkScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['KubernetesConfigurationPrivateLinkScopePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['KubernetesConfigurationPrivateLinkScopePropertiesArgs']]:
         """
         Properties that define a Azure Arc PrivateLinkScope resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['KubernetesConfigurationPrivateLinkScopePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['KubernetesConfigurationPrivateLinkScopePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeName")
-    def scope_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Arc PrivateLinkScope resource.
         """
         return pulumi.get(self, "scope_name")
 
     @scope_name.setter
-    def scope_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class PrivateLinkScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['KubernetesConfigurationPrivateLinkScopePropertiesArgs', 'KubernetesConfigurationPrivateLinkScopePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['KubernetesConfigurationPrivateLinkScopePropertiesArgs', 'KubernetesConfigurationPrivateLinkScopePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An Azure Arc PrivateLinkScope definition.
@@ -125,7 +125,6 @@ class PrivateLinkScope(pulumi.CustomResource):
         Uses Azure REST API version 2022-04-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-02-preview.
 
         Other available API versions: 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +147,6 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         Other available API versions: 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,11 +162,11 @@ class PrivateLinkScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['KubernetesConfigurationPrivateLinkScopePropertiesArgs', 'KubernetesConfigurationPrivateLinkScopePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['KubernetesConfigurationPrivateLinkScopePropertiesArgs', 'KubernetesConfigurationPrivateLinkScopePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

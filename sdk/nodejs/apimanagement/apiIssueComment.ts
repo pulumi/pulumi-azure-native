@@ -129,11 +129,11 @@ export interface ApiIssueCommentArgs {
     /**
      * Comment identifier within an Issue. Must be unique in the current Issue.
      */
-    commentId?: pulumi.Input<string>;
+    commentId?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the comment was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */

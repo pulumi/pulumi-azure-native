@@ -119,7 +119,7 @@ export interface LinkedServiceArgs {
     /**
      * The linked service name.
      */
-    linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string | undefined>;
     /**
      * Properties of linked service.
      */

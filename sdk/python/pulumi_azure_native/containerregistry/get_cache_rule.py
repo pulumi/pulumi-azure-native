@@ -170,7 +170,6 @@ def get_cache_rule(cache_rule_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cache_rule_name: The name of the cache rule.
     :param _builtins.str registry_name: The name of the container registry.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -193,9 +192,9 @@ def get_cache_rule(cache_rule_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         target_repository=pulumi.get(__ret__, 'target_repository'),
         type=pulumi.get(__ret__, 'type'))
-def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cache_rule_output(cache_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheRuleResult]:
     """
     Gets the properties of the specified cache rule resource.
@@ -203,7 +202,6 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2024-11-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01, 2026-01-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cache_rule_name: The name of the cache rule.
     :param _builtins.str registry_name: The name of the container registry.

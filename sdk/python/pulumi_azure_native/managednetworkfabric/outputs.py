@@ -1438,7 +1438,7 @@ class ExternalNetworkPropertiesResponseOptionAProperties(dict):
         """
         option A properties object
 
-        :param _builtins.float fabric_asn: Fabric ASN number. Example 65001 
+        :param _builtins.float fabric_asn: Fabric ASN number. Example 65001
         :param _builtins.float peer_asn: Peer ASN number.Example : 28
         :param _builtins.int vlan_id: Vlan identifier. Example : 501
         :param 'BfdConfigurationResponse' bfd_configuration: BFD configuration properties
@@ -1476,7 +1476,7 @@ class ExternalNetworkPropertiesResponseOptionAProperties(dict):
     @pulumi.getter(name="fabricASN")
     def fabric_asn(self) -> _builtins.float:
         """
-        Fabric ASN number. Example 65001 
+        Fabric ASN number. Example 65001
         """
         return pulumi.get(self, "fabric_asn")
 
@@ -2410,7 +2410,7 @@ class IpPrefixRuleResponse(dict):
         IP Prefix Rule properties.
 
         :param _builtins.str action: Action to be taken on the configuration. Example: Permit | Deny.
-        :param _builtins.str network_prefix: Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
+        :param _builtins.str network_prefix: Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126
         :param _builtins.float sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
         :param _builtins.str condition: Specify prefix-list bounds.
         :param _builtins.str subnet_mask_length: SubnetMaskLength gives the minimum NetworkPrefix length to be matched. Possible values for IPv4 are 1 - 32 . Possible values of IPv6 are 1 - 128.
@@ -2435,7 +2435,7 @@ class IpPrefixRuleResponse(dict):
     @pulumi.getter(name="networkPrefix")
     def network_prefix(self) -> _builtins.str:
         """
-        Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
+        Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126
         """
         return pulumi.get(self, "network_prefix")
 

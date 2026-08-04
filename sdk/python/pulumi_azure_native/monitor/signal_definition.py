@@ -25,8 +25,8 @@ class SignalDefinitionArgs:
                  azure_monitor_workspace_name: pulumi.Input[_builtins.str],
                  health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]] = None,
-                 signal_definition_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]] = None,
+                 signal_definition_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SignalDefinition resource.
 
@@ -82,26 +82,26 @@ class SignalDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="signalDefinitionName")
-    def signal_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signal_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the signal definition. Must be unique within a health model.
         """
         return pulumi.get(self, "signal_definition_name")
 
     @signal_definition_name.setter
-    def signal_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signal_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signal_definition_name", value)
 
 
@@ -111,17 +111,16 @@ class SignalDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'LogAnalyticsQuerySignalDefinitionPropertiesArgsDict'], Union['PrometheusMetricsSignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgsDict'], Union['ResourceMetricSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signal_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'LogAnalyticsQuerySignalDefinitionPropertiesArgsDict'], Union['PrometheusMetricsSignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgsDict'], Union['ResourceMetricSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signal_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A signal definition in a health model
 
         Uses Azure REST API version 2025-05-03-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class SignalDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-03-preview.
 
-
         :param str resource_name: The name of the resource.
         :param SignalDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class SignalDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'LogAnalyticsQuerySignalDefinitionPropertiesArgsDict'], Union['PrometheusMetricsSignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgsDict'], Union['ResourceMetricSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signal_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'LogAnalyticsQuerySignalDefinitionPropertiesArgsDict'], Union['PrometheusMetricsSignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgsDict'], Union['ResourceMetricSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signal_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

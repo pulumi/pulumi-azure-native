@@ -120,7 +120,7 @@ export interface BackupsAutomaticAndOnDemandArgs {
     /**
      * Name of the backup.
      */
-    backupName?: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

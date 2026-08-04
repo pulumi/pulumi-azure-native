@@ -182,7 +182,7 @@ class CostAllocationResourceType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:costmanagement:CultureCode")
 class CultureCode(_builtins.str, Enum):
     """
-    Language in which the recipient will receive the notification, 
+    Language in which the recipient will receive the notification,
 
      Supported for CategoryType(s): Cost, ReservationUtilization.
     """
@@ -526,7 +526,7 @@ class TimeGrainType(_builtins.str, Enum):
     - BillingMonth*
     - BillingQuarter*
     - BillingAnnual*
-
+      
       *only supported for Web Direct customers.
 
      Supported timeGrainTypes for **CategoryType: ReservationUtilization**

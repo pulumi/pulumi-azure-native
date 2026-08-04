@@ -23,31 +23,31 @@ __all__ = ['ScopeAccessReviewScheduleDefinitionByIdArgs', 'ScopeAccessReviewSche
 class ScopeAccessReviewScheduleDefinitionByIdArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 auto_apply_decisions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
-                 default_decision: Optional[pulumi.Input[Union[_builtins.str, 'DefaultDecisionType']]] = None,
-                 default_decision_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description_for_admins: Optional[pulumi.Input[_builtins.str]] = None,
-                 description_for_reviewers: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand_nested_memberships: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inactive_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_access_below_resource: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_inherited_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_duration_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 justification_required_on_approval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mail_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 range: Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']] = None,
-                 recommendation_look_back_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommendations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reminder_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
-                 schedule_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
+                 auto_apply_decisions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+                 default_decision: pulumi.Input[Optional[Union[_builtins.str, 'DefaultDecisionType']]] = None,
+                 default_decision_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description_for_admins: pulumi.Input[Optional[_builtins.str]] = None,
+                 description_for_reviewers: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand_nested_memberships: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inactive_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_access_below_resource: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_inherited_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_duration_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 justification_required_on_approval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mail_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 range: pulumi.Input[Optional['AccessReviewRecurrenceRangeArgs']] = None,
+                 recommendation_look_back_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommendations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reminder_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+                 schedule_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
         """
         The set of arguments for constructing a ScopeAccessReviewScheduleDefinitionById resource.
 
@@ -144,302 +144,302 @@ class ScopeAccessReviewScheduleDefinitionByIdArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoApplyDecisionsEnabled")
-    def auto_apply_decisions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_apply_decisions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         """
         return pulumi.get(self, "auto_apply_decisions_enabled")
 
     @auto_apply_decisions_enabled.setter
-    def auto_apply_decisions_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_apply_decisions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_apply_decisions_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="backupReviewers")
-    def backup_reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
+    def backup_reviewers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
         """
         This is the collection of backup reviewers.
         """
         return pulumi.get(self, "backup_reviewers")
 
     @backup_reviewers.setter
-    def backup_reviewers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
+    def backup_reviewers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
         pulumi.set(self, "backup_reviewers", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDecision")
-    def default_decision(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultDecisionType']]]:
+    def default_decision(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DefaultDecisionType']]]:
         """
         This specifies the behavior for the autoReview feature when an access review completes.
         """
         return pulumi.get(self, "default_decision")
 
     @default_decision.setter
-    def default_decision(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DefaultDecisionType']]]):
+    def default_decision(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DefaultDecisionType']]]):
         pulumi.set(self, "default_decision", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDecisionEnabled")
-    def default_decision_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_decision_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether reviewers are required to provide a justification when reviewing access.
         """
         return pulumi.get(self, "default_decision_enabled")
 
     @default_decision_enabled.setter
-    def default_decision_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_decision_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_decision_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="descriptionForAdmins")
-    def description_for_admins(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description_for_admins(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description provided by the access review creator and visible to admins.
         """
         return pulumi.get(self, "description_for_admins")
 
     @description_for_admins.setter
-    def description_for_admins(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description_for_admins(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description_for_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="descriptionForReviewers")
-    def description_for_reviewers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description_for_reviewers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description provided by the access review creator to be shown to reviewers.
         """
         return pulumi.get(self, "description_for_reviewers")
 
     @description_for_reviewers.setter
-    def description_for_reviewers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description_for_reviewers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description_for_reviewers", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the schedule definition.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeResourceId")
-    def exclude_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclude_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is used to indicate the resource id(s) to exclude
         """
         return pulumi.get(self, "exclude_resource_id")
 
     @exclude_resource_id.setter
-    def exclude_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclude_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclude_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeRoleDefinitionId")
-    def exclude_role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclude_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is used to indicate the role definition id(s) to exclude
         """
         return pulumi.get(self, "exclude_role_definition_id")
 
     @exclude_role_definition_id.setter
-    def exclude_role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclude_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclude_role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expandNestedMemberships")
-    def expand_nested_memberships(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expand_nested_memberships(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether to expand nested memberships or not.
         """
         return pulumi.get(self, "expand_nested_memberships")
 
     @expand_nested_memberships.setter
-    def expand_nested_memberships(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expand_nested_memberships(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expand_nested_memberships", value)
 
     @_builtins.property
     @pulumi.getter(name="inactiveDuration")
-    def inactive_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inactive_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         """
         return pulumi.get(self, "inactive_duration")
 
     @inactive_duration.setter
-    def inactive_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inactive_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inactive_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAccessBelowResource")
-    def include_access_below_resource(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_access_below_resource(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether to expand nested memberships or not.
         """
         return pulumi.get(self, "include_access_below_resource")
 
     @include_access_below_resource.setter
-    def include_access_below_resource(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_access_below_resource(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_access_below_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="includeInheritedAccess")
-    def include_inherited_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_inherited_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether to expand nested memberships or not.
         """
         return pulumi.get(self, "include_inherited_access")
 
     @include_inherited_access.setter
-    def include_inherited_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_inherited_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_inherited_access", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceDurationInDays")
-    def instance_duration_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_duration_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration in days for an instance.
         """
         return pulumi.get(self, "instance_duration_in_days")
 
     @instance_duration_in_days.setter
-    def instance_duration_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_duration_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_duration_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]]:
+    def instances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]]:
         """
         This is the collection of instances returned when one does an expand on it.
         """
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]]):
+    def instances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="justificationRequiredOnApproval")
-    def justification_required_on_approval(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def justification_required_on_approval(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether the reviewer is required to pass justification when recording a decision.
         """
         return pulumi.get(self, "justification_required_on_approval")
 
     @justification_required_on_approval.setter
-    def justification_required_on_approval(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def justification_required_on_approval(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "justification_required_on_approval", value)
 
     @_builtins.property
     @pulumi.getter(name="mailNotificationsEnabled")
-    def mail_notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mail_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether sending mails to reviewers and the review creator is enabled.
         """
         return pulumi.get(self, "mail_notifications_enabled")
 
     @mail_notifications_enabled.setter
-    def mail_notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mail_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mail_notifications_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def range(self) -> Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']]:
+    def range(self) -> pulumi.Input[Optional['AccessReviewRecurrenceRangeArgs']]:
         """
         Access Review schedule definition recurrence range.
         """
         return pulumi.get(self, "range")
 
     @range.setter
-    def range(self, value: Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']]):
+    def range(self, value: pulumi.Input[Optional['AccessReviewRecurrenceRangeArgs']]):
         pulumi.set(self, "range", value)
 
     @_builtins.property
     @pulumi.getter(name="recommendationLookBackDuration")
-    def recommendation_look_back_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recommendation_look_back_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         """
         return pulumi.get(self, "recommendation_look_back_duration")
 
     @recommendation_look_back_duration.setter
-    def recommendation_look_back_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recommendation_look_back_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recommendation_look_back_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="recommendationsEnabled")
-    def recommendations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recommendations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether showing recommendations to reviewers is enabled.
         """
         return pulumi.get(self, "recommendations_enabled")
 
     @recommendations_enabled.setter
-    def recommendations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recommendations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recommendations_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="reminderNotificationsEnabled")
-    def reminder_notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reminder_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether sending reminder emails to reviewers are enabled.
         """
         return pulumi.get(self, "reminder_notifications_enabled")
 
     @reminder_notifications_enabled.setter
-    def reminder_notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reminder_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reminder_notifications_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
+    def reviewers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
         """
         This is the collection of reviewers.
         """
         return pulumi.get(self, "reviewers")
 
     @reviewers.setter
-    def reviewers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
+    def reviewers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
         pulumi.set(self, "reviewers", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleDefinitionId")
-    def schedule_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the access review schedule definition.
         """
         return pulumi.get(self, "schedule_definition_id")
 
     @schedule_definition_id.setter
-    def schedule_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]:
         """
         The recurrence type : weekly, monthly, etc.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -449,38 +449,37 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_apply_decisions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
-                 default_decision: Optional[pulumi.Input[Union[_builtins.str, 'DefaultDecisionType']]] = None,
-                 default_decision_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description_for_admins: Optional[pulumi.Input[_builtins.str]] = None,
-                 description_for_reviewers: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand_nested_memberships: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inactive_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_access_below_resource: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_inherited_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_duration_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewInstanceArgs', 'AccessReviewInstanceArgsDict']]]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 justification_required_on_approval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mail_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 range: Optional[pulumi.Input[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
-                 recommendation_look_back_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommendations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reminder_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
-                 schedule_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
+                 auto_apply_decisions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
+                 default_decision: pulumi.Input[Optional[Union[_builtins.str, 'DefaultDecisionType']]] = None,
+                 default_decision_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description_for_admins: pulumi.Input[Optional[_builtins.str]] = None,
+                 description_for_reviewers: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand_nested_memberships: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inactive_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_access_below_resource: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_inherited_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_duration_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewInstanceArgs', 'AccessReviewInstanceArgsDict']]]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 justification_required_on_approval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mail_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 range: pulumi.Input[Optional[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
+                 recommendation_look_back_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommendations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reminder_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
+                 schedule_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
                  __props__=None):
         """
         Access Review Schedule Definition.
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -522,7 +521,6 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ScopeAccessReviewScheduleDefinitionByIdArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -538,32 +536,32 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_apply_decisions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
-                 default_decision: Optional[pulumi.Input[Union[_builtins.str, 'DefaultDecisionType']]] = None,
-                 default_decision_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description_for_admins: Optional[pulumi.Input[_builtins.str]] = None,
-                 description_for_reviewers: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand_nested_memberships: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inactive_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_access_below_resource: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_inherited_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_duration_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewInstanceArgs', 'AccessReviewInstanceArgsDict']]]]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 justification_required_on_approval: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mail_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 range: Optional[pulumi.Input[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
-                 recommendation_look_back_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommendations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reminder_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
-                 schedule_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
+                 auto_apply_decisions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
+                 default_decision: pulumi.Input[Optional[Union[_builtins.str, 'DefaultDecisionType']]] = None,
+                 default_decision_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description_for_admins: pulumi.Input[Optional[_builtins.str]] = None,
+                 description_for_reviewers: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand_nested_memberships: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inactive_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_access_below_resource: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_inherited_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_duration_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewInstanceArgs', 'AccessReviewInstanceArgsDict']]]]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 justification_required_on_approval: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mail_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 range: pulumi.Input[Optional[Union['AccessReviewRecurrenceRangeArgs', 'AccessReviewRecurrenceRangeArgsDict']]] = None,
+                 recommendation_look_back_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommendations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reminder_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessReviewReviewerArgs', 'AccessReviewReviewerArgsDict']]]]] = None,
+                 schedule_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

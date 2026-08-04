@@ -120,15 +120,15 @@ export interface ArtifactStoreArgs {
     /**
      * The name of the artifact store.
      */
-    artifactStoreName?: pulumi.Input<string>;
+    artifactStoreName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * ArtifactStores properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.ArtifactStorePropertiesFormatArgs>;
+    properties?: pulumi.Input<inputs.hybridnetwork.ArtifactStorePropertiesFormatArgs | undefined>;
     /**
      * The name of the publisher.
      */
@@ -140,5 +140,5 @@ export interface ArtifactStoreArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

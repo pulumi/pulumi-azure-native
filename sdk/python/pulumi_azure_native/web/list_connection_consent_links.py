@@ -63,7 +63,6 @@ def list_connection_consent_links(connection_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2015-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str connection_name: Connection name
     :param Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']] parameters: Collection of resources
     :param _builtins.str resource_group_name: The resource group
@@ -79,10 +78,10 @@ def list_connection_consent_links(connection_name: Optional[_builtins.str] = Non
 
     return AwaitableListConnectionConsentLinksResult(
         value=pulumi.get(__ret__, 'value'))
-def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         parameters: Optional[pulumi.Input[Optional[Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']]]]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_connection_consent_links_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         parameters: pulumi.Input[Optional[Optional[Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']]]]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
     """
     Lists the consent links of a connection
@@ -90,7 +89,6 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
     Uses Azure REST API version 2016-06-01.
 
     Other available API versions: 2015-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str connection_name: Connection name
     :param Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']] parameters: Collection of resources

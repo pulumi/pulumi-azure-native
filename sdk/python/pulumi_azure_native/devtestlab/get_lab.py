@@ -373,7 +373,6 @@ def get_lab(expand: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-15.
 
-
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
     :param _builtins.str name: The name of the lab.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -413,15 +412,14 @@ def get_lab(expand: Optional[_builtins.str] = None,
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         vault_name=pulumi.get(__ret__, 'vault_name'),
         vm_creation_resource_group=pulumi.get(__ret__, 'vm_creation_resource_group'))
-def get_lab_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lab_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Get lab.
 
     Uses Azure REST API version 2018-09-15.
-
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
     :param _builtins.str name: The name of the lab.

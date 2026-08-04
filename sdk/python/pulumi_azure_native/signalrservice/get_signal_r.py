@@ -174,9 +174,9 @@ class GetSignalRResult:
     def features(self) -> Optional[Sequence['outputs.SignalRFeatureResponse']]:
         """
         List of the featureFlags.
-        
+
         FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
+        And the response will only include featureFlags that are explicitly set.
         When a featureFlag is not explicitly set, its globally default value will be used
         But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         """
@@ -447,7 +447,6 @@ def get_signal_r(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the resource.
     """
@@ -490,8 +489,8 @@ def get_signal_r(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         upstream=pulumi.get(__ret__, 'upstream'),
         version=pulumi.get(__ret__, 'version'))
-def get_signal_r_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_signal_r_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalRResult]:
     """
     Get the resource and its properties.
@@ -499,7 +498,6 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the resource.

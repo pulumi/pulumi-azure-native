@@ -220,15 +220,15 @@ export interface PredictionArgs {
     /**
      * Description of the prediction.
      */
-    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Display name of the prediction.
      */
-    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The prediction grades.
      */
-    grades?: pulumi.Input<pulumi.Input<inputs.customerinsights.PredictionGradesArgs>[]>;
+    grades?: pulumi.Input<pulumi.Input<inputs.customerinsights.PredictionGradesArgs>[] | undefined>;
     /**
      * The name of the hub.
      */
@@ -236,15 +236,15 @@ export interface PredictionArgs {
     /**
      * Interaction types involved in the prediction.
      */
-    involvedInteractionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    involvedInteractionTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * KPI types involved in the prediction.
      */
-    involvedKpiTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    involvedKpiTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Relationships involved in the prediction.
      */
-    involvedRelationships?: pulumi.Input<pulumi.Input<string>[]>;
+    involvedRelationships?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Definition of the link mapping of prediction.
      */
@@ -260,7 +260,7 @@ export interface PredictionArgs {
     /**
      * Name of the prediction.
      */
-    predictionName?: pulumi.Input<string>;
+    predictionName?: pulumi.Input<string | undefined>;
     /**
      * Primary profile type.
      */

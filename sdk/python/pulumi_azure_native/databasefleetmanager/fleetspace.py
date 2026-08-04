@@ -24,8 +24,8 @@ class FleetspaceArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['FleetspacePropertiesArgs']] = None):
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['FleetspacePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Fleetspace resource.
 
@@ -67,26 +67,26 @@ class FleetspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="fleetspaceName")
-    def fleetspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleetspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the fleetspace.
         """
         return pulumi.get(self, "fleetspace_name")
 
     @fleetspace_name.setter
-    def fleetspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleetspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleetspace_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FleetspacePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['FleetspacePropertiesArgs']]:
         """
         A Fleetspace properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FleetspacePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['FleetspacePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,16 +96,15 @@ class Fleetspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FleetspacePropertiesArgs', 'FleetspacePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FleetspacePropertiesArgs', 'FleetspacePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A fleetspace.
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class Fleetspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param FleetspaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class Fleetspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FleetspacePropertiesArgs', 'FleetspacePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FleetspacePropertiesArgs', 'FleetspacePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

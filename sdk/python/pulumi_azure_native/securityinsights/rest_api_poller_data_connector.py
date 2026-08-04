@@ -28,13 +28,13 @@ class RestApiPollerDataConnectorArgs:
                  request: pulumi.Input['RestApiPollerRequestConfigArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 add_on_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 dcr_config: Optional[pulumi.Input['DCRConfigurationArgs']] = None,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 paging: Optional[pulumi.Input['RestApiPollerRequestPagingConfigArgs']] = None,
-                 response: Optional[pulumi.Input['CcpResponseConfigArgs']] = None):
+                 add_on_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 dcr_config: pulumi.Input[Optional['DCRConfigurationArgs']] = None,
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 paging: pulumi.Input[Optional['RestApiPollerRequestPagingConfigArgs']] = None,
+                 response: pulumi.Input[Optional['CcpResponseConfigArgs']] = None):
         """
         The set of arguments for constructing a RestApiPollerDataConnector resource.
 
@@ -149,86 +149,86 @@ class RestApiPollerDataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="addOnAttributes")
-    def add_on_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def add_on_attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The add on attributes. The key name will become attribute name (a column) and the value will become the attribute value in the payload.
         """
         return pulumi.get(self, "add_on_attributes")
 
     @add_on_attributes.setter
-    def add_on_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def add_on_attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "add_on_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorId")
-    def data_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector ID
         """
         return pulumi.get(self, "data_connector_id")
 
     @data_connector_id.setter
-    def data_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Log Analytics table destination.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dcrConfig")
-    def dcr_config(self) -> Optional[pulumi.Input['DCRConfigurationArgs']]:
+    def dcr_config(self) -> pulumi.Input[Optional['DCRConfigurationArgs']]:
         """
         The DCR related properties.
         """
         return pulumi.get(self, "dcr_config")
 
     @dcr_config.setter
-    def dcr_config(self, value: Optional[pulumi.Input['DCRConfigurationArgs']]):
+    def dcr_config(self, value: pulumi.Input[Optional['DCRConfigurationArgs']]):
         pulumi.set(self, "dcr_config", value)
 
     @_builtins.property
     @pulumi.getter(name="isActive")
-    def is_active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the connector is active or not.
         """
         return pulumi.get(self, "is_active")
 
     @is_active.setter
-    def is_active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_active", value)
 
     @_builtins.property
     @pulumi.getter
-    def paging(self) -> Optional[pulumi.Input['RestApiPollerRequestPagingConfigArgs']]:
+    def paging(self) -> pulumi.Input[Optional['RestApiPollerRequestPagingConfigArgs']]:
         """
         The paging configuration.
         """
         return pulumi.get(self, "paging")
 
     @paging.setter
-    def paging(self, value: Optional[pulumi.Input['RestApiPollerRequestPagingConfigArgs']]):
+    def paging(self, value: pulumi.Input[Optional['RestApiPollerRequestPagingConfigArgs']]):
         pulumi.set(self, "paging", value)
 
     @_builtins.property
     @pulumi.getter
-    def response(self) -> Optional[pulumi.Input['CcpResponseConfigArgs']]:
+    def response(self) -> pulumi.Input[Optional['CcpResponseConfigArgs']]:
         """
         The response configuration.
         """
         return pulumi.get(self, "response")
 
     @response.setter
-    def response(self, value: Optional[pulumi.Input['CcpResponseConfigArgs']]):
+    def response(self, value: pulumi.Input[Optional['CcpResponseConfigArgs']]):
         pulumi.set(self, "response", value)
 
 
@@ -238,25 +238,24 @@ class RestApiPollerDataConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_on_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth: Optional[pulumi.Input[Union[Union['AWSAuthModelArgs', 'AWSAuthModelArgsDict'], Union['ApiKeyAuthModelArgs', 'ApiKeyAuthModelArgsDict'], Union['BasicAuthModelArgs', 'BasicAuthModelArgsDict'], Union['GCPAuthModelArgs', 'GCPAuthModelArgsDict'], Union['GenericBlobSbsAuthModelArgs', 'GenericBlobSbsAuthModelArgsDict'], Union['GitHubAuthModelArgs', 'GitHubAuthModelArgsDict'], Union['JwtAuthModelArgs', 'JwtAuthModelArgsDict'], Union['NoneAuthModelArgs', 'NoneAuthModelArgsDict'], Union['OAuthModelArgs', 'OAuthModelArgsDict'], Union['OracleAuthModelArgs', 'OracleAuthModelArgsDict'], Union['SessionAuthModelArgs', 'SessionAuthModelArgsDict']]]] = None,
-                 connector_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 dcr_config: Optional[pulumi.Input[Union['DCRConfigurationArgs', 'DCRConfigurationArgsDict']]] = None,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 paging: Optional[pulumi.Input[Union['RestApiPollerRequestPagingConfigArgs', 'RestApiPollerRequestPagingConfigArgsDict']]] = None,
-                 request: Optional[pulumi.Input[Union['RestApiPollerRequestConfigArgs', 'RestApiPollerRequestConfigArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response: Optional[pulumi.Input[Union['CcpResponseConfigArgs', 'CcpResponseConfigArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 add_on_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth: pulumi.Input[Optional[Union[Union['AWSAuthModelArgs', 'AWSAuthModelArgsDict'], Union['ApiKeyAuthModelArgs', 'ApiKeyAuthModelArgsDict'], Union['BasicAuthModelArgs', 'BasicAuthModelArgsDict'], Union['GCPAuthModelArgs', 'GCPAuthModelArgsDict'], Union['GenericBlobSbsAuthModelArgs', 'GenericBlobSbsAuthModelArgsDict'], Union['GitHubAuthModelArgs', 'GitHubAuthModelArgsDict'], Union['JwtAuthModelArgs', 'JwtAuthModelArgsDict'], Union['NoneAuthModelArgs', 'NoneAuthModelArgsDict'], Union['OAuthModelArgs', 'OAuthModelArgsDict'], Union['OracleAuthModelArgs', 'OracleAuthModelArgsDict'], Union['SessionAuthModelArgs', 'SessionAuthModelArgsDict']]]] = None,
+                 connector_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 dcr_config: pulumi.Input[Optional[Union['DCRConfigurationArgs', 'DCRConfigurationArgsDict']]] = None,
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 paging: pulumi.Input[Optional[Union['RestApiPollerRequestPagingConfigArgs', 'RestApiPollerRequestPagingConfigArgsDict']]] = None,
+                 request: pulumi.Input[Optional[Union['RestApiPollerRequestConfigArgs', 'RestApiPollerRequestConfigArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response: pulumi.Input[Optional[Union['CcpResponseConfigArgs', 'CcpResponseConfigArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents Rest Api Poller data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,7 +285,6 @@ class RestApiPollerDataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param RestApiPollerDataConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,19 +300,19 @@ class RestApiPollerDataConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_on_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth: Optional[pulumi.Input[Union[Union['AWSAuthModelArgs', 'AWSAuthModelArgsDict'], Union['ApiKeyAuthModelArgs', 'ApiKeyAuthModelArgsDict'], Union['BasicAuthModelArgs', 'BasicAuthModelArgsDict'], Union['GCPAuthModelArgs', 'GCPAuthModelArgsDict'], Union['GenericBlobSbsAuthModelArgs', 'GenericBlobSbsAuthModelArgsDict'], Union['GitHubAuthModelArgs', 'GitHubAuthModelArgsDict'], Union['JwtAuthModelArgs', 'JwtAuthModelArgsDict'], Union['NoneAuthModelArgs', 'NoneAuthModelArgsDict'], Union['OAuthModelArgs', 'OAuthModelArgsDict'], Union['OracleAuthModelArgs', 'OracleAuthModelArgsDict'], Union['SessionAuthModelArgs', 'SessionAuthModelArgsDict']]]] = None,
-                 connector_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 dcr_config: Optional[pulumi.Input[Union['DCRConfigurationArgs', 'DCRConfigurationArgsDict']]] = None,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 paging: Optional[pulumi.Input[Union['RestApiPollerRequestPagingConfigArgs', 'RestApiPollerRequestPagingConfigArgsDict']]] = None,
-                 request: Optional[pulumi.Input[Union['RestApiPollerRequestConfigArgs', 'RestApiPollerRequestConfigArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response: Optional[pulumi.Input[Union['CcpResponseConfigArgs', 'CcpResponseConfigArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 add_on_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth: pulumi.Input[Optional[Union[Union['AWSAuthModelArgs', 'AWSAuthModelArgsDict'], Union['ApiKeyAuthModelArgs', 'ApiKeyAuthModelArgsDict'], Union['BasicAuthModelArgs', 'BasicAuthModelArgsDict'], Union['GCPAuthModelArgs', 'GCPAuthModelArgsDict'], Union['GenericBlobSbsAuthModelArgs', 'GenericBlobSbsAuthModelArgsDict'], Union['GitHubAuthModelArgs', 'GitHubAuthModelArgsDict'], Union['JwtAuthModelArgs', 'JwtAuthModelArgsDict'], Union['NoneAuthModelArgs', 'NoneAuthModelArgsDict'], Union['OAuthModelArgs', 'OAuthModelArgsDict'], Union['OracleAuthModelArgs', 'OracleAuthModelArgsDict'], Union['SessionAuthModelArgs', 'SessionAuthModelArgsDict']]]] = None,
+                 connector_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 dcr_config: pulumi.Input[Optional[Union['DCRConfigurationArgs', 'DCRConfigurationArgsDict']]] = None,
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 paging: pulumi.Input[Optional[Union['RestApiPollerRequestPagingConfigArgs', 'RestApiPollerRequestPagingConfigArgsDict']]] = None,
+                 request: pulumi.Input[Optional[Union['RestApiPollerRequestConfigArgs', 'RestApiPollerRequestConfigArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response: pulumi.Input[Optional[Union['CcpResponseConfigArgs', 'CcpResponseConfigArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

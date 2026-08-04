@@ -75,15 +75,15 @@ class AzureDiskArgsDict(TypedDict):
     """
     Azure Disk Pool Properties
     """
-    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
+    disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgsDict']]]]]
     """
     Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
     """
-    encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
+    encryption: NotRequired[pulumi.Input[Optional['EncryptionArgsDict']]]
     """
     Encryption specifies the encryption configuration for the Azure Disk pool
     """
-    sku_name: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']]]
+    sku_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AzureDiskSkuName']]]]
     """
     Sku name
     """
@@ -91,9 +91,9 @@ class AzureDiskArgsDict(TypedDict):
 @pulumi.input_type
 class AzureDiskArgs:
     def __init__(__self__, *,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 sku_name: Optional[pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']]] = None):
+                 disks: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
+                 sku_name: pulumi.Input[Optional[Union[_builtins.str, 'AzureDiskSkuName']]] = None):
         """
         Azure Disk Pool Properties
 
@@ -110,38 +110,38 @@ class AzureDiskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
+    def disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]:
         """
         Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         """
         return pulumi.get(self, "disks")
 
     @disks.setter
-    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]):
+    def disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]):
         pulumi.set(self, "disks", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionArgs']]:
         """
         Encryption specifies the encryption configuration for the Azure Disk pool
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']]]:
+    def sku_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureDiskSkuName']]]:
         """
         Sku name
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']]]):
+    def sku_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureDiskSkuName']]]):
         pulumi.set(self, "sku_name", value)
 
 
@@ -201,11 +201,11 @@ class ElasticSanArgsDict(TypedDict):
     """
     Elastic San Pool Properties
     """
-    encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
+    encryption: NotRequired[pulumi.Input[Optional['EncryptionArgsDict']]]
     """
     Encryption specifies the encryption configuration for the Azure Disk pool
     """
-    sku_name: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']]]
+    sku_name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ElasticSanSkuName']]]]
     """
     Sku name
     """
@@ -213,8 +213,8 @@ class ElasticSanArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticSanArgs:
     def __init__(__self__, *,
-                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 sku_name: Optional[pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']]] = None):
+                 encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
+                 sku_name: pulumi.Input[Optional[Union[_builtins.str, 'ElasticSanSkuName']]] = None):
         """
         Elastic San Pool Properties
 
@@ -228,26 +228,26 @@ class ElasticSanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionArgs']]:
         """
         Encryption specifies the encryption configuration for the Azure Disk pool
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']]]:
+    def sku_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ElasticSanSkuName']]]:
         """
         Sku name
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']]]):
+    def sku_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ElasticSanSkuName']]]):
         pulumi.set(self, "sku_name", value)
 
 
@@ -263,7 +263,7 @@ class EncryptionArgsDict(TypedDict):
     """
     The URI of the key vault.
     """
-    identity: NotRequired[pulumi.Input['ManagedServiceIdentityArgsDict']]
+    identity: NotRequired[pulumi.Input[Optional['ManagedServiceIdentityArgsDict']]]
     """
     The managed service identities assigned to this resource.
     """
@@ -273,7 +273,7 @@ class EncryptionArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[_builtins.str],
                  key_vault_uri: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None):
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None):
         """
         Encryption key properties for the pool.
 
@@ -312,14 +312,14 @@ class EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
 
@@ -327,11 +327,11 @@ class EphemeralDiskArgsDict(TypedDict):
     """
     Ephemeral Disk Pool Properties
     """
-    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
+    disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgsDict']]]]]
     """
     Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
     """
-    replicas: NotRequired[pulumi.Input[_builtins.float]]
+    replicas: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of data copies. Default 3.
     """
@@ -339,8 +339,8 @@ class EphemeralDiskArgsDict(TypedDict):
 @pulumi.input_type
 class EphemeralDiskArgs:
     def __init__(__self__, *,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
-                 replicas: Optional[pulumi.Input[_builtins.float]] = None):
+                 disks: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]] = None,
+                 replicas: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Ephemeral Disk Pool Properties
 
@@ -356,26 +356,26 @@ class EphemeralDiskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
+    def disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]:
         """
         Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         """
         return pulumi.get(self, "disks")
 
     @disks.setter
-    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]):
+    def disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]]):
         pulumi.set(self, "disks", value)
 
     @_builtins.property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def replicas(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of data copies. Default 3.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def replicas(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "replicas", value)
 
 
@@ -387,7 +387,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -396,7 +396,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -421,14 +421,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -436,15 +436,15 @@ class PoolTypeArgsDict(TypedDict):
     """
     Type of the Pool: ephemeralDisk, azureDisk, or elasticsan
     """
-    azure_disk: NotRequired[pulumi.Input['AzureDiskArgsDict']]
+    azure_disk: NotRequired[pulumi.Input[Optional['AzureDiskArgsDict']]]
     """
     Disk Pool Properties
     """
-    elastic_san: NotRequired[pulumi.Input['ElasticSanArgsDict']]
+    elastic_san: NotRequired[pulumi.Input[Optional['ElasticSanArgsDict']]]
     """
     Elastic San Pool Properties
     """
-    ephemeral_disk: NotRequired[pulumi.Input['EphemeralDiskArgsDict']]
+    ephemeral_disk: NotRequired[pulumi.Input[Optional['EphemeralDiskArgsDict']]]
     """
     Ephemeral Pool Properties
     """
@@ -452,9 +452,9 @@ class PoolTypeArgsDict(TypedDict):
 @pulumi.input_type
 class PoolTypeArgs:
     def __init__(__self__, *,
-                 azure_disk: Optional[pulumi.Input['AzureDiskArgs']] = None,
-                 elastic_san: Optional[pulumi.Input['ElasticSanArgs']] = None,
-                 ephemeral_disk: Optional[pulumi.Input['EphemeralDiskArgs']] = None):
+                 azure_disk: pulumi.Input[Optional['AzureDiskArgs']] = None,
+                 elastic_san: pulumi.Input[Optional['ElasticSanArgs']] = None,
+                 ephemeral_disk: pulumi.Input[Optional['EphemeralDiskArgs']] = None):
         """
         Type of the Pool: ephemeralDisk, azureDisk, or elasticsan
 
@@ -471,38 +471,38 @@ class PoolTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureDisk")
-    def azure_disk(self) -> Optional[pulumi.Input['AzureDiskArgs']]:
+    def azure_disk(self) -> pulumi.Input[Optional['AzureDiskArgs']]:
         """
         Disk Pool Properties
         """
         return pulumi.get(self, "azure_disk")
 
     @azure_disk.setter
-    def azure_disk(self, value: Optional[pulumi.Input['AzureDiskArgs']]):
+    def azure_disk(self, value: pulumi.Input[Optional['AzureDiskArgs']]):
         pulumi.set(self, "azure_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticSan")
-    def elastic_san(self) -> Optional[pulumi.Input['ElasticSanArgs']]:
+    def elastic_san(self) -> pulumi.Input[Optional['ElasticSanArgs']]:
         """
         Elastic San Pool Properties
         """
         return pulumi.get(self, "elastic_san")
 
     @elastic_san.setter
-    def elastic_san(self, value: Optional[pulumi.Input['ElasticSanArgs']]):
+    def elastic_san(self, value: pulumi.Input[Optional['ElasticSanArgs']]):
         pulumi.set(self, "elastic_san", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralDisk")
-    def ephemeral_disk(self) -> Optional[pulumi.Input['EphemeralDiskArgs']]:
+    def ephemeral_disk(self) -> pulumi.Input[Optional['EphemeralDiskArgs']]:
         """
         Ephemeral Pool Properties
         """
         return pulumi.get(self, "ephemeral_disk")
 
     @ephemeral_disk.setter
-    def ephemeral_disk(self, value: Optional[pulumi.Input['EphemeralDiskArgs']]):
+    def ephemeral_disk(self, value: pulumi.Input[Optional['EphemeralDiskArgs']]):
         pulumi.set(self, "ephemeral_disk", value)
 
 
@@ -510,7 +510,7 @@ class RequestsArgsDict(TypedDict):
     """
     Requests for capacity for the pool.
     """
-    storage: NotRequired[pulumi.Input[_builtins.float]]
+    storage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Requested capacity of the pool in GiB.
     """
@@ -518,7 +518,7 @@ class RequestsArgsDict(TypedDict):
 @pulumi.input_type
 class RequestsArgs:
     def __init__(__self__, *,
-                 storage: Optional[pulumi.Input[_builtins.float]] = None):
+                 storage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Requests for capacity for the pool.
 
@@ -531,14 +531,14 @@ class RequestsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def storage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Requested capacity of the pool in GiB.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def storage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "storage", value)
 
 
@@ -546,7 +546,7 @@ class ResourcesArgsDict(TypedDict):
     """
     Resource Requests for the pool.
     """
-    requests: NotRequired[pulumi.Input['RequestsArgsDict']]
+    requests: NotRequired[pulumi.Input[Optional['RequestsArgsDict']]]
     """
     Requests for capacity for the pool.
     """
@@ -554,7 +554,7 @@ class ResourcesArgsDict(TypedDict):
 @pulumi.input_type
 class ResourcesArgs:
     def __init__(__self__, *,
-                 requests: Optional[pulumi.Input['RequestsArgs']] = None):
+                 requests: pulumi.Input[Optional['RequestsArgs']] = None):
         """
         Resource Requests for the pool.
 
@@ -565,14 +565,14 @@ class ResourcesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input['RequestsArgs']]:
+    def requests(self) -> pulumi.Input[Optional['RequestsArgs']]:
         """
         Requests for capacity for the pool.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input['RequestsArgs']]):
+    def requests(self, value: pulumi.Input[Optional['RequestsArgs']]):
         pulumi.set(self, "requests", value)
 
 

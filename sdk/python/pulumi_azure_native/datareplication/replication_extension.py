@@ -24,7 +24,7 @@ class ReplicationExtensionArgs:
                  properties: pulumi.Input['ReplicationExtensionModelPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 replication_extension_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 replication_extension_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationExtension resource.
 
@@ -77,14 +77,14 @@ class ReplicationExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="replicationExtensionName")
-    def replication_extension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The replication extension name.
         """
         return pulumi.get(self, "replication_extension_name")
 
     @replication_extension_name.setter
-    def replication_extension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_extension_name", value)
 
 
@@ -94,10 +94,10 @@ class ReplicationExtension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['ReplicationExtensionModelPropertiesArgs', 'ReplicationExtensionModelPropertiesArgsDict']]] = None,
-                 replication_extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReplicationExtensionModelPropertiesArgs', 'ReplicationExtensionModelPropertiesArgsDict']]] = None,
+                 replication_extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Replication extension model.
@@ -105,7 +105,6 @@ class ReplicationExtension(pulumi.CustomResource):
         Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
 
         Other available API versions: 2024-09-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class ReplicationExtension(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ReplicationExtensionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class ReplicationExtension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['ReplicationExtensionModelPropertiesArgs', 'ReplicationExtensionModelPropertiesArgsDict']]] = None,
-                 replication_extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReplicationExtensionModelPropertiesArgs', 'ReplicationExtensionModelPropertiesArgsDict']]] = None,
+                 replication_extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

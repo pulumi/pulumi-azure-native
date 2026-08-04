@@ -122,7 +122,6 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[_builtins.str] = Non
 
     Other available API versions: 2016-08-01, 2018-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str name: The name of the web app.
     :param _builtins.str namespace_name: The namespace for this hybrid connection.
     :param _builtins.str relay_name: The relay name for this hybrid connection.
@@ -145,11 +144,11 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[_builtins.str] = Non
         send_key_name=pulumi.get(__ret__, 'send_key_name'),
         send_key_value=pulumi.get(__ret__, 'send_key_value'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    slot: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_hybrid_connection_keys_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    slot: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppHybridConnectionKeysSlotResult]:
     """
     Gets the send key name and value for a Hybrid Connection.
@@ -157,7 +156,6 @@ def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[
     Uses Azure REST API version 2018-11-01.
 
     Other available API versions: 2016-08-01, 2018-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str name: The name of the web app.
     :param _builtins.str namespace_name: The namespace for this hybrid connection.

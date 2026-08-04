@@ -23,8 +23,8 @@ class CompoundAssessmentOperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 compound_assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['CompoundAssessmentPropertiesArgs']] = None):
+                 compound_assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['CompoundAssessmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a CompoundAssessmentOperation resource.
 
@@ -66,26 +66,26 @@ class CompoundAssessmentOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="compoundAssessmentName")
-    def compound_assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compound_assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compound Assessment ARM name
         """
         return pulumi.get(self, "compound_assessment_name")
 
     @compound_assessment_name.setter
-    def compound_assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compound_assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compound_assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CompoundAssessmentPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['CompoundAssessmentPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CompoundAssessmentPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['CompoundAssessmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,16 +95,15 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compound_assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CompoundAssessmentPropertiesArgs', 'CompoundAssessmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 compound_assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CompoundAssessmentPropertiesArgs', 'CompoundAssessmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Compound assessment resource.
 
         Uses Azure REST API version 2024-03-03-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
-
         :param str resource_name: The name of the resource.
         :param CompoundAssessmentOperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compound_assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CompoundAssessmentPropertiesArgs', 'CompoundAssessmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 compound_assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CompoundAssessmentPropertiesArgs', 'CompoundAssessmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

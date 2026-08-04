@@ -101,7 +101,7 @@ export class ElasticVolume extends pulumi.CustomResource {
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["location"] = args?.location;
             resourceInputs["poolName"] = args?.poolName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.netapp.elasticVolumePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.netapp.elasticVolumePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["volumeName"] = args?.volumeName;
@@ -140,7 +140,7 @@ export interface ElasticVolumeArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the ElasticCapacityPool
      */
@@ -148,7 +148,7 @@ export interface ElasticVolumeArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.netapp.ElasticVolumePropertiesArgs>;
+    properties?: pulumi.Input<inputs.netapp.ElasticVolumePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -156,13 +156,13 @@ export interface ElasticVolumeArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the ElasticVolume
      */
-    volumeName?: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

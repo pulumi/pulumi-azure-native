@@ -240,7 +240,6 @@ def get_vmm_server(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str vmm_server_name: Name of the VMMServer.
     """
@@ -267,8 +266,8 @@ def get_vmm_server(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         version=pulumi.get(__ret__, 'version'))
-def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          vmm_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vmm_server_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          vmm_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVmmServerResult]:
     """
     Implements VMMServer GET method.
@@ -276,7 +275,6 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2023-04-01-preview.
 
     Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str vmm_server_name: Name of the VMMServer.

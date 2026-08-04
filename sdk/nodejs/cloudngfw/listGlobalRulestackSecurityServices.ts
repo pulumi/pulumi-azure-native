@@ -69,7 +69,7 @@ export interface ListGlobalRulestackSecurityServicesOutputArgs {
      * GlobalRulestack resource name
      */
     globalRulestackName: pulumi.Input<string>;
-    skip?: pulumi.Input<string>;
-    top?: pulumi.Input<number>;
+    skip?: pulumi.Input<string | undefined>;
+    top?: pulumi.Input<number | undefined>;
     type: pulumi.Input<string>;
 }

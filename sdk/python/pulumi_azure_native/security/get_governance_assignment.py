@@ -179,7 +179,6 @@ def get_governance_assignment(assessment_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-01-01-preview.
 
-
     :param _builtins.str assessment_name: The assessment key of the governance assignment.
     :param _builtins.str assignment_key: The governance assignment key.
     :param _builtins.str scope: The scope of the governance assignment.
@@ -203,15 +202,14 @@ def get_governance_assignment(assessment_name: Optional[_builtins.str] = None,
         remediation_eta=pulumi.get(__ret__, 'remediation_eta'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     assignment_key: Optional[pulumi.Input[_builtins.str]] = None,
-                                     scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_governance_assignment_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     assignment_key: pulumi.Input[Optional[_builtins.str]] = None,
+                                     scope: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGovernanceAssignmentResult]:
     """
     Get a specific governanceAssignment for the requested scope by AssignmentKey
 
     Uses Azure REST API version 2022-01-01-preview.
-
 
     :param _builtins.str assessment_name: The assessment key of the governance assignment.
     :param _builtins.str assignment_key: The governance assignment key.

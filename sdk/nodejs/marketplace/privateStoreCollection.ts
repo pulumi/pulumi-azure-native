@@ -157,23 +157,23 @@ export interface PrivateStoreCollectionArgs {
     /**
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */
-    allSubscriptions?: pulumi.Input<boolean>;
+    allSubscriptions?: pulumi.Input<boolean | undefined>;
     /**
      * Gets or sets the association with Commercial's Billing Account.
      */
-    claim?: pulumi.Input<string>;
+    claim?: pulumi.Input<string | undefined>;
     /**
      * The collection ID
      */
-    collectionId?: pulumi.Input<string>;
+    collectionId?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets collection name.
      */
-    collectionName?: pulumi.Input<string>;
+    collectionName?: pulumi.Input<string | undefined>;
     /**
      * Indicating whether the collection is enabled or disabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The store ID - must use the tenant ID
      */
@@ -181,5 +181,5 @@ export interface PrivateStoreCollectionArgs {
     /**
      * Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
      */
-    subscriptionsList?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionsList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

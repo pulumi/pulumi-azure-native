@@ -226,7 +226,6 @@ def get_gateway(gateway_resource_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-01-preview.
 
-
     :param _builtins.str gateway_resource_name: The identity of the gateway.
     :param _builtins.str resource_group_name: Azure resource group name
     """
@@ -252,14 +251,13 @@ def get_gateway(gateway_resource_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tcp=pulumi.get(__ret__, 'tcp'),
         type=pulumi.get(__ret__, 'type'))
-def get_gateway_output(gateway_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_output(gateway_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
 
     Uses Azure REST API version 2018-09-01-preview.
-
 
     :param _builtins.str gateway_resource_name: The identity of the gateway.
     :param _builtins.str resource_group_name: Azure resource group name

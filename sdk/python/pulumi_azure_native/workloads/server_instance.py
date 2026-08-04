@@ -23,7 +23,7 @@ class ServerInstanceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sap_discovery_site_name: pulumi.Input[_builtins.str],
                  sap_instance_name: pulumi.Input[_builtins.str],
-                 server_instance_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 server_instance_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerInstance resource.
 
@@ -76,14 +76,14 @@ class ServerInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverInstanceName")
-    def server_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Server instance resource for SAP Migration.
         """
         return pulumi.get(self, "server_instance_name")
 
     @server_instance_name.setter
-    def server_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_instance_name", value)
 
 
@@ -93,16 +93,15 @@ class ServerInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_discovery_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Define the Server Instance resource.
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +121,6 @@ class ServerInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ServerInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,10 +136,10 @@ class ServerInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_discovery_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -217,7 +217,6 @@ def get_user(lab_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
@@ -244,9 +243,9 @@ def get_user(lab_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         total_usage=pulumi.get(__ret__, 'total_usage'),
         type=pulumi.get(__ret__, 'type'))
-def get_user_output(lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    user_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    user_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Returns the properties of a lab user.
@@ -254,7 +253,6 @@ def get_user_output(lab_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2023-06-07.
 
     Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

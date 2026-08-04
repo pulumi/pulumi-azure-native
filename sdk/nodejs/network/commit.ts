@@ -112,7 +112,7 @@ export interface CommitArgs {
     /**
      * The name of the commit.
      */
-    commitName?: pulumi.Input<string>;
+    commitName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */
@@ -120,7 +120,7 @@ export interface CommitArgs {
     /**
      * The Commit properties
      */
-    properties?: pulumi.Input<inputs.network.CommitPropertiesArgs>;
+    properties?: pulumi.Input<inputs.network.CommitPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

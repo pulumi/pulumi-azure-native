@@ -23,25 +23,25 @@ __all__ = ['ExpressRouteCircuitArgs', 'ExpressRouteCircuit']
 class ExpressRouteCircuitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_classic_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]] = None,
-                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.float]] = None,
-                 circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 circuit_provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_direct_port_rate_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_port: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 gateway_manager_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_reach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]] = None,
-                 service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_provider_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_provider_properties: Optional[pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs']] = None,
-                 service_provider_provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ServiceProviderProvisioningState']]] = None,
-                 sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allow_classic_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]] = None,
+                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.float]] = None,
+                 circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 circuit_provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_direct_port_rate_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_port: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 gateway_manager_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_reach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peerings: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]] = None,
+                 service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_provider_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_provider_properties: pulumi.Input[Optional['ExpressRouteCircuitServiceProviderPropertiesArgs']] = None,
+                 service_provider_provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ServiceProviderProvisioningState']]] = None,
+                 sku: pulumi.Input[Optional['ExpressRouteCircuitSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuit resource.
 
@@ -122,31 +122,31 @@ class ExpressRouteCircuitArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowClassicOperations")
-    def allow_classic_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_classic_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow classic operations.
         """
         return pulumi.get(self, "allow_classic_operations")
 
     @allow_classic_operations.setter
-    def allow_classic_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_classic_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_classic_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorizationKey.
         """
         return pulumi.get(self, "authorization_key")
 
     @authorization_key.setter
-    def authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]]:
+    def authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]]:
         """
         The list of authorizations.
         These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -154,120 +154,120 @@ class ExpressRouteCircuitArgs:
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]]):
+    def authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]]):
         pulumi.set(self, "authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="bandwidthInGbps")
-    def bandwidth_in_gbps(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def bandwidth_in_gbps(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
 
     @bandwidth_in_gbps.setter
-    def bandwidth_in_gbps(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def bandwidth_in_gbps(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "bandwidth_in_gbps", value)
 
     @_builtins.property
     @pulumi.getter(name="circuitName")
-    def circuit_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def circuit_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the circuit.
         """
         return pulumi.get(self, "circuit_name")
 
     @circuit_name.setter
-    def circuit_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def circuit_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "circuit_name", value)
 
     @_builtins.property
     @pulumi.getter(name="circuitProvisioningState")
-    def circuit_provisioning_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def circuit_provisioning_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CircuitProvisioningState state of the resource.
         """
         return pulumi.get(self, "circuit_provisioning_state")
 
     @circuit_provisioning_state.setter
-    def circuit_provisioning_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def circuit_provisioning_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "circuit_provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDirectPortRateLimit")
-    def enable_direct_port_rate_limit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_direct_port_rate_limit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
         """
         return pulumi.get(self, "enable_direct_port_rate_limit")
 
     @enable_direct_port_rate_limit.setter
-    def enable_direct_port_rate_limit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_direct_port_rate_limit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_direct_port_rate_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRoutePort")
-    def express_route_port(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def express_route_port(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
         """
         return pulumi.get(self, "express_route_port")
 
     @express_route_port.setter
-    def express_route_port(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def express_route_port(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "express_route_port", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayManagerEtag")
-    def gateway_manager_etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_manager_etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GatewayManager Etag.
         """
         return pulumi.get(self, "gateway_manager_etag")
 
     @gateway_manager_etag.setter
-    def gateway_manager_etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_manager_etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_manager_etag", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReachEnabled")
-    def global_reach_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def global_reach_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag denoting global reach status.
         """
         return pulumi.get(self, "global_reach_enabled")
 
     @global_reach_enabled.setter
-    def global_reach_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def global_reach_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "global_reach_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]:
+    def peerings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]:
         """
         The list of peerings.
         These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -275,79 +275,79 @@ class ExpressRouteCircuitArgs:
         return pulumi.get(self, "peerings")
 
     @peerings.setter
-    def peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]):
+    def peerings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]):
         pulumi.set(self, "peerings", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceKey")
-    def service_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ServiceKey.
         """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
-    def service_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_key", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceProviderNotes")
-    def service_provider_notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_provider_notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ServiceProviderNotes.
         """
         return pulumi.get(self, "service_provider_notes")
 
     @service_provider_notes.setter
-    def service_provider_notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_provider_notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_provider_notes", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceProviderProperties")
-    def service_provider_properties(self) -> Optional[pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs']]:
+    def service_provider_properties(self) -> pulumi.Input[Optional['ExpressRouteCircuitServiceProviderPropertiesArgs']]:
         """
         The ServiceProviderProperties.
         """
         return pulumi.get(self, "service_provider_properties")
 
     @service_provider_properties.setter
-    def service_provider_properties(self, value: Optional[pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs']]):
+    def service_provider_properties(self, value: pulumi.Input[Optional['ExpressRouteCircuitServiceProviderPropertiesArgs']]):
         pulumi.set(self, "service_provider_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceProviderProvisioningState")
-    def service_provider_provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceProviderProvisioningState']]]:
+    def service_provider_provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceProviderProvisioningState']]]:
         """
         The ServiceProviderProvisioningState state of the resource.
         """
         return pulumi.get(self, "service_provider_provisioning_state")
 
     @service_provider_provisioning_state.setter
-    def service_provider_provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceProviderProvisioningState']]]):
+    def service_provider_provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceProviderProvisioningState']]]):
         pulumi.set(self, "service_provider_provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ExpressRouteCircuitSkuArgs']]:
         """
         The SKU.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ExpressRouteCircuitSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -357,26 +357,26 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_classic_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitAuthorizationArgs', 'ExpressRouteCircuitAuthorizationArgsDict']]]]] = None,
-                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.float]] = None,
-                 circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 circuit_provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_direct_port_rate_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_port: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 gateway_manager_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_reach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_provider_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_provider_properties: Optional[pulumi.Input[Union['ExpressRouteCircuitServiceProviderPropertiesArgs', 'ExpressRouteCircuitServiceProviderPropertiesArgsDict']]] = None,
-                 service_provider_provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ServiceProviderProvisioningState']]] = None,
-                 sku: Optional[pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_classic_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressRouteCircuitAuthorizationArgs', 'ExpressRouteCircuitAuthorizationArgsDict']]]]] = None,
+                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.float]] = None,
+                 circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 circuit_provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_direct_port_rate_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_port: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 gateway_manager_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_reach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peerings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_provider_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_provider_properties: pulumi.Input[Optional[Union['ExpressRouteCircuitServiceProviderPropertiesArgs', 'ExpressRouteCircuitServiceProviderPropertiesArgsDict']]] = None,
+                 service_provider_provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ServiceProviderProvisioningState']]] = None,
+                 sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         ExpressRouteCircuit resource.
@@ -384,7 +384,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -424,7 +423,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -440,26 +438,26 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_classic_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitAuthorizationArgs', 'ExpressRouteCircuitAuthorizationArgsDict']]]]] = None,
-                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.float]] = None,
-                 circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 circuit_provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_direct_port_rate_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 express_route_port: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 gateway_manager_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_reach_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_provider_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_provider_properties: Optional[pulumi.Input[Union['ExpressRouteCircuitServiceProviderPropertiesArgs', 'ExpressRouteCircuitServiceProviderPropertiesArgsDict']]] = None,
-                 service_provider_provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ServiceProviderProvisioningState']]] = None,
-                 sku: Optional[pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_classic_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressRouteCircuitAuthorizationArgs', 'ExpressRouteCircuitAuthorizationArgsDict']]]]] = None,
+                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.float]] = None,
+                 circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 circuit_provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_direct_port_rate_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 express_route_port: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 gateway_manager_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_reach_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peerings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeeringArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_provider_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_provider_properties: pulumi.Input[Optional[Union['ExpressRouteCircuitServiceProviderPropertiesArgs', 'ExpressRouteCircuitServiceProviderPropertiesArgsDict']]] = None,
+                 service_provider_provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ServiceProviderProvisioningState']]] = None,
+                 sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

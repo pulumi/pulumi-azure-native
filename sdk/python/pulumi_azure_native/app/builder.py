@@ -24,11 +24,11 @@ class BuilderArgs:
     def __init__(__self__, *,
                  environment_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_registries: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRegistryArgs']]]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Builder resource.
 
@@ -79,62 +79,62 @@ class BuilderArgs:
 
     @_builtins.property
     @pulumi.getter(name="builderName")
-    def builder_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def builder_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the builder.
         """
         return pulumi.get(self, "builder_name")
 
     @builder_name.setter
-    def builder_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def builder_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "builder_name", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistries")
-    def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]]]:
+    def container_registries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRegistryArgs']]]]:
         """
         List of mappings of container registries and the managed identity used to connect to it.
         """
         return pulumi.get(self, "container_registries")
 
     @container_registries.setter
-    def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]]]):
+    def container_registries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRegistryArgs']]]]):
         pulumi.set(self, "container_registries", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class Builder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerRegistryArgs', 'ContainerRegistryArgsDict']]]]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRegistryArgs', 'ContainerRegistryArgsDict']]]]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Information about the SourceToCloud builder resource.
@@ -158,7 +158,6 @@ class Builder(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +182,6 @@ class Builder(pulumi.CustomResource):
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BuilderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,13 +197,13 @@ class Builder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerRegistryArgs', 'ContainerRegistryArgsDict']]]]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRegistryArgs', 'ContainerRegistryArgsDict']]]]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

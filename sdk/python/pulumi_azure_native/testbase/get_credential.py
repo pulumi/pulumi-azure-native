@@ -131,7 +131,6 @@ def get_credential(credential_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-11-01-preview.
 
-
     :param _builtins.str credential_name: The credential resource name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str test_base_account_name: The resource name of the Test Base Account.
@@ -151,15 +150,14 @@ def get_credential(credential_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_credential_output(credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_credential_output(credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialResult]:
     """
     Gets a test base credential Resource
 
     Uses Azure REST API version 2023-11-01-preview.
-
 
     :param _builtins.str credential_name: The credential resource name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

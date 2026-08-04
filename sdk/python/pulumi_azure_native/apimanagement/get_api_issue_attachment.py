@@ -134,7 +134,6 @@ def get_api_issue_attachment(api_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str api_id: API identifier. Must be unique in the current API Management service instance.
     :param _builtins.str attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
     :param _builtins.str issue_id: Issue identifier. Must be unique in the current API Management service instance.
@@ -158,11 +157,11 @@ def get_api_issue_attachment(api_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_issue_attachment_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    issue_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_issue_attachment_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    issue_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiIssueAttachmentResult]:
     """
     Gets the details of the issue Attachment for an API specified by its identifier.
@@ -170,7 +169,6 @@ def get_api_issue_attachment_output(api_id: Optional[pulumi.Input[_builtins.str]
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str api_id: API identifier. Must be unique in the current API Management service instance.
     :param _builtins.str attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.

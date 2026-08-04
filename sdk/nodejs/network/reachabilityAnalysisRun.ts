@@ -123,7 +123,7 @@ export interface ReachabilityAnalysisRunArgs {
     /**
      * Reachability Analysis Run name.
      */
-    reachabilityAnalysisRunName?: pulumi.Input<string>;
+    reachabilityAnalysisRunName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

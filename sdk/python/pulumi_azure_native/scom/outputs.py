@@ -228,7 +228,7 @@ class DomainControllerPropertiesResponse(dict):
         """
         The properties of domain controller to which SCOM and SQL servers join for AuthN/AuthZ.
 
-        :param _builtins.str dns_server: IP address of DNS server 
+        :param _builtins.str dns_server: IP address of DNS server
         :param _builtins.str domain_name: Fully qualified domain name
         :param _builtins.str ou_path: Organizational Unit path in which the SCOM servers will be present
         """
@@ -245,7 +245,7 @@ class DomainControllerPropertiesResponse(dict):
     @pulumi.getter(name="dnsServer")
     def dns_server(self) -> Optional[_builtins.str]:
         """
-        IP address of DNS server 
+        IP address of DNS server
         """
         return pulumi.get(self, "dns_server")
 
@@ -300,8 +300,8 @@ class DomainUserCredentialsResponse(dict):
         Get Domain user name and password from key vault
 
         :param _builtins.str key_vault_url: Key vault url to get the domain username and password
-        :param _builtins.str password_secret: Domain Password secret 
-        :param _builtins.str user_name_secret: Domain user name secret 
+        :param _builtins.str password_secret: Domain Password secret
+        :param _builtins.str user_name_secret: Domain user name secret
         """
         if key_vault_url is not None:
             pulumi.set(__self__, "key_vault_url", key_vault_url)
@@ -322,7 +322,7 @@ class DomainUserCredentialsResponse(dict):
     @pulumi.getter(name="passwordSecret")
     def password_secret(self) -> Optional[_builtins.str]:
         """
-        Domain Password secret 
+        Domain Password secret
         """
         return pulumi.get(self, "password_secret")
 
@@ -330,7 +330,7 @@ class DomainUserCredentialsResponse(dict):
     @pulumi.getter(name="userNameSecret")
     def user_name_secret(self) -> Optional[_builtins.str]:
         """
-        Domain user name secret 
+        Domain user name secret
         """
         return pulumi.get(self, "user_name_secret")
 

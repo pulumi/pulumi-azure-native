@@ -21,25 +21,25 @@ class AndroidMAMPolicyByNameArgs:
     def __init__(__self__, *,
                  friendly_name: pulumi.Input[_builtins.str],
                  host_name: pulumi.Input[_builtins.str],
-                 access_recheck_offline_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_recheck_online_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_sharing_from_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_sharing_to_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 clipboard_sharing_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_backup: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_compliance: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_sharing_save_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_browser: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline_wipe_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 pin: Optional[pulumi.Input[_builtins.str]] = None,
-                 pin_num_retry: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 screen_capture: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_recheck_offline_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_recheck_online_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_sharing_from_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_sharing_to_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 clipboard_sharing_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_backup: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_compliance: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_sharing_save_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_browser: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline_wipe_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 pin: pulumi.Input[Optional[_builtins.str]] = None,
+                 pin_num_retry: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 screen_capture: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AndroidMAMPolicyByName resource.
 
@@ -134,182 +134,182 @@ class AndroidMAMPolicyByNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessRecheckOfflineTimeout")
-    def access_recheck_offline_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_recheck_offline_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "access_recheck_offline_timeout")
 
     @access_recheck_offline_timeout.setter
-    def access_recheck_offline_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_recheck_offline_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_recheck_offline_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="accessRecheckOnlineTimeout")
-    def access_recheck_online_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_recheck_online_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "access_recheck_online_timeout")
 
     @access_recheck_online_timeout.setter
-    def access_recheck_online_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_recheck_online_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_recheck_online_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="appSharingFromLevel")
-    def app_sharing_from_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_sharing_from_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "app_sharing_from_level")
 
     @app_sharing_from_level.setter
-    def app_sharing_from_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_sharing_from_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_sharing_from_level", value)
 
     @_builtins.property
     @pulumi.getter(name="appSharingToLevel")
-    def app_sharing_to_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_sharing_to_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "app_sharing_to_level")
 
     @app_sharing_to_level.setter
-    def app_sharing_to_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_sharing_to_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_sharing_to_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clipboardSharingLevel")
-    def clipboard_sharing_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def clipboard_sharing_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "clipboard_sharing_level")
 
     @clipboard_sharing_level.setter
-    def clipboard_sharing_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def clipboard_sharing_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "clipboard_sharing_level", value)
 
     @_builtins.property
     @pulumi.getter(name="dataBackup")
-    def data_backup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_backup(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "data_backup")
 
     @data_backup.setter
-    def data_backup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_backup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_backup", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceCompliance")
-    def device_compliance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_compliance(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "device_compliance")
 
     @device_compliance.setter
-    def device_compliance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_compliance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_compliance", value)
 
     @_builtins.property
     @pulumi.getter(name="fileEncryption")
-    def file_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "file_encryption")
 
     @file_encryption.setter
-    def file_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSharingSaveAs")
-    def file_sharing_save_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_sharing_save_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "file_sharing_save_as")
 
     @file_sharing_save_as.setter
-    def file_sharing_save_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_sharing_save_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_sharing_save_as", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBrowser")
-    def managed_browser(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_browser(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_browser")
 
     @managed_browser.setter
-    def managed_browser(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_browser(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_browser", value)
 
     @_builtins.property
     @pulumi.getter(name="offlineWipeTimeout")
-    def offline_wipe_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offline_wipe_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "offline_wipe_timeout")
 
     @offline_wipe_timeout.setter
-    def offline_wipe_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offline_wipe_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offline_wipe_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def pin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pin(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "pin")
 
     @pin.setter
-    def pin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pin", value)
 
     @_builtins.property
     @pulumi.getter(name="pinNumRetry")
-    def pin_num_retry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pin_num_retry(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "pin_num_retry")
 
     @pin_num_retry.setter
-    def pin_num_retry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pin_num_retry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pin_num_retry", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the policy
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="screenCapture")
-    def screen_capture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def screen_capture(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "screen_capture")
 
     @screen_capture.setter
-    def screen_capture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def screen_capture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "screen_capture", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource Tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -319,33 +319,32 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_recheck_offline_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_recheck_online_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_sharing_from_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_sharing_to_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 clipboard_sharing_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_backup: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_compliance: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_sharing_save_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_browser: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline_wipe_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 pin: Optional[pulumi.Input[_builtins.str]] = None,
-                 pin_num_retry: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 screen_capture: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_recheck_offline_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_recheck_online_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_sharing_from_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_sharing_to_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 clipboard_sharing_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_backup: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_compliance: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_sharing_save_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_browser: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline_wipe_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 pin: pulumi.Input[Optional[_builtins.str]] = None,
+                 pin_num_retry: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 screen_capture: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Android Policy entity for Intune MAM.
 
         Uses Azure REST API version 2015-01-14-preview. In version 2.x of the Azure Native provider, it used API version 2015-01-14-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -365,7 +364,6 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-01-14-preview. In version 2.x of the Azure Native provider, it used API version 2015-01-14-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AndroidMAMPolicyByNameArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -381,27 +379,27 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_recheck_offline_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_recheck_online_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_sharing_from_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_sharing_to_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 clipboard_sharing_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_backup: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_compliance: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_sharing_save_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_browser: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline_wipe_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 pin: Optional[pulumi.Input[_builtins.str]] = None,
-                 pin_num_retry: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 screen_capture: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_recheck_offline_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_recheck_online_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_sharing_from_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_sharing_to_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 clipboard_sharing_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_backup: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_compliance: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_sharing_save_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_browser: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline_wipe_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 pin: pulumi.Input[Optional[_builtins.str]] = None,
+                 pin_num_retry: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 screen_capture: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

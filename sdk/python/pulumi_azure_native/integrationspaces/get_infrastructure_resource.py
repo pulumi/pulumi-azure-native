@@ -143,7 +143,6 @@ def get_infrastructure_resource(infrastructure_resource_name: Optional[_builtins
 
     Uses Azure REST API version 2023-11-14-preview.
 
-
     :param _builtins.str infrastructure_resource_name: The name of the infrastructure resource in the space.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str space_name: The name of the space
@@ -164,15 +163,14 @@ def get_infrastructure_resource(infrastructure_resource_name: Optional[_builtins
         resource_type=pulumi.get(__ret__, 'resource_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_infrastructure_resource_output(infrastructure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       space_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_infrastructure_resource_output(infrastructure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       space_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureResourceResult]:
     """
     Get a InfrastructureResource
 
     Uses Azure REST API version 2023-11-14-preview.
-
 
     :param _builtins.str infrastructure_resource_name: The name of the infrastructure resource in the space.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

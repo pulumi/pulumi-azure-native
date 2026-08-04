@@ -26,9 +26,9 @@ class VolumeArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  size_gi_b: pulumi.Input[_builtins.float],
                  volume_group_name: pulumi.Input[_builtins.str],
-                 creation_data: Optional[pulumi.Input['SourceCreationDataArgs']] = None,
-                 managed_by: Optional[pulumi.Input['ManagedByInfoArgs']] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 creation_data: pulumi.Input[Optional['SourceCreationDataArgs']] = None,
+                 managed_by: pulumi.Input[Optional['ManagedByInfoArgs']] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
 
@@ -101,38 +101,38 @@ class VolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> Optional[pulumi.Input['SourceCreationDataArgs']]:
+    def creation_data(self) -> pulumi.Input[Optional['SourceCreationDataArgs']]:
         """
         State of the operation on the resource.
         """
         return pulumi.get(self, "creation_data")
 
     @creation_data.setter
-    def creation_data(self, value: Optional[pulumi.Input['SourceCreationDataArgs']]):
+    def creation_data(self, value: pulumi.Input[Optional['SourceCreationDataArgs']]):
         pulumi.set(self, "creation_data", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input['ManagedByInfoArgs']]:
+    def managed_by(self) -> pulumi.Input[Optional['ManagedByInfoArgs']]:
         """
         Parent resource information.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input['ManagedByInfoArgs']]):
+    def managed_by(self, value: pulumi.Input[Optional['ManagedByInfoArgs']]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeName")
-    def volume_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Volume.
         """
         return pulumi.get(self, "volume_name")
 
     @volume_name.setter
-    def volume_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_name", value)
 
 
@@ -142,13 +142,13 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
-                 elastic_san_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[Union['ManagedByInfoArgs', 'ManagedByInfoArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_gi_b: Optional[pulumi.Input[_builtins.float]] = None,
-                 volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 creation_data: pulumi.Input[Optional[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
+                 elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[Union['ManagedByInfoArgs', 'ManagedByInfoArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_gi_b: pulumi.Input[Optional[_builtins.float]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Response for Volume request.
@@ -156,7 +156,6 @@ class Volume(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
 
         Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class Volume(pulumi.CustomResource):
 
         Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +195,13 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 creation_data: Optional[pulumi.Input[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
-                 elastic_san_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by: Optional[pulumi.Input[Union['ManagedByInfoArgs', 'ManagedByInfoArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_gi_b: Optional[pulumi.Input[_builtins.float]] = None,
-                 volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 creation_data: pulumi.Input[Optional[Union['SourceCreationDataArgs', 'SourceCreationDataArgsDict']]] = None,
+                 elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[Union['ManagedByInfoArgs', 'ManagedByInfoArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_gi_b: pulumi.Input[Optional[_builtins.float]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

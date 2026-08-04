@@ -25,7 +25,7 @@ class ApiGatewayHostnameBindingArgs:
                  hostname: pulumi.Input[_builtins.str],
                  key_vault: pulumi.Input['GatewayHostnameBindingKeyVaultArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 hostname_binding_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 hostname_binding_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiGatewayHostnameBinding resource.
 
@@ -92,14 +92,14 @@ class ApiGatewayHostnameBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostnameBindingName")
-    def hostname_binding_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
         """
         return pulumi.get(self, "hostname_binding_name")
 
     @hostname_binding_name.setter
-    def hostname_binding_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname_binding_name", value)
 
 
@@ -109,11 +109,11 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['GatewayHostnameBindingKeyVaultArgs', 'GatewayHostnameBindingKeyVaultArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['GatewayHostnameBindingKeyVaultArgs', 'GatewayHostnameBindingKeyVaultArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A single API Management gateway hostname binding resource in List or Get response.
@@ -121,7 +121,6 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01-preview.
 
         Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ApiGatewayHostnameBindingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['GatewayHostnameBindingKeyVaultArgs', 'GatewayHostnameBindingKeyVaultArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['GatewayHostnameBindingKeyVaultArgs', 'GatewayHostnameBindingKeyVaultArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

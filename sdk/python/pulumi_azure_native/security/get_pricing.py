@@ -240,7 +240,6 @@ def get_pricing(pricing_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str pricing_name: name of the pricing configuration
     :param _builtins.str scope_id: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -267,8 +266,8 @@ def get_pricing(pricing_name: Optional[_builtins.str] = None,
         sub_plan=pulumi.get(__ret__, 'sub_plan'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_pricing_output(pricing_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       scope_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pricing_output(pricing_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPricingResult]:
     """
     Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
@@ -276,7 +275,6 @@ def get_pricing_output(pricing_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2024-01-01.
 
     Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str pricing_name: name of the pricing configuration
     :param _builtins.str scope_id: The fully qualified Azure Resource manager identifier of the resource.

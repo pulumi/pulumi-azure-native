@@ -120,7 +120,6 @@ def get_skus_nested_resource_type_second(nested_resource_type_first: Optional[_b
 
     Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str nested_resource_type_first: The first child resource type.
     :param _builtins.str nested_resource_type_second: The second child resource type.
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -143,11 +142,11 @@ def get_skus_nested_resource_type_second(nested_resource_type_first: Optional[_b
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_skus_nested_resource_type_second_output(nested_resource_type_first: Optional[pulumi.Input[_builtins.str]] = None,
-                                                nested_resource_type_second: Optional[pulumi.Input[_builtins.str]] = None,
-                                                provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                                sku: Optional[pulumi.Input[_builtins.str]] = None,
+def get_skus_nested_resource_type_second_output(nested_resource_type_first: pulumi.Input[Optional[_builtins.str]] = None,
+                                                nested_resource_type_second: pulumi.Input[Optional[_builtins.str]] = None,
+                                                provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                                sku: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSkusNestedResourceTypeSecondResult]:
     """
     Gets the sku details for the given resource type and sku name.
@@ -155,7 +154,6 @@ def get_skus_nested_resource_type_second_output(nested_resource_type_first: Opti
     Uses Azure REST API version 2024-09-01.
 
     Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str nested_resource_type_first: The first child resource type.
     :param _builtins.str nested_resource_type_second: The second child resource type.

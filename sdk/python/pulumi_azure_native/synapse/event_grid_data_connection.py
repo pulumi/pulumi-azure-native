@@ -29,13 +29,13 @@ class EventGridDataConnectionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_resource_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 blob_storage_event_type: Optional[pulumi.Input[Union[_builtins.str, 'BlobStorageEventType']]] = None,
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'EventGridDataFormat']]] = None,
-                 ignore_first_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 blob_storage_event_type: pulumi.Input[Optional[Union[_builtins.str, 'BlobStorageEventType']]] = None,
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'EventGridDataFormat']]] = None,
+                 ignore_first_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventGridDataConnection resource.
 
@@ -178,86 +178,86 @@ class EventGridDataConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="blobStorageEventType")
-    def blob_storage_event_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BlobStorageEventType']]]:
+    def blob_storage_event_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BlobStorageEventType']]]:
         """
         The name of blob storage event type to process.
         """
         return pulumi.get(self, "blob_storage_event_type")
 
     @blob_storage_event_type.setter
-    def blob_storage_event_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BlobStorageEventType']]]):
+    def blob_storage_event_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BlobStorageEventType']]]):
         pulumi.set(self, "blob_storage_event_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data connection.
         """
         return pulumi.get(self, "data_connection_name")
 
     @data_connection_name.setter
-    def data_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EventGridDataFormat']]]:
+    def data_format(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EventGridDataFormat']]]:
         """
         The data format of the message. Optionally the data format can be added to each message.
         """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
-    def data_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EventGridDataFormat']]]):
+    def data_format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EventGridDataFormat']]]):
         pulumi.set(self, "data_format", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreFirstRecord")
-    def ignore_first_record(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_first_record(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
         """
         return pulumi.get(self, "ignore_first_record")
 
     @ignore_first_record.setter
-    def ignore_first_record(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_first_record(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_first_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")
-    def mapping_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         """
         return pulumi.get(self, "mapping_rule_name")
 
     @mapping_rule_name.setter
-    def mapping_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The table where the data should be ingested. Optionally the table information can be added to each message.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
 
@@ -267,27 +267,26 @@ class EventGridDataConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_storage_event_type: Optional[pulumi.Input[Union[_builtins.str, 'BlobStorageEventType']]] = None,
-                 consumer_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'EventGridDataFormat']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_first_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob_storage_event_type: pulumi.Input[Optional[Union[_builtins.str, 'BlobStorageEventType']]] = None,
+                 consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'EventGridDataFormat']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_first_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing an Event Grid data connection.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,7 +318,6 @@ class EventGridDataConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param EventGridDataConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,21 +333,21 @@ class EventGridDataConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_storage_event_type: Optional[pulumi.Input[Union[_builtins.str, 'BlobStorageEventType']]] = None,
-                 consumer_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'EventGridDataFormat']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_first_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 blob_storage_event_type: pulumi.Input[Optional[Union[_builtins.str, 'BlobStorageEventType']]] = None,
+                 consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'EventGridDataFormat']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_first_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

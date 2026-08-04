@@ -23,38 +23,38 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_public_access_when_behind_vnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_insights: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_registry: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_data_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_service_side_cmk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
-                 feature_store_settings: Optional[pulumi.Input['FeatureStoreSettingsArgs']] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hbi_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 image_build_compute: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network: Optional[pulumi.Input['ManagedNetworkSettingsArgs']] = None,
-                 primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_network_now: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 serverless_compute_settings: Optional[pulumi.Input['ServerlessComputeSettingsArgs']] = None,
-                 service_managed_resources_settings: Optional[pulumi.Input['ServiceManagedResourcesSettingsArgs']] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 storage_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_datastores_auth_mode: Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 v1_legacy_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_hub_config: Optional[pulumi.Input['WorkspaceHubConfigArgs']] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_public_access_when_behind_vnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_insights: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_registry: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_data_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_service_side_cmk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionPropertyArgs']] = None,
+                 feature_store_settings: pulumi.Input[Optional['FeatureStoreSettingsArgs']] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hbi_workspace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 image_build_compute: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network: pulumi.Input[Optional['ManagedNetworkSettingsArgs']] = None,
+                 primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_network_now: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 serverless_compute_settings: pulumi.Input[Optional['ServerlessComputeSettingsArgs']] = None,
+                 service_managed_resources_settings: pulumi.Input[Optional['ServiceManagedResourcesSettingsArgs']] = None,
+                 shared_private_link_resources: pulumi.Input[Optional[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 storage_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_datastores_auth_mode: pulumi.Input[Optional[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 v1_legacy_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_hub_config: pulumi.Input[Optional['WorkspaceHubConfigArgs']] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -164,362 +164,362 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowPublicAccessWhenBehindVnet")
-    def allow_public_access_when_behind_vnet(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_public_access_when_behind_vnet(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to indicate whether to allow public access when behind VNet.
         """
         return pulumi.get(self, "allow_public_access_when_behind_vnet")
 
     @allow_public_access_when_behind_vnet.setter
-    def allow_public_access_when_behind_vnet(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_public_access_when_behind_vnet(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_public_access_when_behind_vnet", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationInsights")
-    def application_insights(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_insights(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM id of the application insights associated with this workspace.
         """
         return pulumi.get(self, "application_insights")
 
     @application_insights.setter
-    def application_insights(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_insights(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_insights", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedWorkspaces")
-    def associated_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associated_workspaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "associated_workspaces")
 
     @associated_workspaces.setter
-    def associated_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associated_workspaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associated_workspaces", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistry")
-    def container_registry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM id of the container registry associated with this workspace.
         """
         return pulumi.get(self, "container_registry")
 
     @container_registry.setter
-    def container_registry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this workspace.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
-    def discovery_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Url for the discovery service to identify regional endpoints for machine learning experimentation services
         """
         return pulumi.get(self, "discovery_url")
 
     @discovery_url.setter
-    def discovery_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_url", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDataIsolation")
-    def enable_data_isolation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_data_isolation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_data_isolation")
 
     @enable_data_isolation.setter
-    def enable_data_isolation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_data_isolation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_data_isolation", value)
 
     @_builtins.property
     @pulumi.getter(name="enableServiceSideCMKEncryption")
-    def enable_service_side_cmk_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_service_side_cmk_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_service_side_cmk_encryption")
 
     @enable_service_side_cmk_encryption.setter
-    def enable_service_side_cmk_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_service_side_cmk_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_service_side_cmk_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertyArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionPropertyArgs']]:
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertyArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionPropertyArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="featureStoreSettings")
-    def feature_store_settings(self) -> Optional[pulumi.Input['FeatureStoreSettingsArgs']]:
+    def feature_store_settings(self) -> pulumi.Input[Optional['FeatureStoreSettingsArgs']]:
         """
         Settings for feature store type workspace.
         """
         return pulumi.get(self, "feature_store_settings")
 
     @feature_store_settings.setter
-    def feature_store_settings(self, value: Optional[pulumi.Input['FeatureStoreSettingsArgs']]):
+    def feature_store_settings(self, value: pulumi.Input[Optional['FeatureStoreSettingsArgs']]):
         pulumi.set(self, "feature_store_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name for this workspace. This name in mutable
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hbiWorkspace")
-    def hbi_workspace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hbi_workspace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         """
         return pulumi.get(self, "hbi_workspace")
 
     @hbi_workspace.setter
-    def hbi_workspace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hbi_workspace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hbi_workspace", value)
 
     @_builtins.property
     @pulumi.getter(name="hubResourceId")
-    def hub_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "hub_resource_id")
 
     @hub_resource_id.setter
-    def hub_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="imageBuildCompute")
-    def image_build_compute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_build_compute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute name for image build
         """
         return pulumi.get(self, "image_build_compute")
 
     @image_build_compute.setter
-    def image_build_compute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_build_compute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_build_compute", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedNetwork")
-    def managed_network(self) -> Optional[pulumi.Input['ManagedNetworkSettingsArgs']]:
+    def managed_network(self) -> pulumi.Input[Optional['ManagedNetworkSettingsArgs']]:
         """
         Managed Network settings for a machine learning workspace.
         """
         return pulumi.get(self, "managed_network")
 
     @managed_network.setter
-    def managed_network(self, value: Optional[pulumi.Input['ManagedNetworkSettingsArgs']]):
+    def managed_network(self, value: pulumi.Input[Optional['ManagedNetworkSettingsArgs']]):
         pulumi.set(self, "managed_network", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentity")
-    def primary_user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned identity resource id that represents the workspace identity.
         """
         return pulumi.get(self, "primary_user_assigned_identity")
 
     @primary_user_assigned_identity.setter
-    def primary_user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionNetworkNow")
-    def provision_network_now(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_network_now(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
         """
         return pulumi.get(self, "provision_network_now")
 
     @provision_network_now.setter
-    def provision_network_now(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_network_now(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_network_now", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
         Whether requests from Public Network are allowed.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessComputeSettings")
-    def serverless_compute_settings(self) -> Optional[pulumi.Input['ServerlessComputeSettingsArgs']]:
+    def serverless_compute_settings(self) -> pulumi.Input[Optional['ServerlessComputeSettingsArgs']]:
         """
         Settings for serverless compute in a workspace
         """
         return pulumi.get(self, "serverless_compute_settings")
 
     @serverless_compute_settings.setter
-    def serverless_compute_settings(self, value: Optional[pulumi.Input['ServerlessComputeSettingsArgs']]):
+    def serverless_compute_settings(self, value: pulumi.Input[Optional['ServerlessComputeSettingsArgs']]):
         pulumi.set(self, "serverless_compute_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceManagedResourcesSettings")
-    def service_managed_resources_settings(self) -> Optional[pulumi.Input['ServiceManagedResourcesSettingsArgs']]:
+    def service_managed_resources_settings(self) -> pulumi.Input[Optional['ServiceManagedResourcesSettingsArgs']]:
         """
         The service managed resource settings.
         """
         return pulumi.get(self, "service_managed_resources_settings")
 
     @service_managed_resources_settings.setter
-    def service_managed_resources_settings(self, value: Optional[pulumi.Input['ServiceManagedResourcesSettingsArgs']]):
+    def service_managed_resources_settings(self, value: pulumi.Input[Optional['ServiceManagedResourcesSettingsArgs']]):
         pulumi.set(self, "service_managed_resources_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPrivateLinkResources")
-    def shared_private_link_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]]:
+    def shared_private_link_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]]:
         """
         The list of shared private link resources in this workspace.
         """
         return pulumi.get(self, "shared_private_link_resources")
 
     @shared_private_link_resources.setter
-    def shared_private_link_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]]):
+    def shared_private_link_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]]):
         pulumi.set(self, "shared_private_link_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account", value)
 
     @_builtins.property
     @pulumi.getter(name="systemDatastoresAuthMode")
-    def system_datastores_auth_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]]:
+    def system_datastores_auth_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SystemDatastoresAuthMode']]]:
         """
         The auth mode used for accessing the system datastores of the workspace.
         """
         return pulumi.get(self, "system_datastores_auth_mode")
 
     @system_datastores_auth_mode.setter
-    def system_datastores_auth_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]]):
+    def system_datastores_auth_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SystemDatastoresAuthMode']]]):
         pulumi.set(self, "system_datastores_auth_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="v1LegacyMode")
-    def v1_legacy_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def v1_legacy_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
         """
         return pulumi.get(self, "v1_legacy_mode")
 
     @v1_legacy_mode.setter
-    def v1_legacy_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def v1_legacy_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "v1_legacy_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceHubConfig")
-    def workspace_hub_config(self) -> Optional[pulumi.Input['WorkspaceHubConfigArgs']]:
+    def workspace_hub_config(self) -> pulumi.Input[Optional['WorkspaceHubConfigArgs']]:
         """
         WorkspaceHub's configuration object.
         """
         return pulumi.get(self, "workspace_hub_config")
 
     @workspace_hub_config.setter
-    def workspace_hub_config(self, value: Optional[pulumi.Input['WorkspaceHubConfigArgs']]):
+    def workspace_hub_config(self, value: pulumi.Input[Optional['WorkspaceHubConfigArgs']]):
         pulumi.set(self, "workspace_hub_config", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
-    def workspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_name", value)
 
 
@@ -529,39 +529,39 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_public_access_when_behind_vnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_insights: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_registry: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_data_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_service_side_cmk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
-                 feature_store_settings: Optional[pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hbi_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 image_build_compute: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network: Optional[pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
-                 primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_network_now: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_compute_settings: Optional[pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
-                 service_managed_resources_settings: Optional[pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 storage_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_datastores_auth_mode: Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 v1_legacy_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_hub_config: Optional[pulumi.Input[Union['WorkspaceHubConfigArgs', 'WorkspaceHubConfigArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_public_access_when_behind_vnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_insights: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_registry: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_data_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_service_side_cmk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
+                 feature_store_settings: pulumi.Input[Optional[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hbi_workspace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 image_build_compute: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network: pulumi.Input[Optional[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
+                 primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_network_now: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_compute_settings: pulumi.Input[Optional[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
+                 service_managed_resources_settings: pulumi.Input[Optional[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
+                 shared_private_link_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_datastores_auth_mode: pulumi.Input[Optional[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 v1_legacy_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_hub_config: pulumi.Input[Optional[Union['WorkspaceHubConfigArgs', 'WorkspaceHubConfigArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents a machine learning workspace.
@@ -569,7 +569,6 @@ class Workspace(pulumi.CustomResource):
         Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -612,7 +611,6 @@ class Workspace(pulumi.CustomResource):
 
         Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -628,39 +626,39 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_public_access_when_behind_vnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_insights: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_registry: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_data_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_service_side_cmk_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
-                 feature_store_settings: Optional[pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hbi_workspace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 image_build_compute: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_network: Optional[pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
-                 primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_network_now: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_compute_settings: Optional[pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
-                 service_managed_resources_settings: Optional[pulumi.Input[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 storage_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_datastores_auth_mode: Optional[pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 v1_legacy_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_hub_config: Optional[pulumi.Input[Union['WorkspaceHubConfigArgs', 'WorkspaceHubConfigArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_public_access_when_behind_vnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_insights: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_registry: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_data_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_service_side_cmk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
+                 feature_store_settings: pulumi.Input[Optional[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hbi_workspace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 image_build_compute: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network: pulumi.Input[Optional[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
+                 primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_network_now: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_compute_settings: pulumi.Input[Optional[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
+                 service_managed_resources_settings: pulumi.Input[Optional[Union['ServiceManagedResourcesSettingsArgs', 'ServiceManagedResourcesSettingsArgsDict']]] = None,
+                 shared_private_link_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_datastores_auth_mode: pulumi.Input[Optional[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 v1_legacy_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_hub_config: pulumi.Input[Optional[Union['WorkspaceHubConfigArgs', 'WorkspaceHubConfigArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

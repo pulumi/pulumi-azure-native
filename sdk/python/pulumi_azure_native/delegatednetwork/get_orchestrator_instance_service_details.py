@@ -240,7 +240,6 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[_bui
 
     Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
     """
@@ -267,8 +266,8 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[_bui
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_orchestrator_instance_service_details_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_orchestrator_instance_service_details_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrchestratorInstanceServiceDetailsResult]:
     """
     Gets details about the orchestrator instance.
@@ -276,7 +275,6 @@ def get_orchestrator_instance_service_details_output(resource_group_name: Option
     Uses Azure REST API version 2023-06-27-preview.
 
     Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.

@@ -22,13 +22,13 @@ class BackupPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 weekly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 weekly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
 
@@ -85,86 +85,86 @@ class BackupPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicyName")
-    def backup_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Backup policy Name which uniquely identify backup policy.
         """
         return pulumi.get(self, "backup_policy_name")
 
     @backup_policy_name.setter
-    def backup_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyBackupsToKeep")
-    def daily_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def daily_backups_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Daily backups count to keep
         """
         return pulumi.get(self, "daily_backups_to_keep")
 
     @daily_backups_to_keep.setter
-    def daily_backups_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def daily_backups_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "daily_backups_to_keep", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The property to decide policy is enabled or not
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyBackupsToKeep")
-    def monthly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monthly_backups_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Monthly backups count to keep
         """
         return pulumi.get(self, "monthly_backups_to_keep")
 
     @monthly_backups_to_keep.setter
-    def monthly_backups_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monthly_backups_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monthly_backups_to_keep", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyBackupsToKeep")
-    def weekly_backups_to_keep(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weekly_backups_to_keep(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Weekly backups count to keep
         """
         return pulumi.get(self, "weekly_backups_to_keep")
 
     @weekly_backups_to_keep.setter
-    def weekly_backups_to_keep(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weekly_backups_to_keep(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weekly_backups_to_keep", value)
 
 
@@ -174,15 +174,15 @@ class BackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 weekly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 weekly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Backup policy information
@@ -190,7 +190,6 @@ class BackupPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,7 +216,6 @@ class BackupPolicy(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview, 2025-12-01, 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,15 +231,15 @@ class BackupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 weekly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 weekly_backups_to_keep: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

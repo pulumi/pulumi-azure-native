@@ -21,8 +21,8 @@ class StorageAccountStaticWebsiteArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None):
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageAccountStaticWebsite resource.
 
@@ -64,26 +64,26 @@ class StorageAccountStaticWebsiteArgs:
 
     @_builtins.property
     @pulumi.getter(name="error404Document")
-    def error404_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error404_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         """
         return pulumi.get(self, "error404_document")
 
     @error404_document.setter
-    def error404_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error404_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error404_document", value)
 
     @_builtins.property
     @pulumi.getter(name="indexDocument")
-    def index_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
         """
         return pulumi.get(self, "index_document")
 
     @index_document.setter
-    def index_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_document", value)
 
 
@@ -93,14 +93,13 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enables the static website feature of a storage account.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +117,6 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
         """
         Enables the static website feature of a storage account.
 
-
         :param str resource_name: The name of the resource.
         :param StorageAccountStaticWebsiteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,10 +132,10 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

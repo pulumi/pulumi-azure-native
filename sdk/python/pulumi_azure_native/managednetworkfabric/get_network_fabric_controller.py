@@ -300,7 +300,6 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[_buil
 
     Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str network_fabric_controller_name: Name of the Network Fabric Controller.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -332,8 +331,8 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[_buil
         workload_express_route_connections=pulumi.get(__ret__, 'workload_express_route_connections'),
         workload_management_network=pulumi.get(__ret__, 'workload_management_network'),
         workload_services=pulumi.get(__ret__, 'workload_services'))
-def get_network_fabric_controller_output(network_fabric_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_fabric_controller_output(network_fabric_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricControllerResult]:
     """
     Shows the provisioning status of Network Fabric Controller.
@@ -341,7 +340,6 @@ def get_network_fabric_controller_output(network_fabric_controller_name: Optiona
     Uses Azure REST API version 2023-06-15.
 
     Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str network_fabric_controller_name: Name of the Network Fabric Controller.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

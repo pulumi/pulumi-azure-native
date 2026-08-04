@@ -315,8 +315,7 @@ class AzureBackupRuleResponse(dict):
         Azure backup rule
 
         :param 'DataStoreInfoBaseResponse' data_store: DataStoreInfo base
-        :param _builtins.str object_type: 
-               Expected value is 'AzureBackupRule'.
+        :param _builtins.str object_type: Expected value is 'AzureBackupRule'.
         :param Union['AdhocBasedTriggerContextResponse', 'ScheduleBasedTriggerContextResponse'] trigger: Trigger context
         :param 'AzureBackupParamsResponse' backup_parameters: BackupParameters base
         """
@@ -344,7 +343,6 @@ class AzureBackupRuleResponse(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-
         Expected value is 'AzureBackupRule'.
         """
         return pulumi.get(self, "object_type")
@@ -503,8 +501,7 @@ class AzureRetentionRuleResponse(dict):
         """
         Azure retention rule
 
-        :param _builtins.str object_type: 
-               Expected value is 'AzureRetentionRule'.
+        :param _builtins.str object_type: Expected value is 'AzureRetentionRule'.
         """
         pulumi.set(__self__, "lifecycles", lifecycles)
         pulumi.set(__self__, "name", name)
@@ -526,7 +523,6 @@ class AzureRetentionRuleResponse(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-
         Expected value is 'AzureRetentionRule'.
         """
         return pulumi.get(self, "object_type")
@@ -771,8 +767,7 @@ class BackupPolicyResponse(dict):
         Rule based backup policy
 
         :param Sequence[_builtins.str] datasource_types: Type of datasource for the backup management
-        :param _builtins.str object_type: 
-               Expected value is 'BackupPolicy'.
+        :param _builtins.str object_type: Expected value is 'BackupPolicy'.
         :param Sequence[Union['AzureBackupRuleResponse', 'AzureRetentionRuleResponse']] policy_rules: Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc
         """
         pulumi.set(__self__, "datasource_types", datasource_types)
@@ -791,7 +786,6 @@ class BackupPolicyResponse(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-
         Expected value is 'BackupPolicy'.
         """
         return pulumi.get(self, "object_type")

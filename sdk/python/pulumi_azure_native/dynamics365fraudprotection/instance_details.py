@@ -22,10 +22,10 @@ __all__ = ['InstanceDetailsArgs', 'InstanceDetails']
 class InstanceDetailsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 administration: Optional[pulumi.Input['DFPInstanceAdministratorsArgs']] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 administration: pulumi.Input[Optional['DFPInstanceAdministratorsArgs']] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceDetails resource.
 
@@ -59,50 +59,50 @@ class InstanceDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def administration(self) -> Optional[pulumi.Input['DFPInstanceAdministratorsArgs']]:
+    def administration(self) -> pulumi.Input[Optional['DFPInstanceAdministratorsArgs']]:
         """
         A collection of DFP instance administrators
         """
         return pulumi.get(self, "administration")
 
     @administration.setter
-    def administration(self, value: Optional[pulumi.Input['DFPInstanceAdministratorsArgs']]):
+    def administration(self, value: pulumi.Input[Optional['DFPInstanceAdministratorsArgs']]):
         pulumi.set(self, "administration", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
-    def instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
         """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
-    def instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the DFP resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of additional resource provisioning properties.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -112,17 +112,16 @@ class InstanceDetails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration: Optional[pulumi.Input[Union['DFPInstanceAdministratorsArgs', 'DFPInstanceAdministratorsArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administration: pulumi.Input[Optional[Union['DFPInstanceAdministratorsArgs', 'DFPInstanceAdministratorsArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents an instance of a DFP instance resource.
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class InstanceDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param InstanceDetailsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class InstanceDetails(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration: Optional[pulumi.Input[Union['DFPInstanceAdministratorsArgs', 'DFPInstanceAdministratorsArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administration: pulumi.Input[Optional[Union['DFPInstanceAdministratorsArgs', 'DFPInstanceAdministratorsArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

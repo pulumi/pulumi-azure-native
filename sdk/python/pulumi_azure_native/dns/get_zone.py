@@ -240,7 +240,6 @@ def get_zone(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str zone_name: The name of the DNS zone (without a terminating dot).
     """
@@ -267,8 +266,8 @@ def get_zone(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_type=pulumi.get(__ret__, 'zone_type'))
-def get_zone_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_zone_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
     """
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
@@ -276,7 +275,6 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] =
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str zone_name: The name of the DNS zone (without a terminating dot).

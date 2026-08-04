@@ -24,10 +24,10 @@ class EnclaveConnectionArgs:
                  destination_endpoint_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_resource_id: pulumi.Input[_builtins.str],
-                 enclave_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 enclave_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnclaveConnection resource.
 
@@ -103,50 +103,50 @@ class EnclaveConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="enclaveConnectionName")
-    def enclave_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enclave_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Enclave Connection Resource
         """
         return pulumi.get(self, "enclave_connection_name")
 
     @enclave_connection_name.setter
-    def enclave_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enclave_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enclave_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCidr")
-    def source_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source CIDR.
         """
         return pulumi.get(self, "source_cidr")
 
     @source_cidr.setter
-    def source_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_cidr", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -156,14 +156,14 @@ class EnclaveConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 community_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         EnclaveConnection Model Resource
@@ -171,7 +171,6 @@ class EnclaveConnection(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +196,6 @@ class EnclaveConnection(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param EnclaveConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,14 +211,14 @@ class EnclaveConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 community_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

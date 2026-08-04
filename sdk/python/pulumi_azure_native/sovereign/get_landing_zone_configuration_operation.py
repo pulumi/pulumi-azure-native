@@ -119,7 +119,6 @@ def get_landing_zone_configuration_operation(landing_zone_account_name: Optional
 
     Uses Azure REST API version 2025-02-27-preview.
 
-
     :param _builtins.str landing_zone_account_name: The landing zone account.
     :param _builtins.str landing_zone_configuration_name: The landing zone configuration name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,15 +137,14 @@ def get_landing_zone_configuration_operation(landing_zone_account_name: Optional
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_landing_zone_configuration_operation_output(landing_zone_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    landing_zone_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_landing_zone_configuration_operation_output(landing_zone_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    landing_zone_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneConfigurationOperationResult]:
     """
     Get a landing zone configuration.
 
     Uses Azure REST API version 2025-02-27-preview.
-
 
     :param _builtins.str landing_zone_account_name: The landing zone account.
     :param _builtins.str landing_zone_configuration_name: The landing zone configuration name

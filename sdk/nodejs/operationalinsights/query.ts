@@ -166,7 +166,7 @@ export interface QueryArgs {
     /**
      * Description of the query.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Unique display name for your query within the Query Pack.
      */
@@ -174,11 +174,11 @@ export interface QueryArgs {
     /**
      * The id of a specific query defined in the Log Analytics QueryPack
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Additional properties that can be set for the query.
      */
-    properties?: any;
+    properties?: any | undefined;
     /**
      * The name of the Log Analytics QueryPack resource.
      */
@@ -186,7 +186,7 @@ export interface QueryArgs {
     /**
      * The related metadata items for the function.
      */
-    related?: pulumi.Input<inputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesRelatedArgs>;
+    related?: pulumi.Input<inputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesRelatedArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -194,5 +194,5 @@ export interface QueryArgs {
     /**
      * Tags associated with the query.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
 }

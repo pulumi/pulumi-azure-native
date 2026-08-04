@@ -23,17 +23,17 @@ class LocalUserArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_acl_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 has_shared_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_ssh_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_ssh_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_nf_sv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_acl_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 has_shared_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_ssh_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_ssh_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_nf_sv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionScopeArgs']]]] = None,
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalUser resource.
 
@@ -102,134 +102,134 @@ class LocalUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAclAuthorization")
-    def allow_acl_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_acl_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.
         """
         return pulumi.get(self, "allow_acl_authorization")
 
     @allow_acl_authorization.setter
-    def allow_acl_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_acl_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_acl_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedGroups")
-    def extended_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def extended_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Supplementary group membership. Only applicable for local users enabled for NFSv3 access.
         """
         return pulumi.get(self, "extended_groups")
 
     @extended_groups.setter
-    def extended_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def extended_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "extended_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An identifier for associating a group of users.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hasSharedKey")
-    def has_shared_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_shared_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether shared key exists. Set it to false to remove existing shared key.
         """
         return pulumi.get(self, "has_shared_key")
 
     @has_shared_key.setter
-    def has_shared_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_shared_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_shared_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hasSshKey")
-    def has_ssh_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_ssh_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether ssh key exists. Set it to false to remove existing SSH key.
         """
         return pulumi.get(self, "has_ssh_key")
 
     @has_ssh_key.setter
-    def has_ssh_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_ssh_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_ssh_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hasSshPassword")
-    def has_ssh_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_ssh_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether ssh password exists. Set it to false to remove existing SSH password.
         """
         return pulumi.get(self, "has_ssh_password")
 
     @has_ssh_password.setter
-    def has_ssh_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_ssh_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_ssh_password", value)
 
     @_builtins.property
     @pulumi.getter(name="homeDirectory")
-    def home_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional, local user home directory.
         """
         return pulumi.get(self, "home_directory")
 
     @home_directory.setter
-    def home_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="isNFSv3Enabled")
-    def is_nf_sv3_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_nf_sv3_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the local user is enabled for access with NFSv3 protocol.
         """
         return pulumi.get(self, "is_nf_sv3_enabled")
 
     @is_nf_sv3_enabled.setter
-    def is_nf_sv3_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_nf_sv3_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_nf_sv3_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionScopes")
-    def permission_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]]]:
+    def permission_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PermissionScopeArgs']]]]:
         """
         The permission scopes of the local user.
         """
         return pulumi.get(self, "permission_scopes")
 
     @permission_scopes.setter
-    def permission_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]]]):
+    def permission_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionScopeArgs']]]]):
         pulumi.set(self, "permission_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAuthorizedKeys")
-    def ssh_authorized_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
+    def ssh_authorized_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
         """
         Optional, local user ssh authorized keys for SFTP.
         """
         return pulumi.get(self, "ssh_authorized_keys")
 
     @ssh_authorized_keys.setter
-    def ssh_authorized_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
+    def ssh_authorized_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "ssh_authorized_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -239,19 +239,19 @@ class LocalUser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_acl_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 has_shared_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_ssh_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_ssh_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_nf_sv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_acl_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 has_shared_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_ssh_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_ssh_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_nf_sv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The local user associated with the storage accounts.
@@ -259,7 +259,6 @@ class LocalUser(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +289,6 @@ class LocalUser(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LocalUserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,19 +304,19 @@ class LocalUser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_acl_authorization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 has_shared_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_ssh_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_ssh_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_nf_sv3_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_acl_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 has_shared_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_ssh_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_ssh_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_nf_sv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionScopeArgs', 'PermissionScopeArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

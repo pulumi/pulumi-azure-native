@@ -110,7 +110,6 @@ def get_node_type_fault_simulation(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the cluster resource.
     :param _builtins.str node_type_name: The name of the node type.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -130,10 +129,10 @@ def get_node_type_fault_simulation(cluster_name: Optional[_builtins.str] = None,
         simulation_id=pulumi.get(__ret__, 'simulation_id'),
         start_time=pulumi.get(__ret__, 'start_time'),
         status=pulumi.get(__ret__, 'status'))
-def get_node_type_fault_simulation_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          node_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          simulation_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_node_type_fault_simulation_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          node_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          simulation_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeTypeFaultSimulationResult]:
     """
     Gets a fault simulation by the simulationId.
@@ -141,7 +140,6 @@ def get_node_type_fault_simulation_output(cluster_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2024-11-01-preview.
 
     Other available API versions: 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the cluster resource.
     :param _builtins.str node_type_name: The name of the node type.

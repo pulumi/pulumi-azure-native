@@ -132,7 +132,6 @@ def get_server_trust_certificate(certificate_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str certificate_name: Name of of the certificate to get.
     :param _builtins.str managed_instance_name: The name of the managed instance.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -152,9 +151,9 @@ def get_server_trust_certificate(certificate_name: Optional[_builtins.str] = Non
         public_blob=pulumi.get(__ret__, 'public_blob'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_trust_certificate_output(certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerTrustCertificateResult]:
     """
     Gets a server trust certificate that was uploaded from SQL Server to SQL Managed Instance.
@@ -162,7 +161,6 @@ def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[
     Uses Azure REST API version 2023-08-01.
 
     Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str certificate_name: Name of of the certificate to get.
     :param _builtins.str managed_instance_name: The name of the managed instance.

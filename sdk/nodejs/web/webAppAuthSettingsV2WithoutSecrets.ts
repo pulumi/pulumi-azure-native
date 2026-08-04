@@ -136,23 +136,23 @@ export interface WebAppAuthSettingsV2WithoutSecretsArgs {
     /**
      * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
      */
-    globalValidation?: pulumi.Input<inputs.web.GlobalValidationArgs>;
+    globalValidation?: pulumi.Input<inputs.web.GlobalValidationArgs | undefined>;
     /**
      * The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
      */
-    httpSettings?: pulumi.Input<inputs.web.HttpSettingsArgs>;
+    httpSettings?: pulumi.Input<inputs.web.HttpSettingsArgs | undefined>;
     /**
      * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
      */
-    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersV1Args>;
+    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersV1Args | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The configuration settings of the login flow of users using App Service Authentication/Authorization.
      */
-    login?: pulumi.Input<inputs.web.LoginArgs>;
+    login?: pulumi.Input<inputs.web.LoginArgs | undefined>;
     /**
      * Name of the app.
      */
@@ -160,7 +160,7 @@ export interface WebAppAuthSettingsV2WithoutSecretsArgs {
     /**
      * The configuration settings of the platform of App Service Authentication/Authorization.
      */
-    platform?: pulumi.Input<inputs.web.AuthPlatformArgs>;
+    platform?: pulumi.Input<inputs.web.AuthPlatformArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

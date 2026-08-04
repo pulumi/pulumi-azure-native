@@ -120,15 +120,15 @@ export interface AppLinkArgs {
     /**
      * The name of the AppLink
      */
-    appLinkName?: pulumi.Input<string>;
+    appLinkName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.applink.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.applink.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +136,5 @@ export interface AppLinkArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

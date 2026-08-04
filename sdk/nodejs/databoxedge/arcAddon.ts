@@ -170,7 +170,7 @@ export interface ArcAddonArgs {
     /**
      * The addon name.
      */
-    addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string | undefined>;
     /**
      * The device name.
      */

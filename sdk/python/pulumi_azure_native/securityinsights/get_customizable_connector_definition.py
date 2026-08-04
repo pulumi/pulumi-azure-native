@@ -180,7 +180,6 @@ def get_customizable_connector_definition(data_connector_definition_name: Option
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str data_connector_definition_name: The data connector definition name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -204,15 +203,14 @@ def get_customizable_connector_definition(data_connector_definition_name: Option
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_customizable_connector_definition_output(data_connector_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_customizable_connector_definition_output(data_connector_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomizableConnectorDefinitionResult]:
     """
     Gets a data connector definition.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str data_connector_definition_name: The data connector definition name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

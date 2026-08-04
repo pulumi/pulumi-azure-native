@@ -26,13 +26,13 @@ class OperatorApiConnectionArgs:
                  gateway_id: pulumi.Input[_builtins.str],
                  operator_api_plan_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 configured_application: Optional[pulumi.Input['ApplicationPropertiesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_api_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_properties: Optional[pulumi.Input['SaasPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 configured_application: pulumi.Input[Optional['ApplicationPropertiesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_api_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_properties: pulumi.Input[Optional['SaasPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OperatorApiConnection resource.
 
@@ -117,86 +117,86 @@ class OperatorApiConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application ID of the App Developer that is registered with the Operator in a specific country/region.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appSecret")
-    def app_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application secret linked to the 'appId'. This should be stored securely and is not returned back when the resource information is read.
         """
         return pulumi.get(self, "app_secret")
 
     @app_secret.setter
-    def app_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="configuredApplication")
-    def configured_application(self) -> Optional[pulumi.Input['ApplicationPropertiesArgs']]:
+    def configured_application(self) -> pulumi.Input[Optional['ApplicationPropertiesArgs']]:
         """
         Details about the Application that would use the Operator's Network APIs.
         """
         return pulumi.get(self, "configured_application")
 
     @configured_application.setter
-    def configured_application(self, value: Optional[pulumi.Input['ApplicationPropertiesArgs']]):
+    def configured_application(self, value: pulumi.Input[Optional['ApplicationPropertiesArgs']]):
         pulumi.set(self, "configured_application", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="operatorApiConnectionName")
-    def operator_api_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator_api_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Programmable Connectivity (APC) Operator API Connection Name.
         """
         return pulumi.get(self, "operator_api_connection_name")
 
     @operator_api_connection_name.setter
-    def operator_api_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator_api_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator_api_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="saasProperties")
-    def saas_properties(self) -> Optional[pulumi.Input['SaasPropertiesArgs']]:
+    def saas_properties(self) -> pulumi.Input[Optional['SaasPropertiesArgs']]:
         """
         Details about the SaaS offer purchased from the marketplace.
         """
         return pulumi.get(self, "saas_properties")
 
     @saas_properties.setter
-    def saas_properties(self, value: Optional[pulumi.Input['SaasPropertiesArgs']]):
+    def saas_properties(self, value: pulumi.Input[Optional['SaasPropertiesArgs']]):
         pulumi.set(self, "saas_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -206,17 +206,17 @@ class OperatorApiConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_type: Optional[pulumi.Input[Union[_builtins.str, 'AccountType']]] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 configured_application: Optional[pulumi.Input[Union['ApplicationPropertiesArgs', 'ApplicationPropertiesArgsDict']]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_api_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_api_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_properties: Optional[pulumi.Input[Union['SaasPropertiesArgs', 'SaasPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_type: pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 configured_application: pulumi.Input[Optional[Union['ApplicationPropertiesArgs', 'ApplicationPropertiesArgsDict']]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_api_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_api_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_properties: pulumi.Input[Optional[Union['SaasPropertiesArgs', 'SaasPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A Programmable Connectivity Operator API Connection resource
@@ -224,7 +224,6 @@ class OperatorApiConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
 
         Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +252,6 @@ class OperatorApiConnection(pulumi.CustomResource):
 
         Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OperatorApiConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,17 +267,17 @@ class OperatorApiConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_type: Optional[pulumi.Input[Union[_builtins.str, 'AccountType']]] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 configured_application: Optional[pulumi.Input[Union['ApplicationPropertiesArgs', 'ApplicationPropertiesArgsDict']]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_api_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operator_api_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saas_properties: Optional[pulumi.Input[Union['SaasPropertiesArgs', 'SaasPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_type: pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 configured_application: pulumi.Input[Optional[Union['ApplicationPropertiesArgs', 'ApplicationPropertiesArgsDict']]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_api_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_api_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saas_properties: pulumi.Input[Optional[Union['SaasPropertiesArgs', 'SaasPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

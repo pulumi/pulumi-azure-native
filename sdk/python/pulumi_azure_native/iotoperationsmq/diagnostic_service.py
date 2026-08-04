@@ -26,16 +26,16 @@ class DiagnosticServiceArgs:
                  image: pulumi.Input['ContainerImageArgs'],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_export_frequency_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 diagnostic_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_data_storage_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 metrics_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 open_telemetry_traces_collector_addr: Optional[pulumi.Input[_builtins.str]] = None,
-                 stale_data_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_export_frequency_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 diagnostic_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_data_storage_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 metrics_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 open_telemetry_traces_collector_addr: pulumi.Input[Optional[_builtins.str]] = None,
+                 stale_data_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiagnosticService resource.
 
@@ -141,122 +141,122 @@ class DiagnosticServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataExportFrequencySeconds")
-    def data_export_frequency_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_export_frequency_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The frequency at which the data will be exported.
         """
         return pulumi.get(self, "data_export_frequency_seconds")
 
     @data_export_frequency_seconds.setter
-    def data_export_frequency_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_export_frequency_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_export_frequency_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="diagnosticServiceName")
-    def diagnostic_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def diagnostic_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of MQ diagnostic resource
         """
         return pulumi.get(self, "diagnostic_service_name")
 
     @diagnostic_service_name.setter
-    def diagnostic_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def diagnostic_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "diagnostic_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format for the logs generated.
         """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
-    def log_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_format", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format for the logs generated.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDataStorageSize")
-    def max_data_storage_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_data_storage_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum data stored in MiB.
         """
         return pulumi.get(self, "max_data_storage_size")
 
     @max_data_storage_size.setter
-    def max_data_storage_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_data_storage_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_data_storage_size", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsPort")
-    def metrics_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metrics_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port at which metrics is exposed.
         """
         return pulumi.get(self, "metrics_port")
 
     @metrics_port.setter
-    def metrics_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metrics_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metrics_port", value)
 
     @_builtins.property
     @pulumi.getter(name="openTelemetryTracesCollectorAddr")
-    def open_telemetry_traces_collector_addr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def open_telemetry_traces_collector_addr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination to collect traces. Diagnostic service will push traces to this endpoint
         """
         return pulumi.get(self, "open_telemetry_traces_collector_addr")
 
     @open_telemetry_traces_collector_addr.setter
-    def open_telemetry_traces_collector_addr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def open_telemetry_traces_collector_addr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "open_telemetry_traces_collector_addr", value)
 
     @_builtins.property
     @pulumi.getter(name="staleDataTimeoutSeconds")
-    def stale_data_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def stale_data_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Metric inactivity timeout.
         """
         return pulumi.get(self, "stale_data_timeout_seconds")
 
     @stale_data_timeout_seconds.setter
-    def stale_data_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def stale_data_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "stale_data_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -266,26 +266,25 @@ class DiagnosticService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_export_frequency_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 diagnostic_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_data_storage_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 metrics_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_telemetry_traces_collector_addr: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stale_data_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_export_frequency_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 diagnostic_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_data_storage_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 metrics_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_telemetry_traces_collector_addr: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stale_data_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         MQ diagnostic services resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,7 +314,6 @@ class DiagnosticService(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DiagnosticServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,20 +329,20 @@ class DiagnosticService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_export_frequency_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 diagnostic_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_data_storage_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 metrics_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_telemetry_traces_collector_addr: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stale_data_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_export_frequency_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 diagnostic_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_data_storage_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 metrics_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_telemetry_traces_collector_addr: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stale_data_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

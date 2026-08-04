@@ -23,20 +23,20 @@ __all__ = ['VirtualHardDiskArgs', 'VirtualHardDisk']
 class VirtualHardDiskArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 block_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_file_format: Optional[pulumi.Input[Union[_builtins.str, 'DiskFileFormat']]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 download_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 physical_sector_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hard_disk_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_file_format: pulumi.Input[Optional[Union[_builtins.str, 'DiskFileFormat']]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 download_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 physical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hard_disk_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualHardDisk resource.
 
@@ -102,170 +102,170 @@ class VirtualHardDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockSizeBytes")
-    def block_size_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_size_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Block size in bytes
         """
         return pulumi.get(self, "block_size_bytes")
 
     @block_size_bytes.setter
-    def block_size_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_size_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage ContainerID of the storage container to be used for VHD
         """
         return pulumi.get(self, "container_id")
 
     @container_id.setter
-    def container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createFromLocal")
-    def create_from_local(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_from_local(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether it is an existing local hard disk or if one should be created.
         """
         return pulumi.get(self, "create_from_local")
 
     @create_from_local.setter
-    def create_from_local(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_from_local(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_from_local", value)
 
     @_builtins.property
     @pulumi.getter(name="diskFileFormat")
-    def disk_file_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DiskFileFormat']]]:
+    def disk_file_format(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DiskFileFormat']]]:
         """
         The format of the actual VHD file [vhd, vhdx]
         """
         return pulumi.get(self, "disk_file_format")
 
     @disk_file_format.setter
-    def disk_file_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DiskFileFormat']]]):
+    def disk_file_format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DiskFileFormat']]]):
         pulumi.set(self, "disk_file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Size of the disk in GB
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def disk_size_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadUrl")
-    def download_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def download_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
         """
         return pulumi.get(self, "download_url")
 
     @download_url.setter
-    def download_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def download_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "download_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean for enabling dynamic sizing on the virtual hard disk
         """
         return pulumi.get(self, "dynamic")
 
     @dynamic.setter
-    def dynamic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extendedLocation of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]]:
         """
         The hypervisor generation of the Virtual Machine [V1, V2]
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalSectorBytes")
-    def logical_sector_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def logical_sector_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Logical sector in bytes
         """
         return pulumi.get(self, "logical_sector_bytes")
 
     @logical_sector_bytes.setter
-    def logical_sector_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def logical_sector_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "logical_sector_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="physicalSectorBytes")
-    def physical_sector_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def physical_sector_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Physical sector in bytes
         """
         return pulumi.get(self, "physical_sector_bytes")
 
     @physical_sector_bytes.setter
-    def physical_sector_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def physical_sector_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "physical_sector_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHardDiskName")
-    def virtual_hard_disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_hard_disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the virtual hard disk
         """
         return pulumi.get(self, "virtual_hard_disk_name")
 
     @virtual_hard_disk_name.setter
-    def virtual_hard_disk_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_hard_disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_hard_disk_name", value)
 
 
@@ -275,21 +275,21 @@ class VirtualHardDisk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_file_format: Optional[pulumi.Input[Union[_builtins.str, 'DiskFileFormat']]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 download_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 physical_sector_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hard_disk_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 block_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_file_format: pulumi.Input[Optional[Union[_builtins.str, 'DiskFileFormat']]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 download_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 physical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hard_disk_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The virtual hard disk resource definition.
@@ -297,7 +297,6 @@ class VirtualHardDisk(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
         Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview, 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -330,7 +329,6 @@ class VirtualHardDisk(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview, 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualHardDiskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,21 +344,21 @@ class VirtualHardDisk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_file_format: Optional[pulumi.Input[Union[_builtins.str, 'DiskFileFormat']]] = None,
-                 disk_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 download_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 physical_sector_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_hard_disk_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 block_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_file_format: pulumi.Input[Optional[Union[_builtins.str, 'DiskFileFormat']]] = None,
+                 disk_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 download_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 physical_sector_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_hard_disk_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

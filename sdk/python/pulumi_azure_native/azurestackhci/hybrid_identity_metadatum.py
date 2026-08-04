@@ -22,9 +22,9 @@ class HybridIdentityMetadatumArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machine_name: pulumi.Input[_builtins.str],
-                 metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None):
+                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridIdentityMetadatum resource.
 
@@ -69,38 +69,38 @@ class HybridIdentityMetadatumArgs:
 
     @_builtins.property
     @pulumi.getter(name="metadataName")
-    def metadata_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the hybridIdentityMetadata.
         """
         return pulumi.get(self, "metadata_name")
 
     @metadata_name.setter
-    def metadata_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Public Key.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUid")
-    def resource_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_uid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the resource.
         """
         return pulumi.get(self, "resource_uid")
 
     @resource_uid.setter
-    def resource_uid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_uid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_uid", value)
 
 
@@ -110,17 +110,16 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the HybridIdentityMetadata.
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +140,6 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
-
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +155,11 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

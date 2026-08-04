@@ -24,13 +24,13 @@ class VirtualHubIpConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]] = None,
-                 public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
-                 subnet: Optional[pulumi.Input['SubnetArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]] = None,
+                 public_ip_address: pulumi.Input[Optional['PublicIPAddressArgs']] = None,
+                 subnet: pulumi.Input[Optional['SubnetArgs']] = None):
         """
         The set of arguments for constructing a VirtualHubIpConfiguration resource.
 
@@ -87,86 +87,86 @@ class VirtualHubIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigName")
-    def ip_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ipconfig.
         """
         return pulumi.get(self, "ip_config_name")
 
     @ip_config_name.setter
-    def ip_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_config_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Ip Configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIPAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]:
+    def private_ip_allocation_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]]:
         """
         The private IP address allocation method.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]]):
+    def private_ip_allocation_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIPAddress")
-    def public_ip_address(self) -> Optional[pulumi.Input['PublicIPAddressArgs']]:
+    def public_ip_address(self) -> pulumi.Input[Optional['PublicIPAddressArgs']]:
         """
         The reference to the public IP resource.
         """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
-    def public_ip_address(self, value: Optional[pulumi.Input['PublicIPAddressArgs']]):
+    def public_ip_address(self, value: pulumi.Input[Optional['PublicIPAddressArgs']]):
         pulumi.set(self, "public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['SubnetArgs']]:
         """
         The reference to the subnet resource.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
 
@@ -176,15 +176,15 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]] = None,
-                 public_ip_address: Optional[pulumi.Input[Union['PublicIPAddressArgs', 'PublicIPAddressArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]] = None,
+                 public_ip_address: pulumi.Input[Optional[Union['PublicIPAddressArgs', 'PublicIPAddressArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         IpConfigurations.
@@ -192,7 +192,6 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +218,6 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualHubIpConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,15 +233,15 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]] = None,
-                 public_ip_address: Optional[pulumi.Input[Union['PublicIPAddressArgs', 'PublicIPAddressArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_allocation_method: pulumi.Input[Optional[Union[_builtins.str, 'IPAllocationMethod']]] = None,
+                 public_ip_address: pulumi.Input[Optional[Union['PublicIPAddressArgs', 'PublicIPAddressArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

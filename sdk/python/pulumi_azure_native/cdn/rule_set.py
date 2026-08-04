@@ -22,7 +22,7 @@ class RuleSetArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuleSet resource.
 
@@ -61,14 +61,14 @@ class RuleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rule set under the profile which is unique globally.
         """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
-    def rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_set_name", value)
 
 
@@ -78,9 +78,9 @@ class RuleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Friendly RuleSet name mapping to the any RuleSet or secret related information.
@@ -88,7 +88,6 @@ class RuleSet(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +108,6 @@ class RuleSet(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RuleSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,9 +123,9 @@ class RuleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

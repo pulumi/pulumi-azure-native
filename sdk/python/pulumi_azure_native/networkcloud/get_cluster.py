@@ -526,7 +526,6 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -577,8 +576,8 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         update_strategy=pulumi.get(__ret__, 'update_strategy'),
         vulnerability_scanning_settings=pulumi.get(__ret__, 'vulnerability_scanning_settings'),
         workload_resource_ids=pulumi.get(__ret__, 'workload_resource_ids'))
-def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get properties of the provided cluster.
@@ -586,7 +585,6 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = Non
     Uses Azure REST API version 2025-02-01.
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -26,7 +26,7 @@ class AccessPolicyAssignmentArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user: pulumi.Input['AccessPolicyAssignmentPropertiesUserArgs'],
-                 access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
 
@@ -107,14 +107,14 @@ class AccessPolicyAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyAssignmentName")
-    def access_policy_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redis Enterprise database access policy assignment.
         """
         return pulumi.get(self, "access_policy_assignment_name")
 
     @access_policy_assignment_name.setter
-    def access_policy_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_assignment_name", value)
 
 
@@ -124,12 +124,12 @@ class AccessPolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[Union['AccessPolicyAssignmentPropertiesUserArgs', 'AccessPolicyAssignmentPropertiesUserArgsDict']]] = None,
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[Union['AccessPolicyAssignmentPropertiesUserArgs', 'AccessPolicyAssignmentPropertiesUserArgsDict']]] = None,
                  __props__=None):
         """
         Describes the access policy assignment of Redis Enterprise database
@@ -137,7 +137,6 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01.
 
         Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class AccessPolicyAssignment(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class AccessPolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[Union['AccessPolicyAssignmentPropertiesUserArgs', 'AccessPolicyAssignmentPropertiesUserArgsDict']]] = None,
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[Union['AccessPolicyAssignmentPropertiesUserArgs', 'AccessPolicyAssignmentPropertiesUserArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

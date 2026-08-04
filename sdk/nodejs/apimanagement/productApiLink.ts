@@ -110,7 +110,7 @@ export interface ProductApiLinkArgs {
     /**
      * Product-API link identifier. Must be unique in the current API Management service instance.
      */
-    apiLinkId?: pulumi.Input<string>;
+    apiLinkId?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

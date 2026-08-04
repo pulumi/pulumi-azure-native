@@ -164,7 +164,7 @@ export interface GroundStationArgs {
     /**
      * Altitude of the ground station.
      */
-    altitudeMeters?: pulumi.Input<number>;
+    altitudeMeters?: pulumi.Input<number | undefined>;
     /**
      * Ground station capabilities.
      */
@@ -172,7 +172,7 @@ export interface GroundStationArgs {
     /**
      * City of ground station.
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * A reference to global communications site.
      */
@@ -180,23 +180,23 @@ export interface GroundStationArgs {
     /**
      * Ground Station name.
      */
-    groundStationName?: pulumi.Input<string>;
+    groundStationName?: pulumi.Input<string | undefined>;
     /**
      * Latitude of the ground station in decimal degrees.
      */
-    latitudeDegrees?: pulumi.Input<number>;
+    latitudeDegrees?: pulumi.Input<number | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Longitude of the ground station in decimal degrees.
      */
-    longitudeDegrees?: pulumi.Input<number>;
+    longitudeDegrees?: pulumi.Input<number | undefined>;
     /**
      * Ground station provider name.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -204,5 +204,5 @@ export interface GroundStationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

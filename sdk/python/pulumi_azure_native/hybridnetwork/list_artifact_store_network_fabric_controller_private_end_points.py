@@ -71,7 +71,6 @@ def list_artifact_store_network_fabric_controller_private_end_points(artifact_st
 
     Uses Azure REST API version 2024-04-15.
 
-
     :param _builtins.str artifact_store_name: The name of the artifact store.
     :param _builtins.str publisher_name: The name of the publisher.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -86,15 +85,14 @@ def list_artifact_store_network_fabric_controller_private_end_points(artifact_st
     return AwaitableListArtifactStoreNetworkFabricControllerPrivateEndPointsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_artifact_store_network_fabric_controller_private_end_points_output(artifact_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                            publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_artifact_store_network_fabric_controller_private_end_points_output(artifact_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                            publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult]:
     """
     List network fabric controllers to artifact stores
 
     Uses Azure REST API version 2024-04-15.
-
 
     :param _builtins.str artifact_store_name: The name of the artifact store.
     :param _builtins.str publisher_name: The name of the publisher.

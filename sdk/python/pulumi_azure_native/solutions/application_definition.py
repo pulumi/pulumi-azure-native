@@ -24,25 +24,25 @@ class ApplicationDefinitionArgs:
     def __init__(__self__, *,
                  lock_level: pulumi.Input['ApplicationLockLevel'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 application_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]] = None,
+                 application_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]] = None,
                  create_ui_definition: Optional[Any] = None,
-                 deployment_policy: Optional[pulumi.Input['ApplicationDeploymentPolicyArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 locking_policy: Optional[pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs']] = None,
+                 deployment_policy: pulumi.Input[Optional['ApplicationDeploymentPolicyArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 locking_policy: pulumi.Input[Optional['ApplicationPackageLockingPolicyDefinitionArgs']] = None,
                  main_template: Optional[Any] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_policy: Optional[pulumi.Input['ApplicationManagementPolicyArgs']] = None,
-                 notification_policy: Optional[pulumi.Input['ApplicationNotificationPolicyArgs']] = None,
-                 package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_policy: pulumi.Input[Optional['ApplicationManagementPolicyArgs']] = None,
+                 notification_policy: pulumi.Input[Optional['ApplicationNotificationPolicyArgs']] = None,
+                 package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationPolicyArgs']]]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationDefinition resource.
 
@@ -135,38 +135,38 @@ class ApplicationDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationDefinitionName")
-    def application_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the managed application definition.
         """
         return pulumi.get(self, "application_definition_name")
 
     @application_definition_name.setter
-    def application_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_definition_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]]:
+    def artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]]):
+    def artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDefinitionArtifactArgs']]]]):
         pulumi.set(self, "artifacts", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]]:
+    def authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]]:
         """
         The managed application provider authorizations.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]]):
+    def authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAuthorizationArgs']]]]):
         pulumi.set(self, "authorizations", value)
 
     @_builtins.property
@@ -183,74 +183,74 @@ class ApplicationDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentPolicy")
-    def deployment_policy(self) -> Optional[pulumi.Input['ApplicationDeploymentPolicyArgs']]:
+    def deployment_policy(self) -> pulumi.Input[Optional['ApplicationDeploymentPolicyArgs']]:
         """
         The managed application deployment policy.
         """
         return pulumi.get(self, "deployment_policy")
 
     @deployment_policy.setter
-    def deployment_policy(self, value: Optional[pulumi.Input['ApplicationDeploymentPolicyArgs']]):
+    def deployment_policy(self, value: pulumi.Input[Optional['ApplicationDeploymentPolicyArgs']]):
         pulumi.set(self, "deployment_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The managed application definition description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The managed application definition display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating whether the package is enabled or not.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="lockingPolicy")
-    def locking_policy(self) -> Optional[pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs']]:
+    def locking_policy(self) -> pulumi.Input[Optional['ApplicationPackageLockingPolicyDefinitionArgs']]:
         """
         The managed application locking policy.
         """
         return pulumi.get(self, "locking_policy")
 
     @locking_policy.setter
-    def locking_policy(self, value: Optional[pulumi.Input['ApplicationPackageLockingPolicyDefinitionArgs']]):
+    def locking_policy(self, value: pulumi.Input[Optional['ApplicationPackageLockingPolicyDefinitionArgs']]):
         pulumi.set(self, "locking_policy", value)
 
     @_builtins.property
@@ -267,98 +267,98 @@ class ApplicationDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the resource that manages this resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="managementPolicy")
-    def management_policy(self) -> Optional[pulumi.Input['ApplicationManagementPolicyArgs']]:
+    def management_policy(self) -> pulumi.Input[Optional['ApplicationManagementPolicyArgs']]:
         """
         The managed application management policy that determines publisher's access to the managed resource group.
         """
         return pulumi.get(self, "management_policy")
 
     @management_policy.setter
-    def management_policy(self, value: Optional[pulumi.Input['ApplicationManagementPolicyArgs']]):
+    def management_policy(self, value: pulumi.Input[Optional['ApplicationManagementPolicyArgs']]):
         pulumi.set(self, "management_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPolicy")
-    def notification_policy(self) -> Optional[pulumi.Input['ApplicationNotificationPolicyArgs']]:
+    def notification_policy(self) -> pulumi.Input[Optional['ApplicationNotificationPolicyArgs']]:
         """
         The managed application notification policy.
         """
         return pulumi.get(self, "notification_policy")
 
     @notification_policy.setter
-    def notification_policy(self, value: Optional[pulumi.Input['ApplicationNotificationPolicyArgs']]):
+    def notification_policy(self, value: pulumi.Input[Optional['ApplicationNotificationPolicyArgs']]):
         pulumi.set(self, "notification_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="packageFileUri")
-    def package_file_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The managed application definition package file Uri. Use this element
         """
         return pulumi.get(self, "package_file_uri")
 
     @package_file_uri.setter
-    def package_file_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_file_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_file_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationPolicyArgs']]]]:
         """
         The managed application provider policies.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPolicyArgs']]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationPolicyArgs']]]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The SKU of the resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account id for bring your own storage scenario.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -368,27 +368,27 @@ class ApplicationDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDefinitionArtifactArgs', 'ApplicationDefinitionArtifactArgsDict']]]]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAuthorizationArgs', 'ApplicationAuthorizationArgsDict']]]]] = None,
+                 application_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDefinitionArtifactArgs', 'ApplicationDefinitionArtifactArgsDict']]]]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAuthorizationArgs', 'ApplicationAuthorizationArgsDict']]]]] = None,
                  create_ui_definition: Optional[Any] = None,
-                 deployment_policy: Optional[pulumi.Input[Union['ApplicationDeploymentPolicyArgs', 'ApplicationDeploymentPolicyArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_level: Optional[pulumi.Input['ApplicationLockLevel']] = None,
-                 locking_policy: Optional[pulumi.Input[Union['ApplicationPackageLockingPolicyDefinitionArgs', 'ApplicationPackageLockingPolicyDefinitionArgsDict']]] = None,
+                 deployment_policy: pulumi.Input[Optional[Union['ApplicationDeploymentPolicyArgs', 'ApplicationDeploymentPolicyArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_level: pulumi.Input[Optional['ApplicationLockLevel']] = None,
+                 locking_policy: pulumi.Input[Optional[Union['ApplicationPackageLockingPolicyDefinitionArgs', 'ApplicationPackageLockingPolicyDefinitionArgsDict']]] = None,
                  main_template: Optional[Any] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_policy: Optional[pulumi.Input[Union['ApplicationManagementPolicyArgs', 'ApplicationManagementPolicyArgsDict']]] = None,
-                 notification_policy: Optional[pulumi.Input[Union['ApplicationNotificationPolicyArgs', 'ApplicationNotificationPolicyArgsDict']]] = None,
-                 package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPolicyArgs', 'ApplicationPolicyArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_policy: pulumi.Input[Optional[Union['ApplicationManagementPolicyArgs', 'ApplicationManagementPolicyArgsDict']]] = None,
+                 notification_policy: pulumi.Input[Optional[Union['ApplicationNotificationPolicyArgs', 'ApplicationNotificationPolicyArgsDict']]] = None,
+                 package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationPolicyArgs', 'ApplicationPolicyArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Information about managed application definition.
@@ -396,7 +396,6 @@ class ApplicationDefinition(pulumi.CustomResource):
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
         Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,7 +434,6 @@ class ApplicationDefinition(pulumi.CustomResource):
 
         Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,27 +449,27 @@ class ApplicationDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDefinitionArtifactArgs', 'ApplicationDefinitionArtifactArgsDict']]]]] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAuthorizationArgs', 'ApplicationAuthorizationArgsDict']]]]] = None,
+                 application_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDefinitionArtifactArgs', 'ApplicationDefinitionArtifactArgsDict']]]]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAuthorizationArgs', 'ApplicationAuthorizationArgsDict']]]]] = None,
                  create_ui_definition: Optional[Any] = None,
-                 deployment_policy: Optional[pulumi.Input[Union['ApplicationDeploymentPolicyArgs', 'ApplicationDeploymentPolicyArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_level: Optional[pulumi.Input['ApplicationLockLevel']] = None,
-                 locking_policy: Optional[pulumi.Input[Union['ApplicationPackageLockingPolicyDefinitionArgs', 'ApplicationPackageLockingPolicyDefinitionArgsDict']]] = None,
+                 deployment_policy: pulumi.Input[Optional[Union['ApplicationDeploymentPolicyArgs', 'ApplicationDeploymentPolicyArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_level: pulumi.Input[Optional['ApplicationLockLevel']] = None,
+                 locking_policy: pulumi.Input[Optional[Union['ApplicationPackageLockingPolicyDefinitionArgs', 'ApplicationPackageLockingPolicyDefinitionArgsDict']]] = None,
                  main_template: Optional[Any] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_policy: Optional[pulumi.Input[Union['ApplicationManagementPolicyArgs', 'ApplicationManagementPolicyArgsDict']]] = None,
-                 notification_policy: Optional[pulumi.Input[Union['ApplicationNotificationPolicyArgs', 'ApplicationNotificationPolicyArgsDict']]] = None,
-                 package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPolicyArgs', 'ApplicationPolicyArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_policy: pulumi.Input[Optional[Union['ApplicationManagementPolicyArgs', 'ApplicationManagementPolicyArgsDict']]] = None,
+                 notification_policy: pulumi.Input[Optional[Union['ApplicationNotificationPolicyArgs', 'ApplicationNotificationPolicyArgsDict']]] = None,
+                 package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationPolicyArgs', 'ApplicationPolicyArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

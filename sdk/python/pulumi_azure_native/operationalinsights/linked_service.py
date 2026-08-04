@@ -22,11 +22,11 @@ class LinkedServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'LinkedServiceEntityStatus']]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 write_access_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'LinkedServiceEntityStatus']]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 write_access_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedService resource.
 
@@ -77,62 +77,62 @@ class LinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the linkedServices resource
         """
         return pulumi.get(self, "linked_service_name")
 
     @linked_service_name.setter
-    def linked_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LinkedServiceEntityStatus']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LinkedServiceEntityStatus']]]:
         """
         The provisioning state of the linked service.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LinkedServiceEntityStatus']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LinkedServiceEntityStatus']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAccessResourceId")
-    def write_access_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def write_access_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
         """
         return pulumi.get(self, "write_access_resource_id")
 
     @write_access_resource_id.setter
-    def write_access_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def write_access_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "write_access_resource_id", value)
 
 
@@ -142,13 +142,13 @@ class LinkedService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'LinkedServiceEntityStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_access_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'LinkedServiceEntityStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_access_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The top level Linked service resource container.
@@ -156,7 +156,6 @@ class LinkedService(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
 
         Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class LinkedService(pulumi.CustomResource):
 
         Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LinkedServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +195,13 @@ class LinkedService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'LinkedServiceEntityStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_access_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'LinkedServiceEntityStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_access_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

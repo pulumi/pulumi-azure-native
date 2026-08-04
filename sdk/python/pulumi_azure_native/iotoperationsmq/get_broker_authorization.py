@@ -180,7 +180,6 @@ def get_broker_authorization(authorization_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-10-04-preview.
 
-
     :param _builtins.str authorization_name: Name of MQ broker/authorization resource
     :param _builtins.str broker_name: Name of MQ broker resource
     :param _builtins.str mq_name: Name of MQ resource
@@ -206,16 +205,15 @@ def get_broker_authorization(authorization_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_broker_authorization_output(authorization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_broker_authorization_output(authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerAuthorizationResult]:
     """
     Get a BrokerAuthorizationResource
 
     Uses Azure REST API version 2023-10-04-preview.
-
 
     :param _builtins.str authorization_name: Name of MQ broker/authorization resource
     :param _builtins.str broker_name: Name of MQ broker resource

@@ -110,7 +110,6 @@ def list_notification_hub_keys(authorization_rule_name: Optional[_builtins.str] 
 
     Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authorization_rule_name: Authorization Rule Name
     :param _builtins.str namespace_name: Namespace name
     :param _builtins.str notification_hub_name: Notification Hub name
@@ -130,10 +129,10 @@ def list_notification_hub_keys(authorization_rule_name: Optional[_builtins.str] 
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      notification_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_notification_hub_keys_output(authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      notification_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNotificationHubKeysResult]:
     """
     Gets the Primary and Secondary ConnectionStrings to the NotificationHub
@@ -141,7 +140,6 @@ def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.I
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authorization_rule_name: Authorization Rule Name
     :param _builtins.str namespace_name: Namespace name

@@ -54,7 +54,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Specifies the mechanism by which access token is passed to the API. 
+     * Specifies the mechanism by which access token is passed to the API.
      */
     declare public readonly bearerTokenSendingMethods: pulumi.Output<string[] | undefined>;
     /**
@@ -223,19 +223,19 @@ export interface AuthorizationServerArgs {
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    authorizationMethods?: pulumi.Input<pulumi.Input<enums.apimanagement.AuthorizationMethod>[]>;
+    authorizationMethods?: pulumi.Input<pulumi.Input<enums.apimanagement.AuthorizationMethod>[] | undefined>;
     /**
      * Identifier of the authorization server.
      */
-    authsid?: pulumi.Input<string>;
+    authsid?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the mechanism by which access token is passed to the API. 
+     * Specifies the mechanism by which access token is passed to the API.
      */
-    bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string | enums.apimanagement.BearerTokenSendingMethod>[]>;
+    bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string | enums.apimanagement.BearerTokenSendingMethod>[] | undefined>;
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string | enums.apimanagement.ClientAuthenticationMethod>[]>;
+    clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string | enums.apimanagement.ClientAuthenticationMethod>[] | undefined>;
     /**
      * Client or app id registered with this authorization server.
      */
@@ -247,15 +247,15 @@ export interface AuthorizationServerArgs {
     /**
      * Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
      */
-    defaultScope?: pulumi.Input<string>;
+    defaultScope?: pulumi.Input<string | undefined>;
     /**
      * Description of the authorization server. Can contain HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * User-friendly authorization server name.
      */
@@ -271,11 +271,11 @@ export interface AuthorizationServerArgs {
     /**
      * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
      */
-    resourceOwnerPassword?: pulumi.Input<string>;
+    resourceOwnerPassword?: pulumi.Input<string | undefined>;
     /**
      * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
      */
-    resourceOwnerUsername?: pulumi.Input<string>;
+    resourceOwnerUsername?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management service.
      */
@@ -283,21 +283,21 @@ export interface AuthorizationServerArgs {
     /**
      * If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
      */
-    supportState?: pulumi.Input<boolean>;
+    supportState?: pulumi.Input<boolean | undefined>;
     /**
      * Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
      */
-    tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.TokenBodyParameterContractArgs>[]>;
+    tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.TokenBodyParameterContractArgs>[] | undefined>;
     /**
      * OAuth token endpoint. Contains absolute URI to entity being referenced.
      */
-    tokenEndpoint?: pulumi.Input<string>;
+    tokenEndpoint?: pulumi.Input<string | undefined>;
     /**
      * If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
      */
-    useInApiDocumentation?: pulumi.Input<boolean>;
+    useInApiDocumentation?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
      */
-    useInTestConsole?: pulumi.Input<boolean>;
+    useInTestConsole?: pulumi.Input<boolean | undefined>;
 }

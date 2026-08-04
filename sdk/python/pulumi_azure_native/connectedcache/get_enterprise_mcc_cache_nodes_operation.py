@@ -145,7 +145,6 @@ def get_enterprise_mcc_cache_nodes_operation(cache_node_resource_name: Optional[
 
     Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,9 +165,9 @@ def get_enterprise_mcc_cache_nodes_operation(cache_node_resource_name: Optional[
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_enterprise_mcc_cache_nodes_operation_output(cache_node_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    customer_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enterprise_mcc_cache_nodes_operation_output(cache_node_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    customer_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseMccCacheNodesOperationResult]:
     """
     This api gets ispCacheNode resource information
@@ -176,7 +175,6 @@ def get_enterprise_mcc_cache_nodes_operation_output(cache_node_resource_name: Op
     Uses Azure REST API version 2023-05-01-preview.
 
     Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource

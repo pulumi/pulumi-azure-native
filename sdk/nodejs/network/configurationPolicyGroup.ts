@@ -133,27 +133,27 @@ export interface ConfigurationPolicyGroupArgs {
     /**
      * The name of the ConfigurationPolicyGroup.
      */
-    configurationPolicyGroupName?: pulumi.Input<string>;
+    configurationPolicyGroupName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Shows if this is a Default VpnServerConfigurationPolicyGroup or not.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Multiple PolicyMembers for VpnServerConfigurationPolicyGroup.
      */
-    policyMembers?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupMemberArgs>[]>;
+    policyMembers?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupMemberArgs>[] | undefined>;
     /**
      * Priority for VpnServerConfigurationPolicyGroup.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The resource group name of the ConfigurationPolicyGroup.
      */

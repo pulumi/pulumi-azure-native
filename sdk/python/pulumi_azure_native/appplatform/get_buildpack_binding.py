@@ -123,7 +123,6 @@ def get_buildpack_binding(build_service_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str build_service_name: The name of the build service resource.
     :param _builtins.str builder_name: The name of the builder resource.
     :param _builtins.str buildpack_binding_name: The name of the Buildpack Binding Name
@@ -146,11 +145,11 @@ def get_buildpack_binding(build_service_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_buildpack_binding_output(build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 builder_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 buildpack_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_buildpack_binding_output(build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 buildpack_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildpackBindingResult]:
     """
     Get a buildpack binding by name.
@@ -158,7 +157,6 @@ def get_buildpack_binding_output(build_service_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str build_service_name: The name of the build service resource.
     :param _builtins.str builder_name: The name of the builder resource.

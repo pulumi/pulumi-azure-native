@@ -372,7 +372,6 @@ def get_app_service_certificate_order(certificate_order_name: Optional[_builtins
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str certificate_order_name: Name of the certificate order..
     :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
     """
@@ -410,8 +409,8 @@ def get_app_service_certificate_order(certificate_order_name: Optional[_builtins
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validity_in_years=pulumi.get(__ret__, 'validity_in_years'))
-def get_app_service_certificate_order_output(certificate_order_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_certificate_order_output(certificate_order_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
     """
     Description for Get a certificate order.
@@ -419,7 +418,6 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str certificate_order_name: Name of the certificate order..
     :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.

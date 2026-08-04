@@ -134,7 +134,7 @@ export interface RestorePointCollectionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,13 +142,13 @@ export interface RestorePointCollectionArgs {
     /**
      * The name of the restore point collection.
      */
-    restorePointCollectionName?: pulumi.Input<string>;
+    restorePointCollectionName?: pulumi.Input<string | undefined>;
     /**
      * The properties of the source resource that this restore point collection is created from.
      */
-    source?: pulumi.Input<inputs.compute.RestorePointCollectionSourcePropertiesArgs>;
+    source?: pulumi.Input<inputs.compute.RestorePointCollectionSourcePropertiesArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

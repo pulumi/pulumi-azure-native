@@ -23,25 +23,25 @@ __all__ = ['SignalRArgs', 'SignalR']
 class SignalRArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cors: Optional[pulumi.Input['SignalRCorsSettingsArgs']] = None,
-                 disable_aad_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]] = None,
-                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ServiceKind']]] = None,
-                 live_trace_configuration: Optional[pulumi.Input['LiveTraceConfigurationArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['SignalRNetworkACLsArgs']] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_log_configuration: Optional[pulumi.Input['ResourceLogConfigurationArgs']] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_stopped: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless: Optional[pulumi.Input['ServerlessSettingsArgs']] = None,
-                 sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls: Optional[pulumi.Input['SignalRTlsSettingsArgs']] = None,
-                 upstream: Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']] = None):
+                 cors: pulumi.Input[Optional['SignalRCorsSettingsArgs']] = None,
+                 disable_aad_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['SignalRFeatureArgs']]]] = None,
+                 identity: pulumi.Input[Optional['ManagedIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ServiceKind']]] = None,
+                 live_trace_configuration: pulumi.Input[Optional['LiveTraceConfigurationArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['SignalRNetworkACLsArgs']] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_log_configuration: pulumi.Input[Optional['ResourceLogConfigurationArgs']] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless: pulumi.Input[Optional['ServerlessSettingsArgs']] = None,
+                 sku: pulumi.Input[Optional['ResourceSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls: pulumi.Input[Optional['SignalRTlsSettingsArgs']] = None,
+                 upstream: pulumi.Input[Optional['ServerlessUpstreamSettingsArgs']] = None):
         """
         The set of arguments for constructing a SignalR resource.
 
@@ -56,7 +56,7 @@ class SignalRArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]] features: List of the featureFlags.
                
                FeatureFlags that are not included in the parameters for the update operation will not be modified.
-               And the response will only include featureFlags that are explicitly set. 
+               And the response will only include featureFlags that are explicitly set.
                When a featureFlag is not explicitly set, its globally default value will be used
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         :param pulumi.Input['ManagedIdentityArgs'] identity: A class represent managed identities used for request and response
@@ -145,19 +145,19 @@ class SignalRArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['SignalRCorsSettingsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['SignalRCorsSettingsArgs']]:
         """
         Cross-Origin Resource Sharing (CORS) settings.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['SignalRCorsSettingsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['SignalRCorsSettingsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="disableAadAuth")
-    def disable_aad_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_aad_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         DisableLocalAuth
         Enable or disable aad auth
@@ -166,12 +166,12 @@ class SignalRArgs:
         return pulumi.get(self, "disable_aad_auth")
 
     @disable_aad_auth.setter
-    def disable_aad_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_aad_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_aad_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         DisableLocalAuth
         Enable or disable local auth with AccessKey
@@ -180,89 +180,89 @@ class SignalRArgs:
         return pulumi.get(self, "disable_local_auth")
 
     @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignalRFeatureArgs']]]]:
         """
         List of the featureFlags.
-        
+
         FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
+        And the response will only include featureFlags that are explicitly set.
         When a featureFlag is not explicitly set, its globally default value will be used
         But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignalRFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedIdentityArgs']]:
         """
         A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceKind']]]:
         """
         The kind of the service
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceConfiguration")
-    def live_trace_configuration(self) -> Optional[pulumi.Input['LiveTraceConfigurationArgs']]:
+    def live_trace_configuration(self) -> pulumi.Input[Optional['LiveTraceConfigurationArgs']]:
         """
         Live trace configuration of a Microsoft.SignalRService resource.
         """
         return pulumi.get(self, "live_trace_configuration")
 
     @live_trace_configuration.setter
-    def live_trace_configuration(self, value: Optional[pulumi.Input['LiveTraceConfigurationArgs']]):
+    def live_trace_configuration(self, value: pulumi.Input[Optional['LiveTraceConfigurationArgs']]):
         pulumi.set(self, "live_trace_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkACLs")
-    def network_acls(self) -> Optional[pulumi.Input['SignalRNetworkACLsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['SignalRNetworkACLsArgs']]:
         """
         Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['SignalRNetworkACLsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['SignalRNetworkACLsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable public network access. Default to "Enabled".
         When it's Enabled, network ACLs still apply.
@@ -271,12 +271,12 @@ class SignalRArgs:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="regionEndpointEnabled")
-    def region_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable the regional endpoint. Default to "Enabled".
         When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
@@ -285,36 +285,36 @@ class SignalRArgs:
         return pulumi.get(self, "region_endpoint_enabled")
 
     @region_endpoint_enabled.setter
-    def region_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceLogConfiguration")
-    def resource_log_configuration(self) -> Optional[pulumi.Input['ResourceLogConfigurationArgs']]:
+    def resource_log_configuration(self) -> pulumi.Input[Optional['ResourceLogConfigurationArgs']]:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
         """
         return pulumi.get(self, "resource_log_configuration")
 
     @resource_log_configuration.setter
-    def resource_log_configuration(self, value: Optional[pulumi.Input['ResourceLogConfigurationArgs']]):
+    def resource_log_configuration(self, value: pulumi.Input[Optional['ResourceLogConfigurationArgs']]):
         pulumi.set(self, "resource_log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceStopped")
-    def resource_stopped(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_stopped(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stop or start the resource.  Default to "False".
         When it's true, the data plane of the resource is shutdown.
@@ -323,67 +323,67 @@ class SignalRArgs:
         return pulumi.get(self, "resource_stopped")
 
     @resource_stopped.setter
-    def resource_stopped(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_stopped(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_stopped", value)
 
     @_builtins.property
     @pulumi.getter
-    def serverless(self) -> Optional[pulumi.Input['ServerlessSettingsArgs']]:
+    def serverless(self) -> pulumi.Input[Optional['ServerlessSettingsArgs']]:
         """
         Serverless settings.
         """
         return pulumi.get(self, "serverless")
 
     @serverless.setter
-    def serverless(self, value: Optional[pulumi.Input['ServerlessSettingsArgs']]):
+    def serverless(self, value: pulumi.Input[Optional['ServerlessSettingsArgs']]):
         pulumi.set(self, "serverless", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ResourceSkuArgs']]:
         """
         The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ResourceSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ResourceSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input['SignalRTlsSettingsArgs']]:
+    def tls(self) -> pulumi.Input[Optional['SignalRTlsSettingsArgs']]:
         """
         TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input['SignalRTlsSettingsArgs']]):
+    def tls(self, value: pulumi.Input[Optional['SignalRTlsSettingsArgs']]):
         pulumi.set(self, "tls", value)
 
     @_builtins.property
     @pulumi.getter
-    def upstream(self) -> Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']]:
+    def upstream(self) -> pulumi.Input[Optional['ServerlessUpstreamSettingsArgs']]:
         """
         The settings for the Upstream when the service is in server-less mode.
         """
         return pulumi.get(self, "upstream")
 
     @upstream.setter
-    def upstream(self, value: Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']]):
+    def upstream(self, value: pulumi.Input[Optional['ServerlessUpstreamSettingsArgs']]):
         pulumi.set(self, "upstream", value)
 
 
@@ -393,26 +393,26 @@ class SignalR(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[Union['SignalRCorsSettingsArgs', 'SignalRCorsSettingsArgsDict']]] = None,
-                 disable_aad_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ServiceKind']]] = None,
-                 live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_stopped: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless: Optional[pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls: Optional[pulumi.Input[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']]] = None,
-                 upstream: Optional[pulumi.Input[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['SignalRCorsSettingsArgs', 'SignalRCorsSettingsArgsDict']]] = None,
+                 disable_aad_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ServiceKind']]] = None,
+                 live_trace_configuration: pulumi.Input[Optional[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_log_configuration: pulumi.Input[Optional[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless: pulumi.Input[Optional[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls: pulumi.Input[Optional[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']]] = None,
+                 upstream: pulumi.Input[Optional[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']]] = None,
                  __props__=None):
         """
         A class represent a resource.
@@ -420,7 +420,6 @@ class SignalR(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -434,7 +433,7 @@ class SignalR(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]] features: List of the featureFlags.
                
                FeatureFlags that are not included in the parameters for the update operation will not be modified.
-               And the response will only include featureFlags that are explicitly set. 
+               And the response will only include featureFlags that are explicitly set.
                When a featureFlag is not explicitly set, its globally default value will be used
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         :param pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']] identity: A class represent managed identities used for request and response
@@ -473,7 +472,6 @@ class SignalR(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SignalRArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -489,26 +487,26 @@ class SignalR(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[Union['SignalRCorsSettingsArgs', 'SignalRCorsSettingsArgsDict']]] = None,
-                 disable_aad_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ServiceKind']]] = None,
-                 live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_stopped: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless: Optional[pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls: Optional[pulumi.Input[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']]] = None,
-                 upstream: Optional[pulumi.Input[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['SignalRCorsSettingsArgs', 'SignalRCorsSettingsArgsDict']]] = None,
+                 disable_aad_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignalRFeatureArgs', 'SignalRFeatureArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ServiceKind']]] = None,
+                 live_trace_configuration: pulumi.Input[Optional[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_log_configuration: pulumi.Input[Optional[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless: pulumi.Input[Optional[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls: pulumi.Input[Optional[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']]] = None,
+                 upstream: pulumi.Input[Optional[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -669,9 +667,9 @@ class SignalR(pulumi.CustomResource):
     def features(self) -> pulumi.Output[Optional[Sequence['outputs.SignalRFeatureResponse']]]:
         """
         List of the featureFlags.
-        
+
         FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
+        And the response will only include featureFlags that are explicitly set.
         When a featureFlag is not explicitly set, its globally default value will be used
         But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         """

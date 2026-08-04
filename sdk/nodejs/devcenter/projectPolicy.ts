@@ -124,7 +124,7 @@ export interface ProjectPolicyArgs {
     /**
      * The name of the project policy.
      */
-    projectPolicyName?: pulumi.Input<string>;
+    projectPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,9 +132,9 @@ export interface ProjectPolicyArgs {
     /**
      * Resource policies that are a part of this project policy.
      */
-    resourcePolicies?: pulumi.Input<pulumi.Input<inputs.devcenter.ResourcePolicyArgs>[]>;
+    resourcePolicies?: pulumi.Input<pulumi.Input<inputs.devcenter.ResourcePolicyArgs>[] | undefined>;
     /**
      * Resources that have access to the shared resources that are a part of this project policy.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

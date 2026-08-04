@@ -241,7 +241,6 @@ def get_private_store_collection_offer(collection_id: Optional[_builtins.str] = 
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str collection_id: The collection ID
     :param _builtins.str offer_id: The offer ID to update or delete
     :param _builtins.str private_store_id: The store ID - must use the tenant ID
@@ -270,9 +269,9 @@ def get_private_store_collection_offer(collection_id: Optional[_builtins.str] = 
         type=pulumi.get(__ret__, 'type'),
         unique_offer_id=pulumi.get(__ret__, 'unique_offer_id'),
         update_suppressed_due_idempotence=pulumi.get(__ret__, 'update_suppressed_due_idempotence'))
-def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              offer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_store_collection_offer_output(collection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              offer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreCollectionOfferResult]:
     """
     Gets information about a specific offer.
@@ -280,7 +279,6 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
     Uses Azure REST API version 2023-01-01.
 
     Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str collection_id: The collection ID
     :param _builtins.str offer_id: The offer ID to update or delete

@@ -23,12 +23,12 @@ class ImportJobArgs:
     def __init__(__self__, *,
                  aml_filesystem_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 conflict_resolution_mode: Optional[pulumi.Input[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
-                 import_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_errors: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 conflict_resolution_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
+                 import_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_errors: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ImportJob resource.
 
@@ -86,74 +86,74 @@ class ImportJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="conflictResolutionMode")
-    def conflict_resolution_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConflictResolutionMode']]]:
+    def conflict_resolution_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]]:
         """
         How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
         """
         return pulumi.get(self, "conflict_resolution_mode")
 
     @conflict_resolution_mode.setter
-    def conflict_resolution_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConflictResolutionMode']]]):
+    def conflict_resolution_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]]):
         pulumi.set(self, "conflict_resolution_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="importJobName")
-    def import_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         """
         return pulumi.get(self, "import_job_name")
 
     @import_job_name.setter
-    def import_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="importPrefixes")
-    def import_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def import_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of blob paths/prefixes that get imported into the cluster namespace. It has '/' as the default value.
         """
         return pulumi.get(self, "import_prefixes")
 
     @import_prefixes.setter
-    def import_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def import_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "import_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumErrors")
-    def maximum_errors(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_errors(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total non-conflict oriented errors the import job will tolerate before exiting with failure. -1 means infinite. 0 means exit immediately and is the default.
         """
         return pulumi.get(self, "maximum_errors")
 
     @maximum_errors.setter
-    def maximum_errors(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_errors(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -163,14 +163,14 @@ class ImportJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 conflict_resolution_mode: Optional[pulumi.Input[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
-                 import_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_errors: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 conflict_resolution_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
+                 import_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_errors: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
@@ -178,7 +178,6 @@ class ImportJob(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +203,6 @@ class ImportJob(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ImportJobArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,14 +218,14 @@ class ImportJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 conflict_resolution_mode: Optional[pulumi.Input[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
-                 import_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_errors: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 conflict_resolution_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
+                 import_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_errors: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

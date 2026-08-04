@@ -79,13 +79,12 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['AccessPolicyEntryArgs', 'AccessPolicyEntryArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['AccessPolicyEntryArgs', 'AccessPolicyEntryArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Key Vault Access Policy for managing policies on existing vaults.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,7 +101,6 @@ class AccessPolicy(pulumi.CustomResource):
         """
         Key Vault Access Policy for managing policies on existing vaults.
 
-
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +116,9 @@ class AccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['AccessPolicyEntryArgs', 'AccessPolicyEntryArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['AccessPolicyEntryArgs', 'AccessPolicyEntryArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

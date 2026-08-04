@@ -2422,7 +2422,7 @@ class PlanResponse(dict):
         Plan for the resource.
 
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param _builtins.str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param _builtins.str version: The version of the desired product/artifact.
@@ -2447,7 +2447,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def product(self) -> _builtins.str:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -3750,15 +3750,15 @@ class VMAttributesResponse(dict):
         :param 'VMAttributeMinMaxDoubleResponse' memory_in_gi_b: The range of memory specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
         :param 'VMAttributeMinMaxIntegerResponse' v_cpu_count: The range of vCpuCount specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
         :param 'VMAttributeMinMaxIntegerResponse' accelerator_count: The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
-               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
                If acceleratorSupport is "Excluded", this VMAttribute can not be used.
-        :param Sequence[_builtins.str] accelerator_manufacturers: The accelerator manufacturers specified as a list. 
-               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        :param Sequence[_builtins.str] accelerator_manufacturers: The accelerator manufacturers specified as a list.
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
                If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         :param _builtins.str accelerator_support: Specifies whether the VMSize supporting accelerator should be used to launch instances or not.
-               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
                If acceleratorSupport is "Excluded", this VMAttribute can not be used.
-        :param Sequence[_builtins.str] accelerator_types: The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        :param Sequence[_builtins.str] accelerator_types: The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
                If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         :param Sequence[_builtins.str] allowed_vm_sizes: Specifies which VMSizes should be allowed while filtering on VMAttributes. Cannot be specified together with excludedVMSizes. Maximum of 10 VM sizes allowed. Optional parameter.
         :param _builtins.str burstable_support: Specifies whether the VMSize supporting burstable capability should be used to launch instances or not.
@@ -3766,9 +3766,9 @@ class VMAttributesResponse(dict):
         :param 'VMAttributeMinMaxIntegerResponse' data_disk_count: The range of data disk count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         :param Sequence[_builtins.str] excluded_vm_sizes: Specifies which VMSizes should be excluded while filtering on VMAttributes. Cannot be specified together with allowedVMSizes. Maximum of 10 VM sizes allowed. Optional parameter.
         :param Sequence[_builtins.str] hyper_v_generations: The hyperV generations specified as a list. Optional parameter.
-        :param Sequence[_builtins.str] local_storage_disk_types: The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        :param Sequence[_builtins.str] local_storage_disk_types: The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
                If localStorageSupport is "Excluded", this VMAttribute can not be used.
-        :param 'VMAttributeMinMaxDoubleResponse' local_storage_in_gi_b: LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        :param 'VMAttributeMinMaxDoubleResponse' local_storage_in_gi_b: LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
                If localStorageSupport is "Excluded", this VMAttribute can not be used.
         :param _builtins.str local_storage_support: Specifies whether the VMSize supporting local storage should be used to launch instances or not.
                Included - Default if not specified as most Azure VMs support local storage.
@@ -3776,7 +3776,7 @@ class VMAttributesResponse(dict):
         :param 'VMAttributeMinMaxDoubleResponse' network_bandwidth_in_mbps: The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         :param 'VMAttributeMinMaxIntegerResponse' network_interface_count: The range of network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         :param 'VMAttributeMinMaxIntegerResponse' rdma_network_interface_count: The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
-               rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               rdmaSupport should be set to "Included" or "Required" to use this VMAttribute.
                If rdmaSupport is "Excluded", this VMAttribute can not be used.
         :param _builtins.str rdma_support: Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build launch instances or not.
         :param Sequence[_builtins.str] vm_categories: The VM category specified as a list. Optional parameter.
@@ -3852,7 +3852,7 @@ class VMAttributesResponse(dict):
     def accelerator_count(self) -> Optional['outputs.VMAttributeMinMaxIntegerResponse']:
         """
         The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
-        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
         If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_count")
@@ -3861,8 +3861,8 @@ class VMAttributesResponse(dict):
     @pulumi.getter(name="acceleratorManufacturers")
     def accelerator_manufacturers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The accelerator manufacturers specified as a list. 
-        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        The accelerator manufacturers specified as a list.
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
         If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_manufacturers")
@@ -3872,7 +3872,7 @@ class VMAttributesResponse(dict):
     def accelerator_support(self) -> Optional[_builtins.str]:
         """
         Specifies whether the VMSize supporting accelerator should be used to launch instances or not.
-        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
         If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_support")
@@ -3881,7 +3881,7 @@ class VMAttributesResponse(dict):
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute.
         If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_types")
@@ -3938,7 +3938,7 @@ class VMAttributesResponse(dict):
     @pulumi.getter(name="localStorageDiskTypes")
     def local_storage_disk_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
         If localStorageSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "local_storage_disk_types")
@@ -3947,7 +3947,7 @@ class VMAttributesResponse(dict):
     @pulumi.getter(name="localStorageInGiB")
     def local_storage_in_gi_b(self) -> Optional['outputs.VMAttributeMinMaxDoubleResponse']:
         """
-        LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute.
         If localStorageSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "local_storage_in_gi_b")
@@ -3990,7 +3990,7 @@ class VMAttributesResponse(dict):
     def rdma_network_interface_count(self) -> Optional['outputs.VMAttributeMinMaxIntegerResponse']:
         """
         The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
-        rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        rdmaSupport should be set to "Included" or "Required" to use this VMAttribute.
         If rdmaSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "rdma_network_interface_count")

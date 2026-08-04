@@ -24,13 +24,13 @@ class ApprovalArgs:
     def __init__(__self__, *,
                  request_metadata: pulumi.Input['RequestMetadataArgs'],
                  resource_uri: pulumi.Input[_builtins.str],
-                 approval_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input['ApproverArgs']]]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 grandparent_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_changed_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 approval_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 approvers: pulumi.Input[Optional[Sequence[pulumi.Input['ApproverArgs']]]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 grandparent_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_changed_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Approval resource.
 
@@ -87,86 +87,86 @@ class ApprovalArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvalName")
-    def approval_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approval_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the approvals resource.
         """
         return pulumi.get(self, "approval_name")
 
     @approval_name.setter
-    def approval_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approval_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approval_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApproverArgs']]]]:
+    def approvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApproverArgs']]]]:
         """
         List of approvers for the approval request
         """
         return pulumi.get(self, "approvers")
 
     @approvers.setter
-    def approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApproverArgs']]]]):
+    def approvers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApproverArgs']]]]):
         pulumi.set(self, "approvers", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Approval request creation time
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="grandparentResourceId")
-    def grandparent_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grandparent_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parameter for optimizing query results
         """
         return pulumi.get(self, "grandparent_resource_id")
 
     @grandparent_resource_id.setter
-    def grandparent_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grandparent_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grandparent_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentResourceId")
-    def parent_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parameter for optimizing query results
         """
         return pulumi.get(self, "parent_resource_id")
 
     @parent_resource_id.setter
-    def parent_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stateChangedAt")
-    def state_changed_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_changed_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Approval request state change time, time at which approval request state changed from pending to approved or rejected.
         """
         return pulumi.get(self, "state_changed_at")
 
     @state_changed_at.setter
-    def state_changed_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_changed_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_changed_at", value)
 
     @_builtins.property
     @pulumi.getter(name="ticketId")
-    def ticket_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ticket_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ticket ID for the approval request
         """
         return pulumi.get(self, "ticket_id")
 
     @ticket_id.setter
-    def ticket_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ticket_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ticket_id", value)
 
 
@@ -176,15 +176,15 @@ class Approval(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApproverArgs', 'ApproverArgsDict']]]]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 grandparent_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_metadata: Optional[pulumi.Input[Union['RequestMetadataArgs', 'RequestMetadataArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_changed_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 approval_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 approvers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApproverArgs', 'ApproverArgsDict']]]]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 grandparent_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_metadata: pulumi.Input[Optional[Union['RequestMetadataArgs', 'RequestMetadataArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_changed_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Approval Model Resource
@@ -192,7 +192,6 @@ class Approval(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +218,6 @@ class Approval(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ApprovalArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,15 +233,15 @@ class Approval(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApproverArgs', 'ApproverArgsDict']]]]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 grandparent_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_metadata: Optional[pulumi.Input[Union['RequestMetadataArgs', 'RequestMetadataArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_changed_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 approval_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 approvers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApproverArgs', 'ApproverArgsDict']]]]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 grandparent_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_metadata: pulumi.Input[Optional[Union['RequestMetadataArgs', 'RequestMetadataArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_changed_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -158,7 +158,6 @@ def get_management_group(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
     :param _builtins.str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
     :param _builtins.str group_id: Management Group ID.
@@ -182,10 +181,10 @@ def get_management_group(expand: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_group_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                recurse: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_management_group_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                recurse: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupResult]:
     """
     Get the details of the management group.
@@ -193,7 +192,6 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[_builtins
     Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
     :param _builtins.str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')

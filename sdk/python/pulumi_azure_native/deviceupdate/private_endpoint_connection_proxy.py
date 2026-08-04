@@ -24,9 +24,9 @@ class PrivateEndpointConnectionProxyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_proxy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_private_endpoint: Optional[pulumi.Input['RemotePrivateEndpointArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_endpoint_connection_proxy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_private_endpoint: pulumi.Input[Optional['RemotePrivateEndpointArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionProxy resource.
 
@@ -71,38 +71,38 @@ class PrivateEndpointConnectionProxyArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnectionProxyId")
-    def private_endpoint_connection_proxy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_connection_proxy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the private endpoint connection proxy object.
         """
         return pulumi.get(self, "private_endpoint_connection_proxy_id")
 
     @private_endpoint_connection_proxy_id.setter
-    def private_endpoint_connection_proxy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_connection_proxy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_connection_proxy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="remotePrivateEndpoint")
-    def remote_private_endpoint(self) -> Optional[pulumi.Input['RemotePrivateEndpointArgs']]:
+    def remote_private_endpoint(self) -> pulumi.Input[Optional['RemotePrivateEndpointArgs']]:
         """
         Remote private endpoint details.
         """
         return pulumi.get(self, "remote_private_endpoint")
 
     @remote_private_endpoint.setter
-    def remote_private_endpoint(self, value: Optional[pulumi.Input['RemotePrivateEndpointArgs']]):
+    def remote_private_endpoint(self, value: pulumi.Input[Optional['RemotePrivateEndpointArgs']]):
         pulumi.set(self, "remote_private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operation status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -112,17 +112,16 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connection_proxy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_private_endpoint: Optional[pulumi.Input[Union['RemotePrivateEndpointArgs', 'RemotePrivateEndpointArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_proxy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_private_endpoint: pulumi.Input[Optional[Union['RemotePrivateEndpointArgs', 'RemotePrivateEndpointArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Private endpoint connection proxy details.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionProxyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connection_proxy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_private_endpoint: Optional[pulumi.Input[Union['RemotePrivateEndpointArgs', 'RemotePrivateEndpointArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_proxy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_private_endpoint: pulumi.Input[Optional[Union['RemotePrivateEndpointArgs', 'RemotePrivateEndpointArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -19,27 +19,27 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_instance_discovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_pulumi_partner_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 msi_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_default_azure_credential: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_msi: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auxiliary_tenant_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_instance_discovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_pulumi_partner_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 msi_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_request_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_request_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_token_file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_default_azure_credential: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_msi: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_oidc: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -112,254 +112,254 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="auxiliaryTenantIds")
-    def auxiliary_tenant_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def auxiliary_tenant_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Any additional Tenant IDs which should be used for authentication.
         """
         return pulumi.get(self, "auxiliary_tenant_ids")
 
     @auxiliary_tenant_ids.setter
-    def auxiliary_tenant_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def auxiliary_tenant_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auxiliary_tenant_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePassword")
-    def client_certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         """
         return pulumi.get(self, "client_certificate_password")
 
     @client_certificate_password.setter
-    def client_certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePath")
-    def client_certificate_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         """
         return pulumi.get(self, "client_certificate_path")
 
     @client_certificate_path.setter
-    def client_certificate_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_path", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID which should be used.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="disableInstanceDiscovery")
-    def disable_instance_discovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_instance_discovery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
         """
         return pulumi.get(self, "disable_instance_discovery")
 
     @disable_instance_discovery.setter
-    def disable_instance_discovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_instance_discovery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_instance_discovery", value)
 
     @_builtins.property
     @pulumi.getter(name="disablePulumiPartnerId")
-    def disable_pulumi_partner_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_pulumi_partner_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         """
         return pulumi.get(self, "disable_pulumi_partner_id")
 
     @disable_pulumi_partner_id.setter
-    def disable_pulumi_partner_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_pulumi_partner_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_pulumi_partner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataHost")
-    def metadata_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hostname of the Azure Metadata Service.
         """
         return pulumi.get(self, "metadata_host")
 
     @metadata_host.setter
-    def metadata_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_host", value)
 
     @_builtins.property
     @pulumi.getter(name="msiEndpoint")
-    def msi_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def msi_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         """
         return pulumi.get(self, "msi_endpoint")
 
     @msi_endpoint.setter
-    def msi_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def msi_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "msi_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcRequestToken")
-    def oidc_request_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oidc_request_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         """
         return pulumi.get(self, "oidc_request_token")
 
     @oidc_request_token.setter
-    def oidc_request_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oidc_request_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oidc_request_token", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcRequestUrl")
-    def oidc_request_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oidc_request_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to initiate the `oidcRequestToken` OIDC token exchange.
         """
         return pulumi.get(self, "oidc_request_url")
 
     @oidc_request_url.setter
-    def oidc_request_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oidc_request_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oidc_request_url", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcToken")
-    def oidc_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oidc_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OIDC token to exchange for an Azure token.
         """
         return pulumi.get(self, "oidc_token")
 
     @oidc_token.setter
-    def oidc_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oidc_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oidc_token", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcTokenFilePath")
-    def oidc_token_file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oidc_token_file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to a file containing an OIDC token to exchange for an Azure token.
         """
         return pulumi.get(self, "oidc_token_file_path")
 
     @oidc_token_file_path.setter
-    def oidc_token_file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oidc_token_file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oidc_token_file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerId")
-    def partner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         """
         return pulumi.get(self, "partner_id")
 
     @partner_id.setter
-    def partner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Subscription ID which should be used.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID which should be used.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="useDefaultAzureCredential")
-    def use_default_azure_credential(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_default_azure_credential(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
         """
         return pulumi.get(self, "use_default_azure_credential")
 
     @use_default_azure_credential.setter
-    def use_default_azure_credential(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_default_azure_credential(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_default_azure_credential", value)
 
     @_builtins.property
     @pulumi.getter(name="useMsi")
-    def use_msi(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_msi(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow Managed Service Identity to be used for Authentication.
         """
         return pulumi.get(self, "use_msi")
 
     @use_msi.setter
-    def use_msi(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_msi(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_msi", value)
 
     @_builtins.property
     @pulumi.getter(name="useOidc")
-    def use_oidc(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_oidc(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow OpenID Connect (OIDC) to be used for Authentication.
         """
         return pulumi.get(self, "use_oidc")
 
     @use_oidc.setter
-    def use_oidc(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_oidc(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_oidc", value)
 
 
@@ -369,31 +369,30 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_instance_discovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_pulumi_partner_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 msi_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_default_azure_credential: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_msi: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_oidc: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auxiliary_tenant_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_instance_discovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_pulumi_partner_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 msi_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_request_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_request_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_token_file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_default_azure_credential: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_msi: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_oidc: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The provider type for the native Azure package.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,7 +427,6 @@ class Provider(pulumi.ProviderResource):
         """
         The provider type for the native Azure package.
 
-
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -444,27 +442,27 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_instance_discovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_pulumi_partner_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 msi_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_default_azure_credential: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_msi: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_oidc: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auxiliary_tenant_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_instance_discovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_pulumi_partner_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 msi_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_request_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_request_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_token_file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_default_azure_credential: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_msi: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_oidc: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

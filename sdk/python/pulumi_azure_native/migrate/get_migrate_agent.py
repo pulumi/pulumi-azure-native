@@ -129,7 +129,6 @@ def get_migrate_agent(agent_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-05-01-preview.
 
-
     :param _builtins.str agent_name: MigrateAgent name.
     :param _builtins.str modernize_project_name: ModernizeProject name.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -151,16 +150,15 @@ def get_migrate_agent(agent_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_migrate_agent_output(agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             modernize_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_migrate_agent_output(agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrateAgentResult]:
     """
     Gets the details of the modernizeProject agent.
 
     Uses Azure REST API version 2022-05-01-preview.
-
 
     :param _builtins.str agent_name: MigrateAgent name.
     :param _builtins.str modernize_project_name: ModernizeProject name.

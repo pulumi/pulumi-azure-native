@@ -25,9 +25,9 @@ class TunnelPolicyArgs:
                  domains: pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
-                 tunnel_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_type: Optional[pulumi.Input[Union[_builtins.str, 'TunnelType']]] = None):
+                 target_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
+                 tunnel_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_type: pulumi.Input[Optional[Union[_builtins.str, 'TunnelType']]] = None):
         """
         The set of arguments for constructing a TunnelPolicy resource.
 
@@ -86,38 +86,38 @@ class TunnelPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+    def target_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
         Target Groups referenced by this tunnel policy.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+    def target_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "target_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelPolicyName")
-    def tunnel_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Tunnel Policy under the profile.
         """
         return pulumi.get(self, "tunnel_policy_name")
 
     @tunnel_policy_name.setter
-    def tunnel_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelType")
-    def tunnel_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TunnelType']]]:
+    def tunnel_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TunnelType']]]:
         """
         Protocol this tunnel will use for allowing traffic to backends.
         """
         return pulumi.get(self, "tunnel_type")
 
     @tunnel_type.setter
-    def tunnel_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TunnelType']]]):
+    def tunnel_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TunnelType']]]):
         pulumi.set(self, "tunnel_type", value)
 
 
@@ -127,18 +127,17 @@ class TunnelPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
-                 tunnel_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_type: Optional[pulumi.Input[Union[_builtins.str, 'TunnelType']]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
+                 tunnel_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_type: pulumi.Input[Optional[Union[_builtins.str, 'TunnelType']]] = None,
                  __props__=None):
         """
         Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class TunnelPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param TunnelPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,12 +174,12 @@ class TunnelPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
-                 tunnel_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_type: Optional[pulumi.Input[Union[_builtins.str, 'TunnelType']]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
+                 tunnel_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_type: pulumi.Input[Optional[Union[_builtins.str, 'TunnelType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

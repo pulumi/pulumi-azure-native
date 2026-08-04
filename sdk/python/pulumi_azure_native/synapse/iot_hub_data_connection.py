@@ -29,12 +29,12 @@ class IotHubDataConnectionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  shared_access_policy_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'IotHubDataFormat']]] = None,
-                 event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'IotHubDataFormat']]] = None,
+                 event_system_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IotHubDataConnection resource.
 
@@ -174,74 +174,74 @@ class IotHubDataConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data connection.
         """
         return pulumi.get(self, "data_connection_name")
 
     @data_connection_name.setter
-    def data_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IotHubDataFormat']]]:
+    def data_format(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IotHubDataFormat']]]:
         """
         The data format of the message. Optionally the data format can be added to each message.
         """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
-    def data_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IotHubDataFormat']]]):
+    def data_format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IotHubDataFormat']]]):
         pulumi.set(self, "data_format", value)
 
     @_builtins.property
     @pulumi.getter(name="eventSystemProperties")
-    def event_system_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_system_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         System properties of the iot hub
         """
         return pulumi.get(self, "event_system_properties")
 
     @event_system_properties.setter
-    def event_system_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_system_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_system_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")
-    def mapping_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         """
         return pulumi.get(self, "mapping_rule_name")
 
     @mapping_rule_name.setter
-    def mapping_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The table where the data should be ingested. Optionally the table information can be added to each message.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
 
@@ -251,26 +251,25 @@ class IotHubDataConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'IotHubDataFormat']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iot_hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'IotHubDataFormat']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_system_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iot_hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing an iot hub data connection.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,7 +300,6 @@ class IotHubDataConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,20 +315,20 @@ class IotHubDataConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'IotHubDataFormat']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iot_hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'IotHubDataFormat']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_system_properties: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iot_hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

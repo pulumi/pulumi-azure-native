@@ -25,16 +25,16 @@ class ActivityCustomEntityQueryArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 entity_query_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_entity_type: Optional[pulumi.Input[Union[_builtins.str, 'EntityType']]] = None,
-                 query_definitions: Optional[pulumi.Input['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']] = None,
-                 required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities_filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 entity_query_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_entity_type: pulumi.Input[Optional[Union[_builtins.str, 'EntityType']]] = None,
+                 query_definitions: pulumi.Input[Optional['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']] = None,
+                 required_input_fields_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActivityCustomEntityQuery resource.
 
@@ -116,122 +116,122 @@ class ActivityCustomEntityQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity query content to display in timeline
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity query description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether this activity is enabled or disabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="entitiesFilter")
-    def entities_filter(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def entities_filter(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         The query applied only to entities matching to all filters
         """
         return pulumi.get(self, "entities_filter")
 
     @entities_filter.setter
-    def entities_filter(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def entities_filter(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "entities_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="entityQueryId")
-    def entity_query_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_query_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         entity query ID
         """
         return pulumi.get(self, "entity_query_id")
 
     @entity_query_id.setter
-    def entity_query_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_query_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_query_id", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEntityType")
-    def input_entity_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EntityType']]]:
+    def input_entity_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EntityType']]]:
         """
         The type of the query's source entity
         """
         return pulumi.get(self, "input_entity_type")
 
     @input_entity_type.setter
-    def input_entity_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EntityType']]]):
+    def input_entity_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EntityType']]]):
         pulumi.set(self, "input_entity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="queryDefinitions")
-    def query_definitions(self) -> Optional[pulumi.Input['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]:
+    def query_definitions(self) -> pulumi.Input[Optional['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]:
         """
         The Activity query definitions
         """
         return pulumi.get(self, "query_definitions")
 
     @query_definitions.setter
-    def query_definitions(self, value: Optional[pulumi.Input['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]):
+    def query_definitions(self, value: pulumi.Input[Optional['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]):
         pulumi.set(self, "query_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredInputFieldsSets")
-    def required_input_fields_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def required_input_fields_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         List of the fields of the source entity that are required to run the query
         """
         return pulumi.get(self, "required_input_fields_sets")
 
     @required_input_fields_sets.setter
-    def required_input_fields_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def required_input_fields_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "required_input_fields_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template id this activity was created from
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity query title
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -241,25 +241,24 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 entity_query_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_entity_type: Optional[pulumi.Input[Union[_builtins.str, 'EntityType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_definitions: Optional[pulumi.Input[Union['ActivityEntityQueriesPropertiesQueryDefinitionsArgs', 'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict']]] = None,
-                 required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities_filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 entity_query_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_entity_type: pulumi.Input[Optional[Union[_builtins.str, 'EntityType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_definitions: pulumi.Input[Optional[Union['ActivityEntityQueriesPropertiesQueryDefinitionsArgs', 'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict']]] = None,
+                 required_input_fields_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents Activity entity query.
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,7 +288,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ActivityCustomEntityQueryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,19 +303,19 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 entities_filter: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 entity_query_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_entity_type: Optional[pulumi.Input[Union[_builtins.str, 'EntityType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_definitions: Optional[pulumi.Input[Union['ActivityEntityQueriesPropertiesQueryDefinitionsArgs', 'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict']]] = None,
-                 required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 entities_filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 entity_query_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_entity_type: pulumi.Input[Optional[Union[_builtins.str, 'EntityType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_definitions: pulumi.Input[Optional[Union['ActivityEntityQueriesPropertiesQueryDefinitionsArgs', 'ActivityEntityQueriesPropertiesQueryDefinitionsArgsDict']]] = None,
+                 required_input_fields_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

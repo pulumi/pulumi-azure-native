@@ -25,11 +25,11 @@ class QueryArgs:
                  display_name: pulumi.Input[_builtins.str],
                  query_pack_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 related: Optional[pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
+                 related: pulumi.Input[Optional['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         The set of arguments for constructing a Query resource.
 
@@ -108,26 +108,26 @@ class QueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the query.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of a specific query defined in the Log Analytics QueryPack
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
@@ -144,26 +144,26 @@ class QueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def related(self) -> Optional[pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]:
+    def related(self) -> pulumi.Input[Optional['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]:
         """
         The related metadata items for the function.
         """
         return pulumi.get(self, "related")
 
     @related.setter
-    def related(self, value: Optional[pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]):
+    def related(self, value: pulumi.Input[Optional['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]):
         pulumi.set(self, "related", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Tags associated with the query.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -173,15 +173,15 @@ class Query(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 query_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 related: Optional[pulumi.Input[Union['LogAnalyticsQueryPackQueryPropertiesRelatedArgs', 'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 query_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 related: pulumi.Input[Optional[Union['LogAnalyticsQueryPackQueryPropertiesRelatedArgs', 'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  __props__=None):
         """
         A Log Analytics QueryPack-Query definition.
@@ -189,7 +189,6 @@ class Query(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2019-09-01.
 
         Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,7 +215,6 @@ class Query(pulumi.CustomResource):
 
         Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param QueryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,15 +230,15 @@ class Query(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
-                 query_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 related: Optional[pulumi.Input[Union['LogAnalyticsQueryPackQueryPropertiesRelatedArgs', 'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 query_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 related: pulumi.Input[Optional[Union['LogAnalyticsQueryPackQueryPropertiesRelatedArgs', 'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

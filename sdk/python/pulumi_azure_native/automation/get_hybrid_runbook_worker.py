@@ -206,7 +206,6 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[_builtins.str] =
 
     Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str hybrid_runbook_worker_group_name: The hybrid runbook worker group name
     :param _builtins.str hybrid_runbook_worker_id: The hybrid runbook worker id
@@ -234,10 +233,10 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[_builtins.str] =
         vm_resource_id=pulumi.get(__ret__, 'vm_resource_id'),
         worker_name=pulumi.get(__ret__, 'worker_name'),
         worker_type=pulumi.get(__ret__, 'worker_type'))
-def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     hybrid_runbook_worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     hybrid_runbook_worker_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hybrid_runbook_worker_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     hybrid_runbook_worker_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridRunbookWorkerResult]:
     """
     Retrieve a hybrid runbook worker.
@@ -245,7 +244,6 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str hybrid_runbook_worker_group_name: The hybrid runbook worker group name

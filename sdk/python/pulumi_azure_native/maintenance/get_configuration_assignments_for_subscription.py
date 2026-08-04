@@ -155,7 +155,6 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
 
     Other available API versions: 2023-04-01, 2023-09-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str configuration_assignment_name: The name of the ConfigurationAssignment
     """
     __args__ = dict()
@@ -173,7 +172,7 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
         resource_id=pulumi.get(__ret__, 'resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_assignments_for_subscription_output(configuration_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_assignments_for_subscription_output(configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentsForSubscriptionResult]:
     """
     Get configuration assignment for resource.
@@ -181,7 +180,6 @@ def get_configuration_assignments_for_subscription_output(configuration_assignme
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2023-04-01, 2023-09-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str configuration_assignment_name: The name of the ConfigurationAssignment
     """

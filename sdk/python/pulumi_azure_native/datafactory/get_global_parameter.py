@@ -131,7 +131,6 @@ def get_global_parameter(factory_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-06-01.
 
-
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str global_parameter_name: The global parameter name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,15 +150,14 @@ def get_global_parameter(factory_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_global_parameter_output(factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                global_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_parameter_output(factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                global_parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalParameterResult]:
     """
     Gets a Global parameter
 
     Uses Azure REST API version 2018-06-01.
-
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str global_parameter_name: The global parameter name.

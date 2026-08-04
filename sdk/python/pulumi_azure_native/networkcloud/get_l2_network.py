@@ -273,7 +273,6 @@ def get_l2_network(l2_network_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str l2_network_name: The name of the L2 network.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -303,8 +302,8 @@ def get_l2_network(l2_network_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
-def get_l2_network_output(l2_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_l2_network_output(l2_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL2NetworkResult]:
     """
     Get properties of the provided layer 2 (L2) network.
@@ -312,7 +311,6 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2025-02-01.
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str l2_network_name: The name of the L2 network.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

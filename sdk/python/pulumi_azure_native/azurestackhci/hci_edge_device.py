@@ -23,8 +23,8 @@ class HciEdgeDeviceArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
-                 edge_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['HciEdgeDevicePropertiesArgs']] = None):
+                 edge_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['HciEdgeDevicePropertiesArgs']] = None):
         """
         The set of arguments for constructing a HciEdgeDevice resource.
 
@@ -68,26 +68,26 @@ class HciEdgeDeviceArgs:
 
     @_builtins.property
     @pulumi.getter(name="edgeDeviceName")
-    def edge_device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Device
         """
         return pulumi.get(self, "edge_device_name")
 
     @edge_device_name.setter
-    def edge_device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_device_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['HciEdgeDevicePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['HciEdgeDevicePropertiesArgs']]:
         """
         properties for Arc-enabled edge device with HCI OS.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['HciEdgeDevicePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['HciEdgeDevicePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -97,16 +97,15 @@ class HciEdgeDevice(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['HciEdgeDevicePropertiesArgs', 'HciEdgeDevicePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 edge_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['HciEdgeDevicePropertiesArgs', 'HciEdgeDevicePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Arc-enabled edge device with HCI OS.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class HciEdgeDevice(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param HciEdgeDeviceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class HciEdgeDevice(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edge_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['HciEdgeDevicePropertiesArgs', 'HciEdgeDevicePropertiesArgsDict']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 edge_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['HciEdgeDevicePropertiesArgs', 'HciEdgeDevicePropertiesArgsDict']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -86,7 +86,7 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
             }
             resourceInputs["alertProcessingRuleName"] = args?.alertProcessingRuleName;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.alertsmanagement.alertProcessingRulePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.alertsmanagement.alertProcessingRulePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -116,15 +116,15 @@ export interface AlertProcessingRuleByNameArgs {
     /**
      * The name of the alert processing rule that needs to be fetched.
      */
-    alertProcessingRuleName?: pulumi.Input<string>;
+    alertProcessingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Alert processing rule properties.
      */
-    properties?: pulumi.Input<inputs.alertsmanagement.AlertProcessingRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.alertsmanagement.AlertProcessingRulePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface AlertProcessingRuleByNameArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

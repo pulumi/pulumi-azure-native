@@ -25,7 +25,7 @@ class DataFlowArgs:
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['FlowletArgs', 'MappingDataFlowArgs', 'WranglingDataFlowArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_flow_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_flow_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataFlow resource.
 
@@ -78,14 +78,14 @@ class DataFlowArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataFlowName")
-    def data_flow_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_flow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data flow name.
         """
         return pulumi.get(self, "data_flow_name")
 
     @data_flow_name.setter
-    def data_flow_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_flow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_flow_name", value)
 
 
@@ -95,16 +95,15 @@ class DataFlow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['FlowletArgs', 'FlowletArgsDict'], Union['MappingDataFlowArgs', 'MappingDataFlowArgsDict'], Union['WranglingDataFlowArgs', 'WranglingDataFlowArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_flow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['FlowletArgs', 'FlowletArgsDict'], Union['MappingDataFlowArgs', 'MappingDataFlowArgsDict'], Union['WranglingDataFlowArgs', 'WranglingDataFlowArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Data flow resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class DataFlow(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param DataFlowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class DataFlow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['FlowletArgs', 'FlowletArgsDict'], Union['MappingDataFlowArgs', 'MappingDataFlowArgsDict'], Union['WranglingDataFlowArgs', 'WranglingDataFlowArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_flow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['FlowletArgs', 'FlowletArgsDict'], Union['MappingDataFlowArgs', 'MappingDataFlowArgsDict'], Union['WranglingDataFlowArgs', 'WranglingDataFlowArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

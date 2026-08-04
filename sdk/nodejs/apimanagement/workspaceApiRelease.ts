@@ -128,11 +128,11 @@ export interface WorkspaceApiReleaseArgs {
     /**
      * Release Notes
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Release identifier within an API. Must be unique in the current API Management service instance.
      */
-    releaseId?: pulumi.Input<string>;
+    releaseId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

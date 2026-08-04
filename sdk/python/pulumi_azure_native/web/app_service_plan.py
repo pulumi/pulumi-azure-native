@@ -23,36 +23,36 @@ __all__ = ['AppServicePlanArgs', 'AppServicePlan']
 class AppServicePlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 async_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 elastic_scale_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
-                 hyper_v: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 install_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['InstallScriptArgs']]]] = None,
-                 is_custom_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_spot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kube_environment_profile: Optional[pulumi.Input['KubeEnvironmentProfileArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['ServerFarmNetworkSettingsArgs']] = None,
-                 per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan_default_identity: Optional[pulumi.Input['DefaultIdentityArgs']] = None,
-                 rdp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_adapters: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryAdapterArgs']]]] = None,
-                 reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
-                 spot_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageMountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_worker_size_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_tier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 async_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 elastic_scale_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 free_offer_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_environment_profile: pulumi.Input[Optional['HostingEnvironmentProfileArgs']] = None,
+                 hyper_v: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 install_scripts: pulumi.Input[Optional[Sequence[pulumi.Input['InstallScriptArgs']]]] = None,
+                 is_custom_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_spot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kube_environment_profile: pulumi.Input[Optional['KubeEnvironmentProfileArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['ServerFarmNetworkSettingsArgs']] = None,
+                 per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan_default_identity: pulumi.Input[Optional['DefaultIdentityArgs']] = None,
+                 rdp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_adapters: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryAdapterArgs']]]] = None,
+                 reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sku: pulumi.Input[Optional['SkuDescriptionArgs']] = None,
+                 spot_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mounts: pulumi.Input[Optional[Sequence[pulumi.Input['StorageMountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_worker_size_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_tier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AppServicePlan resource.
 
@@ -168,7 +168,7 @@ class AppServicePlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="asyncScalingEnabled")
-    def async_scaling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def async_scaling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
         If <code>false</code>, this App Service Plan will only attempt sync scaling.
@@ -176,204 +176,204 @@ class AppServicePlanArgs:
         return pulumi.get(self, "async_scaling_enabled")
 
     @async_scaling_enabled.setter
-    def async_scaling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def async_scaling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "async_scaling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticScaleEnabled")
-    def elastic_scale_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def elastic_scale_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
         """
         return pulumi.get(self, "elastic_scale_enabled")
 
     @elastic_scale_enabled.setter
-    def elastic_scale_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def elastic_scale_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "elastic_scale_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         Extended Location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="freeOfferExpirationTime")
-    def free_offer_expiration_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def free_offer_expiration_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the server farm free offer expires.
         """
         return pulumi.get(self, "free_offer_expiration_time")
 
     @free_offer_expiration_time.setter
-    def free_offer_expiration_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def free_offer_expiration_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "free_offer_expiration_time", value)
 
     @_builtins.property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional[pulumi.Input['HostingEnvironmentProfileArgs']]:
+    def hosting_environment_profile(self) -> pulumi.Input[Optional['HostingEnvironmentProfileArgs']]:
         """
         Specification for the App Service Environment to use for the App Service plan.
         """
         return pulumi.get(self, "hosting_environment_profile")
 
     @hosting_environment_profile.setter
-    def hosting_environment_profile(self, value: Optional[pulumi.Input['HostingEnvironmentProfileArgs']]):
+    def hosting_environment_profile(self, value: pulumi.Input[Optional['HostingEnvironmentProfileArgs']]):
         pulumi.set(self, "hosting_environment_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperV")
-    def hyper_v(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hyper_v(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         """
         return pulumi.get(self, "hyper_v")
 
     @hyper_v.setter
-    def hyper_v(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hyper_v(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hyper_v", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         Managed service identity.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="installScripts")
-    def install_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstallScriptArgs']]]]:
+    def install_scripts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstallScriptArgs']]]]:
         """
         Install scripts associated with this App Service plan.
         """
         return pulumi.get(self, "install_scripts")
 
     @install_scripts.setter
-    def install_scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstallScriptArgs']]]]):
+    def install_scripts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstallScriptArgs']]]]):
         pulumi.set(self, "install_scripts", value)
 
     @_builtins.property
     @pulumi.getter(name="isCustomMode")
-    def is_custom_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_custom_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this server farm is in custom mode.
         """
         return pulumi.get(self, "is_custom_mode")
 
     @is_custom_mode.setter
-    def is_custom_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_custom_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_custom_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="isSpot")
-    def is_spot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_spot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If <code>true</code>, this App Service Plan owns spot instances.
         """
         return pulumi.get(self, "is_spot")
 
     @is_spot.setter
-    def is_spot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_spot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_spot", value)
 
     @_builtins.property
     @pulumi.getter(name="isXenon")
-    def is_xenon(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_xenon(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         """
         return pulumi.get(self, "is_xenon")
 
     @is_xenon.setter
-    def is_xenon(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_xenon(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_xenon", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="kubeEnvironmentProfile")
-    def kube_environment_profile(self) -> Optional[pulumi.Input['KubeEnvironmentProfileArgs']]:
+    def kube_environment_profile(self) -> pulumi.Input[Optional['KubeEnvironmentProfileArgs']]:
         """
         Specification for the Kubernetes Environment to use for the App Service plan.
         """
         return pulumi.get(self, "kube_environment_profile")
 
     @kube_environment_profile.setter
-    def kube_environment_profile(self, value: Optional[pulumi.Input['KubeEnvironmentProfileArgs']]):
+    def kube_environment_profile(self, value: pulumi.Input[Optional['KubeEnvironmentProfileArgs']]):
         pulumi.set(self, "kube_environment_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_elastic_worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         """
         return pulumi.get(self, "maximum_elastic_worker_count")
 
     @maximum_elastic_worker_count.setter
-    def maximum_elastic_worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_elastic_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_elastic_worker_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the App Service plan.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['ServerFarmNetworkSettingsArgs']]:
+    def network(self) -> pulumi.Input[Optional['ServerFarmNetworkSettingsArgs']]:
         """
         All network settings for the server farm.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['ServerFarmNetworkSettingsArgs']]):
+    def network(self, value: pulumi.Input[Optional['ServerFarmNetworkSettingsArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="perSiteScaling")
-    def per_site_scaling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def per_site_scaling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
         If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
@@ -381,24 +381,24 @@ class AppServicePlanArgs:
         return pulumi.get(self, "per_site_scaling")
 
     @per_site_scaling.setter
-    def per_site_scaling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def per_site_scaling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "per_site_scaling", value)
 
     @_builtins.property
     @pulumi.getter(name="planDefaultIdentity")
-    def plan_default_identity(self) -> Optional[pulumi.Input['DefaultIdentityArgs']]:
+    def plan_default_identity(self) -> pulumi.Input[Optional['DefaultIdentityArgs']]:
         """
         Identity to use by platform for various features and integrations using managed identity.
         """
         return pulumi.get(self, "plan_default_identity")
 
     @plan_default_identity.setter
-    def plan_default_identity(self, value: Optional[pulumi.Input['DefaultIdentityArgs']]):
+    def plan_default_identity(self, value: pulumi.Input[Optional['DefaultIdentityArgs']]):
         pulumi.set(self, "plan_default_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="rdpEnabled")
-    def rdp_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rdp_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
         If <code>false</code>, RDP access is disabled.
@@ -406,120 +406,120 @@ class AppServicePlanArgs:
         return pulumi.get(self, "rdp_enabled")
 
     @rdp_enabled.setter
-    def rdp_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rdp_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rdp_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="registryAdapters")
-    def registry_adapters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryAdapterArgs']]]]:
+    def registry_adapters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryAdapterArgs']]]]:
         """
         Registry adapters associated with this App Service plan.
         """
         return pulumi.get(self, "registry_adapters")
 
     @registry_adapters.setter
-    def registry_adapters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryAdapterArgs']]]]):
+    def registry_adapters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryAdapterArgs']]]]):
         pulumi.set(self, "registry_adapters", value)
 
     @_builtins.property
     @pulumi.getter
-    def reserved(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reserved(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If Linux app service plan <code>true</code>, <code>false</code> otherwise.
         """
         return pulumi.get(self, "reserved")
 
     @reserved.setter
-    def reserved(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reserved(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reserved", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuDescriptionArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuDescriptionArgs']]:
         """
         Description of a SKU for a scalable resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuDescriptionArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuDescriptionArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="spotExpirationTime")
-    def spot_expiration_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spot_expiration_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the server farm expires. Valid only if it is a spot server farm.
         """
         return pulumi.get(self, "spot_expiration_time")
 
     @spot_expiration_time.setter
-    def spot_expiration_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spot_expiration_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spot_expiration_time", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMounts")
-    def storage_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageMountArgs']]]]:
+    def storage_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StorageMountArgs']]]]:
         """
         Storage mounts associated with this App Service plan.
         """
         return pulumi.get(self, "storage_mounts")
 
     @storage_mounts.setter
-    def storage_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageMountArgs']]]]):
+    def storage_mounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StorageMountArgs']]]]):
         pulumi.set(self, "storage_mounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetWorkerCount")
-    def target_worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Scaling worker count.
         """
         return pulumi.get(self, "target_worker_count")
 
     @target_worker_count.setter
-    def target_worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_worker_count", value)
 
     @_builtins.property
     @pulumi.getter(name="targetWorkerSizeId")
-    def target_worker_size_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_worker_size_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Scaling worker size ID.
         """
         return pulumi.get(self, "target_worker_size_id")
 
     @target_worker_size_id.setter
-    def target_worker_size_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_worker_size_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_worker_size_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workerTierName")
-    def worker_tier_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_tier_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target worker tier assigned to the App Service plan.
         """
         return pulumi.get(self, "worker_tier_name")
 
     @worker_tier_name.setter
-    def worker_tier_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_tier_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_tier_name", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If <code>true</code>, this App Service Plan will perform availability zone balancing.
         If <code>false</code>, this App Service Plan will not perform availability zone balancing.
@@ -527,7 +527,7 @@ class AppServicePlanArgs:
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -537,37 +537,37 @@ class AppServicePlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 async_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 elastic_scale_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
-                 hyper_v: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 install_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstallScriptArgs', 'InstallScriptArgsDict']]]]] = None,
-                 is_custom_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_spot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kube_environment_profile: Optional[pulumi.Input[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['ServerFarmNetworkSettingsArgs', 'ServerFarmNetworkSettingsArgsDict']]] = None,
-                 per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan_default_identity: Optional[pulumi.Input[Union['DefaultIdentityArgs', 'DefaultIdentityArgsDict']]] = None,
-                 rdp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_adapters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryAdapterArgs', 'RegistryAdapterArgsDict']]]]] = None,
-                 reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
-                 spot_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageMountArgs', 'StorageMountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_worker_size_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_tier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 async_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 elastic_scale_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 free_offer_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_environment_profile: pulumi.Input[Optional[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
+                 hyper_v: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 install_scripts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstallScriptArgs', 'InstallScriptArgsDict']]]]] = None,
+                 is_custom_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_spot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kube_environment_profile: pulumi.Input[Optional[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['ServerFarmNetworkSettingsArgs', 'ServerFarmNetworkSettingsArgsDict']]] = None,
+                 per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan_default_identity: pulumi.Input[Optional[Union['DefaultIdentityArgs', 'DefaultIdentityArgsDict']]] = None,
+                 rdp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_adapters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryAdapterArgs', 'RegistryAdapterArgsDict']]]]] = None,
+                 reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
+                 spot_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageMountArgs', 'StorageMountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_worker_size_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_tier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         App Service plan.
@@ -575,7 +575,6 @@ class AppServicePlan(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -628,7 +627,6 @@ class AppServicePlan(pulumi.CustomResource):
 
         Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AppServicePlanArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -644,37 +642,37 @@ class AppServicePlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 async_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 elastic_scale_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
-                 hyper_v: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 install_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstallScriptArgs', 'InstallScriptArgsDict']]]]] = None,
-                 is_custom_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_spot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kube_environment_profile: Optional[pulumi.Input[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['ServerFarmNetworkSettingsArgs', 'ServerFarmNetworkSettingsArgsDict']]] = None,
-                 per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan_default_identity: Optional[pulumi.Input[Union['DefaultIdentityArgs', 'DefaultIdentityArgsDict']]] = None,
-                 rdp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_adapters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryAdapterArgs', 'RegistryAdapterArgsDict']]]]] = None,
-                 reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
-                 spot_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageMountArgs', 'StorageMountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_worker_size_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_tier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 async_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 elastic_scale_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 free_offer_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosting_environment_profile: pulumi.Input[Optional[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
+                 hyper_v: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 install_scripts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstallScriptArgs', 'InstallScriptArgsDict']]]]] = None,
+                 is_custom_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_spot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kube_environment_profile: pulumi.Input[Optional[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['ServerFarmNetworkSettingsArgs', 'ServerFarmNetworkSettingsArgsDict']]] = None,
+                 per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan_default_identity: pulumi.Input[Optional[Union['DefaultIdentityArgs', 'DefaultIdentityArgsDict']]] = None,
+                 rdp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_adapters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryAdapterArgs', 'RegistryAdapterArgsDict']]]]] = None,
+                 reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
+                 spot_expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageMountArgs', 'StorageMountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_worker_size_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_tier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

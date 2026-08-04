@@ -109,7 +109,7 @@ export interface ListEndpointIngressGatewayCredentialsOutputArgs {
     /**
      * The is how long the endpoint access token is valid (in seconds).
      */
-    expiresin?: pulumi.Input<number>;
+    expiresin?: pulumi.Input<number | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -117,5 +117,5 @@ export interface ListEndpointIngressGatewayCredentialsOutputArgs {
     /**
      * The name of the service. If not provided, the request will by pass the generation of service configuration token.
      */
-    serviceName?: pulumi.Input<string | enums.hybridconnectivity.ServiceName>;
+    serviceName?: pulumi.Input<string | enums.hybridconnectivity.ServiceName | undefined>;
 }

@@ -153,7 +153,6 @@ def get_application(application_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-07-01-preview.
 
-
     :param _builtins.str application_id: The security Application key - unique key for the standard application
     """
     __args__ = dict()
@@ -171,13 +170,12 @@ def get_application(application_id: Optional[_builtins.str] = None,
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_application_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get a specific application for the requested scope by applicationId
 
     Uses Azure REST API version 2022-07-01-preview.
-
 
     :param _builtins.str application_id: The security Application key - unique key for the standard application
     """

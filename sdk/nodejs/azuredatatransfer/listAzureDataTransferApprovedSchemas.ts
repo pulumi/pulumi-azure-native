@@ -63,9 +63,9 @@ export interface ListAzureDataTransferApprovedSchemasOutputArgs {
     /**
      * The direction pipeline to filter approved schemas.
      */
-    direction?: pulumi.Input<string | enums.azuredatatransfer.ListApprovedSchemasDirection>;
+    direction?: pulumi.Input<string | enums.azuredatatransfer.ListApprovedSchemasDirection | undefined>;
     /**
      * The name of the pipeline to filter approved schemas.
      */
-    pipeline?: pulumi.Input<string>;
+    pipeline?: pulumi.Input<string | undefined>;
 }

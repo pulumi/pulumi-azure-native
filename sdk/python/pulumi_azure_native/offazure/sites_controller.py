@@ -22,13 +22,13 @@ __all__ = ['SitesControllerArgs', 'SitesController']
 class SitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_details: Optional[pulumi.Input['SiteAgentPropertiesArgs']] = None,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_solution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_identity_details: Optional[pulumi.Input['SiteSpnPropertiesArgs']] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 agent_details: pulumi.Input[Optional['SiteAgentPropertiesArgs']] = None,
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_identity_details: pulumi.Input[Optional['SiteSpnPropertiesArgs']] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SitesController resource.
 
@@ -73,55 +73,55 @@ class SitesControllerArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentDetails")
-    def agent_details(self) -> Optional[pulumi.Input['SiteAgentPropertiesArgs']]:
+    def agent_details(self) -> pulumi.Input[Optional['SiteAgentPropertiesArgs']]:
         """
         Gets or sets the on-premises agent details.
         """
         return pulumi.get(self, "agent_details")
 
     @agent_details.setter
-    def agent_details(self, value: Optional[pulumi.Input['SiteAgentPropertiesArgs']]):
+    def agent_details(self, value: pulumi.Input[Optional['SiteAgentPropertiesArgs']]):
         pulumi.set(self, "agent_details", value)
 
     @_builtins.property
     @pulumi.getter(name="applianceName")
-    def appliance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the Appliance Name.
         """
         return pulumi.get(self, "appliance_name")
 
     @appliance_name.setter
-    def appliance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "appliance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySolutionId")
-    def discovery_solution_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_solution_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the ARM ID of migration hub solution for SDS.
         """
         return pulumi.get(self, "discovery_solution_id")
 
     @discovery_solution_id.setter
-    def discovery_solution_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_solution_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_solution_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalIdentityDetails")
-    def service_principal_identity_details(self) -> Optional[pulumi.Input['SiteSpnPropertiesArgs']]:
+    def service_principal_identity_details(self) -> pulumi.Input[Optional['SiteSpnPropertiesArgs']]:
         """
         Gets or sets the service principal identity details used by agent for
         communication
@@ -130,31 +130,31 @@ class SitesControllerArgs:
         return pulumi.get(self, "service_principal_identity_details")
 
     @service_principal_identity_details.setter
-    def service_principal_identity_details(self, value: Optional[pulumi.Input['SiteSpnPropertiesArgs']]):
+    def service_principal_identity_details(self, value: pulumi.Input[Optional['SiteSpnPropertiesArgs']]):
         pulumi.set(self, "service_principal_identity_details", value)
 
     @_builtins.property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Site name
         """
         return pulumi.get(self, "site_name")
 
     @site_name.setter
-    def site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -164,14 +164,14 @@ class SitesController(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_details: Optional[pulumi.Input[Union['SiteAgentPropertiesArgs', 'SiteAgentPropertiesArgsDict']]] = None,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_solution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_identity_details: Optional[pulumi.Input[Union['SiteSpnPropertiesArgs', 'SiteSpnPropertiesArgsDict']]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agent_details: pulumi.Input[Optional[Union['SiteAgentPropertiesArgs', 'SiteAgentPropertiesArgsDict']]] = None,
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_identity_details: pulumi.Input[Optional[Union['SiteSpnPropertiesArgs', 'SiteSpnPropertiesArgsDict']]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A VmwareSite
@@ -179,7 +179,6 @@ class SitesController(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,7 +206,6 @@ class SitesController(pulumi.CustomResource):
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SitesControllerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,14 +221,14 @@ class SitesController(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_details: Optional[pulumi.Input[Union['SiteAgentPropertiesArgs', 'SiteAgentPropertiesArgsDict']]] = None,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_solution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_identity_details: Optional[pulumi.Input[Union['SiteSpnPropertiesArgs', 'SiteSpnPropertiesArgsDict']]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agent_details: pulumi.Input[Optional[Union['SiteAgentPropertiesArgs', 'SiteAgentPropertiesArgsDict']]] = None,
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_identity_details: pulumi.Input[Optional[Union['SiteSpnPropertiesArgs', 'SiteSpnPropertiesArgsDict']]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -162,27 +162,27 @@ export interface ArcSettingArgs {
     /**
      * App id of arc AAD identity.
      */
-    arcApplicationClientId?: pulumi.Input<string>;
+    arcApplicationClientId?: pulumi.Input<string | undefined>;
     /**
      * Object id of arc AAD identity.
      */
-    arcApplicationObjectId?: pulumi.Input<string>;
+    arcApplicationObjectId?: pulumi.Input<string | undefined>;
     /**
      * Tenant id of arc AAD identity.
      */
-    arcApplicationTenantId?: pulumi.Input<string>;
+    arcApplicationTenantId?: pulumi.Input<string | undefined>;
     /**
      * The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
      */
-    arcInstanceResourceGroup?: pulumi.Input<string>;
+    arcInstanceResourceGroup?: pulumi.Input<string | undefined>;
     /**
      * Object id of arc AAD service principal.
      */
-    arcServicePrincipalObjectId?: pulumi.Input<string>;
+    arcServicePrincipalObjectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the proxy resource holding details of HCI ArcSetting information.
      */
-    arcSettingName?: pulumi.Input<string>;
+    arcSettingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster.
      */
@@ -190,7 +190,7 @@ export interface ArcSettingArgs {
     /**
      * contains connectivity related configuration for ARC resources
      */
-    connectivityProperties?: pulumi.Input<pulumi.Input<inputs.azurestackhci.ArcConnectivityPropertiesArgs>[]>;
+    connectivityProperties?: pulumi.Input<pulumi.Input<inputs.azurestackhci.ArcConnectivityPropertiesArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

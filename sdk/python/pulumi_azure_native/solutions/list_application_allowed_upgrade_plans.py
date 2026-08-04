@@ -60,7 +60,6 @@ def list_application_allowed_upgrade_plans(application_name: Optional[_builtins.
 
     Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str application_name: The name of the managed application.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -72,8 +71,8 @@ def list_application_allowed_upgrade_plans(application_name: Optional[_builtins.
 
     return AwaitableListApplicationAllowedUpgradePlansResult(
         value=pulumi.get(__ret__, 'value'))
-def list_application_allowed_upgrade_plans_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_application_allowed_upgrade_plans_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplicationAllowedUpgradePlansResult]:
     """
     List allowed upgrade plans for application.
@@ -81,7 +80,6 @@ def list_application_allowed_upgrade_plans_output(application_name: Optional[pul
     Uses Azure REST API version 2021-07-01.
 
     Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str application_name: The name of the managed application.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

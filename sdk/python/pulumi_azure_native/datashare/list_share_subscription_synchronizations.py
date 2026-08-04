@@ -74,7 +74,6 @@ def list_share_subscription_synchronizations(account_name: Optional[_builtins.st
 
     Uses Azure REST API version 2021-08-01.
 
-
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str filter: Filters the results using OData syntax.
     :param _builtins.str orderby: Sorts the results using OData syntax.
@@ -95,18 +94,17 @@ def list_share_subscription_synchronizations(account_name: Optional[_builtins.st
     return AwaitableListShareSubscriptionSynchronizationsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_share_subscription_synchronizations_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                    orderby: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_share_subscription_synchronizations_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    orderby: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListShareSubscriptionSynchronizationsResult]:
     """
     List synchronizations of a share subscription
 
     Uses Azure REST API version 2021-08-01.
-
 
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str filter: Filters the results using OData syntax.

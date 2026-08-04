@@ -217,7 +217,6 @@ def get_integration_account_map(integration_account_name: Optional[_builtins.str
 
     Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str integration_account_name: The integration account name.
     :param _builtins.str map_name: The integration account map name.
     :param _builtins.str resource_group_name: The resource group name.
@@ -244,9 +243,9 @@ def get_integration_account_map(integration_account_name: Optional[_builtins.str
         parameters_schema=pulumi.get(__ret__, 'parameters_schema'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_account_map_output(integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_account_map_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountMapResult]:
     """
     Gets an integration account map.
@@ -254,7 +253,6 @@ def get_integration_account_map_output(integration_account_name: Optional[pulumi
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str integration_account_name: The integration account name.
     :param _builtins.str map_name: The integration account map name.

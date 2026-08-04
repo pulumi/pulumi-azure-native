@@ -3310,9 +3310,9 @@ class PostgresInstanceSkuResponse(dict):
 
         :param _builtins.str name: The name of the SKU.  It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        :param _builtins.bool dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+        :param _builtins.bool dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param _builtins.str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier.
         """
         pulumi.set(__self__, "name", name)
@@ -3351,7 +3351,7 @@ class PostgresInstanceSkuResponse(dict):
     @pulumi.getter
     def dev(self) -> Optional[_builtins.bool]:
         """
-        Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+        Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
         """
         return pulumi.get(self, "dev")
 
@@ -3367,7 +3367,7 @@ class PostgresInstanceSkuResponse(dict):
     @pulumi.getter
     def size(self) -> Optional[_builtins.str]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
@@ -4791,9 +4791,9 @@ class SqlManagedInstanceSkuResponse(dict):
 
         :param _builtins.str name: The name of the SKU.
         :param _builtins.int capacity: The SKU capacity
-        :param _builtins.bool dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+        :param _builtins.bool dev: Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
         :param _builtins.str family: The SKU family
-        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param _builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param _builtins.str tier: The pricing tier for the instance.
         """
         pulumi.set(__self__, "name", name)
@@ -4832,7 +4832,7 @@ class SqlManagedInstanceSkuResponse(dict):
     @pulumi.getter
     def dev(self) -> Optional[_builtins.bool]:
         """
-        Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose. 
+        Whether dev/test is enabled. When the dev field is set to true, the resource is used for dev/test purpose.
         """
         return pulumi.get(self, "dev")
 
@@ -4848,7 +4848,7 @@ class SqlManagedInstanceSkuResponse(dict):
     @pulumi.getter
     def size(self) -> Optional[_builtins.str]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 

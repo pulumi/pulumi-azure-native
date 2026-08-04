@@ -120,11 +120,11 @@ export interface CommitmentPlanAssociationArgs {
     /**
      * The Azure resource id of the account.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the commitment plan association with the Cognitive Services Account
      */
-    commitmentPlanAssociationName?: pulumi.Input<string>;
+    commitmentPlanAssociationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
@@ -136,5 +136,5 @@ export interface CommitmentPlanAssociationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

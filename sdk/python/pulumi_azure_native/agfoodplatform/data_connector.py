@@ -24,7 +24,7 @@ class DataConnectorArgs:
                  data_manager_for_agriculture_resource_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['DataConnectorPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_connector_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_connector_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnector resource.
 
@@ -77,14 +77,14 @@ class DataConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataConnectorName")
-    def data_connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connector name.
         """
         return pulumi.get(self, "data_connector_name")
 
     @data_connector_name.setter
-    def data_connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connector_name", value)
 
 
@@ -94,16 +94,15 @@ class DataConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataConnectorPropertiesArgs', 'DataConnectorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataConnectorPropertiesArgs', 'DataConnectorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         DataConnector Model.
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +122,6 @@ class DataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DataConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,10 +137,10 @@ class DataConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DataConnectorPropertiesArgs', 'DataConnectorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DataConnectorPropertiesArgs', 'DataConnectorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

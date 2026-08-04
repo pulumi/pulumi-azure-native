@@ -23,15 +23,15 @@ __all__ = ['MongoClusterArgs', 'MongoCluster']
 class MongoClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'MongoClusterCreateMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]] = None,
-                 restore_parameters: Optional[pulumi.Input['MongoClusterRestoreParametersArgs']] = None,
-                 server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'MongoClusterCreateMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_specs: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupSpecArgs']]]] = None,
+                 restore_parameters: pulumi.Input[Optional['MongoClusterRestoreParametersArgs']] = None,
+                 server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MongoCluster resource.
 
@@ -82,110 +82,110 @@ class MongoClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator's login for the mongo cluster.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the administrator login.
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MongoClusterCreateMode']]]:
+    def create_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MongoClusterCreateMode']]]:
         """
         The mode to create a mongo cluster.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MongoClusterCreateMode']]]):
+    def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MongoClusterCreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoClusterName")
-    def mongo_cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mongo_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the mongo cluster.
         """
         return pulumi.get(self, "mongo_cluster_name")
 
     @mongo_cluster_name.setter
-    def mongo_cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mongo_cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mongo_cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupSpecs")
-    def node_group_specs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]]:
+    def node_group_specs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupSpecArgs']]]]:
         """
         The list of node group specs in the cluster.
         """
         return pulumi.get(self, "node_group_specs")
 
     @node_group_specs.setter
-    def node_group_specs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]]):
+    def node_group_specs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupSpecArgs']]]]):
         pulumi.set(self, "node_group_specs", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreParameters")
-    def restore_parameters(self) -> Optional[pulumi.Input['MongoClusterRestoreParametersArgs']]:
+    def restore_parameters(self) -> pulumi.Input[Optional['MongoClusterRestoreParametersArgs']]:
         """
         Parameters used for restore operations
         """
         return pulumi.get(self, "restore_parameters")
 
     @restore_parameters.setter
-    def restore_parameters(self, value: Optional[pulumi.Input['MongoClusterRestoreParametersArgs']]):
+    def restore_parameters(self, value: pulumi.Input[Optional['MongoClusterRestoreParametersArgs']]):
         pulumi.set(self, "restore_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Mongo DB server version. Defaults to the latest available version if not specified.
         """
         return pulumi.get(self, "server_version")
 
     @server_version.setter
-    def server_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -195,16 +195,16 @@ class MongoCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'MongoClusterCreateMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_parameters: Optional[pulumi.Input[Union['MongoClusterRestoreParametersArgs', 'MongoClusterRestoreParametersArgsDict']]] = None,
-                 server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'MongoClusterCreateMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_specs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_parameters: pulumi.Input[Optional[Union['MongoClusterRestoreParametersArgs', 'MongoClusterRestoreParametersArgsDict']]] = None,
+                 server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a mongo cluster resource.
@@ -212,7 +212,6 @@ class MongoCluster(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-15-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +239,6 @@ class MongoCluster(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MongoClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,16 +254,16 @@ class MongoCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'MongoClusterCreateMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_parameters: Optional[pulumi.Input[Union['MongoClusterRestoreParametersArgs', 'MongoClusterRestoreParametersArgsDict']]] = None,
-                 server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'MongoClusterCreateMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_specs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupSpecArgs', 'NodeGroupSpecArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_parameters: pulumi.Input[Optional[Union['MongoClusterRestoreParametersArgs', 'MongoClusterRestoreParametersArgsDict']]] = None,
+                 server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

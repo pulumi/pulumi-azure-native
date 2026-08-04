@@ -23,17 +23,17 @@ __all__ = ['MonitorArgs', 'Monitor']
 class MonitorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_plan_configuration: Optional[pulumi.Input['AppServicePlanConfigurationArgs']] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference: Optional[pulumi.Input[Union[_builtins.str, 'RoutingPreference']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy_preference: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_plan_configuration: pulumi.Input[Optional['AppServicePlanConfigurationArgs']] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference: pulumi.Input[Optional[Union[_builtins.str, 'RoutingPreference']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy_preference: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -88,134 +88,134 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="appLocation")
-    def app_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
         """
         return pulumi.get(self, "app_location")
 
     @app_location.setter
-    def app_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_location", value)
 
     @_builtins.property
     @pulumi.getter(name="appServicePlanConfiguration")
-    def app_service_plan_configuration(self) -> Optional[pulumi.Input['AppServicePlanConfigurationArgs']]:
+    def app_service_plan_configuration(self) -> pulumi.Input[Optional['AppServicePlanConfigurationArgs']]:
         """
         App service plan configuration
         """
         return pulumi.get(self, "app_service_plan_configuration")
 
     @app_service_plan_configuration.setter
-    def app_service_plan_configuration(self, value: Optional[pulumi.Input['AppServicePlanConfigurationArgs']]):
+    def app_service_plan_configuration(self, value: pulumi.Input[Optional['AppServicePlanConfigurationArgs']]):
         pulumi.set(self, "app_service_plan_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceArmId")
-    def log_analytics_workspace_arm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_arm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
         """
         return pulumi.get(self, "log_analytics_workspace_arm_id")
 
     @log_analytics_workspace_arm_id.setter
-    def log_analytics_workspace_arm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_arm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_arm_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
+    def managed_resource_group_configuration(self) -> pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]:
         """
         Managed resource group configuration
         """
         return pulumi.get(self, "managed_resource_group_configuration")
 
     @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
+    def managed_resource_group_configuration(self, value: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
-    def monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SAP monitor resource.
         """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
-    def monitor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_name", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorSubnet")
-    def monitor_subnet(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_subnet(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet which the SAP monitor will be deployed in
         """
         return pulumi.get(self, "monitor_subnet")
 
     @monitor_subnet.setter
-    def monitor_subnet(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_subnet(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_subnet", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPreference")
-    def routing_preference(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RoutingPreference']]]:
+    def routing_preference(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RoutingPreference']]]:
         """
         Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
         """
         return pulumi.get(self, "routing_preference")
 
     @routing_preference.setter
-    def routing_preference(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RoutingPreference']]]):
+    def routing_preference(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RoutingPreference']]]):
         pulumi.set(self, "routing_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancyPreference")
-    def zone_redundancy_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_redundancy_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
         """
         return pulumi.get(self, "zone_redundancy_preference")
 
     @zone_redundancy_preference.setter
-    def zone_redundancy_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_redundancy_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_redundancy_preference", value)
 
 
@@ -225,18 +225,18 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_plan_configuration: Optional[pulumi.Input[Union['AppServicePlanConfigurationArgs', 'AppServicePlanConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference: Optional[pulumi.Input[Union[_builtins.str, 'RoutingPreference']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy_preference: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_plan_configuration: pulumi.Input[Optional[Union['AppServicePlanConfigurationArgs', 'AppServicePlanConfigurationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference: pulumi.Input[Optional[Union[_builtins.str, 'RoutingPreference']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy_preference: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
@@ -244,7 +244,6 @@ class Monitor(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
 
         Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,7 +273,6 @@ class Monitor(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,18 +288,18 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_plan_configuration: Optional[pulumi.Input[Union['AppServicePlanConfigurationArgs', 'AppServicePlanConfigurationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_preference: Optional[pulumi.Input[Union[_builtins.str, 'RoutingPreference']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy_preference: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service_plan_configuration: pulumi.Input[Optional[Union['AppServicePlanConfigurationArgs', 'AppServicePlanConfigurationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_resource_group_configuration: pulumi.Input[Optional[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_preference: pulumi.Input[Optional[Union[_builtins.str, 'RoutingPreference']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy_preference: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

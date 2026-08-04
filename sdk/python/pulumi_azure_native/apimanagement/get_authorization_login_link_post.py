@@ -62,7 +62,6 @@ def get_authorization_login_link_post(authorization_id: Optional[_builtins.str] 
 
     Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authorization_id: Identifier of the authorization.
     :param _builtins.str authorization_provider_id: Identifier of the authorization provider.
     :param _builtins.str post_login_redirect_url: The redirect URL after login has completed.
@@ -80,11 +79,11 @@ def get_authorization_login_link_post(authorization_id: Optional[_builtins.str] 
 
     return AwaitableGetAuthorizationLoginLinkPostResult(
         login_link=pulumi.get(__ret__, 'login_link'))
-def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                             authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                             post_login_redirect_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorization_login_link_post_output(authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                             authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                             post_login_redirect_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationLoginLinkPostResult]:
     """
     Gets authorization login links.
@@ -92,7 +91,6 @@ def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.I
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authorization_id: Identifier of the authorization.
     :param _builtins.str authorization_provider_id: Identifier of the authorization provider.

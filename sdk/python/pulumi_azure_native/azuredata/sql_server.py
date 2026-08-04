@@ -21,12 +21,12 @@ class SqlServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_server_registration_name: pulumi.Input[_builtins.str],
-                 cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_bag: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_bag: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlServer resource.
 
@@ -80,74 +80,74 @@ class SqlServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cores of the Sql Server.
         """
         return pulumi.get(self, "cores")
 
     @cores.setter
-    def cores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cores", value)
 
     @_builtins.property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sql Server Edition.
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edition", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyBag")
-    def property_bag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_bag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sql Server Json Property Bag.
         """
         return pulumi.get(self, "property_bag")
 
     @property_bag.setter
-    def property_bag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_bag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_bag", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationID")
-    def registration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for Parent Sql Server Registration.
         """
         return pulumi.get(self, "registration_id")
 
     @registration_id.setter
-    def registration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlServerName")
-    def sql_server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SQL Server.
         """
         return pulumi.get(self, "sql_server_name")
 
     @sql_server_name.setter
-    def sql_server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_server_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the Sql Server.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -157,20 +157,19 @@ class SqlServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_bag: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_bag: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A SQL server.
 
         Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,7 +193,6 @@ class SqlServer(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
 
-
         :param str resource_name: The name of the resource.
         :param SqlServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,14 +208,14 @@ class SqlServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cores: Optional[pulumi.Input[_builtins.int]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_bag: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_server_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cores: pulumi.Input[Optional[_builtins.int]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_bag: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -34,11 +34,11 @@ class StorageDiscoveryScopeArgsDict(TypedDict):
     """
     Resource types for the collection
     """
-    tag_keys_only: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tag_keys_only: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The storage account tags keys to filter
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Resource tags.
     """
@@ -48,8 +48,8 @@ class StorageDiscoveryScopeArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
                  resource_types: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageDiscoveryResourceType']]]],
-                 tag_keys_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tag_keys_only: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Storage Discovery Scope. This had added validations
 
@@ -91,26 +91,26 @@ class StorageDiscoveryScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="tagKeysOnly")
-    def tag_keys_only(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tag_keys_only(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The storage account tags keys to filter
         """
         return pulumi.get(self, "tag_keys_only")
 
     @tag_keys_only.setter
-    def tag_keys_only(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tag_keys_only(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tag_keys_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -126,11 +126,11 @@ class StorageDiscoveryWorkspacePropertiesArgsDict(TypedDict):
     """
     The view level storage discovery data estate
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the storage discovery workspace
     """
-    sku: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageDiscoverySku']]]
+    sku: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StorageDiscoverySku']]]]
     """
     The storage discovery sku
     """
@@ -140,8 +140,8 @@ class StorageDiscoveryWorkspacePropertiesArgs:
     def __init__(__self__, *,
                  scopes: pulumi.Input[Sequence[pulumi.Input['StorageDiscoveryScopeArgs']]],
                  workspace_roots: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union[_builtins.str, 'StorageDiscoverySku']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union[_builtins.str, 'StorageDiscoverySku']]] = None):
         """
         Storage Discovery Workspace Properties
 
@@ -185,26 +185,26 @@ class StorageDiscoveryWorkspacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the storage discovery workspace
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageDiscoverySku']]]:
+    def sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageDiscoverySku']]]:
         """
         The storage discovery sku
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageDiscoverySku']]]):
+    def sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageDiscoverySku']]]):
         pulumi.set(self, "sku", value)
 
 

@@ -26,9 +26,9 @@ class JitRequestArgs:
                  jit_authorization_policies: pulumi.Input[Sequence[pulumi.Input['JitAuthorizationPoliciesArgs']]],
                  jit_scheduling_policy: pulumi.Input['JitSchedulingPolicyArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 jit_request_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 jit_request_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a JitRequest resource.
 
@@ -101,38 +101,38 @@ class JitRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="jitRequestName")
-    def jit_request_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jit_request_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the JIT request.
         """
         return pulumi.get(self, "jit_request_name")
 
     @jit_request_name.setter
-    def jit_request_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jit_request_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jit_request_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -142,13 +142,13 @@ class JitRequest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 jit_authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitAuthorizationPoliciesArgs', 'JitAuthorizationPoliciesArgsDict']]]]] = None,
-                 jit_request_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 jit_scheduling_policy: Optional[pulumi.Input[Union['JitSchedulingPolicyArgs', 'JitSchedulingPolicyArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 jit_authorization_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JitAuthorizationPoliciesArgs', 'JitAuthorizationPoliciesArgsDict']]]]] = None,
+                 jit_request_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 jit_scheduling_policy: pulumi.Input[Optional[Union['JitSchedulingPolicyArgs', 'JitSchedulingPolicyArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Information about JIT request definition.
@@ -156,7 +156,6 @@ class JitRequest(pulumi.CustomResource):
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
         Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class JitRequest(pulumi.CustomResource):
 
         Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param JitRequestArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +195,13 @@ class JitRequest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 jit_authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitAuthorizationPoliciesArgs', 'JitAuthorizationPoliciesArgsDict']]]]] = None,
-                 jit_request_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 jit_scheduling_policy: Optional[pulumi.Input[Union['JitSchedulingPolicyArgs', 'JitSchedulingPolicyArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 jit_authorization_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JitAuthorizationPoliciesArgs', 'JitAuthorizationPoliciesArgsDict']]]]] = None,
+                 jit_request_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 jit_scheduling_policy: pulumi.Input[Optional[Union['JitSchedulingPolicyArgs', 'JitSchedulingPolicyArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

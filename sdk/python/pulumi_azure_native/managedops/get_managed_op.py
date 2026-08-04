@@ -117,7 +117,6 @@ def get_managed_op(managed_ops_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-07-28-preview.
 
-
     :param _builtins.str managed_ops_name: Name of the resource.
     """
     __args__ = dict()
@@ -132,13 +131,12 @@ def get_managed_op(managed_ops_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_op_output(managed_ops_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_op_output(managed_ops_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedOpResult]:
     """
     Gets the information of the ManagedOps instance.
 
     Uses Azure REST API version 2025-07-28-preview.
-
 
     :param _builtins.str managed_ops_name: Name of the resource.
     """

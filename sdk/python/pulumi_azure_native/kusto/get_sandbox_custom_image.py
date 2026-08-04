@@ -156,7 +156,6 @@ def get_sandbox_custom_image(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sandbox_custom_image_name: The name of the sandbox custom image.
@@ -178,9 +177,9 @@ def get_sandbox_custom_image(cluster_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         requirements_file_content=pulumi.get(__ret__, 'requirements_file_content'),
         type=pulumi.get(__ret__, 'type'))
-def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    sandbox_custom_image_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sandbox_custom_image_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    sandbox_custom_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxCustomImageResult]:
     """
     Returns a sandbox custom image
@@ -188,7 +187,6 @@ def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2024-04-13.
 
     Other available API versions: 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

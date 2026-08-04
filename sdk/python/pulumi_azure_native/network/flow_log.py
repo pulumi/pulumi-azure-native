@@ -26,16 +26,16 @@ class FlowLogArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_filtering_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_analytics_configuration: Optional[pulumi.Input['TrafficAnalyticsPropertiesArgs']] = None,
-                 flow_log_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input['FlowLogFormatParametersArgs']] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input['RetentionPolicyParametersArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_filtering_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_analytics_configuration: pulumi.Input[Optional['TrafficAnalyticsPropertiesArgs']] = None,
+                 flow_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional['FlowLogFormatParametersArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional['RetentionPolicyParametersArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FlowLog resource.
 
@@ -129,122 +129,122 @@ class FlowLogArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to enable/disable flow logging.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledFilteringCriteria")
-    def enabled_filtering_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled_filtering_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
         """
         return pulumi.get(self, "enabled_filtering_criteria")
 
     @enabled_filtering_criteria.setter
-    def enabled_filtering_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled_filtering_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled_filtering_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="flowAnalyticsConfiguration")
-    def flow_analytics_configuration(self) -> Optional[pulumi.Input['TrafficAnalyticsPropertiesArgs']]:
+    def flow_analytics_configuration(self) -> pulumi.Input[Optional['TrafficAnalyticsPropertiesArgs']]:
         """
         Parameters that define the configuration of traffic analytics.
         """
         return pulumi.get(self, "flow_analytics_configuration")
 
     @flow_analytics_configuration.setter
-    def flow_analytics_configuration(self, value: Optional[pulumi.Input['TrafficAnalyticsPropertiesArgs']]):
+    def flow_analytics_configuration(self, value: pulumi.Input[Optional['TrafficAnalyticsPropertiesArgs']]):
         pulumi.set(self, "flow_analytics_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="flowLogName")
-    def flow_log_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_log_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the flow log.
         """
         return pulumi.get(self, "flow_log_name")
 
     @flow_log_name.setter
-    def flow_log_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_log_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_log_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input['FlowLogFormatParametersArgs']]:
+    def format(self) -> pulumi.Input[Optional['FlowLogFormatParametersArgs']]:
         """
         Parameters that define the flow log format.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input['FlowLogFormatParametersArgs']]):
+    def format(self, value: pulumi.Input[Optional['FlowLogFormatParametersArgs']]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         FlowLog resource Managed Identity
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['RetentionPolicyParametersArgs']]:
+    def retention_policy(self) -> pulumi.Input[Optional['RetentionPolicyParametersArgs']]:
         """
         Parameters that define the retention policy for flow log.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyParametersArgs']]):
+    def retention_policy(self, value: pulumi.Input[Optional['RetentionPolicyParametersArgs']]):
         pulumi.set(self, "retention_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -254,20 +254,20 @@ class FlowLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_filtering_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_analytics_configuration: Optional[pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
-                 flow_log_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input[Union['RetentionPolicyParametersArgs', 'RetentionPolicyParametersArgsDict']]] = None,
-                 storage_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_filtering_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_analytics_configuration: pulumi.Input[Optional[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
+                 flow_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional[Union['RetentionPolicyParametersArgs', 'RetentionPolicyParametersArgsDict']]] = None,
+                 storage_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A flow log resource.
@@ -275,7 +275,6 @@ class FlowLog(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +306,6 @@ class FlowLog(pulumi.CustomResource):
 
         Other available API versions: 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,20 +321,20 @@ class FlowLog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled_filtering_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_analytics_configuration: Optional[pulumi.Input[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
-                 flow_log_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input[Union['RetentionPolicyParametersArgs', 'RetentionPolicyParametersArgsDict']]] = None,
-                 storage_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled_filtering_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_analytics_configuration: pulumi.Input[Optional[Union['TrafficAnalyticsPropertiesArgs', 'TrafficAnalyticsPropertiesArgsDict']]] = None,
+                 flow_log_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[Union['FlowLogFormatParametersArgs', 'FlowLogFormatParametersArgsDict']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional[Union['RetentionPolicyParametersArgs', 'RetentionPolicyParametersArgsDict']]] = None,
+                 storage_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

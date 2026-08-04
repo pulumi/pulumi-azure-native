@@ -142,7 +142,7 @@ export interface ConnectionTypeArgs {
     /**
      * The name of connection type.
      */
-    connectionTypeName?: pulumi.Input<string>;
+    connectionTypeName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the field definitions of the connection type.
      */
@@ -150,7 +150,7 @@ export interface ConnectionTypeArgs {
     /**
      * Gets or sets a Boolean value to indicate if the connection type is global.
      */
-    isGlobal?: pulumi.Input<boolean>;
+    isGlobal?: pulumi.Input<boolean | undefined>;
     /**
      * Gets or sets the name of the connection type.
      */

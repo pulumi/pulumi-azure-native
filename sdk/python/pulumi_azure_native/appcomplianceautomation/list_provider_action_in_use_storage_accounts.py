@@ -57,7 +57,6 @@ def list_provider_action_in_use_storage_accounts(subscription_ids: Optional[Sequ
 
     Uses Azure REST API version 2024-06-27.
 
-
     :param Sequence[_builtins.str] subscription_ids: List of subscription ids to be query. If the list is null or empty, the API will query all the subscriptions of the user.
     """
     __args__ = dict()
@@ -67,13 +66,12 @@ def list_provider_action_in_use_storage_accounts(subscription_ids: Optional[Sequ
 
     return AwaitableListProviderActionInUseStorageAccountsResult(
         storage_account_list=pulumi.get(__ret__, 'storage_account_list'))
-def list_provider_action_in_use_storage_accounts_output(subscription_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def list_provider_action_in_use_storage_accounts_output(subscription_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProviderActionInUseStorageAccountsResult]:
     """
     List the storage accounts which are in use by related reports
 
     Uses Azure REST API version 2024-06-27.
-
 
     :param Sequence[_builtins.str] subscription_ids: List of subscription ids to be query. If the list is null or empty, the API will query all the subscriptions of the user.
     """

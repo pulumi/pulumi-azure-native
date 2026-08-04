@@ -22,15 +22,15 @@ __all__ = ['AvailabilitySetArgs', 'AvailabilitySet']
 class AvailabilitySetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 scheduled_events_policy: Optional[pulumi.Input['ScheduledEventsPolicyArgs']] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None):
+                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 proximity_placement_group: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 scheduled_events_policy: pulumi.Input[Optional['ScheduledEventsPolicyArgs']] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None):
         """
         The set of arguments for constructing a AvailabilitySet resource.
 
@@ -79,110 +79,110 @@ class AvailabilitySetArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetName")
-    def availability_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the availability set.
         """
         return pulumi.get(self, "availability_set_name")
 
     @availability_set_name.setter
-    def availability_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Fault Domain count.
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
     @platform_fault_domain_count.setter
-    def platform_fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain_count", value)
 
     @_builtins.property
     @pulumi.getter(name="platformUpdateDomainCount")
-    def platform_update_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_update_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Update Domain count.
         """
         return pulumi.get(self, "platform_update_domain_count")
 
     @platform_update_domain_count.setter
-    def platform_update_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_update_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_update_domain_count", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def proximity_placement_group(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 
     @proximity_placement_group.setter
-    def proximity_placement_group(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def proximity_placement_group(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "proximity_placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledEventsPolicy")
-    def scheduled_events_policy(self) -> Optional[pulumi.Input['ScheduledEventsPolicyArgs']]:
+    def scheduled_events_policy(self) -> pulumi.Input[Optional['ScheduledEventsPolicyArgs']]:
         """
         Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
         """
         return pulumi.get(self, "scheduled_events_policy")
 
     @scheduled_events_policy.setter
-    def scheduled_events_policy(self, value: Optional[pulumi.Input['ScheduledEventsPolicyArgs']]):
+    def scheduled_events_policy(self, value: pulumi.Input[Optional['ScheduledEventsPolicyArgs']]):
         pulumi.set(self, "scheduled_events_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+    def virtual_machines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         A list of references to all virtual machines in the availability set.
         """
         return pulumi.get(self, "virtual_machines")
 
     @virtual_machines.setter
-    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+    def virtual_machines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "virtual_machines", value)
 
 
@@ -192,16 +192,16 @@ class AvailabilitySet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_events_policy: pulumi.Input[Optional[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
@@ -209,7 +209,6 @@ class AvailabilitySet(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class AvailabilitySet(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class AvailabilitySet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 platform_update_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 platform_update_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_events_policy: pulumi.Input[Optional[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

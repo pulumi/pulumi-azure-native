@@ -28,7 +28,7 @@ class AutomationRuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  triggering_logic: pulumi.Input['AutomationRuleTriggeringLogicArgs'],
                  workspace_name: pulumi.Input[_builtins.str],
-                 automation_rule_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 automation_rule_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
 
@@ -123,14 +123,14 @@ class AutomationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="automationRuleId")
-    def automation_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Automation rule ID
         """
         return pulumi.get(self, "automation_rule_id")
 
     @automation_rule_id.setter
-    def automation_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_rule_id", value)
 
 
@@ -140,19 +140,18 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleAddIncidentTaskActionArgsDict'], Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
-                 automation_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggering_logic: Optional[pulumi.Input[Union['AutomationRuleTriggeringLogicArgs', 'AutomationRuleTriggeringLogicArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleAddIncidentTaskActionArgsDict'], Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
+                 automation_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggering_logic: pulumi.Input[Optional[Union['AutomationRuleTriggeringLogicArgs', 'AutomationRuleTriggeringLogicArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class AutomationRule(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleAddIncidentTaskActionArgsDict'], Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
-                 automation_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggering_logic: Optional[pulumi.Input[Union['AutomationRuleTriggeringLogicArgs', 'AutomationRuleTriggeringLogicArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleAddIncidentTaskActionArgsDict'], Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
+                 automation_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggering_logic: pulumi.Input[Optional[Union['AutomationRuleTriggeringLogicArgs', 'AutomationRuleTriggeringLogicArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

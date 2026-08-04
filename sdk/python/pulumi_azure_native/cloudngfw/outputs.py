@@ -2191,7 +2191,7 @@ class VwanConfigurationResponse(dict):
 
         :param 'IPAddressSpaceResponse' v_hub: vHub Address
         :param 'IPAddressResponse' ip_of_trust_subnet_for_udr: IP of trust subnet for UDR
-        :param _builtins.str network_virtual_appliance_id: Network Virtual Appliance resource ID 
+        :param _builtins.str network_virtual_appliance_id: Network Virtual Appliance resource ID
         :param 'IPAddressSpaceResponse' trust_subnet: Trust Subnet
         :param 'IPAddressSpaceResponse' un_trust_subnet: Untrust Subnet
         """
@@ -2225,7 +2225,7 @@ class VwanConfigurationResponse(dict):
     @pulumi.getter(name="networkVirtualApplianceId")
     def network_virtual_appliance_id(self) -> Optional[_builtins.str]:
         """
-        Network Virtual Appliance resource ID 
+        Network Virtual Appliance resource ID
         """
         return pulumi.get(self, "network_virtual_appliance_id")
 

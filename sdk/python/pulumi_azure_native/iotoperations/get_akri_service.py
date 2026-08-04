@@ -133,7 +133,6 @@ def get_akri_service(akri_service_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str akri_service_name: Name of AkriService resource.
     :param _builtins.str instance_name: Name of instance.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -153,9 +152,9 @@ def get_akri_service(akri_service_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_akri_service_output(akri_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_akri_service_output(akri_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAkriServiceResult]:
     """
     Get a AkriServiceResource
@@ -163,7 +162,6 @@ def get_akri_service_output(akri_service_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2026-03-01.
 
     Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str akri_service_name: Name of AkriService resource.
     :param _builtins.str instance_name: Name of instance.

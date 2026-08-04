@@ -603,7 +603,7 @@ class SiteAppliancePropertiesResponse(dict):
 
         :param 'SiteAgentPropertiesResponse' agent_details: Gets or sets the on-premises agent details.
         :param _builtins.str appliance_name: Gets or sets the Appliance Name.
-        :param 'SiteSpnPropertiesResponse' service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.  
+        :param 'SiteSpnPropertiesResponse' service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.
         """
         if agent_details is not None:
             pulumi.set(__self__, "agent_details", agent_details)
@@ -632,7 +632,7 @@ class SiteAppliancePropertiesResponse(dict):
     @pulumi.getter(name="servicePrincipalIdentityDetails")
     def service_principal_identity_details(self) -> Optional['outputs.SiteSpnPropertiesResponse']:
         """
-         Gets or sets the service principal identity details used by agent for  communication              to the service.  
+         Gets or sets the service principal identity details used by agent for  communication              to the service.
         """
         return pulumi.get(self, "service_principal_identity_details")
 
@@ -927,7 +927,7 @@ class SiteSpnPropertiesResponse(dict):
         :param _builtins.str application_id: Gets or sets the application/client Id for the service principal with which
                the
                            on-premise management/data plane components would communicate
-               with our Azure 
+               with our Azure
                            services.
         :param _builtins.str audience: Gets or sets the intended audience for the service principal.
         :param _builtins.str object_id: Gets or sets the object Id of the service principal with which the on-premise
@@ -970,7 +970,7 @@ class SiteSpnPropertiesResponse(dict):
         Gets or sets the application/client Id for the service principal with which
         the
                     on-premise management/data plane components would communicate
-        with our Azure 
+        with our Azure
                     services.
         """
         return pulumi.get(self, "application_id")

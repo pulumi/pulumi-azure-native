@@ -21,10 +21,10 @@ __all__ = ['ServiceGroupArgs', 'ServiceGroup']
 @pulumi.input_type
 class ServiceGroupArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ServiceGroupPropertiesArgs']] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ServiceGroupPropertiesArgs']] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceGroup resource.
 
@@ -44,50 +44,50 @@ class ServiceGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of the serviceGroup.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ServiceGroupPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ServiceGroupPropertiesArgs']]:
         """
         ServiceGroup creation request body parameters.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ServiceGroupPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ServiceGroupPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceGroupName")
-    def service_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ServiceGroup Name.
         """
         return pulumi.get(self, "service_group_name")
 
     @service_group_name.setter
-    def service_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The serviceGroup tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -97,16 +97,15 @@ class ServiceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ServiceGroupPropertiesArgs', 'ServiceGroupPropertiesArgsDict']]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ServiceGroupPropertiesArgs', 'ServiceGroupPropertiesArgsDict']]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The serviceGroup details.
 
         Uses Azure REST API version 2024-02-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +125,6 @@ class ServiceGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,10 +140,10 @@ class ServiceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ServiceGroupPropertiesArgs', 'ServiceGroupPropertiesArgsDict']]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ServiceGroupPropertiesArgs', 'ServiceGroupPropertiesArgsDict']]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

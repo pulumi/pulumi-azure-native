@@ -108,7 +108,6 @@ def get_serial_port(parent_resource: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-05-01.
 
-
     :param _builtins.str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
     :param _builtins.str parent_resource_type: The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -130,17 +129,16 @@ def get_serial_port(parent_resource: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-def get_serial_port_output(parent_resource: Optional[pulumi.Input[_builtins.str]] = None,
-                           parent_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                           serial_port: Optional[pulumi.Input[_builtins.str]] = None,
+def get_serial_port_output(parent_resource: pulumi.Input[Optional[_builtins.str]] = None,
+                           parent_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                           serial_port: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSerialPortResult]:
     """
     Gets the configured settings for a serial port
 
     Uses Azure REST API version 2018-05-01.
-
 
     :param _builtins.str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
     :param _builtins.str parent_resource_type: The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'

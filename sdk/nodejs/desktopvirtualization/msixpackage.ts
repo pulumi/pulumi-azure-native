@@ -46,7 +46,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * User friendly Name to be displayed in the portal. 
+     * User friendly Name to be displayed in the portal.
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
@@ -54,7 +54,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     declare public readonly imagePath: pulumi.Output<string | undefined>;
     /**
-     * Make this version of the package the active one across the hostpool. 
+     * Make this version of the package the active one across the hostpool.
      */
     declare public readonly isActive: pulumi.Output<boolean | undefined>;
     /**
@@ -62,7 +62,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     declare public readonly isRegularRegistration: pulumi.Output<boolean | undefined>;
     /**
-     * Date Package was last updated, found in the appxmanifest.xml. 
+     * Date Package was last updated, found in the appxmanifest.xml.
      */
     declare public readonly lastUpdated: pulumi.Output<string | undefined>;
     /**
@@ -70,23 +70,23 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * List of package applications. 
+     * List of package applications.
      */
     declare public readonly packageApplications: pulumi.Output<outputs.desktopvirtualization.MsixPackageApplicationsResponse[] | undefined>;
     /**
-     * List of package dependencies. 
+     * List of package dependencies.
      */
     declare public readonly packageDependencies: pulumi.Output<outputs.desktopvirtualization.MsixPackageDependenciesResponse[] | undefined>;
     /**
-     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
      */
     declare public readonly packageFamilyName: pulumi.Output<string | undefined>;
     /**
-     * Package Name from appxmanifest.xml. 
+     * Package Name from appxmanifest.xml.
      */
     declare public readonly packageName: pulumi.Output<string | undefined>;
     /**
-     * Relative Path to the package inside the image. 
+     * Relative Path to the package inside the image.
      */
     declare public readonly packageRelativePath: pulumi.Output<string | undefined>;
     /**
@@ -98,7 +98,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
-     * Package version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml.
      */
     declare public readonly version: pulumi.Output<string | undefined>;
 
@@ -166,9 +166,9 @@ export class MSIXPackage extends pulumi.CustomResource {
  */
 export interface MSIXPackageArgs {
     /**
-     * User friendly Name to be displayed in the portal. 
+     * User friendly Name to be displayed in the portal.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the host pool within the specified resource group
      */
@@ -176,49 +176,49 @@ export interface MSIXPackageArgs {
     /**
      * VHD/CIM image path on Network Share.
      */
-    imagePath?: pulumi.Input<string>;
+    imagePath?: pulumi.Input<string | undefined>;
     /**
-     * Make this version of the package the active one across the hostpool. 
+     * Make this version of the package the active one across the hostpool.
      */
-    isActive?: pulumi.Input<boolean>;
+    isActive?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how to register Package in feed.
      */
-    isRegularRegistration?: pulumi.Input<boolean>;
+    isRegularRegistration?: pulumi.Input<boolean | undefined>;
     /**
-     * Date Package was last updated, found in the appxmanifest.xml. 
+     * Date Package was last updated, found in the appxmanifest.xml.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * The version specific package full name of the MSIX package within specified hostpool
      */
-    msixPackageFullName?: pulumi.Input<string>;
+    msixPackageFullName?: pulumi.Input<string | undefined>;
     /**
-     * List of package applications. 
+     * List of package applications.
      */
-    packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageApplicationsArgs>[]>;
+    packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageApplicationsArgs>[] | undefined>;
     /**
-     * List of package dependencies. 
+     * List of package dependencies.
      */
-    packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageDependenciesArgs>[]>;
+    packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageDependenciesArgs>[] | undefined>;
     /**
-     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+     * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
      */
-    packageFamilyName?: pulumi.Input<string>;
+    packageFamilyName?: pulumi.Input<string | undefined>;
     /**
-     * Package Name from appxmanifest.xml. 
+     * Package Name from appxmanifest.xml.
      */
-    packageName?: pulumi.Input<string>;
+    packageName?: pulumi.Input<string | undefined>;
     /**
-     * Relative Path to the package inside the image. 
+     * Relative Path to the package inside the image.
      */
-    packageRelativePath?: pulumi.Input<string>;
+    packageRelativePath?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Package version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

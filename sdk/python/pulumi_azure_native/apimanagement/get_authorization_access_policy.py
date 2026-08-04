@@ -134,7 +134,6 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[_bu
 
     Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str authorization_access_policy_id: Identifier of the authorization access policy.
     :param _builtins.str authorization_id: Identifier of the authorization.
     :param _builtins.str authorization_provider_id: Identifier of the authorization provider.
@@ -158,11 +157,11 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[_bu
         object_id=pulumi.get(__ret__, 'object_id'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorization_access_policy_output(authorization_access_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorization_access_policy_output(authorization_access_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationAccessPolicyResult]:
     """
     Gets the details of the authorization access policy specified by its identifier.
@@ -170,7 +169,6 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str authorization_access_policy_id: Identifier of the authorization access policy.
     :param _builtins.str authorization_id: Identifier of the authorization.

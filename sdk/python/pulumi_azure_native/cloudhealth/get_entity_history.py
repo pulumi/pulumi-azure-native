@@ -75,7 +75,6 @@ def get_entity_history(end_at: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str end_at: End time for the history query. Defaults to now if not specified.
     :param _builtins.str entity_name: Name of the entity. Must be unique within a health model.
     :param _builtins.str health_model_name: Name of health model resource
@@ -94,11 +93,11 @@ def get_entity_history(end_at: Optional[_builtins.str] = None,
     return AwaitableGetEntityHistoryResult(
         entity_name=pulumi.get(__ret__, 'entity_name'),
         history=pulumi.get(__ret__, 'history'))
-def get_entity_history_output(end_at: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              start_at: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_entity_history_output(end_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              start_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityHistoryResult]:
     """
     Retrieve the health state transition history for an entity
@@ -106,7 +105,6 @@ def get_entity_history_output(end_at: Optional[pulumi.Input[Optional[_builtins.s
     Uses Azure REST API version 2026-01-01-preview.
 
     Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str end_at: End time for the history query. Defaults to now if not specified.
     :param _builtins.str entity_name: Name of the entity. Must be unique within a health model.

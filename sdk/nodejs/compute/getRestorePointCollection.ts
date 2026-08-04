@@ -107,7 +107,7 @@ export interface GetRestorePointCollectionOutputArgs {
     /**
      * The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -1896,9 +1896,9 @@ class BuildResourceRequestsResponse(dict):
         """
         Resource request payload of Build Resource.
 
-        :param _builtins.str cpu: Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+        :param _builtins.str cpu: Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m.
                The default value is 1, this should not exceed build service agent pool cpu size.
-        :param _builtins.str memory: Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+        :param _builtins.str memory: Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi.
                The default value is 2Gi, this should not exceed build service agent pool memory size.
         """
         if cpu is None:
@@ -1914,7 +1914,7 @@ class BuildResourceRequestsResponse(dict):
     @pulumi.getter
     def cpu(self) -> Optional[_builtins.str]:
         """
-        Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+        Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m.
         The default value is 1, this should not exceed build service agent pool cpu size.
         """
         return pulumi.get(self, "cpu")
@@ -1923,7 +1923,7 @@ class BuildResourceRequestsResponse(dict):
     @pulumi.getter
     def memory(self) -> Optional[_builtins.str]:
         """
-        Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+        Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi.
         The default value is 2Gi, this should not exceed build service agent pool memory size.
         """
         return pulumi.get(self, "memory")

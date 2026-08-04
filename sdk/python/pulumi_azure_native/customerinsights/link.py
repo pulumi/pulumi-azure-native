@@ -29,12 +29,12 @@ class LinkArgs:
                  source_entity_type_name: pulumi.Input[_builtins.str],
                  target_entity_type: pulumi.Input['EntityType'],
                  target_entity_type_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]] = None,
-                 operation_type: Optional[pulumi.Input['InstanceOperationType']] = None,
-                 reference_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]] = None,
+                 operation_type: pulumi.Input[Optional['InstanceOperationType']] = None,
+                 reference_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Link resource.
 
@@ -158,74 +158,74 @@ class LinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def description(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized descriptions for the Link.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def description(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def display_name(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized display name for the Link.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def display_name(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="linkName")
-    def link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the link.
         """
         return pulumi.get(self, "link_name")
 
     @link_name.setter
-    def link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]]:
+    def mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]]:
         """
         The set of properties mappings between the source and target Types.
         """
         return pulumi.get(self, "mappings")
 
     @mappings.setter
-    def mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]]):
+    def mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]]):
         pulumi.set(self, "mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="operationType")
-    def operation_type(self) -> Optional[pulumi.Input['InstanceOperationType']]:
+    def operation_type(self) -> pulumi.Input[Optional['InstanceOperationType']]:
         """
         Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         """
         return pulumi.get(self, "operation_type")
 
     @operation_type.setter
-    def operation_type(self, value: Optional[pulumi.Input['InstanceOperationType']]):
+    def operation_type(self, value: pulumi.Input[Optional['InstanceOperationType']]):
         pulumi.set(self, "operation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceOnly")
-    def reference_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reference_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         """
         return pulumi.get(self, "reference_only")
 
     @reference_only.setter
-    def reference_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reference_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reference_only", value)
 
 
@@ -235,25 +235,24 @@ class Link(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TypePropertiesMappingArgs', 'TypePropertiesMappingArgsDict']]]]] = None,
-                 operation_type: Optional[pulumi.Input['InstanceOperationType']] = None,
-                 participant_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantPropertyReferenceArgs', 'ParticipantPropertyReferenceArgsDict']]]]] = None,
-                 reference_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_entity_type: Optional[pulumi.Input['EntityType']] = None,
-                 source_entity_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_entity_type: Optional[pulumi.Input['EntityType']] = None,
-                 target_entity_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypePropertiesMappingArgs', 'TypePropertiesMappingArgsDict']]]]] = None,
+                 operation_type: pulumi.Input[Optional['InstanceOperationType']] = None,
+                 participant_property_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParticipantPropertyReferenceArgs', 'ParticipantPropertyReferenceArgsDict']]]]] = None,
+                 reference_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_entity_type: pulumi.Input[Optional['EntityType']] = None,
+                 source_entity_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_entity_type: pulumi.Input[Optional['EntityType']] = None,
+                 target_entity_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The link resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,7 +281,6 @@ class Link(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,19 +296,19 @@ class Link(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TypePropertiesMappingArgs', 'TypePropertiesMappingArgsDict']]]]] = None,
-                 operation_type: Optional[pulumi.Input['InstanceOperationType']] = None,
-                 participant_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParticipantPropertyReferenceArgs', 'ParticipantPropertyReferenceArgsDict']]]]] = None,
-                 reference_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_entity_type: Optional[pulumi.Input['EntityType']] = None,
-                 source_entity_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_entity_type: Optional[pulumi.Input['EntityType']] = None,
-                 target_entity_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypePropertiesMappingArgs', 'TypePropertiesMappingArgsDict']]]]] = None,
+                 operation_type: pulumi.Input[Optional['InstanceOperationType']] = None,
+                 participant_property_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ParticipantPropertyReferenceArgs', 'ParticipantPropertyReferenceArgsDict']]]]] = None,
+                 reference_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_entity_type: pulumi.Input[Optional['EntityType']] = None,
+                 source_entity_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_entity_type: pulumi.Input[Optional['EntityType']] = None,
+                 target_entity_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

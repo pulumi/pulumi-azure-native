@@ -274,7 +274,6 @@ def get_cloud_connector(connector_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-03-01-preview.
 
-
     :param _builtins.str connector_name: Connector Name.
     :param _builtins.str expand: May be used to expand the collectionInfo property. By default, collectionInfo is not included.
     """
@@ -304,14 +303,13 @@ def get_cloud_connector(connector_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_cloud_connector_output(connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cloud_connector_output(connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudConnectorResult]:
     """
     Get a cloud connector definition
 
     Uses Azure REST API version 2019-03-01-preview.
-
 
     :param _builtins.str connector_name: Connector Name.
     :param _builtins.str expand: May be used to expand the collectionInfo property. By default, collectionInfo is not included.

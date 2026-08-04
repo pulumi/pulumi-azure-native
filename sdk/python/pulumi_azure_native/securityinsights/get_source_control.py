@@ -253,7 +253,6 @@ def get_source_control(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str source_control_id: Source control Id
     :param _builtins.str workspace_name: The name of the workspace.
@@ -283,9 +282,9 @@ def get_source_control(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         workload_identity_federation=pulumi.get(__ret__, 'workload_identity_federation'))
-def get_source_control_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_source_control_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              source_control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Gets a source control byt its identifier.
@@ -293,7 +292,6 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2025-09-01.
 
     Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str source_control_id: Source control Id

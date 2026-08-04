@@ -23,14 +23,14 @@ __all__ = ['DataCollectionEndpointArgs', 'DataCollectionEndpoint']
 class DataCollectionEndpointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_collection_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['DataCollectionEndpointResourceIdentityArgs']] = None,
-                 immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['DataCollectionEndpointNetworkAclsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_collection_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['DataCollectionEndpointResourceIdentityArgs']] = None,
+                 immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['DataCollectionEndpointNetworkAclsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataCollectionEndpoint resource.
 
@@ -76,98 +76,98 @@ class DataCollectionEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionEndpointName")
-    def data_collection_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_collection_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data collection endpoint. The name is case insensitive.
         """
         return pulumi.get(self, "data_collection_endpoint_name")
 
     @data_collection_endpoint_name.setter
-    def data_collection_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_collection_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the data collection endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DataCollectionEndpointResourceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['DataCollectionEndpointResourceIdentityArgs']]:
         """
         Managed service identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DataCollectionEndpointResourceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['DataCollectionEndpointResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="immutableId")
-    def immutable_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def immutable_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
         """
         return pulumi.get(self, "immutable_id")
 
     @immutable_id.setter
-    def immutable_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def immutable_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "immutable_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]]:
         """
         The kind of the resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['DataCollectionEndpointNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['DataCollectionEndpointNetworkAclsArgs']]:
         """
         Network access control rules for the endpoints.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['DataCollectionEndpointNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['DataCollectionEndpointNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -177,15 +177,15 @@ class DataCollectionEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_collection_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['DataCollectionEndpointResourceIdentityArgs', 'DataCollectionEndpointResourceIdentityArgsDict']]] = None,
-                 immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['DataCollectionEndpointNetworkAclsArgs', 'DataCollectionEndpointNetworkAclsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_collection_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['DataCollectionEndpointResourceIdentityArgs', 'DataCollectionEndpointResourceIdentityArgsDict']]] = None,
+                 immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['DataCollectionEndpointNetworkAclsArgs', 'DataCollectionEndpointNetworkAclsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of ARM tracked top level resource.
@@ -193,7 +193,6 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2022-06-01.
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +219,6 @@ class DataCollectionEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DataCollectionEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,15 +234,15 @@ class DataCollectionEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_collection_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['DataCollectionEndpointResourceIdentityArgs', 'DataCollectionEndpointResourceIdentityArgsDict']]] = None,
-                 immutable_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['DataCollectionEndpointNetworkAclsArgs', 'DataCollectionEndpointNetworkAclsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_collection_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['DataCollectionEndpointResourceIdentityArgs', 'DataCollectionEndpointResourceIdentityArgsDict']]] = None,
+                 immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'KnownDataCollectionEndpointResourceKind']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['DataCollectionEndpointNetworkAclsArgs', 'DataCollectionEndpointNetworkAclsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

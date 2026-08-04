@@ -24,7 +24,7 @@ class DevOpsConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  security_connector_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['DevOpsConfigurationPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['DevOpsConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DevOpsConfiguration resource.
 
@@ -63,14 +63,14 @@ class DevOpsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DevOpsConfigurationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DevOpsConfigurationPropertiesArgs']]:
         """
         DevOps Configuration properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DevOpsConfigurationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DevOpsConfigurationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,9 +80,9 @@ class DevOpsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         DevOps Configuration resource.
@@ -90,7 +90,6 @@ class DevOpsConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +110,6 @@ class DevOpsConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DevOpsConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,9 +125,9 @@ class DevOpsConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

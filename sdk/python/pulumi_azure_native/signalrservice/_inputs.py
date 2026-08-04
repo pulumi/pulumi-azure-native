@@ -22,16 +22,16 @@ __all__ = [
     'LiveTraceCategoryArgsDict',
     'LiveTraceConfigurationArgs',
     'LiveTraceConfigurationArgsDict',
-    'ManagedIdentitySettingsArgs',
-    'ManagedIdentitySettingsArgsDict',
     'ManagedIdentityArgs',
     'ManagedIdentityArgsDict',
+    'ManagedIdentitySettingsArgs',
+    'ManagedIdentitySettingsArgsDict',
     'NetworkACLArgs',
     'NetworkACLArgsDict',
-    'PrivateEndpointACLArgs',
-    'PrivateEndpointACLArgsDict',
     'PrivateEndpointArgs',
     'PrivateEndpointArgsDict',
+    'PrivateEndpointACLArgs',
+    'PrivateEndpointACLArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceLogCategoryArgs',
@@ -64,11 +64,11 @@ class IPRuleArgsDict(TypedDict):
     """
     An IP rule
     """
-    action: NotRequired[pulumi.Input[Union[_builtins.str, 'ACLAction']]]
+    action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]]]
     """
     Azure Networking ACL Action.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An IP or CIDR or ServiceTag
     """
@@ -76,8 +76,8 @@ class IPRuleArgsDict(TypedDict):
 @pulumi.input_type
 class IPRuleArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[Union[_builtins.str, 'ACLAction']]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An IP rule
 
@@ -91,26 +91,26 @@ class IPRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ACLAction']]]:
+    def action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]]:
         """
         Azure Networking ACL Action.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ACLAction']]]):
+    def action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IP or CIDR or ServiceTag
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -118,13 +118,13 @@ class LiveTraceCategoryArgsDict(TypedDict):
     """
     Live trace category configuration of a Microsoft.SignalRService resource.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether or the live trace category is enabled.
     Available values: true, false.
     Case insensitive.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the live trace category's name.
     Available values: ConnectivityLogs, MessagingLogs.
@@ -134,8 +134,8 @@ class LiveTraceCategoryArgsDict(TypedDict):
 @pulumi.input_type
 class LiveTraceCategoryArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Live trace category configuration of a Microsoft.SignalRService resource.
 
@@ -153,7 +153,7 @@ class LiveTraceCategoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether or the live trace category is enabled.
         Available values: true, false.
@@ -162,12 +162,12 @@ class LiveTraceCategoryArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the live trace category's name.
         Available values: ConnectivityLogs, MessagingLogs.
@@ -176,7 +176,7 @@ class LiveTraceCategoryArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -184,11 +184,11 @@ class LiveTraceConfigurationArgsDict(TypedDict):
     """
     Live trace configuration of a Microsoft.SignalRService resource.
     """
-    categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgsDict']]]]
+    categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LiveTraceCategoryArgsDict']]]]]
     """
     Gets or sets the list of category configurations.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether or not enable live trace.
     When it's set to true, live trace client can connect to the service.
@@ -200,8 +200,8 @@ class LiveTraceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class LiveTraceConfigurationArgs:
     def __init__(__self__, *,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None):
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Live trace configuration of a Microsoft.SignalRService resource.
 
@@ -221,19 +221,19 @@ class LiveTraceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]]:
+    def categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]]:
         """
         Gets or sets the list of category configurations.
         """
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]]):
+    def categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]]):
         pulumi.set(self, "categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether or not enable live trace.
         When it's set to true, live trace client can connect to the service.
@@ -244,56 +244,19 @@ class LiveTraceConfigurationArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
-
-
-class ManagedIdentitySettingsArgsDict(TypedDict):
-    """
-    Managed identity settings for upstream.
-    """
-    resource: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The Resource indicating the App ID URI of the target resource.
-    It also appears in the aud (audience) claim of the issued token.
-    """
-
-@pulumi.input_type
-class ManagedIdentitySettingsArgs:
-    def __init__(__self__, *,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Managed identity settings for upstream.
-
-        :param pulumi.Input[_builtins.str] resource: The Resource indicating the App ID URI of the target resource.
-               It also appears in the aud (audience) claim of the issued token.
-        """
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
-
-    @_builtins.property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Resource indicating the App ID URI of the target resource.
-        It also appears in the aud (audience) claim of the issued token.
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource", value)
 
 
 class ManagedIdentityArgsDict(TypedDict):
     """
     A class represent managed identities used for request and response
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]]]
     """
     Represents the identity type: systemAssigned, userAssigned, None
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Get or set the user assigned identities
     """
@@ -301,8 +264,8 @@ class ManagedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A class represent managed identities used for request and response
 
@@ -316,38 +279,75 @@ class ManagedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]]:
         """
         Represents the identity type: systemAssigned, userAssigned, None
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Get or set the user assigned identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+class ManagedIdentitySettingsArgsDict(TypedDict):
+    """
+    Managed identity settings for upstream.
+    """
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Resource indicating the App ID URI of the target resource.
+    It also appears in the aud (audience) claim of the issued token.
+    """
+
+@pulumi.input_type
+class ManagedIdentitySettingsArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Managed identity settings for upstream.
+
+        :param pulumi.Input[_builtins.str] resource: The Resource indicating the App ID URI of the target resource.
+               It also appears in the aud (audience) claim of the issued token.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @_builtins.property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Resource indicating the App ID URI of the target resource.
+        It also appears in the aud (audience) claim of the issued token.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource", value)
 
 
 class NetworkACLArgsDict(TypedDict):
     """
     Network ACL
     """
-    allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]
+    allow: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]]
     """
     Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
     """
-    deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]
+    deny: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]]
     """
     Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
     """
@@ -355,8 +355,8 @@ class NetworkACLArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkACLArgs:
     def __init__(__self__, *,
-                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None,
-                 deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None):
+                 allow: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None,
+                 deny: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None):
         """
         Network ACL
 
@@ -370,27 +370,61 @@ class NetworkACLArgs:
 
     @_builtins.property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
+    def allow(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
         """
         Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
+    def allow(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "allow", value)
 
     @_builtins.property
     @pulumi.getter
-    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
+    def deny(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
         """
         Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "deny")
 
     @deny.setter
-    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
+    def deny(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
+
+
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    Private endpoint
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Full qualified Id of the private endpoint
+    """
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Private endpoint
+
+        :param pulumi.Input[_builtins.str] id: Full qualified Id of the private endpoint
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Full qualified Id of the private endpoint
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 class PrivateEndpointACLArgsDict(TypedDict):
@@ -401,11 +435,11 @@ class PrivateEndpointACLArgsDict(TypedDict):
     """
     Name of the private endpoint connection
     """
-    allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]
+    allow: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]]
     """
     Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
     """
-    deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]
+    deny: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]]
     """
     Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
     """
@@ -414,8 +448,8 @@ class PrivateEndpointACLArgsDict(TypedDict):
 class PrivateEndpointACLArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None,
-                 deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None):
+                 allow: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None,
+                 deny: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]] = None):
         """
         ACL for a private endpoint
 
@@ -443,76 +477,42 @@ class PrivateEndpointACLArgs:
 
     @_builtins.property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
+    def allow(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
         """
         Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
+    def allow(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "allow", value)
 
     @_builtins.property
     @pulumi.getter
-    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
+    def deny(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]:
         """
         Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "deny")
 
     @deny.setter
-    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
+    def deny(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
-
-
-class PrivateEndpointArgsDict(TypedDict):
-    """
-    Private endpoint
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Full qualified Id of the private endpoint
-    """
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Private endpoint
-
-        :param pulumi.Input[_builtins.str] id: Full qualified Id of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Full qualified Id of the private endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
 
 class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     Connection state of the private endpoint connection
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -520,9 +520,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]] = None):
         """
         Connection state of the private endpoint connection
 
@@ -539,38 +539,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -578,13 +578,13 @@ class ResourceLogCategoryArgsDict(TypedDict):
     """
     Resource log category configuration of a Microsoft.SignalRService resource.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether or the resource log category is enabled.
     Available values: true, false.
     Case insensitive.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the resource log category's name.
     Available values: ConnectivityLogs, MessagingLogs.
@@ -594,8 +594,8 @@ class ResourceLogCategoryArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceLogCategoryArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Resource log category configuration of a Microsoft.SignalRService resource.
 
@@ -613,7 +613,7 @@ class ResourceLogCategoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether or the resource log category is enabled.
         Available values: true, false.
@@ -622,12 +622,12 @@ class ResourceLogCategoryArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the resource log category's name.
         Available values: ConnectivityLogs, MessagingLogs.
@@ -636,7 +636,7 @@ class ResourceLogCategoryArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -644,7 +644,7 @@ class ResourceLogConfigurationArgsDict(TypedDict):
     """
     Resource log configuration of a Microsoft.SignalRService resource.
     """
-    categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgsDict']]]]
+    categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceLogCategoryArgsDict']]]]]
     """
     Gets or sets the list of category configurations.
     """
@@ -652,7 +652,7 @@ class ResourceLogConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceLogConfigurationArgs:
     def __init__(__self__, *,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]] = None):
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]] = None):
         """
         Resource log configuration of a Microsoft.SignalRService resource.
 
@@ -663,14 +663,14 @@ class ResourceLogConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]]:
+    def categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]]:
         """
         Gets or sets the list of category configurations.
         """
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]]):
+    def categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]]):
         pulumi.set(self, "categories", value)
 
 
@@ -678,7 +678,7 @@ class ResourceReferenceArgsDict(TypedDict):
     """
     Reference to a resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID.
     """
@@ -686,7 +686,7 @@ class ResourceReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Reference to a resource.
 
@@ -697,14 +697,14 @@ class ResourceReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -715,24 +715,24 @@ class ResourceSkuArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
     The name of the SKU. Required.
-    
+
     Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Optional, integer. The unit count of the resource.
     1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
-    
+
     If present, following values are allowed:
         Free_F1: 1;
         Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
         Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
         Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SignalRSkuTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SignalRSkuTier']]]]
     """
-    Optional tier of this particular SKU. 'Standard' or 'Free'. 
-    
+    Optional tier of this particular SKU. 'Standard' or 'Free'.
+
     `Basic` is deprecated, use `Standard` instead.
     """
 
@@ -740,8 +740,8 @@ class ResourceSkuArgsDict(TypedDict):
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'SignalRSkuTier']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'SignalRSkuTier']]] = None):
         """
         The billing information of the resource.
 
@@ -756,7 +756,7 @@ class ResourceSkuArgs:
                    Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
                    Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
                    Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
-        :param pulumi.Input[Union[_builtins.str, 'SignalRSkuTier']] tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
+        :param pulumi.Input[Union[_builtins.str, 'SignalRSkuTier']] tier: Optional tier of this particular SKU. 'Standard' or 'Free'.
                
                `Basic` is deprecated, use `Standard` instead.
         """
@@ -771,7 +771,7 @@ class ResourceSkuArgs:
     def name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the SKU. Required.
-        
+
         Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         return pulumi.get(self, "name")
@@ -782,11 +782,11 @@ class ResourceSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Optional, integer. The unit count of the resource.
         1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
-        
+
         If present, following values are allowed:
             Free_F1: 1;
             Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
@@ -796,21 +796,21 @@ class ResourceSkuArgs:
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SignalRSkuTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SignalRSkuTier']]]:
         """
-        Optional tier of this particular SKU. 'Standard' or 'Free'. 
-        
+        Optional tier of this particular SKU. 'Standard' or 'Free'.
+
         `Basic` is deprecated, use `Standard` instead.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SignalRSkuTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SignalRSkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -818,7 +818,7 @@ class ServerlessSettingsArgsDict(TypedDict):
     """
     Serverless settings.
     """
-    connection_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    connection_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Gets or sets Client Connection Timeout. Optional to be set.
     Value in seconds.
@@ -833,7 +833,7 @@ class ServerlessSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessSettingsArgs:
     def __init__(__self__, *,
-                 connection_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 connection_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Serverless settings.
 
@@ -853,7 +853,7 @@ class ServerlessSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionTimeoutInSeconds")
-    def connection_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Gets or sets Client Connection Timeout. Optional to be set.
         Value in seconds.
@@ -867,7 +867,7 @@ class ServerlessSettingsArgs:
         return pulumi.get(self, "connection_timeout_in_seconds")
 
     @connection_timeout_in_seconds.setter
-    def connection_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_timeout_in_seconds", value)
 
 
@@ -875,7 +875,7 @@ class ServerlessUpstreamSettingsArgsDict(TypedDict):
     """
     The settings for the Upstream when the service is in server-less mode.
     """
-    templates: NotRequired[pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgsDict']]]]
+    templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UpstreamTemplateArgsDict']]]]]
     """
     Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
     """
@@ -883,7 +883,7 @@ class ServerlessUpstreamSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessUpstreamSettingsArgs:
     def __init__(__self__, *,
-                 templates: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgs']]]] = None):
+                 templates: pulumi.Input[Optional[Sequence[pulumi.Input['UpstreamTemplateArgs']]]] = None):
         """
         The settings for the Upstream when the service is in server-less mode.
 
@@ -894,14 +894,14 @@ class ServerlessUpstreamSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgs']]]]:
+    def templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UpstreamTemplateArgs']]]]:
         """
         Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         return pulumi.get(self, "templates")
 
     @templates.setter
-    def templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgs']]]]):
+    def templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UpstreamTemplateArgs']]]]):
         pulumi.set(self, "templates", value)
 
 
@@ -909,7 +909,7 @@ class SignalRCorsSettingsArgsDict(TypedDict):
     """
     Cross-Origin Resource Sharing (CORS) settings.
     """
-    allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
     """
@@ -917,7 +917,7 @@ class SignalRCorsSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class SignalRCorsSettingsArgs:
     def __init__(__self__, *,
-                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings.
 
@@ -928,14 +928,14 @@ class SignalRCorsSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
 
@@ -955,7 +955,7 @@ class SignalRFeatureArgsDict(TypedDict):
     """
     Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional properties related to this feature.
     """
@@ -965,7 +965,7 @@ class SignalRFeatureArgs:
     def __init__(__self__, *,
                  flag: pulumi.Input[Union[_builtins.str, 'FeatureFlags']],
                  value: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Feature of a resource, which controls the runtime behavior.
 
@@ -1012,14 +1012,14 @@ class SignalRFeatureArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional properties related to this feature.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
 
@@ -1027,19 +1027,19 @@ class SignalRNetworkACLsArgsDict(TypedDict):
     """
     Network ACLs for the resource
     """
-    default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'ACLAction']]]
+    default_action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]]]
     """
     Azure Networking ACL Action.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgsDict']]]]]
     """
     IP rules for filtering public traffic
     """
-    private_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgsDict']]]]
+    private_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointACLArgsDict']]]]]
     """
     ACLs for requests from private endpoints
     """
-    public_network: NotRequired[pulumi.Input['NetworkACLArgsDict']]
+    public_network: NotRequired[pulumi.Input[Optional['NetworkACLArgsDict']]]
     """
     Network ACL
     """
@@ -1047,10 +1047,10 @@ class SignalRNetworkACLsArgsDict(TypedDict):
 @pulumi.input_type
 class SignalRNetworkACLsArgs:
     def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'ACLAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
-                 public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
+                 public_network: pulumi.Input[Optional['NetworkACLArgs']] = None):
         """
         Network ACLs for the resource
 
@@ -1070,50 +1070,50 @@ class SignalRNetworkACLsArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ACLAction']]]:
+    def default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]]:
         """
         Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ACLAction']]]):
+    def default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ACLAction']]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]]:
         """
         IP rules for filtering public traffic
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]]:
+    def private_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]]:
         """
         ACLs for requests from private endpoints
         """
         return pulumi.get(self, "private_endpoints")
 
     @private_endpoints.setter
-    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]]):
+    def private_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]]):
         pulumi.set(self, "private_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetwork")
-    def public_network(self) -> Optional[pulumi.Input['NetworkACLArgs']]:
+    def public_network(self) -> pulumi.Input[Optional['NetworkACLArgs']]:
         """
         Network ACL
         """
         return pulumi.get(self, "public_network")
 
     @public_network.setter
-    def public_network(self, value: Optional[pulumi.Input['NetworkACLArgs']]):
+    def public_network(self, value: pulumi.Input[Optional['NetworkACLArgs']]):
         pulumi.set(self, "public_network", value)
 
 
@@ -1121,7 +1121,7 @@ class SignalRTlsSettingsArgsDict(TypedDict):
     """
     TLS settings for the resource
     """
-    client_cert_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    client_cert_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
     """
@@ -1129,7 +1129,7 @@ class SignalRTlsSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class SignalRTlsSettingsArgs:
     def __init__(__self__, *,
-                 client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         TLS settings for the resource
 
@@ -1142,14 +1142,14 @@ class SignalRTlsSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientCertEnabled")
-    def client_cert_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_cert_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         return pulumi.get(self, "client_cert_enabled")
 
     @client_cert_enabled.setter
-    def client_cert_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_cert_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_cert_enabled", value)
 
 
@@ -1157,11 +1157,11 @@ class UpstreamAuthSettingsArgsDict(TypedDict):
     """
     Upstream auth settings. If not set, no auth is used for upstream messages.
     """
-    managed_identity: NotRequired[pulumi.Input['ManagedIdentitySettingsArgsDict']]
+    managed_identity: NotRequired[pulumi.Input[Optional['ManagedIdentitySettingsArgsDict']]]
     """
     Managed identity settings for upstream.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UpstreamAuthType']]]]
     """
     Upstream auth type enum.
     """
@@ -1169,8 +1169,8 @@ class UpstreamAuthSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class UpstreamAuthSettingsArgs:
     def __init__(__self__, *,
-                 managed_identity: Optional[pulumi.Input['ManagedIdentitySettingsArgs']] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']]] = None):
+                 managed_identity: pulumi.Input[Optional['ManagedIdentitySettingsArgs']] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'UpstreamAuthType']]] = None):
         """
         Upstream auth settings. If not set, no auth is used for upstream messages.
 
@@ -1184,26 +1184,26 @@ class UpstreamAuthSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentitySettingsArgs']]:
+    def managed_identity(self) -> pulumi.Input[Optional['ManagedIdentitySettingsArgs']]:
         """
         Managed identity settings for upstream.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['ManagedIdentitySettingsArgs']]):
+    def managed_identity(self, value: pulumi.Input[Optional['ManagedIdentitySettingsArgs']]):
         pulumi.set(self, "managed_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpstreamAuthType']]]:
         """
         Upstream auth type enum.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpstreamAuthType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1217,11 +1217,11 @@ class UpstreamTemplateArgsDict(TypedDict):
     Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
     For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
     """
-    auth: NotRequired[pulumi.Input['UpstreamAuthSettingsArgsDict']]
+    auth: NotRequired[pulumi.Input[Optional['UpstreamAuthSettingsArgsDict']]]
     """
     Upstream auth settings. If not set, no auth is used for upstream messages.
     """
-    category_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    category_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the matching pattern for category names. If not set, it matches any category.
     There are 3 kind of patterns supported:
@@ -1229,7 +1229,7 @@ class UpstreamTemplateArgsDict(TypedDict):
         2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages".
         3. The single category name, for example, "connections", it matches the category "connections".
     """
-    event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    event_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the matching pattern for event names. If not set, it matches any event.
     There are 3 kind of patterns supported:
@@ -1237,7 +1237,7 @@ class UpstreamTemplateArgsDict(TypedDict):
         2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect".
         3. The single event name, for example, "connect", it matches "connect".
     """
-    hub_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    hub_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the matching pattern for hub names. If not set, it matches any hub.
     There are 3 kind of patterns supported:
@@ -1250,10 +1250,10 @@ class UpstreamTemplateArgsDict(TypedDict):
 class UpstreamTemplateArgs:
     def __init__(__self__, *,
                  url_template: pulumi.Input[_builtins.str],
-                 auth: Optional[pulumi.Input['UpstreamAuthSettingsArgs']] = None,
-                 category_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth: pulumi.Input[Optional['UpstreamAuthSettingsArgs']] = None,
+                 category_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Upstream template item settings. It defines the Upstream URL of the incoming requests.
         The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
@@ -1302,19 +1302,19 @@ class UpstreamTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def auth(self) -> Optional[pulumi.Input['UpstreamAuthSettingsArgs']]:
+    def auth(self) -> pulumi.Input[Optional['UpstreamAuthSettingsArgs']]:
         """
         Upstream auth settings. If not set, no auth is used for upstream messages.
         """
         return pulumi.get(self, "auth")
 
     @auth.setter
-    def auth(self, value: Optional[pulumi.Input['UpstreamAuthSettingsArgs']]):
+    def auth(self, value: pulumi.Input[Optional['UpstreamAuthSettingsArgs']]):
         pulumi.set(self, "auth", value)
 
     @_builtins.property
     @pulumi.getter(name="categoryPattern")
-    def category_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the matching pattern for category names. If not set, it matches any category.
         There are 3 kind of patterns supported:
@@ -1325,12 +1325,12 @@ class UpstreamTemplateArgs:
         return pulumi.get(self, "category_pattern")
 
     @category_pattern.setter
-    def category_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the matching pattern for event names. If not set, it matches any event.
         There are 3 kind of patterns supported:
@@ -1341,12 +1341,12 @@ class UpstreamTemplateArgs:
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="hubPattern")
-    def hub_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the matching pattern for hub names. If not set, it matches any hub.
         There are 3 kind of patterns supported:
@@ -1357,7 +1357,7 @@ class UpstreamTemplateArgs:
         return pulumi.get(self, "hub_pattern")
 
     @hub_pattern.setter
-    def hub_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_pattern", value)
 
 

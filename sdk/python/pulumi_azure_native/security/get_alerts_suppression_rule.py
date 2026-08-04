@@ -189,7 +189,6 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[_builtins
 
     Uses Azure REST API version 2019-01-01-preview.
 
-
     :param _builtins.str alerts_suppression_rule_name: The unique name of the suppression alert rule
     """
     __args__ = dict()
@@ -210,13 +209,12 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[_builtins
         suppression_alerts_scope=pulumi.get(__ret__, 'suppression_alerts_scope'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alerts_suppression_rule_output(alerts_suppression_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
     """
     Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
 
     Uses Azure REST API version 2019-01-01-preview.
-
 
     :param _builtins.str alerts_suppression_rule_name: The unique name of the suppression alert rule
     """

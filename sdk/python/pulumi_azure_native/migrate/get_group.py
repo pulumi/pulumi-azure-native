@@ -119,7 +119,6 @@ def get_group(group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-10-01.
 
-
     :param _builtins.str group_name: Unique name of a group within a project.
     :param _builtins.str project_name: Name of the Azure Migrate project.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -138,15 +137,14 @@ def get_group(group_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_group_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
 
     Uses Azure REST API version 2019-10-01.
-
 
     :param _builtins.str group_name: Unique name of a group within a project.
     :param _builtins.str project_name: Name of the Azure Migrate project.

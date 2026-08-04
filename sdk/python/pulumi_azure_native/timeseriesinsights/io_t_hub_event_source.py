@@ -30,13 +30,13 @@ class IoTHubEventSourceArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  shared_access_key: pulumi.Input[_builtins.str],
-                 event_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_timestamp: Optional[pulumi.Input['LocalTimestampArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IngressStartAtType']]] = None):
+                 event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_timestamp: pulumi.Input[Optional['LocalTimestampArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IngressStartAtType']]] = None):
         """
         The set of arguments for constructing a IoTHubEventSource resource.
 
@@ -179,86 +179,86 @@ class IoTHubEventSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventSourceName")
-    def event_source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the event source.
         """
         return pulumi.get(self, "event_source_name")
 
     @event_source_name.setter
-    def event_source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="localTimestamp")
-    def local_timestamp(self) -> Optional[pulumi.Input['LocalTimestampArgs']]:
+    def local_timestamp(self) -> pulumi.Input[Optional['LocalTimestampArgs']]:
         """
         An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
         """
         return pulumi.get(self, "local_timestamp")
 
     @local_timestamp.setter
-    def local_timestamp(self, value: Optional[pulumi.Input['LocalTimestampArgs']]):
+    def local_timestamp(self, value: pulumi.Input[Optional['LocalTimestampArgs']]):
         pulumi.set(self, "local_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of additional properties for the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
         """
         return pulumi.get(self, "time")
 
     @time.setter
-    def time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time", value)
 
     @_builtins.property
     @pulumi.getter(name="timestampPropertyName")
-    def timestamp_property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timestamp_property_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
         """
         return pulumi.get(self, "timestamp_property_name")
 
     @timestamp_property_name.setter
-    def timestamp_property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timestamp_property_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_property_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IngressStartAtType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IngressStartAtType']]]:
         """
         The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IngressStartAtType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IngressStartAtType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -268,27 +268,26 @@ class IoTHubEventSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_timestamp: Optional[pulumi.Input[Union['LocalTimestampArgs', 'LocalTimestampArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IngressStartAtType']]] = None,
+                 consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_timestamp: pulumi.Input[Optional[Union['LocalTimestampArgs', 'LocalTimestampArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IngressStartAtType']]] = None,
                  __props__=None):
         """
         An event source that receives its data from an Azure IoTHub.
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,7 +319,6 @@ class IoTHubEventSource(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
-
         :param str resource_name: The name of the resource.
         :param IoTHubEventSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,21 +334,21 @@ class IoTHubEventSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iot_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_timestamp: Optional[pulumi.Input[Union['LocalTimestampArgs', 'LocalTimestampArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IngressStartAtType']]] = None,
+                 consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iot_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_timestamp: pulumi.Input[Optional[Union['LocalTimestampArgs', 'LocalTimestampArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IngressStartAtType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

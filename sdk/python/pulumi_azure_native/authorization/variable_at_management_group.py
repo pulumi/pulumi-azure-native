@@ -23,7 +23,7 @@ class VariableAtManagementGroupArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]],
                  management_group_id: pulumi.Input[_builtins.str],
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VariableAtManagementGroup resource.
 
@@ -62,14 +62,14 @@ class VariableAtManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="variableName")
-    def variable_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variable to operate on.
         """
         return pulumi.get(self, "variable_name")
 
     @variable_name.setter
-    def variable_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_name", value)
 
 
@@ -79,9 +79,9 @@ class VariableAtManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The variable.
@@ -89,7 +89,6 @@ class VariableAtManagementGroup(pulumi.CustomResource):
         Uses Azure REST API version 2022-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
 
         Other available API versions: 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +109,6 @@ class VariableAtManagementGroup(pulumi.CustomResource):
 
         Other available API versions: 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VariableAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,9 +124,9 @@ class VariableAtManagementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVariableColumnArgs', 'PolicyVariableColumnArgsDict']]]]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

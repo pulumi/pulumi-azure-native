@@ -24,8 +24,8 @@ class TagRuleArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagRule resource.
 
@@ -67,26 +67,26 @@ class TagRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]:
         """
         Properties of the monitoring tag rules.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tag Rule Set resource name
         """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
-    def rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_set_name", value)
 
 
@@ -96,10 +96,10 @@ class TagRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Capture logs and metrics of Azure resources based on ARM tags.
@@ -107,7 +107,6 @@ class TagRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
         Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +128,6 @@ class TagRule(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TagRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,10 +143,10 @@ class TagRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

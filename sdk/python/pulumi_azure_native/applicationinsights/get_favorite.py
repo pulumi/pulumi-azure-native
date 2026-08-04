@@ -190,7 +190,6 @@ def get_favorite(favorite_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2015-05-01.
 
-
     :param _builtins.str favorite_id: The Id of a specific favorite defined in the Application Insights component
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the Application Insights component resource.
@@ -215,15 +214,14 @@ def get_favorite(favorite_id: Optional[_builtins.str] = None,
         time_modified=pulumi.get(__ret__, 'time_modified'),
         user_id=pulumi.get(__ret__, 'user_id'),
         version=pulumi.get(__ret__, 'version'))
-def get_favorite_output(favorite_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_favorite_output(favorite_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFavoriteResult]:
     """
     Get a single favorite by its FavoriteId, defined within an Application Insights component.
 
     Uses Azure REST API version 2015-05-01.
-
 
     :param _builtins.str favorite_id: The Id of a specific favorite defined in the Application Insights component
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

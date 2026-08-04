@@ -24,17 +24,17 @@ class ConfigurationStoreArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 config_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
-                 data_plane_proxy: Optional[pulumi.Input['DataPlaneProxyPropertiesArgs']] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_purge_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 soft_delete_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional['CreateMode']] = None,
+                 data_plane_proxy: pulumi.Input[Optional['DataPlaneProxyPropertiesArgs']] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_purge_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
+                 identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 soft_delete_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationStore resource.
 
@@ -109,134 +109,134 @@ class ConfigurationStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="configStoreName")
-    def config_store_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_store_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration store.
         """
         return pulumi.get(self, "config_store_name")
 
     @config_store_name.setter
-    def config_store_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_store_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_store_name", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input['CreateMode']]:
+    def create_mode(self) -> pulumi.Input[Optional['CreateMode']]:
         """
         Indicates whether the configuration store need to be recovered.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input['CreateMode']]):
+    def create_mode(self, value: pulumi.Input[Optional['CreateMode']]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPlaneProxy")
-    def data_plane_proxy(self) -> Optional[pulumi.Input['DataPlaneProxyPropertiesArgs']]:
+    def data_plane_proxy(self) -> pulumi.Input[Optional['DataPlaneProxyPropertiesArgs']]:
         """
         Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
         """
         return pulumi.get(self, "data_plane_proxy")
 
     @data_plane_proxy.setter
-    def data_plane_proxy(self, value: Optional[pulumi.Input['DataPlaneProxyPropertiesArgs']]):
+    def data_plane_proxy(self, value: pulumi.Input[Optional['DataPlaneProxyPropertiesArgs']]):
         pulumi.set(self, "data_plane_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disables all authentication methods other than AAD authentication.
         """
         return pulumi.get(self, "disable_local_auth")
 
     @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePurgeProtection")
-    def enable_purge_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_purge_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Property specifying whether protection against purge is enabled for this configuration store.
         """
         return pulumi.get(self, "enable_purge_protection")
 
     @enable_purge_protection.setter
-    def enable_purge_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_purge_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_purge_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionPropertiesArgs']]:
         """
         The encryption settings of the configuration store.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionPropertiesArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ResourceIdentityArgs']]:
         """
         The managed identity information, if configured.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionInDays")
-    def soft_delete_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def soft_delete_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time in days that the configuration store will be retained when it is soft deleted.
         """
         return pulumi.get(self, "soft_delete_retention_in_days")
 
     @soft_delete_retention_in_days.setter
-    def soft_delete_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def soft_delete_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "soft_delete_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -246,19 +246,19 @@ class ConfigurationStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
-                 data_plane_proxy: Optional[pulumi.Input[Union['DataPlaneProxyPropertiesArgs', 'DataPlaneProxyPropertiesArgsDict']]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_purge_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 soft_delete_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional['CreateMode']] = None,
+                 data_plane_proxy: pulumi.Input[Optional[Union['DataPlaneProxyPropertiesArgs', 'DataPlaneProxyPropertiesArgsDict']]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_purge_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 soft_delete_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
@@ -266,7 +266,6 @@ class ConfigurationStore(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,7 +296,6 @@ class ConfigurationStore(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,19 +311,19 @@ class ConfigurationStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
-                 data_plane_proxy: Optional[pulumi.Input[Union['DataPlaneProxyPropertiesArgs', 'DataPlaneProxyPropertiesArgsDict']]] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_purge_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 soft_delete_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional['CreateMode']] = None,
+                 data_plane_proxy: pulumi.Input[Optional[Union['DataPlaneProxyPropertiesArgs', 'DataPlaneProxyPropertiesArgsDict']]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_purge_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionPropertiesArgs', 'EncryptionPropertiesArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 soft_delete_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

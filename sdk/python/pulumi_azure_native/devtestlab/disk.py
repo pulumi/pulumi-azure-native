@@ -24,17 +24,17 @@ class DiskArgs:
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 disk_blob_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gi_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None,
-                 disk_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_caching: Optional[pulumi.Input[_builtins.str]] = None,
-                 leased_by_lab_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 disk_blob_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gi_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None,
+                 disk_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_caching: pulumi.Input[Optional[_builtins.str]] = None,
+                 leased_by_lab_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Disk resource.
 
@@ -117,134 +117,134 @@ class DiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskBlobName")
-    def disk_blob_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_blob_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When backed by a blob, the name of the VHD blob without extension.
         """
         return pulumi.get(self, "disk_blob_name")
 
     @disk_blob_name.setter
-    def disk_blob_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_blob_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_blob_name", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_gi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the disk in Gibibytes.
         """
         return pulumi.get(self, "disk_size_gi_b")
 
     @disk_size_gi_b.setter
-    def disk_size_gi_b(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_gi_b(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_gi_b", value)
 
     @_builtins.property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]:
+    def disk_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]:
         """
         The storage type for the disk (i.e. Standard, Premium).
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]):
+    def disk_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]]):
         pulumi.set(self, "disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskUri")
-    def disk_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When backed by a blob, the URI of underlying blob.
         """
         return pulumi.get(self, "disk_uri")
 
     @disk_uri.setter
-    def disk_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="hostCaching")
-    def host_caching(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_caching(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
         """
         return pulumi.get(self, "host_caching")
 
     @host_caching.setter
-    def host_caching(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_caching(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_caching", value)
 
     @_builtins.property
     @pulumi.getter(name="leasedByLabVmId")
-    def leased_by_lab_vm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def leased_by_lab_vm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the VM to which this disk is leased.
         """
         return pulumi.get(self, "leased_by_lab_vm_id")
 
     @leased_by_lab_vm_id.setter
-    def leased_by_lab_vm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def leased_by_lab_vm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "leased_by_lab_vm_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskId")
-    def managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When backed by managed disk, this is the ID of the compute disk resource.
         """
         return pulumi.get(self, "managed_disk_id")
 
     @managed_disk_id.setter
-    def managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the disk.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When backed by a blob, the storage account where the blob is.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -254,26 +254,25 @@ class Disk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_blob_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gi_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None,
-                 disk_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_caching: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 leased_by_lab_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 disk_blob_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gi_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None,
+                 disk_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_caching: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 leased_by_lab_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A Disk.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,7 +302,6 @@ class Disk(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,20 +317,20 @@ class Disk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_blob_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_gi_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None,
-                 disk_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_caching: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 leased_by_lab_vm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 disk_blob_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_gi_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageType']]] = None,
+                 disk_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_caching: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 leased_by_lab_vm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

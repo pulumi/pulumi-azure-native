@@ -156,11 +156,11 @@ export interface GroupsOperationArgs {
     /**
      * Group ARM name
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The type of group.
      */
-    groupType?: pulumi.Input<string | enums.migrate.GroupType>;
+    groupType?: pulumi.Input<string | enums.migrate.GroupType | undefined>;
     /**
      * Assessment Project Name
      */
@@ -168,7 +168,7 @@ export interface GroupsOperationArgs {
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,5 +176,5 @@ export interface GroupsOperationArgs {
     /**
      * List of assessment types supported on this group.
      */
-    supportedAssessmentTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.AssessmentType>[]>;
+    supportedAssessmentTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.AssessmentType>[] | undefined>;
 }

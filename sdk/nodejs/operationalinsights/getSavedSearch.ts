@@ -47,7 +47,7 @@ export interface GetSavedSearchResult {
      */
     readonly azureApiVersion: string;
     /**
-     * The category of the saved search. This helps the user to find a saved search faster. 
+     * The category of the saved search. This helps the user to find a saved search faster.
      */
     readonly category: string;
     /**

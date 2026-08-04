@@ -241,7 +241,6 @@ def get_ou_container(domain_service_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-05-01, 2025-06-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str domain_service_name: The name of the domain service.
     :param _builtins.str ou_container_name: The name of the OuContainer.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -270,9 +269,9 @@ def get_ou_container(domain_service_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_ou_container_output(domain_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            ou_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ou_container_output(domain_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            ou_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOuContainerResult]:
     """
     Get OuContainer in DomainService instance.
@@ -280,7 +279,6 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2022-12-01.
 
     Other available API versions: 2025-05-01, 2025-06-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str domain_service_name: The name of the domain service.
     :param _builtins.str ou_container_name: The name of the OuContainer.

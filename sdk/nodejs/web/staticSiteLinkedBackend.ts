@@ -134,15 +134,15 @@ export interface StaticSiteLinkedBackendArgs {
     /**
      * The resource id of the backend linked to the static site
      */
-    backendResourceId?: pulumi.Input<string>;
+    backendResourceId?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the linked backend that should be retrieved
      */
-    linkedBackendName?: pulumi.Input<string>;
+    linkedBackendName?: pulumi.Input<string | undefined>;
     /**
      * Name of the static site
      */

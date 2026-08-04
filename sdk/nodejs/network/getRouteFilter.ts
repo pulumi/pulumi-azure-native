@@ -107,7 +107,7 @@ export interface GetRouteFilterOutputArgs {
     /**
      * Expands referenced express route bgp peering resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

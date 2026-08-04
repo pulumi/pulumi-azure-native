@@ -23,9 +23,9 @@ class CurationProfileArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 curation_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyArgs']]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 curation_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyArgs']]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CurationProfile resource.
 
@@ -70,38 +70,38 @@ class CurationProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="curationProfileName")
-    def curation_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def curation_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the curation profile.
         """
         return pulumi.get(self, "curation_profile_name")
 
     @curation_profile_name.setter
-    def curation_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def curation_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "curation_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicies")
-    def resource_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyArgs']]]]:
+    def resource_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyArgs']]]]:
         """
         Resource policies that are a part of this curation profile.
         """
         return pulumi.get(self, "resource_policies")
 
     @resource_policies.setter
-    def resource_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyArgs']]]]):
+    def resource_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyArgs']]]]):
         pulumi.set(self, "resource_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Resources that have access to the shared resources that are a part of this curation profile.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -111,11 +111,11 @@ class CurationProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 curation_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourcePolicyArgs', 'ResourcePolicyArgsDict']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 curation_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourcePolicyArgs', 'ResourcePolicyArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents an curation profile resource.
@@ -123,7 +123,6 @@ class CurationProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
         Other available API versions: 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class CurationProfile(pulumi.CustomResource):
 
         Other available API versions: 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CurationProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class CurationProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 curation_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourcePolicyArgs', 'ResourcePolicyArgsDict']]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 curation_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourcePolicyArgs', 'ResourcePolicyArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

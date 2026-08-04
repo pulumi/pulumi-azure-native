@@ -141,7 +141,6 @@ def get_scope_assignment(scope: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-06-01-preview.
 
-
     :param _builtins.str scope: The base resource of the scope assignment.
     :param _builtins.str scope_assignment_name: The name of the scope assignment to get.
     """
@@ -160,14 +159,13 @@ def get_scope_assignment(scope: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_scope_assignment_output(scope: Optional[pulumi.Input[_builtins.str]] = None,
-                                scope_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scope_assignment_output(scope: pulumi.Input[Optional[_builtins.str]] = None,
+                                scope_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeAssignmentResult]:
     """
     Get the specified scope assignment.
 
     Uses Azure REST API version 2019-06-01-preview.
-
 
     :param _builtins.str scope: The base resource of the scope assignment.
     :param _builtins.str scope_assignment_name: The name of the scope assignment to get.

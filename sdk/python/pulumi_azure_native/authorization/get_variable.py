@@ -119,7 +119,6 @@ def get_variable(variable_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str variable_name: The name of the variable to operate on.
     """
     __args__ = dict()
@@ -134,7 +133,7 @@ def get_variable(variable_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_variable_output(variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_variable_output(variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableResult]:
     """
     This operation retrieves a single variable, given its name and the subscription it was created at.
@@ -142,7 +141,6 @@ def get_variable_output(variable_name: Optional[pulumi.Input[_builtins.str]] = N
     Uses Azure REST API version 2022-08-01-preview.
 
     Other available API versions: 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str variable_name: The name of the variable to operate on.
     """

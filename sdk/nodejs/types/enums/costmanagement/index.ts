@@ -166,7 +166,7 @@ export const CultureCode = {
 } as const;
 
 /**
- * Language in which the recipient will receive the notification, 
+ * Language in which the recipient will receive the notification,
  *
  *  Supported for CategoryType(s): Cost, ReservationUtilization.
  */
@@ -564,7 +564,7 @@ export const TimeGrainType = {
  * - BillingMonth*
  * - BillingQuarter*
  * - BillingAnnual*
- *
+ *   
  *   *only supported for Web Direct customers.
  *
  *  Supported timeGrainTypes for **CategoryType: ReservationUtilization**

@@ -101,7 +101,7 @@ export interface AssessmentArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.billingtrust.AssessmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.billingtrust.AssessmentPropertiesArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

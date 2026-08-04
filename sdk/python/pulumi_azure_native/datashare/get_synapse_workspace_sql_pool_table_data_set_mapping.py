@@ -169,7 +169,6 @@ def get_synapse_workspace_sql_pool_table_data_set_mapping(account_name: Optional
 
     Uses Azure REST API version 2021-08-01.
 
-
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str data_set_mapping_name: The name of the dataSetMapping.
     :param _builtins.str resource_group_name: The resource group name.
@@ -194,16 +193,15 @@ def get_synapse_workspace_sql_pool_table_data_set_mapping(account_name: Optional
         synapse_workspace_sql_pool_table_resource_id=pulumi.get(__ret__, 'synapse_workspace_sql_pool_table_resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_synapse_workspace_sql_pool_table_data_set_mapping_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                 share_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_synapse_workspace_sql_pool_table_data_set_mapping_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 data_set_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                 share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSynapseWorkspaceSqlPoolTableDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
 
     Uses Azure REST API version 2021-08-01.
-
 
     :param _builtins.str account_name: The name of the share account.
     :param _builtins.str data_set_mapping_name: The name of the dataSetMapping.

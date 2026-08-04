@@ -111,11 +111,11 @@ export interface ScopeAssignmentArgs {
     /**
      * The managed network ID with scope will be assigned to.
      */
-    assignedManagedNetwork?: pulumi.Input<string>;
+    assignedManagedNetwork?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The base resource of the scope assignment to create. The scope can be any REST resource instance. For example, use 'subscriptions/{subscription-id}' for a subscription, 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */
@@ -123,5 +123,5 @@ export interface ScopeAssignmentArgs {
     /**
      * The name of the scope assignment to create.
      */
-    scopeAssignmentName?: pulumi.Input<string>;
+    scopeAssignmentName?: pulumi.Input<string | undefined>;
 }

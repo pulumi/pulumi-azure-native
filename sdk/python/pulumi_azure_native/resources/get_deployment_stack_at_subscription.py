@@ -335,7 +335,6 @@ def get_deployment_stack_at_subscription(deployment_stack_name: Optional[_builti
 
     Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str deployment_stack_name: Name of the deployment stack.
     """
     __args__ = dict()
@@ -368,7 +367,7 @@ def get_deployment_stack_at_subscription(deployment_stack_name: Optional[_builti
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stack_at_subscription_output(deployment_stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_stack_at_subscription_output(deployment_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtSubscriptionResult]:
     """
     Gets the Deployment stack with the given name.
@@ -376,7 +375,6 @@ def get_deployment_stack_at_subscription_output(deployment_stack_name: Optional[
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str deployment_stack_name: Name of the deployment stack.
     """

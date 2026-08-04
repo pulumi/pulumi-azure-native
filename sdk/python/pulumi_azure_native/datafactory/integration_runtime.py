@@ -25,7 +25,7 @@ class IntegrationRuntimeArgs:
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['ManagedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationRuntime resource.
 
@@ -78,14 +78,14 @@ class IntegrationRuntimeArgs:
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration runtime name.
         """
         return pulumi.get(self, "integration_runtime_name")
 
     @integration_runtime_name.setter
-    def integration_runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
 
 
@@ -95,16 +95,15 @@ class IntegrationRuntime(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ManagedIntegrationRuntimeArgs', 'ManagedIntegrationRuntimeArgsDict'], Union['SelfHostedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ManagedIntegrationRuntimeArgs', 'ManagedIntegrationRuntimeArgsDict'], Union['SelfHostedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Integration runtime resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class IntegrationRuntime(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class IntegrationRuntime(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ManagedIntegrationRuntimeArgs', 'ManagedIntegrationRuntimeArgsDict'], Union['SelfHostedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ManagedIntegrationRuntimeArgs', 'ManagedIntegrationRuntimeArgsDict'], Union['SelfHostedIntegrationRuntimeArgs', 'SelfHostedIntegrationRuntimeArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

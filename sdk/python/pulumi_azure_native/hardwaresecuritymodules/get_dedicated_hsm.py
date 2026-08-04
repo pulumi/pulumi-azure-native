@@ -216,7 +216,6 @@ def get_dedicated_hsm(name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-11-30, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str name: Name of the dedicated Hsm
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -241,8 +240,8 @@ def get_dedicated_hsm(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_dedicated_hsm_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dedicated_hsm_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHsmResult]:
     """
     Gets the specified Azure dedicated HSM.
@@ -250,7 +249,6 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-06-30-preview.
 
     Other available API versions: 2021-11-30, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str name: Name of the dedicated Hsm
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -120,7 +120,6 @@ def get_advanced_threat_protection(resource_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str setting_name: Advanced Threat Protection setting name.
     """
@@ -137,8 +136,8 @@ def get_advanced_threat_protection(resource_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                          setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_advanced_threat_protection_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                          setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
     """
     Gets the Advanced Threat Protection settings for the specified resource.
@@ -146,7 +145,6 @@ def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2019-01-01.
 
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str setting_name: Advanced Threat Protection setting name.

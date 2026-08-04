@@ -145,7 +145,6 @@ def get_suppression(name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01, 2025-05-01-preview, 2026-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str name: The name of the suppression.
     :param _builtins.str recommendation_id: The recommendation ID.
     :param _builtins.str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
@@ -166,9 +165,9 @@ def get_suppression(name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         ttl=pulumi.get(__ret__, 'ttl'),
         type=pulumi.get(__ret__, 'type'))
-def get_suppression_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           recommendation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_suppression_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           recommendation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionResult]:
     """
     Obtains the details of a suppression.
@@ -176,7 +175,6 @@ def get_suppression_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2023-09-01-preview.
 
     Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01, 2025-05-01-preview, 2026-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str name: The name of the suppression.
     :param _builtins.str recommendation_id: The recommendation ID.

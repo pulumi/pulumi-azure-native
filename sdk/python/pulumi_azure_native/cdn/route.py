@@ -25,18 +25,18 @@ class RouteArgs:
                  endpoint_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cache_configuration: Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]] = None,
-                 enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingProtocol']]] = None,
-                 https_redirect: Optional[pulumi.Input[Union[_builtins.str, 'HttpsRedirect']]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[Union[_builtins.str, 'LinkToDefaultDomain']]] = None,
-                 origin_group: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
-                 origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
-                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]] = None):
+                 cache_configuration: pulumi.Input[Optional['AfdRouteCacheConfigurationArgs']] = None,
+                 custom_domains: pulumi.Input[Optional[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]] = None,
+                 enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
+                 forwarding_protocol: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingProtocol']]] = None,
+                 https_redirect: pulumi.Input[Optional[Union[_builtins.str, 'HttpsRedirect']]] = None,
+                 link_to_default_domain: pulumi.Input[Optional[Union[_builtins.str, 'LinkToDefaultDomain']]] = None,
+                 origin_group: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
+                 origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 patterns_to_match: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
+                 supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]] = None):
         """
         The set of arguments for constructing a Route resource.
 
@@ -128,146 +128,146 @@ class RouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheConfiguration")
-    def cache_configuration(self) -> Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']]:
+    def cache_configuration(self) -> pulumi.Input[Optional['AfdRouteCacheConfigurationArgs']]:
         """
         The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
         """
         return pulumi.get(self, "cache_configuration")
 
     @cache_configuration.setter
-    def cache_configuration(self, value: Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']]):
+    def cache_configuration(self, value: pulumi.Input[Optional['AfdRouteCacheConfigurationArgs']]):
         pulumi.set(self, "cache_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]]:
+    def custom_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]]:
         """
         Domains referenced by this endpoint.
         """
         return pulumi.get(self, "custom_domains")
 
     @custom_domains.setter
-    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]]):
+    def custom_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]]):
         pulumi.set(self, "custom_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]]:
+    def enabled_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]]:
         """
         Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]]):
+    def enabled_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]]):
         pulumi.set(self, "enabled_state", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingProtocol")
-    def forwarding_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ForwardingProtocol']]]:
+    def forwarding_protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ForwardingProtocol']]]:
         """
         Protocol this rule will use when forwarding traffic to backends.
         """
         return pulumi.get(self, "forwarding_protocol")
 
     @forwarding_protocol.setter
-    def forwarding_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingProtocol']]]):
+    def forwarding_protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingProtocol']]]):
         pulumi.set(self, "forwarding_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsRedirect")
-    def https_redirect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HttpsRedirect']]]:
+    def https_redirect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HttpsRedirect']]]:
         """
         Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         """
         return pulumi.get(self, "https_redirect")
 
     @https_redirect.setter
-    def https_redirect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HttpsRedirect']]]):
+    def https_redirect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HttpsRedirect']]]):
         pulumi.set(self, "https_redirect", value)
 
     @_builtins.property
     @pulumi.getter(name="linkToDefaultDomain")
-    def link_to_default_domain(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LinkToDefaultDomain']]]:
+    def link_to_default_domain(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LinkToDefaultDomain']]]:
         """
         whether this route will be linked to the default endpoint domain.
         """
         return pulumi.get(self, "link_to_default_domain")
 
     @link_to_default_domain.setter
-    def link_to_default_domain(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LinkToDefaultDomain']]]):
+    def link_to_default_domain(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LinkToDefaultDomain']]]):
         pulumi.set(self, "link_to_default_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="originGroup")
-    def origin_group(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+    def origin_group(self) -> pulumi.Input[Optional['ResourceReferenceArgs']]:
         """
         A reference to the origin group.
         """
         return pulumi.get(self, "origin_group")
 
     @origin_group.setter
-    def origin_group(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+    def origin_group(self, value: pulumi.Input[Optional['ResourceReferenceArgs']]):
         pulumi.set(self, "origin_group", value)
 
     @_builtins.property
     @pulumi.getter(name="originPath")
-    def origin_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         """
         return pulumi.get(self, "origin_path")
 
     @origin_path.setter
-    def origin_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_path", value)
 
     @_builtins.property
     @pulumi.getter(name="patternsToMatch")
-    def patterns_to_match(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def patterns_to_match(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The route patterns of the rule.
         """
         return pulumi.get(self, "patterns_to_match")
 
     @patterns_to_match.setter
-    def patterns_to_match(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def patterns_to_match(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "patterns_to_match", value)
 
     @_builtins.property
     @pulumi.getter(name="routeName")
-    def route_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the routing rule.
         """
         return pulumi.get(self, "route_name")
 
     @route_name.setter
-    def route_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+    def rule_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
         rule sets referenced by this endpoint.
         """
         return pulumi.get(self, "rule_sets")
 
     @rule_sets.setter
-    def rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+    def rule_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "rule_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedProtocols")
-    def supported_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]]:
+    def supported_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]]:
         """
         List of supported protocols for this route.
         """
         return pulumi.get(self, "supported_protocols")
 
     @supported_protocols.setter
-    def supported_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]]):
+    def supported_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]]):
         pulumi.set(self, "supported_protocols", value)
 
 
@@ -277,21 +277,21 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_configuration: Optional[pulumi.Input[Union['AfdRouteCacheConfigurationArgs', 'AfdRouteCacheConfigurationArgsDict']]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
-                 enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingProtocol']]] = None,
-                 https_redirect: Optional[pulumi.Input[Union[_builtins.str, 'HttpsRedirect']]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[Union[_builtins.str, 'LinkToDefaultDomain']]] = None,
-                 origin_group: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
-                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]] = None,
+                 cache_configuration: pulumi.Input[Optional[Union['AfdRouteCacheConfigurationArgs', 'AfdRouteCacheConfigurationArgsDict']]] = None,
+                 custom_domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
+                 enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_protocol: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingProtocol']]] = None,
+                 https_redirect: pulumi.Input[Optional[Union[_builtins.str, 'HttpsRedirect']]] = None,
+                 link_to_default_domain: pulumi.Input[Optional[Union[_builtins.str, 'LinkToDefaultDomain']]] = None,
+                 origin_group: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 patterns_to_match: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
+                 supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]] = None,
                  __props__=None):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
@@ -299,7 +299,6 @@ class Route(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -332,7 +331,6 @@ class Route(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -348,21 +346,21 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_configuration: Optional[pulumi.Input[Union['AfdRouteCacheConfigurationArgs', 'AfdRouteCacheConfigurationArgsDict']]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
-                 enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'EnabledState']]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[Union[_builtins.str, 'ForwardingProtocol']]] = None,
-                 https_redirect: Optional[pulumi.Input[Union[_builtins.str, 'HttpsRedirect']]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[Union[_builtins.str, 'LinkToDefaultDomain']]] = None,
-                 origin_group: Optional[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
-                 origin_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
-                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]] = None,
+                 cache_configuration: pulumi.Input[Optional[Union['AfdRouteCacheConfigurationArgs', 'AfdRouteCacheConfigurationArgsDict']]] = None,
+                 custom_domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]]] = None,
+                 enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'EnabledState']]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_protocol: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingProtocol']]] = None,
+                 https_redirect: pulumi.Input[Optional[Union[_builtins.str, 'HttpsRedirect']]] = None,
+                 link_to_default_domain: pulumi.Input[Optional[Union[_builtins.str, 'LinkToDefaultDomain']]] = None,
+                 origin_group: pulumi.Input[Optional[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]] = None,
+                 origin_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 patterns_to_match: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]]] = None,
+                 supported_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AFDEndpointProtocols']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

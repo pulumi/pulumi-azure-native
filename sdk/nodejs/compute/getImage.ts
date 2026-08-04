@@ -111,7 +111,7 @@ export interface GetImageOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the image.
      */

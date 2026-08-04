@@ -25,11 +25,11 @@ class RuleArgs:
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_set_name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
-                 match_processing_behavior: Optional[pulumi.Input[Union[_builtins.str, 'MatchProcessingBehavior']]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
+                 match_processing_behavior: pulumi.Input[Optional[Union[_builtins.str, 'MatchProcessingBehavior']]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Rule resource.
 
@@ -96,62 +96,62 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]]:
         """
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgs', 'OriginGroupOverrideActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
         """
         A list of conditions that must be matched for the actions to be executed
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleServerPortConditionArgs', 'DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="matchProcessingBehavior")
-    def match_processing_behavior(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MatchProcessingBehavior']]]:
+    def match_processing_behavior(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MatchProcessingBehavior']]]:
         """
         If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
         return pulumi.get(self, "match_processing_behavior")
 
     @match_processing_behavior.setter
-    def match_processing_behavior(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MatchProcessingBehavior']]]):
+    def match_processing_behavior(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MatchProcessingBehavior']]]):
         pulumi.set(self, "match_processing_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the delivery rule which is unique within the endpoint.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -161,14 +161,14 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheExpirationActionArgsDict'], Union['DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgsDict'], Union['DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleRequestHeaderActionArgsDict'], Union['DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgsDict'], Union['DeliveryRuleRouteConfigurationOverrideActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgsDict'], Union['OriginGroupOverrideActionArgs', 'OriginGroupOverrideActionArgsDict'], Union['UrlRedirectActionArgs', 'UrlRedirectActionArgsDict'], Union['UrlRewriteActionArgs', 'UrlRewriteActionArgsDict'], Union['UrlSigningActionArgs', 'UrlSigningActionArgsDict']]]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleClientPortConditionArgsDict'], Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleCookiesConditionArgsDict'], Union['DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHostNameConditionArgsDict'], Union['DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleHttpVersionConditionArgsDict'], Union['DeliveryRuleIsDeviceConditionArgs', 'DeliveryRuleIsDeviceConditionArgsDict'], Union['DeliveryRulePostArgsConditionArgs', 'DeliveryRulePostArgsConditionArgsDict'], Union['DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleQueryStringConditionArgsDict'], Union['DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRemoteAddressConditionArgsDict'], Union['DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestBodyConditionArgsDict'], Union['DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestHeaderConditionArgsDict'], Union['DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestMethodConditionArgsDict'], Union['DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestSchemeConditionArgsDict'], Union['DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleRequestUriConditionArgsDict'], Union['DeliveryRuleServerPortConditionArgs', 'DeliveryRuleServerPortConditionArgsDict'], Union['DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSocketAddrConditionArgsDict'], Union['DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleSslProtocolConditionArgsDict'], Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgsDict'], Union['DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlFileNameConditionArgsDict'], Union['DeliveryRuleUrlPathConditionArgs', 'DeliveryRuleUrlPathConditionArgsDict']]]]]] = None,
-                 match_processing_behavior: Optional[pulumi.Input[Union[_builtins.str, 'MatchProcessingBehavior']]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheExpirationActionArgsDict'], Union['DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgsDict'], Union['DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleRequestHeaderActionArgsDict'], Union['DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgsDict'], Union['DeliveryRuleRouteConfigurationOverrideActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgsDict'], Union['OriginGroupOverrideActionArgs', 'OriginGroupOverrideActionArgsDict'], Union['UrlRedirectActionArgs', 'UrlRedirectActionArgsDict'], Union['UrlRewriteActionArgs', 'UrlRewriteActionArgsDict'], Union['UrlSigningActionArgs', 'UrlSigningActionArgsDict']]]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleClientPortConditionArgsDict'], Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleCookiesConditionArgsDict'], Union['DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHostNameConditionArgsDict'], Union['DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleHttpVersionConditionArgsDict'], Union['DeliveryRuleIsDeviceConditionArgs', 'DeliveryRuleIsDeviceConditionArgsDict'], Union['DeliveryRulePostArgsConditionArgs', 'DeliveryRulePostArgsConditionArgsDict'], Union['DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleQueryStringConditionArgsDict'], Union['DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRemoteAddressConditionArgsDict'], Union['DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestBodyConditionArgsDict'], Union['DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestHeaderConditionArgsDict'], Union['DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestMethodConditionArgsDict'], Union['DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestSchemeConditionArgsDict'], Union['DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleRequestUriConditionArgsDict'], Union['DeliveryRuleServerPortConditionArgs', 'DeliveryRuleServerPortConditionArgsDict'], Union['DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSocketAddrConditionArgsDict'], Union['DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleSslProtocolConditionArgsDict'], Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgsDict'], Union['DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlFileNameConditionArgsDict'], Union['DeliveryRuleUrlPathConditionArgs', 'DeliveryRuleUrlPathConditionArgsDict']]]]]] = None,
+                 match_processing_behavior: pulumi.Input[Optional[Union[_builtins.str, 'MatchProcessingBehavior']]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Friendly Rules name mapping to the any Rules or secret related information.
@@ -176,7 +176,6 @@ class Rule(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class Rule(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview, 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheExpirationActionArgsDict'], Union['DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgsDict'], Union['DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleRequestHeaderActionArgsDict'], Union['DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgsDict'], Union['DeliveryRuleRouteConfigurationOverrideActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgsDict'], Union['OriginGroupOverrideActionArgs', 'OriginGroupOverrideActionArgsDict'], Union['UrlRedirectActionArgs', 'UrlRedirectActionArgsDict'], Union['UrlRewriteActionArgs', 'UrlRewriteActionArgsDict'], Union['UrlSigningActionArgs', 'UrlSigningActionArgsDict']]]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleClientPortConditionArgsDict'], Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleCookiesConditionArgsDict'], Union['DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHostNameConditionArgsDict'], Union['DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleHttpVersionConditionArgsDict'], Union['DeliveryRuleIsDeviceConditionArgs', 'DeliveryRuleIsDeviceConditionArgsDict'], Union['DeliveryRulePostArgsConditionArgs', 'DeliveryRulePostArgsConditionArgsDict'], Union['DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleQueryStringConditionArgsDict'], Union['DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRemoteAddressConditionArgsDict'], Union['DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestBodyConditionArgsDict'], Union['DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestHeaderConditionArgsDict'], Union['DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestMethodConditionArgsDict'], Union['DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestSchemeConditionArgsDict'], Union['DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleRequestUriConditionArgsDict'], Union['DeliveryRuleServerPortConditionArgs', 'DeliveryRuleServerPortConditionArgsDict'], Union['DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSocketAddrConditionArgsDict'], Union['DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleSslProtocolConditionArgsDict'], Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgsDict'], Union['DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlFileNameConditionArgsDict'], Union['DeliveryRuleUrlPathConditionArgs', 'DeliveryRuleUrlPathConditionArgsDict']]]]]] = None,
-                 match_processing_behavior: Optional[pulumi.Input[Union[_builtins.str, 'MatchProcessingBehavior']]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheExpirationActionArgsDict'], Union['DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgsDict'], Union['DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleRequestHeaderActionArgsDict'], Union['DeliveryRuleResponseHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgsDict'], Union['DeliveryRuleRouteConfigurationOverrideActionArgs', 'DeliveryRuleRouteConfigurationOverrideActionArgsDict'], Union['OriginGroupOverrideActionArgs', 'OriginGroupOverrideActionArgsDict'], Union['UrlRedirectActionArgs', 'UrlRedirectActionArgsDict'], Union['UrlRewriteActionArgs', 'UrlRewriteActionArgsDict'], Union['UrlSigningActionArgs', 'UrlSigningActionArgsDict']]]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['DeliveryRuleClientPortConditionArgs', 'DeliveryRuleClientPortConditionArgsDict'], Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleCookiesConditionArgsDict'], Union['DeliveryRuleHostNameConditionArgs', 'DeliveryRuleHostNameConditionArgsDict'], Union['DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleHttpVersionConditionArgsDict'], Union['DeliveryRuleIsDeviceConditionArgs', 'DeliveryRuleIsDeviceConditionArgsDict'], Union['DeliveryRulePostArgsConditionArgs', 'DeliveryRulePostArgsConditionArgsDict'], Union['DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleQueryStringConditionArgsDict'], Union['DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRemoteAddressConditionArgsDict'], Union['DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestBodyConditionArgsDict'], Union['DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestHeaderConditionArgsDict'], Union['DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestMethodConditionArgsDict'], Union['DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestSchemeConditionArgsDict'], Union['DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleRequestUriConditionArgsDict'], Union['DeliveryRuleServerPortConditionArgs', 'DeliveryRuleServerPortConditionArgsDict'], Union['DeliveryRuleSocketAddrConditionArgs', 'DeliveryRuleSocketAddrConditionArgsDict'], Union['DeliveryRuleSslProtocolConditionArgs', 'DeliveryRuleSslProtocolConditionArgsDict'], Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgsDict'], Union['DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlFileNameConditionArgsDict'], Union['DeliveryRuleUrlPathConditionArgs', 'DeliveryRuleUrlPathConditionArgsDict']]]]]] = None,
+                 match_processing_behavior: pulumi.Input[Optional[Union[_builtins.str, 'MatchProcessingBehavior']]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

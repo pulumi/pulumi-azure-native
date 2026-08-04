@@ -24,16 +24,16 @@ class DatabaseArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_keys_authentication: Optional[pulumi.Input[Union[_builtins.str, 'AccessKeysAuthentication']]] = None,
-                 client_protocol: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]] = None,
-                 clustering_policy: Optional[pulumi.Input[Union[_builtins.str, 'ClusteringPolicy']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 defer_upgrade: Optional[pulumi.Input[Union[_builtins.str, 'DeferUpgradeSetting']]] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicy']]] = None,
-                 geo_replication: Optional[pulumi.Input['DatabasePropertiesGeoReplicationArgs']] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]]] = None,
-                 persistence: Optional[pulumi.Input['PersistenceArgs']] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 access_keys_authentication: pulumi.Input[Optional[Union[_builtins.str, 'AccessKeysAuthentication']]] = None,
+                 client_protocol: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]] = None,
+                 clustering_policy: pulumi.Input[Optional[Union[_builtins.str, 'ClusteringPolicy']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 defer_upgrade: pulumi.Input[Optional[Union[_builtins.str, 'DeferUpgradeSetting']]] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicy']]] = None,
+                 geo_replication: pulumi.Input[Optional['DatabasePropertiesGeoReplicationArgs']] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input['ModuleArgs']]]] = None,
+                 persistence: pulumi.Input[Optional['PersistenceArgs']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Database resource.
 
@@ -99,122 +99,122 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKeysAuthentication")
-    def access_keys_authentication(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccessKeysAuthentication']]]:
+    def access_keys_authentication(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessKeysAuthentication']]]:
         """
         This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
         """
         return pulumi.get(self, "access_keys_authentication")
 
     @access_keys_authentication.setter
-    def access_keys_authentication(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccessKeysAuthentication']]]):
+    def access_keys_authentication(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccessKeysAuthentication']]]):
         pulumi.set(self, "access_keys_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clientProtocol")
-    def client_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]]:
+    def client_protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]:
         """
         Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
         """
         return pulumi.get(self, "client_protocol")
 
     @client_protocol.setter
-    def client_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]]):
+    def client_protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]]):
         pulumi.set(self, "client_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="clusteringPolicy")
-    def clustering_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusteringPolicy']]]:
+    def clustering_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ClusteringPolicy']]]:
         """
         Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
         """
         return pulumi.get(self, "clustering_policy")
 
     @clustering_policy.setter
-    def clustering_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusteringPolicy']]]):
+    def clustering_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClusteringPolicy']]]):
         pulumi.set(self, "clustering_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redis Enterprise database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deferUpgrade")
-    def defer_upgrade(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeferUpgradeSetting']]]:
+    def defer_upgrade(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DeferUpgradeSetting']]]:
         """
         Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         """
         return pulumi.get(self, "defer_upgrade")
 
     @defer_upgrade.setter
-    def defer_upgrade(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeferUpgradeSetting']]]):
+    def defer_upgrade(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeferUpgradeSetting']]]):
         pulumi.set(self, "defer_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicy']]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicy']]]:
         """
         Redis eviction policy - default is VolatileLRU
         """
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicy']]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicy']]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="geoReplication")
-    def geo_replication(self) -> Optional[pulumi.Input['DatabasePropertiesGeoReplicationArgs']]:
+    def geo_replication(self) -> pulumi.Input[Optional['DatabasePropertiesGeoReplicationArgs']]:
         """
         Optional set of properties to configure geo replication for this database.
         """
         return pulumi.get(self, "geo_replication")
 
     @geo_replication.setter
-    def geo_replication(self, value: Optional[pulumi.Input['DatabasePropertiesGeoReplicationArgs']]):
+    def geo_replication(self, value: pulumi.Input[Optional['DatabasePropertiesGeoReplicationArgs']]):
         pulumi.set(self, "geo_replication", value)
 
     @_builtins.property
     @pulumi.getter
-    def modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]]]:
+    def modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ModuleArgs']]]]:
         """
         Optional set of redis modules to enable in this database - modules can only be added at creation time.
         """
         return pulumi.get(self, "modules")
 
     @modules.setter
-    def modules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]]]):
+    def modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ModuleArgs']]]]):
         pulumi.set(self, "modules", value)
 
     @_builtins.property
     @pulumi.getter
-    def persistence(self) -> Optional[pulumi.Input['PersistenceArgs']]:
+    def persistence(self) -> pulumi.Input[Optional['PersistenceArgs']]:
         """
         Persistence settings
         """
         return pulumi.get(self, "persistence")
 
     @persistence.setter
-    def persistence(self, value: Optional[pulumi.Input['PersistenceArgs']]):
+    def persistence(self, value: pulumi.Input[Optional['PersistenceArgs']]):
         pulumi.set(self, "persistence", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         TCP port of the database endpoint. Specified at create time. Defaults to an available port.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
@@ -224,18 +224,18 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_keys_authentication: Optional[pulumi.Input[Union[_builtins.str, 'AccessKeysAuthentication']]] = None,
-                 client_protocol: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 clustering_policy: Optional[pulumi.Input[Union[_builtins.str, 'ClusteringPolicy']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 defer_upgrade: Optional[pulumi.Input[Union[_builtins.str, 'DeferUpgradeSetting']]] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicy']]] = None,
-                 geo_replication: Optional[pulumi.Input[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]]] = None,
-                 persistence: Optional[pulumi.Input[Union['PersistenceArgs', 'PersistenceArgsDict']]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_keys_authentication: pulumi.Input[Optional[Union[_builtins.str, 'AccessKeysAuthentication']]] = None,
+                 client_protocol: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 clustering_policy: pulumi.Input[Optional[Union[_builtins.str, 'ClusteringPolicy']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 defer_upgrade: pulumi.Input[Optional[Union[_builtins.str, 'DeferUpgradeSetting']]] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicy']]] = None,
+                 geo_replication: pulumi.Input[Optional[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]]] = None,
+                 persistence: pulumi.Input[Optional[Union['PersistenceArgs', 'PersistenceArgsDict']]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a database on the Redis Enterprise cluster
@@ -243,7 +243,6 @@ class Database(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01.
 
         Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,7 +272,6 @@ class Database(pulumi.CustomResource):
 
         Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,18 +287,18 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_keys_authentication: Optional[pulumi.Input[Union[_builtins.str, 'AccessKeysAuthentication']]] = None,
-                 client_protocol: Optional[pulumi.Input[Union[_builtins.str, 'Protocol']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 clustering_policy: Optional[pulumi.Input[Union[_builtins.str, 'ClusteringPolicy']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 defer_upgrade: Optional[pulumi.Input[Union[_builtins.str, 'DeferUpgradeSetting']]] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'EvictionPolicy']]] = None,
-                 geo_replication: Optional[pulumi.Input[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]]] = None,
-                 persistence: Optional[pulumi.Input[Union['PersistenceArgs', 'PersistenceArgsDict']]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_keys_authentication: pulumi.Input[Optional[Union[_builtins.str, 'AccessKeysAuthentication']]] = None,
+                 client_protocol: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 clustering_policy: pulumi.Input[Optional[Union[_builtins.str, 'ClusteringPolicy']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 defer_upgrade: pulumi.Input[Optional[Union[_builtins.str, 'DeferUpgradeSetting']]] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicy']]] = None,
+                 geo_replication: pulumi.Input[Optional[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]]] = None,
+                 persistence: pulumi.Input[Optional[Union['PersistenceArgs', 'PersistenceArgsDict']]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

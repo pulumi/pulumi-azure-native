@@ -29,16 +29,16 @@ class ManagementLockAtResourceLevelArgs:
                  resource_name: pulumi.Input[_builtins.str],
                  resource_provider_namespace: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
+                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementLockAtResourceLevel resource.
 
         :param pulumi.Input[_builtins.str] api_version: The API version to use for this operation.
         :param pulumi.Input[Union[_builtins.str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[_builtins.str] parent_resource_path: The parent resource identity.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group containing the resource to lock. 
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group containing the resource to lock.
         :param pulumi.Input[_builtins.str] resource_name: The name of the resource to lock.
         :param pulumi.Input[_builtins.str] resource_provider_namespace: The resource provider namespace of the resource to lock.
         :param pulumi.Input[_builtins.str] resource_type: The resource type of the resource to lock.
@@ -100,7 +100,7 @@ class ManagementLockAtResourceLevelArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group containing the resource to lock. 
+        The name of the resource group containing the resource to lock.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -146,38 +146,38 @@ class ManagementLockAtResourceLevelArgs:
 
     @_builtins.property
     @pulumi.getter(name="lockName")
-    def lock_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
         """
         return pulumi.get(self, "lock_name")
 
     @lock_name.setter
-    def lock_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Notes about the lock. Maximum of 512 characters.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]:
+    def owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]:
         """
         The owners of the lock.
         """
         return pulumi.get(self, "owners")
 
     @owners.setter
-    def owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]):
+    def owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]]):
         pulumi.set(self, "owners", value)
 
 
@@ -187,22 +187,21 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'LockLevel']]] = None,
-                 lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
-                 parent_resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'LockLevel']]] = None,
+                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
+                 parent_resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The lock information.
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,7 +211,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]] owners: The owners of the lock.
         :param pulumi.Input[_builtins.str] parent_resource_path: The parent resource identity.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group containing the resource to lock. 
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group containing the resource to lock.
         :param pulumi.Input[_builtins.str] resource_name_: The name of the resource to lock.
         :param pulumi.Input[_builtins.str] resource_provider_namespace: The resource provider namespace of the resource to lock.
         :param pulumi.Input[_builtins.str] resource_type: The resource type of the resource to lock.
@@ -227,7 +226,6 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
         The lock information.
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtResourceLevelArgs args: The arguments to use to populate this resource's properties.
@@ -244,16 +242,16 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'LockLevel']]] = None,
-                 lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
-                 parent_resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'LockLevel']]] = None,
+                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagementLockOwnerArgs', 'ManagementLockOwnerArgsDict']]]]] = None,
+                 parent_resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

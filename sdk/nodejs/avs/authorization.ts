@@ -126,11 +126,11 @@ export interface AuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization
      */
-    authorizationName?: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ExpressRoute Circuit
      */
-    expressRouteId?: pulumi.Input<string>;
+    expressRouteId?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

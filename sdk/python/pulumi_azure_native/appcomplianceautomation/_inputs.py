@@ -32,19 +32,19 @@ class ResourceMetadataArgsDict(TypedDict):
     """
     Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
     """
-    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Account Id. For example - the AWS account id.
     """
-    resource_kind: NotRequired[pulumi.Input[_builtins.str]]
+    resource_kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource kind.
     """
-    resource_origin: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceOrigin']]]
+    resource_origin: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceOrigin']]]]
     """
     Resource Origin.
     """
-    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    resource_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource type. e.g. "Microsoft.Compute/virtualMachines"
     """
@@ -53,10 +53,10 @@ class ResourceMetadataArgsDict(TypedDict):
 class ResourceMetadataArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_origin: Optional[pulumi.Input[Union[_builtins.str, 'ResourceOrigin']]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_origin: pulumi.Input[Optional[Union[_builtins.str, 'ResourceOrigin']]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Single resource Id's metadata.
 
@@ -90,50 +90,50 @@ class ResourceMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account Id. For example - the AWS account id.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceKind")
-    def resource_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource kind.
         """
         return pulumi.get(self, "resource_kind")
 
     @resource_kind.setter
-    def resource_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceOrigin")
-    def resource_origin(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceOrigin']]]:
+    def resource_origin(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceOrigin']]]:
         """
         Resource Origin.
         """
         return pulumi.get(self, "resource_origin")
 
     @resource_origin.setter
-    def resource_origin(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceOrigin']]]):
+    def resource_origin(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceOrigin']]]):
         pulumi.set(self, "resource_origin", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource type. e.g. "Microsoft.Compute/virtualMachines"
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
 
@@ -193,19 +193,19 @@ class StorageInfoArgsDict(TypedDict):
     """
     The information of 'bring your own storage' account binding to the report
     """
-    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     'bring your own storage' account name
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The region of 'bring your own storage' account
     """
-    resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    resource_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resourceGroup which 'bring your own storage' account belongs to
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subscription id which 'bring your own storage' account belongs to
     """
@@ -213,10 +213,10 @@ class StorageInfoArgsDict(TypedDict):
 @pulumi.input_type
 class StorageInfoArgs:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The information of 'bring your own storage' account binding to the report
 
@@ -236,50 +236,50 @@ class StorageInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         'bring your own storage' account name
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of 'bring your own storage' account
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resourceGroup which 'bring your own storage' account belongs to
         """
         return pulumi.get(self, "resource_group")
 
     @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription id which 'bring your own storage' account belongs to
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 

@@ -684,8 +684,7 @@ class CacheExpirationActionParametersResponse(dict):
 
         :param _builtins.str cache_behavior: Caching behavior for the requests
         :param _builtins.str cache_type: The level at which the content needs to be cached.
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleCacheExpirationActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleCacheExpirationActionParameters'.
         :param _builtins.str cache_duration: The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
         """
         pulumi.set(__self__, "cache_behavior", cache_behavior)
@@ -714,7 +713,6 @@ class CacheExpirationActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleCacheExpirationActionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -762,8 +760,7 @@ class CacheKeyQueryStringActionParametersResponse(dict):
         Defines the parameters for the cache-key query string action.
 
         :param _builtins.str query_string_behavior: Caching behavior for the requests
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'.
         :param _builtins.str query_parameters: query parameters to include or exclude (comma separated).
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
@@ -783,7 +780,6 @@ class CacheKeyQueryStringActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -828,8 +824,7 @@ class CdnCertificateSourceParametersResponse(dict):
         Defines the parameters for using CDN managed certificate for securing custom domain.
 
         :param _builtins.str certificate_type: Type of certificate used
-        :param _builtins.str type_name: 
-               Expected value is 'CdnCertificateSourceParameters'.
+        :param _builtins.str type_name: Expected value is 'CdnCertificateSourceParameters'.
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
         pulumi.set(__self__, "type_name", 'CdnCertificateSourceParameters')
@@ -846,7 +841,6 @@ class CdnCertificateSourceParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'CdnCertificateSourceParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -994,8 +988,7 @@ class ClientPortMatchConditionParametersResponse(dict):
         Defines the parameters for ClientPort match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleClientPortConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleClientPortConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -1023,7 +1016,6 @@ class ClientPortMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleClientPortConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -1145,8 +1137,7 @@ class CookiesMatchConditionParametersResponse(dict):
         Defines the parameters for Cookies match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleCookiesConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleCookiesConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param _builtins.str selector: Name of Cookies to be matched
@@ -1177,7 +1168,6 @@ class CookiesMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleCookiesConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -3007,8 +2997,7 @@ class HeaderActionParametersResponse(dict):
 
         :param _builtins.str header_action: Action to perform
         :param _builtins.str header_name: Name of the header to modify
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleHeaderActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleHeaderActionParameters'.
         :param _builtins.str value: Value for the specified action
         """
         pulumi.set(__self__, "header_action", header_action)
@@ -3037,7 +3026,6 @@ class HeaderActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleHeaderActionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -3170,8 +3158,7 @@ class HostNameMatchConditionParametersResponse(dict):
         Defines the parameters for HostName match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleHostNameConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleHostNameConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -3199,7 +3186,6 @@ class HostNameMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleHostNameConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -3301,8 +3287,7 @@ class HttpVersionMatchConditionParametersResponse(dict):
         Defines the parameters for HttpVersion match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleHttpVersionConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleHttpVersionConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -3330,7 +3315,6 @@ class HttpVersionMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleHttpVersionConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -3396,8 +3380,7 @@ class IsDeviceMatchConditionParametersResponse(dict):
         Defines the parameters for IsDevice match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleIsDeviceConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleIsDeviceConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -3425,7 +3408,6 @@ class IsDeviceMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleIsDeviceConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -3507,8 +3489,7 @@ class KeyVaultCertificateSourceParametersResponse(dict):
         :param _builtins.str resource_group_name: Resource group of the user's Key Vault containing the SSL certificate
         :param _builtins.str secret_name: The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
         :param _builtins.str subscription_id: Subscription Id of the user's Key Vault containing the SSL certificate
-        :param _builtins.str type_name: 
-               Expected value is 'KeyVaultCertificateSourceParameters'.
+        :param _builtins.str type_name: Expected value is 'KeyVaultCertificateSourceParameters'.
         :param _builtins.str update_rule: Describes the action that shall be taken when the certificate is updated in Key Vault.
         :param _builtins.str vault_name: The name of the user's Key Vault containing the SSL certificate
         :param _builtins.str secret_version: The version(GUID) of Key Vault Secret in Key Vault.
@@ -3559,7 +3540,6 @@ class KeyVaultCertificateSourceParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'KeyVaultCertificateSourceParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -4339,8 +4319,7 @@ class OriginGroupOverrideActionParametersResponse(dict):
         Defines the parameters for the origin group override action.
 
         :param 'ResourceReferenceResponse' origin_group: defines the OriginGroup that would override the DefaultOriginGroup.
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleOriginGroupOverrideActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleOriginGroupOverrideActionParameters'.
         """
         pulumi.set(__self__, "origin_group", origin_group)
         pulumi.set(__self__, "type_name", 'DeliveryRuleOriginGroupOverrideActionParameters')
@@ -4357,7 +4336,6 @@ class OriginGroupOverrideActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleOriginGroupOverrideActionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -4586,8 +4564,7 @@ class PostArgsMatchConditionParametersResponse(dict):
         Defines the parameters for PostArgs match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRulePostArgsConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRulePostArgsConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param _builtins.str selector: Name of PostArg to be matched
@@ -4618,7 +4595,6 @@ class PostArgsMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRulePostArgsConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -4822,8 +4798,7 @@ class QueryStringMatchConditionParametersResponse(dict):
         Defines the parameters for QueryString match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleQueryStringConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleQueryStringConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -4851,7 +4826,6 @@ class QueryStringMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleQueryStringConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5054,8 +5028,7 @@ class RemoteAddressMatchConditionParametersResponse(dict):
         Defines the parameters for RemoteAddress match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleRemoteAddressConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleRemoteAddressConditionParameters'.
         :param Sequence[_builtins.str] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -5083,7 +5056,6 @@ class RemoteAddressMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleRemoteAddressConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5149,8 +5121,7 @@ class RequestBodyMatchConditionParametersResponse(dict):
         Defines the parameters for RequestBody match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleRequestBodyConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleRequestBodyConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -5178,7 +5149,6 @@ class RequestBodyMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleRequestBodyConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5245,8 +5215,7 @@ class RequestHeaderMatchConditionParametersResponse(dict):
         Defines the parameters for RequestHeader match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleRequestHeaderConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleRequestHeaderConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param _builtins.str selector: Name of Header to be matched
@@ -5277,7 +5246,6 @@ class RequestHeaderMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleRequestHeaderConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5351,8 +5319,7 @@ class RequestMethodMatchConditionParametersResponse(dict):
         Defines the parameters for RequestMethod match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleRequestMethodConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleRequestMethodConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -5380,7 +5347,6 @@ class RequestMethodMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleRequestMethodConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5446,8 +5412,7 @@ class RequestSchemeMatchConditionParametersResponse(dict):
         Defines the parameters for RequestScheme match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleRequestSchemeConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleRequestSchemeConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -5475,7 +5440,6 @@ class RequestSchemeMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleRequestSchemeConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5541,8 +5505,7 @@ class RequestUriMatchConditionParametersResponse(dict):
         Defines the parameters for RequestUri match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleRequestUriConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleRequestUriConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -5570,7 +5533,6 @@ class RequestUriMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleRequestUriConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5726,8 +5688,7 @@ class RouteConfigurationOverrideActionParametersResponse(dict):
         """
         Defines the parameters for the route configuration override action.
 
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleRouteConfigurationOverrideActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleRouteConfigurationOverrideActionParameters'.
         :param 'CacheConfigurationResponse' cache_configuration: The caching configuration associated with this rule. To disable caching, do not provide a cacheConfiguration object.
         :param 'OriginGroupOverrideResponse' origin_group_override: A reference to the origin group override configuration. Leave empty to use the default origin group on route.
         """
@@ -5741,7 +5702,6 @@ class RouteConfigurationOverrideActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleRouteConfigurationOverrideActionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -5918,8 +5878,7 @@ class ServerPortMatchConditionParametersResponse(dict):
         Defines the parameters for ServerPort match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleServerPortConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleServerPortConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -5947,7 +5906,6 @@ class ServerPortMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleServerPortConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -6190,8 +6148,7 @@ class SocketAddrMatchConditionParametersResponse(dict):
         Defines the parameters for SocketAddress match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleSocketAddrConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleSocketAddrConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -6219,7 +6176,6 @@ class SocketAddrMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleSocketAddrConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -6285,8 +6241,7 @@ class SslProtocolMatchConditionParametersResponse(dict):
         Defines the parameters for SslProtocol match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleSslProtocolConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleSslProtocolConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -6314,7 +6269,6 @@ class SslProtocolMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleSslProtocolConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -6544,8 +6498,7 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
         Defines the parameters for UrlFileExtension match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleUrlFileExtensionMatchConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleUrlFileExtensionMatchConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -6573,7 +6526,6 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleUrlFileExtensionMatchConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -6639,8 +6591,7 @@ class UrlFileNameMatchConditionParametersResponse(dict):
         Defines the parameters for UrlFilename match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleUrlFilenameConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleUrlFilenameConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -6668,7 +6619,6 @@ class UrlFileNameMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleUrlFilenameConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -6734,8 +6684,7 @@ class UrlPathMatchConditionParametersResponse(dict):
         Defines the parameters for UrlPath match conditions
 
         :param _builtins.str operator: Describes operator to be matched
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleUrlPathMatchConditionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleUrlPathMatchConditionParameters'.
         :param Sequence[_builtins.str] match_values: The match value for the condition of the delivery rule
         :param _builtins.bool negate_condition: Describes if this is negate condition or not
         :param Sequence[_builtins.str] transforms: List of transforms
@@ -6763,7 +6712,6 @@ class UrlPathMatchConditionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleUrlPathMatchConditionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -6839,8 +6787,7 @@ class UrlRedirectActionParametersResponse(dict):
         Defines the parameters for the url redirect action.
 
         :param _builtins.str redirect_type: The redirect type the rule will use when redirecting traffic.
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleUrlRedirectActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleUrlRedirectActionParameters'.
         :param _builtins.str custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
         :param _builtins.str custom_hostname: Host to redirect. Leave empty to use the incoming host as the destination host.
         :param _builtins.str custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
@@ -6872,7 +6819,6 @@ class UrlRedirectActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleUrlRedirectActionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -6990,8 +6936,7 @@ class UrlRewriteActionParametersResponse(dict):
 
         :param _builtins.str destination: Define the relative URL to which the above requests will be rewritten by.
         :param _builtins.str source_pattern: define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleUrlRewriteActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleUrlRewriteActionParameters'.
         :param _builtins.bool preserve_unmatched_path: Whether to preserve unmatched path. Default value is true.
         """
         pulumi.set(__self__, "destination", destination)
@@ -7020,7 +6965,6 @@ class UrlRewriteActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleUrlRewriteActionParameters'.
         """
         return pulumi.get(self, "type_name")
@@ -7101,8 +7045,7 @@ class UrlSigningActionParametersResponse(dict):
         """
         Defines the parameters for the Url Signing action.
 
-        :param _builtins.str type_name: 
-               Expected value is 'DeliveryRuleUrlSigningActionParameters'.
+        :param _builtins.str type_name: Expected value is 'DeliveryRuleUrlSigningActionParameters'.
         :param _builtins.str algorithm: Algorithm to use for URL signing
         :param Sequence['UrlSigningParamIdentifierResponse'] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc.
         """
@@ -7116,7 +7059,6 @@ class UrlSigningActionParametersResponse(dict):
     @pulumi.getter(name="typeName")
     def type_name(self) -> _builtins.str:
         """
-
         Expected value is 'DeliveryRuleUrlSigningActionParameters'.
         """
         return pulumi.get(self, "type_name")

@@ -27,13 +27,13 @@ class DeploymentArgs:
                  service_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  custom_properties: Optional[Any] = None,
-                 definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input['DeploymentServerArgs']] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional['DeploymentServerArgs']] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'DeploymentState']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
@@ -133,86 +133,86 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="definitionId")
-    def definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API center-scoped definition resource ID.
         """
         return pulumi.get(self, "definition_id")
 
     @definition_id.setter
-    def definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API deployment.
         """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
-    def deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the deployment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API center-scoped environment resource ID.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def server(self) -> Optional[pulumi.Input['DeploymentServerArgs']]:
+    def server(self) -> pulumi.Input[Optional['DeploymentServerArgs']]:
         """
         The deployment server
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: Optional[pulumi.Input['DeploymentServerArgs']]):
+    def server(self, value: pulumi.Input[Optional['DeploymentServerArgs']]):
         pulumi.set(self, "server", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DeploymentState']]]:
         """
         State of API deployment.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeploymentState']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API deployment title
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -222,18 +222,18 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_properties: Optional[Any] = None,
-                 definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[Union['DeploymentServerArgs', 'DeploymentServerArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[Union['DeploymentServerArgs', 'DeploymentServerArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'DeploymentState']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         API deployment entity.
@@ -241,7 +241,6 @@ class Deployment(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,7 +270,6 @@ class Deployment(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,18 +285,18 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_properties: Optional[Any] = None,
-                 definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server: Optional[pulumi.Input[Union['DeploymentServerArgs', 'DeploymentServerArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server: pulumi.Input[Optional[Union['DeploymentServerArgs', 'DeploymentServerArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'DeploymentState']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

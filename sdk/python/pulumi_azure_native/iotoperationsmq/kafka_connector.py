@@ -26,15 +26,15 @@ class KafkaConnectorArgs:
                  kafka_connection: pulumi.Input['KafkaRemoteBrokerConnectionSpecArgs'],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 client_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 image: Optional[pulumi.Input['ContainerImageArgs']] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 kafka_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_broker_connection: Optional[pulumi.Input['LocalBrokerConnectionSpecArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_tolerations: Optional[pulumi.Input['NodeTolerationsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 client_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 image: pulumi.Input[Optional['ContainerImageArgs']] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 kafka_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_broker_connection: pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_tolerations: pulumi.Input[Optional['NodeTolerationsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KafkaConnector resource.
 
@@ -127,110 +127,110 @@ class KafkaConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientIdPrefix")
-    def client_id_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client id prefix of the dynamically generated client ids.
         """
         return pulumi.get(self, "client_id_prefix")
 
     @client_id_prefix.setter
-    def client_id_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input['ContainerImageArgs']]:
+    def image(self) -> pulumi.Input[Optional['ContainerImageArgs']]:
         """
         The details of KafkaConnector Docker Image.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input['ContainerImageArgs']]):
+    def image(self, value: pulumi.Input[Optional['ContainerImageArgs']]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of KafkaConnector pods to spin up.
         """
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaConnectorName")
-    def kafka_connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kafka_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of MQ kafkaConnector resource
         """
         return pulumi.get(self, "kafka_connector_name")
 
     @kafka_connector_name.setter
-    def kafka_connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kafka_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kafka_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="localBrokerConnection")
-    def local_broker_connection(self) -> Optional[pulumi.Input['LocalBrokerConnectionSpecArgs']]:
+    def local_broker_connection(self) -> pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']]:
         """
         The details for connecting with Local Broker.
         """
         return pulumi.get(self, "local_broker_connection")
 
     @local_broker_connection.setter
-    def local_broker_connection(self, value: Optional[pulumi.Input['LocalBrokerConnectionSpecArgs']]):
+    def local_broker_connection(self, value: pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']]):
         pulumi.set(self, "local_broker_connection", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The log level of the Bridge Connector instances.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTolerations")
-    def node_tolerations(self) -> Optional[pulumi.Input['NodeTolerationsArgs']]:
+    def node_tolerations(self) -> pulumi.Input[Optional['NodeTolerationsArgs']]:
         """
         The Node Tolerations for the Bridge Connector pods.
         """
         return pulumi.get(self, "node_tolerations")
 
     @node_tolerations.setter
-    def node_tolerations(self, value: Optional[pulumi.Input['NodeTolerationsArgs']]):
+    def node_tolerations(self, value: pulumi.Input[Optional['NodeTolerationsArgs']]):
         pulumi.set(self, "node_tolerations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -240,25 +240,24 @@ class KafkaConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 kafka_connection: Optional[pulumi.Input[Union['KafkaRemoteBrokerConnectionSpecArgs', 'KafkaRemoteBrokerConnectionSpecArgsDict']]] = None,
-                 kafka_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_broker_connection: Optional[pulumi.Input[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 client_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 kafka_connection: pulumi.Input[Optional[Union['KafkaRemoteBrokerConnectionSpecArgs', 'KafkaRemoteBrokerConnectionSpecArgsDict']]] = None,
+                 kafka_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_broker_connection: pulumi.Input[Optional[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         MQ kafkaConnector resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,7 +286,6 @@ class KafkaConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-
         :param str resource_name: The name of the resource.
         :param KafkaConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,19 +301,19 @@ class KafkaConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 kafka_connection: Optional[pulumi.Input[Union['KafkaRemoteBrokerConnectionSpecArgs', 'KafkaRemoteBrokerConnectionSpecArgsDict']]] = None,
-                 kafka_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_broker_connection: Optional[pulumi.Input[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 client_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 kafka_connection: pulumi.Input[Optional[Union['KafkaRemoteBrokerConnectionSpecArgs', 'KafkaRemoteBrokerConnectionSpecArgsDict']]] = None,
+                 kafka_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_broker_connection: pulumi.Input[Optional[Union['LocalBrokerConnectionSpecArgs', 'LocalBrokerConnectionSpecArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -154,7 +154,6 @@ def get_report_by_department(department_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-08-01-preview.
 
-
     :param _builtins.str department_id: Department ID
     :param _builtins.str report_name: Report Name.
     """
@@ -174,14 +173,13 @@ def get_report_by_department(department_id: Optional[_builtins.str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_report_by_department_output(department_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    report_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_report_by_department_output(department_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    report_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportByDepartmentResult]:
     """
     Gets the report for a department by report name.
 
     Uses Azure REST API version 2018-08-01-preview.
-
 
     :param _builtins.str department_id: Department ID
     :param _builtins.str report_name: Report Name.

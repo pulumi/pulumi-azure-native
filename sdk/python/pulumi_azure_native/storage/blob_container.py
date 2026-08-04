@@ -24,14 +24,14 @@ class BlobContainerArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_encryption_scope_override: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_nfs_v3_all_squash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_nfs_v3_root_squash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 immutable_storage_with_versioning: Optional[pulumi.Input['ImmutableStorageWithVersioningArgs']] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 public_access: Optional[pulumi.Input['PublicAccess']] = None):
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_encryption_scope_override: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_nfs_v3_all_squash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_nfs_v3_root_squash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immutable_storage_with_versioning: pulumi.Input[Optional['ImmutableStorageWithVersioningArgs']] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 public_access: pulumi.Input[Optional['PublicAccess']] = None):
         """
         The set of arguments for constructing a BlobContainer resource.
 
@@ -91,98 +91,98 @@ class BlobContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionScope")
-    def default_encryption_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_encryption_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default the container to use specified encryption scope for all writes.
         """
         return pulumi.get(self, "default_encryption_scope")
 
     @default_encryption_scope.setter
-    def default_encryption_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_encryption_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_encryption_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="denyEncryptionScopeOverride")
-    def deny_encryption_scope_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deny_encryption_scope_override(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Block override of encryption scope from the container default.
         """
         return pulumi.get(self, "deny_encryption_scope_override")
 
     @deny_encryption_scope_override.setter
-    def deny_encryption_scope_override(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deny_encryption_scope_override(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deny_encryption_scope_override", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNfsV3AllSquash")
-    def enable_nfs_v3_all_squash(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_nfs_v3_all_squash(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable NFSv3 all squash on blob container.
         """
         return pulumi.get(self, "enable_nfs_v3_all_squash")
 
     @enable_nfs_v3_all_squash.setter
-    def enable_nfs_v3_all_squash(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_nfs_v3_all_squash(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_nfs_v3_all_squash", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNfsV3RootSquash")
-    def enable_nfs_v3_root_squash(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_nfs_v3_root_squash(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable NFSv3 root squash on blob container.
         """
         return pulumi.get(self, "enable_nfs_v3_root_squash")
 
     @enable_nfs_v3_root_squash.setter
-    def enable_nfs_v3_root_squash(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_nfs_v3_root_squash(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_nfs_v3_root_squash", value)
 
     @_builtins.property
     @pulumi.getter(name="immutableStorageWithVersioning")
-    def immutable_storage_with_versioning(self) -> Optional[pulumi.Input['ImmutableStorageWithVersioningArgs']]:
+    def immutable_storage_with_versioning(self) -> pulumi.Input[Optional['ImmutableStorageWithVersioningArgs']]:
         """
         The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
         """
         return pulumi.get(self, "immutable_storage_with_versioning")
 
     @immutable_storage_with_versioning.setter
-    def immutable_storage_with_versioning(self, value: Optional[pulumi.Input['ImmutableStorageWithVersioningArgs']]):
+    def immutable_storage_with_versioning(self, value: pulumi.Input[Optional['ImmutableStorageWithVersioningArgs']]):
         pulumi.set(self, "immutable_storage_with_versioning", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A name-value pair to associate with the container as metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="publicAccess")
-    def public_access(self) -> Optional[pulumi.Input['PublicAccess']]:
+    def public_access(self) -> pulumi.Input[Optional['PublicAccess']]:
         """
         Specifies whether data in the container may be accessed publicly and the level of access.
         """
         return pulumi.get(self, "public_access")
 
     @public_access.setter
-    def public_access(self, value: Optional[pulumi.Input['PublicAccess']]):
+    def public_access(self, value: pulumi.Input[Optional['PublicAccess']]):
         pulumi.set(self, "public_access", value)
 
 
@@ -192,16 +192,16 @@ class BlobContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_encryption_scope_override: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_nfs_v3_all_squash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_nfs_v3_root_squash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 immutable_storage_with_versioning: Optional[pulumi.Input[Union['ImmutableStorageWithVersioningArgs', 'ImmutableStorageWithVersioningArgsDict']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 public_access: Optional[pulumi.Input['PublicAccess']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_encryption_scope_override: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_nfs_v3_all_squash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_nfs_v3_root_squash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immutable_storage_with_versioning: pulumi.Input[Optional[Union['ImmutableStorageWithVersioningArgs', 'ImmutableStorageWithVersioningArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 public_access: pulumi.Input[Optional['PublicAccess']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
@@ -209,7 +209,6 @@ class BlobContainer(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class BlobContainer(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BlobContainerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class BlobContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 deny_encryption_scope_override: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_nfs_v3_all_squash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_nfs_v3_root_squash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 immutable_storage_with_versioning: Optional[pulumi.Input[Union['ImmutableStorageWithVersioningArgs', 'ImmutableStorageWithVersioningArgsDict']]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 public_access: Optional[pulumi.Input['PublicAccess']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 deny_encryption_scope_override: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_nfs_v3_all_squash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_nfs_v3_root_squash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immutable_storage_with_versioning: pulumi.Input[Optional[Union['ImmutableStorageWithVersioningArgs', 'ImmutableStorageWithVersioningArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 public_access: pulumi.Input[Optional['PublicAccess']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

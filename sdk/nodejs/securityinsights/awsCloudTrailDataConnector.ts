@@ -131,11 +131,11 @@ export interface AwsCloudTrailDataConnectorArgs {
     /**
      * The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
      */
-    awsRoleArn?: pulumi.Input<string>;
+    awsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The available data types for the connector.
      */

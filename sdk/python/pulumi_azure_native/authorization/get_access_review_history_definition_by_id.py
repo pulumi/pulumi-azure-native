@@ -275,7 +275,6 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[_
 
     Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str history_definition_id: The id of the access review history definition.
     """
     __args__ = dict()
@@ -303,7 +302,7 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[_
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
-def get_access_review_history_definition_by_id_output(history_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_review_history_definition_by_id_output(history_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessReviewHistoryDefinitionByIdResult]:
     """
     Get access review history definition by definition Id
@@ -311,7 +310,6 @@ def get_access_review_history_definition_by_id_output(history_definition_id: Opt
     Uses Azure REST API version 2021-12-01-preview.
 
     Other available API versions: 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str history_definition_id: The id of the access review history definition.
     """

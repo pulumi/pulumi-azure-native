@@ -115,7 +115,6 @@ def get_authorized_application(application_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str application_id: The application ID.
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
@@ -132,14 +131,13 @@ def get_authorized_application(application_id: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorized_application_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorized_application_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizedApplicationResult]:
     """
     Gets the authorized application details.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str application_id: The application ID.
     :param _builtins.str provider_namespace: The name of the resource provider hosted within ProviderHub.

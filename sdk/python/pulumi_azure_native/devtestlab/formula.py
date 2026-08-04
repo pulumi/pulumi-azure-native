@@ -24,13 +24,13 @@ class FormulaArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 formula_content: Optional[pulumi.Input['LabVirtualMachineCreationParameterArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm: Optional[pulumi.Input['FormulaPropertiesFromVmArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 formula_content: pulumi.Input[Optional['LabVirtualMachineCreationParameterArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm: pulumi.Input[Optional['FormulaPropertiesFromVmArgs']] = None):
         """
         The set of arguments for constructing a Formula resource.
 
@@ -87,86 +87,86 @@ class FormulaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the formula.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="formulaContent")
-    def formula_content(self) -> Optional[pulumi.Input['LabVirtualMachineCreationParameterArgs']]:
+    def formula_content(self) -> pulumi.Input[Optional['LabVirtualMachineCreationParameterArgs']]:
         """
         The content of the formula.
         """
         return pulumi.get(self, "formula_content")
 
     @formula_content.setter
-    def formula_content(self, value: Optional[pulumi.Input['LabVirtualMachineCreationParameterArgs']]):
+    def formula_content(self, value: pulumi.Input[Optional['LabVirtualMachineCreationParameterArgs']]):
         pulumi.set(self, "formula_content", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the formula.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The OS type of the formula.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def vm(self) -> Optional[pulumi.Input['FormulaPropertiesFromVmArgs']]:
+    def vm(self) -> pulumi.Input[Optional['FormulaPropertiesFromVmArgs']]:
         """
         Information about a VM from which a formula is to be created.
         """
         return pulumi.get(self, "vm")
 
     @vm.setter
-    def vm(self, value: Optional[pulumi.Input['FormulaPropertiesFromVmArgs']]):
+    def vm(self, value: pulumi.Input[Optional['FormulaPropertiesFromVmArgs']]):
         pulumi.set(self, "vm", value)
 
 
@@ -176,21 +176,20 @@ class Formula(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 formula_content: Optional[pulumi.Input[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm: Optional[pulumi.Input[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 formula_content: pulumi.Input[Optional[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm: pulumi.Input[Optional[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         """
         A formula for creating a VM, specifying an image base and other parameters
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,7 +214,6 @@ class Formula(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param FormulaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,15 +229,15 @@ class Formula(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 formula_content: Optional[pulumi.Input[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm: Optional[pulumi.Input[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 formula_content: pulumi.Input[Optional[Union['LabVirtualMachineCreationParameterArgs', 'LabVirtualMachineCreationParameterArgsDict']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm: pulumi.Input[Optional[Union['FormulaPropertiesFromVmArgs', 'FormulaPropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

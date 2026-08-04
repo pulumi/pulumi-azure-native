@@ -130,7 +130,6 @@ def get_virtual_network_rule(resource_group_name: Optional[_builtins.str] = None
 
     Uses Azure REST API version 2018-06-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_name: The name of the server.
     :param _builtins.str virtual_network_rule_name: The name of the virtual network rule.
@@ -150,15 +149,14 @@ def get_virtual_network_rule(resource_group_name: Optional[_builtins.str] = None
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
-def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
     Gets a virtual network rule.
 
     Uses Azure REST API version 2018-06-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_name: The name of the server.

@@ -21,11 +21,11 @@ class NspLinkArgs:
     def __init__(__self__, *,
                  network_security_perimeter_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_approved_remote_perimeter_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 remote_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_approved_remote_perimeter_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_inbound_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 remote_inbound_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NspLink resource.
 
@@ -76,62 +76,62 @@ class NspLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoApprovedRemotePerimeterResourceId")
-    def auto_approved_remote_perimeter_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_approved_remote_perimeter_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.
         """
         return pulumi.get(self, "auto_approved_remote_perimeter_resource_id")
 
     @auto_approved_remote_perimeter_resource_id.setter
-    def auto_approved_remote_perimeter_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_approved_remote_perimeter_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_approved_remote_perimeter_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="linkName")
-    def link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NSP link.
         """
         return pulumi.get(self, "link_name")
 
     @link_name.setter
-    def link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="localInboundProfiles")
-    def local_inbound_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def local_inbound_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         """
         return pulumi.get(self, "local_inbound_profiles")
 
     @local_inbound_profiles.setter
-    def local_inbound_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def local_inbound_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "local_inbound_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteInboundProfiles")
-    def remote_inbound_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def remote_inbound_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         """
         return pulumi.get(self, "remote_inbound_profiles")
 
     @remote_inbound_profiles.setter
-    def remote_inbound_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def remote_inbound_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "remote_inbound_profiles", value)
 
 
@@ -141,13 +141,13 @@ class NspLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_approved_remote_perimeter_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_approved_remote_perimeter_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_inbound_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_inbound_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The network security perimeter link resource
@@ -155,7 +155,6 @@ class NspLink(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
         Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +179,6 @@ class NspLink(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param NspLinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,13 +194,13 @@ class NspLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_approved_remote_perimeter_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_inbound_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_approved_remote_perimeter_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_inbound_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_inbound_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

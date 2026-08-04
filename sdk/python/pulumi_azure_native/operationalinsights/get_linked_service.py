@@ -144,7 +144,6 @@ def get_linked_service(linked_service_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str linked_service_name: Name of the linked service.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -165,9 +164,9 @@ def get_linked_service(linked_service_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         write_access_resource_id=pulumi.get(__ret__, 'write_access_resource_id'))
-def get_linked_service_output(linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_linked_service_output(linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedServiceResult]:
     """
     Gets a linked service instance.
@@ -175,7 +174,6 @@ def get_linked_service_output(linked_service_name: Optional[pulumi.Input[_builti
     Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str linked_service_name: Name of the linked service.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

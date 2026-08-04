@@ -149,7 +149,7 @@ export interface PremiumMicrosoftDefenderForThreatIntelligenceArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The available data types for the connector.
      */
@@ -166,7 +166,7 @@ export interface PremiumMicrosoftDefenderForThreatIntelligenceArgs {
     /**
      * The flag to indicate whether the tenant has the premium SKU required to access this connector.
      */
-    requiredSKUsPresent?: pulumi.Input<boolean>;
+    requiredSKUsPresent?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,8 +24,8 @@ class FirewallRuleArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  fleetspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['FirewallRulePropertiesArgs']] = None):
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['FirewallRulePropertiesArgs']] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
@@ -81,26 +81,26 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the firewall rule.
         """
         return pulumi.get(self, "firewall_rule_name")
 
     @firewall_rule_name.setter
-    def firewall_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FirewallRulePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['FirewallRulePropertiesArgs']]:
         """
         A Firewall rule properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FirewallRulePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['FirewallRulePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -110,17 +110,16 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A firewall rule.
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +140,6 @@ class FirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +155,11 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleetspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

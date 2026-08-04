@@ -122,7 +122,6 @@ def list_endpoint_credentials(endpoint_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str endpoint_name: The endpoint name.
     :param _builtins.int expiresin: The is how long the endpoint access token is valid (in seconds).
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -143,10 +142,10 @@ def list_endpoint_credentials(endpoint_name: Optional[_builtins.str] = None,
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         namespace_name_suffix=pulumi.get(__ret__, 'namespace_name_suffix'),
         service_configuration_token=pulumi.get(__ret__, 'service_configuration_token'))
-def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     expiresin: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                     resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                                     service_name: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
+def list_endpoint_credentials_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     expiresin: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                     resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                                     service_name: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointCredentialsResult]:
     """
     Gets the endpoint access credentials to the resource.
@@ -154,7 +153,6 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2024-12-01.
 
     Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str endpoint_name: The endpoint name.
     :param _builtins.int expiresin: The is how long the endpoint access token is valid (in seconds).

@@ -143,7 +143,6 @@ def get_private_endpoint_connection(parent_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
     :param _builtins.str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection connection.
@@ -166,10 +165,10 @@ def get_private_endpoint_connection(parent_name: Optional[_builtins.str] = None,
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(parent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           parent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                           private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_output(parent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           parent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                           private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
@@ -177,7 +176,6 @@ def get_private_endpoint_connection_output(parent_name: Optional[pulumi.Input[_b
     Uses Azure REST API version 2025-02-15.
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
     :param _builtins.str parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.

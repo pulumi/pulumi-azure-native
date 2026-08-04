@@ -433,7 +433,6 @@ def get_registered_server(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_id: GUID identifying the on-premises server.
     :param _builtins.str storage_sync_service_name: Name of Storage Sync Service resource.
@@ -478,9 +477,9 @@ def get_registered_server(resource_group_name: Optional[_builtins.str] = None,
         storage_sync_service_uid=pulumi.get(__ret__, 'storage_sync_service_uid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_registered_server_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registered_server_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegisteredServerResult]:
     """
     Get a given registered server.
@@ -488,7 +487,6 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[_bui
     Uses Azure REST API version 2022-09-01.
 
     Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str server_id: GUID identifying the on-premises server.

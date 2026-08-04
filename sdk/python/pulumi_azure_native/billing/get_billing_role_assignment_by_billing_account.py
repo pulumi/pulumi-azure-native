@@ -132,7 +132,6 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
 
     Other available API versions: 2019-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str billing_role_assignment_name: The ID that uniquely identifies a role assignment.
     """
@@ -150,8 +149,8 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_billing_role_assignment_by_billing_account_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          billing_role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_billing_role_assignment_by_billing_account_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          billing_role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByBillingAccountResult]:
     """
     Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
@@ -159,7 +158,6 @@ def get_billing_role_assignment_by_billing_account_output(billing_account_name: 
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2019-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
     :param _builtins.str billing_role_assignment_name: The ID that uniquely identifies a role assignment.

@@ -131,7 +131,6 @@ def get_managed_maintenance_window_status(cluster_name: Optional[_builtins.str] 
 
     Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the cluster resource.
     :param _builtins.str resource_group_name: The name of the resource group.
     """
@@ -149,8 +148,8 @@ def get_managed_maintenance_window_status(cluster_name: Optional[_builtins.str] 
         last_window_end_time_utc=pulumi.get(__ret__, 'last_window_end_time_utc'),
         last_window_start_time_utc=pulumi.get(__ret__, 'last_window_start_time_utc'),
         last_window_status_update_at_utc=pulumi.get(__ret__, 'last_window_status_update_at_utc'))
-def get_managed_maintenance_window_status_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_maintenance_window_status_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedMaintenanceWindowStatusResult]:
     """
     Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
@@ -158,7 +157,6 @@ def get_managed_maintenance_window_status_output(cluster_name: Optional[pulumi.I
     Uses Azure REST API version 2024-04-01.
 
     Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the cluster resource.
     :param _builtins.str resource_group_name: The name of the resource group.

@@ -212,12 +212,12 @@ class DriveStatusResponse(dict):
         :param _builtins.str drive_header_hash: The drive header hash value.
         :param _builtins.str drive_id: The drive's hardware serial number, without spaces.
         :param _builtins.str error_log_uri: A URI that points to the blob containing the error log for the data transfer operation.
-        :param _builtins.str manifest_file: The relative path of the manifest file on the drive. 
+        :param _builtins.str manifest_file: The relative path of the manifest file on the drive.
         :param _builtins.str manifest_hash: The Base16-encoded MD5 hash of the manifest file on the drive.
-        :param _builtins.str manifest_uri: A URI that points to the blob containing the drive manifest file. 
-        :param _builtins.float percent_complete: Percentage completed for the drive. 
-        :param _builtins.str state: The drive's current state. 
-        :param _builtins.str verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
+        :param _builtins.str manifest_uri: A URI that points to the blob containing the drive manifest file.
+        :param _builtins.float percent_complete: Percentage completed for the drive.
+        :param _builtins.str state: The drive's current state.
+        :param _builtins.str verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation.
         """
         if bit_locker_key is not None:
             pulumi.set(__self__, "bit_locker_key", bit_locker_key)
@@ -298,7 +298,7 @@ class DriveStatusResponse(dict):
     @pulumi.getter(name="manifestFile")
     def manifest_file(self) -> Optional[_builtins.str]:
         """
-        The relative path of the manifest file on the drive. 
+        The relative path of the manifest file on the drive.
         """
         return pulumi.get(self, "manifest_file")
 
@@ -314,7 +314,7 @@ class DriveStatusResponse(dict):
     @pulumi.getter(name="manifestUri")
     def manifest_uri(self) -> Optional[_builtins.str]:
         """
-        A URI that points to the blob containing the drive manifest file. 
+        A URI that points to the blob containing the drive manifest file.
         """
         return pulumi.get(self, "manifest_uri")
 
@@ -322,7 +322,7 @@ class DriveStatusResponse(dict):
     @pulumi.getter(name="percentComplete")
     def percent_complete(self) -> Optional[_builtins.float]:
         """
-        Percentage completed for the drive. 
+        Percentage completed for the drive.
         """
         return pulumi.get(self, "percent_complete")
 
@@ -330,7 +330,7 @@ class DriveStatusResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
         """
-        The drive's current state. 
+        The drive's current state.
         """
         return pulumi.get(self, "state")
 
@@ -338,7 +338,7 @@ class DriveStatusResponse(dict):
     @pulumi.getter(name="verboseLogUri")
     def verbose_log_uri(self) -> Optional[_builtins.str]:
         """
-        A URI that points to the blob containing the verbose log for the data transfer operation. 
+        A URI that points to the blob containing the verbose log for the data transfer operation.
         """
         return pulumi.get(self, "verbose_log_uri")
 
@@ -377,8 +377,8 @@ class EncryptionKeyDetailsResponse(dict):
         Specifies the encryption key properties
 
         :param _builtins.str kek_type: The type of kek encryption key
-        :param _builtins.str kek_url: Specifies the url for kek encryption key. 
-        :param _builtins.str kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key. 
+        :param _builtins.str kek_url: Specifies the url for kek encryption key.
+        :param _builtins.str kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key.
         """
         if kek_type is None:
             kek_type = 'MicrosoftManaged'
@@ -401,7 +401,7 @@ class EncryptionKeyDetailsResponse(dict):
     @pulumi.getter(name="kekUrl")
     def kek_url(self) -> Optional[_builtins.str]:
         """
-        Specifies the url for kek encryption key. 
+        Specifies the url for kek encryption key.
         """
         return pulumi.get(self, "kek_url")
 
@@ -409,7 +409,7 @@ class EncryptionKeyDetailsResponse(dict):
     @pulumi.getter(name="kekVaultResourceID")
     def kek_vault_resource_id(self) -> Optional[_builtins.str]:
         """
-        Specifies the keyvault resource id for kek encryption key. 
+        Specifies the keyvault resource id for kek encryption key.
         """
         return pulumi.get(self, "kek_vault_resource_id")
 
@@ -447,7 +447,7 @@ class ExportResponse(dict):
         """
         A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 
-        :param _builtins.str blob_list_blob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
+        :param _builtins.str blob_list_blob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
         :param Sequence[_builtins.str] blob_path: A collection of blob-path strings.
         :param Sequence[_builtins.str] blob_path_prefix: A collection of blob-prefix strings.
         """
@@ -462,7 +462,7 @@ class ExportResponse(dict):
     @pulumi.getter(name="blobListBlobPath")
     def blob_list_blob_path(self) -> Optional[_builtins.str]:
         """
-        The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
+        The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
         """
         return pulumi.get(self, "blob_list_blob_path")
 
@@ -486,7 +486,7 @@ class ExportResponse(dict):
 @pulumi.output_type
 class IdentityDetailsResponse(dict):
     """
-    Specifies the identity properties. 
+    Specifies the identity properties.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -512,10 +512,10 @@ class IdentityDetailsResponse(dict):
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None):
         """
-        Specifies the identity properties. 
+        Specifies the identity properties.
 
-        :param _builtins.str principal_id: Specifies the principal id for the identity for the job. 
-        :param _builtins.str tenant_id: Specifies the tenant id for the identity for the job. 
+        :param _builtins.str principal_id: Specifies the principal id for the identity for the job.
+        :param _builtins.str tenant_id: Specifies the tenant id for the identity for the job.
         :param _builtins.str type: The type of identity
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -529,7 +529,7 @@ class IdentityDetailsResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
         """
-        Specifies the principal id for the identity for the job. 
+        Specifies the principal id for the identity for the job.
         """
         return pulumi.get(self, "principal_id")
 
@@ -537,7 +537,7 @@ class IdentityDetailsResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> _builtins.str:
         """
-        Specifies the tenant id for the identity for the job. 
+        Specifies the tenant id for the identity for the job.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -626,7 +626,7 @@ class JobDetailsResponse(dict):
 
         :param _builtins.bool backup_drive_manifest: Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
         :param _builtins.bool cancel_requested: Indicates whether a request has been submitted to cancel the job.
-        :param 'DeliveryPackageInformationResponse' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
+        :param 'DeliveryPackageInformationResponse' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center.
         :param _builtins.str diagnostics_path: The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
         :param Sequence['DriveStatusResponse'] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
         :param 'EncryptionKeyDetailsResponse' encryption_key: Contains information about the encryption key.
@@ -636,10 +636,10 @@ class JobDetailsResponse(dict):
         :param _builtins.str log_level: Default value is Error. Indicates whether error logging or verbose logging will be enabled.
         :param _builtins.float percent_complete: Overall percentage completed for the job.
         :param _builtins.str provisioning_state: Specifies the provisioning state of the job.
-        :param 'ReturnAddressResponse' return_address: Specifies the return address information for the job. 
-        :param 'PackageInformationResponse' return_package: Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
-        :param 'ReturnShippingResponse' return_shipping: Specifies the return carrier and customer's account with the carrier. 
-        :param 'ShippingInformationResponse' shipping_information: Contains information about the Microsoft datacenter to which the drives should be shipped. 
+        :param 'ReturnAddressResponse' return_address: Specifies the return address information for the job.
+        :param 'PackageInformationResponse' return_package: Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
+        :param 'ReturnShippingResponse' return_shipping: Specifies the return carrier and customer's account with the carrier.
+        :param 'ShippingInformationResponse' shipping_information: Contains information about the Microsoft datacenter to which the drives should be shipped.
         :param _builtins.str state: Current state of the job.
         :param _builtins.str storage_account_id: The resource identifier of the storage account where data will be imported to or exported from.
         """
@@ -706,7 +706,7 @@ class JobDetailsResponse(dict):
     @pulumi.getter(name="deliveryPackage")
     def delivery_package(self) -> Optional['outputs.DeliveryPackageInformationResponse']:
         """
-        Contains information about the package being shipped by the customer to the Microsoft data center. 
+        Contains information about the package being shipped by the customer to the Microsoft data center.
         """
         return pulumi.get(self, "delivery_package")
 
@@ -786,7 +786,7 @@ class JobDetailsResponse(dict):
     @pulumi.getter(name="returnAddress")
     def return_address(self) -> Optional['outputs.ReturnAddressResponse']:
         """
-        Specifies the return address information for the job. 
+        Specifies the return address information for the job.
         """
         return pulumi.get(self, "return_address")
 
@@ -794,7 +794,7 @@ class JobDetailsResponse(dict):
     @pulumi.getter(name="returnPackage")
     def return_package(self) -> Optional['outputs.PackageInformationResponse']:
         """
-        Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
+        Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
         """
         return pulumi.get(self, "return_package")
 
@@ -802,7 +802,7 @@ class JobDetailsResponse(dict):
     @pulumi.getter(name="returnShipping")
     def return_shipping(self) -> Optional['outputs.ReturnShippingResponse']:
         """
-        Specifies the return carrier and customer's account with the carrier. 
+        Specifies the return carrier and customer's account with the carrier.
         """
         return pulumi.get(self, "return_shipping")
 
@@ -810,7 +810,7 @@ class JobDetailsResponse(dict):
     @pulumi.getter(name="shippingInformation")
     def shipping_information(self) -> Optional['outputs.ShippingInformationResponse']:
         """
-        Contains information about the Microsoft datacenter to which the drives should be shipped. 
+        Contains information about the Microsoft datacenter to which the drives should be shipped.
         """
         return pulumi.get(self, "shipping_information")
 
@@ -956,14 +956,14 @@ class ReturnAddressResponse(dict):
         Specifies the return address information for the job.
 
         :param _builtins.str city: The city name to use when returning the drives.
-        :param _builtins.str country_or_region: The country or region to use when returning the drives. 
+        :param _builtins.str country_or_region: The country or region to use when returning the drives.
         :param _builtins.str email: Email address of the recipient of the returned drives.
         :param _builtins.str phone: Phone number of the recipient of the returned drives.
         :param _builtins.str postal_code: The postal code to use when returning the drives.
-        :param _builtins.str recipient_name: The name of the recipient who will receive the hard drives when they are returned. 
-        :param _builtins.str street_address1: The first line of the street address to use when returning the drives. 
+        :param _builtins.str recipient_name: The name of the recipient who will receive the hard drives when they are returned.
+        :param _builtins.str street_address1: The first line of the street address to use when returning the drives.
         :param _builtins.str state_or_province: The state or province to use when returning the drives.
-        :param _builtins.str street_address2: The second line of the street address to use when returning the drives. 
+        :param _builtins.str street_address2: The second line of the street address to use when returning the drives.
         """
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "country_or_region", country_or_region)
@@ -989,7 +989,7 @@ class ReturnAddressResponse(dict):
     @pulumi.getter(name="countryOrRegion")
     def country_or_region(self) -> _builtins.str:
         """
-        The country or region to use when returning the drives. 
+        The country or region to use when returning the drives.
         """
         return pulumi.get(self, "country_or_region")
 
@@ -1021,7 +1021,7 @@ class ReturnAddressResponse(dict):
     @pulumi.getter(name="recipientName")
     def recipient_name(self) -> _builtins.str:
         """
-        The name of the recipient who will receive the hard drives when they are returned. 
+        The name of the recipient who will receive the hard drives when they are returned.
         """
         return pulumi.get(self, "recipient_name")
 
@@ -1029,7 +1029,7 @@ class ReturnAddressResponse(dict):
     @pulumi.getter(name="streetAddress1")
     def street_address1(self) -> _builtins.str:
         """
-        The first line of the street address to use when returning the drives. 
+        The first line of the street address to use when returning the drives.
         """
         return pulumi.get(self, "street_address1")
 
@@ -1045,7 +1045,7 @@ class ReturnAddressResponse(dict):
     @pulumi.getter(name="streetAddress2")
     def street_address2(self) -> Optional[_builtins.str]:
         """
-        The second line of the street address to use when returning the drives. 
+        The second line of the street address to use when returning the drives.
         """
         return pulumi.get(self, "street_address2")
 
@@ -1152,13 +1152,13 @@ class ShippingInformationResponse(dict):
 
         :param _builtins.str additional_information: Additional shipping information for customer, specific to datacenter to which customer should send their disks.
         :param _builtins.str city: The city name to use when returning the drives.
-        :param _builtins.str country_or_region: The country or region to use when returning the drives. 
+        :param _builtins.str country_or_region: The country or region to use when returning the drives.
         :param _builtins.str phone: Phone number of the recipient of the returned drives.
         :param _builtins.str postal_code: The postal code to use when returning the drives.
-        :param _builtins.str recipient_name: The name of the recipient who will receive the hard drives when they are returned. 
+        :param _builtins.str recipient_name: The name of the recipient who will receive the hard drives when they are returned.
         :param _builtins.str state_or_province: The state or province to use when returning the drives.
-        :param _builtins.str street_address1: The first line of the street address to use when returning the drives. 
-        :param _builtins.str street_address2: The second line of the street address to use when returning the drives. 
+        :param _builtins.str street_address1: The first line of the street address to use when returning the drives.
+        :param _builtins.str street_address2: The second line of the street address to use when returning the drives.
         """
         pulumi.set(__self__, "additional_information", additional_information)
         if city is not None:
@@ -1198,7 +1198,7 @@ class ShippingInformationResponse(dict):
     @pulumi.getter(name="countryOrRegion")
     def country_or_region(self) -> Optional[_builtins.str]:
         """
-        The country or region to use when returning the drives. 
+        The country or region to use when returning the drives.
         """
         return pulumi.get(self, "country_or_region")
 
@@ -1222,7 +1222,7 @@ class ShippingInformationResponse(dict):
     @pulumi.getter(name="recipientName")
     def recipient_name(self) -> Optional[_builtins.str]:
         """
-        The name of the recipient who will receive the hard drives when they are returned. 
+        The name of the recipient who will receive the hard drives when they are returned.
         """
         return pulumi.get(self, "recipient_name")
 
@@ -1238,7 +1238,7 @@ class ShippingInformationResponse(dict):
     @pulumi.getter(name="streetAddress1")
     def street_address1(self) -> Optional[_builtins.str]:
         """
-        The first line of the street address to use when returning the drives. 
+        The first line of the street address to use when returning the drives.
         """
         return pulumi.get(self, "street_address1")
 
@@ -1246,7 +1246,7 @@ class ShippingInformationResponse(dict):
     @pulumi.getter(name="streetAddress2")
     def street_address2(self) -> Optional[_builtins.str]:
         """
-        The second line of the street address to use when returning the drives. 
+        The second line of the street address to use when returning the drives.
         """
         return pulumi.get(self, "street_address2")
 

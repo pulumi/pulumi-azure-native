@@ -23,12 +23,12 @@ __all__ = ['StorageSyncServiceArgs', 'StorageSyncService']
 class StorageSyncServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 incoming_traffic_policy: Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_identity: Optional[pulumi.Input[_builtins.bool]] = None):
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 incoming_traffic_policy: pulumi.Input[Optional[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_identity: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StorageSyncService resource.
 
@@ -68,74 +68,74 @@ class StorageSyncServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="incomingTrafficPolicy")
-    def incoming_traffic_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]]:
+    def incoming_traffic_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IncomingTrafficPolicy']]]:
         """
         Incoming Traffic Policy
         """
         return pulumi.get(self, "incoming_traffic_policy")
 
     @incoming_traffic_policy.setter
-    def incoming_traffic_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]]):
+    def incoming_traffic_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IncomingTrafficPolicy']]]):
         pulumi.set(self, "incoming_traffic_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSyncServiceName")
-    def storage_sync_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_sync_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Storage Sync Service resource.
         """
         return pulumi.get(self, "storage_sync_service_name")
 
     @storage_sync_service_name.setter
-    def storage_sync_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_sync_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_sync_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useIdentity")
-    def use_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use Identity authorization when customer have finished setup RBAC permissions.
         """
         return pulumi.get(self, "use_identity")
 
     @use_identity.setter
-    def use_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_identity", value)
 
 
@@ -145,13 +145,13 @@ class StorageSyncService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 incoming_traffic_policy: Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_identity: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 incoming_traffic_policy: pulumi.Input[Optional[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Storage Sync Service object.
@@ -159,7 +159,6 @@ class StorageSyncService(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,7 +183,6 @@ class StorageSyncService(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param StorageSyncServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,13 +198,13 @@ class StorageSyncService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 incoming_traffic_policy: Optional[pulumi.Input[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_identity: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 incoming_traffic_policy: pulumi.Input[Optional[Union[_builtins.str, 'IncomingTrafficPolicy']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -24,19 +24,18 @@ class DatabaseMigrationsMongoToCosmosDbRUMongoArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_resource_name: pulumi.Input[_builtins.str],
-                 collection_list: Optional[pulumi.Input[Sequence[pulumi.Input['MongoMigrationCollectionArgs']]]] = None,
-                 migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_mongo_connection: Optional[pulumi.Input['MongoConnectionInformationArgs']] = None,
-                 target_mongo_connection: Optional[pulumi.Input['MongoConnectionInformationArgs']] = None):
+                 collection_list: pulumi.Input[Optional[Sequence[pulumi.Input['MongoMigrationCollectionArgs']]]] = None,
+                 migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_mongo_connection: pulumi.Input[Optional['MongoConnectionInformationArgs']] = None,
+                 target_mongo_connection: pulumi.Input[Optional['MongoConnectionInformationArgs']] = None):
         """
         The set of arguments for constructing a DatabaseMigrationsMongoToCosmosDbRUMongo resource.
 
-        :param pulumi.Input[_builtins.str] kind: 
-               Expected value is 'MongoToCosmosDbMongo'.
+        :param pulumi.Input[_builtins.str] kind: Expected value is 'MongoToCosmosDbMongo'.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] target_resource_name: The name of the target resource/account.
         :param pulumi.Input[Sequence[pulumi.Input['MongoMigrationCollectionArgs']]] collection_list: List of Mongo Collections to be migrated.
@@ -72,7 +71,6 @@ class DatabaseMigrationsMongoToCosmosDbRUMongoArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[_builtins.str]:
         """
-
         Expected value is 'MongoToCosmosDbMongo'.
         """
         return pulumi.get(self, "kind")
@@ -107,98 +105,98 @@ class DatabaseMigrationsMongoToCosmosDbRUMongoArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectionList")
-    def collection_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoMigrationCollectionArgs']]]]:
+    def collection_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MongoMigrationCollectionArgs']]]]:
         """
         List of Mongo Collections to be migrated.
         """
         return pulumi.get(self, "collection_list")
 
     @collection_list.setter
-    def collection_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoMigrationCollectionArgs']]]]):
+    def collection_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MongoMigrationCollectionArgs']]]]):
         pulumi.set(self, "collection_list", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationName")
-    def migration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the migration.
         """
         return pulumi.get(self, "migration_name")
 
     @migration_name.setter
-    def migration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationOperationId")
-    def migration_operation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_operation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for current migration operation.
         """
         return pulumi.get(self, "migration_operation_id")
 
     @migration_operation_id.setter
-    def migration_operation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_operation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_operation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationService")
-    def migration_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the Migration Service.
         """
         return pulumi.get(self, "migration_service")
 
     @migration_service.setter
-    def migration_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_service", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message for migration provisioning failure, if any.
         """
         return pulumi.get(self, "provisioning_error")
 
     @provisioning_error.setter
-    def provisioning_error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_error", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the target resource.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceMongoConnection")
-    def source_mongo_connection(self) -> Optional[pulumi.Input['MongoConnectionInformationArgs']]:
+    def source_mongo_connection(self) -> pulumi.Input[Optional['MongoConnectionInformationArgs']]:
         """
         Source Mongo connection details.
         """
         return pulumi.get(self, "source_mongo_connection")
 
     @source_mongo_connection.setter
-    def source_mongo_connection(self, value: Optional[pulumi.Input['MongoConnectionInformationArgs']]):
+    def source_mongo_connection(self, value: pulumi.Input[Optional['MongoConnectionInformationArgs']]):
         pulumi.set(self, "source_mongo_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="targetMongoConnection")
-    def target_mongo_connection(self) -> Optional[pulumi.Input['MongoConnectionInformationArgs']]:
+    def target_mongo_connection(self) -> pulumi.Input[Optional['MongoConnectionInformationArgs']]:
         """
         Target Cosmos DB Mongo connection details.
         """
         return pulumi.get(self, "target_mongo_connection")
 
     @target_mongo_connection.setter
-    def target_mongo_connection(self, value: Optional[pulumi.Input['MongoConnectionInformationArgs']]):
+    def target_mongo_connection(self, value: pulumi.Input[Optional['MongoConnectionInformationArgs']]):
         pulumi.set(self, "target_mongo_connection", value)
 
 
@@ -208,17 +206,17 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
-                 target_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
-                 target_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_mongo_connection: pulumi.Input[Optional[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
+                 target_mongo_connection: pulumi.Input[Optional[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
+                 target_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Database Migration Resource for Mongo to CosmosDb.
@@ -227,12 +225,10 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
 
         Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]] collection_list: List of Mongo Collections to be migrated.
-        :param pulumi.Input[_builtins.str] kind: 
-               Expected value is 'MongoToCosmosDbMongo'.
+        :param pulumi.Input[_builtins.str] kind: Expected value is 'MongoToCosmosDbMongo'.
         :param pulumi.Input[_builtins.str] migration_name: Name of the migration.
         :param pulumi.Input[_builtins.str] migration_operation_id: ID for current migration operation.
         :param pulumi.Input[_builtins.str] migration_service: Resource Id of the Migration Service.
@@ -256,7 +252,6 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
 
         Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DatabaseMigrationsMongoToCosmosDbRUMongoArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,17 +267,17 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
-                 target_mongo_connection: Optional[pulumi.Input[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
-                 target_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoMigrationCollectionArgs', 'MongoMigrationCollectionArgsDict']]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_mongo_connection: pulumi.Input[Optional[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
+                 target_mongo_connection: pulumi.Input[Optional[Union['MongoConnectionInformationArgs', 'MongoConnectionInformationArgsDict']]] = None,
+                 target_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -389,7 +384,6 @@ class DatabaseMigrationsMongoToCosmosDbRUMongo(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[_builtins.str]:
         """
-
         Expected value is 'MongoToCosmosDbMongo'.
         """
         return pulumi.get(self, "kind")

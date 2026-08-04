@@ -142,7 +142,6 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[_builtins.str] 
 
     Uses Azure REST API version 2018-12-03.
 
-
     :param _builtins.str resource_group_name: The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
     :param _builtins.str resource_name: The name of the EnterpriseKnowledgeGraph resource.
     """
@@ -161,14 +160,13 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[_builtins.str] 
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_enterprise_knowledge_graph_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enterprise_knowledge_graph_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseKnowledgeGraphResult]:
     """
     Returns a EnterpriseKnowledgeGraph service specified by the parameters.
 
     Uses Azure REST API version 2018-12-03.
-
 
     :param _builtins.str resource_group_name: The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
     :param _builtins.str resource_name: The name of the EnterpriseKnowledgeGraph resource.

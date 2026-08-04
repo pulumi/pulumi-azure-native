@@ -157,7 +157,6 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_network_link_name: The name of the virtual network link.
@@ -179,9 +178,9 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateResolverVirtualNetworkLinkResult]:
     """
     Gets properties of a virtual network link to a DNS forwarding ruleset.
@@ -189,7 +188,6 @@ def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

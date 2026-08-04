@@ -109,7 +109,7 @@ export interface DigitalTwinsEndpointArgs {
     /**
      * Name of Endpoint Resource.
      */
-    endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * DigitalTwinsInstance endpoint resource properties.
      */

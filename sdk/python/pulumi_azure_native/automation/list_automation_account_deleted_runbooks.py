@@ -72,7 +72,6 @@ def list_automation_account_deleted_runbooks(automation_account_name: Optional[_
 
     Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -85,8 +84,8 @@ def list_automation_account_deleted_runbooks(automation_account_name: Optional[_
     return AwaitableListAutomationAccountDeletedRunbooksResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_automation_account_deleted_runbooks_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_automation_account_deleted_runbooks_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAutomationAccountDeletedRunbooksResult]:
     """
     Retrieve the deleted runbooks for an automation account.
@@ -94,7 +93,6 @@ def list_automation_account_deleted_runbooks_output(automation_account_name: Opt
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

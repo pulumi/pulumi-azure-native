@@ -22,8 +22,8 @@ __all__ = ['GroupQuotaArgs', 'GroupQuota']
 class GroupQuotaArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
-                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']] = None):
+                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['GroupQuotasEntityPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GroupQuota resource.
 
@@ -50,23 +50,23 @@ class GroupQuotaArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupQuotaName")
-    def group_quota_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_quota_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         """
         return pulumi.get(self, "group_quota_name")
 
     @group_quota_name.setter
-    def group_quota_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_quota_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_quota_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['GroupQuotasEntityPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['GroupQuotasEntityPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -76,9 +76,9 @@ class GroupQuota(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
+                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
@@ -86,7 +86,6 @@ class GroupQuota(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01, 2026-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +105,6 @@ class GroupQuota(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01, 2026-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GroupQuotaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,9 +120,9 @@ class GroupQuota(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
+                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

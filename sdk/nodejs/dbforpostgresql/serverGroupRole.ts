@@ -141,7 +141,7 @@ export interface ServerGroupRoleArgs {
     /**
      * The password of the cluster role. If an identity is used, password will not be required.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     principalType: pulumi.Input<string | enums.dbforpostgresql.PrincipalType>;
     /**
      * The name of the resource group. The name is case insensitive.
@@ -150,10 +150,10 @@ export interface ServerGroupRoleArgs {
     /**
      * The name of the cluster role.
      */
-    roleName?: pulumi.Input<string>;
-    roleType?: pulumi.Input<string | enums.dbforpostgresql.RoleType>;
+    roleName?: pulumi.Input<string | undefined>;
+    roleType?: pulumi.Input<string | enums.dbforpostgresql.RoleType | undefined>;
     /**
      * A type definition that refers the id to an Azure Resource Manager resource.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

@@ -146,7 +146,6 @@ def get_gallery_script_version(gallery_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str gallery_name: The name of the Shared Image Gallery.
     :param _builtins.str gallery_script_name: The name of the gallery Script Definition to be retrieved.
     :param _builtins.str gallery_script_version_name: The name of the gallery Script Version to be retrieved.
@@ -169,10 +168,10 @@ def get_gallery_script_version(gallery_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_gallery_script_version_output(gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      gallery_script_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      gallery_script_version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gallery_script_version_output(gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      gallery_script_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      gallery_script_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryScriptVersionResult]:
     """
     Custom ArmResourceRead operation template with CloudError as Error
@@ -180,7 +179,6 @@ def get_gallery_script_version_output(gallery_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2025-03-03.
 
     Other available API versions: 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str gallery_name: The name of the Shared Image Gallery.
     :param _builtins.str gallery_script_name: The name of the gallery Script Definition to be retrieved.

@@ -32,7 +32,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -41,7 +41,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -66,14 +66,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -81,27 +81,27 @@ class ProviderArgsDict(TypedDict):
     """
     Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
     """
-    application_name: NotRequired[pulumi.Input[_builtins.str]]
+    application_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The provider's marketplace application display name.
     """
-    instance_uri: NotRequired[pulumi.Input[_builtins.str]]
+    instance_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A Uri identifying the specific instance of this provider.
     """
-    provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    provider_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique id of this provider.
     """
-    provider_sku: NotRequired[pulumi.Input[_builtins.str]]
+    provider_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sku associated with pricing information for this provider.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderStatus']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProviderStatus']]]]
     """
     Provisioning status field
     """
-    resource_usage_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_usage_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id to track resource usage for the provider.
     """
@@ -109,12 +109,12 @@ class ProviderArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProviderStatus']]] = None,
-                 resource_usage_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProviderStatus']]] = None,
+                 resource_usage_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 
@@ -140,74 +140,74 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provider's marketplace application display name.
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceUri")
-    def instance_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A Uri identifying the specific instance of this provider.
         """
         return pulumi.get(self, "instance_uri")
 
     @instance_uri.setter
-    def instance_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="providerId")
-    def provider_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique id of this provider.
         """
         return pulumi.get(self, "provider_id")
 
     @provider_id.setter
-    def provider_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_id", value)
 
     @_builtins.property
     @pulumi.getter(name="providerSku")
-    def provider_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku associated with pricing information for this provider.
         """
         return pulumi.get(self, "provider_sku")
 
     @provider_sku.setter
-    def provider_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProviderStatus']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProviderStatus']]]:
         """
         Provisioning status field
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProviderStatus']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProviderStatus']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUsageId")
-    def resource_usage_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_usage_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id to track resource usage for the provider.
         """
         return pulumi.get(self, "resource_usage_id")
 
     @resource_usage_id.setter
-    def resource_usage_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_usage_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_usage_id", value)
 
 
@@ -215,15 +215,15 @@ class WorkspaceResourcePropertiesArgsDict(TypedDict):
     """
     Properties of a Workspace
     """
-    api_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    api_key_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicator of enablement of the Quantum workspace Api keys.
     """
-    providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProviderArgsDict']]]]
+    providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProviderArgsDict']]]]]
     """
     List of Providers selected for this Workspace
     """
-    storage_account: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Resource Id of the storage account associated with this workspace.
     """
@@ -231,9 +231,9 @@ class WorkspaceResourcePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceResourcePropertiesArgs:
     def __init__(__self__, *,
-                 api_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]]] = None,
-                 storage_account: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 providers: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderArgs']]]] = None,
+                 storage_account: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a Workspace
 
@@ -250,38 +250,38 @@ class WorkspaceResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKeyEnabled")
-    def api_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def api_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicator of enablement of the Quantum workspace Api keys.
         """
         return pulumi.get(self, "api_key_enabled")
 
     @api_key_enabled.setter
-    def api_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def api_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "api_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]]]:
+    def providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProviderArgs']]]]:
         """
         List of Providers selected for this Workspace
         """
         return pulumi.get(self, "providers")
 
     @providers.setter
-    def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]]]):
+    def providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderArgs']]]]):
         pulumi.set(self, "providers", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Resource Id of the storage account associated with this workspace.
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account", value)
 
 

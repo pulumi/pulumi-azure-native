@@ -176,35 +176,35 @@ export interface RemediationAtResourceArgs {
     /**
      * The remediation failure threshold settings
      */
-    failureThreshold?: pulumi.Input<inputs.policyinsights.RemediationPropertiesFailureThresholdArgs>;
+    failureThreshold?: pulumi.Input<inputs.policyinsights.RemediationPropertiesFailureThresholdArgs | undefined>;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    filters?: pulumi.Input<inputs.policyinsights.RemediationFiltersArgs>;
+    filters?: pulumi.Input<inputs.policyinsights.RemediationFiltersArgs | undefined>;
     /**
      * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
      */
-    parallelDeployments?: pulumi.Input<number>;
+    parallelDeployments?: pulumi.Input<number | undefined>;
     /**
      * The resource ID of the policy assignment that should be remediated.
      */
-    policyAssignmentId?: pulumi.Input<string>;
+    policyAssignmentId?: pulumi.Input<string | undefined>;
     /**
      * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    policyDefinitionReferenceId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the remediation.
      */
-    remediationName?: pulumi.Input<string>;
+    remediationName?: pulumi.Input<string | undefined>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
-    resourceCount?: pulumi.Input<number>;
+    resourceCount?: pulumi.Input<number | undefined>;
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
-    resourceDiscoveryMode?: pulumi.Input<string | enums.policyinsights.ResourceDiscoveryMode>;
+    resourceDiscoveryMode?: pulumi.Input<string | enums.policyinsights.ResourceDiscoveryMode | undefined>;
     /**
      * Resource ID.
      */

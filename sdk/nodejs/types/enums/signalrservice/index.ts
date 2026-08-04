@@ -81,8 +81,8 @@ export const SignalRSkuTier = {
 } as const;
 
 /**
- * Optional tier of this particular SKU. 'Standard' or 'Free'. 
- * 
+ * Optional tier of this particular SKU. 'Standard' or 'Free'.
+ *
  * `Basic` is deprecated, use `Standard` instead.
  */
 export type SignalRSkuTier = (typeof SignalRSkuTier)[keyof typeof SignalRSkuTier];

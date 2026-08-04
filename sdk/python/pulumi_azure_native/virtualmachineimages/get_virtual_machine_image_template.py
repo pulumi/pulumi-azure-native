@@ -324,7 +324,6 @@ def get_virtual_machine_image_template(image_template_name: Optional[_builtins.s
 
     Other available API versions: 2022-07-01, 2023-07-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str image_template_name: The name of the image Template
     :param _builtins.str resource_group_name: The name of the resource group.
     """
@@ -358,8 +357,8 @@ def get_virtual_machine_image_template(image_template_name: Optional[_builtins.s
         type=pulumi.get(__ret__, 'type'),
         validate=pulumi.get(__ret__, 'validate'),
         vm_profile=pulumi.get(__ret__, 'vm_profile'))
-def get_virtual_machine_image_template_output(image_template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_image_template_output(image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
     """
     Get information about a virtual machine image template
@@ -367,7 +366,6 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
     Uses Azure REST API version 2024-02-01.
 
     Other available API versions: 2022-07-01, 2023-07-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str image_template_name: The name of the image Template
     :param _builtins.str resource_group_name: The name of the resource group.

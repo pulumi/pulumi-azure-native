@@ -16,12 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ConfigDiagnosticsValidatorResultIssueArgs',
-    'ConfigDiagnosticsValidatorResultIssueArgsDict',
-    'ConfigDiagnosticsValidatorResultArgs',
-    'ConfigDiagnosticsValidatorResultArgsDict',
     'ConfigDiagnosticsArgs',
     'ConfigDiagnosticsArgsDict',
+    'ConfigDiagnosticsValidatorResultArgs',
+    'ConfigDiagnosticsValidatorResultArgsDict',
+    'ConfigDiagnosticsValidatorResultIssueArgs',
+    'ConfigDiagnosticsValidatorResultIssueArgsDict',
     'DomainSecuritySettingsArgs',
     'DomainSecuritySettingsArgsDict',
     'ForestTrustArgs',
@@ -36,77 +36,77 @@ __all__ = [
     'ResourceForestSettingsArgsDict',
 ]
 
-class ConfigDiagnosticsValidatorResultIssueArgsDict(TypedDict):
+class ConfigDiagnosticsArgsDict(TypedDict):
     """
-    Specific issue for a particular config diagnostics validator
+    Configuration Diagnostics
     """
-    description_params: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    last_executed: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    List of domain resource property name or values used to compose a rich description.
+    Last domain configuration diagnostics DateTime
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    validator_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgsDict']]]]]
     """
-    Validation issue identifier.
+    List of Configuration Diagnostics validator results.
     """
 
 @pulumi.input_type
-class ConfigDiagnosticsValidatorResultIssueArgs:
+class ConfigDiagnosticsArgs:
     def __init__(__self__, *,
-                 description_params: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 last_executed: pulumi.Input[Optional[_builtins.str]] = None,
+                 validator_results: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]] = None):
         """
-        Specific issue for a particular config diagnostics validator
+        Configuration Diagnostics
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] description_params: List of domain resource property name or values used to compose a rich description.
-        :param pulumi.Input[_builtins.str] id: Validation issue identifier.
+        :param pulumi.Input[_builtins.str] last_executed: Last domain configuration diagnostics DateTime
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]] validator_results: List of Configuration Diagnostics validator results.
         """
-        if description_params is not None:
-            pulumi.set(__self__, "description_params", description_params)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter(name="descriptionParams")
-    def description_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of domain resource property name or values used to compose a rich description.
-        """
-        return pulumi.get(self, "description_params")
-
-    @description_params.setter
-    def description_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "description_params", value)
+        if last_executed is not None:
+            pulumi.set(__self__, "last_executed", last_executed)
+        if validator_results is not None:
+            pulumi.set(__self__, "validator_results", validator_results)
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter(name="lastExecuted")
+    def last_executed(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Validation issue identifier.
+        Last domain configuration diagnostics DateTime
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "last_executed")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
+    @last_executed.setter
+    def last_executed(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_executed", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validatorResults")
+    def validator_results(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]:
+        """
+        List of Configuration Diagnostics validator results.
+        """
+        return pulumi.get(self, "validator_results")
+
+    @validator_results.setter
+    def validator_results(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]):
+        pulumi.set(self, "validator_results", value)
 
 
 class ConfigDiagnosticsValidatorResultArgsDict(TypedDict):
     """
     Config Diagnostics validator result data
     """
-    issues: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgsDict']]]]
+    issues: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgsDict']]]]]
     """
     List of resource config validation issues.
     """
-    replica_set_subnet_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    replica_set_subnet_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Replica set location and subnet name
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Status']]]]
     """
     Status for individual validator after running diagnostics.
     """
-    validator_id: NotRequired[pulumi.Input[_builtins.str]]
+    validator_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Validator identifier
     """
@@ -114,10 +114,10 @@ class ConfigDiagnosticsValidatorResultArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigDiagnosticsValidatorResultArgs:
     def __init__(__self__, *,
-                 issues: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]] = None,
-                 replica_set_subnet_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 validator_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 issues: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]] = None,
+                 replica_set_subnet_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 validator_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Config Diagnostics validator result data
 
@@ -139,144 +139,144 @@ class ConfigDiagnosticsValidatorResultArgs:
 
     @_builtins.property
     @pulumi.getter
-    def issues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]]:
+    def issues(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]]:
         """
         List of resource config validation issues.
         """
         return pulumi.get(self, "issues")
 
     @issues.setter
-    def issues(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]]):
+    def issues(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]]):
         pulumi.set(self, "issues", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaSetSubnetDisplayName")
-    def replica_set_subnet_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replica_set_subnet_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Replica set location and subnet name
         """
         return pulumi.get(self, "replica_set_subnet_display_name")
 
     @replica_set_subnet_display_name.setter
-    def replica_set_subnet_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replica_set_subnet_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replica_set_subnet_display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Status']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Status']]]:
         """
         Status for individual validator after running diagnostics.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Status']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Status']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="validatorId")
-    def validator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validator_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Validator identifier
         """
         return pulumi.get(self, "validator_id")
 
     @validator_id.setter
-    def validator_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validator_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validator_id", value)
 
 
-class ConfigDiagnosticsArgsDict(TypedDict):
+class ConfigDiagnosticsValidatorResultIssueArgsDict(TypedDict):
     """
-    Configuration Diagnostics
+    Specific issue for a particular config diagnostics validator
     """
-    last_executed: NotRequired[pulumi.Input[_builtins.str]]
+    description_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Last domain configuration diagnostics DateTime
+    List of domain resource property name or values used to compose a rich description.
     """
-    validator_results: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgsDict']]]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    List of Configuration Diagnostics validator results.
+    Validation issue identifier.
     """
 
 @pulumi.input_type
-class ConfigDiagnosticsArgs:
+class ConfigDiagnosticsValidatorResultIssueArgs:
     def __init__(__self__, *,
-                 last_executed: Optional[pulumi.Input[_builtins.str]] = None,
-                 validator_results: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]] = None):
+                 description_params: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Configuration Diagnostics
+        Specific issue for a particular config diagnostics validator
 
-        :param pulumi.Input[_builtins.str] last_executed: Last domain configuration diagnostics DateTime
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]] validator_results: List of Configuration Diagnostics validator results.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] description_params: List of domain resource property name or values used to compose a rich description.
+        :param pulumi.Input[_builtins.str] id: Validation issue identifier.
         """
-        if last_executed is not None:
-            pulumi.set(__self__, "last_executed", last_executed)
-        if validator_results is not None:
-            pulumi.set(__self__, "validator_results", validator_results)
-
-    @_builtins.property
-    @pulumi.getter(name="lastExecuted")
-    def last_executed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last domain configuration diagnostics DateTime
-        """
-        return pulumi.get(self, "last_executed")
-
-    @last_executed.setter
-    def last_executed(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last_executed", value)
+        if description_params is not None:
+            pulumi.set(__self__, "description_params", description_params)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @_builtins.property
-    @pulumi.getter(name="validatorResults")
-    def validator_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]:
+    @pulumi.getter(name="descriptionParams")
+    def description_params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Configuration Diagnostics validator results.
+        List of domain resource property name or values used to compose a rich description.
         """
-        return pulumi.get(self, "validator_results")
+        return pulumi.get(self, "description_params")
 
-    @validator_results.setter
-    def validator_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]):
-        pulumi.set(self, "validator_results", value)
+    @description_params.setter
+    def description_params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "description_params", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Validation issue identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 class DomainSecuritySettingsArgsDict(TypedDict):
     """
     Domain Security Settings
     """
-    channel_binding: NotRequired[pulumi.Input[Union[_builtins.str, 'ChannelBinding']]]
+    channel_binding: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ChannelBinding']]]]
     """
     A flag to determine whether or not ChannelBinding is enabled or disabled.
     """
-    kerberos_armoring: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosArmoring']]]
+    kerberos_armoring: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KerberosArmoring']]]]
     """
     A flag to determine whether or not KerberosArmoring is enabled or disabled.
     """
-    kerberos_rc4_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosRc4Encryption']]]
+    kerberos_rc4_encryption: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KerberosRc4Encryption']]]]
     """
     A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
     """
-    ldap_signing: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapSigning']]]
+    ldap_signing: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'LdapSigning']]]]
     """
     A flag to determine whether or not LdapSigning is enabled or disabled.
     """
-    ntlm_v1: NotRequired[pulumi.Input[Union[_builtins.str, 'NtlmV1']]]
+    ntlm_v1: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NtlmV1']]]]
     """
     A flag to determine whether or not NtlmV1 is enabled or disabled.
     """
-    sync_kerberos_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncKerberosPasswords']]]
+    sync_kerberos_passwords: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SyncKerberosPasswords']]]]
     """
     A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
     """
-    sync_ntlm_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncNtlmPasswords']]]
+    sync_ntlm_passwords: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SyncNtlmPasswords']]]]
     """
     A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
     """
-    sync_on_prem_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncOnPremPasswords']]]
+    sync_on_prem_passwords: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SyncOnPremPasswords']]]]
     """
     A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
     """
-    tls_v1: NotRequired[pulumi.Input[Union[_builtins.str, 'TlsV1']]]
+    tls_v1: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TlsV1']]]]
     """
     A flag to determine whether or not TlsV1 is enabled or disabled.
     """
@@ -284,15 +284,15 @@ class DomainSecuritySettingsArgsDict(TypedDict):
 @pulumi.input_type
 class DomainSecuritySettingsArgs:
     def __init__(__self__, *,
-                 channel_binding: Optional[pulumi.Input[Union[_builtins.str, 'ChannelBinding']]] = None,
-                 kerberos_armoring: Optional[pulumi.Input[Union[_builtins.str, 'KerberosArmoring']]] = None,
-                 kerberos_rc4_encryption: Optional[pulumi.Input[Union[_builtins.str, 'KerberosRc4Encryption']]] = None,
-                 ldap_signing: Optional[pulumi.Input[Union[_builtins.str, 'LdapSigning']]] = None,
-                 ntlm_v1: Optional[pulumi.Input[Union[_builtins.str, 'NtlmV1']]] = None,
-                 sync_kerberos_passwords: Optional[pulumi.Input[Union[_builtins.str, 'SyncKerberosPasswords']]] = None,
-                 sync_ntlm_passwords: Optional[pulumi.Input[Union[_builtins.str, 'SyncNtlmPasswords']]] = None,
-                 sync_on_prem_passwords: Optional[pulumi.Input[Union[_builtins.str, 'SyncOnPremPasswords']]] = None,
-                 tls_v1: Optional[pulumi.Input[Union[_builtins.str, 'TlsV1']]] = None):
+                 channel_binding: pulumi.Input[Optional[Union[_builtins.str, 'ChannelBinding']]] = None,
+                 kerberos_armoring: pulumi.Input[Optional[Union[_builtins.str, 'KerberosArmoring']]] = None,
+                 kerberos_rc4_encryption: pulumi.Input[Optional[Union[_builtins.str, 'KerberosRc4Encryption']]] = None,
+                 ldap_signing: pulumi.Input[Optional[Union[_builtins.str, 'LdapSigning']]] = None,
+                 ntlm_v1: pulumi.Input[Optional[Union[_builtins.str, 'NtlmV1']]] = None,
+                 sync_kerberos_passwords: pulumi.Input[Optional[Union[_builtins.str, 'SyncKerberosPasswords']]] = None,
+                 sync_ntlm_passwords: pulumi.Input[Optional[Union[_builtins.str, 'SyncNtlmPasswords']]] = None,
+                 sync_on_prem_passwords: pulumi.Input[Optional[Union[_builtins.str, 'SyncOnPremPasswords']]] = None,
+                 tls_v1: pulumi.Input[Optional[Union[_builtins.str, 'TlsV1']]] = None):
         """
         Domain Security Settings
 
@@ -345,110 +345,110 @@ class DomainSecuritySettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelBinding")
-    def channel_binding(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ChannelBinding']]]:
+    def channel_binding(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ChannelBinding']]]:
         """
         A flag to determine whether or not ChannelBinding is enabled or disabled.
         """
         return pulumi.get(self, "channel_binding")
 
     @channel_binding.setter
-    def channel_binding(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ChannelBinding']]]):
+    def channel_binding(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ChannelBinding']]]):
         pulumi.set(self, "channel_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosArmoring")
-    def kerberos_armoring(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KerberosArmoring']]]:
+    def kerberos_armoring(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KerberosArmoring']]]:
         """
         A flag to determine whether or not KerberosArmoring is enabled or disabled.
         """
         return pulumi.get(self, "kerberos_armoring")
 
     @kerberos_armoring.setter
-    def kerberos_armoring(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KerberosArmoring']]]):
+    def kerberos_armoring(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KerberosArmoring']]]):
         pulumi.set(self, "kerberos_armoring", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosRc4Encryption")
-    def kerberos_rc4_encryption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KerberosRc4Encryption']]]:
+    def kerberos_rc4_encryption(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KerberosRc4Encryption']]]:
         """
         A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
         """
         return pulumi.get(self, "kerberos_rc4_encryption")
 
     @kerberos_rc4_encryption.setter
-    def kerberos_rc4_encryption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KerberosRc4Encryption']]]):
+    def kerberos_rc4_encryption(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KerberosRc4Encryption']]]):
         pulumi.set(self, "kerberos_rc4_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapSigning")
-    def ldap_signing(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LdapSigning']]]:
+    def ldap_signing(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LdapSigning']]]:
         """
         A flag to determine whether or not LdapSigning is enabled or disabled.
         """
         return pulumi.get(self, "ldap_signing")
 
     @ldap_signing.setter
-    def ldap_signing(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LdapSigning']]]):
+    def ldap_signing(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LdapSigning']]]):
         pulumi.set(self, "ldap_signing", value)
 
     @_builtins.property
     @pulumi.getter(name="ntlmV1")
-    def ntlm_v1(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NtlmV1']]]:
+    def ntlm_v1(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NtlmV1']]]:
         """
         A flag to determine whether or not NtlmV1 is enabled or disabled.
         """
         return pulumi.get(self, "ntlm_v1")
 
     @ntlm_v1.setter
-    def ntlm_v1(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NtlmV1']]]):
+    def ntlm_v1(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NtlmV1']]]):
         pulumi.set(self, "ntlm_v1", value)
 
     @_builtins.property
     @pulumi.getter(name="syncKerberosPasswords")
-    def sync_kerberos_passwords(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SyncKerberosPasswords']]]:
+    def sync_kerberos_passwords(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SyncKerberosPasswords']]]:
         """
         A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
         """
         return pulumi.get(self, "sync_kerberos_passwords")
 
     @sync_kerberos_passwords.setter
-    def sync_kerberos_passwords(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SyncKerberosPasswords']]]):
+    def sync_kerberos_passwords(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SyncKerberosPasswords']]]):
         pulumi.set(self, "sync_kerberos_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="syncNtlmPasswords")
-    def sync_ntlm_passwords(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SyncNtlmPasswords']]]:
+    def sync_ntlm_passwords(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SyncNtlmPasswords']]]:
         """
         A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
         """
         return pulumi.get(self, "sync_ntlm_passwords")
 
     @sync_ntlm_passwords.setter
-    def sync_ntlm_passwords(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SyncNtlmPasswords']]]):
+    def sync_ntlm_passwords(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SyncNtlmPasswords']]]):
         pulumi.set(self, "sync_ntlm_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="syncOnPremPasswords")
-    def sync_on_prem_passwords(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SyncOnPremPasswords']]]:
+    def sync_on_prem_passwords(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SyncOnPremPasswords']]]:
         """
         A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         """
         return pulumi.get(self, "sync_on_prem_passwords")
 
     @sync_on_prem_passwords.setter
-    def sync_on_prem_passwords(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SyncOnPremPasswords']]]):
+    def sync_on_prem_passwords(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SyncOnPremPasswords']]]):
         pulumi.set(self, "sync_on_prem_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsV1")
-    def tls_v1(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TlsV1']]]:
+    def tls_v1(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TlsV1']]]:
         """
         A flag to determine whether or not TlsV1 is enabled or disabled.
         """
         return pulumi.get(self, "tls_v1")
 
     @tls_v1.setter
-    def tls_v1(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TlsV1']]]):
+    def tls_v1(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsV1']]]):
         pulumi.set(self, "tls_v1", value)
 
 
@@ -456,23 +456,23 @@ class ForestTrustArgsDict(TypedDict):
     """
     Forest Trust Setting
     """
-    friendly_name: NotRequired[pulumi.Input[_builtins.str]]
+    friendly_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Friendly Name
     """
-    remote_dns_ips: NotRequired[pulumi.Input[_builtins.str]]
+    remote_dns_ips: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Remote Dns ips
     """
-    trust_direction: NotRequired[pulumi.Input[_builtins.str]]
+    trust_direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Trust Direction
     """
-    trust_password: NotRequired[pulumi.Input[_builtins.str]]
+    trust_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Trust Password
     """
-    trusted_domain_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    trusted_domain_fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Trusted Domain FQDN
     """
@@ -480,11 +480,11 @@ class ForestTrustArgsDict(TypedDict):
 @pulumi.input_type
 class ForestTrustArgs:
     def __init__(__self__, *,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_dns_ips: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_domain_fqdn: Optional[pulumi.Input[_builtins.str]] = None):
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_dns_ips: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_domain_fqdn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Forest Trust Setting
 
@@ -507,62 +507,62 @@ class ForestTrustArgs:
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDnsIps")
-    def remote_dns_ips(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_dns_ips(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Remote Dns ips
         """
         return pulumi.get(self, "remote_dns_ips")
 
     @remote_dns_ips.setter
-    def remote_dns_ips(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_dns_ips(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_dns_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="trustDirection")
-    def trust_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trust Direction
         """
         return pulumi.get(self, "trust_direction")
 
     @trust_direction.setter
-    def trust_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="trustPassword")
-    def trust_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trust Password
         """
         return pulumi.get(self, "trust_password")
 
     @trust_password.setter
-    def trust_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_password", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedDomainFqdn")
-    def trusted_domain_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_domain_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trusted Domain FQDN
         """
         return pulumi.get(self, "trusted_domain_fqdn")
 
     @trusted_domain_fqdn.setter
-    def trusted_domain_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_domain_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_domain_fqdn", value)
 
 
@@ -570,19 +570,19 @@ class LdapsSettingsArgsDict(TypedDict):
     """
     Secure LDAP Settings
     """
-    external_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ExternalAccess']]]
+    external_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExternalAccess']]]]
     """
     A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
     """
-    ldaps: NotRequired[pulumi.Input[Union[_builtins.str, 'Ldaps']]]
+    ldaps: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Ldaps']]]]
     """
     A flag to determine whether or not Secure LDAP is enabled or disabled.
     """
-    pfx_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    pfx_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
     """
-    pfx_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    pfx_certificate_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password to decrypt the provided Secure LDAP certificate pfx file.
     """
@@ -590,10 +590,10 @@ class LdapsSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class LdapsSettingsArgs:
     def __init__(__self__, *,
-                 external_access: Optional[pulumi.Input[Union[_builtins.str, 'ExternalAccess']]] = None,
-                 ldaps: Optional[pulumi.Input[Union[_builtins.str, 'Ldaps']]] = None,
-                 pfx_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 pfx_certificate_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_access: pulumi.Input[Optional[Union[_builtins.str, 'ExternalAccess']]] = None,
+                 ldaps: pulumi.Input[Optional[Union[_builtins.str, 'Ldaps']]] = None,
+                 pfx_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 pfx_certificate_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Secure LDAP Settings
 
@@ -617,50 +617,50 @@ class LdapsSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalAccess")
-    def external_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExternalAccess']]]:
+    def external_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExternalAccess']]]:
         """
         A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
         """
         return pulumi.get(self, "external_access")
 
     @external_access.setter
-    def external_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExternalAccess']]]):
+    def external_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExternalAccess']]]):
         pulumi.set(self, "external_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def ldaps(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Ldaps']]]:
+    def ldaps(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Ldaps']]]:
         """
         A flag to determine whether or not Secure LDAP is enabled or disabled.
         """
         return pulumi.get(self, "ldaps")
 
     @ldaps.setter
-    def ldaps(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Ldaps']]]):
+    def ldaps(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Ldaps']]]):
         pulumi.set(self, "ldaps", value)
 
     @_builtins.property
     @pulumi.getter(name="pfxCertificate")
-    def pfx_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pfx_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
         """
         return pulumi.get(self, "pfx_certificate")
 
     @pfx_certificate.setter
-    def pfx_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pfx_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pfx_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="pfxCertificatePassword")
-    def pfx_certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pfx_certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password to decrypt the provided Secure LDAP certificate pfx file.
         """
         return pulumi.get(self, "pfx_certificate_password")
 
     @pfx_certificate_password.setter
-    def pfx_certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pfx_certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pfx_certificate_password", value)
 
 
@@ -668,15 +668,15 @@ class NotificationSettingsArgsDict(TypedDict):
     """
     Settings for notification
     """
-    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    additional_recipients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of additional recipients
     """
-    notify_dc_admins: NotRequired[pulumi.Input[Union[_builtins.str, 'NotifyDcAdmins']]]
+    notify_dc_admins: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotifyDcAdmins']]]]
     """
     Should domain controller admins be notified
     """
-    notify_global_admins: NotRequired[pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']]]
+    notify_global_admins: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotifyGlobalAdmins']]]]
     """
     Should global admins be notified
     """
@@ -684,9 +684,9 @@ class NotificationSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationSettingsArgs:
     def __init__(__self__, *,
-                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notify_dc_admins: Optional[pulumi.Input[Union[_builtins.str, 'NotifyDcAdmins']]] = None,
-                 notify_global_admins: Optional[pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']]] = None):
+                 additional_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notify_dc_admins: pulumi.Input[Optional[Union[_builtins.str, 'NotifyDcAdmins']]] = None,
+                 notify_global_admins: pulumi.Input[Optional[Union[_builtins.str, 'NotifyGlobalAdmins']]] = None):
         """
         Settings for notification
 
@@ -703,38 +703,38 @@ class NotificationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalRecipients")
-    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of additional recipients
         """
         return pulumi.get(self, "additional_recipients")
 
     @additional_recipients.setter
-    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_recipients", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyDcAdmins")
-    def notify_dc_admins(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotifyDcAdmins']]]:
+    def notify_dc_admins(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotifyDcAdmins']]]:
         """
         Should domain controller admins be notified
         """
         return pulumi.get(self, "notify_dc_admins")
 
     @notify_dc_admins.setter
-    def notify_dc_admins(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotifyDcAdmins']]]):
+    def notify_dc_admins(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotifyDcAdmins']]]):
         pulumi.set(self, "notify_dc_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyGlobalAdmins")
-    def notify_global_admins(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']]]:
+    def notify_global_admins(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotifyGlobalAdmins']]]:
         """
         Should global admins be notified
         """
         return pulumi.get(self, "notify_global_admins")
 
     @notify_global_admins.setter
-    def notify_global_admins(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']]]):
+    def notify_global_admins(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotifyGlobalAdmins']]]):
         pulumi.set(self, "notify_global_admins", value)
 
 
@@ -742,11 +742,11 @@ class ReplicaSetArgsDict(TypedDict):
     """
     Replica Set Definition
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Virtual network location
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
     """
@@ -754,8 +754,8 @@ class ReplicaSetArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicaSetArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Replica Set Definition
 
@@ -769,26 +769,26 @@ class ReplicaSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual network location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -796,11 +796,11 @@ class ResourceForestSettingsArgsDict(TypedDict):
     """
     Settings for Resource Forest
     """
-    resource_forest: NotRequired[pulumi.Input[_builtins.str]]
+    resource_forest: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Forest
     """
-    settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgsDict']]]]
+    settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ForestTrustArgsDict']]]]]
     """
     List of settings for Resource Forest
     """
@@ -808,8 +808,8 @@ class ResourceForestSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceForestSettingsArgs:
     def __init__(__self__, *,
-                 resource_forest: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgs']]]] = None):
+                 resource_forest: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input['ForestTrustArgs']]]] = None):
         """
         Settings for Resource Forest
 
@@ -823,26 +823,26 @@ class ResourceForestSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceForest")
-    def resource_forest(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_forest(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Forest
         """
         return pulumi.get(self, "resource_forest")
 
     @resource_forest.setter
-    def resource_forest(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_forest(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_forest", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgs']]]]:
+    def settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ForestTrustArgs']]]]:
         """
         List of settings for Resource Forest
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgs']]]]):
+    def settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ForestTrustArgs']]]]):
         pulumi.set(self, "settings", value)
 
 

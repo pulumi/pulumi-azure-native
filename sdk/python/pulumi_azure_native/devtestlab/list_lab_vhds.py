@@ -70,7 +70,6 @@ def list_lab_vhds(name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-15.
 
-
     :param _builtins.str name: The name of the lab.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -83,14 +82,13 @@ def list_lab_vhds(name: Optional[_builtins.str] = None,
     return AwaitableListLabVhdsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_lab_vhds_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_lab_vhds_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLabVhdsResult]:
     """
     List disk images available for custom image creation.
 
     Uses Azure REST API version 2018-09-15.
-
 
     :param _builtins.str name: The name of the lab.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

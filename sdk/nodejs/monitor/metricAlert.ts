@@ -200,11 +200,11 @@ export interface MetricAlertArgs {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.monitor.MetricAlertActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitor.MetricAlertActionArgs>[] | undefined>;
     /**
      * the flag that indicates whether the alert should be auto resolved or not. The default is true.
      */
-    autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean | undefined>;
     /**
      * defines the specific alert criteria information.
      */
@@ -212,7 +212,7 @@ export interface MetricAlertArgs {
     /**
      * the description of the metric alert that will be included in the alert email.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * the flag that indicates whether the metric alert is enabled.
      */
@@ -224,7 +224,7 @@ export interface MetricAlertArgs {
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -232,7 +232,7 @@ export interface MetricAlertArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
      */
@@ -244,15 +244,15 @@ export interface MetricAlertArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
-    targetResourceRegion?: pulumi.Input<string>;
+    targetResourceRegion?: pulumi.Input<string | undefined>;
     /**
      * the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
      */

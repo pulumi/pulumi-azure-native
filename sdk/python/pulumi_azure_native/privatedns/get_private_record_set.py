@@ -266,7 +266,6 @@ def get_private_record_set(private_zone_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str private_zone_name: The name of the DNS zone (without a terminating dot).
     :param _builtins.str record_type: The type of DNS record in this record set.
     :param _builtins.str relative_record_set_name: The name of the record set, relative to the name of the zone.
@@ -299,10 +298,10 @@ def get_private_record_set(private_zone_name: Optional[_builtins.str] = None,
         ttl=pulumi.get(__ret__, 'ttl'),
         txt_records=pulumi.get(__ret__, 'txt_records'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  record_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                  relative_record_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_record_set_output(private_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  record_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                  relative_record_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateRecordSetResult]:
     """
     Gets a record set.
@@ -310,7 +309,6 @@ def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2024-06-01.
 
     Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str private_zone_name: The name of the DNS zone (without a terminating dot).
     :param _builtins.str record_type: The type of DNS record in this record set.

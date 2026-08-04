@@ -64,7 +64,6 @@ def list_custom_api_wsdl_interfaces(content: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2016-06-01.
 
-
     :param _builtins.str content: The WSDL content
     :param Union[_builtins.str, 'WsdlImportMethod'] import_method: The WSDL import method
     :param _builtins.str location: The location
@@ -84,18 +83,17 @@ def list_custom_api_wsdl_interfaces(content: Optional[_builtins.str] = None,
 
     return AwaitableListCustomApiWsdlInterfacesResult(
         value=pulumi.get(__ret__, 'value'))
-def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           import_method: Optional[pulumi.Input[Optional[Union[_builtins.str, 'WsdlImportMethod']]]] = None,
-                                           location: Optional[pulumi.Input[_builtins.str]] = None,
-                                           service: Optional[pulumi.Input[Optional[Union['WsdlService', 'WsdlServiceDict']]]] = None,
-                                           subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_custom_api_wsdl_interfaces_output(content: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           import_method: pulumi.Input[Optional[Optional[Union[_builtins.str, 'WsdlImportMethod']]]] = None,
+                                           location: pulumi.Input[Optional[_builtins.str]] = None,
+                                           service: pulumi.Input[Optional[Optional[Union['WsdlService', 'WsdlServiceDict']]]] = None,
+                                           subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCustomApiWsdlInterfacesResult]:
     """
     This returns the list of interfaces in the WSDL
 
     Uses Azure REST API version 2016-06-01.
-
 
     :param _builtins.str content: The WSDL content
     :param Union[_builtins.str, 'WsdlImportMethod'] import_method: The WSDL import method

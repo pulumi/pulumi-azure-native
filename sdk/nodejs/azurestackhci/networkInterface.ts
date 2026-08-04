@@ -158,35 +158,35 @@ export interface NetworkInterfaceArgs {
     /**
      * Boolean indicating whether this is a existing local network interface or if one should be created.
      */
-    createFromLocal?: pulumi.Input<boolean>;
+    createFromLocal?: pulumi.Input<boolean | undefined>;
     /**
      * DNS Settings for the interface
      */
-    dnsSettings?: pulumi.Input<inputs.azurestackhci.InterfaceDNSSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.azurestackhci.InterfaceDNSSettingsArgs | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
     /**
      * IPConfigurations - A list of IPConfigurations of the network interface.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.azurestackhci.IPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.azurestackhci.IPConfigurationArgs>[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * MacAddress - The MAC address of the network interface.
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * Name of the network interface
      */
-    networkInterfaceName?: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * NetworkSecurityGroup - Network Security Group attached to the network interface.
      */
-    networkSecurityGroup?: pulumi.Input<inputs.azurestackhci.NetworkSecurityGroupArmReferenceArgs>;
+    networkSecurityGroup?: pulumi.Input<inputs.azurestackhci.NetworkSecurityGroupArmReferenceArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -194,5 +194,5 @@ export interface NetworkInterfaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

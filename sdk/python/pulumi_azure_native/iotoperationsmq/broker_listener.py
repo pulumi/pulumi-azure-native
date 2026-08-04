@@ -28,15 +28,15 @@ class BrokerListenerArgs:
                  mq_name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 listener_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_type: Optional[pulumi.Input[Union[_builtins.str, 'ServiceType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls: Optional[pulumi.Input['TlsCertMethodArgs']] = None):
+                 authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 listener_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_type: pulumi.Input[Optional[Union[_builtins.str, 'ServiceType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls: pulumi.Input[Optional['TlsCertMethodArgs']] = None):
         """
         The set of arguments for constructing a BrokerListener resource.
 
@@ -163,110 +163,110 @@ class BrokerListenerArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationEnabled")
-    def authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag for enabling Authentication rules on Listener Port.
         """
         return pulumi.get(self, "authentication_enabled")
 
     @authentication_enabled.setter
-    def authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEnabled")
-    def authorization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def authorization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
         """
         return pulumi.get(self, "authorization_enabled")
 
     @authorization_enabled.setter
-    def authorization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def authorization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "authorization_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="listenerName")
-    def listener_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def listener_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of MQ broker/listener resource
         """
         return pulumi.get(self, "listener_name")
 
     @listener_name.setter
-    def listener_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def listener_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "listener_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePort")
-    def node_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The node port to use on the Host node.
         """
         return pulumi.get(self, "node_port")
 
     @node_port.setter
-    def node_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_port", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service name to expose Listener port on.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceType']]]:
+    def service_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceType']]]:
         """
         The Kubernetes Service type to deploy for Listener.
         """
         return pulumi.get(self, "service_type")
 
     @service_type.setter
-    def service_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceType']]]):
+    def service_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceType']]]):
         pulumi.set(self, "service_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input['TlsCertMethodArgs']]:
+    def tls(self) -> pulumi.Input[Optional['TlsCertMethodArgs']]:
         """
         Defines configuration of a TLS server certificate. NOTE Enum - Only one TLS Cert method is supported
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input['TlsCertMethodArgs']]):
+    def tls(self, value: pulumi.Input[Optional['TlsCertMethodArgs']]):
         pulumi.set(self, "tls", value)
 
 
@@ -276,27 +276,26 @@ class BrokerListener(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 broker_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 listener_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_type: Optional[pulumi.Input[Union[_builtins.str, 'ServiceType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls: Optional[pulumi.Input[Union['TlsCertMethodArgs', 'TlsCertMethodArgsDict']]] = None,
+                 authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 listener_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_type: pulumi.Input[Optional[Union[_builtins.str, 'ServiceType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls: pulumi.Input[Optional[Union['TlsCertMethodArgs', 'TlsCertMethodArgsDict']]] = None,
                  __props__=None):
         """
         MQ broker/listener resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,7 +326,6 @@ class BrokerListener(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-
         :param str resource_name: The name of the resource.
         :param BrokerListenerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,21 +341,21 @@ class BrokerListener(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 broker_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 listener_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_type: Optional[pulumi.Input[Union[_builtins.str, 'ServiceType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls: Optional[pulumi.Input[Union['TlsCertMethodArgs', 'TlsCertMethodArgsDict']]] = None,
+                 authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 listener_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_type: pulumi.Input[Optional[Union[_builtins.str, 'ServiceType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls: pulumi.Input[Optional[Union['TlsCertMethodArgs', 'TlsCertMethodArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

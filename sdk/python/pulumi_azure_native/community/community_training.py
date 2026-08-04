@@ -30,10 +30,10 @@ class CommunityTrainingArgs:
                  portal_owner_organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  zone_redundancy_enabled: pulumi.Input[_builtins.bool],
-                 community_training_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 community_training_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunityTraining resource.
 
@@ -165,50 +165,50 @@ class CommunityTrainingArgs:
 
     @_builtins.property
     @pulumi.getter(name="communityTrainingName")
-    def community_training_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def community_training_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Community Training Resource
         """
         return pulumi.get(self, "community_training_name")
 
     @community_training_name.setter
-    def community_training_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def community_training_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "community_training_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -218,24 +218,23 @@ class CommunityTraining(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_training_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disaster_recovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_configuration: Optional[pulumi.Input[Union['IdentityConfigurationPropertiesArgs', 'IdentityConfigurationPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_admin_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_owner_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_owner_organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 community_training_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disaster_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_configuration: pulumi.Input[Optional[Union['IdentityConfigurationPropertiesArgs', 'IdentityConfigurationPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_admin_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_owner_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_owner_organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         A CommunityProviderHub resource
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,7 +262,6 @@ class CommunityTraining(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
-
         :param str resource_name: The name of the resource.
         :param CommunityTrainingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,18 +277,18 @@ class CommunityTraining(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_training_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disaster_recovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_configuration: Optional[pulumi.Input[Union['IdentityConfigurationPropertiesArgs', 'IdentityConfigurationPropertiesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_admin_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_owner_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_owner_organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 community_training_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disaster_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_configuration: pulumi.Input[Optional[Union['IdentityConfigurationPropertiesArgs', 'IdentityConfigurationPropertiesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_admin_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_owner_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_owner_organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

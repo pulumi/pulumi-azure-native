@@ -23,11 +23,11 @@ class CloudEndpointArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
                  sync_group_name: pulumi.Input[_builtins.str],
-                 azure_file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudEndpoint resource.
 
@@ -92,62 +92,62 @@ class CloudEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureFileShareName")
-    def azure_file_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_file_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure file share name
         """
         return pulumi.get(self, "azure_file_share_name")
 
     @azure_file_share_name.setter
-    def azure_file_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_file_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudEndpointName")
-    def cloud_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Cloud Endpoint object.
         """
         return pulumi.get(self, "cloud_endpoint_name")
 
     @cloud_endpoint_name.setter
-    def cloud_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage Account Resource Id
         """
         return pulumi.get(self, "storage_account_resource_id")
 
     @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountTenantId")
-    def storage_account_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage Account Tenant Id
         """
         return pulumi.get(self, "storage_account_tenant_id")
 
     @storage_account_tenant_id.setter
-    def storage_account_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_tenant_id", value)
 
 
@@ -157,14 +157,14 @@ class CloudEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Cloud Endpoint object.
@@ -172,7 +172,6 @@ class CloudEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +197,6 @@ class CloudEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CloudEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,14 +212,14 @@ class CloudEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloud_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

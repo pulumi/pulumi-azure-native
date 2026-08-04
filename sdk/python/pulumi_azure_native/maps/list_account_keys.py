@@ -95,7 +95,6 @@ def list_account_keys(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the Maps Account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -110,8 +109,8 @@ def list_account_keys(account_name: Optional[_builtins.str] = None,
         primary_key_last_updated=pulumi.get(__ret__, 'primary_key_last_updated'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
         secondary_key_last_updated=pulumi.get(__ret__, 'secondary_key_last_updated'))
-def list_account_keys_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_account_keys_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
@@ -119,7 +118,6 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2024-07-01-preview.
 
     Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the Maps Account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

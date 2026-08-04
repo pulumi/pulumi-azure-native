@@ -231,39 +231,39 @@ export interface IncidentArgs {
     /**
      * The reason the incident was closed
      */
-    classification?: pulumi.Input<string | enums.securityinsights.IncidentClassification>;
+    classification?: pulumi.Input<string | enums.securityinsights.IncidentClassification | undefined>;
     /**
      * Describes the reason the incident was closed
      */
-    classificationComment?: pulumi.Input<string>;
+    classificationComment?: pulumi.Input<string | undefined>;
     /**
      * The classification reason the incident was closed with
      */
-    classificationReason?: pulumi.Input<string | enums.securityinsights.IncidentClassificationReason>;
+    classificationReason?: pulumi.Input<string | enums.securityinsights.IncidentClassificationReason | undefined>;
     /**
      * The description of the incident
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The time of the first activity in the incident
      */
-    firstActivityTimeUtc?: pulumi.Input<string>;
+    firstActivityTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * Incident ID
      */
-    incidentId?: pulumi.Input<string>;
+    incidentId?: pulumi.Input<string | undefined>;
     /**
      * List of labels relevant to this incident
      */
-    labels?: pulumi.Input<pulumi.Input<inputs.securityinsights.IncidentLabelArgs>[]>;
+    labels?: pulumi.Input<pulumi.Input<inputs.securityinsights.IncidentLabelArgs>[] | undefined>;
     /**
      * The time of the last activity in the incident
      */
-    lastActivityTimeUtc?: pulumi.Input<string>;
+    lastActivityTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * Describes a user that the incident is assigned to
      */
-    owner?: pulumi.Input<inputs.securityinsights.IncidentOwnerInfoArgs>;
+    owner?: pulumi.Input<inputs.securityinsights.IncidentOwnerInfoArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

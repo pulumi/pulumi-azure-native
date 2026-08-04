@@ -23,13 +23,13 @@ __all__ = ['ConnectedEnvironmentArgs', 'ConnectedEnvironment']
 class ConnectedEnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input['CustomDomainConfigurationArgs']] = None,
-                 dapr_ai_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_configuration: pulumi.Input[Optional['CustomDomainConfigurationArgs']] = None,
+                 dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectedEnvironment resource.
 
@@ -72,86 +72,86 @@ class ConnectedEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectedEnvironmentName")
-    def connected_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connected_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the connectedEnvironment.
         """
         return pulumi.get(self, "connected_environment_name")
 
     @connected_environment_name.setter
-    def connected_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connected_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connected_environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainConfiguration")
-    def custom_domain_configuration(self) -> Optional[pulumi.Input['CustomDomainConfigurationArgs']]:
+    def custom_domain_configuration(self) -> pulumi.Input[Optional['CustomDomainConfigurationArgs']]:
         """
         Custom domain configuration for the environment
         """
         return pulumi.get(self, "custom_domain_configuration")
 
     @custom_domain_configuration.setter
-    def custom_domain_configuration(self, value: Optional[pulumi.Input['CustomDomainConfigurationArgs']]):
+    def custom_domain_configuration(self, value: pulumi.Input[Optional['CustomDomainConfigurationArgs']]):
         pulumi.set(self, "custom_domain_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="daprAIConnectionString")
-    def dapr_ai_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dapr_ai_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Insights connection string used by Dapr to export Service to Service communication telemetry
         """
         return pulumi.get(self, "dapr_ai_connection_string")
 
     @dapr_ai_connection_string.setter
-    def dapr_ai_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dapr_ai_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dapr_ai_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The complex type of the extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="staticIp")
-    def static_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Static IP of the connectedEnvironment
         """
         return pulumi.get(self, "static_ip")
 
     @static_ip.setter
-    def static_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,14 +161,14 @@ class ConnectedEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
-                 dapr_ai_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_configuration: pulumi.Input[Optional[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
+                 dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An environment for Kubernetes cluster specialized for web workloads by Azure App Service
@@ -176,7 +176,6 @@ class ConnectedEnvironment(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class ConnectedEnvironment(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class ConnectedEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_configuration: Optional[pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
-                 dapr_ai_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_configuration: pulumi.Input[Optional[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']]] = None,
+                 dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -24,7 +24,7 @@ class MigrationConfigArgs:
                  post_migration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_namespace: pulumi.Input[_builtins.str],
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MigrationConfig resource.
 
@@ -91,14 +91,14 @@ class MigrationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="configName")
-    def config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration name. Should always be "$default".
         """
         return pulumi.get(self, "config_name")
 
     @config_name.setter
-    def config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_name", value)
 
 
@@ -108,11 +108,11 @@ class MigrationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Single item in List or Get Migration Config operation
@@ -120,7 +120,6 @@ class MigrationConfig(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class MigrationConfig(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MigrationConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class MigrationConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_migration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_migration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,7 +280,7 @@ class MigrationConfig(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
-        Provisioning state of Migration Configuration 
+        Provisioning state of Migration Configuration
         """
         return pulumi.get(self, "provisioning_state")
 

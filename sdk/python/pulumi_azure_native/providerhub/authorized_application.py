@@ -23,8 +23,8 @@ __all__ = ['AuthorizedApplicationArgs', 'AuthorizedApplication']
 class AuthorizedApplicationArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[_builtins.str],
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['AuthorizedApplicationPropertiesArgs']] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['AuthorizedApplicationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthorizedApplication resource.
 
@@ -51,23 +51,23 @@ class AuthorizedApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application ID.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AuthorizedApplicationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['AuthorizedApplicationPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AuthorizedApplicationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['AuthorizedApplicationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -77,15 +77,14 @@ class AuthorizedApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AuthorizedApplicationPropertiesArgs', 'AuthorizedApplicationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AuthorizedApplicationPropertiesArgs', 'AuthorizedApplicationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2024-09-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class AuthorizedApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-
         :param str resource_name: The name of the resource.
         :param AuthorizedApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class AuthorizedApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['AuthorizedApplicationPropertiesArgs', 'AuthorizedApplicationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['AuthorizedApplicationPropertiesArgs', 'AuthorizedApplicationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

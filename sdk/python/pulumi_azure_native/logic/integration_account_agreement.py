@@ -30,10 +30,10 @@ class IntegrationAccountAgreementArgs:
                  host_partner: pulumi.Input[_builtins.str],
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agreement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 agreement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAgreement resource.
 
@@ -165,26 +165,26 @@ class IntegrationAccountAgreementArgs:
 
     @_builtins.property
     @pulumi.getter(name="agreementName")
-    def agreement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agreement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration account agreement name.
         """
         return pulumi.get(self, "agreement_name")
 
     @agreement_name.setter
-    def agreement_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agreement_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agreement_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
@@ -201,14 +201,14 @@ class IntegrationAccountAgreementArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -218,18 +218,18 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agreement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agreement_type: Optional[pulumi.Input['AgreementType']] = None,
-                 content: Optional[pulumi.Input[Union['AgreementContentArgs', 'AgreementContentArgsDict']]] = None,
-                 guest_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
-                 guest_partner: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
-                 host_partner: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 agreement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agreement_type: pulumi.Input[Optional['AgreementType']] = None,
+                 content: pulumi.Input[Optional[Union['AgreementContentArgs', 'AgreementContentArgsDict']]] = None,
+                 guest_identity: pulumi.Input[Optional[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
+                 guest_partner: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_identity: pulumi.Input[Optional[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
+                 host_partner: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The integration account agreement.
@@ -237,7 +237,6 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,7 +266,6 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAgreementArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,18 +281,18 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agreement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agreement_type: Optional[pulumi.Input['AgreementType']] = None,
-                 content: Optional[pulumi.Input[Union['AgreementContentArgs', 'AgreementContentArgsDict']]] = None,
-                 guest_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
-                 guest_partner: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_identity: Optional[pulumi.Input[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
-                 host_partner: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 agreement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agreement_type: pulumi.Input[Optional['AgreementType']] = None,
+                 content: pulumi.Input[Optional[Union['AgreementContentArgs', 'AgreementContentArgsDict']]] = None,
+                 guest_identity: pulumi.Input[Optional[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
+                 guest_partner: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_identity: pulumi.Input[Optional[Union['BusinessIdentityArgs', 'BusinessIdentityArgsDict']]] = None,
+                 host_partner: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

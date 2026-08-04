@@ -71,7 +71,6 @@ def list_policy_set_definition_version_all_at_management_group(management_group_
 
     Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str management_group_name: The name of the management group. The name is case insensitive.
     """
     __args__ = dict()
@@ -82,7 +81,7 @@ def list_policy_set_definition_version_all_at_management_group(management_group_
     return AwaitableListPolicySetDefinitionVersionAllAtManagementGroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_policy_set_definition_version_all_at_management_group_output(management_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_policy_set_definition_version_all_at_management_group_output(management_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllAtManagementGroupResult]:
     """
     This operation lists all the policy set definition versions for all policy set definitions at the management group scope.
@@ -90,7 +89,6 @@ def list_policy_set_definition_version_all_at_management_group_output(management
     Uses Azure REST API version 2025-01-01.
 
     Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str management_group_name: The name of the management group. The name is case insensitive.
     """

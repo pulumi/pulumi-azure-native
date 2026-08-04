@@ -22,10 +22,10 @@ class WebAppSitePushSettingsArgs:
                  is_push_enabled: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 dynamic_tags_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_whitelist_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags_requiring_auth: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_tags_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_whitelist_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags_requiring_auth: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppSitePushSettings resource.
 
@@ -37,7 +37,7 @@ class WebAppSitePushSettingsArgs:
         :param pulumi.Input[_builtins.str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         :param pulumi.Input[_builtins.str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
-               '_', '@', '#', '.', ':', '-'. 
+               '_', '@', '#', '.', ':', '-'.
                Validation should be performed at the PushRequestHandler.
         """
         pulumi.set(__self__, "is_push_enabled", is_push_enabled)
@@ -90,53 +90,53 @@ class WebAppSitePushSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicTagsJson")
-    def dynamic_tags_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dynamic_tags_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         """
         return pulumi.get(self, "dynamic_tags_json")
 
     @dynamic_tags_json.setter
-    def dynamic_tags_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dynamic_tags_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dynamic_tags_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="tagWhitelistJson")
-    def tag_whitelist_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_whitelist_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 
     @tag_whitelist_json.setter
-    def tag_whitelist_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_whitelist_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_whitelist_json", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsRequiringAuth")
-    def tags_requiring_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tags_requiring_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
         Tags can consist of alphanumeric characters and the following:
-        '_', '@', '#', '.', ':', '-'. 
+        '_', '@', '#', '.', ':', '-'.
         Validation should be performed at the PushRequestHandler.
         """
         return pulumi.get(self, "tags_requiring_auth")
 
     @tags_requiring_auth.setter
-    def tags_requiring_auth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tags_requiring_auth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tags_requiring_auth", value)
 
 
@@ -146,13 +146,13 @@ class WebAppSitePushSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dynamic_tags_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_push_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_whitelist_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags_requiring_auth: Optional[pulumi.Input[_builtins.str]] = None,
+                 dynamic_tags_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_push_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_whitelist_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags_requiring_auth: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Push settings for the App.
@@ -160,7 +160,6 @@ class WebAppSitePushSettings(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,7 +171,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         :param pulumi.Input[_builtins.str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
-               '_', '@', '#', '.', ':', '-'. 
+               '_', '@', '#', '.', ':', '-'.
                Validation should be performed at the PushRequestHandler.
         """
         ...
@@ -187,7 +186,6 @@ class WebAppSitePushSettings(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param WebAppSitePushSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -204,13 +202,13 @@ class WebAppSitePushSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dynamic_tags_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_push_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_whitelist_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags_requiring_auth: Optional[pulumi.Input[_builtins.str]] = None,
+                 dynamic_tags_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_push_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_whitelist_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags_requiring_auth: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,7 +321,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
         """
         Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
         Tags can consist of alphanumeric characters and the following:
-        '_', '@', '#', '.', ':', '-'. 
+        '_', '@', '#', '.', ':', '-'.
         Validation should be performed at the PushRequestHandler.
         """
         return pulumi.get(self, "tags_requiring_auth")

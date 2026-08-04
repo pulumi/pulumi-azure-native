@@ -140,7 +140,7 @@ export interface WorkloadClassifierArgs {
     /**
      * The workload classifier context.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * The name of the database.
      */
@@ -148,15 +148,15 @@ export interface WorkloadClassifierArgs {
     /**
      * The workload classifier end time for classification.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier importance.
      */
-    importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier label.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier member name.
      */
@@ -172,11 +172,11 @@ export interface WorkloadClassifierArgs {
     /**
      * The workload classifier start time for classification.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The name of the workload classifier to create/update.
      */
-    workloadClassifierName?: pulumi.Input<string>;
+    workloadClassifierName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workload group from which to receive the classifier from.
      */

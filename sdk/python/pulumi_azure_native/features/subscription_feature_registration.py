@@ -23,8 +23,8 @@ __all__ = ['SubscriptionFeatureRegistrationArgs', 'SubscriptionFeatureRegistrati
 class SubscriptionFeatureRegistrationArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[_builtins.str],
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['SubscriptionFeatureRegistrationPropertiesArgs']] = None):
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['SubscriptionFeatureRegistrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a SubscriptionFeatureRegistration resource.
 
@@ -51,23 +51,23 @@ class SubscriptionFeatureRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="featureName")
-    def feature_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The feature name.
         """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
-    def feature_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SubscriptionFeatureRegistrationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['SubscriptionFeatureRegistrationPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SubscriptionFeatureRegistrationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['SubscriptionFeatureRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -77,15 +77,14 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['SubscriptionFeatureRegistrationPropertiesArgs', 'SubscriptionFeatureRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SubscriptionFeatureRegistrationPropertiesArgs', 'SubscriptionFeatureRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Subscription feature registration details
 
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
-
         :param str resource_name: The name of the resource.
         :param SubscriptionFeatureRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['SubscriptionFeatureRegistrationPropertiesArgs', 'SubscriptionFeatureRegistrationPropertiesArgsDict']]] = None,
-                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SubscriptionFeatureRegistrationPropertiesArgs', 'SubscriptionFeatureRegistrationPropertiesArgsDict']]] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

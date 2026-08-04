@@ -149,7 +149,6 @@ def get_modernize_project(modernize_project_name: Optional[_builtins.str] = None
 
     Uses Azure REST API version 2022-05-01-preview.
 
-
     :param _builtins.str modernize_project_name: Modernize project name.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.
     :param _builtins.str subscription_id: Azure Subscription Id in which project was created.
@@ -171,15 +170,14 @@ def get_modernize_project(modernize_project_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_modernize_project_output(modernize_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_modernize_project_output(modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModernizeProjectResult]:
     """
     Gets the details of the modernize project.
 
     Uses Azure REST API version 2022-05-01-preview.
-
 
     :param _builtins.str modernize_project_name: Modernize project name.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.

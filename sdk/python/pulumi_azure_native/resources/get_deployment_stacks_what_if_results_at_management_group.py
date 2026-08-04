@@ -142,7 +142,6 @@ def get_deployment_stacks_what_if_results_at_management_group(deployment_stacks_
 
     Uses Azure REST API version 2025-07-01.
 
-
     :param _builtins.str deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
     :param _builtins.str management_group_id: The management group ID.
     """
@@ -161,14 +160,13 @@ def get_deployment_stacks_what_if_results_at_management_group(deployment_stacks_
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stacks_what_if_results_at_management_group_output(deployment_stacks_what_if_result_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                     management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_stacks_what_if_results_at_management_group_output(deployment_stacks_what_if_result_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                     management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStacksWhatIfResultsAtManagementGroupResult]:
     """
     Gets the Deployment stack with the given name.
 
     Uses Azure REST API version 2025-07-01.
-
 
     :param _builtins.str deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
     :param _builtins.str management_group_id: The management group ID.

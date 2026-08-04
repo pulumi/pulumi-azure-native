@@ -22,12 +22,12 @@ __all__ = ['SapDiscoverySiteArgs', 'SapDiscoverySite']
 class SapDiscoverySiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_discovery_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapDiscoverySite resource.
 
@@ -67,74 +67,74 @@ class SapDiscoverySiteArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extended location definition.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="masterSiteId")
-    def master_site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_site_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The master site ID from Azure Migrate.
         """
         return pulumi.get(self, "master_site_id")
 
     @master_site_id.setter
-    def master_site_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_site_id", value)
 
     @_builtins.property
     @pulumi.getter(name="migrateProjectId")
-    def migrate_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migrate_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The migrate project ID from Azure Migrate.
         """
         return pulumi.get(self, "migrate_project_id")
 
     @migrate_project_id.setter
-    def migrate_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migrate_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migrate_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sapDiscoverySiteName")
-    def sap_discovery_site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sap_discovery_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the discovery site resource for SAP Migration.
         """
         return pulumi.get(self, "sap_discovery_site_name")
 
     @sap_discovery_site_name.setter
-    def sap_discovery_site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sap_discovery_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sap_discovery_site_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,19 +144,18 @@ class SapDiscoverySite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_discovery_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Define the SAP Migration discovery site resource.
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class SapDiscoverySite(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param SapDiscoverySiteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class SapDiscoverySite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sap_discovery_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

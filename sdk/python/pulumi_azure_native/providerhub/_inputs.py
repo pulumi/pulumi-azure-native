@@ -36,12 +36,12 @@ __all__ = [
     'AuthorizationActionMappingArgsDict',
     'AuthorizedApplicationPropertiesArgs',
     'AuthorizedApplicationPropertiesArgsDict',
+    'CustomRolloutPropertiesArgs',
+    'CustomRolloutPropertiesArgsDict',
     'CustomRolloutPropertiesSpecificationArgs',
     'CustomRolloutPropertiesSpecificationArgsDict',
     'CustomRolloutPropertiesStatusArgs',
     'CustomRolloutPropertiesStatusArgsDict',
-    'CustomRolloutPropertiesArgs',
-    'CustomRolloutPropertiesArgsDict',
     'CustomRolloutSpecificationAutoProvisionConfigArgs',
     'CustomRolloutSpecificationAutoProvisionConfigArgsDict',
     'CustomRolloutSpecificationCanaryArgs',
@@ -50,12 +50,12 @@ __all__ = [
     'CustomRolloutSpecificationProviderRegistrationArgsDict',
     'CustomRolloutStatusManifestCheckinStatusArgs',
     'CustomRolloutStatusManifestCheckinStatusArgsDict',
+    'DefaultRolloutPropertiesArgs',
+    'DefaultRolloutPropertiesArgsDict',
     'DefaultRolloutPropertiesSpecificationArgs',
     'DefaultRolloutPropertiesSpecificationArgsDict',
     'DefaultRolloutPropertiesStatusArgs',
     'DefaultRolloutPropertiesStatusArgsDict',
-    'DefaultRolloutPropertiesArgs',
-    'DefaultRolloutPropertiesArgsDict',
     'DefaultRolloutSpecificationAutoProvisionConfigArgs',
     'DefaultRolloutSpecificationAutoProvisionConfigArgsDict',
     'DefaultRolloutSpecificationCanaryArgs',
@@ -84,10 +84,10 @@ __all__ = [
     'ExtendedErrorInfoArgsDict',
     'ExtendedLocationOptionsArgs',
     'ExtendedLocationOptionsArgsDict',
-    'FanoutLinkedNotificationRuleDstsConfigurationArgs',
-    'FanoutLinkedNotificationRuleDstsConfigurationArgsDict',
     'FanoutLinkedNotificationRuleArgs',
     'FanoutLinkedNotificationRuleArgsDict',
+    'FanoutLinkedNotificationRuleDstsConfigurationArgs',
+    'FanoutLinkedNotificationRuleDstsConfigurationArgsDict',
     'FilterRuleArgs',
     'FilterRuleArgsDict',
     'LegacyDisallowedConditionArgs',
@@ -102,16 +102,16 @@ __all__ = [
     'LinkedOperationRuleArgsDict',
     'LocationQuotaRuleArgs',
     'LocationQuotaRuleArgsDict',
-    'LoggingRuleHiddenPropertyPathsArgs',
-    'LoggingRuleHiddenPropertyPathsArgsDict',
     'LoggingRuleArgs',
     'LoggingRuleArgsDict',
+    'LoggingRuleHiddenPropertyPathsArgs',
+    'LoggingRuleHiddenPropertyPathsArgsDict',
+    'NotificationArgs',
+    'NotificationArgsDict',
     'NotificationEndpointArgs',
     'NotificationEndpointArgsDict',
     'NotificationRegistrationPropertiesArgs',
     'NotificationRegistrationPropertiesArgsDict',
-    'NotificationArgs',
-    'NotificationArgsDict',
     'OpenApiConfigurationArgs',
     'OpenApiConfigurationArgsDict',
     'OpenApiValidationArgs',
@@ -120,14 +120,14 @@ __all__ = [
     'ProviderHubMetadataProviderAuthenticationArgsDict',
     'ProviderHubMetadataThirdPartyProviderAuthorizationArgs',
     'ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict',
+    'ProviderRegistrationPropertiesArgs',
+    'ProviderRegistrationPropertiesArgsDict',
     'ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs',
     'ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict',
     'ProviderRegistrationPropertiesProviderHubMetadataArgs',
     'ProviderRegistrationPropertiesProviderHubMetadataArgsDict',
     'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs',
     'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict',
-    'ProviderRegistrationPropertiesArgs',
-    'ProviderRegistrationPropertiesArgsDict',
     'QuotaRuleArgs',
     'QuotaRuleArgsDict',
     'ResourceAccessRoleArgs',
@@ -136,18 +136,18 @@ __all__ = [
     'ResourceConcurrencyControlOptionArgsDict',
     'ResourceHydrationAccountArgs',
     'ResourceHydrationAccountArgsDict',
+    'ResourceProviderAuthorizationArgs',
+    'ResourceProviderAuthorizationArgsDict',
     'ResourceProviderAuthorizationManagedByAuthorizationArgs',
     'ResourceProviderAuthorizationManagedByAuthorizationArgsDict',
     'ResourceProviderAuthorizationRulesArgs',
     'ResourceProviderAuthorizationRulesArgsDict',
-    'ResourceProviderAuthorizationArgs',
-    'ResourceProviderAuthorizationArgsDict',
     'ResourceProviderCapabilitiesArgs',
     'ResourceProviderCapabilitiesArgsDict',
-    'ResourceProviderEndpointFeaturesRuleArgs',
-    'ResourceProviderEndpointFeaturesRuleArgsDict',
     'ResourceProviderEndpointArgs',
     'ResourceProviderEndpointArgsDict',
+    'ResourceProviderEndpointFeaturesRuleArgs',
+    'ResourceProviderEndpointFeaturesRuleArgsDict',
     'ResourceProviderManagementErrorResponseMessageOptionsArgs',
     'ResourceProviderManagementErrorResponseMessageOptionsArgsDict',
     'ResourceProviderManagementExpeditedRolloutMetadataArgs',
@@ -172,18 +172,22 @@ __all__ = [
     'ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict',
     'ResourceProviderServiceArgs',
     'ResourceProviderServiceArgsDict',
+    'ResourceTypeEndpointArgs',
+    'ResourceTypeEndpointArgsDict',
     'ResourceTypeEndpointDstsConfigurationArgs',
     'ResourceTypeEndpointDstsConfigurationArgsDict',
     'ResourceTypeEndpointFeaturesRuleArgs',
     'ResourceTypeEndpointFeaturesRuleArgsDict',
-    'ResourceTypeEndpointArgs',
-    'ResourceTypeEndpointArgsDict',
-    'ResourceTypeExtensionOptionsResourceCreationBeginArgs',
-    'ResourceTypeExtensionOptionsResourceCreationBeginArgsDict',
     'ResourceTypeExtensionArgs',
     'ResourceTypeExtensionArgsDict',
+    'ResourceTypeExtensionOptionsResourceCreationBeginArgs',
+    'ResourceTypeExtensionOptionsResourceCreationBeginArgsDict',
     'ResourceTypeOnBehalfOfTokenArgs',
     'ResourceTypeOnBehalfOfTokenArgsDict',
+    'ResourceTypeRegistrationArgs',
+    'ResourceTypeRegistrationArgsDict',
+    'ResourceTypeRegistrationPropertiesArgs',
+    'ResourceTypeRegistrationPropertiesArgsDict',
     'ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs',
     'ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict',
     'ResourceTypeRegistrationPropertiesCapacityRuleArgs',
@@ -210,12 +214,12 @@ __all__ = [
     'ResourceTypeRegistrationPropertiesResourceCacheArgsDict',
     'ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs',
     'ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs',
+    'ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs',
     'ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict',
     'ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs',
     'ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict',
-    'ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs',
-    'ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesResourceMovePolicyArgs',
     'ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict',
     'ResourceTypeRegistrationPropertiesResourceQueryManagementArgs',
@@ -230,10 +234,6 @@ __all__ = [
     'ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict',
     'ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs',
     'ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict',
-    'ResourceTypeRegistrationPropertiesArgs',
-    'ResourceTypeRegistrationPropertiesArgsDict',
-    'ResourceTypeRegistrationArgs',
-    'ResourceTypeRegistrationArgsDict',
     'ServiceTreeInfoArgs',
     'ServiceTreeInfoArgsDict',
     'SkuCapabilityArgs',
@@ -244,10 +244,10 @@ __all__ = [
     'SkuLocationInfoArgsDict',
     'SkuResourcePropertiesArgs',
     'SkuResourcePropertiesArgsDict',
-    'SkuSettingCapacityArgs',
-    'SkuSettingCapacityArgsDict',
     'SkuSettingArgs',
     'SkuSettingArgsDict',
+    'SkuSettingCapacityArgs',
+    'SkuSettingCapacityArgsDict',
     'SkuZoneDetailArgs',
     'SkuZoneDetailArgsDict',
     'SubscriberSettingArgs',
@@ -271,14 +271,14 @@ __all__ = [
 ]
 
 class AdditionalAuthorizationArgsDict(TypedDict):
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
-    role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AdditionalAuthorizationArgs:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
         if role_definition_id is not None:
@@ -286,29 +286,29 @@ class AdditionalAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
 
 class AllowedResourceNameArgsDict(TypedDict):
-    get_action_verb: NotRequired[pulumi.Input[_builtins.str]]
+    get_action_verb: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Get action verb.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource name.
     """
@@ -316,8 +316,8 @@ class AllowedResourceNameArgsDict(TypedDict):
 @pulumi.input_type
 class AllowedResourceNameArgs:
     def __init__(__self__, *,
-                 get_action_verb: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 get_action_verb: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] get_action_verb: Get action verb.
         :param pulumi.Input[_builtins.str] name: Resource name.
@@ -329,35 +329,35 @@ class AllowedResourceNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="getActionVerb")
-    def get_action_verb(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def get_action_verb(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Get action verb.
         """
         return pulumi.get(self, "get_action_verb")
 
     @get_action_verb.setter
-    def get_action_verb(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def get_action_verb(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "get_action_verb", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class AllowedUnauthorizedActionsExtensionArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action.
     """
-    intent: NotRequired[pulumi.Input[Union[_builtins.str, 'Intent']]]
+    intent: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Intent']]]]
     """
     The intent.
     """
@@ -365,8 +365,8 @@ class AllowedUnauthorizedActionsExtensionArgsDict(TypedDict):
 @pulumi.input_type
 class AllowedUnauthorizedActionsExtensionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 intent: Optional[pulumi.Input[Union[_builtins.str, 'Intent']]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 intent: pulumi.Input[Optional[Union[_builtins.str, 'Intent']]] = None):
         """
         :param pulumi.Input[_builtins.str] action: The action.
         :param pulumi.Input[Union[_builtins.str, 'Intent']] intent: The intent.
@@ -378,35 +378,35 @@ class AllowedUnauthorizedActionsExtensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def intent(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Intent']]]:
+    def intent(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Intent']]]:
         """
         The intent.
         """
         return pulumi.get(self, "intent")
 
     @intent.setter
-    def intent(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Intent']]]):
+    def intent(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Intent']]]):
         pulumi.set(self, "intent", value)
 
 
 class ApiProfileArgsDict(TypedDict):
-    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Api version.
     """
-    profile_version: NotRequired[pulumi.Input[_builtins.str]]
+    profile_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Profile version.
     """
@@ -414,8 +414,8 @@ class ApiProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ApiProfileArgs:
     def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] api_version: Api version.
         :param pulumi.Input[_builtins.str] profile_version: Profile version.
@@ -427,26 +427,26 @@ class ApiProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Api version.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="profileVersion")
-    def profile_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile version.
         """
         return pulumi.get(self, "profile_version")
 
     @profile_version.setter
-    def profile_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_version", value)
 
 
@@ -455,7 +455,7 @@ class ApplicationDataAuthorizationArgsDict(TypedDict):
     """
     The ownership role the application has on the resource types. The service owner role gives the application owner permissions. The limited owner role gives elevated permissions but does not allow all the permissions of a service owner, such as read/write on internal metadata.
     """
-    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The resource types from the defined resource types in the provider namespace that the application can access. If no resource types are specified and the role is service owner, the default is * which is all resource types
     """
@@ -464,7 +464,7 @@ class ApplicationDataAuthorizationArgsDict(TypedDict):
 class ApplicationDataAuthorizationArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[Union[_builtins.str, 'Role']],
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'Role']] role: The ownership role the application has on the resource types. The service owner role gives the application owner permissions. The limited owner role gives elevated permissions but does not allow all the permissions of a service owner, such as read/write on internal metadata.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: The resource types from the defined resource types in the provider namespace that the application can access. If no resource types are specified and the role is service owner, the default is * which is all resource types
@@ -487,23 +487,23 @@ class ApplicationDataAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resource types from the defined resource types in the provider namespace that the application can access. If no resource types are specified and the role is service owner, the default is * which is all resource types
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_types", value)
 
 
 class ApplicationProviderAuthorizationArgsDict(TypedDict):
-    managed_by_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    managed_by_role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The managed by role definition ID for the application.
     """
-    role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The role definition ID for the application.
     """
@@ -511,8 +511,8 @@ class ApplicationProviderAuthorizationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationProviderAuthorizationArgs:
     def __init__(__self__, *,
-                 managed_by_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 managed_by_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] managed_by_role_definition_id: The managed by role definition ID for the application.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID for the application.
@@ -524,35 +524,35 @@ class ApplicationProviderAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedByRoleDefinitionId")
-    def managed_by_role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The managed by role definition ID for the application.
         """
         return pulumi.get(self, "managed_by_role_definition_id")
 
     @managed_by_role_definition_id.setter
-    def managed_by_role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by_role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role definition ID for the application.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
 
 class AsyncOperationPollingRulesArgsDict(TypedDict):
-    additional_options: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]
+    additional_options: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]]
     """
     The additional options.
     """
-    authorization_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    authorization_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The authorization actions.
     """
@@ -560,8 +560,8 @@ class AsyncOperationPollingRulesArgsDict(TypedDict):
 @pulumi.input_type
 class AsyncOperationPollingRulesArgs:
     def __init__(__self__, *,
-                 additional_options: Optional[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]] = None,
-                 authorization_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_options: pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]] = None,
+                 authorization_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']] additional_options: The additional options.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_actions: The authorization actions.
@@ -573,32 +573,32 @@ class AsyncOperationPollingRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalOptions")
-    def additional_options(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]:
+    def additional_options(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]:
         """
         The additional options.
         """
         return pulumi.get(self, "additional_options")
 
     @additional_options.setter
-    def additional_options(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]):
+    def additional_options(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]):
         pulumi.set(self, "additional_options", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationActions")
-    def authorization_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorization_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The authorization actions.
         """
         return pulumi.get(self, "authorization_actions")
 
     @authorization_actions.setter
-    def authorization_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorization_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization_actions", value)
 
 
 class AsyncTimeoutRuleArgsDict(TypedDict):
-    action_name: NotRequired[pulumi.Input[_builtins.str]]
-    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    action_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is a TimeSpan property
     """
@@ -606,8 +606,8 @@ class AsyncTimeoutRuleArgsDict(TypedDict):
 @pulumi.input_type
 class AsyncTimeoutRuleArgs:
     def __init__(__self__, *,
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] timeout: This is a TimeSpan property
         """
@@ -618,32 +618,32 @@ class AsyncTimeoutRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionName")
-    def action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "action_name")
 
     @action_name.setter
-    def action_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a TimeSpan property
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeout", value)
 
 
 class AuthorizationActionMappingArgsDict(TypedDict):
-    desired: NotRequired[pulumi.Input[_builtins.str]]
+    desired: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The desired action name.
     """
-    original: NotRequired[pulumi.Input[_builtins.str]]
+    original: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The original action name.
     """
@@ -651,8 +651,8 @@ class AuthorizationActionMappingArgsDict(TypedDict):
 @pulumi.input_type
 class AuthorizationActionMappingArgs:
     def __init__(__self__, *,
-                 desired: Optional[pulumi.Input[_builtins.str]] = None,
-                 original: Optional[pulumi.Input[_builtins.str]] = None):
+                 desired: pulumi.Input[Optional[_builtins.str]] = None,
+                 original: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] desired: The desired action name.
         :param pulumi.Input[_builtins.str] original: The original action name.
@@ -664,41 +664,41 @@ class AuthorizationActionMappingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def desired(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The desired action name.
         """
         return pulumi.get(self, "desired")
 
     @desired.setter
-    def desired(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired", value)
 
     @_builtins.property
     @pulumi.getter
-    def original(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def original(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The original action name.
         """
         return pulumi.get(self, "original")
 
     @original.setter
-    def original(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def original(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "original", value)
 
 
 class AuthorizedApplicationPropertiesArgsDict(TypedDict):
-    data_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationDataAuthorizationArgsDict']]]]
+    data_authorizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataAuthorizationArgsDict']]]]]
     """
     The authorizations that determine the level of data access permissions on the specified resource types.
     """
-    provider_authorization: NotRequired[pulumi.Input['ApplicationProviderAuthorizationArgsDict']]
+    provider_authorization: NotRequired[pulumi.Input[Optional['ApplicationProviderAuthorizationArgsDict']]]
 
 @pulumi.input_type
 class AuthorizedApplicationPropertiesArgs:
     def __init__(__self__, *,
-                 data_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataAuthorizationArgs']]]] = None,
-                 provider_authorization: Optional[pulumi.Input['ApplicationProviderAuthorizationArgs']] = None):
+                 data_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataAuthorizationArgs']]]] = None,
+                 provider_authorization: pulumi.Input[Optional['ApplicationProviderAuthorizationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationDataAuthorizationArgs']]] data_authorizations: The authorizations that determine the level of data access permissions on the specified resource types.
         """
@@ -709,55 +709,103 @@ class AuthorizedApplicationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataAuthorizations")
-    def data_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataAuthorizationArgs']]]]:
+    def data_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataAuthorizationArgs']]]]:
         """
         The authorizations that determine the level of data access permissions on the specified resource types.
         """
         return pulumi.get(self, "data_authorizations")
 
     @data_authorizations.setter
-    def data_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataAuthorizationArgs']]]]):
+    def data_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataAuthorizationArgs']]]]):
         pulumi.set(self, "data_authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="providerAuthorization")
-    def provider_authorization(self) -> Optional[pulumi.Input['ApplicationProviderAuthorizationArgs']]:
+    def provider_authorization(self) -> pulumi.Input[Optional['ApplicationProviderAuthorizationArgs']]:
         return pulumi.get(self, "provider_authorization")
 
     @provider_authorization.setter
-    def provider_authorization(self, value: Optional[pulumi.Input['ApplicationProviderAuthorizationArgs']]):
+    def provider_authorization(self, value: pulumi.Input[Optional['ApplicationProviderAuthorizationArgs']]):
         pulumi.set(self, "provider_authorization", value)
+
+
+class CustomRolloutPropertiesArgsDict(TypedDict):
+    specification: pulumi.Input['CustomRolloutPropertiesSpecificationArgsDict']
+    """
+    The specification.
+    """
+    status: NotRequired[pulumi.Input[Optional['CustomRolloutPropertiesStatusArgsDict']]]
+    """
+    The status.
+    """
+
+@pulumi.input_type
+class CustomRolloutPropertiesArgs:
+    def __init__(__self__, *,
+                 specification: pulumi.Input['CustomRolloutPropertiesSpecificationArgs'],
+                 status: pulumi.Input[Optional['CustomRolloutPropertiesStatusArgs']] = None):
+        """
+        :param pulumi.Input['CustomRolloutPropertiesSpecificationArgs'] specification: The specification.
+        :param pulumi.Input['CustomRolloutPropertiesStatusArgs'] status: The status.
+        """
+        pulumi.set(__self__, "specification", specification)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def specification(self) -> pulumi.Input['CustomRolloutPropertiesSpecificationArgs']:
+        """
+        The specification.
+        """
+        return pulumi.get(self, "specification")
+
+    @specification.setter
+    def specification(self, value: pulumi.Input['CustomRolloutPropertiesSpecificationArgs']):
+        pulumi.set(self, "specification", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['CustomRolloutPropertiesStatusArgs']]:
+        """
+        The status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['CustomRolloutPropertiesStatusArgs']]):
+        pulumi.set(self, "status", value)
 
 
 class CustomRolloutPropertiesSpecificationArgsDict(TypedDict):
     """
     The specification.
     """
-    auto_provision_config: NotRequired[pulumi.Input['CustomRolloutSpecificationAutoProvisionConfigArgsDict']]
+    auto_provision_config: NotRequired[pulumi.Input[Optional['CustomRolloutSpecificationAutoProvisionConfigArgsDict']]]
     """
     The auto provisioning configuration.
     """
-    canary: NotRequired[pulumi.Input['CustomRolloutSpecificationCanaryArgsDict']]
+    canary: NotRequired[pulumi.Input[Optional['CustomRolloutSpecificationCanaryArgsDict']]]
     """
     The canary region configuration.
     """
-    provider_registration: NotRequired[pulumi.Input['CustomRolloutSpecificationProviderRegistrationArgsDict']]
+    provider_registration: NotRequired[pulumi.Input[Optional['CustomRolloutSpecificationProviderRegistrationArgsDict']]]
     """
     The provider registration.
     """
-    refresh_subscription_registration: NotRequired[pulumi.Input[_builtins.bool]]
+    refresh_subscription_registration: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether refreshing subscription registration is enabled or disabled.
     """
-    release_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    release_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of ARM regions scoped for the release.
     """
-    resource_type_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]
+    resource_type_registrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]]
     """
     The resource type registrations.
     """
-    skip_release_scope_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_release_scope_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether release scope validation should be skipped.
     """
@@ -765,13 +813,13 @@ class CustomRolloutPropertiesSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class CustomRolloutPropertiesSpecificationArgs:
     def __init__(__self__, *,
-                 auto_provision_config: Optional[pulumi.Input['CustomRolloutSpecificationAutoProvisionConfigArgs']] = None,
-                 canary: Optional[pulumi.Input['CustomRolloutSpecificationCanaryArgs']] = None,
-                 provider_registration: Optional[pulumi.Input['CustomRolloutSpecificationProviderRegistrationArgs']] = None,
-                 refresh_subscription_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 release_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_type_registrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]] = None,
-                 skip_release_scope_validation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_provision_config: pulumi.Input[Optional['CustomRolloutSpecificationAutoProvisionConfigArgs']] = None,
+                 canary: pulumi.Input[Optional['CustomRolloutSpecificationCanaryArgs']] = None,
+                 provider_registration: pulumi.Input[Optional['CustomRolloutSpecificationProviderRegistrationArgs']] = None,
+                 refresh_subscription_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 release_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_type_registrations: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]] = None,
+                 skip_release_scope_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The specification.
 
@@ -800,86 +848,86 @@ class CustomRolloutPropertiesSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoProvisionConfig")
-    def auto_provision_config(self) -> Optional[pulumi.Input['CustomRolloutSpecificationAutoProvisionConfigArgs']]:
+    def auto_provision_config(self) -> pulumi.Input[Optional['CustomRolloutSpecificationAutoProvisionConfigArgs']]:
         """
         The auto provisioning configuration.
         """
         return pulumi.get(self, "auto_provision_config")
 
     @auto_provision_config.setter
-    def auto_provision_config(self, value: Optional[pulumi.Input['CustomRolloutSpecificationAutoProvisionConfigArgs']]):
+    def auto_provision_config(self, value: pulumi.Input[Optional['CustomRolloutSpecificationAutoProvisionConfigArgs']]):
         pulumi.set(self, "auto_provision_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def canary(self) -> Optional[pulumi.Input['CustomRolloutSpecificationCanaryArgs']]:
+    def canary(self) -> pulumi.Input[Optional['CustomRolloutSpecificationCanaryArgs']]:
         """
         The canary region configuration.
         """
         return pulumi.get(self, "canary")
 
     @canary.setter
-    def canary(self, value: Optional[pulumi.Input['CustomRolloutSpecificationCanaryArgs']]):
+    def canary(self, value: pulumi.Input[Optional['CustomRolloutSpecificationCanaryArgs']]):
         pulumi.set(self, "canary", value)
 
     @_builtins.property
     @pulumi.getter(name="providerRegistration")
-    def provider_registration(self) -> Optional[pulumi.Input['CustomRolloutSpecificationProviderRegistrationArgs']]:
+    def provider_registration(self) -> pulumi.Input[Optional['CustomRolloutSpecificationProviderRegistrationArgs']]:
         """
         The provider registration.
         """
         return pulumi.get(self, "provider_registration")
 
     @provider_registration.setter
-    def provider_registration(self, value: Optional[pulumi.Input['CustomRolloutSpecificationProviderRegistrationArgs']]):
+    def provider_registration(self, value: pulumi.Input[Optional['CustomRolloutSpecificationProviderRegistrationArgs']]):
         pulumi.set(self, "provider_registration", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshSubscriptionRegistration")
-    def refresh_subscription_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def refresh_subscription_registration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether refreshing subscription registration is enabled or disabled.
         """
         return pulumi.get(self, "refresh_subscription_registration")
 
     @refresh_subscription_registration.setter
-    def refresh_subscription_registration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def refresh_subscription_registration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "refresh_subscription_registration", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseScopes")
-    def release_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def release_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of ARM regions scoped for the release.
         """
         return pulumi.get(self, "release_scopes")
 
     @release_scopes.setter
-    def release_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def release_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "release_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeRegistrations")
-    def resource_type_registrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]:
+    def resource_type_registrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]:
         """
         The resource type registrations.
         """
         return pulumi.get(self, "resource_type_registrations")
 
     @resource_type_registrations.setter
-    def resource_type_registrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]):
+    def resource_type_registrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]):
         pulumi.set(self, "resource_type_registrations", value)
 
     @_builtins.property
     @pulumi.getter(name="skipReleaseScopeValidation")
-    def skip_release_scope_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_release_scope_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether release scope validation should be skipped.
         """
         return pulumi.get(self, "skip_release_scope_validation")
 
     @skip_release_scope_validation.setter
-    def skip_release_scope_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_release_scope_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_release_scope_validation", value)
 
 
@@ -887,15 +935,15 @@ class CustomRolloutPropertiesStatusArgsDict(TypedDict):
     """
     The status.
     """
-    completed_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    completed_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The completed regions.
     """
-    failed_or_skipped_regions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+    failed_or_skipped_regions: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]]
     """
     The failed or skipped regions.
     """
-    manifest_checkin_status: NotRequired[pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgsDict']]
+    manifest_checkin_status: NotRequired[pulumi.Input[Optional['CustomRolloutStatusManifestCheckinStatusArgsDict']]]
     """
     The manifest checkin status.
     """
@@ -903,9 +951,9 @@ class CustomRolloutPropertiesStatusArgsDict(TypedDict):
 @pulumi.input_type
 class CustomRolloutPropertiesStatusArgs:
     def __init__(__self__, *,
-                 completed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 failed_or_skipped_regions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
-                 manifest_checkin_status: Optional[pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgs']] = None):
+                 completed_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 failed_or_skipped_regions: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
+                 manifest_checkin_status: pulumi.Input[Optional['CustomRolloutStatusManifestCheckinStatusArgs']] = None):
         """
         The status.
 
@@ -922,101 +970,53 @@ class CustomRolloutPropertiesStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="completedRegions")
-    def completed_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def completed_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The completed regions.
         """
         return pulumi.get(self, "completed_regions")
 
     @completed_regions.setter
-    def completed_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def completed_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "completed_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="failedOrSkippedRegions")
-    def failed_or_skipped_regions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]:
+    def failed_or_skipped_regions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]:
         """
         The failed or skipped regions.
         """
         return pulumi.get(self, "failed_or_skipped_regions")
 
     @failed_or_skipped_regions.setter
-    def failed_or_skipped_regions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]):
+    def failed_or_skipped_regions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]):
         pulumi.set(self, "failed_or_skipped_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestCheckinStatus")
-    def manifest_checkin_status(self) -> Optional[pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgs']]:
+    def manifest_checkin_status(self) -> pulumi.Input[Optional['CustomRolloutStatusManifestCheckinStatusArgs']]:
         """
         The manifest checkin status.
         """
         return pulumi.get(self, "manifest_checkin_status")
 
     @manifest_checkin_status.setter
-    def manifest_checkin_status(self, value: Optional[pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgs']]):
+    def manifest_checkin_status(self, value: pulumi.Input[Optional['CustomRolloutStatusManifestCheckinStatusArgs']]):
         pulumi.set(self, "manifest_checkin_status", value)
-
-
-class CustomRolloutPropertiesArgsDict(TypedDict):
-    specification: pulumi.Input['CustomRolloutPropertiesSpecificationArgsDict']
-    """
-    The specification.
-    """
-    status: NotRequired[pulumi.Input['CustomRolloutPropertiesStatusArgsDict']]
-    """
-    The status.
-    """
-
-@pulumi.input_type
-class CustomRolloutPropertiesArgs:
-    def __init__(__self__, *,
-                 specification: pulumi.Input['CustomRolloutPropertiesSpecificationArgs'],
-                 status: Optional[pulumi.Input['CustomRolloutPropertiesStatusArgs']] = None):
-        """
-        :param pulumi.Input['CustomRolloutPropertiesSpecificationArgs'] specification: The specification.
-        :param pulumi.Input['CustomRolloutPropertiesStatusArgs'] status: The status.
-        """
-        pulumi.set(__self__, "specification", specification)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def specification(self) -> pulumi.Input['CustomRolloutPropertiesSpecificationArgs']:
-        """
-        The specification.
-        """
-        return pulumi.get(self, "specification")
-
-    @specification.setter
-    def specification(self, value: pulumi.Input['CustomRolloutPropertiesSpecificationArgs']):
-        pulumi.set(self, "specification", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['CustomRolloutPropertiesStatusArgs']]:
-        """
-        The status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input['CustomRolloutPropertiesStatusArgs']]):
-        pulumi.set(self, "status", value)
 
 
 class CustomRolloutSpecificationAutoProvisionConfigArgsDict(TypedDict):
     """
     The auto provisioning configuration.
     """
-    resource_graph: NotRequired[pulumi.Input[_builtins.bool]]
-    storage: NotRequired[pulumi.Input[_builtins.bool]]
+    resource_graph: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    storage: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class CustomRolloutSpecificationAutoProvisionConfigArgs:
     def __init__(__self__, *,
-                 resource_graph: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage: Optional[pulumi.Input[_builtins.bool]] = None):
+                 resource_graph: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The auto provisioning configuration.
         """
@@ -1027,20 +1027,20 @@ class CustomRolloutSpecificationAutoProvisionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceGraph")
-    def resource_graph(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resource_graph(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "resource_graph")
 
     @resource_graph.setter
-    def resource_graph(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resource_graph(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resource_graph", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage", value)
 
 
@@ -1048,12 +1048,12 @@ class CustomRolloutSpecificationCanaryArgsDict(TypedDict):
     """
     The canary region configuration.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class CustomRolloutSpecificationCanaryArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The canary region configuration.
         """
@@ -1062,11 +1062,11 @@ class CustomRolloutSpecificationCanaryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
 
@@ -1074,17 +1074,17 @@ class CustomRolloutSpecificationProviderRegistrationArgsDict(TypedDict):
     """
     The provider registration.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]]
     """
     Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
     """
-    properties: NotRequired[pulumi.Input['ProviderRegistrationPropertiesArgsDict']]
+    properties: NotRequired[pulumi.Input[Optional['ProviderRegistrationPropertiesArgsDict']]]
 
 @pulumi.input_type
 class CustomRolloutSpecificationProviderRegistrationArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None):
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']] = None):
         """
         The provider registration.
 
@@ -1099,23 +1099,23 @@ class CustomRolloutSpecificationProviderRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]:
         """
         Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -1131,11 +1131,11 @@ class CustomRolloutStatusManifestCheckinStatusArgsDict(TypedDict):
     """
     The status message.
     """
-    commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    commit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The commit id.
     """
-    pull_request: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pull request.
     """
@@ -1145,8 +1145,8 @@ class CustomRolloutStatusManifestCheckinStatusArgs:
     def __init__(__self__, *,
                  is_checked_in: pulumi.Input[_builtins.bool],
                  status_message: pulumi.Input[_builtins.str],
-                 commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request: Optional[pulumi.Input[_builtins.str]] = None):
+                 commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The manifest checkin status.
 
@@ -1188,70 +1188,119 @@ class CustomRolloutStatusManifestCheckinStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="commitId")
-    def commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit id.
         """
         return pulumi.get(self, "commit_id")
 
     @commit_id.setter
-    def commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequest")
-    def pull_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pull request.
         """
         return pulumi.get(self, "pull_request")
 
     @pull_request.setter
-    def pull_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request", value)
+
+
+class DefaultRolloutPropertiesArgsDict(TypedDict):
+    specification: NotRequired[pulumi.Input[Optional['DefaultRolloutPropertiesSpecificationArgsDict']]]
+    """
+    The default rollout specification.
+    """
+    status: NotRequired[pulumi.Input[Optional['DefaultRolloutPropertiesStatusArgsDict']]]
+    """
+    The default rollout status.
+    """
+
+@pulumi.input_type
+class DefaultRolloutPropertiesArgs:
+    def __init__(__self__, *,
+                 specification: pulumi.Input[Optional['DefaultRolloutPropertiesSpecificationArgs']] = None,
+                 status: pulumi.Input[Optional['DefaultRolloutPropertiesStatusArgs']] = None):
+        """
+        :param pulumi.Input['DefaultRolloutPropertiesSpecificationArgs'] specification: The default rollout specification.
+        :param pulumi.Input['DefaultRolloutPropertiesStatusArgs'] status: The default rollout status.
+        """
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def specification(self) -> pulumi.Input[Optional['DefaultRolloutPropertiesSpecificationArgs']]:
+        """
+        The default rollout specification.
+        """
+        return pulumi.get(self, "specification")
+
+    @specification.setter
+    def specification(self, value: pulumi.Input[Optional['DefaultRolloutPropertiesSpecificationArgs']]):
+        pulumi.set(self, "specification", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['DefaultRolloutPropertiesStatusArgs']]:
+        """
+        The default rollout status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['DefaultRolloutPropertiesStatusArgs']]):
+        pulumi.set(self, "status", value)
 
 
 class DefaultRolloutPropertiesSpecificationArgsDict(TypedDict):
     """
     The default rollout specification.
     """
-    auto_provision_config: NotRequired[pulumi.Input['DefaultRolloutSpecificationAutoProvisionConfigArgsDict']]
+    auto_provision_config: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationAutoProvisionConfigArgsDict']]]
     """
     The auto provisioning config.
     """
-    canary: NotRequired[pulumi.Input['DefaultRolloutSpecificationCanaryArgsDict']]
+    canary: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationCanaryArgsDict']]]
     """
     The canary traffic region configuration.
     """
-    expedited_rollout: NotRequired[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgsDict']]
+    expedited_rollout: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationExpeditedRolloutArgsDict']]]
     """
     The expedited rollout definition.
     """
-    high_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgsDict']]
+    high_traffic: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationHighTrafficArgsDict']]]
     """
     The high traffic region configuration.
     """
-    low_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgsDict']]
+    low_traffic: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationLowTrafficArgsDict']]]
     """
     The low traffic region configuration.
     """
-    medium_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgsDict']]
+    medium_traffic: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationMediumTrafficArgsDict']]]
     """
     The medium traffic region configuration.
     """
-    provider_registration: NotRequired[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgsDict']]
+    provider_registration: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationProviderRegistrationArgsDict']]]
     """
     The provider registration.
     """
-    resource_type_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]
+    resource_type_registrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]]
     """
     The resource type registrations.
     """
-    rest_of_the_world_group_one: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict']]
+    rest_of_the_world_group_one: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict']]]
     """
     The rest of the world group one region configuration.
     """
-    rest_of_the_world_group_two: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict']]
+    rest_of_the_world_group_two: NotRequired[pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict']]]
     """
     The rest of the world group two region configuration.
     """
@@ -1259,16 +1308,16 @@ class DefaultRolloutPropertiesSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutPropertiesSpecificationArgs:
     def __init__(__self__, *,
-                 auto_provision_config: Optional[pulumi.Input['DefaultRolloutSpecificationAutoProvisionConfigArgs']] = None,
-                 canary: Optional[pulumi.Input['DefaultRolloutSpecificationCanaryArgs']] = None,
-                 expedited_rollout: Optional[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgs']] = None,
-                 high_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgs']] = None,
-                 low_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgs']] = None,
-                 medium_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgs']] = None,
-                 provider_registration: Optional[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgs']] = None,
-                 resource_type_registrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]] = None,
-                 rest_of_the_world_group_one: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']] = None,
-                 rest_of_the_world_group_two: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']] = None):
+                 auto_provision_config: pulumi.Input[Optional['DefaultRolloutSpecificationAutoProvisionConfigArgs']] = None,
+                 canary: pulumi.Input[Optional['DefaultRolloutSpecificationCanaryArgs']] = None,
+                 expedited_rollout: pulumi.Input[Optional['DefaultRolloutSpecificationExpeditedRolloutArgs']] = None,
+                 high_traffic: pulumi.Input[Optional['DefaultRolloutSpecificationHighTrafficArgs']] = None,
+                 low_traffic: pulumi.Input[Optional['DefaultRolloutSpecificationLowTrafficArgs']] = None,
+                 medium_traffic: pulumi.Input[Optional['DefaultRolloutSpecificationMediumTrafficArgs']] = None,
+                 provider_registration: pulumi.Input[Optional['DefaultRolloutSpecificationProviderRegistrationArgs']] = None,
+                 resource_type_registrations: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]] = None,
+                 rest_of_the_world_group_one: pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']] = None,
+                 rest_of_the_world_group_two: pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']] = None):
         """
         The default rollout specification.
 
@@ -1306,122 +1355,122 @@ class DefaultRolloutPropertiesSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoProvisionConfig")
-    def auto_provision_config(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationAutoProvisionConfigArgs']]:
+    def auto_provision_config(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationAutoProvisionConfigArgs']]:
         """
         The auto provisioning config.
         """
         return pulumi.get(self, "auto_provision_config")
 
     @auto_provision_config.setter
-    def auto_provision_config(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationAutoProvisionConfigArgs']]):
+    def auto_provision_config(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationAutoProvisionConfigArgs']]):
         pulumi.set(self, "auto_provision_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def canary(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationCanaryArgs']]:
+    def canary(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationCanaryArgs']]:
         """
         The canary traffic region configuration.
         """
         return pulumi.get(self, "canary")
 
     @canary.setter
-    def canary(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationCanaryArgs']]):
+    def canary(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationCanaryArgs']]):
         pulumi.set(self, "canary", value)
 
     @_builtins.property
     @pulumi.getter(name="expeditedRollout")
-    def expedited_rollout(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgs']]:
+    def expedited_rollout(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationExpeditedRolloutArgs']]:
         """
         The expedited rollout definition.
         """
         return pulumi.get(self, "expedited_rollout")
 
     @expedited_rollout.setter
-    def expedited_rollout(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgs']]):
+    def expedited_rollout(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationExpeditedRolloutArgs']]):
         pulumi.set(self, "expedited_rollout", value)
 
     @_builtins.property
     @pulumi.getter(name="highTraffic")
-    def high_traffic(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgs']]:
+    def high_traffic(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationHighTrafficArgs']]:
         """
         The high traffic region configuration.
         """
         return pulumi.get(self, "high_traffic")
 
     @high_traffic.setter
-    def high_traffic(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgs']]):
+    def high_traffic(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationHighTrafficArgs']]):
         pulumi.set(self, "high_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="lowTraffic")
-    def low_traffic(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgs']]:
+    def low_traffic(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationLowTrafficArgs']]:
         """
         The low traffic region configuration.
         """
         return pulumi.get(self, "low_traffic")
 
     @low_traffic.setter
-    def low_traffic(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgs']]):
+    def low_traffic(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationLowTrafficArgs']]):
         pulumi.set(self, "low_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="mediumTraffic")
-    def medium_traffic(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgs']]:
+    def medium_traffic(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationMediumTrafficArgs']]:
         """
         The medium traffic region configuration.
         """
         return pulumi.get(self, "medium_traffic")
 
     @medium_traffic.setter
-    def medium_traffic(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgs']]):
+    def medium_traffic(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationMediumTrafficArgs']]):
         pulumi.set(self, "medium_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="providerRegistration")
-    def provider_registration(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgs']]:
+    def provider_registration(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationProviderRegistrationArgs']]:
         """
         The provider registration.
         """
         return pulumi.get(self, "provider_registration")
 
     @provider_registration.setter
-    def provider_registration(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgs']]):
+    def provider_registration(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationProviderRegistrationArgs']]):
         pulumi.set(self, "provider_registration", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeRegistrations")
-    def resource_type_registrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]:
+    def resource_type_registrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]:
         """
         The resource type registrations.
         """
         return pulumi.get(self, "resource_type_registrations")
 
     @resource_type_registrations.setter
-    def resource_type_registrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]):
+    def resource_type_registrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]):
         pulumi.set(self, "resource_type_registrations", value)
 
     @_builtins.property
     @pulumi.getter(name="restOfTheWorldGroupOne")
-    def rest_of_the_world_group_one(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']]:
+    def rest_of_the_world_group_one(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']]:
         """
         The rest of the world group one region configuration.
         """
         return pulumi.get(self, "rest_of_the_world_group_one")
 
     @rest_of_the_world_group_one.setter
-    def rest_of_the_world_group_one(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']]):
+    def rest_of_the_world_group_one(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']]):
         pulumi.set(self, "rest_of_the_world_group_one", value)
 
     @_builtins.property
     @pulumi.getter(name="restOfTheWorldGroupTwo")
-    def rest_of_the_world_group_two(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']]:
+    def rest_of_the_world_group_two(self) -> pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']]:
         """
         The rest of the world group two region configuration.
         """
         return pulumi.get(self, "rest_of_the_world_group_two")
 
     @rest_of_the_world_group_two.setter
-    def rest_of_the_world_group_two(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']]):
+    def rest_of_the_world_group_two(self, value: pulumi.Input[Optional['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']]):
         pulumi.set(self, "rest_of_the_world_group_two", value)
 
 
@@ -1429,27 +1478,27 @@ class DefaultRolloutPropertiesStatusArgsDict(TypedDict):
     """
     The default rollout status.
     """
-    completed_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    completed_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The completed regions.
     """
-    failed_or_skipped_regions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+    failed_or_skipped_regions: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]]
     """
     The failed or skipped regions.
     """
-    manifest_checkin_status: NotRequired[pulumi.Input['DefaultRolloutStatusManifestCheckinStatusArgsDict']]
+    manifest_checkin_status: NotRequired[pulumi.Input[Optional['DefaultRolloutStatusManifestCheckinStatusArgsDict']]]
     """
     The manifest checkin status.
     """
-    next_traffic_region: NotRequired[pulumi.Input[Union[_builtins.str, 'TrafficRegionCategory']]]
+    next_traffic_region: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TrafficRegionCategory']]]]
     """
     The next traffic region.
     """
-    next_traffic_region_scheduled_time: NotRequired[pulumi.Input[_builtins.str]]
+    next_traffic_region_scheduled_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next traffic region scheduled time.
     """
-    subscription_reregistration_result: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionReregistrationResult']]]
+    subscription_reregistration_result: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionReregistrationResult']]]]
     """
     The subscription reregistration result.
     """
@@ -1457,12 +1506,12 @@ class DefaultRolloutPropertiesStatusArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutPropertiesStatusArgs:
     def __init__(__self__, *,
-                 completed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 failed_or_skipped_regions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
-                 manifest_checkin_status: Optional[pulumi.Input['DefaultRolloutStatusManifestCheckinStatusArgs']] = None,
-                 next_traffic_region: Optional[pulumi.Input[Union[_builtins.str, 'TrafficRegionCategory']]] = None,
-                 next_traffic_region_scheduled_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_reregistration_result: Optional[pulumi.Input[Union[_builtins.str, 'SubscriptionReregistrationResult']]] = None):
+                 completed_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 failed_or_skipped_regions: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
+                 manifest_checkin_status: pulumi.Input[Optional['DefaultRolloutStatusManifestCheckinStatusArgs']] = None,
+                 next_traffic_region: pulumi.Input[Optional[Union[_builtins.str, 'TrafficRegionCategory']]] = None,
+                 next_traffic_region_scheduled_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_reregistration_result: pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionReregistrationResult']]] = None):
         """
         The default rollout status.
 
@@ -1488,135 +1537,86 @@ class DefaultRolloutPropertiesStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="completedRegions")
-    def completed_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def completed_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The completed regions.
         """
         return pulumi.get(self, "completed_regions")
 
     @completed_regions.setter
-    def completed_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def completed_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "completed_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="failedOrSkippedRegions")
-    def failed_or_skipped_regions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]:
+    def failed_or_skipped_regions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]:
         """
         The failed or skipped regions.
         """
         return pulumi.get(self, "failed_or_skipped_regions")
 
     @failed_or_skipped_regions.setter
-    def failed_or_skipped_regions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]):
+    def failed_or_skipped_regions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]):
         pulumi.set(self, "failed_or_skipped_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestCheckinStatus")
-    def manifest_checkin_status(self) -> Optional[pulumi.Input['DefaultRolloutStatusManifestCheckinStatusArgs']]:
+    def manifest_checkin_status(self) -> pulumi.Input[Optional['DefaultRolloutStatusManifestCheckinStatusArgs']]:
         """
         The manifest checkin status.
         """
         return pulumi.get(self, "manifest_checkin_status")
 
     @manifest_checkin_status.setter
-    def manifest_checkin_status(self, value: Optional[pulumi.Input['DefaultRolloutStatusManifestCheckinStatusArgs']]):
+    def manifest_checkin_status(self, value: pulumi.Input[Optional['DefaultRolloutStatusManifestCheckinStatusArgs']]):
         pulumi.set(self, "manifest_checkin_status", value)
 
     @_builtins.property
     @pulumi.getter(name="nextTrafficRegion")
-    def next_traffic_region(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TrafficRegionCategory']]]:
+    def next_traffic_region(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TrafficRegionCategory']]]:
         """
         The next traffic region.
         """
         return pulumi.get(self, "next_traffic_region")
 
     @next_traffic_region.setter
-    def next_traffic_region(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TrafficRegionCategory']]]):
+    def next_traffic_region(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TrafficRegionCategory']]]):
         pulumi.set(self, "next_traffic_region", value)
 
     @_builtins.property
     @pulumi.getter(name="nextTrafficRegionScheduledTime")
-    def next_traffic_region_scheduled_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_traffic_region_scheduled_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next traffic region scheduled time.
         """
         return pulumi.get(self, "next_traffic_region_scheduled_time")
 
     @next_traffic_region_scheduled_time.setter
-    def next_traffic_region_scheduled_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_traffic_region_scheduled_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_traffic_region_scheduled_time", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionReregistrationResult")
-    def subscription_reregistration_result(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SubscriptionReregistrationResult']]]:
+    def subscription_reregistration_result(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionReregistrationResult']]]:
         """
         The subscription reregistration result.
         """
         return pulumi.get(self, "subscription_reregistration_result")
 
     @subscription_reregistration_result.setter
-    def subscription_reregistration_result(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SubscriptionReregistrationResult']]]):
+    def subscription_reregistration_result(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionReregistrationResult']]]):
         pulumi.set(self, "subscription_reregistration_result", value)
-
-
-class DefaultRolloutPropertiesArgsDict(TypedDict):
-    specification: NotRequired[pulumi.Input['DefaultRolloutPropertiesSpecificationArgsDict']]
-    """
-    The default rollout specification.
-    """
-    status: NotRequired[pulumi.Input['DefaultRolloutPropertiesStatusArgsDict']]
-    """
-    The default rollout status.
-    """
-
-@pulumi.input_type
-class DefaultRolloutPropertiesArgs:
-    def __init__(__self__, *,
-                 specification: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']] = None,
-                 status: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']] = None):
-        """
-        :param pulumi.Input['DefaultRolloutPropertiesSpecificationArgs'] specification: The default rollout specification.
-        :param pulumi.Input['DefaultRolloutPropertiesStatusArgs'] status: The default rollout status.
-        """
-        if specification is not None:
-            pulumi.set(__self__, "specification", specification)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def specification(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]:
-        """
-        The default rollout specification.
-        """
-        return pulumi.get(self, "specification")
-
-    @specification.setter
-    def specification(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]):
-        pulumi.set(self, "specification", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]:
-        """
-        The default rollout status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]):
-        pulumi.set(self, "status", value)
 
 
 class DefaultRolloutSpecificationAutoProvisionConfigArgsDict(TypedDict):
     """
     The auto provisioning config.
     """
-    resource_graph: NotRequired[pulumi.Input[_builtins.bool]]
+    resource_graph: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether auto provisioning for resource graph is enabled.
     """
-    storage: NotRequired[pulumi.Input[_builtins.bool]]
+    storage: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether auto provisioning for storage is enabled.
     """
@@ -1624,8 +1624,8 @@ class DefaultRolloutSpecificationAutoProvisionConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationAutoProvisionConfigArgs:
     def __init__(__self__, *,
-                 resource_graph: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage: Optional[pulumi.Input[_builtins.bool]] = None):
+                 resource_graph: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The auto provisioning config.
 
@@ -1639,26 +1639,26 @@ class DefaultRolloutSpecificationAutoProvisionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceGraph")
-    def resource_graph(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resource_graph(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether auto provisioning for resource graph is enabled.
         """
         return pulumi.get(self, "resource_graph")
 
     @resource_graph.setter
-    def resource_graph(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resource_graph(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resource_graph", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether auto provisioning for storage is enabled.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage", value)
 
 
@@ -1666,11 +1666,11 @@ class DefaultRolloutSpecificationCanaryArgsDict(TypedDict):
     """
     The canary traffic region configuration.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The regions.
     """
-    skip_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    skip_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The skip regions.
     """
@@ -1678,8 +1678,8 @@ class DefaultRolloutSpecificationCanaryArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationCanaryArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The canary traffic region configuration.
 
@@ -1693,26 +1693,26 @@ class DefaultRolloutSpecificationCanaryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The regions.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRegions")
-    def skip_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def skip_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The skip regions.
         """
         return pulumi.get(self, "skip_regions")
 
     @skip_regions.setter
-    def skip_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def skip_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "skip_regions", value)
 
 
@@ -1720,7 +1720,7 @@ class DefaultRolloutSpecificationExpeditedRolloutArgsDict(TypedDict):
     """
     The expedited rollout definition.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether expedited rollout is enabled/disabled
     """
@@ -1728,7 +1728,7 @@ class DefaultRolloutSpecificationExpeditedRolloutArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationExpeditedRolloutArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The expedited rollout definition.
 
@@ -1739,14 +1739,14 @@ class DefaultRolloutSpecificationExpeditedRolloutArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether expedited rollout is enabled/disabled
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -1754,8 +1754,8 @@ class DefaultRolloutSpecificationHighTrafficArgsDict(TypedDict):
     """
     The high traffic region configuration.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The wait duration.
     """
@@ -1763,8 +1763,8 @@ class DefaultRolloutSpecificationHighTrafficArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationHighTrafficArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The high traffic region configuration.
 
@@ -1777,23 +1777,23 @@ class DefaultRolloutSpecificationHighTrafficArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="waitDuration")
-    def wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The wait duration.
         """
         return pulumi.get(self, "wait_duration")
 
     @wait_duration.setter
-    def wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait_duration", value)
 
 
@@ -1801,8 +1801,8 @@ class DefaultRolloutSpecificationLowTrafficArgsDict(TypedDict):
     """
     The low traffic region configuration.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The wait duration.
     """
@@ -1810,8 +1810,8 @@ class DefaultRolloutSpecificationLowTrafficArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationLowTrafficArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The low traffic region configuration.
 
@@ -1824,23 +1824,23 @@ class DefaultRolloutSpecificationLowTrafficArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="waitDuration")
-    def wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The wait duration.
         """
         return pulumi.get(self, "wait_duration")
 
     @wait_duration.setter
-    def wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait_duration", value)
 
 
@@ -1848,8 +1848,8 @@ class DefaultRolloutSpecificationMediumTrafficArgsDict(TypedDict):
     """
     The medium traffic region configuration.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The wait duration.
     """
@@ -1857,8 +1857,8 @@ class DefaultRolloutSpecificationMediumTrafficArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationMediumTrafficArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The medium traffic region configuration.
 
@@ -1871,23 +1871,23 @@ class DefaultRolloutSpecificationMediumTrafficArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="waitDuration")
-    def wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The wait duration.
         """
         return pulumi.get(self, "wait_duration")
 
     @wait_duration.setter
-    def wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait_duration", value)
 
 
@@ -1895,17 +1895,17 @@ class DefaultRolloutSpecificationProviderRegistrationArgsDict(TypedDict):
     """
     The provider registration.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]]
     """
     Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
     """
-    properties: NotRequired[pulumi.Input['ProviderRegistrationPropertiesArgsDict']]
+    properties: NotRequired[pulumi.Input[Optional['ProviderRegistrationPropertiesArgsDict']]]
 
 @pulumi.input_type
 class DefaultRolloutSpecificationProviderRegistrationArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None):
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']] = None):
         """
         The provider registration.
 
@@ -1920,23 +1920,23 @@ class DefaultRolloutSpecificationProviderRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]:
         """
         Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -1944,8 +1944,8 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict(TypedDict):
     """
     The rest of the world group one region configuration.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The wait duration.
     """
@@ -1953,8 +1953,8 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The rest of the world group one region configuration.
 
@@ -1967,23 +1967,23 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="waitDuration")
-    def wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The wait duration.
         """
         return pulumi.get(self, "wait_duration")
 
     @wait_duration.setter
-    def wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait_duration", value)
 
 
@@ -1991,8 +1991,8 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict(TypedDict):
     """
     The rest of the world group two region configuration.
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The wait duration.
     """
@@ -2000,8 +2000,8 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The rest of the world group two region configuration.
 
@@ -2014,23 +2014,23 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="waitDuration")
-    def wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The wait duration.
         """
         return pulumi.get(self, "wait_duration")
 
     @wait_duration.setter
-    def wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait_duration", value)
 
 
@@ -2046,11 +2046,11 @@ class DefaultRolloutStatusManifestCheckinStatusArgsDict(TypedDict):
     """
     The status message.
     """
-    commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    commit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The commit id.
     """
-    pull_request: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pull request.
     """
@@ -2060,8 +2060,8 @@ class DefaultRolloutStatusManifestCheckinStatusArgs:
     def __init__(__self__, *,
                  is_checked_in: pulumi.Input[_builtins.bool],
                  status_message: pulumi.Input[_builtins.str],
-                 commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request: Optional[pulumi.Input[_builtins.str]] = None):
+                 commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The manifest checkin status.
 
@@ -2103,39 +2103,39 @@ class DefaultRolloutStatusManifestCheckinStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="commitId")
-    def commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit id.
         """
         return pulumi.get(self, "commit_id")
 
     @commit_id.setter
-    def commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequest")
-    def pull_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pull request.
         """
         return pulumi.get(self, "pull_request")
 
     @pull_request.setter
-    def pull_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request", value)
 
 
 class DeleteDependencyArgsDict(TypedDict):
-    linked_property: NotRequired[pulumi.Input[_builtins.str]]
+    linked_property: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Linked property.
     """
-    linked_type: NotRequired[pulumi.Input[_builtins.str]]
+    linked_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Linked type.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Required features.
     """
@@ -2143,9 +2143,9 @@ class DeleteDependencyArgsDict(TypedDict):
 @pulumi.input_type
 class DeleteDependencyArgs:
     def __init__(__self__, *,
-                 linked_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 linked_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] linked_property: Linked property.
         :param pulumi.Input[_builtins.str] linked_type: Linked type.
@@ -2160,51 +2160,51 @@ class DeleteDependencyArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkedProperty")
-    def linked_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Linked property.
         """
         return pulumi.get(self, "linked_property")
 
     @linked_property.setter
-    def linked_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_property", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedType")
-    def linked_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Linked type.
         """
         return pulumi.get(self, "linked_type")
 
     @linked_type.setter
-    def linked_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_type", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
 
 
 class EndpointInformationArgsDict(TypedDict):
-    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint.
     """
-    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationEndpointType']]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationEndpointType']]]]
     """
     The endpoint type.
     """
-    schema_version: NotRequired[pulumi.Input[_builtins.str]]
+    schema_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The schema version.
     """
@@ -2212,9 +2212,9 @@ class EndpointInformationArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointInformationArgs:
     def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[Union[_builtins.str, 'NotificationEndpointType']]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'NotificationEndpointType']]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint: The endpoint.
         :param pulumi.Input[Union[_builtins.str, 'NotificationEndpointType']] endpoint_type: The endpoint type.
@@ -2229,38 +2229,38 @@ class EndpointInformationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationEndpointType']]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationEndpointType']]]:
         """
         The endpoint type.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationEndpointType']]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationEndpointType']]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaVersion")
-    def schema_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema version.
         """
         return pulumi.get(self, "schema_version")
 
     @schema_version.setter
-    def schema_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_version", value)
 
 
@@ -2268,23 +2268,23 @@ class ExtendedErrorInfoArgsDict(TypedDict):
     """
     Error information.
     """
-    additional_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgsDict']]]]
+    additional_info: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TypedErrorInfoArgsDict']]]]]
     """
     The additional error information.
     """
-    code: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error code.
     """
-    details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+    details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedErrorInfoArgsDict']]]]]
     """
     The error details.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error message.
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The target of the error.
     """
@@ -2292,11 +2292,11 @@ class ExtendedErrorInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedErrorInfoArgs:
     def __init__(__self__, *,
-                 additional_info: Optional[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 details: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_info: pulumi.Input[Optional[Sequence[pulumi.Input['TypedErrorInfoArgs']]]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 details: pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Error information.
 
@@ -2319,68 +2319,68 @@ class ExtendedErrorInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]]]:
+    def additional_info(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TypedErrorInfoArgs']]]]:
         """
         The additional error information.
         """
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
-    def additional_info(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]]]):
+    def additional_info(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TypedErrorInfoArgs']]]]):
         pulumi.set(self, "additional_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]]:
+    def details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]]:
         """
         The error details.
         """
         return pulumi.get(self, "details")
 
     @details.setter
-    def details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]]):
+    def details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]]):
         pulumi.set(self, "details", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error message.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target of the error.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
 class ExtendedLocationOptionsArgsDict(TypedDict):
-    supported_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
+    supported_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]]
     """
     The type.
     """
@@ -2388,8 +2388,8 @@ class ExtendedLocationOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedLocationOptionsArgs:
     def __init__(__self__, *,
-                 supported_policy: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]] = None):
+                 supported_policy: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']] type: The type.
         """
@@ -2400,24 +2400,113 @@ class ExtendedLocationOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="supportedPolicy")
-    def supported_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]:
+    def supported_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]:
         return pulumi.get(self, "supported_policy")
 
     @supported_policy.setter
-    def supported_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]):
+    def supported_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]):
         pulumi.set(self, "supported_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]:
         """
         The type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]):
         pulumi.set(self, "type", value)
+
+
+class FanoutLinkedNotificationRuleArgsDict(TypedDict):
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The actions.
+    """
+    dsts_configuration: NotRequired[pulumi.Input[Optional['FanoutLinkedNotificationRuleDstsConfigurationArgsDict']]]
+    """
+    The dsts configuration.
+    """
+    endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]]
+    """
+    The endpoints.
+    """
+    token_auth_configuration: NotRequired[pulumi.Input[Optional['TokenAuthConfigurationArgsDict']]]
+    """
+    The token auth configuration.
+    """
+
+@pulumi.input_type
+class FanoutLinkedNotificationRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dsts_configuration: pulumi.Input[Optional['FanoutLinkedNotificationRuleDstsConfigurationArgs']] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]] = None,
+                 token_auth_configuration: pulumi.Input[Optional['TokenAuthConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions.
+        :param pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgs'] dsts_configuration: The dsts configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]] endpoints: The endpoints.
+        :param pulumi.Input['TokenAuthConfigurationArgs'] token_auth_configuration: The token auth configuration.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if dsts_configuration is not None:
+            pulumi.set(__self__, "dsts_configuration", dsts_configuration)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if token_auth_configuration is not None:
+            pulumi.set(__self__, "token_auth_configuration", token_auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The actions.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dstsConfiguration")
+    def dsts_configuration(self) -> pulumi.Input[Optional['FanoutLinkedNotificationRuleDstsConfigurationArgs']]:
+        """
+        The dsts configuration.
+        """
+        return pulumi.get(self, "dsts_configuration")
+
+    @dsts_configuration.setter
+    def dsts_configuration(self, value: pulumi.Input[Optional['FanoutLinkedNotificationRuleDstsConfigurationArgs']]):
+        pulumi.set(self, "dsts_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]:
+        """
+        The endpoints.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenAuthConfiguration")
+    def token_auth_configuration(self) -> pulumi.Input[Optional['TokenAuthConfigurationArgs']]:
+        """
+        The token auth configuration.
+        """
+        return pulumi.get(self, "token_auth_configuration")
+
+    @token_auth_configuration.setter
+    def token_auth_configuration(self, value: pulumi.Input[Optional['TokenAuthConfigurationArgs']]):
+        pulumi.set(self, "token_auth_configuration", value)
 
 
 class FanoutLinkedNotificationRuleDstsConfigurationArgsDict(TypedDict):
@@ -2428,7 +2517,7 @@ class FanoutLinkedNotificationRuleDstsConfigurationArgsDict(TypedDict):
     """
     The service name.
     """
-    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is a URI property.
     """
@@ -2437,7 +2526,7 @@ class FanoutLinkedNotificationRuleDstsConfigurationArgsDict(TypedDict):
 class FanoutLinkedNotificationRuleDstsConfigurationArgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[_builtins.str],
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The dsts configuration.
 
@@ -2462,112 +2551,23 @@ class FanoutLinkedNotificationRuleDstsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a URI property.
         """
         return pulumi.get(self, "service_dns_name")
 
     @service_dns_name.setter
-    def service_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_dns_name", value)
 
 
-class FanoutLinkedNotificationRuleArgsDict(TypedDict):
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The actions.
-    """
-    dsts_configuration: NotRequired[pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgsDict']]
-    """
-    The dsts configuration.
-    """
-    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
-    """
-    The endpoints.
-    """
-    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
-    """
-    The token auth configuration.
-    """
-
-@pulumi.input_type
-class FanoutLinkedNotificationRuleArgs:
-    def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dsts_configuration: Optional[pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgs']] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]] = None,
-                 token_auth_configuration: Optional[pulumi.Input['TokenAuthConfigurationArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions.
-        :param pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgs'] dsts_configuration: The dsts configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]] endpoints: The endpoints.
-        :param pulumi.Input['TokenAuthConfigurationArgs'] token_auth_configuration: The token auth configuration.
-        """
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if dsts_configuration is not None:
-            pulumi.set(__self__, "dsts_configuration", dsts_configuration)
-        if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
-        if token_auth_configuration is not None:
-            pulumi.set(__self__, "token_auth_configuration", token_auth_configuration)
-
-    @_builtins.property
-    @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The actions.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "actions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional[pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgs']]:
-        """
-        The dsts configuration.
-        """
-        return pulumi.get(self, "dsts_configuration")
-
-    @dsts_configuration.setter
-    def dsts_configuration(self, value: Optional[pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgs']]):
-        pulumi.set(self, "dsts_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]:
-        """
-        The endpoints.
-        """
-        return pulumi.get(self, "endpoints")
-
-    @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]):
-        pulumi.set(self, "endpoints", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tokenAuthConfiguration")
-    def token_auth_configuration(self) -> Optional[pulumi.Input['TokenAuthConfigurationArgs']]:
-        """
-        The token auth configuration.
-        """
-        return pulumi.get(self, "token_auth_configuration")
-
-    @token_auth_configuration.setter
-    def token_auth_configuration(self, value: Optional[pulumi.Input['TokenAuthConfigurationArgs']]):
-        pulumi.set(self, "token_auth_configuration", value)
-
-
 class FilterRuleArgsDict(TypedDict):
-    endpoint_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointInformationArgsDict']]]]
+    endpoint_information: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointInformationArgsDict']]]]]
     """
     The endpoint information.
     """
-    filter_query: NotRequired[pulumi.Input[_builtins.str]]
+    filter_query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filter query.
     """
@@ -2575,8 +2575,8 @@ class FilterRuleArgsDict(TypedDict):
 @pulumi.input_type
 class FilterRuleArgs:
     def __init__(__self__, *,
-                 endpoint_information: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointInformationArgs']]]] = None,
-                 filter_query: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_information: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointInformationArgs']]]] = None,
+                 filter_query: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EndpointInformationArgs']]] endpoint_information: The endpoint information.
         :param pulumi.Input[_builtins.str] filter_query: The filter query.
@@ -2588,35 +2588,35 @@ class FilterRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointInformation")
-    def endpoint_information(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointInformationArgs']]]]:
+    def endpoint_information(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointInformationArgs']]]]:
         """
         The endpoint information.
         """
         return pulumi.get(self, "endpoint_information")
 
     @endpoint_information.setter
-    def endpoint_information(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointInformationArgs']]]]):
+    def endpoint_information(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointInformationArgs']]]]):
         pulumi.set(self, "endpoint_information", value)
 
     @_builtins.property
     @pulumi.getter(name="filterQuery")
-    def filter_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filter query.
         """
         return pulumi.get(self, "filter_query")
 
     @filter_query.setter
-    def filter_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_query", value)
 
 
 class LegacyDisallowedConditionArgsDict(TypedDict):
-    disallowed_legacy_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]
+    disallowed_legacy_operations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]]
     """
     The disallowed legacy operations.
     """
-    feature: NotRequired[pulumi.Input[_builtins.str]]
+    feature: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Feature string.
     """
@@ -2624,8 +2624,8 @@ class LegacyDisallowedConditionArgsDict(TypedDict):
 @pulumi.input_type
 class LegacyDisallowedConditionArgs:
     def __init__(__self__, *,
-                 disallowed_legacy_operations: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]] = None,
-                 feature: Optional[pulumi.Input[_builtins.str]] = None):
+                 disallowed_legacy_operations: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]] = None,
+                 feature: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]] disallowed_legacy_operations: The disallowed legacy operations.
         :param pulumi.Input[_builtins.str] feature: Feature string.
@@ -2637,26 +2637,26 @@ class LegacyDisallowedConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="disallowedLegacyOperations")
-    def disallowed_legacy_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]:
+    def disallowed_legacy_operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]:
         """
         The disallowed legacy operations.
         """
         return pulumi.get(self, "disallowed_legacy_operations")
 
     @disallowed_legacy_operations.setter
-    def disallowed_legacy_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]):
+    def disallowed_legacy_operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]):
         pulumi.set(self, "disallowed_legacy_operations", value)
 
     @_builtins.property
     @pulumi.getter
-    def feature(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Feature string.
         """
         return pulumi.get(self, "feature")
 
     @feature.setter
-    def feature(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature", value)
 
 
@@ -2708,23 +2708,23 @@ class LightHouseAuthorizationArgs:
 
 
 class LinkedAccessCheckArgsDict(TypedDict):
-    action_name: NotRequired[pulumi.Input[_builtins.str]]
+    action_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action name.
     """
-    linked_action: NotRequired[pulumi.Input[_builtins.str]]
+    linked_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The linked action.
     """
-    linked_action_verb: NotRequired[pulumi.Input[_builtins.str]]
+    linked_action_verb: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The linked action verb.
     """
-    linked_property: NotRequired[pulumi.Input[_builtins.str]]
+    linked_property: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The linked property.
     """
-    linked_type: NotRequired[pulumi.Input[_builtins.str]]
+    linked_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The linked type.
     """
@@ -2732,11 +2732,11 @@ class LinkedAccessCheckArgsDict(TypedDict):
 @pulumi.input_type
 class LinkedAccessCheckArgs:
     def __init__(__self__, *,
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_action_verb: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_action_verb: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] action_name: The action name.
         :param pulumi.Input[_builtins.str] linked_action: The linked action.
@@ -2757,83 +2757,83 @@ class LinkedAccessCheckArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionName")
-    def action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action name.
         """
         return pulumi.get(self, "action_name")
 
     @action_name.setter
-    def action_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_name", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedAction")
-    def linked_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The linked action.
         """
         return pulumi.get(self, "linked_action")
 
     @linked_action.setter
-    def linked_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_action", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedActionVerb")
-    def linked_action_verb(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_action_verb(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The linked action verb.
         """
         return pulumi.get(self, "linked_action_verb")
 
     @linked_action_verb.setter
-    def linked_action_verb(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_action_verb(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_action_verb", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedProperty")
-    def linked_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The linked property.
         """
         return pulumi.get(self, "linked_property")
 
     @linked_property.setter
-    def linked_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_property", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedType")
-    def linked_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The linked type.
         """
         return pulumi.get(self, "linked_type")
 
     @linked_type.setter
-    def linked_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_type", value)
 
 
 class LinkedNotificationRuleArgsDict(TypedDict):
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The actions.
     """
-    actions_on_failed_operation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions_on_failed_operation: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The actions on failed operation.
     """
-    fast_path_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    fast_path_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The fast path actions.
     """
-    fast_path_actions_on_failed_operation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    fast_path_actions_on_failed_operation: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The fast path action on failed operation.
     """
-    linked_notification_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    linked_notification_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is a TimeSpan property.
     """
@@ -2841,11 +2841,11 @@ class LinkedNotificationRuleArgsDict(TypedDict):
 @pulumi.input_type
 class LinkedNotificationRuleArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 actions_on_failed_operation: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fast_path_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fast_path_actions_on_failed_operation: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 linked_notification_timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 actions_on_failed_operation: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fast_path_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fast_path_actions_on_failed_operation: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 linked_notification_timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions_on_failed_operation: The actions on failed operation.
@@ -2866,62 +2866,62 @@ class LinkedNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsOnFailedOperation")
-    def actions_on_failed_operation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions_on_failed_operation(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actions on failed operation.
         """
         return pulumi.get(self, "actions_on_failed_operation")
 
     @actions_on_failed_operation.setter
-    def actions_on_failed_operation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions_on_failed_operation(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions_on_failed_operation", value)
 
     @_builtins.property
     @pulumi.getter(name="fastPathActions")
-    def fast_path_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fast_path_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The fast path actions.
         """
         return pulumi.get(self, "fast_path_actions")
 
     @fast_path_actions.setter
-    def fast_path_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fast_path_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fast_path_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="fastPathActionsOnFailedOperation")
-    def fast_path_actions_on_failed_operation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fast_path_actions_on_failed_operation(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The fast path action on failed operation.
         """
         return pulumi.get(self, "fast_path_actions_on_failed_operation")
 
     @fast_path_actions_on_failed_operation.setter
-    def fast_path_actions_on_failed_operation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fast_path_actions_on_failed_operation(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fast_path_actions_on_failed_operation", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedNotificationTimeout")
-    def linked_notification_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_notification_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a TimeSpan property.
         """
         return pulumi.get(self, "linked_notification_timeout")
 
     @linked_notification_timeout.setter
-    def linked_notification_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_notification_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_notification_timeout", value)
 
 
@@ -2934,7 +2934,7 @@ class LinkedOperationRuleArgsDict(TypedDict):
     """
     The linked operation.
     """
-    depends_on_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    depends_on_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Depends on types.
     """
@@ -2944,7 +2944,7 @@ class LinkedOperationRuleArgs:
     def __init__(__self__, *,
                  linked_action: pulumi.Input[Union[_builtins.str, 'LinkedAction']],
                  linked_operation: pulumi.Input[Union[_builtins.str, 'LinkedOperation']],
-                 depends_on_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 depends_on_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'LinkedAction']] linked_action: The linked action.
         :param pulumi.Input[Union[_builtins.str, 'LinkedOperation']] linked_operation: The linked operation.
@@ -2981,27 +2981,27 @@ class LinkedOperationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependsOnTypes")
-    def depends_on_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def depends_on_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Depends on types.
         """
         return pulumi.get(self, "depends_on_types")
 
     @depends_on_types.setter
-    def depends_on_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def depends_on_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "depends_on_types", value)
 
 
 class LocationQuotaRuleArgsDict(TypedDict):
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location.
     """
-    policy: NotRequired[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]
+    policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]]]
     """
     The policy.
     """
-    quota_id: NotRequired[pulumi.Input[_builtins.str]]
+    quota_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The quota id.
     """
@@ -3009,9 +3009,9 @@ class LocationQuotaRuleArgsDict(TypedDict):
 @pulumi.input_type
 class LocationQuotaRuleArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]] = None,
-                 quota_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]] = None,
+                 quota_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] location: The location.
         :param pulumi.Input[Union[_builtins.str, 'QuotaPolicy']] policy: The policy.
@@ -3026,93 +3026,39 @@ class LocationQuotaRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]:
+    def policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]]:
         """
         The policy.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]):
+    def policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaId")
-    def quota_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quota_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The quota id.
         """
         return pulumi.get(self, "quota_id")
 
     @quota_id.setter
-    def quota_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quota_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quota_id", value)
-
-
-class LoggingRuleHiddenPropertyPathsArgsDict(TypedDict):
-    """
-    The hidden property paths.
-    """
-    hidden_paths_on_request: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The hidden paths on request.
-    """
-    hidden_paths_on_response: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The hidden paths on response.
-    """
-
-@pulumi.input_type
-class LoggingRuleHiddenPropertyPathsArgs:
-    def __init__(__self__, *,
-                 hidden_paths_on_request: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hidden_paths_on_response: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The hidden property paths.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hidden_paths_on_request: The hidden paths on request.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hidden_paths_on_response: The hidden paths on response.
-        """
-        if hidden_paths_on_request is not None:
-            pulumi.set(__self__, "hidden_paths_on_request", hidden_paths_on_request)
-        if hidden_paths_on_response is not None:
-            pulumi.set(__self__, "hidden_paths_on_response", hidden_paths_on_response)
-
-    @_builtins.property
-    @pulumi.getter(name="hiddenPathsOnRequest")
-    def hidden_paths_on_request(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The hidden paths on request.
-        """
-        return pulumi.get(self, "hidden_paths_on_request")
-
-    @hidden_paths_on_request.setter
-    def hidden_paths_on_request(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "hidden_paths_on_request", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hiddenPathsOnResponse")
-    def hidden_paths_on_response(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The hidden paths on response.
-        """
-        return pulumi.get(self, "hidden_paths_on_response")
-
-    @hidden_paths_on_response.setter
-    def hidden_paths_on_response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "hidden_paths_on_response", value)
 
 
 class LoggingRuleArgsDict(TypedDict):
@@ -3128,7 +3074,7 @@ class LoggingRuleArgsDict(TypedDict):
     """
     The direction.
     """
-    hidden_property_paths: NotRequired[pulumi.Input['LoggingRuleHiddenPropertyPathsArgsDict']]
+    hidden_property_paths: NotRequired[pulumi.Input[Optional['LoggingRuleHiddenPropertyPathsArgsDict']]]
     """
     The hidden property paths.
     """
@@ -3139,7 +3085,7 @@ class LoggingRuleArgs:
                  action: pulumi.Input[_builtins.str],
                  detail_level: pulumi.Input[Union[_builtins.str, 'LoggingDetails']],
                  direction: pulumi.Input[Union[_builtins.str, 'LoggingDirections']],
-                 hidden_property_paths: Optional[pulumi.Input['LoggingRuleHiddenPropertyPathsArgs']] = None):
+                 hidden_property_paths: pulumi.Input[Optional['LoggingRuleHiddenPropertyPathsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] action: The action.
         :param pulumi.Input[Union[_builtins.str, 'LoggingDetails']] detail_level: The detail level.
@@ -3190,23 +3136,126 @@ class LoggingRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="hiddenPropertyPaths")
-    def hidden_property_paths(self) -> Optional[pulumi.Input['LoggingRuleHiddenPropertyPathsArgs']]:
+    def hidden_property_paths(self) -> pulumi.Input[Optional['LoggingRuleHiddenPropertyPathsArgs']]:
         """
         The hidden property paths.
         """
         return pulumi.get(self, "hidden_property_paths")
 
     @hidden_property_paths.setter
-    def hidden_property_paths(self, value: Optional[pulumi.Input['LoggingRuleHiddenPropertyPathsArgs']]):
+    def hidden_property_paths(self, value: pulumi.Input[Optional['LoggingRuleHiddenPropertyPathsArgs']]):
         pulumi.set(self, "hidden_property_paths", value)
 
 
+class LoggingRuleHiddenPropertyPathsArgsDict(TypedDict):
+    """
+    The hidden property paths.
+    """
+    hidden_paths_on_request: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The hidden paths on request.
+    """
+    hidden_paths_on_response: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The hidden paths on response.
+    """
+
+@pulumi.input_type
+class LoggingRuleHiddenPropertyPathsArgs:
+    def __init__(__self__, *,
+                 hidden_paths_on_request: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hidden_paths_on_response: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The hidden property paths.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hidden_paths_on_request: The hidden paths on request.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hidden_paths_on_response: The hidden paths on response.
+        """
+        if hidden_paths_on_request is not None:
+            pulumi.set(__self__, "hidden_paths_on_request", hidden_paths_on_request)
+        if hidden_paths_on_response is not None:
+            pulumi.set(__self__, "hidden_paths_on_response", hidden_paths_on_response)
+
+    @_builtins.property
+    @pulumi.getter(name="hiddenPathsOnRequest")
+    def hidden_paths_on_request(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The hidden paths on request.
+        """
+        return pulumi.get(self, "hidden_paths_on_request")
+
+    @hidden_paths_on_request.setter
+    def hidden_paths_on_request(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "hidden_paths_on_request", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hiddenPathsOnResponse")
+    def hidden_paths_on_response(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The hidden paths on response.
+        """
+        return pulumi.get(self, "hidden_paths_on_response")
+
+    @hidden_paths_on_response.setter
+    def hidden_paths_on_response(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "hidden_paths_on_response", value)
+
+
+class NotificationArgsDict(TypedDict):
+    notification_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationType']]]]
+    """
+    The notification type.
+    """
+    skip_notifications: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkipNotifications']]]]
+    """
+    Whether notifications should be skipped.
+    """
+
+@pulumi.input_type
+class NotificationArgs:
+    def __init__(__self__, *,
+                 notification_type: pulumi.Input[Optional[Union[_builtins.str, 'NotificationType']]] = None,
+                 skip_notifications: pulumi.Input[Optional[Union[_builtins.str, 'SkipNotifications']]] = None):
+        """
+        :param pulumi.Input[Union[_builtins.str, 'NotificationType']] notification_type: The notification type.
+        :param pulumi.Input[Union[_builtins.str, 'SkipNotifications']] skip_notifications: Whether notifications should be skipped.
+        """
+        if notification_type is not None:
+            pulumi.set(__self__, "notification_type", notification_type)
+        if skip_notifications is not None:
+            pulumi.set(__self__, "skip_notifications", skip_notifications)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationType']]]:
+        """
+        The notification type.
+        """
+        return pulumi.get(self, "notification_type")
+
+    @notification_type.setter
+    def notification_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationType']]]):
+        pulumi.set(self, "notification_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skipNotifications")
+    def skip_notifications(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkipNotifications']]]:
+        """
+        Whether notifications should be skipped.
+        """
+        return pulumi.get(self, "skip_notifications")
+
+    @skip_notifications.setter
+    def skip_notifications(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkipNotifications']]]):
+        pulumi.set(self, "skip_notifications", value)
+
+
 class NotificationEndpointArgsDict(TypedDict):
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The locations.
     """
-    notification_destination: NotRequired[pulumi.Input[_builtins.str]]
+    notification_destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The notification destination.
     """
@@ -3214,8 +3263,8 @@ class NotificationEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationEndpointArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notification_destination: Optional[pulumi.Input[_builtins.str]] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notification_destination: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: The locations.
         :param pulumi.Input[_builtins.str] notification_destination: The notification destination.
@@ -3227,43 +3276,43 @@ class NotificationEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The locations.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationDestination")
-    def notification_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification destination.
         """
         return pulumi.get(self, "notification_destination")
 
     @notification_destination.setter
-    def notification_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_destination", value)
 
 
 class NotificationRegistrationPropertiesArgsDict(TypedDict):
-    included_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    included_events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The included events.
     """
-    message_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'MessageScope']]]
+    message_scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MessageScope']]]]
     """
     The message scope.
     """
-    notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgsDict']]]]
+    notification_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationEndpointArgsDict']]]]]
     """
     The notification endpoints.
     """
-    notification_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationMode']]]
+    notification_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationMode']]]]
     """
     The notification mode.
     """
@@ -3271,10 +3320,10 @@ class NotificationRegistrationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationRegistrationPropertiesArgs:
     def __init__(__self__, *,
-                 included_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 message_scope: Optional[pulumi.Input[Union[_builtins.str, 'MessageScope']]] = None,
-                 notification_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgs']]]] = None,
-                 notification_mode: Optional[pulumi.Input[Union[_builtins.str, 'NotificationMode']]] = None):
+                 included_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 message_scope: pulumi.Input[Optional[Union[_builtins.str, 'MessageScope']]] = None,
+                 notification_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationEndpointArgs']]]] = None,
+                 notification_mode: pulumi.Input[Optional[Union[_builtins.str, 'NotificationMode']]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_events: The included events.
         :param pulumi.Input[Union[_builtins.str, 'MessageScope']] message_scope: The message scope.
@@ -3292,104 +3341,55 @@ class NotificationRegistrationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="includedEvents")
-    def included_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The included events.
         """
         return pulumi.get(self, "included_events")
 
     @included_events.setter
-    def included_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_events", value)
 
     @_builtins.property
     @pulumi.getter(name="messageScope")
-    def message_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MessageScope']]]:
+    def message_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MessageScope']]]:
         """
         The message scope.
         """
         return pulumi.get(self, "message_scope")
 
     @message_scope.setter
-    def message_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MessageScope']]]):
+    def message_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MessageScope']]]):
         pulumi.set(self, "message_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationEndpoints")
-    def notification_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgs']]]]:
+    def notification_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationEndpointArgs']]]]:
         """
         The notification endpoints.
         """
         return pulumi.get(self, "notification_endpoints")
 
     @notification_endpoints.setter
-    def notification_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgs']]]]):
+    def notification_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationEndpointArgs']]]]):
         pulumi.set(self, "notification_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationMode")
-    def notification_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationMode']]]:
+    def notification_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationMode']]]:
         """
         The notification mode.
         """
         return pulumi.get(self, "notification_mode")
 
     @notification_mode.setter
-    def notification_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationMode']]]):
+    def notification_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationMode']]]):
         pulumi.set(self, "notification_mode", value)
 
 
-class NotificationArgsDict(TypedDict):
-    notification_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationType']]]
-    """
-    The notification type.
-    """
-    skip_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'SkipNotifications']]]
-    """
-    Whether notifications should be skipped.
-    """
-
-@pulumi.input_type
-class NotificationArgs:
-    def __init__(__self__, *,
-                 notification_type: Optional[pulumi.Input[Union[_builtins.str, 'NotificationType']]] = None,
-                 skip_notifications: Optional[pulumi.Input[Union[_builtins.str, 'SkipNotifications']]] = None):
-        """
-        :param pulumi.Input[Union[_builtins.str, 'NotificationType']] notification_type: The notification type.
-        :param pulumi.Input[Union[_builtins.str, 'SkipNotifications']] skip_notifications: Whether notifications should be skipped.
-        """
-        if notification_type is not None:
-            pulumi.set(__self__, "notification_type", notification_type)
-        if skip_notifications is not None:
-            pulumi.set(__self__, "skip_notifications", skip_notifications)
-
-    @_builtins.property
-    @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationType']]]:
-        """
-        The notification type.
-        """
-        return pulumi.get(self, "notification_type")
-
-    @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationType']]]):
-        pulumi.set(self, "notification_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="skipNotifications")
-    def skip_notifications(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkipNotifications']]]:
-        """
-        Whether notifications should be skipped.
-        """
-        return pulumi.get(self, "skip_notifications")
-
-    @skip_notifications.setter
-    def skip_notifications(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkipNotifications']]]):
-        pulumi.set(self, "skip_notifications", value)
-
-
 class OpenApiConfigurationArgsDict(TypedDict):
-    validation: NotRequired[pulumi.Input['OpenApiValidationArgsDict']]
+    validation: NotRequired[pulumi.Input[Optional['OpenApiValidationArgsDict']]]
     """
     The open api validation.
     """
@@ -3397,7 +3397,7 @@ class OpenApiConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class OpenApiConfigurationArgs:
     def __init__(__self__, *,
-                 validation: Optional[pulumi.Input['OpenApiValidationArgs']] = None):
+                 validation: pulumi.Input[Optional['OpenApiValidationArgs']] = None):
         """
         :param pulumi.Input['OpenApiValidationArgs'] validation: The open api validation.
         """
@@ -3406,19 +3406,19 @@ class OpenApiConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input['OpenApiValidationArgs']]:
+    def validation(self) -> pulumi.Input[Optional['OpenApiValidationArgs']]:
         """
         The open api validation.
         """
         return pulumi.get(self, "validation")
 
     @validation.setter
-    def validation(self, value: Optional[pulumi.Input['OpenApiValidationArgs']]):
+    def validation(self, value: pulumi.Input[Optional['OpenApiValidationArgs']]):
         pulumi.set(self, "validation", value)
 
 
 class OpenApiValidationArgsDict(TypedDict):
-    allow_noncompliant_collection_response: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_noncompliant_collection_response: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether a non compliance response is allowed for a LIST call
     """
@@ -3426,7 +3426,7 @@ class OpenApiValidationArgsDict(TypedDict):
 @pulumi.input_type
 class OpenApiValidationArgs:
     def __init__(__self__, *,
-                 allow_noncompliant_collection_response: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_noncompliant_collection_response: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_noncompliant_collection_response: Indicates whether a non compliance response is allowed for a LIST call
         """
@@ -3435,14 +3435,14 @@ class OpenApiValidationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowNoncompliantCollectionResponse")
-    def allow_noncompliant_collection_response(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_noncompliant_collection_response(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether a non compliance response is allowed for a LIST call
         """
         return pulumi.get(self, "allow_noncompliant_collection_response")
 
     @allow_noncompliant_collection_response.setter
-    def allow_noncompliant_collection_response(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_noncompliant_collection_response(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_noncompliant_collection_response", value)
 
 
@@ -3483,11 +3483,11 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict(TypedDict):
     """
     The third party provider authorization.
     """
-    authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgsDict']]]]
+    authorizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LightHouseAuthorizationArgsDict']]]]]
     """
     The authorizations.
     """
-    managed_by_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    managed_by_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The managed by tenant id.
     """
@@ -3495,8 +3495,8 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
     def __init__(__self__, *,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]] = None,
-                 managed_by_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]] = None,
+                 managed_by_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The third party provider authorization.
 
@@ -3510,297 +3510,75 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]]:
+    def authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]]:
         """
         The authorizations.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]]):
+    def authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]]):
         pulumi.set(self, "authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="managedByTenantId")
-    def managed_by_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The managed by tenant id.
         """
         return pulumi.get(self, "managed_by_tenant_id")
 
     @managed_by_tenant_id.setter
-    def managed_by_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by_tenant_id", value)
 
 
-class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict(TypedDict):
-    """
-    The private resource provider configuration.
-    """
-    allowed_subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The allowed subscriptions.
-    """
-
-@pulumi.input_type
-class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs:
-    def __init__(__self__, *,
-                 allowed_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The private resource provider configuration.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_subscriptions: The allowed subscriptions.
-        """
-        if allowed_subscriptions is not None:
-            pulumi.set(__self__, "allowed_subscriptions", allowed_subscriptions)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedSubscriptions")
-    def allowed_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The allowed subscriptions.
-        """
-        return pulumi.get(self, "allowed_subscriptions")
-
-    @allowed_subscriptions.setter
-    def allowed_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "allowed_subscriptions", value)
-
-
-class ProviderRegistrationPropertiesProviderHubMetadataArgsDict(TypedDict):
-    """
-    The provider hub metadata.
-    """
-    direct_rp_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The direct RP role definition id.
-    """
-    global_async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The global async operation resource type name.
-    """
-    provider_authentication: NotRequired[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgsDict']]
-    """
-    The provider authentication.
-    """
-    provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
-    """
-    The provider authorizations.
-    """
-    regional_async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The regional async operation resource type name.
-    """
-    third_party_provider_authorization: NotRequired[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict']]
-    """
-    The third party provider authorization.
-    """
-
-@pulumi.input_type
-class ProviderRegistrationPropertiesProviderHubMetadataArgs:
-    def __init__(__self__, *,
-                 direct_rp_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_async_operation_resource_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_authentication: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']] = None,
-                 provider_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
-                 regional_async_operation_resource_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 third_party_provider_authorization: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']] = None):
-        """
-        The provider hub metadata.
-
-        :param pulumi.Input[_builtins.str] direct_rp_role_definition_id: The direct RP role definition id.
-        :param pulumi.Input[_builtins.str] global_async_operation_resource_type_name: The global async operation resource type name.
-        :param pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs'] provider_authentication: The provider authentication.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]] provider_authorizations: The provider authorizations.
-        :param pulumi.Input[_builtins.str] regional_async_operation_resource_type_name: The regional async operation resource type name.
-        :param pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs'] third_party_provider_authorization: The third party provider authorization.
-        """
-        if direct_rp_role_definition_id is not None:
-            pulumi.set(__self__, "direct_rp_role_definition_id", direct_rp_role_definition_id)
-        if global_async_operation_resource_type_name is not None:
-            pulumi.set(__self__, "global_async_operation_resource_type_name", global_async_operation_resource_type_name)
-        if provider_authentication is not None:
-            pulumi.set(__self__, "provider_authentication", provider_authentication)
-        if provider_authorizations is not None:
-            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
-        if regional_async_operation_resource_type_name is not None:
-            pulumi.set(__self__, "regional_async_operation_resource_type_name", regional_async_operation_resource_type_name)
-        if third_party_provider_authorization is not None:
-            pulumi.set(__self__, "third_party_provider_authorization", third_party_provider_authorization)
-
-    @_builtins.property
-    @pulumi.getter(name="directRpRoleDefinitionId")
-    def direct_rp_role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The direct RP role definition id.
-        """
-        return pulumi.get(self, "direct_rp_role_definition_id")
-
-    @direct_rp_role_definition_id.setter
-    def direct_rp_role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "direct_rp_role_definition_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="globalAsyncOperationResourceTypeName")
-    def global_async_operation_resource_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The global async operation resource type name.
-        """
-        return pulumi.get(self, "global_async_operation_resource_type_name")
-
-    @global_async_operation_resource_type_name.setter
-    def global_async_operation_resource_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "global_async_operation_resource_type_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="providerAuthentication")
-    def provider_authentication(self) -> Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']]:
-        """
-        The provider authentication.
-        """
-        return pulumi.get(self, "provider_authentication")
-
-    @provider_authentication.setter
-    def provider_authentication(self, value: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']]):
-        pulumi.set(self, "provider_authentication", value)
-
-    @_builtins.property
-    @pulumi.getter(name="providerAuthorizations")
-    def provider_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]:
-        """
-        The provider authorizations.
-        """
-        return pulumi.get(self, "provider_authorizations")
-
-    @provider_authorizations.setter
-    def provider_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]):
-        pulumi.set(self, "provider_authorizations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="regionalAsyncOperationResourceTypeName")
-    def regional_async_operation_resource_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The regional async operation resource type name.
-        """
-        return pulumi.get(self, "regional_async_operation_resource_type_name")
-
-    @regional_async_operation_resource_type_name.setter
-    def regional_async_operation_resource_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "regional_async_operation_resource_type_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="thirdPartyProviderAuthorization")
-    def third_party_provider_authorization(self) -> Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]:
-        """
-        The third party provider authorization.
-        """
-        return pulumi.get(self, "third_party_provider_authorization")
-
-    @third_party_provider_authorization.setter
-    def third_party_provider_authorization(self, value: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]):
-        pulumi.set(self, "third_party_provider_authorization", value)
-
-
-class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
-    """
-    The subscription lifecycle notification specifications.
-    """
-    soft_delete_ttl: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The soft delete TTL.
-    """
-    subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
-    """
-    The subscription state override actions.
-    """
-
-@pulumi.input_type
-class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
-    def __init__(__self__, *,
-                 soft_delete_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
-        """
-        The subscription lifecycle notification specifications.
-
-        :param pulumi.Input[_builtins.str] soft_delete_ttl: The soft delete TTL.
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]] subscription_state_override_actions: The subscription state override actions.
-        """
-        if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
-        if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
-
-    @_builtins.property
-    @pulumi.getter(name="softDeleteTTL")
-    def soft_delete_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The soft delete TTL.
-        """
-        return pulumi.get(self, "soft_delete_ttl")
-
-    @soft_delete_ttl.setter
-    def soft_delete_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "soft_delete_ttl", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subscriptionStateOverrideActions")
-    def subscription_state_override_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
-        """
-        The subscription state override actions.
-        """
-        return pulumi.get(self, "subscription_state_override_actions")
-
-    @subscription_state_override_actions.setter
-    def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
-        pulumi.set(self, "subscription_state_override_actions", value)
-
-
 class ProviderRegistrationPropertiesArgsDict(TypedDict):
-    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgsDict']]]]
+    capabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgsDict']]]]]
     """
     The capabilities.
     """
-    cross_tenant_token_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]
+    cross_tenant_token_validation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]]]
     """
     The cross tenant token validation.
     """
-    custom_manifest_version: NotRequired[pulumi.Input[_builtins.str]]
+    custom_manifest_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom manifest version.
     """
-    dsts_configuration: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesDstsConfigurationArgsDict']]
+    dsts_configuration: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesDstsConfigurationArgsDict']]]
     """
     The dsts configuration.
     """
-    enable_tenant_linked_notification: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_tenant_linked_notification: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The enable tenant linked notification.
     """
-    features_rule: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgsDict']]
+    features_rule: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesFeaturesRuleArgsDict']]]
     """
     The features rule.
     """
-    global_notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
+    global_notification_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]]
     """
     The global notification endpoints.
     """
-    legacy_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    legacy_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Legacy namespace.
     """
-    legacy_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    legacy_registrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Legacy registrations.
     """
-    linked_notification_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgsDict']]]]
+    linked_notification_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgsDict']]]]]
     """
     The linked notification rules.
     """
-    management: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesManagementArgsDict']]
+    management: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesManagementArgsDict']]]
     """
     The resource provider management.
     """
-    management_group_global_notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
+    management_group_global_notification_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]]
     """
     Management groups global notification endpoints.
     """
@@ -3808,91 +3586,91 @@ class ProviderRegistrationPropertiesArgsDict(TypedDict):
     """
     The metadata.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The namespace.
     """
-    notification_options: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationOptions']]]
+    notification_options: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationOptions']]]]
     """
     Notification options.
     """
-    notification_settings: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesNotificationSettingsArgsDict']]
+    notification_settings: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesNotificationSettingsArgsDict']]]
     """
     Notification settings.
     """
-    notifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationArgsDict']]]]
+    notifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgsDict']]]]]
     """
     The notifications.
     """
-    optional_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    optional_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Optional features.
     """
-    private_resource_provider_configuration: NotRequired[pulumi.Input['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict']]
+    private_resource_provider_configuration: NotRequired[pulumi.Input[Optional['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict']]]
     """
     The private resource provider configuration.
     """
-    provider_authentication: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgsDict']]
+    provider_authentication: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesProviderAuthenticationArgsDict']]]
     """
     The provider authentication.
     """
-    provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
+    provider_authorizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]]
     """
     The provider authorizations.
     """
-    provider_hub_metadata: NotRequired[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgsDict']]
+    provider_hub_metadata: NotRequired[pulumi.Input[Optional['ProviderRegistrationPropertiesProviderHubMetadataArgsDict']]]
     """
     The provider hub metadata.
     """
-    provider_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProviderType']]]
+    provider_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderType']]]]
     """
     The provider type.
     """
-    provider_version: NotRequired[pulumi.Input[_builtins.str]]
+    provider_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The provider version.
     """
-    request_header_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict']]
+    request_header_options: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict']]]
     """
     The request header options.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required features.
     """
-    resource_group_lock_option_during_move: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDict']]
+    resource_group_lock_option_during_move: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDict']]]
     """
     Resource group lock option during move.
     """
-    resource_hydration_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceHydrationAccountArgsDict']]]]
+    resource_hydration_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceHydrationAccountArgsDict']]]]]
     """
     resource hydration accounts
     """
-    resource_provider_authorization_rules: NotRequired[pulumi.Input['ResourceProviderAuthorizationRulesArgsDict']]
+    resource_provider_authorization_rules: NotRequired[pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgsDict']]]
     """
     The resource provider authorization rules.
     """
-    response_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesResponseOptionsArgsDict']]
+    response_options: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesResponseOptionsArgsDict']]]
     """
     Response options.
     """
-    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service name.
     """
-    services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderServiceArgsDict']]]]
+    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderServiceArgsDict']]]]]
     """
     The services.
     """
-    subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
+    subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input[Optional['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]]
     """
     The subscription lifecycle notification specifications.
     """
-    template_deployment_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict']]
+    template_deployment_options: NotRequired[pulumi.Input[Optional['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict']]]
     """
     The template deployment options.
     """
-    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
+    token_auth_configuration: NotRequired[pulumi.Input[Optional['TokenAuthConfigurationArgsDict']]]
     """
     The token auth configuration.
     """
@@ -3900,41 +3678,41 @@ class ProviderRegistrationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ProviderRegistrationPropertiesArgs:
     def __init__(__self__, *,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]]] = None,
-                 cross_tenant_token_validation: Optional[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]] = None,
-                 custom_manifest_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 dsts_configuration: Optional[pulumi.Input['ResourceProviderManifestPropertiesDstsConfigurationArgs']] = None,
-                 enable_tenant_linked_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 features_rule: Optional[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgs']] = None,
-                 global_notification_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]] = None,
-                 legacy_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 legacy_registrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 linked_notification_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgs']]]] = None,
-                 management: Optional[pulumi.Input['ResourceProviderManifestPropertiesManagementArgs']] = None,
-                 management_group_global_notification_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]]] = None,
+                 cross_tenant_token_validation: pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]] = None,
+                 custom_manifest_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 dsts_configuration: pulumi.Input[Optional['ResourceProviderManifestPropertiesDstsConfigurationArgs']] = None,
+                 enable_tenant_linked_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 features_rule: pulumi.Input[Optional['ResourceProviderManifestPropertiesFeaturesRuleArgs']] = None,
+                 global_notification_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]] = None,
+                 legacy_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_registrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 linked_notification_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgs']]]] = None,
+                 management: pulumi.Input[Optional['ResourceProviderManifestPropertiesManagementArgs']] = None,
+                 management_group_global_notification_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]] = None,
                  metadata: Optional[Any] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_options: Optional[pulumi.Input[Union[_builtins.str, 'NotificationOptions']]] = None,
-                 notification_settings: Optional[pulumi.Input['ResourceProviderManifestPropertiesNotificationSettingsArgs']] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]] = None,
-                 optional_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_resource_provider_configuration: Optional[pulumi.Input['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs']] = None,
-                 provider_authentication: Optional[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgs']] = None,
-                 provider_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
-                 provider_hub_metadata: Optional[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgs']] = None,
-                 provider_type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProviderType']]] = None,
-                 provider_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_header_options: Optional[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_lock_option_during_move: Optional[pulumi.Input['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs']] = None,
-                 resource_hydration_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceHydrationAccountArgs']]]] = None,
-                 resource_provider_authorization_rules: Optional[pulumi.Input['ResourceProviderAuthorizationRulesArgs']] = None,
-                 response_options: Optional[pulumi.Input['ResourceProviderManifestPropertiesResponseOptionsArgs']] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderServiceArgs']]]] = None,
-                 subscription_lifecycle_notification_specifications: Optional[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']] = None,
-                 template_deployment_options: Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']] = None,
-                 token_auth_configuration: Optional[pulumi.Input['TokenAuthConfigurationArgs']] = None):
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_options: pulumi.Input[Optional[Union[_builtins.str, 'NotificationOptions']]] = None,
+                 notification_settings: pulumi.Input[Optional['ResourceProviderManifestPropertiesNotificationSettingsArgs']] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgs']]]] = None,
+                 optional_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_resource_provider_configuration: pulumi.Input[Optional['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs']] = None,
+                 provider_authentication: pulumi.Input[Optional['ResourceProviderManifestPropertiesProviderAuthenticationArgs']] = None,
+                 provider_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
+                 provider_hub_metadata: pulumi.Input[Optional['ProviderRegistrationPropertiesProviderHubMetadataArgs']] = None,
+                 provider_type: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderType']]] = None,
+                 provider_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_header_options: pulumi.Input[Optional['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_lock_option_during_move: pulumi.Input[Optional['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs']] = None,
+                 resource_hydration_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceHydrationAccountArgs']]]] = None,
+                 resource_provider_authorization_rules: pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgs']] = None,
+                 response_options: pulumi.Input[Optional['ResourceProviderManifestPropertiesResponseOptionsArgs']] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderServiceArgs']]]] = None,
+                 subscription_lifecycle_notification_specifications: pulumi.Input[Optional['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']] = None,
+                 template_deployment_options: pulumi.Input[Optional['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']] = None,
+                 token_auth_configuration: pulumi.Input[Optional['TokenAuthConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]] capabilities: The capabilities.
         :param pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']] cross_tenant_token_validation: The cross tenant token validation.
@@ -4045,146 +3823,146 @@ class ProviderRegistrationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]]]:
         """
         The capabilities.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="crossTenantTokenValidation")
-    def cross_tenant_token_validation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]:
+    def cross_tenant_token_validation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]]:
         """
         The cross tenant token validation.
         """
         return pulumi.get(self, "cross_tenant_token_validation")
 
     @cross_tenant_token_validation.setter
-    def cross_tenant_token_validation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]):
+    def cross_tenant_token_validation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]]):
         pulumi.set(self, "cross_tenant_token_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="customManifestVersion")
-    def custom_manifest_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_manifest_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom manifest version.
         """
         return pulumi.get(self, "custom_manifest_version")
 
     @custom_manifest_version.setter
-    def custom_manifest_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_manifest_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_manifest_version", value)
 
     @_builtins.property
     @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesDstsConfigurationArgs']]:
+    def dsts_configuration(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesDstsConfigurationArgs']]:
         """
         The dsts configuration.
         """
         return pulumi.get(self, "dsts_configuration")
 
     @dsts_configuration.setter
-    def dsts_configuration(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesDstsConfigurationArgs']]):
+    def dsts_configuration(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesDstsConfigurationArgs']]):
         pulumi.set(self, "dsts_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTenantLinkedNotification")
-    def enable_tenant_linked_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_tenant_linked_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The enable tenant linked notification.
         """
         return pulumi.get(self, "enable_tenant_linked_notification")
 
     @enable_tenant_linked_notification.setter
-    def enable_tenant_linked_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_tenant_linked_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_tenant_linked_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgs']]:
+    def features_rule(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesFeaturesRuleArgs']]:
         """
         The features rule.
         """
         return pulumi.get(self, "features_rule")
 
     @features_rule.setter
-    def features_rule(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgs']]):
+    def features_rule(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesFeaturesRuleArgs']]):
         pulumi.set(self, "features_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="globalNotificationEndpoints")
-    def global_notification_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]:
+    def global_notification_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]:
         """
         The global notification endpoints.
         """
         return pulumi.get(self, "global_notification_endpoints")
 
     @global_notification_endpoints.setter
-    def global_notification_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]):
+    def global_notification_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]):
         pulumi.set(self, "global_notification_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyNamespace")
-    def legacy_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def legacy_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Legacy namespace.
         """
         return pulumi.get(self, "legacy_namespace")
 
     @legacy_namespace.setter
-    def legacy_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def legacy_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "legacy_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyRegistrations")
-    def legacy_registrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def legacy_registrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Legacy registrations.
         """
         return pulumi.get(self, "legacy_registrations")
 
     @legacy_registrations.setter
-    def legacy_registrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def legacy_registrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "legacy_registrations", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedNotificationRules")
-    def linked_notification_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgs']]]]:
+    def linked_notification_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgs']]]]:
         """
         The linked notification rules.
         """
         return pulumi.get(self, "linked_notification_rules")
 
     @linked_notification_rules.setter
-    def linked_notification_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgs']]]]):
+    def linked_notification_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgs']]]]):
         pulumi.set(self, "linked_notification_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def management(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesManagementArgs']]:
+    def management(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesManagementArgs']]:
         """
         The resource provider management.
         """
         return pulumi.get(self, "management")
 
     @management.setter
-    def management(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesManagementArgs']]):
+    def management(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesManagementArgs']]):
         pulumi.set(self, "management", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroupGlobalNotificationEndpoints")
-    def management_group_global_notification_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]:
+    def management_group_global_notification_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]:
         """
         Management groups global notification endpoints.
         """
         return pulumi.get(self, "management_group_global_notification_endpoints")
 
     @management_group_global_notification_endpoints.setter
-    def management_group_global_notification_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]):
+    def management_group_global_notification_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderEndpointArgs']]]]):
         pulumi.set(self, "management_group_global_notification_endpoints", value)
 
     @_builtins.property
@@ -4201,279 +3979,501 @@ class ProviderRegistrationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationOptions")
-    def notification_options(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationOptions']]]:
+    def notification_options(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationOptions']]]:
         """
         Notification options.
         """
         return pulumi.get(self, "notification_options")
 
     @notification_options.setter
-    def notification_options(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationOptions']]]):
+    def notification_options(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationOptions']]]):
         pulumi.set(self, "notification_options", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesNotificationSettingsArgs']]:
+    def notification_settings(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesNotificationSettingsArgs']]:
         """
         Notification settings.
         """
         return pulumi.get(self, "notification_settings")
 
     @notification_settings.setter
-    def notification_settings(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesNotificationSettingsArgs']]):
+    def notification_settings(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesNotificationSettingsArgs']]):
         pulumi.set(self, "notification_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgs']]]]:
         """
         The notifications.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalFeatures")
-    def optional_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def optional_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optional features.
         """
         return pulumi.get(self, "optional_features")
 
     @optional_features.setter
-    def optional_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def optional_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "optional_features", value)
 
     @_builtins.property
     @pulumi.getter(name="privateResourceProviderConfiguration")
-    def private_resource_provider_configuration(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs']]:
+    def private_resource_provider_configuration(self) -> pulumi.Input[Optional['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs']]:
         """
         The private resource provider configuration.
         """
         return pulumi.get(self, "private_resource_provider_configuration")
 
     @private_resource_provider_configuration.setter
-    def private_resource_provider_configuration(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs']]):
+    def private_resource_provider_configuration(self, value: pulumi.Input[Optional['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs']]):
         pulumi.set(self, "private_resource_provider_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="providerAuthentication")
-    def provider_authentication(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgs']]:
+    def provider_authentication(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesProviderAuthenticationArgs']]:
         """
         The provider authentication.
         """
         return pulumi.get(self, "provider_authentication")
 
     @provider_authentication.setter
-    def provider_authentication(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgs']]):
+    def provider_authentication(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesProviderAuthenticationArgs']]):
         pulumi.set(self, "provider_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="providerAuthorizations")
-    def provider_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]:
+    def provider_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]:
         """
         The provider authorizations.
         """
         return pulumi.get(self, "provider_authorizations")
 
     @provider_authorizations.setter
-    def provider_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]):
+    def provider_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]):
         pulumi.set(self, "provider_authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="providerHubMetadata")
-    def provider_hub_metadata(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgs']]:
+    def provider_hub_metadata(self) -> pulumi.Input[Optional['ProviderRegistrationPropertiesProviderHubMetadataArgs']]:
         """
         The provider hub metadata.
         """
         return pulumi.get(self, "provider_hub_metadata")
 
     @provider_hub_metadata.setter
-    def provider_hub_metadata(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgs']]):
+    def provider_hub_metadata(self, value: pulumi.Input[Optional['ProviderRegistrationPropertiesProviderHubMetadataArgs']]):
         pulumi.set(self, "provider_hub_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceProviderType']]]:
+    def provider_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderType']]]:
         """
         The provider type.
         """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
-    def provider_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProviderType']]]):
+    def provider_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceProviderType']]]):
         pulumi.set(self, "provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="providerVersion")
-    def provider_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provider version.
         """
         return pulumi.get(self, "provider_version")
 
     @provider_version.setter
-    def provider_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_version", value)
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderOptions")
-    def request_header_options(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']]:
+    def request_header_options(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']]:
         """
         The request header options.
         """
         return pulumi.get(self, "request_header_options")
 
     @request_header_options.setter
-    def request_header_options(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']]):
+    def request_header_options(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']]):
         pulumi.set(self, "request_header_options", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupLockOptionDuringMove")
-    def resource_group_lock_option_during_move(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs']]:
+    def resource_group_lock_option_during_move(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs']]:
         """
         Resource group lock option during move.
         """
         return pulumi.get(self, "resource_group_lock_option_during_move")
 
     @resource_group_lock_option_during_move.setter
-    def resource_group_lock_option_during_move(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs']]):
+    def resource_group_lock_option_during_move(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs']]):
         pulumi.set(self, "resource_group_lock_option_during_move", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceHydrationAccounts")
-    def resource_hydration_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceHydrationAccountArgs']]]]:
+    def resource_hydration_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceHydrationAccountArgs']]]]:
         """
         resource hydration accounts
         """
         return pulumi.get(self, "resource_hydration_accounts")
 
     @resource_hydration_accounts.setter
-    def resource_hydration_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceHydrationAccountArgs']]]]):
+    def resource_hydration_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceHydrationAccountArgs']]]]):
         pulumi.set(self, "resource_hydration_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProviderAuthorizationRules")
-    def resource_provider_authorization_rules(self) -> Optional[pulumi.Input['ResourceProviderAuthorizationRulesArgs']]:
+    def resource_provider_authorization_rules(self) -> pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgs']]:
         """
         The resource provider authorization rules.
         """
         return pulumi.get(self, "resource_provider_authorization_rules")
 
     @resource_provider_authorization_rules.setter
-    def resource_provider_authorization_rules(self, value: Optional[pulumi.Input['ResourceProviderAuthorizationRulesArgs']]):
+    def resource_provider_authorization_rules(self, value: pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgs']]):
         pulumi.set(self, "resource_provider_authorization_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="responseOptions")
-    def response_options(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesResponseOptionsArgs']]:
+    def response_options(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesResponseOptionsArgs']]:
         """
         Response options.
         """
         return pulumi.get(self, "response_options")
 
     @response_options.setter
-    def response_options(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesResponseOptionsArgs']]):
+    def response_options(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesResponseOptionsArgs']]):
         pulumi.set(self, "response_options", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service name.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderServiceArgs']]]]:
+    def services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderServiceArgs']]]]:
         """
         The services.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderServiceArgs']]]]):
+    def services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderServiceArgs']]]]):
         pulumi.set(self, "services", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLifecycleNotificationSpecifications")
-    def subscription_lifecycle_notification_specifications(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]:
+    def subscription_lifecycle_notification_specifications(self) -> pulumi.Input[Optional['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]:
         """
         The subscription lifecycle notification specifications.
         """
         return pulumi.get(self, "subscription_lifecycle_notification_specifications")
 
     @subscription_lifecycle_notification_specifications.setter
-    def subscription_lifecycle_notification_specifications(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]):
+    def subscription_lifecycle_notification_specifications(self, value: pulumi.Input[Optional['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]):
         pulumi.set(self, "subscription_lifecycle_notification_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="templateDeploymentOptions")
-    def template_deployment_options(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']]:
+    def template_deployment_options(self) -> pulumi.Input[Optional['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']]:
         """
         The template deployment options.
         """
         return pulumi.get(self, "template_deployment_options")
 
     @template_deployment_options.setter
-    def template_deployment_options(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']]):
+    def template_deployment_options(self, value: pulumi.Input[Optional['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']]):
         pulumi.set(self, "template_deployment_options", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenAuthConfiguration")
-    def token_auth_configuration(self) -> Optional[pulumi.Input['TokenAuthConfigurationArgs']]:
+    def token_auth_configuration(self) -> pulumi.Input[Optional['TokenAuthConfigurationArgs']]:
         """
         The token auth configuration.
         """
         return pulumi.get(self, "token_auth_configuration")
 
     @token_auth_configuration.setter
-    def token_auth_configuration(self, value: Optional[pulumi.Input['TokenAuthConfigurationArgs']]):
+    def token_auth_configuration(self, value: pulumi.Input[Optional['TokenAuthConfigurationArgs']]):
         pulumi.set(self, "token_auth_configuration", value)
 
 
+class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict(TypedDict):
+    """
+    The private resource provider configuration.
+    """
+    allowed_subscriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The allowed subscriptions.
+    """
+
+@pulumi.input_type
+class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 allowed_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The private resource provider configuration.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_subscriptions: The allowed subscriptions.
+        """
+        if allowed_subscriptions is not None:
+            pulumi.set(__self__, "allowed_subscriptions", allowed_subscriptions)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedSubscriptions")
+    def allowed_subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The allowed subscriptions.
+        """
+        return pulumi.get(self, "allowed_subscriptions")
+
+    @allowed_subscriptions.setter
+    def allowed_subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_subscriptions", value)
+
+
+class ProviderRegistrationPropertiesProviderHubMetadataArgsDict(TypedDict):
+    """
+    The provider hub metadata.
+    """
+    direct_rp_role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The direct RP role definition id.
+    """
+    global_async_operation_resource_type_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The global async operation resource type name.
+    """
+    provider_authentication: NotRequired[pulumi.Input[Optional['ProviderHubMetadataProviderAuthenticationArgsDict']]]
+    """
+    The provider authentication.
+    """
+    provider_authorizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]]
+    """
+    The provider authorizations.
+    """
+    regional_async_operation_resource_type_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The regional async operation resource type name.
+    """
+    third_party_provider_authorization: NotRequired[pulumi.Input[Optional['ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict']]]
+    """
+    The third party provider authorization.
+    """
+
+@pulumi.input_type
+class ProviderRegistrationPropertiesProviderHubMetadataArgs:
+    def __init__(__self__, *,
+                 direct_rp_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_async_operation_resource_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_authentication: pulumi.Input[Optional['ProviderHubMetadataProviderAuthenticationArgs']] = None,
+                 provider_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
+                 regional_async_operation_resource_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 third_party_provider_authorization: pulumi.Input[Optional['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']] = None):
+        """
+        The provider hub metadata.
+
+        :param pulumi.Input[_builtins.str] direct_rp_role_definition_id: The direct RP role definition id.
+        :param pulumi.Input[_builtins.str] global_async_operation_resource_type_name: The global async operation resource type name.
+        :param pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs'] provider_authentication: The provider authentication.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]] provider_authorizations: The provider authorizations.
+        :param pulumi.Input[_builtins.str] regional_async_operation_resource_type_name: The regional async operation resource type name.
+        :param pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs'] third_party_provider_authorization: The third party provider authorization.
+        """
+        if direct_rp_role_definition_id is not None:
+            pulumi.set(__self__, "direct_rp_role_definition_id", direct_rp_role_definition_id)
+        if global_async_operation_resource_type_name is not None:
+            pulumi.set(__self__, "global_async_operation_resource_type_name", global_async_operation_resource_type_name)
+        if provider_authentication is not None:
+            pulumi.set(__self__, "provider_authentication", provider_authentication)
+        if provider_authorizations is not None:
+            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
+        if regional_async_operation_resource_type_name is not None:
+            pulumi.set(__self__, "regional_async_operation_resource_type_name", regional_async_operation_resource_type_name)
+        if third_party_provider_authorization is not None:
+            pulumi.set(__self__, "third_party_provider_authorization", third_party_provider_authorization)
+
+    @_builtins.property
+    @pulumi.getter(name="directRpRoleDefinitionId")
+    def direct_rp_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The direct RP role definition id.
+        """
+        return pulumi.get(self, "direct_rp_role_definition_id")
+
+    @direct_rp_role_definition_id.setter
+    def direct_rp_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "direct_rp_role_definition_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalAsyncOperationResourceTypeName")
+    def global_async_operation_resource_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The global async operation resource type name.
+        """
+        return pulumi.get(self, "global_async_operation_resource_type_name")
+
+    @global_async_operation_resource_type_name.setter
+    def global_async_operation_resource_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "global_async_operation_resource_type_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerAuthentication")
+    def provider_authentication(self) -> pulumi.Input[Optional['ProviderHubMetadataProviderAuthenticationArgs']]:
+        """
+        The provider authentication.
+        """
+        return pulumi.get(self, "provider_authentication")
+
+    @provider_authentication.setter
+    def provider_authentication(self, value: pulumi.Input[Optional['ProviderHubMetadataProviderAuthenticationArgs']]):
+        pulumi.set(self, "provider_authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerAuthorizations")
+    def provider_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]:
+        """
+        The provider authorizations.
+        """
+        return pulumi.get(self, "provider_authorizations")
+
+    @provider_authorizations.setter
+    def provider_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]):
+        pulumi.set(self, "provider_authorizations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="regionalAsyncOperationResourceTypeName")
+    def regional_async_operation_resource_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The regional async operation resource type name.
+        """
+        return pulumi.get(self, "regional_async_operation_resource_type_name")
+
+    @regional_async_operation_resource_type_name.setter
+    def regional_async_operation_resource_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "regional_async_operation_resource_type_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thirdPartyProviderAuthorization")
+    def third_party_provider_authorization(self) -> pulumi.Input[Optional['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]:
+        """
+        The third party provider authorization.
+        """
+        return pulumi.get(self, "third_party_provider_authorization")
+
+    @third_party_provider_authorization.setter
+    def third_party_provider_authorization(self, value: pulumi.Input[Optional['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]):
+        pulumi.set(self, "third_party_provider_authorization", value)
+
+
+class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
+    """
+    The subscription lifecycle notification specifications.
+    """
+    soft_delete_ttl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The soft delete TTL.
+    """
+    subscription_state_override_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]]
+    """
+    The subscription state override actions.
+    """
+
+@pulumi.input_type
+class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
+    def __init__(__self__, *,
+                 soft_delete_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_state_override_actions: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
+        """
+        The subscription lifecycle notification specifications.
+
+        :param pulumi.Input[_builtins.str] soft_delete_ttl: The soft delete TTL.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]] subscription_state_override_actions: The subscription state override actions.
+        """
+        if soft_delete_ttl is not None:
+            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
+        if subscription_state_override_actions is not None:
+            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
+
+    @_builtins.property
+    @pulumi.getter(name="softDeleteTTL")
+    def soft_delete_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The soft delete TTL.
+        """
+        return pulumi.get(self, "soft_delete_ttl")
+
+    @soft_delete_ttl.setter
+    def soft_delete_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "soft_delete_ttl", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionStateOverrideActions")
+    def subscription_state_override_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
+        """
+        The subscription state override actions.
+        """
+        return pulumi.get(self, "subscription_state_override_actions")
+
+    @subscription_state_override_actions.setter
+    def subscription_state_override_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
+        pulumi.set(self, "subscription_state_override_actions", value)
+
+
 class QuotaRuleArgsDict(TypedDict):
-    location_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LocationQuotaRuleArgsDict']]]]
+    location_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LocationQuotaRuleArgsDict']]]]]
     """
     The location rules.
     """
-    quota_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]
+    quota_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]]]
     """
     The quota policy.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required features.
     """
@@ -4481,9 +4481,9 @@ class QuotaRuleArgsDict(TypedDict):
 @pulumi.input_type
 class QuotaRuleArgs:
     def __init__(__self__, *,
-                 location_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LocationQuotaRuleArgs']]]] = None,
-                 quota_policy: Optional[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 location_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LocationQuotaRuleArgs']]]] = None,
+                 quota_policy: pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LocationQuotaRuleArgs']]] location_rules: The location rules.
         :param pulumi.Input[Union[_builtins.str, 'QuotaPolicy']] quota_policy: The quota policy.
@@ -4498,47 +4498,47 @@ class QuotaRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="locationRules")
-    def location_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationQuotaRuleArgs']]]]:
+    def location_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocationQuotaRuleArgs']]]]:
         """
         The location rules.
         """
         return pulumi.get(self, "location_rules")
 
     @location_rules.setter
-    def location_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationQuotaRuleArgs']]]]):
+    def location_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocationQuotaRuleArgs']]]]):
         pulumi.set(self, "location_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaPolicy")
-    def quota_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]:
+    def quota_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]]:
         """
         The quota policy.
         """
         return pulumi.get(self, "quota_policy")
 
     @quota_policy.setter
-    def quota_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]):
+    def quota_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'QuotaPolicy']]]):
         pulumi.set(self, "quota_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
 
 
 class ResourceAccessRoleArgsDict(TypedDict):
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The actions.
     """
-    allowed_group_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_group_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The allowed group claims.
     """
@@ -4546,8 +4546,8 @@ class ResourceAccessRoleArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceAccessRoleArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_group_claims: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_group_claims: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_group_claims: The allowed group claims.
@@ -4559,31 +4559,31 @@ class ResourceAccessRoleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The actions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedGroupClaims")
-    def allowed_group_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_group_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed group claims.
         """
         return pulumi.get(self, "allowed_group_claims")
 
     @allowed_group_claims.setter
-    def allowed_group_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_group_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_group_claims", value)
 
 
 class ResourceConcurrencyControlOptionArgsDict(TypedDict):
-    policy: NotRequired[pulumi.Input[Union[_builtins.str, 'Policy']]]
+    policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Policy']]]]
     """
     The policy.
     """
@@ -4591,7 +4591,7 @@ class ResourceConcurrencyControlOptionArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceConcurrencyControlOptionArgs:
     def __init__(__self__, *,
-                 policy: Optional[pulumi.Input[Union[_builtins.str, 'Policy']]] = None):
+                 policy: pulumi.Input[Optional[Union[_builtins.str, 'Policy']]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'Policy']] policy: The policy.
         """
@@ -4600,31 +4600,31 @@ class ResourceConcurrencyControlOptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Policy']]]:
+    def policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Policy']]]:
         """
         The policy.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Policy']]]):
+    def policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Policy']]]):
         pulumi.set(self, "policy", value)
 
 
 class ResourceHydrationAccountArgsDict(TypedDict):
-    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account name.
     """
-    encrypted_key: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encrypted key.
     """
-    max_child_resource_consistency_job_limit: NotRequired[pulumi.Input[_builtins.float]]
+    max_child_resource_consistency_job_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The max child resource consistency job limit.
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subscription id.
     """
@@ -4632,10 +4632,10 @@ class ResourceHydrationAccountArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceHydrationAccountArgs:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_child_resource_consistency_job_limit: Optional[pulumi.Input[_builtins.float]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_child_resource_consistency_job_limit: pulumi.Input[Optional[_builtins.float]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_name: The account name.
         :param pulumi.Input[_builtins.str] encrypted_key: The encrypted key.
@@ -4653,171 +4653,75 @@ class ResourceHydrationAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account name.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedKey")
-    def encrypted_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encrypted key.
         """
         return pulumi.get(self, "encrypted_key")
 
     @encrypted_key.setter
-    def encrypted_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_key", value)
 
     @_builtins.property
     @pulumi.getter(name="maxChildResourceConsistencyJobLimit")
-    def max_child_resource_consistency_job_limit(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_child_resource_consistency_job_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The max child resource consistency job limit.
         """
         return pulumi.get(self, "max_child_resource_consistency_job_limit")
 
     @max_child_resource_consistency_job_limit.setter
-    def max_child_resource_consistency_job_limit(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_child_resource_consistency_job_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_child_resource_consistency_job_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription id.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
-class ResourceProviderAuthorizationManagedByAuthorizationArgsDict(TypedDict):
-    """
-    Managed by authorization.
-    """
-    additional_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalAuthorizationArgsDict']]]]
-    allow_managed_by_inheritance: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates whether the managed by resource role definition ID should be inherited.
-    """
-    managed_by_resource_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The managed by resource role definition ID for the application.
-    """
-
-@pulumi.input_type
-class ResourceProviderAuthorizationManagedByAuthorizationArgs:
-    def __init__(__self__, *,
-                 additional_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalAuthorizationArgs']]]] = None,
-                 allow_managed_by_inheritance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_by_resource_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Managed by authorization.
-
-        :param pulumi.Input[_builtins.bool] allow_managed_by_inheritance: Indicates whether the managed by resource role definition ID should be inherited.
-        :param pulumi.Input[_builtins.str] managed_by_resource_role_definition_id: The managed by resource role definition ID for the application.
-        """
-        if additional_authorizations is not None:
-            pulumi.set(__self__, "additional_authorizations", additional_authorizations)
-        if allow_managed_by_inheritance is not None:
-            pulumi.set(__self__, "allow_managed_by_inheritance", allow_managed_by_inheritance)
-        if managed_by_resource_role_definition_id is not None:
-            pulumi.set(__self__, "managed_by_resource_role_definition_id", managed_by_resource_role_definition_id)
-
-    @_builtins.property
-    @pulumi.getter(name="additionalAuthorizations")
-    def additional_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalAuthorizationArgs']]]]:
-        return pulumi.get(self, "additional_authorizations")
-
-    @additional_authorizations.setter
-    def additional_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalAuthorizationArgs']]]]):
-        pulumi.set(self, "additional_authorizations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="allowManagedByInheritance")
-    def allow_managed_by_inheritance(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the managed by resource role definition ID should be inherited.
-        """
-        return pulumi.get(self, "allow_managed_by_inheritance")
-
-    @allow_managed_by_inheritance.setter
-    def allow_managed_by_inheritance(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "allow_managed_by_inheritance", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedByResourceRoleDefinitionId")
-    def managed_by_resource_role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The managed by resource role definition ID for the application.
-        """
-        return pulumi.get(self, "managed_by_resource_role_definition_id")
-
-    @managed_by_resource_role_definition_id.setter
-    def managed_by_resource_role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "managed_by_resource_role_definition_id", value)
-
-
-class ResourceProviderAuthorizationRulesArgsDict(TypedDict):
-    async_operation_polling_rules: NotRequired[pulumi.Input['AsyncOperationPollingRulesArgsDict']]
-    """
-    The async operation polling rules.
-    """
-
-@pulumi.input_type
-class ResourceProviderAuthorizationRulesArgs:
-    def __init__(__self__, *,
-                 async_operation_polling_rules: Optional[pulumi.Input['AsyncOperationPollingRulesArgs']] = None):
-        """
-        :param pulumi.Input['AsyncOperationPollingRulesArgs'] async_operation_polling_rules: The async operation polling rules.
-        """
-        if async_operation_polling_rules is not None:
-            pulumi.set(__self__, "async_operation_polling_rules", async_operation_polling_rules)
-
-    @_builtins.property
-    @pulumi.getter(name="asyncOperationPollingRules")
-    def async_operation_polling_rules(self) -> Optional[pulumi.Input['AsyncOperationPollingRulesArgs']]:
-        """
-        The async operation polling rules.
-        """
-        return pulumi.get(self, "async_operation_polling_rules")
-
-    @async_operation_polling_rules.setter
-    def async_operation_polling_rules(self, value: Optional[pulumi.Input['AsyncOperationPollingRulesArgs']]):
-        pulumi.set(self, "async_operation_polling_rules", value)
-
-
 class ResourceProviderAuthorizationArgsDict(TypedDict):
-    allowed_third_party_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThirdPartyExtensionArgsDict']]]]
+    allowed_third_party_extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThirdPartyExtensionArgsDict']]]]]
     """
     The allowed third party extensions.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The application id.
     """
-    grouping_tag: NotRequired[pulumi.Input[_builtins.str]]
+    grouping_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The grouping tag.
     """
-    managed_by_authorization: NotRequired[pulumi.Input['ResourceProviderAuthorizationManagedByAuthorizationArgsDict']]
+    managed_by_authorization: NotRequired[pulumi.Input[Optional['ResourceProviderAuthorizationManagedByAuthorizationArgsDict']]]
     """
     Managed by authorization.
     """
-    managed_by_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    managed_by_role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The managed by role definition id.
     """
-    role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The role definition id.
     """
@@ -4825,12 +4729,12 @@ class ResourceProviderAuthorizationArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceProviderAuthorizationArgs:
     def __init__(__self__, *,
-                 allowed_third_party_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ThirdPartyExtensionArgs']]]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 grouping_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_by_authorization: Optional[pulumi.Input['ResourceProviderAuthorizationManagedByAuthorizationArgs']] = None,
-                 managed_by_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_third_party_extensions: pulumi.Input[Optional[Sequence[pulumi.Input['ThirdPartyExtensionArgs']]]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_by_authorization: pulumi.Input[Optional['ResourceProviderAuthorizationManagedByAuthorizationArgs']] = None,
+                 managed_by_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ThirdPartyExtensionArgs']]] allowed_third_party_extensions: The allowed third party extensions.
         :param pulumi.Input[_builtins.str] application_id: The application id.
@@ -4854,75 +4758,171 @@ class ResourceProviderAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedThirdPartyExtensions")
-    def allowed_third_party_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThirdPartyExtensionArgs']]]]:
+    def allowed_third_party_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThirdPartyExtensionArgs']]]]:
         """
         The allowed third party extensions.
         """
         return pulumi.get(self, "allowed_third_party_extensions")
 
     @allowed_third_party_extensions.setter
-    def allowed_third_party_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThirdPartyExtensionArgs']]]]):
+    def allowed_third_party_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThirdPartyExtensionArgs']]]]):
         pulumi.set(self, "allowed_third_party_extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application id.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingTag")
-    def grouping_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grouping_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The grouping tag.
         """
         return pulumi.get(self, "grouping_tag")
 
     @grouping_tag.setter
-    def grouping_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grouping_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grouping_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="managedByAuthorization")
-    def managed_by_authorization(self) -> Optional[pulumi.Input['ResourceProviderAuthorizationManagedByAuthorizationArgs']]:
+    def managed_by_authorization(self) -> pulumi.Input[Optional['ResourceProviderAuthorizationManagedByAuthorizationArgs']]:
         """
         Managed by authorization.
         """
         return pulumi.get(self, "managed_by_authorization")
 
     @managed_by_authorization.setter
-    def managed_by_authorization(self, value: Optional[pulumi.Input['ResourceProviderAuthorizationManagedByAuthorizationArgs']]):
+    def managed_by_authorization(self, value: pulumi.Input[Optional['ResourceProviderAuthorizationManagedByAuthorizationArgs']]):
         pulumi.set(self, "managed_by_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="managedByRoleDefinitionId")
-    def managed_by_role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The managed by role definition id.
         """
         return pulumi.get(self, "managed_by_role_definition_id")
 
     @managed_by_role_definition_id.setter
-    def managed_by_role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by_role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role definition id.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
+
+
+class ResourceProviderAuthorizationManagedByAuthorizationArgsDict(TypedDict):
+    """
+    Managed by authorization.
+    """
+    additional_authorizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalAuthorizationArgsDict']]]]]
+    allow_managed_by_inheritance: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether the managed by resource role definition ID should be inherited.
+    """
+    managed_by_resource_role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The managed by resource role definition ID for the application.
+    """
+
+@pulumi.input_type
+class ResourceProviderAuthorizationManagedByAuthorizationArgs:
+    def __init__(__self__, *,
+                 additional_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalAuthorizationArgs']]]] = None,
+                 allow_managed_by_inheritance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_by_resource_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Managed by authorization.
+
+        :param pulumi.Input[_builtins.bool] allow_managed_by_inheritance: Indicates whether the managed by resource role definition ID should be inherited.
+        :param pulumi.Input[_builtins.str] managed_by_resource_role_definition_id: The managed by resource role definition ID for the application.
+        """
+        if additional_authorizations is not None:
+            pulumi.set(__self__, "additional_authorizations", additional_authorizations)
+        if allow_managed_by_inheritance is not None:
+            pulumi.set(__self__, "allow_managed_by_inheritance", allow_managed_by_inheritance)
+        if managed_by_resource_role_definition_id is not None:
+            pulumi.set(__self__, "managed_by_resource_role_definition_id", managed_by_resource_role_definition_id)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalAuthorizations")
+    def additional_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalAuthorizationArgs']]]]:
+        return pulumi.get(self, "additional_authorizations")
+
+    @additional_authorizations.setter
+    def additional_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AdditionalAuthorizationArgs']]]]):
+        pulumi.set(self, "additional_authorizations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowManagedByInheritance")
+    def allow_managed_by_inheritance(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the managed by resource role definition ID should be inherited.
+        """
+        return pulumi.get(self, "allow_managed_by_inheritance")
+
+    @allow_managed_by_inheritance.setter
+    def allow_managed_by_inheritance(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "allow_managed_by_inheritance", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedByResourceRoleDefinitionId")
+    def managed_by_resource_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The managed by resource role definition ID for the application.
+        """
+        return pulumi.get(self, "managed_by_resource_role_definition_id")
+
+    @managed_by_resource_role_definition_id.setter
+    def managed_by_resource_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_by_resource_role_definition_id", value)
+
+
+class ResourceProviderAuthorizationRulesArgsDict(TypedDict):
+    async_operation_polling_rules: NotRequired[pulumi.Input[Optional['AsyncOperationPollingRulesArgsDict']]]
+    """
+    The async operation polling rules.
+    """
+
+@pulumi.input_type
+class ResourceProviderAuthorizationRulesArgs:
+    def __init__(__self__, *,
+                 async_operation_polling_rules: pulumi.Input[Optional['AsyncOperationPollingRulesArgs']] = None):
+        """
+        :param pulumi.Input['AsyncOperationPollingRulesArgs'] async_operation_polling_rules: The async operation polling rules.
+        """
+        if async_operation_polling_rules is not None:
+            pulumi.set(__self__, "async_operation_polling_rules", async_operation_polling_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="asyncOperationPollingRules")
+    def async_operation_polling_rules(self) -> pulumi.Input[Optional['AsyncOperationPollingRulesArgs']]:
+        """
+        The async operation polling rules.
+        """
+        return pulumi.get(self, "async_operation_polling_rules")
+
+    @async_operation_polling_rules.setter
+    def async_operation_polling_rules(self, value: pulumi.Input[Optional['AsyncOperationPollingRulesArgs']]):
+        pulumi.set(self, "async_operation_polling_rules", value)
 
 
 class ResourceProviderCapabilitiesArgsDict(TypedDict):
@@ -4934,7 +4934,7 @@ class ResourceProviderCapabilitiesArgsDict(TypedDict):
     """
     The quota id.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required features.
     """
@@ -4944,7 +4944,7 @@ class ResourceProviderCapabilitiesArgs:
     def __init__(__self__, *,
                  effect: pulumi.Input[Union[_builtins.str, 'ResourceProviderCapabilitiesEffect']],
                  quota_id: pulumi.Input[_builtins.str],
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'ResourceProviderCapabilitiesEffect']] effect: The effect.
         :param pulumi.Input[_builtins.str] quota_id: The quota id.
@@ -4981,15 +4981,204 @@ class ResourceProviderCapabilitiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
+
+
+class ResourceProviderEndpointArgsDict(TypedDict):
+    api_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The api versions.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the endpoint is enabled.
+    """
+    endpoint_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]]]
+    """
+    The endpoint type.
+    """
+    endpoint_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The endpoint uri.
+    """
+    features_rule: NotRequired[pulumi.Input[Optional['ResourceProviderEndpointFeaturesRuleArgsDict']]]
+    """
+    The feature rules.
+    """
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The locations.
+    """
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The required features.
+    """
+    sku_link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The sku link.
+    """
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The timeout.
+    """
+
+@pulumi.input_type
+class ResourceProviderEndpointArgs:
+    def __init__(__self__, *,
+                 api_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]] = None,
+                 endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 features_rule: pulumi.Input[Optional['ResourceProviderEndpointFeaturesRuleArgs']] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sku_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_versions: The api versions.
+        :param pulumi.Input[_builtins.bool] enabled: Whether the endpoint is enabled.
+        :param pulumi.Input[Union[_builtins.str, 'EndpointType']] endpoint_type: The endpoint type.
+        :param pulumi.Input[_builtins.str] endpoint_uri: The endpoint uri.
+        :param pulumi.Input['ResourceProviderEndpointFeaturesRuleArgs'] features_rule: The feature rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: The locations.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] required_features: The required features.
+        :param pulumi.Input[_builtins.str] sku_link: The sku link.
+        :param pulumi.Input[_builtins.str] timeout: The timeout.
+        """
+        if api_versions is not None:
+            pulumi.set(__self__, "api_versions", api_versions)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        if features_rule is not None:
+            pulumi.set(__self__, "features_rule", features_rule)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if required_features is not None:
+            pulumi.set(__self__, "required_features", required_features)
+        if sku_link is not None:
+            pulumi.set(__self__, "sku_link", sku_link)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="apiVersions")
+    def api_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The api versions.
+        """
+        return pulumi.get(self, "api_versions")
+
+    @api_versions.setter
+    def api_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "api_versions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the endpoint is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]]:
+        """
+        The endpoint type.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointType']]]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The endpoint uri.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="featuresRule")
+    def features_rule(self) -> pulumi.Input[Optional['ResourceProviderEndpointFeaturesRuleArgs']]:
+        """
+        The feature rules.
+        """
+        return pulumi.get(self, "features_rule")
+
+    @features_rule.setter
+    def features_rule(self, value: pulumi.Input[Optional['ResourceProviderEndpointFeaturesRuleArgs']]):
+        pulumi.set(self, "features_rule", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The locations.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requiredFeatures")
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The required features.
+        """
+        return pulumi.get(self, "required_features")
+
+    @required_features.setter
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "required_features", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skuLink")
+    def sku_link(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The sku link.
+        """
+        return pulumi.get(self, "sku_link")
+
+    @sku_link.setter
+    def sku_link(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sku_link", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timeout.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timeout", value)
 
 
 class ResourceProviderEndpointFeaturesRuleArgsDict(TypedDict):
@@ -5025,200 +5214,11 @@ class ResourceProviderEndpointFeaturesRuleArgs:
         pulumi.set(self, "required_features_policy", value)
 
 
-class ResourceProviderEndpointArgsDict(TypedDict):
-    api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The api versions.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether the endpoint is enabled.
-    """
-    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointType']]]
-    """
-    The endpoint type.
-    """
-    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The endpoint uri.
-    """
-    features_rule: NotRequired[pulumi.Input['ResourceProviderEndpointFeaturesRuleArgsDict']]
-    """
-    The feature rules.
-    """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The locations.
-    """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The required features.
-    """
-    sku_link: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The sku link.
-    """
-    timeout: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The timeout.
-    """
-
-@pulumi.input_type
-class ResourceProviderEndpointArgs:
-    def __init__(__self__, *,
-                 api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_type: Optional[pulumi.Input[Union[_builtins.str, 'EndpointType']]] = None,
-                 endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 features_rule: Optional[pulumi.Input['ResourceProviderEndpointFeaturesRuleArgs']] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sku_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_versions: The api versions.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the endpoint is enabled.
-        :param pulumi.Input[Union[_builtins.str, 'EndpointType']] endpoint_type: The endpoint type.
-        :param pulumi.Input[_builtins.str] endpoint_uri: The endpoint uri.
-        :param pulumi.Input['ResourceProviderEndpointFeaturesRuleArgs'] features_rule: The feature rules.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: The locations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] required_features: The required features.
-        :param pulumi.Input[_builtins.str] sku_link: The sku link.
-        :param pulumi.Input[_builtins.str] timeout: The timeout.
-        """
-        if api_versions is not None:
-            pulumi.set(__self__, "api_versions", api_versions)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
-        if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
-        if features_rule is not None:
-            pulumi.set(__self__, "features_rule", features_rule)
-        if locations is not None:
-            pulumi.set(__self__, "locations", locations)
-        if required_features is not None:
-            pulumi.set(__self__, "required_features", required_features)
-        if sku_link is not None:
-            pulumi.set(__self__, "sku_link", sku_link)
-        if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
-
-    @_builtins.property
-    @pulumi.getter(name="apiVersions")
-    def api_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The api versions.
-        """
-        return pulumi.get(self, "api_versions")
-
-    @api_versions.setter
-    def api_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "api_versions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the endpoint is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointType']]]:
-        """
-        The endpoint type.
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointType']]]):
-        pulumi.set(self, "endpoint_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointUri")
-    def endpoint_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The endpoint uri.
-        """
-        return pulumi.get(self, "endpoint_uri")
-
-    @endpoint_uri.setter
-    def endpoint_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "endpoint_uri", value)
-
-    @_builtins.property
-    @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional[pulumi.Input['ResourceProviderEndpointFeaturesRuleArgs']]:
-        """
-        The feature rules.
-        """
-        return pulumi.get(self, "features_rule")
-
-    @features_rule.setter
-    def features_rule(self, value: Optional[pulumi.Input['ResourceProviderEndpointFeaturesRuleArgs']]):
-        pulumi.set(self, "features_rule", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The locations.
-        """
-        return pulumi.get(self, "locations")
-
-    @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "locations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The required features.
-        """
-        return pulumi.get(self, "required_features")
-
-    @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "required_features", value)
-
-    @_builtins.property
-    @pulumi.getter(name="skuLink")
-    def sku_link(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The sku link.
-        """
-        return pulumi.get(self, "sku_link")
-
-    @sku_link.setter
-    def sku_link(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "sku_link", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timeout.
-        """
-        return pulumi.get(self, "timeout")
-
-    @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "timeout", value)
-
-
 class ResourceProviderManagementErrorResponseMessageOptionsArgsDict(TypedDict):
     """
     Options for error response messages.
     """
-    server_failure_response_message_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']]]
+    server_failure_response_message_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServerFailureResponseMessageType']]]]
     """
     Type of server failure response message.
     """
@@ -5226,7 +5226,7 @@ class ResourceProviderManagementErrorResponseMessageOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceProviderManagementErrorResponseMessageOptionsArgs:
     def __init__(__self__, *,
-                 server_failure_response_message_type: Optional[pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']]] = None):
+                 server_failure_response_message_type: pulumi.Input[Optional[Union[_builtins.str, 'ServerFailureResponseMessageType']]] = None):
         """
         Options for error response messages.
 
@@ -5237,14 +5237,14 @@ class ResourceProviderManagementErrorResponseMessageOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverFailureResponseMessageType")
-    def server_failure_response_message_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']]]:
+    def server_failure_response_message_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServerFailureResponseMessageType']]]:
         """
         Type of server failure response message.
         """
         return pulumi.get(self, "server_failure_response_message_type")
 
     @server_failure_response_message_type.setter
-    def server_failure_response_message_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']]]):
+    def server_failure_response_message_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServerFailureResponseMessageType']]]):
         pulumi.set(self, "server_failure_response_message_type", value)
 
 
@@ -5252,11 +5252,11 @@ class ResourceProviderManagementExpeditedRolloutMetadataArgsDict(TypedDict):
     """
     Metadata for expedited rollout.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Expedited rollout enabled?
     """
-    expedited_rollout_intent: NotRequired[pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']]]
+    expedited_rollout_intent: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExpeditedRolloutIntent']]]]
     """
     Expedited rollout intent.
     """
@@ -5264,8 +5264,8 @@ class ResourceProviderManagementExpeditedRolloutMetadataArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceProviderManagementExpeditedRolloutMetadataArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expedited_rollout_intent: Optional[pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expedited_rollout_intent: pulumi.Input[Optional[Union[_builtins.str, 'ExpeditedRolloutIntent']]] = None):
         """
         Metadata for expedited rollout.
 
@@ -5279,26 +5279,26 @@ class ResourceProviderManagementExpeditedRolloutMetadataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Expedited rollout enabled?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="expeditedRolloutIntent")
-    def expedited_rollout_intent(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']]]:
+    def expedited_rollout_intent(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExpeditedRolloutIntent']]]:
         """
         Expedited rollout intent.
         """
         return pulumi.get(self, "expedited_rollout_intent")
 
     @expedited_rollout_intent.setter
-    def expedited_rollout_intent(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']]]):
+    def expedited_rollout_intent(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExpeditedRolloutIntent']]]):
         pulumi.set(self, "expedited_rollout_intent", value)
 
 
@@ -5310,7 +5310,7 @@ class ResourceProviderManifestPropertiesDstsConfigurationArgsDict(TypedDict):
     """
     The service name.
     """
-    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is a URI property.
     """
@@ -5319,7 +5319,7 @@ class ResourceProviderManifestPropertiesDstsConfigurationArgsDict(TypedDict):
 class ResourceProviderManifestPropertiesDstsConfigurationArgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[_builtins.str],
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The dsts configuration.
 
@@ -5344,14 +5344,14 @@ class ResourceProviderManifestPropertiesDstsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a URI property.
         """
         return pulumi.get(self, "service_dns_name")
 
     @service_dns_name.setter
-    def service_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_dns_name", value)
 
 
@@ -5392,63 +5392,63 @@ class ResourceProviderManifestPropertiesManagementArgsDict(TypedDict):
     """
     The resource provider management.
     """
-    authorization_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    authorization_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The authorization owners.
     """
-    canary_manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    canary_manifest_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of manifest owners for canary.
     """
-    error_response_message_options: NotRequired[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]
+    error_response_message_options: NotRequired[pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]]
     """
     Options for error response messages.
     """
-    expedited_rollout_metadata: NotRequired[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]
+    expedited_rollout_metadata: NotRequired[pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]]
     """
     Metadata for expedited rollout.
     """
-    expedited_rollout_submitters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    expedited_rollout_submitters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of expedited rollout submitters.
     """
-    incident_contact_email: NotRequired[pulumi.Input[_builtins.str]]
+    incident_contact_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The incident contact email.
     """
-    incident_routing_service: NotRequired[pulumi.Input[_builtins.str]]
+    incident_routing_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The incident routing service.
     """
-    incident_routing_team: NotRequired[pulumi.Input[_builtins.str]]
+    incident_routing_team: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The incident routing team.
     """
-    manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    manifest_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The manifest owners.
     """
-    pc_code: NotRequired[pulumi.Input[_builtins.str]]
+    pc_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The profit center code for the subscription.
     """
-    profit_center_program_id: NotRequired[pulumi.Input[_builtins.str]]
+    profit_center_program_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The profit center program id for the subscription.
     """
-    resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
+    resource_access_policy: NotRequired[pulumi.Input[Optional['ResourceAccessPolicy']]]
     """
     The resource access policy.
     """
-    resource_access_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]
+    resource_access_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]]
     """
     The resource access roles.
     """
-    schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    schema_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The schema owners.
     """
-    service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+    service_tree_infos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]]
     """
     The service tree infos.
     """
@@ -5456,21 +5456,21 @@ class ResourceProviderManifestPropertiesManagementArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceProviderManifestPropertiesManagementArgs:
     def __init__(__self__, *,
-                 authorization_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 canary_manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 error_response_message_options: Optional[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs']] = None,
-                 expedited_rollout_metadata: Optional[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs']] = None,
-                 expedited_rollout_submitters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_contact_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_routing_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_routing_team: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pc_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 profit_center_program_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_policy: Optional[pulumi.Input['ResourceAccessPolicy']] = None,
-                 resource_access_roles: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]] = None,
-                 schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
+                 authorization_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 canary_manifest_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 error_response_message_options: pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgs']] = None,
+                 expedited_rollout_metadata: pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgs']] = None,
+                 expedited_rollout_submitters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_contact_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_routing_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_routing_team: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pc_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 profit_center_program_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_policy: pulumi.Input[Optional['ResourceAccessPolicy']] = None,
+                 resource_access_roles: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]] = None,
+                 schema_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_tree_infos: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
         """
         The resource provider management.
 
@@ -5523,182 +5523,182 @@ class ResourceProviderManifestPropertiesManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationOwners")
-    def authorization_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorization_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The authorization owners.
         """
         return pulumi.get(self, "authorization_owners")
 
     @authorization_owners.setter
-    def authorization_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorization_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization_owners", value)
 
     @_builtins.property
     @pulumi.getter(name="canaryManifestOwners")
-    def canary_manifest_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def canary_manifest_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of manifest owners for canary.
         """
         return pulumi.get(self, "canary_manifest_owners")
 
     @canary_manifest_owners.setter
-    def canary_manifest_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def canary_manifest_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "canary_manifest_owners", value)
 
     @_builtins.property
     @pulumi.getter(name="errorResponseMessageOptions")
-    def error_response_message_options(self) -> Optional[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs']]:
+    def error_response_message_options(self) -> pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgs']]:
         """
         Options for error response messages.
         """
         return pulumi.get(self, "error_response_message_options")
 
     @error_response_message_options.setter
-    def error_response_message_options(self, value: Optional[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs']]):
+    def error_response_message_options(self, value: pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgs']]):
         pulumi.set(self, "error_response_message_options", value)
 
     @_builtins.property
     @pulumi.getter(name="expeditedRolloutMetadata")
-    def expedited_rollout_metadata(self) -> Optional[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs']]:
+    def expedited_rollout_metadata(self) -> pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgs']]:
         """
         Metadata for expedited rollout.
         """
         return pulumi.get(self, "expedited_rollout_metadata")
 
     @expedited_rollout_metadata.setter
-    def expedited_rollout_metadata(self, value: Optional[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs']]):
+    def expedited_rollout_metadata(self, value: pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgs']]):
         pulumi.set(self, "expedited_rollout_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="expeditedRolloutSubmitters")
-    def expedited_rollout_submitters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expedited_rollout_submitters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of expedited rollout submitters.
         """
         return pulumi.get(self, "expedited_rollout_submitters")
 
     @expedited_rollout_submitters.setter
-    def expedited_rollout_submitters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expedited_rollout_submitters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expedited_rollout_submitters", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentContactEmail")
-    def incident_contact_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def incident_contact_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The incident contact email.
         """
         return pulumi.get(self, "incident_contact_email")
 
     @incident_contact_email.setter
-    def incident_contact_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def incident_contact_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "incident_contact_email", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentRoutingService")
-    def incident_routing_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def incident_routing_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The incident routing service.
         """
         return pulumi.get(self, "incident_routing_service")
 
     @incident_routing_service.setter
-    def incident_routing_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def incident_routing_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "incident_routing_service", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentRoutingTeam")
-    def incident_routing_team(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def incident_routing_team(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The incident routing team.
         """
         return pulumi.get(self, "incident_routing_team")
 
     @incident_routing_team.setter
-    def incident_routing_team(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def incident_routing_team(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "incident_routing_team", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestOwners")
-    def manifest_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def manifest_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The manifest owners.
         """
         return pulumi.get(self, "manifest_owners")
 
     @manifest_owners.setter
-    def manifest_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def manifest_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "manifest_owners", value)
 
     @_builtins.property
     @pulumi.getter(name="pcCode")
-    def pc_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pc_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The profit center code for the subscription.
         """
         return pulumi.get(self, "pc_code")
 
     @pc_code.setter
-    def pc_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pc_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pc_code", value)
 
     @_builtins.property
     @pulumi.getter(name="profitCenterProgramId")
-    def profit_center_program_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profit_center_program_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The profit center program id for the subscription.
         """
         return pulumi.get(self, "profit_center_program_id")
 
     @profit_center_program_id.setter
-    def profit_center_program_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profit_center_program_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profit_center_program_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessPolicy")
-    def resource_access_policy(self) -> Optional[pulumi.Input['ResourceAccessPolicy']]:
+    def resource_access_policy(self) -> pulumi.Input[Optional['ResourceAccessPolicy']]:
         """
         The resource access policy.
         """
         return pulumi.get(self, "resource_access_policy")
 
     @resource_access_policy.setter
-    def resource_access_policy(self, value: Optional[pulumi.Input['ResourceAccessPolicy']]):
+    def resource_access_policy(self, value: pulumi.Input[Optional['ResourceAccessPolicy']]):
         pulumi.set(self, "resource_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessRoles")
-    def resource_access_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]:
+    def resource_access_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]:
         """
         The resource access roles.
         """
         return pulumi.get(self, "resource_access_roles")
 
     @resource_access_roles.setter
-    def resource_access_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]):
+    def resource_access_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]):
         pulumi.set(self, "resource_access_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaOwners")
-    def schema_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def schema_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The schema owners.
         """
         return pulumi.get(self, "schema_owners")
 
     @schema_owners.setter
-    def schema_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def schema_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "schema_owners", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTreeInfos")
-    def service_tree_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
+    def service_tree_infos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
         """
         The service tree infos.
         """
         return pulumi.get(self, "service_tree_infos")
 
     @service_tree_infos.setter
-    def service_tree_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
+    def service_tree_infos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
         pulumi.set(self, "service_tree_infos", value)
 
 
@@ -5706,12 +5706,12 @@ class ResourceProviderManifestPropertiesNotificationSettingsArgsDict(TypedDict):
     """
     Notification settings.
     """
-    subscriber_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberSettingArgsDict']]]]
+    subscriber_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSettingArgsDict']]]]]
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesNotificationSettingsArgs:
     def __init__(__self__, *,
-                 subscriber_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSettingArgs']]]] = None):
+                 subscriber_settings: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSettingArgs']]]] = None):
         """
         Notification settings.
         """
@@ -5720,11 +5720,11 @@ class ResourceProviderManifestPropertiesNotificationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="subscriberSettings")
-    def subscriber_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSettingArgs']]]]:
+    def subscriber_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSettingArgs']]]]:
         return pulumi.get(self, "subscriber_settings")
 
     @subscriber_settings.setter
-    def subscriber_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSettingArgs']]]]):
+    def subscriber_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSettingArgs']]]]):
         pulumi.set(self, "subscriber_settings", value)
 
 
@@ -5765,11 +5765,11 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict(TypedDict):
     """
     The request header options.
     """
-    opt_in_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]
+    opt_in_headers: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]]]
     """
     The opt in headers.
     """
-    opt_out_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]
+    opt_out_headers: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]]]
     """
     The opt out headers.
     """
@@ -5777,8 +5777,8 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
     def __init__(__self__, *,
-                 opt_in_headers: Optional[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]] = None,
-                 opt_out_headers: Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]] = None):
+                 opt_in_headers: pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]] = None,
+                 opt_out_headers: pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]] = None):
         """
         The request header options.
 
@@ -5792,26 +5792,26 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="optInHeaders")
-    def opt_in_headers(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]:
+    def opt_in_headers(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]]:
         """
         The opt in headers.
         """
         return pulumi.get(self, "opt_in_headers")
 
     @opt_in_headers.setter
-    def opt_in_headers(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]):
+    def opt_in_headers(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]]):
         pulumi.set(self, "opt_in_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="optOutHeaders")
-    def opt_out_headers(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]:
+    def opt_out_headers(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]]:
         """
         The opt out headers.
         """
         return pulumi.get(self, "opt_out_headers")
 
     @opt_out_headers.setter
-    def opt_out_headers(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]):
+    def opt_out_headers(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]]):
         pulumi.set(self, "opt_out_headers", value)
 
 
@@ -5819,7 +5819,7 @@ class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDic
     """
     Resource group lock option during move.
     """
-    block_action_verb: NotRequired[pulumi.Input[Union[_builtins.str, 'BlockActionVerb']]]
+    block_action_verb: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BlockActionVerb']]]]
     """
     The action verb that will be blocked when the resource group is locked during move.
     """
@@ -5827,7 +5827,7 @@ class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDic
 @pulumi.input_type
 class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs:
     def __init__(__self__, *,
-                 block_action_verb: Optional[pulumi.Input[Union[_builtins.str, 'BlockActionVerb']]] = None):
+                 block_action_verb: pulumi.Input[Optional[Union[_builtins.str, 'BlockActionVerb']]] = None):
         """
         Resource group lock option during move.
 
@@ -5838,14 +5838,14 @@ class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockActionVerb")
-    def block_action_verb(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BlockActionVerb']]]:
+    def block_action_verb(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BlockActionVerb']]]:
         """
         The action verb that will be blocked when the resource group is locked during move.
         """
         return pulumi.get(self, "block_action_verb")
 
     @block_action_verb.setter
-    def block_action_verb(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BlockActionVerb']]]):
+    def block_action_verb(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BlockActionVerb']]]):
         pulumi.set(self, "block_action_verb", value)
 
 
@@ -5853,12 +5853,12 @@ class ResourceProviderManifestPropertiesResponseOptionsArgsDict(TypedDict):
     """
     Response options.
     """
-    service_client_options_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceClientOptionsType']]]
+    service_client_options_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServiceClientOptionsType']]]]
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesResponseOptionsArgs:
     def __init__(__self__, *,
-                 service_client_options_type: Optional[pulumi.Input[Union[_builtins.str, 'ServiceClientOptionsType']]] = None):
+                 service_client_options_type: pulumi.Input[Optional[Union[_builtins.str, 'ServiceClientOptionsType']]] = None):
         """
         Response options.
         """
@@ -5867,11 +5867,11 @@ class ResourceProviderManifestPropertiesResponseOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceClientOptionsType")
-    def service_client_options_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceClientOptionsType']]]:
+    def service_client_options_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceClientOptionsType']]]:
         return pulumi.get(self, "service_client_options_type")
 
     @service_client_options_type.setter
-    def service_client_options_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceClientOptionsType']]]):
+    def service_client_options_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceClientOptionsType']]]):
         pulumi.set(self, "service_client_options_type", value)
 
 
@@ -5879,11 +5879,11 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict(TypedD
     """
     The template deployment options.
     """
-    preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]
+    preflight_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]]
     """
     The preflight options.
     """
-    preflight_supported: NotRequired[pulumi.Input[_builtins.bool]]
+    preflight_supported: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether preflight is supported.
     """
@@ -5891,8 +5891,8 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict(TypedD
 @pulumi.input_type
 class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
     def __init__(__self__, *,
-                 preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]] = None,
-                 preflight_supported: Optional[pulumi.Input[_builtins.bool]] = None):
+                 preflight_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]] = None,
+                 preflight_supported: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The template deployment options.
 
@@ -5906,26 +5906,26 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="preflightOptions")
-    def preflight_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]:
+    def preflight_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]:
         """
         The preflight options.
         """
         return pulumi.get(self, "preflight_options")
 
     @preflight_options.setter
-    def preflight_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]):
+    def preflight_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]):
         pulumi.set(self, "preflight_options", value)
 
     @_builtins.property
     @pulumi.getter(name="preflightSupported")
-    def preflight_supported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preflight_supported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether preflight is supported.
         """
         return pulumi.get(self, "preflight_supported")
 
     @preflight_supported.setter
-    def preflight_supported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preflight_supported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preflight_supported", value)
 
 
@@ -5933,11 +5933,11 @@ class ResourceProviderServiceArgsDict(TypedDict):
     """
     Resource provider service.
     """
-    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service name.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ServiceStatus']]]]
     """
     The status.
     """
@@ -5945,8 +5945,8 @@ class ResourceProviderServiceArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceProviderServiceArgs:
     def __init__(__self__, *,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ServiceStatus']]] = None):
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ServiceStatus']]] = None):
         """
         Resource provider service.
 
@@ -5960,177 +5960,91 @@ class ResourceProviderServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service name.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServiceStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ServiceStatus']]]:
         """
         The status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServiceStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ServiceStatus']]]):
         pulumi.set(self, "status", value)
 
 
-class ResourceTypeEndpointDstsConfigurationArgsDict(TypedDict):
-    """
-    The dsts configuration.
-    """
-    service_name: pulumi.Input[_builtins.str]
-    """
-    The service name.
-    """
-    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    This is a URI property.
-    """
-
-@pulumi.input_type
-class ResourceTypeEndpointDstsConfigurationArgs:
-    def __init__(__self__, *,
-                 service_name: pulumi.Input[_builtins.str],
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The dsts configuration.
-
-        :param pulumi.Input[_builtins.str] service_name: The service name.
-        :param pulumi.Input[_builtins.str] service_dns_name: This is a URI property.
-        """
-        pulumi.set(__self__, "service_name", service_name)
-        if service_dns_name is not None:
-            pulumi.set(__self__, "service_dns_name", service_dns_name)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The service name.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This is a URI property.
-        """
-        return pulumi.get(self, "service_dns_name")
-
-    @service_dns_name.setter
-    def service_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "service_dns_name", value)
-
-
-class ResourceTypeEndpointFeaturesRuleArgsDict(TypedDict):
-    """
-    The features rule.
-    """
-    required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
-    """
-    The required feature policy.
-    """
-
-@pulumi.input_type
-class ResourceTypeEndpointFeaturesRuleArgs:
-    def __init__(__self__, *,
-                 required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
-        """
-        The features rule.
-
-        :param pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']] required_features_policy: The required feature policy.
-        """
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="requiredFeaturesPolicy")
-    def required_features_policy(self) -> pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]:
-        """
-        The required feature policy.
-        """
-        return pulumi.get(self, "required_features_policy")
-
-    @required_features_policy.setter
-    def required_features_policy(self, value: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
-        pulumi.set(self, "required_features_policy", value)
-
-
 class ResourceTypeEndpointArgsDict(TypedDict):
-    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Api version.
     """
-    api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    api_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The api versions.
     """
-    data_boundary: NotRequired[pulumi.Input[Union[_builtins.str, 'DataBoundary']]]
+    data_boundary: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DataBoundary']]]]
     """
     The data boundary.
     """
-    dsts_configuration: NotRequired[pulumi.Input['ResourceTypeEndpointDstsConfigurationArgsDict']]
+    dsts_configuration: NotRequired[pulumi.Input[Optional['ResourceTypeEndpointDstsConfigurationArgsDict']]]
     """
     The dsts configuration.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the endpoint is enabled.
     """
-    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointTypeResourceType']]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EndpointTypeResourceType']]]]
     """
     The endpoint type.
     """
-    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint uri.
     """
-    extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgsDict']]]]
+    extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeExtensionArgsDict']]]]]
     """
     The extensions.
     """
-    features_rule: NotRequired[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgsDict']]
+    features_rule: NotRequired[pulumi.Input[Optional['ResourceTypeEndpointFeaturesRuleArgsDict']]]
     """
     The features rule.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeEndpointKind']]]
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeEndpointKind']]]]
     """
     Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
     """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The locations.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required features.
     """
-    sku_link: NotRequired[pulumi.Input[_builtins.str]]
+    sku_link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sku link.
     """
-    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timeout.
     """
-    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
+    token_auth_configuration: NotRequired[pulumi.Input[Optional['TokenAuthConfigurationArgsDict']]]
     """
     The token auth configuration.
     """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of zones.
     """
@@ -6138,22 +6052,22 @@ class ResourceTypeEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceTypeEndpointArgs:
     def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'DataBoundary']]] = None,
-                 dsts_configuration: Optional[pulumi.Input['ResourceTypeEndpointDstsConfigurationArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_type: Optional[pulumi.Input[Union[_builtins.str, 'EndpointTypeResourceType']]] = None,
-                 endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]] = None,
-                 features_rule: Optional[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeEndpointKind']]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sku_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_auth_configuration: Optional[pulumi.Input['TokenAuthConfigurationArgs']] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'DataBoundary']]] = None,
+                 dsts_configuration: pulumi.Input[Optional['ResourceTypeEndpointDstsConfigurationArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'EndpointTypeResourceType']]] = None,
+                 endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]] = None,
+                 features_rule: pulumi.Input[Optional['ResourceTypeEndpointFeaturesRuleArgs']] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeEndpointKind']]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sku_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_auth_configuration: pulumi.Input[Optional['TokenAuthConfigurationArgs']] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] api_version: Api version.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_versions: The api versions.
@@ -6209,504 +6123,198 @@ class ResourceTypeEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Api version.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="apiVersions")
-    def api_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def api_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The api versions.
         """
         return pulumi.get(self, "api_versions")
 
     @api_versions.setter
-    def api_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def api_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "api_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="dataBoundary")
-    def data_boundary(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataBoundary']]]:
+    def data_boundary(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DataBoundary']]]:
         """
         The data boundary.
         """
         return pulumi.get(self, "data_boundary")
 
     @data_boundary.setter
-    def data_boundary(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataBoundary']]]):
+    def data_boundary(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DataBoundary']]]):
         pulumi.set(self, "data_boundary", value)
 
     @_builtins.property
     @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional[pulumi.Input['ResourceTypeEndpointDstsConfigurationArgs']]:
+    def dsts_configuration(self) -> pulumi.Input[Optional['ResourceTypeEndpointDstsConfigurationArgs']]:
         """
         The dsts configuration.
         """
         return pulumi.get(self, "dsts_configuration")
 
     @dsts_configuration.setter
-    def dsts_configuration(self, value: Optional[pulumi.Input['ResourceTypeEndpointDstsConfigurationArgs']]):
+    def dsts_configuration(self, value: pulumi.Input[Optional['ResourceTypeEndpointDstsConfigurationArgs']]):
         pulumi.set(self, "dsts_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the endpoint is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointTypeResourceType']]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndpointTypeResourceType']]]:
         """
         The endpoint type.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointTypeResourceType']]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointTypeResourceType']]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointUri")
-    def endpoint_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint uri.
         """
         return pulumi.get(self, "endpoint_uri")
 
     @endpoint_uri.setter
-    def endpoint_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]]:
         """
         The extensions.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgs']]:
+    def features_rule(self) -> pulumi.Input[Optional['ResourceTypeEndpointFeaturesRuleArgs']]:
         """
         The features rule.
         """
         return pulumi.get(self, "features_rule")
 
     @features_rule.setter
-    def features_rule(self, value: Optional[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgs']]):
+    def features_rule(self, value: pulumi.Input[Optional['ResourceTypeEndpointFeaturesRuleArgs']]):
         pulumi.set(self, "features_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeEndpointKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeEndpointKind']]]:
         """
         Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeEndpointKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeEndpointKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The locations.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
 
     @_builtins.property
     @pulumi.getter(name="skuLink")
-    def sku_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku link.
         """
         return pulumi.get(self, "sku_link")
 
     @sku_link.setter
-    def sku_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timeout.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenAuthConfiguration")
-    def token_auth_configuration(self) -> Optional[pulumi.Input['TokenAuthConfigurationArgs']]:
+    def token_auth_configuration(self) -> pulumi.Input[Optional['TokenAuthConfigurationArgs']]:
         """
         The token auth configuration.
         """
         return pulumi.get(self, "token_auth_configuration")
 
     @token_auth_configuration.setter
-    def token_auth_configuration(self, value: Optional[pulumi.Input['TokenAuthConfigurationArgs']]):
+    def token_auth_configuration(self, value: pulumi.Input[Optional['TokenAuthConfigurationArgs']]):
         pulumi.set(self, "token_auth_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of zones.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
-class ResourceTypeExtensionOptionsResourceCreationBeginArgsDict(TypedDict):
-    """
-    Resource creation begin.
-    """
-    request: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]
-    """
-    The request.
-    """
-    response: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]
-    """
-    The response.
-    """
-
-@pulumi.input_type
-class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
-    def __init__(__self__, *,
-                 request: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]] = None,
-                 response: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]] = None):
-        """
-        Resource creation begin.
-
-        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]] request: The request.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]] response: The response.
-        """
-        if request is not None:
-            pulumi.set(__self__, "request", request)
-        if response is not None:
-            pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def request(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]:
-        """
-        The request.
-        """
-        return pulumi.get(self, "request")
-
-    @request.setter
-    def request(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]):
-        pulumi.set(self, "request", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def response(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]:
-        """
-        The response.
-        """
-        return pulumi.get(self, "response")
-
-    @response.setter
-    def response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]):
-        pulumi.set(self, "response", value)
-
-
-class ResourceTypeExtensionArgsDict(TypedDict):
-    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The endpoint uri.
-    """
-    extension_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]
-    """
-    The extension categories.
-    """
-    timeout: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The timeout.
-    """
-
-@pulumi.input_type
-class ResourceTypeExtensionArgs:
-    def __init__(__self__, *,
-                 endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] endpoint_uri: The endpoint uri.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]] extension_categories: The extension categories.
-        :param pulumi.Input[_builtins.str] timeout: The timeout.
-        """
-        if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
-        if extension_categories is not None:
-            pulumi.set(__self__, "extension_categories", extension_categories)
-        if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointUri")
-    def endpoint_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The endpoint uri.
-        """
-        return pulumi.get(self, "endpoint_uri")
-
-    @endpoint_uri.setter
-    def endpoint_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "endpoint_uri", value)
-
-    @_builtins.property
-    @pulumi.getter(name="extensionCategories")
-    def extension_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]:
-        """
-        The extension categories.
-        """
-        return pulumi.get(self, "extension_categories")
-
-    @extension_categories.setter
-    def extension_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]):
-        pulumi.set(self, "extension_categories", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timeout.
-        """
-        return pulumi.get(self, "timeout")
-
-    @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "timeout", value)
-
-
-class ResourceTypeOnBehalfOfTokenArgsDict(TypedDict):
-    action_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The action name.
-    """
-    life_time: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    This is a TimeSpan property.
-    """
-
-@pulumi.input_type
-class ResourceTypeOnBehalfOfTokenArgs:
-    def __init__(__self__, *,
-                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 life_time: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] action_name: The action name.
-        :param pulumi.Input[_builtins.str] life_time: This is a TimeSpan property.
-        """
-        if action_name is not None:
-            pulumi.set(__self__, "action_name", action_name)
-        if life_time is not None:
-            pulumi.set(__self__, "life_time", life_time)
-
-    @_builtins.property
-    @pulumi.getter(name="actionName")
-    def action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action name.
-        """
-        return pulumi.get(self, "action_name")
-
-    @action_name.setter
-    def action_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "action_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lifeTime")
-    def life_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This is a TimeSpan property.
-        """
-        return pulumi.get(self, "life_time")
-
-    @life_time.setter
-    def life_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "life_time", value)
-
-
-class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict(TypedDict):
-    """
-    The availability zone rule.
-    """
-    availability_zone_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'AvailabilityZonePolicy']]]
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs:
-    def __init__(__self__, *,
-                 availability_zone_policy: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZonePolicy']]] = None):
-        """
-        The availability zone rule.
-        """
-        if availability_zone_policy is not None:
-            pulumi.set(__self__, "availability_zone_policy", availability_zone_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZonePolicy")
-    def availability_zone_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZonePolicy']]]:
-        return pulumi.get(self, "availability_zone_policy")
-
-    @availability_zone_policy.setter
-    def availability_zone_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZonePolicy']]]):
-        pulumi.set(self, "availability_zone_policy", value)
-
-
-class ResourceTypeRegistrationPropertiesCapacityRuleArgsDict(TypedDict):
-    """
-    Capacity rule.
-    """
-    capacity_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CapacityPolicy']]]
-    """
-    Capacity policy.
-    """
-    sku_alias: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Sku alias
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesCapacityRuleArgs:
-    def __init__(__self__, *,
-                 capacity_policy: Optional[pulumi.Input[Union[_builtins.str, 'CapacityPolicy']]] = None,
-                 sku_alias: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Capacity rule.
-
-        :param pulumi.Input[Union[_builtins.str, 'CapacityPolicy']] capacity_policy: Capacity policy.
-        :param pulumi.Input[_builtins.str] sku_alias: Sku alias
-        """
-        if capacity_policy is not None:
-            pulumi.set(__self__, "capacity_policy", capacity_policy)
-        if sku_alias is not None:
-            pulumi.set(__self__, "sku_alias", sku_alias)
-
-    @_builtins.property
-    @pulumi.getter(name="capacityPolicy")
-    def capacity_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CapacityPolicy']]]:
-        """
-        Capacity policy.
-        """
-        return pulumi.get(self, "capacity_policy")
-
-    @capacity_policy.setter
-    def capacity_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CapacityPolicy']]]):
-        pulumi.set(self, "capacity_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="skuAlias")
-    def sku_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sku alias
-        """
-        return pulumi.get(self, "sku_alias")
-
-    @sku_alias.setter
-    def sku_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "sku_alias", value)
-
-
-class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict(TypedDict):
-    """
-    The check name availability specifications.
-    """
-    enable_default_validation: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether default validation is enabled.
-    """
-    resource_types_with_custom_validation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The resource types with custom validation.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
-    def __init__(__self__, *,
-                 enable_default_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_types_with_custom_validation: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The check name availability specifications.
-
-        :param pulumi.Input[_builtins.bool] enable_default_validation: Whether default validation is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types_with_custom_validation: The resource types with custom validation.
-        """
-        if enable_default_validation is not None:
-            pulumi.set(__self__, "enable_default_validation", enable_default_validation)
-        if resource_types_with_custom_validation is not None:
-            pulumi.set(__self__, "resource_types_with_custom_validation", resource_types_with_custom_validation)
-
-    @_builtins.property
-    @pulumi.getter(name="enableDefaultValidation")
-    def enable_default_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether default validation is enabled.
-        """
-        return pulumi.get(self, "enable_default_validation")
-
-    @enable_default_validation.setter
-    def enable_default_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_default_validation", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceTypesWithCustomValidation")
-    def resource_types_with_custom_validation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The resource types with custom validation.
-        """
-        return pulumi.get(self, "resource_types_with_custom_validation")
-
-    @resource_types_with_custom_validation.setter
-    def resource_types_with_custom_validation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "resource_types_with_custom_validation", value)
-
-
-class ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict(TypedDict):
+class ResourceTypeEndpointDstsConfigurationArgsDict(TypedDict):
     """
     The dsts configuration.
     """
@@ -6714,16 +6322,16 @@ class ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict(TypedDict):
     """
     The service name.
     """
-    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    service_dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is a URI property.
     """
 
 @pulumi.input_type
-class ResourceTypeRegistrationPropertiesDstsConfigurationArgs:
+class ResourceTypeEndpointDstsConfigurationArgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[_builtins.str],
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The dsts configuration.
 
@@ -6748,52 +6356,18 @@ class ResourceTypeRegistrationPropertiesDstsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceDnsName")
-    def service_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a URI property.
         """
         return pulumi.get(self, "service_dns_name")
 
     @service_dns_name.setter
-    def service_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_dns_name", value)
 
 
-class ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict(TypedDict):
-    """
-    The extension options.
-    """
-    resource_creation_begin: NotRequired[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgsDict']]
-    """
-    Resource creation begin.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
-    def __init__(__self__, *,
-                 resource_creation_begin: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']] = None):
-        """
-        The extension options.
-
-        :param pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs'] resource_creation_begin: Resource creation begin.
-        """
-        if resource_creation_begin is not None:
-            pulumi.set(__self__, "resource_creation_begin", resource_creation_begin)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceCreationBegin")
-    def resource_creation_begin(self) -> Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]:
-        """
-        Resource creation begin.
-        """
-        return pulumi.get(self, "resource_creation_begin")
-
-    @resource_creation_begin.setter
-    def resource_creation_begin(self, value: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]):
-        pulumi.set(self, "resource_creation_begin", value)
-
-
-class ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict(TypedDict):
+class ResourceTypeEndpointFeaturesRuleArgsDict(TypedDict):
     """
     The features rule.
     """
@@ -6803,7 +6377,7 @@ class ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
+class ResourceTypeEndpointFeaturesRuleArgs:
     def __init__(__self__, *,
                  required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
         """
@@ -6826,1313 +6400,393 @@ class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
         pulumi.set(self, "required_features_policy", value)
 
 
-class ResourceTypeRegistrationPropertiesIdentityManagementArgsDict(TypedDict):
+class ResourceTypeExtensionArgsDict(TypedDict):
+    endpoint_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The identity management.
+    The endpoint uri.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    extension_categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]]
     """
-    The application id.
+    The extension categories.
     """
-    application_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The application ids.
-    """
-    delegation_app_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The delegation app ids.
-    """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']]]
-    """
-    The type.
+    The timeout.
     """
 
 @pulumi.input_type
-class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
+class ResourceTypeExtensionArgs:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delegation_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']]] = None):
+                 endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_categories: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        The identity management.
-
-        :param pulumi.Input[_builtins.str] application_id: The application id.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_ids: The application ids.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] delegation_app_ids: The delegation app ids.
-        :param pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']] type: The type.
+        :param pulumi.Input[_builtins.str] endpoint_uri: The endpoint uri.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]] extension_categories: The extension categories.
+        :param pulumi.Input[_builtins.str] timeout: The timeout.
         """
-        if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
-        if application_ids is not None:
-            pulumi.set(__self__, "application_ids", application_ids)
-        if delegation_app_ids is not None:
-            pulumi.set(__self__, "delegation_app_ids", delegation_app_ids)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        if extension_categories is not None:
+            pulumi.set(__self__, "extension_categories", extension_categories)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @_builtins.property
-    @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The application id.
+        The endpoint uri.
         """
-        return pulumi.get(self, "application_id")
+        return pulumi.get(self, "endpoint_uri")
 
-    @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "application_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationIds")
-    def application_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The application ids.
-        """
-        return pulumi.get(self, "application_ids")
-
-    @application_ids.setter
-    def application_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "application_ids", value)
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint_uri", value)
 
     @_builtins.property
-    @pulumi.getter(name="delegationAppIds")
-    def delegation_app_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="extensionCategories")
+    def extension_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]:
         """
-        The delegation app ids.
+        The extension categories.
         """
-        return pulumi.get(self, "delegation_app_ids")
+        return pulumi.get(self, "extension_categories")
 
-    @delegation_app_ids.setter
-    def delegation_app_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "delegation_app_ids", value)
+    @extension_categories.setter
+    def extension_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]):
+        pulumi.set(self, "extension_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type.
+        The timeout.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "timeout")
 
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']]]):
-        pulumi.set(self, "type", value)
-
-
-class ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict(TypedDict):
-    """
-    The legacy policy.
-    """
-    disallowed_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LegacyDisallowedConditionArgsDict']]]]
-    disallowed_legacy_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesLegacyPolicyArgs:
-    def __init__(__self__, *,
-                 disallowed_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['LegacyDisallowedConditionArgs']]]] = None,
-                 disallowed_legacy_operations: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]] = None):
-        """
-        The legacy policy.
-        """
-        if disallowed_conditions is not None:
-            pulumi.set(__self__, "disallowed_conditions", disallowed_conditions)
-        if disallowed_legacy_operations is not None:
-            pulumi.set(__self__, "disallowed_legacy_operations", disallowed_legacy_operations)
-
-    @_builtins.property
-    @pulumi.getter(name="disallowedConditions")
-    def disallowed_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LegacyDisallowedConditionArgs']]]]:
-        return pulumi.get(self, "disallowed_conditions")
-
-    @disallowed_conditions.setter
-    def disallowed_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LegacyDisallowedConditionArgs']]]]):
-        pulumi.set(self, "disallowed_conditions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="disallowedLegacyOperations")
-    def disallowed_legacy_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]:
-        return pulumi.get(self, "disallowed_legacy_operations")
-
-    @disallowed_legacy_operations.setter
-    def disallowed_legacy_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]):
-        pulumi.set(self, "disallowed_legacy_operations", value)
+    @timeout.setter
+    def timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timeout", value)
 
 
-class ResourceTypeRegistrationPropertiesManagementArgsDict(TypedDict):
+class ResourceTypeExtensionOptionsResourceCreationBeginArgsDict(TypedDict):
     """
-    The resource provider management.
+    Resource creation begin.
     """
-    authorization_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    request: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]]
     """
-    The authorization owners.
+    The request.
     """
-    canary_manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    response: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]]
     """
-    List of manifest owners for canary.
-    """
-    error_response_message_options: NotRequired[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]
-    """
-    Options for error response messages.
-    """
-    expedited_rollout_metadata: NotRequired[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]
-    """
-    Metadata for expedited rollout.
-    """
-    expedited_rollout_submitters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    List of expedited rollout submitters.
-    """
-    incident_contact_email: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The incident contact email.
-    """
-    incident_routing_service: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The incident routing service.
-    """
-    incident_routing_team: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The incident routing team.
-    """
-    manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The manifest owners.
-    """
-    pc_code: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The profit center code for the subscription.
-    """
-    profit_center_program_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The profit center program id for the subscription.
-    """
-    resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
-    """
-    The resource access policy.
-    """
-    resource_access_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]
-    """
-    The resource access roles.
-    """
-    schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The schema owners.
-    """
-    service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
-    """
-    The service tree infos.
+    The response.
     """
 
 @pulumi.input_type
-class ResourceTypeRegistrationPropertiesManagementArgs:
+class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
     def __init__(__self__, *,
-                 authorization_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 canary_manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 error_response_message_options: Optional[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs']] = None,
-                 expedited_rollout_metadata: Optional[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs']] = None,
-                 expedited_rollout_submitters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 incident_contact_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_routing_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_routing_team: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pc_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 profit_center_program_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_policy: Optional[pulumi.Input['ResourceAccessPolicy']] = None,
-                 resource_access_roles: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]] = None,
-                 schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
+                 request: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]] = None,
+                 response: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]] = None):
         """
-        The resource provider management.
+        Resource creation begin.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_owners: The authorization owners.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] canary_manifest_owners: List of manifest owners for canary.
-        :param pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs'] error_response_message_options: Options for error response messages.
-        :param pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs'] expedited_rollout_metadata: Metadata for expedited rollout.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] expedited_rollout_submitters: List of expedited rollout submitters.
-        :param pulumi.Input[_builtins.str] incident_contact_email: The incident contact email.
-        :param pulumi.Input[_builtins.str] incident_routing_service: The incident routing service.
-        :param pulumi.Input[_builtins.str] incident_routing_team: The incident routing team.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manifest_owners: The manifest owners.
-        :param pulumi.Input[_builtins.str] pc_code: The profit center code for the subscription.
-        :param pulumi.Input[_builtins.str] profit_center_program_id: The profit center program id for the subscription.
-        :param pulumi.Input['ResourceAccessPolicy'] resource_access_policy: The resource access policy.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]] resource_access_roles: The resource access roles.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schema_owners: The schema owners.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]] service_tree_infos: The service tree infos.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]] request: The request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]] response: The response.
         """
-        if authorization_owners is not None:
-            pulumi.set(__self__, "authorization_owners", authorization_owners)
-        if canary_manifest_owners is not None:
-            pulumi.set(__self__, "canary_manifest_owners", canary_manifest_owners)
-        if error_response_message_options is not None:
-            pulumi.set(__self__, "error_response_message_options", error_response_message_options)
-        if expedited_rollout_metadata is not None:
-            pulumi.set(__self__, "expedited_rollout_metadata", expedited_rollout_metadata)
-        if expedited_rollout_submitters is not None:
-            pulumi.set(__self__, "expedited_rollout_submitters", expedited_rollout_submitters)
-        if incident_contact_email is not None:
-            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
-        if incident_routing_service is not None:
-            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
-        if incident_routing_team is not None:
-            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
-        if manifest_owners is not None:
-            pulumi.set(__self__, "manifest_owners", manifest_owners)
-        if pc_code is not None:
-            pulumi.set(__self__, "pc_code", pc_code)
-        if profit_center_program_id is not None:
-            pulumi.set(__self__, "profit_center_program_id", profit_center_program_id)
-        if resource_access_policy is not None:
-            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
-        if resource_access_roles is not None:
-            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
-        if schema_owners is not None:
-            pulumi.set(__self__, "schema_owners", schema_owners)
-        if service_tree_infos is not None:
-            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationOwners")
-    def authorization_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The authorization owners.
-        """
-        return pulumi.get(self, "authorization_owners")
-
-    @authorization_owners.setter
-    def authorization_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "authorization_owners", value)
-
-    @_builtins.property
-    @pulumi.getter(name="canaryManifestOwners")
-    def canary_manifest_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of manifest owners for canary.
-        """
-        return pulumi.get(self, "canary_manifest_owners")
-
-    @canary_manifest_owners.setter
-    def canary_manifest_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "canary_manifest_owners", value)
-
-    @_builtins.property
-    @pulumi.getter(name="errorResponseMessageOptions")
-    def error_response_message_options(self) -> Optional[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs']]:
-        """
-        Options for error response messages.
-        """
-        return pulumi.get(self, "error_response_message_options")
-
-    @error_response_message_options.setter
-    def error_response_message_options(self, value: Optional[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs']]):
-        pulumi.set(self, "error_response_message_options", value)
-
-    @_builtins.property
-    @pulumi.getter(name="expeditedRolloutMetadata")
-    def expedited_rollout_metadata(self) -> Optional[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs']]:
-        """
-        Metadata for expedited rollout.
-        """
-        return pulumi.get(self, "expedited_rollout_metadata")
-
-    @expedited_rollout_metadata.setter
-    def expedited_rollout_metadata(self, value: Optional[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs']]):
-        pulumi.set(self, "expedited_rollout_metadata", value)
-
-    @_builtins.property
-    @pulumi.getter(name="expeditedRolloutSubmitters")
-    def expedited_rollout_submitters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of expedited rollout submitters.
-        """
-        return pulumi.get(self, "expedited_rollout_submitters")
-
-    @expedited_rollout_submitters.setter
-    def expedited_rollout_submitters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "expedited_rollout_submitters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="incidentContactEmail")
-    def incident_contact_email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The incident contact email.
-        """
-        return pulumi.get(self, "incident_contact_email")
-
-    @incident_contact_email.setter
-    def incident_contact_email(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "incident_contact_email", value)
-
-    @_builtins.property
-    @pulumi.getter(name="incidentRoutingService")
-    def incident_routing_service(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The incident routing service.
-        """
-        return pulumi.get(self, "incident_routing_service")
-
-    @incident_routing_service.setter
-    def incident_routing_service(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "incident_routing_service", value)
-
-    @_builtins.property
-    @pulumi.getter(name="incidentRoutingTeam")
-    def incident_routing_team(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The incident routing team.
-        """
-        return pulumi.get(self, "incident_routing_team")
-
-    @incident_routing_team.setter
-    def incident_routing_team(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "incident_routing_team", value)
-
-    @_builtins.property
-    @pulumi.getter(name="manifestOwners")
-    def manifest_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The manifest owners.
-        """
-        return pulumi.get(self, "manifest_owners")
-
-    @manifest_owners.setter
-    def manifest_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "manifest_owners", value)
-
-    @_builtins.property
-    @pulumi.getter(name="pcCode")
-    def pc_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The profit center code for the subscription.
-        """
-        return pulumi.get(self, "pc_code")
-
-    @pc_code.setter
-    def pc_code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "pc_code", value)
-
-    @_builtins.property
-    @pulumi.getter(name="profitCenterProgramId")
-    def profit_center_program_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The profit center program id for the subscription.
-        """
-        return pulumi.get(self, "profit_center_program_id")
-
-    @profit_center_program_id.setter
-    def profit_center_program_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "profit_center_program_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceAccessPolicy")
-    def resource_access_policy(self) -> Optional[pulumi.Input['ResourceAccessPolicy']]:
-        """
-        The resource access policy.
-        """
-        return pulumi.get(self, "resource_access_policy")
-
-    @resource_access_policy.setter
-    def resource_access_policy(self, value: Optional[pulumi.Input['ResourceAccessPolicy']]):
-        pulumi.set(self, "resource_access_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceAccessRoles")
-    def resource_access_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]:
-        """
-        The resource access roles.
-        """
-        return pulumi.get(self, "resource_access_roles")
-
-    @resource_access_roles.setter
-    def resource_access_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]):
-        pulumi.set(self, "resource_access_roles", value)
-
-    @_builtins.property
-    @pulumi.getter(name="schemaOwners")
-    def schema_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The schema owners.
-        """
-        return pulumi.get(self, "schema_owners")
-
-    @schema_owners.setter
-    def schema_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "schema_owners", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceTreeInfos")
-    def service_tree_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
-        """
-        The service tree infos.
-        """
-        return pulumi.get(self, "service_tree_infos")
-
-    @service_tree_infos.setter
-    def service_tree_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
-        pulumi.set(self, "service_tree_infos", value)
-
-
-class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict(TypedDict):
-    """
-    Marketplace options.
-    """
-    add_on_plan_conversion_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Add-on plan conversion allowed.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs:
-    def __init__(__self__, *,
-                 add_on_plan_conversion_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Marketplace options.
-
-        :param pulumi.Input[_builtins.bool] add_on_plan_conversion_allowed: Add-on plan conversion allowed.
-        """
-        if add_on_plan_conversion_allowed is not None:
-            pulumi.set(__self__, "add_on_plan_conversion_allowed", add_on_plan_conversion_allowed)
-
-    @_builtins.property
-    @pulumi.getter(name="addOnPlanConversionAllowed")
-    def add_on_plan_conversion_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Add-on plan conversion allowed.
-        """
-        return pulumi.get(self, "add_on_plan_conversion_allowed")
-
-    @add_on_plan_conversion_allowed.setter
-    def add_on_plan_conversion_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "add_on_plan_conversion_allowed", value)
-
-
-class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict(TypedDict):
-    """
-    The request header options.
-    """
-    opt_in_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]
-    """
-    The opt in headers.
-    """
-    opt_out_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]
-    """
-    The opt out headers.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
-    def __init__(__self__, *,
-                 opt_in_headers: Optional[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]] = None,
-                 opt_out_headers: Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]] = None):
-        """
-        The request header options.
-
-        :param pulumi.Input[Union[_builtins.str, 'OptInHeaderType']] opt_in_headers: The opt in headers.
-        :param pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']] opt_out_headers: The opt out headers.
-        """
-        if opt_in_headers is not None:
-            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
-        if opt_out_headers is not None:
-            pulumi.set(__self__, "opt_out_headers", opt_out_headers)
-
-    @_builtins.property
-    @pulumi.getter(name="optInHeaders")
-    def opt_in_headers(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]:
-        """
-        The opt in headers.
-        """
-        return pulumi.get(self, "opt_in_headers")
-
-    @opt_in_headers.setter
-    def opt_in_headers(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]):
-        pulumi.set(self, "opt_in_headers", value)
-
-    @_builtins.property
-    @pulumi.getter(name="optOutHeaders")
-    def opt_out_headers(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]:
-        """
-        The opt out headers.
-        """
-        return pulumi.get(self, "opt_out_headers")
-
-    @opt_out_headers.setter
-    def opt_out_headers(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]):
-        pulumi.set(self, "opt_out_headers", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceCacheArgsDict(TypedDict):
-    """
-    Resource cache options.
-    """
-    enable_resource_cache: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Enable resource cache.
-    """
-    resource_cache_expiration_timespan: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Resource cache expiration timespan. This is a TimeSpan property.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceCacheArgs:
-    def __init__(__self__, *,
-                 enable_resource_cache: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_cache_expiration_timespan: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Resource cache options.
-
-        :param pulumi.Input[_builtins.bool] enable_resource_cache: Enable resource cache.
-        :param pulumi.Input[_builtins.str] resource_cache_expiration_timespan: Resource cache expiration timespan. This is a TimeSpan property.
-        """
-        if enable_resource_cache is not None:
-            pulumi.set(__self__, "enable_resource_cache", enable_resource_cache)
-        if resource_cache_expiration_timespan is not None:
-            pulumi.set(__self__, "resource_cache_expiration_timespan", resource_cache_expiration_timespan)
-
-    @_builtins.property
-    @pulumi.getter(name="enableResourceCache")
-    def enable_resource_cache(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable resource cache.
-        """
-        return pulumi.get(self, "enable_resource_cache")
-
-    @enable_resource_cache.setter
-    def enable_resource_cache(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_resource_cache", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceCacheExpirationTimespan")
-    def resource_cache_expiration_timespan(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource cache expiration timespan. This is a TimeSpan property.
-        """
-        return pulumi.get(self, "resource_cache_expiration_timespan")
-
-    @resource_cache_expiration_timespan.setter
-    def resource_cache_expiration_timespan(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource_cache_expiration_timespan", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict(TypedDict):
-    """
-    The resource graph configuration.
-    """
-    api_version: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The api version.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether it's enabled.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
-    def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        The resource graph configuration.
-
-        :param pulumi.Input[_builtins.str] api_version: The api version.
-        :param pulumi.Input[_builtins.bool] enabled: Whether it's enabled.
-        """
-        if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The api version.
-        """
-        return pulumi.get(self, "api_version")
-
-    @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "api_version", value)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]:
         """
-        Whether it's enabled.
+        The request.
         """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict(TypedDict):
-    """
-    Batch provisioning support.
-    """
-    supported_operations: NotRequired[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]
-    """
-    Supported operations.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs:
-    def __init__(__self__, *,
-                 supported_operations: Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]] = None):
-        """
-        Batch provisioning support.
-
-        :param pulumi.Input[Union[_builtins.str, 'SupportedOperations']] supported_operations: Supported operations.
-        """
-        if supported_operations is not None:
-            pulumi.set(__self__, "supported_operations", supported_operations)
-
-    @_builtins.property
-    @pulumi.getter(name="supportedOperations")
-    def supported_operations(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]:
-        """
-        Supported operations.
-        """
-        return pulumi.get(self, "supported_operations")
-
-    @supported_operations.setter
-    def supported_operations(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]):
-        pulumi.set(self, "supported_operations", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict(TypedDict):
-    """
-    Nested provisioning support.
-    """
-    minimum_api_version: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Minimum API version.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs:
-    def __init__(__self__, *,
-                 minimum_api_version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Nested provisioning support.
-
-        :param pulumi.Input[_builtins.str] minimum_api_version: Minimum API version.
-        """
-        if minimum_api_version is not None:
-            pulumi.set(__self__, "minimum_api_version", minimum_api_version)
-
-    @_builtins.property
-    @pulumi.getter(name="minimumApiVersion")
-    def minimum_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Minimum API version.
-        """
-        return pulumi.get(self, "minimum_api_version")
-
-    @minimum_api_version.setter
-    def minimum_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "minimum_api_version", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict(TypedDict):
-    """
-    Resource management options.
-    """
-    batch_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict']]
-    """
-    Batch provisioning support.
-    """
-    delete_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgsDict']]]]
-    """
-    Delete dependencies.
-    """
-    nested_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict']]
-    """
-    Nested provisioning support.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
-    def __init__(__self__, *,
-                 batch_provisioning_support: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']] = None,
-                 delete_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]]] = None,
-                 nested_provisioning_support: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']] = None):
-        """
-        Resource management options.
-
-        :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs'] batch_provisioning_support: Batch provisioning support.
-        :param pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]] delete_dependencies: Delete dependencies.
-        :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs'] nested_provisioning_support: Nested provisioning support.
-        """
-        if batch_provisioning_support is not None:
-            pulumi.set(__self__, "batch_provisioning_support", batch_provisioning_support)
-        if delete_dependencies is not None:
-            pulumi.set(__self__, "delete_dependencies", delete_dependencies)
-        if nested_provisioning_support is not None:
-            pulumi.set(__self__, "nested_provisioning_support", nested_provisioning_support)
-
-    @_builtins.property
-    @pulumi.getter(name="batchProvisioningSupport")
-    def batch_provisioning_support(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']]:
-        """
-        Batch provisioning support.
-        """
-        return pulumi.get(self, "batch_provisioning_support")
-
-    @batch_provisioning_support.setter
-    def batch_provisioning_support(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']]):
-        pulumi.set(self, "batch_provisioning_support", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deleteDependencies")
-    def delete_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]]]:
-        """
-        Delete dependencies.
-        """
-        return pulumi.get(self, "delete_dependencies")
-
-    @delete_dependencies.setter
-    def delete_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]]]):
-        pulumi.set(self, "delete_dependencies", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nestedProvisioningSupport")
-    def nested_provisioning_support(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']]:
-        """
-        Nested provisioning support.
-        """
-        return pulumi.get(self, "nested_provisioning_support")
-
-    @nested_provisioning_support.setter
-    def nested_provisioning_support(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']]):
-        pulumi.set(self, "nested_provisioning_support", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict(TypedDict):
-    """
-    The resource move policy.
-    """
-    cross_resource_group_move_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether cross resource group move is enabled.
-    """
-    cross_subscription_move_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether cross subscription move is enabled.
-    """
-    validation_required: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether validation is required.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
-    def __init__(__self__, *,
-                 cross_resource_group_move_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cross_subscription_move_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validation_required: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        The resource move policy.
-
-        :param pulumi.Input[_builtins.bool] cross_resource_group_move_enabled: Whether cross resource group move is enabled.
-        :param pulumi.Input[_builtins.bool] cross_subscription_move_enabled: Whether cross subscription move is enabled.
-        :param pulumi.Input[_builtins.bool] validation_required: Whether validation is required.
-        """
-        if cross_resource_group_move_enabled is not None:
-            pulumi.set(__self__, "cross_resource_group_move_enabled", cross_resource_group_move_enabled)
-        if cross_subscription_move_enabled is not None:
-            pulumi.set(__self__, "cross_subscription_move_enabled", cross_subscription_move_enabled)
-        if validation_required is not None:
-            pulumi.set(__self__, "validation_required", validation_required)
-
-    @_builtins.property
-    @pulumi.getter(name="crossResourceGroupMoveEnabled")
-    def cross_resource_group_move_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether cross resource group move is enabled.
-        """
-        return pulumi.get(self, "cross_resource_group_move_enabled")
-
-    @cross_resource_group_move_enabled.setter
-    def cross_resource_group_move_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "cross_resource_group_move_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="crossSubscriptionMoveEnabled")
-    def cross_subscription_move_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether cross subscription move is enabled.
-        """
-        return pulumi.get(self, "cross_subscription_move_enabled")
-
-    @cross_subscription_move_enabled.setter
-    def cross_subscription_move_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "cross_subscription_move_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validationRequired")
-    def validation_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether validation is required.
-        """
-        return pulumi.get(self, "validation_required")
-
-    @validation_required.setter
-    def validation_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "validation_required", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict(TypedDict):
-    """
-    Resource query management options.
-    """
-    filter_option: NotRequired[pulumi.Input[Union[_builtins.str, 'FilterOption']]]
-    """
-    Filter option.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceQueryManagementArgs:
-    def __init__(__self__, *,
-                 filter_option: Optional[pulumi.Input[Union[_builtins.str, 'FilterOption']]] = None):
-        """
-        Resource query management options.
-
-        :param pulumi.Input[Union[_builtins.str, 'FilterOption']] filter_option: Filter option.
-        """
-        if filter_option is not None:
-            pulumi.set(__self__, "filter_option", filter_option)
-
-    @_builtins.property
-    @pulumi.getter(name="filterOption")
-    def filter_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FilterOption']]]:
-        """
-        Filter option.
-        """
-        return pulumi.get(self, "filter_option")
-
-    @filter_option.setter
-    def filter_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FilterOption']]]):
-        pulumi.set(self, "filter_option", value)
-
-
-class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict(TypedDict):
-    """
-    Resource type common attribute management.
-    """
-    common_api_versions_merge_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]
-    """
-    Common api versions merge mode.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs:
-    def __init__(__self__, *,
-                 common_api_versions_merge_mode: Optional[pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']]] = None):
-        """
-        Resource type common attribute management.
-
-        :param pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']] common_api_versions_merge_mode: Common api versions merge mode.
-        """
-        if common_api_versions_merge_mode is not None:
-            pulumi.set(__self__, "common_api_versions_merge_mode", common_api_versions_merge_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="commonApiVersionsMergeMode")
-    def common_api_versions_merge_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]:
-        """
-        Common api versions merge mode.
-        """
-        return pulumi.get(self, "common_api_versions_merge_mode")
-
-    @common_api_versions_merge_mode.setter
-    def common_api_versions_merge_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]):
-        pulumi.set(self, "common_api_versions_merge_mode", value)
-
-
-class ResourceTypeRegistrationPropertiesRoutingRuleArgsDict(TypedDict):
-    """
-    Routing rule.
-    """
-    host_resource_type: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Hosted resource type.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesRoutingRuleArgs:
-    def __init__(__self__, *,
-                 host_resource_type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Routing rule.
-
-        :param pulumi.Input[_builtins.str] host_resource_type: Hosted resource type.
-        """
-        if host_resource_type is not None:
-            pulumi.set(__self__, "host_resource_type", host_resource_type)
-
-    @_builtins.property
-    @pulumi.getter(name="hostResourceType")
-    def host_resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Hosted resource type.
-        """
-        return pulumi.get(self, "host_resource_type")
-
-    @host_resource_type.setter
-    def host_resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "host_resource_type", value)
-
-
-class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
-    """
-    The subscription lifecycle notification specifications.
-    """
-    soft_delete_ttl: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The soft delete TTL.
-    """
-    subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
-    """
-    The subscription state override actions.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
-    def __init__(__self__, *,
-                 soft_delete_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
-        """
-        The subscription lifecycle notification specifications.
-
-        :param pulumi.Input[_builtins.str] soft_delete_ttl: The soft delete TTL.
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]] subscription_state_override_actions: The subscription state override actions.
-        """
-        if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
-        if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
-
-    @_builtins.property
-    @pulumi.getter(name="softDeleteTTL")
-    def soft_delete_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The soft delete TTL.
-        """
-        return pulumi.get(self, "soft_delete_ttl")
-
-    @soft_delete_ttl.setter
-    def soft_delete_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "soft_delete_ttl", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subscriptionStateOverrideActions")
-    def subscription_state_override_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
-        """
-        The subscription state override actions.
-        """
-        return pulumi.get(self, "subscription_state_override_actions")
-
-    @subscription_state_override_actions.setter
-    def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
-        pulumi.set(self, "subscription_state_override_actions", value)
-
-
-class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
-    """
-    The template deployment options.
-    """
-    preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]
-    """
-    The preflight options.
-    """
-    preflight_supported: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Whether preflight is supported.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
-    def __init__(__self__, *,
-                 preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]] = None,
-                 preflight_supported: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        The template deployment options.
-
-        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]] preflight_options: The preflight options.
-        :param pulumi.Input[_builtins.bool] preflight_supported: Whether preflight is supported.
-        """
-        if preflight_options is not None:
-            pulumi.set(__self__, "preflight_options", preflight_options)
-        if preflight_supported is not None:
-            pulumi.set(__self__, "preflight_supported", preflight_supported)
-
-    @_builtins.property
-    @pulumi.getter(name="preflightOptions")
-    def preflight_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]:
-        """
-        The preflight options.
-        """
-        return pulumi.get(self, "preflight_options")
-
-    @preflight_options.setter
-    def preflight_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]):
-        pulumi.set(self, "preflight_options", value)
-
-    @_builtins.property
-    @pulumi.getter(name="preflightSupported")
-    def preflight_supported(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether preflight is supported.
-        """
-        return pulumi.get(self, "preflight_supported")
-
-    @preflight_supported.setter
-    def preflight_supported(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "preflight_supported", value)
-
-
-class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict(TypedDict):
-    """
-    The template deployment policy.
-    """
-    capabilities: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]
-    """
-    The capabilities.
-    """
-    preflight_options: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]
-    """
-    The preflight options.
-    """
-    preflight_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]
-    """
-    The preflight notifications.
-    """
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs:
-    def __init__(__self__, *,
-                 capabilities: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']],
-                 preflight_options: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']],
-                 preflight_notifications: Optional[pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]] = None):
-        """
-        The template deployment policy.
-
-        :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']] capabilities: The capabilities.
-        :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']] preflight_options: The preflight options.
-        :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']] preflight_notifications: The preflight notifications.
-        """
-        pulumi.set(__self__, "capabilities", capabilities)
-        pulumi.set(__self__, "preflight_options", preflight_options)
-        if preflight_notifications is not None:
-            pulumi.set(__self__, "preflight_notifications", preflight_notifications)
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]):
+        pulumi.set(self, "request", value)
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]:
+    def response(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]:
         """
-        The capabilities.
+        The response.
         """
-        return pulumi.get(self, "capabilities")
+        return pulumi.get(self, "response")
 
-    @capabilities.setter
-    def capabilities(self, value: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]):
-        pulumi.set(self, "capabilities", value)
+    @response.setter
+    def response(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]):
+        pulumi.set(self, "response", value)
+
+
+class ResourceTypeOnBehalfOfTokenArgsDict(TypedDict):
+    action_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The action name.
+    """
+    life_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    This is a TimeSpan property.
+    """
+
+@pulumi.input_type
+class ResourceTypeOnBehalfOfTokenArgs:
+    def __init__(__self__, *,
+                 action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 life_time: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] action_name: The action name.
+        :param pulumi.Input[_builtins.str] life_time: This is a TimeSpan property.
+        """
+        if action_name is not None:
+            pulumi.set(__self__, "action_name", action_name)
+        if life_time is not None:
+            pulumi.set(__self__, "life_time", life_time)
 
     @_builtins.property
-    @pulumi.getter(name="preflightOptions")
-    def preflight_options(self) -> pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]:
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The preflight options.
+        The action name.
         """
-        return pulumi.get(self, "preflight_options")
+        return pulumi.get(self, "action_name")
 
-    @preflight_options.setter
-    def preflight_options(self, value: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]):
-        pulumi.set(self, "preflight_options", value)
+    @action_name.setter
+    def action_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="preflightNotifications")
-    def preflight_notifications(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]:
+    @pulumi.getter(name="lifeTime")
+    def life_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The preflight notifications.
+        This is a TimeSpan property.
         """
-        return pulumi.get(self, "preflight_notifications")
+        return pulumi.get(self, "life_time")
 
-    @preflight_notifications.setter
-    def preflight_notifications(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]):
-        pulumi.set(self, "preflight_notifications", value)
+    @life_time.setter
+    def life_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "life_time", value)
+
+
+class ResourceTypeRegistrationArgsDict(TypedDict):
+    """
+    Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    """
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]]
+    """
+    Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    """
+    properties: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgsDict']]]
+
+@pulumi.input_type
+class ResourceTypeRegistrationArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
+                 properties: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']] = None):
+        """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
+        :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
+        if kind is None:
+            kind = 'Managed'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]:
+        """
+        Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class ResourceTypeRegistrationPropertiesArgsDict(TypedDict):
-    add_resource_list_target_locations: NotRequired[pulumi.Input[_builtins.bool]]
+    add_resource_list_target_locations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Add resource list target locations?
     """
-    additional_options: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]
+    additional_options: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]]
     """
     The additional options.
     """
-    allow_empty_role_assignments: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_empty_role_assignments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The allow empty role assignments.
     """
-    allowed_resource_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AllowedResourceNameArgsDict']]]]
+    allowed_resource_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AllowedResourceNameArgsDict']]]]]
     """
     The allowed resource names.
     """
-    allowed_template_deployment_reference_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_template_deployment_reference_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed template deployment reference actions.
     """
-    allowed_unauthorized_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_unauthorized_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The allowed unauthorized actions.
     """
-    allowed_unauthorized_actions_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgsDict']]]]
+    allowed_unauthorized_actions_extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgsDict']]]]]
     """
     The allowed unauthorized actions extensions.
     """
-    api_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiProfileArgsDict']]]]
+    api_profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiProfileArgsDict']]]]]
     """
     The api profiles.
     """
-    async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
+    async_operation_resource_type_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The async operation resource type name.
     """
-    async_timeout_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AsyncTimeoutRuleArgsDict']]]]
+    async_timeout_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AsyncTimeoutRuleArgsDict']]]]]
     """
     Async timeout rules
     """
-    authorization_action_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgsDict']]]]
+    authorization_action_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationActionMappingArgsDict']]]]]
     """
     The authorization action mappings
     """
-    availability_zone_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict']]
+    availability_zone_rule: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict']]]
     """
     The availability zone rule.
     """
-    capacity_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesCapacityRuleArgsDict']]
+    capacity_rule: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCapacityRuleArgsDict']]]
     """
     Capacity rule.
     """
-    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeCategory']]]
+    category: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeCategory']]]]
     """
     The category.
     """
-    check_name_availability_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict']]
+    check_name_availability_specifications: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict']]]
     """
     The check name availability specifications.
     """
-    common_api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    common_api_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Common API versions for the resource type.
     """
-    cross_tenant_token_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]
+    cross_tenant_token_validation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]]]
     """
     The cross tenant token validation.
     """
-    default_api_version: NotRequired[pulumi.Input[_builtins.str]]
+    default_api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default api version.
     """
-    disallowed_action_verbs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disallowed_action_verbs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The disallowed action verbs.
     """
-    disallowed_end_user_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disallowed_end_user_operations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The disallowed end user operations.
     """
-    dsts_configuration: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict']]
+    dsts_configuration: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict']]]
     """
     The dsts configuration.
     """
-    enable_async_operation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_async_operation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether async operation is enabled.
     """
-    enable_third_party_s2_s: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_third_party_s2_s: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether third party S2S is enabled.
     """
-    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgsDict']]]]
+    endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeEndpointArgsDict']]]]]
     """
     The extensions.
     """
-    extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgsDict']]]]
+    extended_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedLocationOptionsArgsDict']]]]]
     """
     The extended locations.
     """
-    extension_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict']]
+    extension_options: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict']]]
     """
     The extension options.
     """
-    features_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict']]
+    features_rule: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict']]]
     """
     The features rule.
     """
-    frontdoor_request_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'FrontdoorRequestMode']]]
+    frontdoor_request_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FrontdoorRequestMode']]]]
     """
     The frontdoor request mode.
     """
-    grouping_tag: NotRequired[pulumi.Input[_builtins.str]]
+    grouping_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Grouping tag.
     """
-    identity_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgsDict']]
+    identity_management: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesIdentityManagementArgsDict']]]
     """
     The identity management.
     """
-    is_pure_proxy: NotRequired[pulumi.Input[_builtins.bool]]
+    is_pure_proxy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether it is pure proxy.
     """
-    legacy_name: NotRequired[pulumi.Input[_builtins.str]]
+    legacy_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The legacy name.
     """
-    legacy_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    legacy_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The legacy names.
     """
-    legacy_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict']]
+    legacy_policy: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict']]]
     """
     The legacy policy.
     """
-    linked_access_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgsDict']]]]
+    linked_access_checks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinkedAccessCheckArgsDict']]]]]
     """
     The linked access checks.
     """
-    linked_notification_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedNotificationRuleArgsDict']]]]
+    linked_notification_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinkedNotificationRuleArgsDict']]]]]
     """
     The linked notification rules.
     """
-    linked_operation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedOperationRuleArgsDict']]]]
+    linked_operation_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinkedOperationRuleArgsDict']]]]]
     """
     The linked operation rules.
     """
-    logging_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgsDict']]]]
+    logging_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LoggingRuleArgsDict']]]]]
     """
     The logging rules.
     """
-    management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgsDict']]
+    management: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesManagementArgsDict']]]
     """
     The resource provider management.
     """
-    manifest_link: NotRequired[pulumi.Input[_builtins.str]]
+    manifest_link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Manifest link.
     """
-    marketplace_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict']]
+    marketplace_options: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict']]]
     """
     Marketplace options.
     """
-    marketplace_type: NotRequired[pulumi.Input['MarketplaceType']]
+    marketplace_type: NotRequired[pulumi.Input[Optional['MarketplaceType']]]
     """
     The marketplace type.
     """
@@ -8140,127 +6794,127 @@ class ResourceTypeRegistrationPropertiesArgsDict(TypedDict):
     """
     The metadata.
     """
-    notifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationArgsDict']]]]
+    notifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgsDict']]]]]
     """
     The notifications.
     """
-    on_behalf_of_tokens: NotRequired[pulumi.Input['ResourceTypeOnBehalfOfTokenArgsDict']]
+    on_behalf_of_tokens: NotRequired[pulumi.Input[Optional['ResourceTypeOnBehalfOfTokenArgsDict']]]
     """
     The on behalf of tokens.
     """
-    open_api_configuration: NotRequired[pulumi.Input['OpenApiConfigurationArgsDict']]
+    open_api_configuration: NotRequired[pulumi.Input[Optional['OpenApiConfigurationArgsDict']]]
     """
     The open api configuration.
     """
-    policy_execution_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyExecutionType']]]
+    policy_execution_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PolicyExecutionType']]]]
     """
     The policy execution type.
     """
-    quota_rule: NotRequired[pulumi.Input['QuotaRuleArgsDict']]
+    quota_rule: NotRequired[pulumi.Input[Optional['QuotaRuleArgsDict']]]
     """
     The quota rule.
     """
-    regionality: NotRequired[pulumi.Input[Union[_builtins.str, 'Regionality']]]
+    regionality: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Regionality']]]]
     """
     The regionality.
     """
-    request_header_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict']]
+    request_header_options: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict']]]
     """
     The request header options.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required features.
     """
-    resource_cache: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceCacheArgsDict']]
+    resource_cache: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceCacheArgsDict']]]
     """
     Resource cache options.
     """
-    resource_concurrency_control_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgsDict']]]]
+    resource_concurrency_control_options: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgsDict']]]]]
     """
     The resource concurrency control options.
     """
-    resource_deletion_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceDeletionPolicy']]]
+    resource_deletion_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceDeletionPolicy']]]]
     """
     The resource deletion policy.
     """
-    resource_graph_configuration: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict']]
+    resource_graph_configuration: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict']]]
     """
     The resource graph configuration.
     """
-    resource_management_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict']]
+    resource_management_options: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict']]]
     """
     Resource management options.
     """
-    resource_move_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict']]
+    resource_move_policy: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict']]]
     """
     The resource move policy.
     """
-    resource_provider_authorization_rules: NotRequired[pulumi.Input['ResourceProviderAuthorizationRulesArgsDict']]
+    resource_provider_authorization_rules: NotRequired[pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgsDict']]]
     """
     The resource provider authorization rules.
     """
-    resource_query_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict']]
+    resource_query_management: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict']]]
     """
     Resource query management options.
     """
-    resource_sub_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceSubType']]]
+    resource_sub_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceSubType']]]]
     """
     The resource sub type.
     """
-    resource_type_common_attribute_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict']]
+    resource_type_common_attribute_management: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict']]]
     """
     Resource type common attribute management.
     """
-    resource_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceValidation']]]
+    resource_validation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceValidation']]]]
     """
     The resource validation.
     """
-    routing_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesRoutingRuleArgsDict']]
+    routing_rule: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRoutingRuleArgsDict']]]
     """
     Routing rule.
     """
-    routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingType']]]
+    routing_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RoutingType']]]]
     """
     The resource routing type.
     """
-    service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+    service_tree_infos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]]
     """
     The service tree infos.
     """
-    sku_link: NotRequired[pulumi.Input[_builtins.str]]
+    sku_link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sku link.
     """
-    subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
+    subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]]
     """
     The subscription lifecycle notification specifications.
     """
-    subscription_state_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgsDict']]]]
+    subscription_state_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateRuleArgsDict']]]]]
     """
     The subscription state rules.
     """
-    supports_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    supports_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether tags are supported.
     """
-    swagger_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgsDict']]]]
+    swagger_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SwaggerSpecificationArgsDict']]]]]
     """
     The swagger specifications.
     """
-    template_deployment_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict']]
+    template_deployment_options: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict']]]
     """
     The template deployment options.
     """
-    template_deployment_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict']]
+    template_deployment_policy: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict']]]
     """
     The template deployment policy.
     """
-    throttling_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgsDict']]]]
+    throttling_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingRuleArgsDict']]]]]
     """
     The throttling rules.
     """
-    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
+    token_auth_configuration: NotRequired[pulumi.Input[Optional['TokenAuthConfigurationArgsDict']]]
     """
     The token auth configuration.
     """
@@ -8268,80 +6922,80 @@ class ResourceTypeRegistrationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesArgs:
     def __init__(__self__, *,
-                 add_resource_list_target_locations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_options: Optional[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]] = None,
-                 allow_empty_role_assignments: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allowed_resource_names: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedResourceNameArgs']]]] = None,
-                 allowed_template_deployment_reference_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_unauthorized_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_unauthorized_actions_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgs']]]] = None,
-                 api_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ApiProfileArgs']]]] = None,
-                 async_operation_resource_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 async_timeout_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AsyncTimeoutRuleArgs']]]] = None,
-                 authorization_action_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgs']]]] = None,
-                 availability_zone_rule: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs']] = None,
-                 capacity_rule: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesCapacityRuleArgs']] = None,
-                 category: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeCategory']]] = None,
-                 check_name_availability_specifications: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs']] = None,
-                 common_api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cross_tenant_token_validation: Optional[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]] = None,
-                 default_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed_action_verbs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disallowed_end_user_operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dsts_configuration: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesDstsConfigurationArgs']] = None,
-                 enable_async_operation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_third_party_s2_s: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgs']]]] = None,
-                 extended_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgs']]]] = None,
-                 extension_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgs']] = None,
-                 features_rule: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgs']] = None,
-                 frontdoor_request_mode: Optional[pulumi.Input[Union[_builtins.str, 'FrontdoorRequestMode']]] = None,
-                 grouping_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgs']] = None,
-                 is_pure_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 legacy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 legacy_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 legacy_policy: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesLegacyPolicyArgs']] = None,
-                 linked_access_checks: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]] = None,
-                 linked_notification_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedNotificationRuleArgs']]]] = None,
-                 linked_operation_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedOperationRuleArgs']]]] = None,
-                 logging_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgs']]]] = None,
-                 management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgs']] = None,
-                 manifest_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs']] = None,
-                 marketplace_type: Optional[pulumi.Input['MarketplaceType']] = None,
+                 add_resource_list_target_locations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_options: pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]] = None,
+                 allow_empty_role_assignments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allowed_resource_names: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedResourceNameArgs']]]] = None,
+                 allowed_template_deployment_reference_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_unauthorized_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_unauthorized_actions_extensions: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgs']]]] = None,
+                 api_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['ApiProfileArgs']]]] = None,
+                 async_operation_resource_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 async_timeout_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AsyncTimeoutRuleArgs']]]] = None,
+                 authorization_action_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationActionMappingArgs']]]] = None,
+                 availability_zone_rule: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs']] = None,
+                 capacity_rule: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCapacityRuleArgs']] = None,
+                 category: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeCategory']]] = None,
+                 check_name_availability_specifications: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs']] = None,
+                 common_api_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cross_tenant_token_validation: pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]] = None,
+                 default_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed_action_verbs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disallowed_end_user_operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dsts_configuration: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesDstsConfigurationArgs']] = None,
+                 enable_async_operation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_third_party_s2_s: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeEndpointArgs']]]] = None,
+                 extended_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedLocationOptionsArgs']]]] = None,
+                 extension_options: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesExtensionOptionsArgs']] = None,
+                 features_rule: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesFeaturesRuleArgs']] = None,
+                 frontdoor_request_mode: pulumi.Input[Optional[Union[_builtins.str, 'FrontdoorRequestMode']]] = None,
+                 grouping_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_management: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesIdentityManagementArgs']] = None,
+                 is_pure_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 legacy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 legacy_policy: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesLegacyPolicyArgs']] = None,
+                 linked_access_checks: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]] = None,
+                 linked_notification_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedNotificationRuleArgs']]]] = None,
+                 linked_operation_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedOperationRuleArgs']]]] = None,
+                 logging_rules: pulumi.Input[Optional[Sequence[pulumi.Input['LoggingRuleArgs']]]] = None,
+                 management: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesManagementArgs']] = None,
+                 manifest_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_options: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs']] = None,
+                 marketplace_type: pulumi.Input[Optional['MarketplaceType']] = None,
                  metadata: Optional[Any] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]] = None,
-                 on_behalf_of_tokens: Optional[pulumi.Input['ResourceTypeOnBehalfOfTokenArgs']] = None,
-                 open_api_configuration: Optional[pulumi.Input['OpenApiConfigurationArgs']] = None,
-                 policy_execution_type: Optional[pulumi.Input[Union[_builtins.str, 'PolicyExecutionType']]] = None,
-                 quota_rule: Optional[pulumi.Input['QuotaRuleArgs']] = None,
-                 regionality: Optional[pulumi.Input[Union[_builtins.str, 'Regionality']]] = None,
-                 request_header_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_cache: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceCacheArgs']] = None,
-                 resource_concurrency_control_options: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgs']]]] = None,
-                 resource_deletion_policy: Optional[pulumi.Input[Union[_builtins.str, 'ResourceDeletionPolicy']]] = None,
-                 resource_graph_configuration: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs']] = None,
-                 resource_management_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs']] = None,
-                 resource_move_policy: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgs']] = None,
-                 resource_provider_authorization_rules: Optional[pulumi.Input['ResourceProviderAuthorizationRulesArgs']] = None,
-                 resource_query_management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceQueryManagementArgs']] = None,
-                 resource_sub_type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceSubType']]] = None,
-                 resource_type_common_attribute_management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs']] = None,
-                 resource_validation: Optional[pulumi.Input[Union[_builtins.str, 'ResourceValidation']]] = None,
-                 routing_rule: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRoutingRuleArgs']] = None,
-                 routing_type: Optional[pulumi.Input[Union[_builtins.str, 'RoutingType']]] = None,
-                 service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None,
-                 sku_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_lifecycle_notification_specifications: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']] = None,
-                 subscription_state_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgs']]]] = None,
-                 supports_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 swagger_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]] = None,
-                 template_deployment_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']] = None,
-                 template_deployment_policy: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs']] = None,
-                 throttling_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgs']]]] = None,
-                 token_auth_configuration: Optional[pulumi.Input['TokenAuthConfigurationArgs']] = None):
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgs']]]] = None,
+                 on_behalf_of_tokens: pulumi.Input[Optional['ResourceTypeOnBehalfOfTokenArgs']] = None,
+                 open_api_configuration: pulumi.Input[Optional['OpenApiConfigurationArgs']] = None,
+                 policy_execution_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyExecutionType']]] = None,
+                 quota_rule: pulumi.Input[Optional['QuotaRuleArgs']] = None,
+                 regionality: pulumi.Input[Optional[Union[_builtins.str, 'Regionality']]] = None,
+                 request_header_options: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_cache: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceCacheArgs']] = None,
+                 resource_concurrency_control_options: pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgs']]]] = None,
+                 resource_deletion_policy: pulumi.Input[Optional[Union[_builtins.str, 'ResourceDeletionPolicy']]] = None,
+                 resource_graph_configuration: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs']] = None,
+                 resource_management_options: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs']] = None,
+                 resource_move_policy: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceMovePolicyArgs']] = None,
+                 resource_provider_authorization_rules: pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgs']] = None,
+                 resource_query_management: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceQueryManagementArgs']] = None,
+                 resource_sub_type: pulumi.Input[Optional[Union[_builtins.str, 'ResourceSubType']]] = None,
+                 resource_type_common_attribute_management: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs']] = None,
+                 resource_validation: pulumi.Input[Optional[Union[_builtins.str, 'ResourceValidation']]] = None,
+                 routing_rule: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRoutingRuleArgs']] = None,
+                 routing_type: pulumi.Input[Optional[Union[_builtins.str, 'RoutingType']]] = None,
+                 service_tree_infos: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None,
+                 sku_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_lifecycle_notification_specifications: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']] = None,
+                 subscription_state_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateRuleArgs']]]] = None,
+                 supports_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 swagger_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]] = None,
+                 template_deployment_options: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']] = None,
+                 template_deployment_policy: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs']] = None,
+                 throttling_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingRuleArgs']]]] = None,
+                 token_auth_configuration: pulumi.Input[Optional['TokenAuthConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] add_resource_list_target_locations: Add resource list target locations?
         :param pulumi.Input[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']] additional_options: The additional options.
@@ -8569,506 +7223,506 @@ class ResourceTypeRegistrationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="addResourceListTargetLocations")
-    def add_resource_list_target_locations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def add_resource_list_target_locations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Add resource list target locations?
         """
         return pulumi.get(self, "add_resource_list_target_locations")
 
     @add_resource_list_target_locations.setter
-    def add_resource_list_target_locations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def add_resource_list_target_locations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "add_resource_list_target_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalOptions")
-    def additional_options(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]:
+    def additional_options(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]:
         """
         The additional options.
         """
         return pulumi.get(self, "additional_options")
 
     @additional_options.setter
-    def additional_options(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]):
+    def additional_options(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]):
         pulumi.set(self, "additional_options", value)
 
     @_builtins.property
     @pulumi.getter(name="allowEmptyRoleAssignments")
-    def allow_empty_role_assignments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_empty_role_assignments(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The allow empty role assignments.
         """
         return pulumi.get(self, "allow_empty_role_assignments")
 
     @allow_empty_role_assignments.setter
-    def allow_empty_role_assignments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_empty_role_assignments(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_empty_role_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedResourceNames")
-    def allowed_resource_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowedResourceNameArgs']]]]:
+    def allowed_resource_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AllowedResourceNameArgs']]]]:
         """
         The allowed resource names.
         """
         return pulumi.get(self, "allowed_resource_names")
 
     @allowed_resource_names.setter
-    def allowed_resource_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedResourceNameArgs']]]]):
+    def allowed_resource_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedResourceNameArgs']]]]):
         pulumi.set(self, "allowed_resource_names", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedTemplateDeploymentReferenceActions")
-    def allowed_template_deployment_reference_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_template_deployment_reference_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed template deployment reference actions.
         """
         return pulumi.get(self, "allowed_template_deployment_reference_actions")
 
     @allowed_template_deployment_reference_actions.setter
-    def allowed_template_deployment_reference_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_template_deployment_reference_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_template_deployment_reference_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedUnauthorizedActions")
-    def allowed_unauthorized_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_unauthorized_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed unauthorized actions.
         """
         return pulumi.get(self, "allowed_unauthorized_actions")
 
     @allowed_unauthorized_actions.setter
-    def allowed_unauthorized_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_unauthorized_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_unauthorized_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedUnauthorizedActionsExtensions")
-    def allowed_unauthorized_actions_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgs']]]]:
+    def allowed_unauthorized_actions_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgs']]]]:
         """
         The allowed unauthorized actions extensions.
         """
         return pulumi.get(self, "allowed_unauthorized_actions_extensions")
 
     @allowed_unauthorized_actions_extensions.setter
-    def allowed_unauthorized_actions_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgs']]]]):
+    def allowed_unauthorized_actions_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgs']]]]):
         pulumi.set(self, "allowed_unauthorized_actions_extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="apiProfiles")
-    def api_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiProfileArgs']]]]:
+    def api_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiProfileArgs']]]]:
         """
         The api profiles.
         """
         return pulumi.get(self, "api_profiles")
 
     @api_profiles.setter
-    def api_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiProfileArgs']]]]):
+    def api_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiProfileArgs']]]]):
         pulumi.set(self, "api_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="asyncOperationResourceTypeName")
-    def async_operation_resource_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def async_operation_resource_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The async operation resource type name.
         """
         return pulumi.get(self, "async_operation_resource_type_name")
 
     @async_operation_resource_type_name.setter
-    def async_operation_resource_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def async_operation_resource_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "async_operation_resource_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="asyncTimeoutRules")
-    def async_timeout_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AsyncTimeoutRuleArgs']]]]:
+    def async_timeout_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AsyncTimeoutRuleArgs']]]]:
         """
         Async timeout rules
         """
         return pulumi.get(self, "async_timeout_rules")
 
     @async_timeout_rules.setter
-    def async_timeout_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AsyncTimeoutRuleArgs']]]]):
+    def async_timeout_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AsyncTimeoutRuleArgs']]]]):
         pulumi.set(self, "async_timeout_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationActionMappings")
-    def authorization_action_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgs']]]]:
+    def authorization_action_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationActionMappingArgs']]]]:
         """
         The authorization action mappings
         """
         return pulumi.get(self, "authorization_action_mappings")
 
     @authorization_action_mappings.setter
-    def authorization_action_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgs']]]]):
+    def authorization_action_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationActionMappingArgs']]]]):
         pulumi.set(self, "authorization_action_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRule")
-    def availability_zone_rule(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs']]:
+    def availability_zone_rule(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs']]:
         """
         The availability zone rule.
         """
         return pulumi.get(self, "availability_zone_rule")
 
     @availability_zone_rule.setter
-    def availability_zone_rule(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs']]):
+    def availability_zone_rule(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs']]):
         pulumi.set(self, "availability_zone_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityRule")
-    def capacity_rule(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesCapacityRuleArgs']]:
+    def capacity_rule(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCapacityRuleArgs']]:
         """
         Capacity rule.
         """
         return pulumi.get(self, "capacity_rule")
 
     @capacity_rule.setter
-    def capacity_rule(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesCapacityRuleArgs']]):
+    def capacity_rule(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCapacityRuleArgs']]):
         pulumi.set(self, "capacity_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeCategory']]]:
+    def category(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeCategory']]]:
         """
         The category.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeCategory']]]):
+    def category(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceTypeCategory']]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="checkNameAvailabilitySpecifications")
-    def check_name_availability_specifications(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs']]:
+    def check_name_availability_specifications(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs']]:
         """
         The check name availability specifications.
         """
         return pulumi.get(self, "check_name_availability_specifications")
 
     @check_name_availability_specifications.setter
-    def check_name_availability_specifications(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs']]):
+    def check_name_availability_specifications(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs']]):
         pulumi.set(self, "check_name_availability_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="commonApiVersions")
-    def common_api_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def common_api_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Common API versions for the resource type.
         """
         return pulumi.get(self, "common_api_versions")
 
     @common_api_versions.setter
-    def common_api_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def common_api_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "common_api_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="crossTenantTokenValidation")
-    def cross_tenant_token_validation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]:
+    def cross_tenant_token_validation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]]:
         """
         The cross tenant token validation.
         """
         return pulumi.get(self, "cross_tenant_token_validation")
 
     @cross_tenant_token_validation.setter
-    def cross_tenant_token_validation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]):
+    def cross_tenant_token_validation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CrossTenantTokenValidation']]]):
         pulumi.set(self, "cross_tenant_token_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultApiVersion")
-    def default_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default api version.
         """
         return pulumi.get(self, "default_api_version")
 
     @default_api_version.setter
-    def default_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowedActionVerbs")
-    def disallowed_action_verbs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disallowed_action_verbs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The disallowed action verbs.
         """
         return pulumi.get(self, "disallowed_action_verbs")
 
     @disallowed_action_verbs.setter
-    def disallowed_action_verbs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disallowed_action_verbs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disallowed_action_verbs", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowedEndUserOperations")
-    def disallowed_end_user_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disallowed_end_user_operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The disallowed end user operations.
         """
         return pulumi.get(self, "disallowed_end_user_operations")
 
     @disallowed_end_user_operations.setter
-    def disallowed_end_user_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disallowed_end_user_operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disallowed_end_user_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="dstsConfiguration")
-    def dsts_configuration(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesDstsConfigurationArgs']]:
+    def dsts_configuration(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesDstsConfigurationArgs']]:
         """
         The dsts configuration.
         """
         return pulumi.get(self, "dsts_configuration")
 
     @dsts_configuration.setter
-    def dsts_configuration(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesDstsConfigurationArgs']]):
+    def dsts_configuration(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesDstsConfigurationArgs']]):
         pulumi.set(self, "dsts_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAsyncOperation")
-    def enable_async_operation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_async_operation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether async operation is enabled.
         """
         return pulumi.get(self, "enable_async_operation")
 
     @enable_async_operation.setter
-    def enable_async_operation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_async_operation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_async_operation", value)
 
     @_builtins.property
     @pulumi.getter(name="enableThirdPartyS2S")
-    def enable_third_party_s2_s(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_third_party_s2_s(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether third party S2S is enabled.
         """
         return pulumi.get(self, "enable_third_party_s2_s")
 
     @enable_third_party_s2_s.setter
-    def enable_third_party_s2_s(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_third_party_s2_s(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_third_party_s2_s", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeEndpointArgs']]]]:
         """
         The extensions.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceTypeEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocations")
-    def extended_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgs']]]]:
+    def extended_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedLocationOptionsArgs']]]]:
         """
         The extended locations.
         """
         return pulumi.get(self, "extended_locations")
 
     @extended_locations.setter
-    def extended_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgs']]]]):
+    def extended_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExtendedLocationOptionsArgs']]]]):
         pulumi.set(self, "extended_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionOptions")
-    def extension_options(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgs']]:
+    def extension_options(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesExtensionOptionsArgs']]:
         """
         The extension options.
         """
         return pulumi.get(self, "extension_options")
 
     @extension_options.setter
-    def extension_options(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgs']]):
+    def extension_options(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesExtensionOptionsArgs']]):
         pulumi.set(self, "extension_options", value)
 
     @_builtins.property
     @pulumi.getter(name="featuresRule")
-    def features_rule(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgs']]:
+    def features_rule(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesFeaturesRuleArgs']]:
         """
         The features rule.
         """
         return pulumi.get(self, "features_rule")
 
     @features_rule.setter
-    def features_rule(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgs']]):
+    def features_rule(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesFeaturesRuleArgs']]):
         pulumi.set(self, "features_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="frontdoorRequestMode")
-    def frontdoor_request_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FrontdoorRequestMode']]]:
+    def frontdoor_request_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FrontdoorRequestMode']]]:
         """
         The frontdoor request mode.
         """
         return pulumi.get(self, "frontdoor_request_mode")
 
     @frontdoor_request_mode.setter
-    def frontdoor_request_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FrontdoorRequestMode']]]):
+    def frontdoor_request_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FrontdoorRequestMode']]]):
         pulumi.set(self, "frontdoor_request_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingTag")
-    def grouping_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grouping_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Grouping tag.
         """
         return pulumi.get(self, "grouping_tag")
 
     @grouping_tag.setter
-    def grouping_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grouping_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grouping_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="identityManagement")
-    def identity_management(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgs']]:
+    def identity_management(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesIdentityManagementArgs']]:
         """
         The identity management.
         """
         return pulumi.get(self, "identity_management")
 
     @identity_management.setter
-    def identity_management(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgs']]):
+    def identity_management(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesIdentityManagementArgs']]):
         pulumi.set(self, "identity_management", value)
 
     @_builtins.property
     @pulumi.getter(name="isPureProxy")
-    def is_pure_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_pure_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether it is pure proxy.
         """
         return pulumi.get(self, "is_pure_proxy")
 
     @is_pure_proxy.setter
-    def is_pure_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_pure_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_pure_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyName")
-    def legacy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def legacy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The legacy name.
         """
         return pulumi.get(self, "legacy_name")
 
     @legacy_name.setter
-    def legacy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def legacy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "legacy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyNames")
-    def legacy_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def legacy_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The legacy names.
         """
         return pulumi.get(self, "legacy_names")
 
     @legacy_names.setter
-    def legacy_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def legacy_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "legacy_names", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyPolicy")
-    def legacy_policy(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesLegacyPolicyArgs']]:
+    def legacy_policy(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesLegacyPolicyArgs']]:
         """
         The legacy policy.
         """
         return pulumi.get(self, "legacy_policy")
 
     @legacy_policy.setter
-    def legacy_policy(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesLegacyPolicyArgs']]):
+    def legacy_policy(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesLegacyPolicyArgs']]):
         pulumi.set(self, "legacy_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedAccessChecks")
-    def linked_access_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]]:
+    def linked_access_checks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]]:
         """
         The linked access checks.
         """
         return pulumi.get(self, "linked_access_checks")
 
     @linked_access_checks.setter
-    def linked_access_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]]):
+    def linked_access_checks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]]):
         pulumi.set(self, "linked_access_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedNotificationRules")
-    def linked_notification_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedNotificationRuleArgs']]]]:
+    def linked_notification_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedNotificationRuleArgs']]]]:
         """
         The linked notification rules.
         """
         return pulumi.get(self, "linked_notification_rules")
 
     @linked_notification_rules.setter
-    def linked_notification_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedNotificationRuleArgs']]]]):
+    def linked_notification_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedNotificationRuleArgs']]]]):
         pulumi.set(self, "linked_notification_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedOperationRules")
-    def linked_operation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedOperationRuleArgs']]]]:
+    def linked_operation_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedOperationRuleArgs']]]]:
         """
         The linked operation rules.
         """
         return pulumi.get(self, "linked_operation_rules")
 
     @linked_operation_rules.setter
-    def linked_operation_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedOperationRuleArgs']]]]):
+    def linked_operation_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedOperationRuleArgs']]]]):
         pulumi.set(self, "linked_operation_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingRules")
-    def logging_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgs']]]]:
+    def logging_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoggingRuleArgs']]]]:
         """
         The logging rules.
         """
         return pulumi.get(self, "logging_rules")
 
     @logging_rules.setter
-    def logging_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgs']]]]):
+    def logging_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoggingRuleArgs']]]]):
         pulumi.set(self, "logging_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def management(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgs']]:
+    def management(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesManagementArgs']]:
         """
         The resource provider management.
         """
         return pulumi.get(self, "management")
 
     @management.setter
-    def management(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgs']]):
+    def management(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesManagementArgs']]):
         pulumi.set(self, "management", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestLink")
-    def manifest_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manifest_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Manifest link.
         """
         return pulumi.get(self, "manifest_link")
 
     @manifest_link.setter
-    def manifest_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manifest_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manifest_link", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceOptions")
-    def marketplace_options(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs']]:
+    def marketplace_options(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs']]:
         """
         Marketplace options.
         """
         return pulumi.get(self, "marketplace_options")
 
     @marketplace_options.setter
-    def marketplace_options(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs']]):
+    def marketplace_options(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs']]):
         pulumi.set(self, "marketplace_options", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceType")
-    def marketplace_type(self) -> Optional[pulumi.Input['MarketplaceType']]:
+    def marketplace_type(self) -> pulumi.Input[Optional['MarketplaceType']]:
         """
         The marketplace type.
         """
         return pulumi.get(self, "marketplace_type")
 
     @marketplace_type.setter
-    def marketplace_type(self, value: Optional[pulumi.Input['MarketplaceType']]):
+    def marketplace_type(self, value: pulumi.Input[Optional['MarketplaceType']]):
         pulumi.set(self, "marketplace_type", value)
 
     @_builtins.property
@@ -9085,436 +7739,1782 @@ class ResourceTypeRegistrationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgs']]]]:
         """
         The notifications.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="onBehalfOfTokens")
-    def on_behalf_of_tokens(self) -> Optional[pulumi.Input['ResourceTypeOnBehalfOfTokenArgs']]:
+    def on_behalf_of_tokens(self) -> pulumi.Input[Optional['ResourceTypeOnBehalfOfTokenArgs']]:
         """
         The on behalf of tokens.
         """
         return pulumi.get(self, "on_behalf_of_tokens")
 
     @on_behalf_of_tokens.setter
-    def on_behalf_of_tokens(self, value: Optional[pulumi.Input['ResourceTypeOnBehalfOfTokenArgs']]):
+    def on_behalf_of_tokens(self, value: pulumi.Input[Optional['ResourceTypeOnBehalfOfTokenArgs']]):
         pulumi.set(self, "on_behalf_of_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="openApiConfiguration")
-    def open_api_configuration(self) -> Optional[pulumi.Input['OpenApiConfigurationArgs']]:
+    def open_api_configuration(self) -> pulumi.Input[Optional['OpenApiConfigurationArgs']]:
         """
         The open api configuration.
         """
         return pulumi.get(self, "open_api_configuration")
 
     @open_api_configuration.setter
-    def open_api_configuration(self, value: Optional[pulumi.Input['OpenApiConfigurationArgs']]):
+    def open_api_configuration(self, value: pulumi.Input[Optional['OpenApiConfigurationArgs']]):
         pulumi.set(self, "open_api_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="policyExecutionType")
-    def policy_execution_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyExecutionType']]]:
+    def policy_execution_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyExecutionType']]]:
         """
         The policy execution type.
         """
         return pulumi.get(self, "policy_execution_type")
 
     @policy_execution_type.setter
-    def policy_execution_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyExecutionType']]]):
+    def policy_execution_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyExecutionType']]]):
         pulumi.set(self, "policy_execution_type", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaRule")
-    def quota_rule(self) -> Optional[pulumi.Input['QuotaRuleArgs']]:
+    def quota_rule(self) -> pulumi.Input[Optional['QuotaRuleArgs']]:
         """
         The quota rule.
         """
         return pulumi.get(self, "quota_rule")
 
     @quota_rule.setter
-    def quota_rule(self, value: Optional[pulumi.Input['QuotaRuleArgs']]):
+    def quota_rule(self, value: pulumi.Input[Optional['QuotaRuleArgs']]):
         pulumi.set(self, "quota_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def regionality(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Regionality']]]:
+    def regionality(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Regionality']]]:
         """
         The regionality.
         """
         return pulumi.get(self, "regionality")
 
     @regionality.setter
-    def regionality(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Regionality']]]):
+    def regionality(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Regionality']]]):
         pulumi.set(self, "regionality", value)
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderOptions")
-    def request_header_options(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']]:
+    def request_header_options(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']]:
         """
         The request header options.
         """
         return pulumi.get(self, "request_header_options")
 
     @request_header_options.setter
-    def request_header_options(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']]):
+    def request_header_options(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']]):
         pulumi.set(self, "request_header_options", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceCache")
-    def resource_cache(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceCacheArgs']]:
+    def resource_cache(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceCacheArgs']]:
         """
         Resource cache options.
         """
         return pulumi.get(self, "resource_cache")
 
     @resource_cache.setter
-    def resource_cache(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceCacheArgs']]):
+    def resource_cache(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceCacheArgs']]):
         pulumi.set(self, "resource_cache", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceConcurrencyControlOptions")
-    def resource_concurrency_control_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgs']]]]:
+    def resource_concurrency_control_options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgs']]]]:
         """
         The resource concurrency control options.
         """
         return pulumi.get(self, "resource_concurrency_control_options")
 
     @resource_concurrency_control_options.setter
-    def resource_concurrency_control_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgs']]]]):
+    def resource_concurrency_control_options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgs']]]]):
         pulumi.set(self, "resource_concurrency_control_options", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceDeletionPolicy")
-    def resource_deletion_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceDeletionPolicy']]]:
+    def resource_deletion_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceDeletionPolicy']]]:
         """
         The resource deletion policy.
         """
         return pulumi.get(self, "resource_deletion_policy")
 
     @resource_deletion_policy.setter
-    def resource_deletion_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceDeletionPolicy']]]):
+    def resource_deletion_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceDeletionPolicy']]]):
         pulumi.set(self, "resource_deletion_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGraphConfiguration")
-    def resource_graph_configuration(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs']]:
+    def resource_graph_configuration(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs']]:
         """
         The resource graph configuration.
         """
         return pulumi.get(self, "resource_graph_configuration")
 
     @resource_graph_configuration.setter
-    def resource_graph_configuration(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs']]):
+    def resource_graph_configuration(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs']]):
         pulumi.set(self, "resource_graph_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagementOptions")
-    def resource_management_options(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs']]:
+    def resource_management_options(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs']]:
         """
         Resource management options.
         """
         return pulumi.get(self, "resource_management_options")
 
     @resource_management_options.setter
-    def resource_management_options(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs']]):
+    def resource_management_options(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs']]):
         pulumi.set(self, "resource_management_options", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceMovePolicy")
-    def resource_move_policy(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgs']]:
+    def resource_move_policy(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceMovePolicyArgs']]:
         """
         The resource move policy.
         """
         return pulumi.get(self, "resource_move_policy")
 
     @resource_move_policy.setter
-    def resource_move_policy(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgs']]):
+    def resource_move_policy(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceMovePolicyArgs']]):
         pulumi.set(self, "resource_move_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProviderAuthorizationRules")
-    def resource_provider_authorization_rules(self) -> Optional[pulumi.Input['ResourceProviderAuthorizationRulesArgs']]:
+    def resource_provider_authorization_rules(self) -> pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgs']]:
         """
         The resource provider authorization rules.
         """
         return pulumi.get(self, "resource_provider_authorization_rules")
 
     @resource_provider_authorization_rules.setter
-    def resource_provider_authorization_rules(self, value: Optional[pulumi.Input['ResourceProviderAuthorizationRulesArgs']]):
+    def resource_provider_authorization_rules(self, value: pulumi.Input[Optional['ResourceProviderAuthorizationRulesArgs']]):
         pulumi.set(self, "resource_provider_authorization_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceQueryManagement")
-    def resource_query_management(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceQueryManagementArgs']]:
+    def resource_query_management(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceQueryManagementArgs']]:
         """
         Resource query management options.
         """
         return pulumi.get(self, "resource_query_management")
 
     @resource_query_management.setter
-    def resource_query_management(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceQueryManagementArgs']]):
+    def resource_query_management(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceQueryManagementArgs']]):
         pulumi.set(self, "resource_query_management", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSubType")
-    def resource_sub_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceSubType']]]:
+    def resource_sub_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceSubType']]]:
         """
         The resource sub type.
         """
         return pulumi.get(self, "resource_sub_type")
 
     @resource_sub_type.setter
-    def resource_sub_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceSubType']]]):
+    def resource_sub_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceSubType']]]):
         pulumi.set(self, "resource_sub_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeCommonAttributeManagement")
-    def resource_type_common_attribute_management(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs']]:
+    def resource_type_common_attribute_management(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs']]:
         """
         Resource type common attribute management.
         """
         return pulumi.get(self, "resource_type_common_attribute_management")
 
     @resource_type_common_attribute_management.setter
-    def resource_type_common_attribute_management(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs']]):
+    def resource_type_common_attribute_management(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs']]):
         pulumi.set(self, "resource_type_common_attribute_management", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceValidation")
-    def resource_validation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceValidation']]]:
+    def resource_validation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceValidation']]]:
         """
         The resource validation.
         """
         return pulumi.get(self, "resource_validation")
 
     @resource_validation.setter
-    def resource_validation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceValidation']]]):
+    def resource_validation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceValidation']]]):
         pulumi.set(self, "resource_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRule")
-    def routing_rule(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRoutingRuleArgs']]:
+    def routing_rule(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRoutingRuleArgs']]:
         """
         Routing rule.
         """
         return pulumi.get(self, "routing_rule")
 
     @routing_rule.setter
-    def routing_rule(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRoutingRuleArgs']]):
+    def routing_rule(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesRoutingRuleArgs']]):
         pulumi.set(self, "routing_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="routingType")
-    def routing_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RoutingType']]]:
+    def routing_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RoutingType']]]:
         """
         The resource routing type.
         """
         return pulumi.get(self, "routing_type")
 
     @routing_type.setter
-    def routing_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RoutingType']]]):
+    def routing_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RoutingType']]]):
         pulumi.set(self, "routing_type", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTreeInfos")
-    def service_tree_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
+    def service_tree_infos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
         """
         The service tree infos.
         """
         return pulumi.get(self, "service_tree_infos")
 
     @service_tree_infos.setter
-    def service_tree_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
+    def service_tree_infos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
         pulumi.set(self, "service_tree_infos", value)
 
     @_builtins.property
     @pulumi.getter(name="skuLink")
-    def sku_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku link.
         """
         return pulumi.get(self, "sku_link")
 
     @sku_link.setter
-    def sku_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_link", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionLifecycleNotificationSpecifications")
-    def subscription_lifecycle_notification_specifications(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]:
+    def subscription_lifecycle_notification_specifications(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]:
         """
         The subscription lifecycle notification specifications.
         """
         return pulumi.get(self, "subscription_lifecycle_notification_specifications")
 
     @subscription_lifecycle_notification_specifications.setter
-    def subscription_lifecycle_notification_specifications(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]):
+    def subscription_lifecycle_notification_specifications(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]):
         pulumi.set(self, "subscription_lifecycle_notification_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionStateRules")
-    def subscription_state_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgs']]]]:
+    def subscription_state_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateRuleArgs']]]]:
         """
         The subscription state rules.
         """
         return pulumi.get(self, "subscription_state_rules")
 
     @subscription_state_rules.setter
-    def subscription_state_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgs']]]]):
+    def subscription_state_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateRuleArgs']]]]):
         pulumi.set(self, "subscription_state_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="supportsTags")
-    def supports_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def supports_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether tags are supported.
         """
         return pulumi.get(self, "supports_tags")
 
     @supports_tags.setter
-    def supports_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def supports_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "supports_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="swaggerSpecifications")
-    def swagger_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]]:
+    def swagger_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]]:
         """
         The swagger specifications.
         """
         return pulumi.get(self, "swagger_specifications")
 
     @swagger_specifications.setter
-    def swagger_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]]):
+    def swagger_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]]):
         pulumi.set(self, "swagger_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="templateDeploymentOptions")
-    def template_deployment_options(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']]:
+    def template_deployment_options(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']]:
         """
         The template deployment options.
         """
         return pulumi.get(self, "template_deployment_options")
 
     @template_deployment_options.setter
-    def template_deployment_options(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']]):
+    def template_deployment_options(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']]):
         pulumi.set(self, "template_deployment_options", value)
 
     @_builtins.property
     @pulumi.getter(name="templateDeploymentPolicy")
-    def template_deployment_policy(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs']]:
+    def template_deployment_policy(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs']]:
         """
         The template deployment policy.
         """
         return pulumi.get(self, "template_deployment_policy")
 
     @template_deployment_policy.setter
-    def template_deployment_policy(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs']]):
+    def template_deployment_policy(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs']]):
         pulumi.set(self, "template_deployment_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingRules")
-    def throttling_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgs']]]]:
+    def throttling_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingRuleArgs']]]]:
         """
         The throttling rules.
         """
         return pulumi.get(self, "throttling_rules")
 
     @throttling_rules.setter
-    def throttling_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgs']]]]):
+    def throttling_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThrottlingRuleArgs']]]]):
         pulumi.set(self, "throttling_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenAuthConfiguration")
-    def token_auth_configuration(self) -> Optional[pulumi.Input['TokenAuthConfigurationArgs']]:
+    def token_auth_configuration(self) -> pulumi.Input[Optional['TokenAuthConfigurationArgs']]:
         """
         The token auth configuration.
         """
         return pulumi.get(self, "token_auth_configuration")
 
     @token_auth_configuration.setter
-    def token_auth_configuration(self, value: Optional[pulumi.Input['TokenAuthConfigurationArgs']]):
+    def token_auth_configuration(self, value: pulumi.Input[Optional['TokenAuthConfigurationArgs']]):
         pulumi.set(self, "token_auth_configuration", value)
 
 
-class ResourceTypeRegistrationArgsDict(TypedDict):
+class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict(TypedDict):
     """
-    Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    The availability zone rule.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]
-    """
-    Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
-    """
-    properties: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesArgsDict']]
+    availability_zone_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZonePolicy']]]]
 
 @pulumi.input_type
-class ResourceTypeRegistrationArgs:
+class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]] = None,
-                 properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None):
+                 availability_zone_policy: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZonePolicy']]] = None):
         """
-        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+        The availability zone rule.
+        """
+        if availability_zone_policy is not None:
+            pulumi.set(__self__, "availability_zone_policy", availability_zone_policy)
 
-        :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    @_builtins.property
+    @pulumi.getter(name="availabilityZonePolicy")
+    def availability_zone_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZonePolicy']]]:
+        return pulumi.get(self, "availability_zone_policy")
+
+    @availability_zone_policy.setter
+    def availability_zone_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZonePolicy']]]):
+        pulumi.set(self, "availability_zone_policy", value)
+
+
+class ResourceTypeRegistrationPropertiesCapacityRuleArgsDict(TypedDict):
+    """
+    Capacity rule.
+    """
+    capacity_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CapacityPolicy']]]]
+    """
+    Capacity policy.
+    """
+    sku_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Sku alias
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesCapacityRuleArgs:
+    def __init__(__self__, *,
+                 capacity_policy: pulumi.Input[Optional[Union[_builtins.str, 'CapacityPolicy']]] = None,
+                 sku_alias: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        if kind is None:
-            kind = 'Managed'
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        Capacity rule.
+
+        :param pulumi.Input[Union[_builtins.str, 'CapacityPolicy']] capacity_policy: Capacity policy.
+        :param pulumi.Input[_builtins.str] sku_alias: Sku alias
+        """
+        if capacity_policy is not None:
+            pulumi.set(__self__, "capacity_policy", capacity_policy)
+        if sku_alias is not None:
+            pulumi.set(__self__, "sku_alias", sku_alias)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityPolicy")
+    def capacity_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CapacityPolicy']]]:
+        """
+        Capacity policy.
+        """
+        return pulumi.get(self, "capacity_policy")
+
+    @capacity_policy.setter
+    def capacity_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CapacityPolicy']]]):
+        pulumi.set(self, "capacity_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skuAlias")
+    def sku_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sku alias
+        """
+        return pulumi.get(self, "sku_alias")
+
+    @sku_alias.setter
+    def sku_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sku_alias", value)
+
+
+class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict(TypedDict):
+    """
+    The check name availability specifications.
+    """
+    enable_default_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether default validation is enabled.
+    """
+    resource_types_with_custom_validation: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The resource types with custom validation.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
+    def __init__(__self__, *,
+                 enable_default_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_types_with_custom_validation: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The check name availability specifications.
+
+        :param pulumi.Input[_builtins.bool] enable_default_validation: Whether default validation is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types_with_custom_validation: The resource types with custom validation.
+        """
+        if enable_default_validation is not None:
+            pulumi.set(__self__, "enable_default_validation", enable_default_validation)
+        if resource_types_with_custom_validation is not None:
+            pulumi.set(__self__, "resource_types_with_custom_validation", resource_types_with_custom_validation)
+
+    @_builtins.property
+    @pulumi.getter(name="enableDefaultValidation")
+    def enable_default_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether default validation is enabled.
+        """
+        return pulumi.get(self, "enable_default_validation")
+
+    @enable_default_validation.setter
+    def enable_default_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_default_validation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypesWithCustomValidation")
+    def resource_types_with_custom_validation(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The resource types with custom validation.
+        """
+        return pulumi.get(self, "resource_types_with_custom_validation")
+
+    @resource_types_with_custom_validation.setter
+    def resource_types_with_custom_validation(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types_with_custom_validation", value)
+
+
+class ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict(TypedDict):
+    """
+    The dsts configuration.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The service name.
+    """
+    service_dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    This is a URI property.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesDstsConfigurationArgs:
+    def __init__(__self__, *,
+                 service_name: pulumi.Input[_builtins.str],
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The dsts configuration.
+
+        :param pulumi.Input[_builtins.str] service_name: The service name.
+        :param pulumi.Input[_builtins.str] service_dns_name: This is a URI property.
+        """
+        pulumi.set(__self__, "service_name", service_name)
+        if service_dns_name is not None:
+            pulumi.set(__self__, "service_dns_name", service_dns_name)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The service name.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceDnsName")
+    def service_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        This is a URI property.
+        """
+        return pulumi.get(self, "service_dns_name")
+
+    @service_dns_name.setter
+    def service_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_dns_name", value)
+
+
+class ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict(TypedDict):
+    """
+    The extension options.
+    """
+    resource_creation_begin: NotRequired[pulumi.Input[Optional['ResourceTypeExtensionOptionsResourceCreationBeginArgsDict']]]
+    """
+    Resource creation begin.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
+    def __init__(__self__, *,
+                 resource_creation_begin: pulumi.Input[Optional['ResourceTypeExtensionOptionsResourceCreationBeginArgs']] = None):
+        """
+        The extension options.
+
+        :param pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs'] resource_creation_begin: Resource creation begin.
+        """
+        if resource_creation_begin is not None:
+            pulumi.set(__self__, "resource_creation_begin", resource_creation_begin)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceCreationBegin")
+    def resource_creation_begin(self) -> pulumi.Input[Optional['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]:
+        """
+        Resource creation begin.
+        """
+        return pulumi.get(self, "resource_creation_begin")
+
+    @resource_creation_begin.setter
+    def resource_creation_begin(self, value: pulumi.Input[Optional['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]):
+        pulumi.set(self, "resource_creation_begin", value)
+
+
+class ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict(TypedDict):
+    """
+    The features rule.
+    """
+    required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
+    """
+    The required feature policy.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
+    def __init__(__self__, *,
+                 required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
+        """
+        The features rule.
+
+        :param pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']] required_features_policy: The required feature policy.
+        """
+        pulumi.set(__self__, "required_features_policy", required_features_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="requiredFeaturesPolicy")
+    def required_features_policy(self) -> pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]:
+        """
+        The required feature policy.
+        """
+        return pulumi.get(self, "required_features_policy")
+
+    @required_features_policy.setter
+    def required_features_policy(self, value: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
+        pulumi.set(self, "required_features_policy", value)
+
+
+class ResourceTypeRegistrationPropertiesIdentityManagementArgsDict(TypedDict):
+    """
+    The identity management.
+    """
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The application id.
+    """
+    application_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The application ids.
+    """
+    delegation_app_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The delegation app ids.
+    """
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IdentityManagementTypes']]]]
+    """
+    The type.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
+    def __init__(__self__, *,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delegation_app_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'IdentityManagementTypes']]] = None):
+        """
+        The identity management.
+
+        :param pulumi.Input[_builtins.str] application_id: The application id.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_ids: The application ids.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] delegation_app_ids: The delegation app ids.
+        :param pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']] type: The type.
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if application_ids is not None:
+            pulumi.set(__self__, "application_ids", application_ids)
+        if delegation_app_ids is not None:
+            pulumi.set(__self__, "delegation_app_ids", delegation_app_ids)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The application id.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationIds")
+    def application_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The application ids.
+        """
+        return pulumi.get(self, "application_ids")
+
+    @application_ids.setter
+    def application_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "application_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="delegationAppIds")
+    def delegation_app_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The delegation app ids.
+        """
+        return pulumi.get(self, "delegation_app_ids")
+
+    @delegation_app_ids.setter
+    def delegation_app_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "delegation_app_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IdentityManagementTypes']]]:
         """
-        Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        The type.
         """
-        return pulumi.get(self, "kind")
+        return pulumi.get(self, "type")
 
-    @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]):
-        pulumi.set(self, "kind", value)
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IdentityManagementTypes']]]):
+        pulumi.set(self, "type", value)
+
+
+class ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict(TypedDict):
+    """
+    The legacy policy.
+    """
+    disallowed_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyDisallowedConditionArgsDict']]]]]
+    disallowed_legacy_operations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]]
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesLegacyPolicyArgs:
+    def __init__(__self__, *,
+                 disallowed_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyDisallowedConditionArgs']]]] = None,
+                 disallowed_legacy_operations: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]] = None):
+        """
+        The legacy policy.
+        """
+        if disallowed_conditions is not None:
+            pulumi.set(__self__, "disallowed_conditions", disallowed_conditions)
+        if disallowed_legacy_operations is not None:
+            pulumi.set(__self__, "disallowed_legacy_operations", disallowed_legacy_operations)
+
+    @_builtins.property
+    @pulumi.getter(name="disallowedConditions")
+    def disallowed_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LegacyDisallowedConditionArgs']]]]:
+        return pulumi.get(self, "disallowed_conditions")
+
+    @disallowed_conditions.setter
+    def disallowed_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LegacyDisallowedConditionArgs']]]]):
+        pulumi.set(self, "disallowed_conditions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disallowedLegacyOperations")
+    def disallowed_legacy_operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]:
+        return pulumi.get(self, "disallowed_legacy_operations")
+
+    @disallowed_legacy_operations.setter
+    def disallowed_legacy_operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]):
+        pulumi.set(self, "disallowed_legacy_operations", value)
+
+
+class ResourceTypeRegistrationPropertiesManagementArgsDict(TypedDict):
+    """
+    The resource provider management.
+    """
+    authorization_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The authorization owners.
+    """
+    canary_manifest_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of manifest owners for canary.
+    """
+    error_response_message_options: NotRequired[pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]]
+    """
+    Options for error response messages.
+    """
+    expedited_rollout_metadata: NotRequired[pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]]
+    """
+    Metadata for expedited rollout.
+    """
+    expedited_rollout_submitters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of expedited rollout submitters.
+    """
+    incident_contact_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The incident contact email.
+    """
+    incident_routing_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The incident routing service.
+    """
+    incident_routing_team: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The incident routing team.
+    """
+    manifest_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The manifest owners.
+    """
+    pc_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The profit center code for the subscription.
+    """
+    profit_center_program_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The profit center program id for the subscription.
+    """
+    resource_access_policy: NotRequired[pulumi.Input[Optional['ResourceAccessPolicy']]]
+    """
+    The resource access policy.
+    """
+    resource_access_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]]
+    """
+    The resource access roles.
+    """
+    schema_owners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The schema owners.
+    """
+    service_tree_infos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]]
+    """
+    The service tree infos.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesManagementArgs:
+    def __init__(__self__, *,
+                 authorization_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 canary_manifest_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 error_response_message_options: pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgs']] = None,
+                 expedited_rollout_metadata: pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgs']] = None,
+                 expedited_rollout_submitters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 incident_contact_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_routing_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_routing_team: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pc_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 profit_center_program_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_policy: pulumi.Input[Optional['ResourceAccessPolicy']] = None,
+                 resource_access_roles: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]] = None,
+                 schema_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_tree_infos: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
+        """
+        The resource provider management.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_owners: The authorization owners.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] canary_manifest_owners: List of manifest owners for canary.
+        :param pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs'] error_response_message_options: Options for error response messages.
+        :param pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgs'] expedited_rollout_metadata: Metadata for expedited rollout.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] expedited_rollout_submitters: List of expedited rollout submitters.
+        :param pulumi.Input[_builtins.str] incident_contact_email: The incident contact email.
+        :param pulumi.Input[_builtins.str] incident_routing_service: The incident routing service.
+        :param pulumi.Input[_builtins.str] incident_routing_team: The incident routing team.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manifest_owners: The manifest owners.
+        :param pulumi.Input[_builtins.str] pc_code: The profit center code for the subscription.
+        :param pulumi.Input[_builtins.str] profit_center_program_id: The profit center program id for the subscription.
+        :param pulumi.Input['ResourceAccessPolicy'] resource_access_policy: The resource access policy.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgs']]] resource_access_roles: The resource access roles.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schema_owners: The schema owners.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]] service_tree_infos: The service tree infos.
+        """
+        if authorization_owners is not None:
+            pulumi.set(__self__, "authorization_owners", authorization_owners)
+        if canary_manifest_owners is not None:
+            pulumi.set(__self__, "canary_manifest_owners", canary_manifest_owners)
+        if error_response_message_options is not None:
+            pulumi.set(__self__, "error_response_message_options", error_response_message_options)
+        if expedited_rollout_metadata is not None:
+            pulumi.set(__self__, "expedited_rollout_metadata", expedited_rollout_metadata)
+        if expedited_rollout_submitters is not None:
+            pulumi.set(__self__, "expedited_rollout_submitters", expedited_rollout_submitters)
+        if incident_contact_email is not None:
+            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
+        if incident_routing_service is not None:
+            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
+        if incident_routing_team is not None:
+            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
+        if manifest_owners is not None:
+            pulumi.set(__self__, "manifest_owners", manifest_owners)
+        if pc_code is not None:
+            pulumi.set(__self__, "pc_code", pc_code)
+        if profit_center_program_id is not None:
+            pulumi.set(__self__, "profit_center_program_id", profit_center_program_id)
+        if resource_access_policy is not None:
+            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
+        if resource_access_roles is not None:
+            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
+        if schema_owners is not None:
+            pulumi.set(__self__, "schema_owners", schema_owners)
+        if service_tree_infos is not None:
+            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationOwners")
+    def authorization_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The authorization owners.
+        """
+        return pulumi.get(self, "authorization_owners")
+
+    @authorization_owners.setter
+    def authorization_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "authorization_owners", value)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryManifestOwners")
+    def canary_manifest_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of manifest owners for canary.
+        """
+        return pulumi.get(self, "canary_manifest_owners")
+
+    @canary_manifest_owners.setter
+    def canary_manifest_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "canary_manifest_owners", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorResponseMessageOptions")
+    def error_response_message_options(self) -> pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgs']]:
+        """
+        Options for error response messages.
+        """
+        return pulumi.get(self, "error_response_message_options")
+
+    @error_response_message_options.setter
+    def error_response_message_options(self, value: pulumi.Input[Optional['ResourceProviderManagementErrorResponseMessageOptionsArgs']]):
+        pulumi.set(self, "error_response_message_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expeditedRolloutMetadata")
+    def expedited_rollout_metadata(self) -> pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgs']]:
+        """
+        Metadata for expedited rollout.
+        """
+        return pulumi.get(self, "expedited_rollout_metadata")
+
+    @expedited_rollout_metadata.setter
+    def expedited_rollout_metadata(self, value: pulumi.Input[Optional['ResourceProviderManagementExpeditedRolloutMetadataArgs']]):
+        pulumi.set(self, "expedited_rollout_metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expeditedRolloutSubmitters")
+    def expedited_rollout_submitters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of expedited rollout submitters.
+        """
+        return pulumi.get(self, "expedited_rollout_submitters")
+
+    @expedited_rollout_submitters.setter
+    def expedited_rollout_submitters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "expedited_rollout_submitters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentContactEmail")
+    def incident_contact_email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The incident contact email.
+        """
+        return pulumi.get(self, "incident_contact_email")
+
+    @incident_contact_email.setter
+    def incident_contact_email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "incident_contact_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentRoutingService")
+    def incident_routing_service(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The incident routing service.
+        """
+        return pulumi.get(self, "incident_routing_service")
+
+    @incident_routing_service.setter
+    def incident_routing_service(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "incident_routing_service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentRoutingTeam")
+    def incident_routing_team(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The incident routing team.
+        """
+        return pulumi.get(self, "incident_routing_team")
+
+    @incident_routing_team.setter
+    def incident_routing_team(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "incident_routing_team", value)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestOwners")
+    def manifest_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The manifest owners.
+        """
+        return pulumi.get(self, "manifest_owners")
+
+    @manifest_owners.setter
+    def manifest_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "manifest_owners", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pcCode")
+    def pc_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The profit center code for the subscription.
+        """
+        return pulumi.get(self, "pc_code")
+
+    @pc_code.setter
+    def pc_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pc_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profitCenterProgramId")
+    def profit_center_program_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The profit center program id for the subscription.
+        """
+        return pulumi.get(self, "profit_center_program_id")
+
+    @profit_center_program_id.setter
+    def profit_center_program_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "profit_center_program_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceAccessPolicy")
+    def resource_access_policy(self) -> pulumi.Input[Optional['ResourceAccessPolicy']]:
+        """
+        The resource access policy.
+        """
+        return pulumi.get(self, "resource_access_policy")
+
+    @resource_access_policy.setter
+    def resource_access_policy(self, value: pulumi.Input[Optional['ResourceAccessPolicy']]):
+        pulumi.set(self, "resource_access_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceAccessRoles")
+    def resource_access_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]:
+        """
+        The resource access roles.
+        """
+        return pulumi.get(self, "resource_access_roles")
+
+    @resource_access_roles.setter
+    def resource_access_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceAccessRoleArgs']]]]):
+        pulumi.set(self, "resource_access_roles", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaOwners")
+    def schema_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The schema owners.
+        """
+        return pulumi.get(self, "schema_owners")
+
+    @schema_owners.setter
+    def schema_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "schema_owners", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTreeInfos")
+    def service_tree_infos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
+        """
+        The service tree infos.
+        """
+        return pulumi.get(self, "service_tree_infos")
+
+    @service_tree_infos.setter
+    def service_tree_infos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
+        pulumi.set(self, "service_tree_infos", value)
+
+
+class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict(TypedDict):
+    """
+    Marketplace options.
+    """
+    add_on_plan_conversion_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Add-on plan conversion allowed.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs:
+    def __init__(__self__, *,
+                 add_on_plan_conversion_allowed: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Marketplace options.
+
+        :param pulumi.Input[_builtins.bool] add_on_plan_conversion_allowed: Add-on plan conversion allowed.
+        """
+        if add_on_plan_conversion_allowed is not None:
+            pulumi.set(__self__, "add_on_plan_conversion_allowed", add_on_plan_conversion_allowed)
+
+    @_builtins.property
+    @pulumi.getter(name="addOnPlanConversionAllowed")
+    def add_on_plan_conversion_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Add-on plan conversion allowed.
+        """
+        return pulumi.get(self, "add_on_plan_conversion_allowed")
+
+    @add_on_plan_conversion_allowed.setter
+    def add_on_plan_conversion_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "add_on_plan_conversion_allowed", value)
+
+
+class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict(TypedDict):
+    """
+    The request header options.
+    """
+    opt_in_headers: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]]]
+    """
+    The opt in headers.
+    """
+    opt_out_headers: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]]]
+    """
+    The opt out headers.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
+    def __init__(__self__, *,
+                 opt_in_headers: pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]] = None,
+                 opt_out_headers: pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]] = None):
+        """
+        The request header options.
+
+        :param pulumi.Input[Union[_builtins.str, 'OptInHeaderType']] opt_in_headers: The opt in headers.
+        :param pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']] opt_out_headers: The opt out headers.
+        """
+        if opt_in_headers is not None:
+            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
+        if opt_out_headers is not None:
+            pulumi.set(__self__, "opt_out_headers", opt_out_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="optInHeaders")
+    def opt_in_headers(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]]:
+        """
+        The opt in headers.
+        """
+        return pulumi.get(self, "opt_in_headers")
+
+    @opt_in_headers.setter
+    def opt_in_headers(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OptInHeaderType']]]):
+        pulumi.set(self, "opt_in_headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="optOutHeaders")
+    def opt_out_headers(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]]:
+        """
+        The opt out headers.
+        """
+        return pulumi.get(self, "opt_out_headers")
+
+    @opt_out_headers.setter
+    def opt_out_headers(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OptOutHeaderType']]]):
+        pulumi.set(self, "opt_out_headers", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceCacheArgsDict(TypedDict):
+    """
+    Resource cache options.
+    """
+    enable_resource_cache: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enable resource cache.
+    """
+    resource_cache_expiration_timespan: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Resource cache expiration timespan. This is a TimeSpan property.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceCacheArgs:
+    def __init__(__self__, *,
+                 enable_resource_cache: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_cache_expiration_timespan: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Resource cache options.
+
+        :param pulumi.Input[_builtins.bool] enable_resource_cache: Enable resource cache.
+        :param pulumi.Input[_builtins.str] resource_cache_expiration_timespan: Resource cache expiration timespan. This is a TimeSpan property.
+        """
+        if enable_resource_cache is not None:
+            pulumi.set(__self__, "enable_resource_cache", enable_resource_cache)
+        if resource_cache_expiration_timespan is not None:
+            pulumi.set(__self__, "resource_cache_expiration_timespan", resource_cache_expiration_timespan)
+
+    @_builtins.property
+    @pulumi.getter(name="enableResourceCache")
+    def enable_resource_cache(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable resource cache.
+        """
+        return pulumi.get(self, "enable_resource_cache")
+
+    @enable_resource_cache.setter
+    def enable_resource_cache(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_resource_cache", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceCacheExpirationTimespan")
+    def resource_cache_expiration_timespan(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Resource cache expiration timespan. This is a TimeSpan property.
+        """
+        return pulumi.get(self, "resource_cache_expiration_timespan")
+
+    @resource_cache_expiration_timespan.setter
+    def resource_cache_expiration_timespan(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_cache_expiration_timespan", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict(TypedDict):
+    """
+    The resource graph configuration.
+    """
+    api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The api version.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether it's enabled.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
+    def __init__(__self__, *,
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The resource graph configuration.
+
+        :param pulumi.Input[_builtins.str] api_version: The api version.
+        :param pulumi.Input[_builtins.bool] enabled: Whether it's enabled.
+        """
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The api version.
+        """
+        return pulumi.get(self, "api_version")
+
+    @api_version.setter
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]:
-        return pulumi.get(self, "properties")
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether it's enabled.
+        """
+        return pulumi.get(self, "enabled")
 
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict(TypedDict):
+    """
+    Resource management options.
+    """
+    batch_provisioning_support: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict']]]
+    """
+    Batch provisioning support.
+    """
+    delete_dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeleteDependencyArgsDict']]]]]
+    """
+    Delete dependencies.
+    """
+    nested_provisioning_support: NotRequired[pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict']]]
+    """
+    Nested provisioning support.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
+    def __init__(__self__, *,
+                 batch_provisioning_support: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']] = None,
+                 delete_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['DeleteDependencyArgs']]]] = None,
+                 nested_provisioning_support: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']] = None):
+        """
+        Resource management options.
+
+        :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs'] batch_provisioning_support: Batch provisioning support.
+        :param pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]] delete_dependencies: Delete dependencies.
+        :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs'] nested_provisioning_support: Nested provisioning support.
+        """
+        if batch_provisioning_support is not None:
+            pulumi.set(__self__, "batch_provisioning_support", batch_provisioning_support)
+        if delete_dependencies is not None:
+            pulumi.set(__self__, "delete_dependencies", delete_dependencies)
+        if nested_provisioning_support is not None:
+            pulumi.set(__self__, "nested_provisioning_support", nested_provisioning_support)
+
+    @_builtins.property
+    @pulumi.getter(name="batchProvisioningSupport")
+    def batch_provisioning_support(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']]:
+        """
+        Batch provisioning support.
+        """
+        return pulumi.get(self, "batch_provisioning_support")
+
+    @batch_provisioning_support.setter
+    def batch_provisioning_support(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs']]):
+        pulumi.set(self, "batch_provisioning_support", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteDependencies")
+    def delete_dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeleteDependencyArgs']]]]:
+        """
+        Delete dependencies.
+        """
+        return pulumi.get(self, "delete_dependencies")
+
+    @delete_dependencies.setter
+    def delete_dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeleteDependencyArgs']]]]):
+        pulumi.set(self, "delete_dependencies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nestedProvisioningSupport")
+    def nested_provisioning_support(self) -> pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']]:
+        """
+        Nested provisioning support.
+        """
+        return pulumi.get(self, "nested_provisioning_support")
+
+    @nested_provisioning_support.setter
+    def nested_provisioning_support(self, value: pulumi.Input[Optional['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']]):
+        pulumi.set(self, "nested_provisioning_support", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict(TypedDict):
+    """
+    Batch provisioning support.
+    """
+    supported_operations: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SupportedOperations']]]]
+    """
+    Supported operations.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs:
+    def __init__(__self__, *,
+                 supported_operations: pulumi.Input[Optional[Union[_builtins.str, 'SupportedOperations']]] = None):
+        """
+        Batch provisioning support.
+
+        :param pulumi.Input[Union[_builtins.str, 'SupportedOperations']] supported_operations: Supported operations.
+        """
+        if supported_operations is not None:
+            pulumi.set(__self__, "supported_operations", supported_operations)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedOperations")
+    def supported_operations(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SupportedOperations']]]:
+        """
+        Supported operations.
+        """
+        return pulumi.get(self, "supported_operations")
+
+    @supported_operations.setter
+    def supported_operations(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SupportedOperations']]]):
+        pulumi.set(self, "supported_operations", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict(TypedDict):
+    """
+    Nested provisioning support.
+    """
+    minimum_api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Minimum API version.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs:
+    def __init__(__self__, *,
+                 minimum_api_version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Nested provisioning support.
+
+        :param pulumi.Input[_builtins.str] minimum_api_version: Minimum API version.
+        """
+        if minimum_api_version is not None:
+            pulumi.set(__self__, "minimum_api_version", minimum_api_version)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumApiVersion")
+    def minimum_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Minimum API version.
+        """
+        return pulumi.get(self, "minimum_api_version")
+
+    @minimum_api_version.setter
+    def minimum_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_api_version", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict(TypedDict):
+    """
+    The resource move policy.
+    """
+    cross_resource_group_move_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether cross resource group move is enabled.
+    """
+    cross_subscription_move_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether cross subscription move is enabled.
+    """
+    validation_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether validation is required.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
+    def __init__(__self__, *,
+                 cross_resource_group_move_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cross_subscription_move_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validation_required: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The resource move policy.
+
+        :param pulumi.Input[_builtins.bool] cross_resource_group_move_enabled: Whether cross resource group move is enabled.
+        :param pulumi.Input[_builtins.bool] cross_subscription_move_enabled: Whether cross subscription move is enabled.
+        :param pulumi.Input[_builtins.bool] validation_required: Whether validation is required.
+        """
+        if cross_resource_group_move_enabled is not None:
+            pulumi.set(__self__, "cross_resource_group_move_enabled", cross_resource_group_move_enabled)
+        if cross_subscription_move_enabled is not None:
+            pulumi.set(__self__, "cross_subscription_move_enabled", cross_subscription_move_enabled)
+        if validation_required is not None:
+            pulumi.set(__self__, "validation_required", validation_required)
+
+    @_builtins.property
+    @pulumi.getter(name="crossResourceGroupMoveEnabled")
+    def cross_resource_group_move_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether cross resource group move is enabled.
+        """
+        return pulumi.get(self, "cross_resource_group_move_enabled")
+
+    @cross_resource_group_move_enabled.setter
+    def cross_resource_group_move_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "cross_resource_group_move_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossSubscriptionMoveEnabled")
+    def cross_subscription_move_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether cross subscription move is enabled.
+        """
+        return pulumi.get(self, "cross_subscription_move_enabled")
+
+    @cross_subscription_move_enabled.setter
+    def cross_subscription_move_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "cross_subscription_move_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationRequired")
+    def validation_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether validation is required.
+        """
+        return pulumi.get(self, "validation_required")
+
+    @validation_required.setter
+    def validation_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "validation_required", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict(TypedDict):
+    """
+    Resource query management options.
+    """
+    filter_option: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FilterOption']]]]
+    """
+    Filter option.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceQueryManagementArgs:
+    def __init__(__self__, *,
+                 filter_option: pulumi.Input[Optional[Union[_builtins.str, 'FilterOption']]] = None):
+        """
+        Resource query management options.
+
+        :param pulumi.Input[Union[_builtins.str, 'FilterOption']] filter_option: Filter option.
+        """
+        if filter_option is not None:
+            pulumi.set(__self__, "filter_option", filter_option)
+
+    @_builtins.property
+    @pulumi.getter(name="filterOption")
+    def filter_option(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FilterOption']]]:
+        """
+        Filter option.
+        """
+        return pulumi.get(self, "filter_option")
+
+    @filter_option.setter
+    def filter_option(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FilterOption']]]):
+        pulumi.set(self, "filter_option", value)
+
+
+class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict(TypedDict):
+    """
+    Resource type common attribute management.
+    """
+    common_api_versions_merge_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]]
+    """
+    Common api versions merge mode.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs:
+    def __init__(__self__, *,
+                 common_api_versions_merge_mode: pulumi.Input[Optional[Union[_builtins.str, 'CommonApiVersionsMergeMode']]] = None):
+        """
+        Resource type common attribute management.
+
+        :param pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']] common_api_versions_merge_mode: Common api versions merge mode.
+        """
+        if common_api_versions_merge_mode is not None:
+            pulumi.set(__self__, "common_api_versions_merge_mode", common_api_versions_merge_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="commonApiVersionsMergeMode")
+    def common_api_versions_merge_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]:
+        """
+        Common api versions merge mode.
+        """
+        return pulumi.get(self, "common_api_versions_merge_mode")
+
+    @common_api_versions_merge_mode.setter
+    def common_api_versions_merge_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]):
+        pulumi.set(self, "common_api_versions_merge_mode", value)
+
+
+class ResourceTypeRegistrationPropertiesRoutingRuleArgsDict(TypedDict):
+    """
+    Routing rule.
+    """
+    host_resource_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hosted resource type.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesRoutingRuleArgs:
+    def __init__(__self__, *,
+                 host_resource_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Routing rule.
+
+        :param pulumi.Input[_builtins.str] host_resource_type: Hosted resource type.
+        """
+        if host_resource_type is not None:
+            pulumi.set(__self__, "host_resource_type", host_resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="hostResourceType")
+    def host_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hosted resource type.
+        """
+        return pulumi.get(self, "host_resource_type")
+
+    @host_resource_type.setter
+    def host_resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "host_resource_type", value)
+
+
+class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
+    """
+    The subscription lifecycle notification specifications.
+    """
+    soft_delete_ttl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The soft delete TTL.
+    """
+    subscription_state_override_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]]
+    """
+    The subscription state override actions.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
+    def __init__(__self__, *,
+                 soft_delete_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_state_override_actions: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
+        """
+        The subscription lifecycle notification specifications.
+
+        :param pulumi.Input[_builtins.str] soft_delete_ttl: The soft delete TTL.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]] subscription_state_override_actions: The subscription state override actions.
+        """
+        if soft_delete_ttl is not None:
+            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
+        if subscription_state_override_actions is not None:
+            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
+
+    @_builtins.property
+    @pulumi.getter(name="softDeleteTTL")
+    def soft_delete_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The soft delete TTL.
+        """
+        return pulumi.get(self, "soft_delete_ttl")
+
+    @soft_delete_ttl.setter
+    def soft_delete_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "soft_delete_ttl", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionStateOverrideActions")
+    def subscription_state_override_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
+        """
+        The subscription state override actions.
+        """
+        return pulumi.get(self, "subscription_state_override_actions")
+
+    @subscription_state_override_actions.setter
+    def subscription_state_override_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
+        pulumi.set(self, "subscription_state_override_actions", value)
+
+
+class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
+    """
+    The template deployment options.
+    """
+    preflight_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]]
+    """
+    The preflight options.
+    """
+    preflight_supported: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether preflight is supported.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
+    def __init__(__self__, *,
+                 preflight_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]] = None,
+                 preflight_supported: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The template deployment options.
+
+        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]] preflight_options: The preflight options.
+        :param pulumi.Input[_builtins.bool] preflight_supported: Whether preflight is supported.
+        """
+        if preflight_options is not None:
+            pulumi.set(__self__, "preflight_options", preflight_options)
+        if preflight_supported is not None:
+            pulumi.set(__self__, "preflight_supported", preflight_supported)
+
+    @_builtins.property
+    @pulumi.getter(name="preflightOptions")
+    def preflight_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]:
+        """
+        The preflight options.
+        """
+        return pulumi.get(self, "preflight_options")
+
+    @preflight_options.setter
+    def preflight_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]):
+        pulumi.set(self, "preflight_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preflightSupported")
+    def preflight_supported(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether preflight is supported.
+        """
+        return pulumi.get(self, "preflight_supported")
+
+    @preflight_supported.setter
+    def preflight_supported(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "preflight_supported", value)
+
+
+class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict(TypedDict):
+    """
+    The template deployment policy.
+    """
+    capabilities: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]
+    """
+    The capabilities.
+    """
+    preflight_options: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]
+    """
+    The preflight options.
+    """
+    preflight_notifications: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]]
+    """
+    The preflight notifications.
+    """
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs:
+    def __init__(__self__, *,
+                 capabilities: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']],
+                 preflight_options: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']],
+                 preflight_notifications: pulumi.Input[Optional[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]] = None):
+        """
+        The template deployment policy.
+
+        :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']] capabilities: The capabilities.
+        :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']] preflight_options: The preflight options.
+        :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']] preflight_notifications: The preflight notifications.
+        """
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "preflight_options", preflight_options)
+        if preflight_notifications is not None:
+            pulumi.set(__self__, "preflight_notifications", preflight_notifications)
+
+    @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]:
+        """
+        The capabilities.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]):
+        pulumi.set(self, "capabilities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preflightOptions")
+    def preflight_options(self) -> pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]:
+        """
+        The preflight options.
+        """
+        return pulumi.get(self, "preflight_options")
+
+    @preflight_options.setter
+    def preflight_options(self, value: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]):
+        pulumi.set(self, "preflight_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preflightNotifications")
+    def preflight_notifications(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]:
+        """
+        The preflight notifications.
+        """
+        return pulumi.get(self, "preflight_notifications")
+
+    @preflight_notifications.setter
+    def preflight_notifications(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]):
+        pulumi.set(self, "preflight_notifications", value)
 
 
 class ServiceTreeInfoArgsDict(TypedDict):
-    component_id: NotRequired[pulumi.Input[_builtins.str]]
+    component_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The component id.
     """
-    readiness: NotRequired[pulumi.Input[Union[_builtins.str, 'Readiness']]]
+    readiness: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Readiness']]]]
     """
     The readiness.
     """
-    service_id: NotRequired[pulumi.Input[_builtins.str]]
+    service_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service id.
     """
@@ -9522,9 +9522,9 @@ class ServiceTreeInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceTreeInfoArgs:
     def __init__(__self__, *,
-                 component_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 readiness: Optional[pulumi.Input[Union[_builtins.str, 'Readiness']]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 component_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 readiness: pulumi.Input[Optional[Union[_builtins.str, 'Readiness']]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] component_id: The component id.
         :param pulumi.Input[Union[_builtins.str, 'Readiness']] readiness: The readiness.
@@ -9539,38 +9539,38 @@ class ServiceTreeInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentId")
-    def component_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The component id.
         """
         return pulumi.get(self, "component_id")
 
     @component_id.setter
-    def component_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def readiness(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Readiness']]]:
+    def readiness(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Readiness']]]:
         """
         The readiness.
         """
         return pulumi.get(self, "readiness")
 
     @readiness.setter
-    def readiness(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Readiness']]]):
+    def readiness(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Readiness']]]):
         pulumi.set(self, "readiness", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service id.
         """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
-    def service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_id", value)
 
 
@@ -9626,11 +9626,11 @@ class SkuCostArgsDict(TypedDict):
     """
     The meter id.
     """
-    extended_unit: NotRequired[pulumi.Input[_builtins.str]]
+    extended_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The extended unit.
     """
-    quantity: NotRequired[pulumi.Input[_builtins.int]]
+    quantity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The quantity.
     """
@@ -9639,8 +9639,8 @@ class SkuCostArgsDict(TypedDict):
 class SkuCostArgs:
     def __init__(__self__, *,
                  meter_id: pulumi.Input[_builtins.str],
-                 extended_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 quantity: Optional[pulumi.Input[_builtins.int]] = None):
+                 extended_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 quantity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] meter_id: The meter id.
         :param pulumi.Input[_builtins.str] extended_unit: The extended unit.
@@ -9666,26 +9666,26 @@ class SkuCostArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedUnit")
-    def extended_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extended_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The extended unit.
         """
         return pulumi.get(self, "extended_unit")
 
     @extended_unit.setter
-    def extended_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extended_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extended_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def quantity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def quantity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The quantity.
         """
         return pulumi.get(self, "quantity")
 
     @quantity.setter
-    def quantity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def quantity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "quantity", value)
 
 
@@ -9694,19 +9694,19 @@ class SkuLocationInfoArgsDict(TypedDict):
     """
     The location.
     """
-    extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    extended_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The extended locations.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]]
     """
     The type.
     """
-    zone_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgsDict']]]]
+    zone_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SkuZoneDetailArgsDict']]]]]
     """
     The zone details.
     """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The zones.
     """
@@ -9715,10 +9715,10 @@ class SkuLocationInfoArgsDict(TypedDict):
 class SkuLocationInfoArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
-                 extended_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]] = None,
-                 zone_details: Optional[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgs']]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 extended_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]] = None,
+                 zone_details: pulumi.Input[Optional[Sequence[pulumi.Input['SkuZoneDetailArgs']]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] location: The location.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extended_locations: The extended locations.
@@ -9750,50 +9750,50 @@ class SkuLocationInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocations")
-    def extended_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extended_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The extended locations.
         """
         return pulumi.get(self, "extended_locations")
 
     @extended_locations.setter
-    def extended_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extended_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extended_locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]:
         """
         The type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExtendedLocationType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneDetails")
-    def zone_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgs']]]]:
+    def zone_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SkuZoneDetailArgs']]]]:
         """
         The zone details.
         """
         return pulumi.get(self, "zone_details")
 
     @zone_details.setter
-    def zone_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgs']]]]):
+    def zone_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SkuZoneDetailArgs']]]]):
         pulumi.set(self, "zone_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The zones.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -9825,145 +9825,52 @@ class SkuResourcePropertiesArgs:
         pulumi.set(self, "sku_settings", value)
 
 
-class SkuSettingCapacityArgsDict(TypedDict):
-    """
-    The capacity.
-    """
-    minimum: pulumi.Input[_builtins.int]
-    """
-    The minimum.
-    """
-    default: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The default.
-    """
-    maximum: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The maximum.
-    """
-    scale_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuScaleType']]]
-    """
-    The scale type.
-    """
-
-@pulumi.input_type
-class SkuSettingCapacityArgs:
-    def __init__(__self__, *,
-                 minimum: pulumi.Input[_builtins.int],
-                 default: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale_type: Optional[pulumi.Input[Union[_builtins.str, 'SkuScaleType']]] = None):
-        """
-        The capacity.
-
-        :param pulumi.Input[_builtins.int] minimum: The minimum.
-        :param pulumi.Input[_builtins.int] default: The default.
-        :param pulumi.Input[_builtins.int] maximum: The maximum.
-        :param pulumi.Input[Union[_builtins.str, 'SkuScaleType']] scale_type: The scale type.
-        """
-        pulumi.set(__self__, "minimum", minimum)
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
-        if scale_type is not None:
-            pulumi.set(__self__, "scale_type", scale_type)
-
-    @_builtins.property
-    @pulumi.getter
-    def minimum(self) -> pulumi.Input[_builtins.int]:
-        """
-        The minimum.
-        """
-        return pulumi.get(self, "minimum")
-
-    @minimum.setter
-    def minimum(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "minimum", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The default.
-        """
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "default", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum.
-        """
-        return pulumi.get(self, "maximum")
-
-    @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "maximum", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scaleType")
-    def scale_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuScaleType']]]:
-        """
-        The scale type.
-        """
-        return pulumi.get(self, "scale_type")
-
-    @scale_type.setter
-    def scale_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuScaleType']]]):
-        pulumi.set(self, "scale_type", value)
-
-
 class SkuSettingArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
     The name.
     """
-    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
+    capabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]]
     """
     The capabilities.
     """
-    capacity: NotRequired[pulumi.Input['SkuSettingCapacityArgsDict']]
+    capacity: NotRequired[pulumi.Input[Optional['SkuSettingCapacityArgsDict']]]
     """
     The capacity.
     """
-    costs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCostArgsDict']]]]
+    costs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SkuCostArgsDict']]]]]
     """
     The costs.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The family.
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The kind.
     """
-    location_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgsDict']]]]
+    location_info: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SkuLocationInfoArgsDict']]]]]
     """
     The location info.
     """
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The locations.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required features.
     """
-    required_quota_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_quota_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required quota ids.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size.
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tier.
     """
@@ -9972,17 +9879,17 @@ class SkuSettingArgsDict(TypedDict):
 class SkuSettingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]] = None,
-                 capacity: Optional[pulumi.Input['SkuSettingCapacityArgs']] = None,
-                 costs: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCostArgs']]]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_info: Optional[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgs']]]] = None,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 required_quota_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgs']]]] = None,
+                 capacity: pulumi.Input[Optional['SkuSettingCapacityArgs']] = None,
+                 costs: pulumi.Input[Optional[Sequence[pulumi.Input['SkuCostArgs']]]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_info: pulumi.Input[Optional[Sequence[pulumi.Input['SkuLocationInfoArgs']]]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 required_quota_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name.
         :param pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]] capabilities: The capabilities.
@@ -10035,143 +9942,236 @@ class SkuSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgs']]]]:
         """
         The capabilities.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['SkuSettingCapacityArgs']]:
+    def capacity(self) -> pulumi.Input[Optional['SkuSettingCapacityArgs']]:
         """
         The capacity.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['SkuSettingCapacityArgs']]):
+    def capacity(self, value: pulumi.Input[Optional['SkuSettingCapacityArgs']]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def costs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SkuCostArgs']]]]:
+    def costs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SkuCostArgs']]]]:
         """
         The costs.
         """
         return pulumi.get(self, "costs")
 
     @costs.setter
-    def costs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCostArgs']]]]):
+    def costs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SkuCostArgs']]]]):
         pulumi.set(self, "costs", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The family.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="locationInfo")
-    def location_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgs']]]]:
+    def location_info(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SkuLocationInfoArgs']]]]:
         """
         The location info.
         """
         return pulumi.get(self, "location_info")
 
     @location_info.setter
-    def location_info(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgs']]]]):
+    def location_info(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SkuLocationInfoArgs']]]]):
         pulumi.set(self, "location_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The locations.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredQuotaIds")
-    def required_quota_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_quota_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required quota ids.
         """
         return pulumi.get(self, "required_quota_ids")
 
     @required_quota_ids.setter
-    def required_quota_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_quota_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_quota_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
+class SkuSettingCapacityArgsDict(TypedDict):
+    """
+    The capacity.
+    """
+    minimum: pulumi.Input[_builtins.int]
+    """
+    The minimum.
+    """
+    default: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The default.
+    """
+    maximum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum.
+    """
+    scale_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkuScaleType']]]]
+    """
+    The scale type.
+    """
+
+@pulumi.input_type
+class SkuSettingCapacityArgs:
+    def __init__(__self__, *,
+                 minimum: pulumi.Input[_builtins.int],
+                 default: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale_type: pulumi.Input[Optional[Union[_builtins.str, 'SkuScaleType']]] = None):
+        """
+        The capacity.
+
+        :param pulumi.Input[_builtins.int] minimum: The minimum.
+        :param pulumi.Input[_builtins.int] default: The default.
+        :param pulumi.Input[_builtins.int] maximum: The maximum.
+        :param pulumi.Input[Union[_builtins.str, 'SkuScaleType']] scale_type: The scale type.
+        """
+        pulumi.set(__self__, "minimum", minimum)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if scale_type is not None:
+            pulumi.set(__self__, "scale_type", scale_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def minimum(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The default.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleType")
+    def scale_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuScaleType']]]:
+        """
+        The scale type.
+        """
+        return pulumi.get(self, "scale_type")
+
+    @scale_type.setter
+    def scale_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuScaleType']]]):
+        pulumi.set(self, "scale_type", value)
+
+
 class SkuZoneDetailArgsDict(TypedDict):
-    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
+    capabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]]
     """
     The capabilities.
     """
-    name: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    name: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The name.
     """
@@ -10179,8 +10179,8 @@ class SkuZoneDetailArgsDict(TypedDict):
 @pulumi.input_type
 class SkuZoneDetailArgs:
     def __init__(__self__, *,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]] = None,
-                 name: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgs']]]] = None,
+                 name: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]] capabilities: The capabilities.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name: The name.
@@ -10192,31 +10192,31 @@ class SkuZoneDetailArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgs']]]]:
         """
         The capabilities.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SkuCapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def name(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def name(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "name", value)
 
 
 class SubscriberSettingArgsDict(TypedDict):
-    filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterRuleArgsDict']]]]
+    filter_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterRuleArgsDict']]]]]
     """
     The filter rules.
     """
@@ -10224,7 +10224,7 @@ class SubscriberSettingArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriberSettingArgs:
     def __init__(__self__, *,
-                 filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FilterRuleArgs']]]] = None):
+                 filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FilterRuleArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FilterRuleArgs']]] filter_rules: The filter rules.
         """
@@ -10233,14 +10233,14 @@ class SubscriberSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterRules")
-    def filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterRuleArgs']]]]:
+    def filter_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterRuleArgs']]]]:
         """
         The filter rules.
         """
         return pulumi.get(self, "filter_rules")
 
     @filter_rules.setter
-    def filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterRuleArgs']]]]):
+    def filter_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterRuleArgs']]]]):
         pulumi.set(self, "filter_rules", value)
 
 
@@ -10292,11 +10292,11 @@ class SubscriptionStateOverrideActionArgs:
 
 
 class SubscriptionStateRuleArgsDict(TypedDict):
-    allowed_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The allowed actions.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionState']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionState']]]]
     """
     The subscription state.
     """
@@ -10304,8 +10304,8 @@ class SubscriptionStateRuleArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionStateRuleArgs:
     def __init__(__self__, *,
-                 allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'SubscriptionState']]] = None):
+                 allowed_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionState']]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_actions: The allowed actions.
         :param pulumi.Input[Union[_builtins.str, 'SubscriptionState']] state: The subscription state.
@@ -10317,35 +10317,35 @@ class SubscriptionStateRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedActions")
-    def allowed_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed actions.
         """
         return pulumi.get(self, "allowed_actions")
 
     @allowed_actions.setter
-    def allowed_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SubscriptionState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionState']]]:
         """
         The subscription state.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SubscriptionState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SubscriptionState']]]):
         pulumi.set(self, "state", value)
 
 
 class SwaggerSpecificationArgsDict(TypedDict):
-    api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    api_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The api versions.
     """
-    swagger_spec_folder_uri: NotRequired[pulumi.Input[_builtins.str]]
+    swagger_spec_folder_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The swagger spec folder uri.
     """
@@ -10353,8 +10353,8 @@ class SwaggerSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class SwaggerSpecificationArgs:
     def __init__(__self__, *,
-                 api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 swagger_spec_folder_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 swagger_spec_folder_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_versions: The api versions.
         :param pulumi.Input[_builtins.str] swagger_spec_folder_uri: The swagger spec folder uri.
@@ -10366,31 +10366,31 @@ class SwaggerSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiVersions")
-    def api_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def api_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The api versions.
         """
         return pulumi.get(self, "api_versions")
 
     @api_versions.setter
-    def api_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def api_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "api_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="swaggerSpecFolderUri")
-    def swagger_spec_folder_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def swagger_spec_folder_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The swagger spec folder uri.
         """
         return pulumi.get(self, "swagger_spec_folder_uri")
 
     @swagger_spec_folder_uri.setter
-    def swagger_spec_folder_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def swagger_spec_folder_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "swagger_spec_folder_uri", value)
 
 
 class ThirdPartyExtensionArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of third party extension.
     """
@@ -10398,7 +10398,7 @@ class ThirdPartyExtensionArgsDict(TypedDict):
 @pulumi.input_type
 class ThirdPartyExtensionArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of third party extension.
         """
@@ -10407,14 +10407,14 @@ class ThirdPartyExtensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of third party extension.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -10427,7 +10427,7 @@ class ThrottlingMetricArgsDict(TypedDict):
     """
     The throttling metric type
     """
-    interval: NotRequired[pulumi.Input[_builtins.str]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The interval.
     """
@@ -10437,7 +10437,7 @@ class ThrottlingMetricArgs:
     def __init__(__self__, *,
                  limit: pulumi.Input[_builtins.float],
                  type: pulumi.Input[Union[_builtins.str, 'ThrottlingMetricType']],
-                 interval: Optional[pulumi.Input[_builtins.str]] = None):
+                 interval: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.float] limit: The limit.
         :param pulumi.Input[Union[_builtins.str, 'ThrottlingMetricType']] type: The throttling metric type
@@ -10474,14 +10474,14 @@ class ThrottlingMetricArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The interval.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
 
@@ -10494,11 +10494,11 @@ class ThrottlingRuleArgsDict(TypedDict):
     """
     The metrics.
     """
-    application_id: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    application_id: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The application id.
     """
-    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    required_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The required features.
     """
@@ -10508,8 +10508,8 @@ class ThrottlingRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
                  metrics: pulumi.Input[Sequence[pulumi.Input['ThrottlingMetricArgs']]],
-                 application_id: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 application_id: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 required_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] action: The action.
         :param pulumi.Input[Sequence[pulumi.Input['ThrottlingMetricArgs']]] metrics: The metrics.
@@ -10549,39 +10549,39 @@ class ThrottlingRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def application_id(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The application id.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def application_id(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFeatures")
-    def required_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The required features.
         """
         return pulumi.get(self, "required_features")
 
     @required_features.setter
-    def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_features", value)
 
 
 class TokenAuthConfigurationArgsDict(TypedDict):
-    authentication_scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationScheme']]]
+    authentication_scheme: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationScheme']]]]
     """
     The authentication scheme.
     """
-    disable_certificate_authentication_fallback: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_certificate_authentication_fallback: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether certification authentication fallback is disabled.
     """
-    signed_request_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'SignedRequestScope']]]
+    signed_request_scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SignedRequestScope']]]]
     """
     The signed request scope.
     """
@@ -10589,9 +10589,9 @@ class TokenAuthConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class TokenAuthConfigurationArgs:
     def __init__(__self__, *,
-                 authentication_scheme: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationScheme']]] = None,
-                 disable_certificate_authentication_fallback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 signed_request_scope: Optional[pulumi.Input[Union[_builtins.str, 'SignedRequestScope']]] = None):
+                 authentication_scheme: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationScheme']]] = None,
+                 disable_certificate_authentication_fallback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 signed_request_scope: pulumi.Input[Optional[Union[_builtins.str, 'SignedRequestScope']]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationScheme']] authentication_scheme: The authentication scheme.
         :param pulumi.Input[_builtins.bool] disable_certificate_authentication_fallback: Whether certification authentication fallback is disabled.
@@ -10606,38 +10606,38 @@ class TokenAuthConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationScheme")
-    def authentication_scheme(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationScheme']]]:
+    def authentication_scheme(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationScheme']]]:
         """
         The authentication scheme.
         """
         return pulumi.get(self, "authentication_scheme")
 
     @authentication_scheme.setter
-    def authentication_scheme(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationScheme']]]):
+    def authentication_scheme(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AuthenticationScheme']]]):
         pulumi.set(self, "authentication_scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="disableCertificateAuthenticationFallback")
-    def disable_certificate_authentication_fallback(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_certificate_authentication_fallback(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether certification authentication fallback is disabled.
         """
         return pulumi.get(self, "disable_certificate_authentication_fallback")
 
     @disable_certificate_authentication_fallback.setter
-    def disable_certificate_authentication_fallback(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_certificate_authentication_fallback(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_certificate_authentication_fallback", value)
 
     @_builtins.property
     @pulumi.getter(name="signedRequestScope")
-    def signed_request_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SignedRequestScope']]]:
+    def signed_request_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SignedRequestScope']]]:
         """
         The signed request scope.
         """
         return pulumi.get(self, "signed_request_scope")
 
     @signed_request_scope.setter
-    def signed_request_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SignedRequestScope']]]):
+    def signed_request_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SignedRequestScope']]]):
         pulumi.set(self, "signed_request_scope", value)
 
 

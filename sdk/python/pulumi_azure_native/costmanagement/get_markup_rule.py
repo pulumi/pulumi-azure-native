@@ -167,7 +167,6 @@ def get_markup_rule(billing_account_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-10-05-preview.
 
-
     :param _builtins.str billing_account_id: BillingAccount ID
     :param _builtins.str billing_profile_id: BillingProfile ID
     :param _builtins.str name: Markup rule name.
@@ -190,15 +189,14 @@ def get_markup_rule(billing_account_id: Optional[_builtins.str] = None,
         percentage=pulumi.get(__ret__, 'percentage'),
         start_date=pulumi.get(__ret__, 'start_date'),
         type=pulumi.get(__ret__, 'type'))
-def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           billing_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_markup_rule_output(billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           billing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMarkupRuleResult]:
     """
     Get a markup rule by its rule name.
 
     Uses Azure REST API version 2022-10-05-preview.
-
 
     :param _builtins.str billing_account_id: BillingAccount ID
     :param _builtins.str billing_profile_id: BillingProfile ID

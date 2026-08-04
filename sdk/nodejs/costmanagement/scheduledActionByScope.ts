@@ -175,15 +175,15 @@ export interface ScheduledActionByScopeArgs {
     /**
      * Destination format of the view data. This is optional.
      */
-    fileDestination?: pulumi.Input<inputs.costmanagement.FileDestinationArgs>;
+    fileDestination?: pulumi.Input<inputs.costmanagement.FileDestinationArgs | undefined>;
     /**
      * Kind of the scheduled action.
      */
-    kind?: pulumi.Input<string | enums.costmanagement.ScheduledActionKind>;
+    kind?: pulumi.Input<string | enums.costmanagement.ScheduledActionKind | undefined>;
     /**
      * Scheduled action name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Notification properties based on scheduled action kind.
      */
@@ -191,7 +191,7 @@ export interface ScheduledActionByScopeArgs {
     /**
      * Email address of the point of contact that should get the unsubscribe requests and notification emails.
      */
-    notificationEmail?: pulumi.Input<string>;
+    notificationEmail?: pulumi.Input<string | undefined>;
     /**
      * Schedule of the scheduled action.
      */

@@ -205,7 +205,6 @@ def get_interface_endpoint(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: Expands referenced resources.
     :param _builtins.str interface_endpoint_name: The name of the interface endpoint.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -231,9 +230,9 @@ def get_interface_endpoint(expand: Optional[_builtins.str] = None,
         subnet=pulumi.get(__ret__, 'subnet'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  interface_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_interface_endpoint_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  interface_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInterfaceEndpointResult]:
     """
     Gets the specified interface endpoint by resource group.
@@ -241,7 +240,6 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[_builti
     Uses Azure REST API version 2019-02-01.
 
     Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: Expands referenced resources.
     :param _builtins.str interface_endpoint_name: The name of the interface endpoint.

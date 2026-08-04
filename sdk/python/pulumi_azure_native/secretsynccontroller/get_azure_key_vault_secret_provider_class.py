@@ -202,7 +202,6 @@ def get_azure_key_vault_secret_provider_class(azure_key_vault_secret_provider_cl
 
     Uses Azure REST API version 2024-08-21-preview.
 
-
     :param _builtins.str azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -226,14 +225,13 @@ def get_azure_key_vault_secret_provider_class(azure_key_vault_secret_provider_cl
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_azure_key_vault_secret_provider_class_output(azure_key_vault_secret_provider_class_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_azure_key_vault_secret_provider_class_output(azure_key_vault_secret_provider_class_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureKeyVaultSecretProviderClassResult]:
     """
     Gets the properties of an AzureKeyVaultSecretProviderClass instance.
 
     Uses Azure REST API version 2024-08-21-preview.
-
 
     :param _builtins.str azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

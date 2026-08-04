@@ -27,21 +27,21 @@ class GalleryImageArgs:
                  os_state: pulumi.Input['OperatingSystemStateTypes'],
                  os_type: pulumi.Input['OperatingSystemTypes'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_update_image: Optional[pulumi.Input[_builtins.bool]] = None,
-                 architecture: Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed: Optional[pulumi.Input['DisallowedArgs']] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]] = None,
-                 gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_plan: Optional[pulumi.Input['ImagePurchasePlanArgs']] = None,
-                 recommended: Optional[pulumi.Input['RecommendedMachineConfigurationArgs']] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allow_update_image: pulumi.Input[Optional[_builtins.bool]] = None,
+                 architecture: pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed: pulumi.Input[Optional['DisallowedArgs']] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]] = None,
+                 gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_plan: pulumi.Input[Optional['ImagePurchasePlanArgs']] = None,
+                 recommended: pulumi.Input[Optional['RecommendedMachineConfigurationArgs']] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryImage resource.
 
@@ -164,182 +164,182 @@ class GalleryImageArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowUpdateImage")
-    def allow_update_image(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_update_image(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Optional. Must be set to true if the gallery image features are being updated.
         """
         return pulumi.get(self, "allow_update_image")
 
     @allow_update_image.setter
-    def allow_update_image(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_update_image(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_update_image", value)
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]]:
+    def architecture(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]]:
         """
         The architecture of the image. Applicable to OS disks only.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]]):
+    def architecture(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this gallery image definition resource. This property is updatable.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def disallowed(self) -> Optional[pulumi.Input['DisallowedArgs']]:
+    def disallowed(self) -> pulumi.Input[Optional['DisallowedArgs']]:
         """
         Describes the disallowed disk types.
         """
         return pulumi.get(self, "disallowed")
 
     @disallowed.setter
-    def disallowed(self, value: Optional[pulumi.Input['DisallowedArgs']]):
+    def disallowed(self, value: pulumi.Input[Optional['DisallowedArgs']]):
         pulumi.set(self, "disallowed", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def eula(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eula(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Eula agreement for the gallery image definition.
         """
         return pulumi.get(self, "eula")
 
     @eula.setter
-    def eula(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eula(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eula", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]]:
         """
         A list of gallery image features.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryImageName")
-    def gallery_image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the gallery image definition to be retrieved.
         """
         return pulumi.get(self, "gallery_image_name")
 
     @gallery_image_name.setter
-    def gallery_image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]]:
         """
         The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_statement_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The privacy statement uri.
         """
         return pulumi.get(self, "privacy_statement_uri")
 
     @privacy_statement_uri.setter
-    def privacy_statement_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_statement_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_statement_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional[pulumi.Input['ImagePurchasePlanArgs']]:
+    def purchase_plan(self) -> pulumi.Input[Optional['ImagePurchasePlanArgs']]:
         """
         Describes the gallery image definition purchase plan. This is used by marketplace images.
         """
         return pulumi.get(self, "purchase_plan")
 
     @purchase_plan.setter
-    def purchase_plan(self, value: Optional[pulumi.Input['ImagePurchasePlanArgs']]):
+    def purchase_plan(self, value: pulumi.Input[Optional['ImagePurchasePlanArgs']]):
         pulumi.set(self, "purchase_plan", value)
 
     @_builtins.property
     @pulumi.getter
-    def recommended(self) -> Optional[pulumi.Input['RecommendedMachineConfigurationArgs']]:
+    def recommended(self) -> pulumi.Input[Optional['RecommendedMachineConfigurationArgs']]:
         """
         The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         """
         return pulumi.get(self, "recommended")
 
     @recommended.setter
-    def recommended(self, value: Optional[pulumi.Input['RecommendedMachineConfigurationArgs']]):
+    def recommended(self, value: pulumi.Input[Optional['RecommendedMachineConfigurationArgs']]):
         pulumi.set(self, "recommended", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_note_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The release note uri.
         """
         return pulumi.get(self, "release_note_uri")
 
     @release_note_uri.setter
-    def release_note_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_note_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_note_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -349,26 +349,26 @@ class GalleryImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_update_image: Optional[pulumi.Input[_builtins.bool]] = None,
-                 architecture: Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed: Optional[pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]]] = None,
-                 gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_state: Optional[pulumi.Input['OperatingSystemStateTypes']] = None,
-                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_plan: Optional[pulumi.Input[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']]] = None,
-                 recommended: Optional[pulumi.Input[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_update_image: pulumi.Input[Optional[_builtins.bool]] = None,
+                 architecture: pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed: pulumi.Input[Optional[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]]] = None,
+                 gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 identifier: pulumi.Input[Optional[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_state: pulumi.Input[Optional['OperatingSystemStateTypes']] = None,
+                 os_type: pulumi.Input[Optional['OperatingSystemTypes']] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_plan: pulumi.Input[Optional[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']]] = None,
+                 recommended: pulumi.Input[Optional[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Specifies information about the gallery image definition that you want to create or update.
@@ -376,7 +376,6 @@ class GalleryImage(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -414,7 +413,6 @@ class GalleryImage(pulumi.CustomResource):
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param GalleryImageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -430,26 +428,26 @@ class GalleryImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_update_image: Optional[pulumi.Input[_builtins.bool]] = None,
-                 architecture: Optional[pulumi.Input[Union[_builtins.str, 'Architecture']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed: Optional[pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]]] = None,
-                 gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[Union[_builtins.str, 'HyperVGeneration']]] = None,
-                 identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_state: Optional[pulumi.Input['OperatingSystemStateTypes']] = None,
-                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_plan: Optional[pulumi.Input[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']]] = None,
-                 recommended: Optional[pulumi.Input[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allow_update_image: pulumi.Input[Optional[_builtins.bool]] = None,
+                 architecture: pulumi.Input[Optional[Union[_builtins.str, 'Architecture']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed: pulumi.Input[Optional[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryImageFeatureArgs', 'GalleryImageFeatureArgsDict']]]]] = None,
+                 gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
+                 identifier: pulumi.Input[Optional[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_state: pulumi.Input[Optional['OperatingSystemStateTypes']] = None,
+                 os_type: pulumi.Input[Optional['OperatingSystemTypes']] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_plan: pulumi.Input[Optional[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']]] = None,
+                 recommended: pulumi.Input[Optional[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -136,19 +136,19 @@ export interface ProjectArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.cognitiveservices.IdentityArgs>;
+    identity?: pulumi.Input<inputs.cognitiveservices.IdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of Cognitive Services account's project.
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * Properties of Cognitive Services project.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.ProjectPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.ProjectPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -156,5 +156,5 @@ export interface ProjectArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

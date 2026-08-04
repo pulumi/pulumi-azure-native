@@ -162,31 +162,31 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * The group Ids of the managed private endpoint.
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The managed private endpoint name of Azure Managed Grafana.
      */
-    managedPrivateEndpointName?: pulumi.Input<string>;
+    managedPrivateEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is pointing to.
      */
-    privateLinkResourceId?: pulumi.Input<string>;
+    privateLinkResourceId?: pulumi.Input<string | undefined>;
     /**
      * The region of the resource to which the managed private endpoint is pointing to.
      */
-    privateLinkResourceRegion?: pulumi.Input<string>;
+    privateLinkResourceRegion?: pulumi.Input<string | undefined>;
     /**
      * The URL of the data store behind the private link service. It would be the URL in the Grafana data source configuration page without the protocol and port.
      */
-    privateLinkServiceUrl?: pulumi.Input<string>;
+    privateLinkServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * User input request message of the managed private endpoint.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -194,7 +194,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The workspace name of Azure Managed Grafana.
      */

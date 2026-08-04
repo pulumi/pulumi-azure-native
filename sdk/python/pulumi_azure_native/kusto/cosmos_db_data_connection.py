@@ -28,10 +28,10 @@ class CosmosDbDataConnectionArgs:
                  managed_identity_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CosmosDbDataConnection resource.
 
@@ -179,50 +179,50 @@ class CosmosDbDataConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data connection.
         """
         return pulumi.get(self, "data_connection_name")
 
     @data_connection_name.setter
-    def data_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")
-    def mapping_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an existing mapping rule to use when ingesting the retrieved data.
         """
         return pulumi.get(self, "mapping_rule_name")
 
     @mapping_rule_name.setter
-    def mapping_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalStartDate")
-    def retrieval_start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retrieval_start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date.
         """
         return pulumi.get(self, "retrieval_start_date")
 
     @retrieval_start_date.setter
-    def retrieval_start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retrieval_start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retrieval_start_date", value)
 
 
@@ -232,25 +232,24 @@ class CosmosDbDataConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmos_db_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmos_db_container: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmos_db_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_container: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing a CosmosDb data connection.
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,7 +279,6 @@ class CosmosDbDataConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
-
         :param str resource_name: The name of the resource.
         :param CosmosDbDataConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,19 +294,19 @@ class CosmosDbDataConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmos_db_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmos_db_container: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmos_db_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_container: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmos_db_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

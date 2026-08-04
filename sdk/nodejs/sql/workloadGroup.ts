@@ -146,7 +146,7 @@ export interface WorkloadGroupArgs {
     /**
      * The workload group importance level.
      */
-    importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string | undefined>;
     /**
      * The workload group cap percentage resource.
      */
@@ -154,7 +154,7 @@ export interface WorkloadGroupArgs {
     /**
      * The workload group request maximum grant percentage.
      */
-    maxResourcePercentPerRequest?: pulumi.Input<number>;
+    maxResourcePercentPerRequest?: pulumi.Input<number | undefined>;
     /**
      * The workload group minimum percentage resource.
      */
@@ -166,7 +166,7 @@ export interface WorkloadGroupArgs {
     /**
      * The workload group query execution timeout.
      */
-    queryExecutionTimeout?: pulumi.Input<number>;
+    queryExecutionTimeout?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -178,5 +178,5 @@ export interface WorkloadGroupArgs {
     /**
      * The name of the workload group.
      */
-    workloadGroupName?: pulumi.Input<string>;
+    workloadGroupName?: pulumi.Input<string | undefined>;
 }

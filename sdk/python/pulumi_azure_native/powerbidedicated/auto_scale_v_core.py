@@ -24,11 +24,11 @@ class AutoScaleVCoreArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['AutoScaleVCoreSkuArgs'],
-                 capacity_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 capacity_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcore_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 capacity_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcore_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutoScaleVCore resource.
 
@@ -79,62 +79,62 @@ class AutoScaleVCoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityLimit")
-    def capacity_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum capacity of an auto scale v-core resource.
         """
         return pulumi.get(self, "capacity_limit")
 
     @capacity_limit.setter
-    def capacity_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityObjectId")
-    def capacity_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the capacity resource associated with the auto scale v-core resource.
         """
         return pulumi.get(self, "capacity_object_id")
 
     @capacity_object_id.setter
-    def capacity_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_object_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vcoreName")
-    def vcore_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vcore_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         """
         return pulumi.get(self, "vcore_name")
 
     @vcore_name.setter
-    def vcore_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vcore_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vcore_name", value)
 
 
@@ -144,19 +144,18 @@ class AutoScaleVCore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 capacity_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['AutoScaleVCoreSkuArgs', 'AutoScaleVCoreSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcore_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 capacity_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 capacity_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['AutoScaleVCoreSkuArgs', 'AutoScaleVCoreSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents an instance of an auto scale v-core resource.
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class AutoScaleVCore(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
 
-
         :param str resource_name: The name of the resource.
         :param AutoScaleVCoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class AutoScaleVCore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 capacity_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['AutoScaleVCoreSkuArgs', 'AutoScaleVCoreSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcore_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 capacity_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 capacity_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['AutoScaleVCoreSkuArgs', 'AutoScaleVCoreSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

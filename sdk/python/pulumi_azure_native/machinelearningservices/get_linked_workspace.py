@@ -109,7 +109,6 @@ def get_linked_workspace(link_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str link_name: Friendly name of the linked workspace
     :param _builtins.str resource_group_name: Name of the resource group in which workspace is located.
     :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
@@ -127,9 +126,9 @@ def get_linked_workspace(link_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_linked_workspace_output(link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_linked_workspace_output(link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedWorkspaceResult]:
     """
     Get the detail of a linked workspace.
@@ -137,7 +136,6 @@ def get_linked_workspace_output(link_name: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2020-05-15-preview.
 
     Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str link_name: Friendly name of the linked workspace
     :param _builtins.str resource_group_name: Name of the resource group in which workspace is located.

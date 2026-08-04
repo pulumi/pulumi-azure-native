@@ -131,7 +131,7 @@ export class ServerDetails extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serverMonitorMode"] = (args?.serverMonitorMode) ?? 1;
             resourceInputs["serverName"] = args?.serverName;
-            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.analysisservices.resourceSkuArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(inputs.analysisservices.resourceSkuArgsProvideDefaults) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -171,31 +171,31 @@ export interface ServerDetailsArgs {
     /**
      * A collection of AS server administrators
      */
-    asAdministrators?: pulumi.Input<inputs.analysisservices.ServerAdministratorsArgs>;
+    asAdministrators?: pulumi.Input<inputs.analysisservices.ServerAdministratorsArgs | undefined>;
     /**
      * The SAS container URI to the backup container.
      */
-    backupBlobContainerUri?: pulumi.Input<string>;
+    backupBlobContainerUri?: pulumi.Input<string | undefined>;
     /**
      * The gateway details configured for the AS server.
      */
-    gatewayDetails?: pulumi.Input<inputs.analysisservices.GatewayDetailsArgs>;
+    gatewayDetails?: pulumi.Input<inputs.analysisservices.GatewayDetailsArgs | undefined>;
     /**
      * The firewall settings for the AS server.
      */
-    ipV4FirewallSettings?: pulumi.Input<inputs.analysisservices.IPv4FirewallSettingsArgs>;
+    ipV4FirewallSettings?: pulumi.Input<inputs.analysisservices.IPv4FirewallSettingsArgs | undefined>;
     /**
      * Location of the Analysis Services resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The managed mode of the server (0 = not managed, 1 = managed).
      */
-    managedMode?: pulumi.Input<number>;
+    managedMode?: pulumi.Input<number | undefined>;
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
-    querypoolConnectionMode?: pulumi.Input<enums.analysisservices.ConnectionMode>;
+    querypoolConnectionMode?: pulumi.Input<enums.analysisservices.ConnectionMode | undefined>;
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
@@ -203,11 +203,11 @@ export interface ServerDetailsArgs {
     /**
      * The server monitor mode for AS server
      */
-    serverMonitorMode?: pulumi.Input<number>;
+    serverMonitorMode?: pulumi.Input<number | undefined>;
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The SKU of the Analysis Services resource.
      */
@@ -215,5 +215,5 @@ export interface ServerDetailsArgs {
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

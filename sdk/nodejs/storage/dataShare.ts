@@ -127,11 +127,11 @@ export interface DataShareArgs {
     /**
      * The name of the Storage DataShare.
      */
-    dataShareName?: pulumi.Input<string>;
+    dataShareName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The properties of the Storage DataShare.
      */
@@ -143,5 +143,5 @@ export interface DataShareArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

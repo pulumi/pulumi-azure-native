@@ -179,7 +179,6 @@ def get_knowledge_source(knowledge_source_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01-preview.
 
-
     :param _builtins.str knowledge_source_name: The name of the knowledge source.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str web_agent_name: The name of the web agent.
@@ -203,15 +202,14 @@ def get_knowledge_source(knowledge_source_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         update_frequency=pulumi.get(__ret__, 'update_frequency'),
         url=pulumi.get(__ret__, 'url'))
-def get_knowledge_source_output(knowledge_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                web_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_knowledge_source_output(knowledge_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                web_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKnowledgeSourceResult]:
     """
     Gets a knowledge source with the specified name within a web agent.
 
     Uses Azure REST API version 2025-09-01-preview.
-
 
     :param _builtins.str knowledge_source_name: The name of the knowledge source.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

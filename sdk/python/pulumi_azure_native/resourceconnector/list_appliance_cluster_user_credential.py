@@ -72,7 +72,6 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[_builti
 
     Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: Appliances name.
     """
@@ -85,8 +84,8 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[_builti
     return AwaitableListApplianceClusterUserCredentialResult(
         hybrid_connection_config=pulumi.get(__ret__, 'hybrid_connection_config'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_appliance_cluster_user_credential_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_appliance_cluster_user_credential_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceClusterUserCredentialResult]:
     """
     Returns the cluster user credentials for the dedicated appliance.
@@ -94,7 +93,6 @@ def list_appliance_cluster_user_credential_output(resource_group_name: Optional[
     Uses Azure REST API version 2022-10-27.
 
     Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: Appliances name.

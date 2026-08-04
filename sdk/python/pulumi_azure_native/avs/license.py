@@ -23,8 +23,8 @@ class LicenseArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['VmwareFirewallLicensePropertiesArgs']] = None):
+                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['VmwareFirewallLicensePropertiesArgs']] = None):
         """
         The set of arguments for constructing a License resource.
 
@@ -66,26 +66,26 @@ class LicenseArgs:
 
     @_builtins.property
     @pulumi.getter(name="licenseName")
-    def license_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the license.
         """
         return pulumi.get(self, "license_name")
 
     @license_name.setter
-    def license_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['VmwareFirewallLicensePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['VmwareFirewallLicensePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['VmwareFirewallLicensePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['VmwareFirewallLicensePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,16 +95,15 @@ class License(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VmwareFirewallLicensePropertiesArgs', 'VmwareFirewallLicensePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['VmwareFirewallLicensePropertiesArgs', 'VmwareFirewallLicensePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A license resource
 
         Uses Azure REST API version 2025-09-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class License(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01.
 
-
         :param str resource_name: The name of the resource.
         :param LicenseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class License(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VmwareFirewallLicensePropertiesArgs', 'VmwareFirewallLicensePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['VmwareFirewallLicensePropertiesArgs', 'VmwareFirewallLicensePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -104,11 +104,11 @@ export interface GoalTemplateArgs {
     /**
      * The name of the goalTemplate
      */
-    goalTemplateName?: pulumi.Input<string>;
+    goalTemplateName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azureresiliencemanagement.GoalTemplatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.azureresiliencemanagement.GoalTemplatePropertiesArgs | undefined>;
     /**
      * The name of the service group.
      */

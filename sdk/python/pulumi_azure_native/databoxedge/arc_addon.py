@@ -27,7 +27,7 @@ class ArcAddonArgs:
                  resource_name: pulumi.Input[_builtins.str],
                  role_name: pulumi.Input[_builtins.str],
                  subscription_id: pulumi.Input[_builtins.str],
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ArcAddon resource.
 
@@ -138,14 +138,14 @@ class ArcAddonArgs:
 
     @_builtins.property
     @pulumi.getter(name="addonName")
-    def addon_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The addon name.
         """
         return pulumi.get(self, "addon_name")
 
     @addon_name.setter
-    def addon_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_name", value)
 
 
@@ -155,20 +155,19 @@ class ArcAddon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Arc Addon.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +192,6 @@ class ArcAddon(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param ArcAddonArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,14 +207,14 @@ class ArcAddon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

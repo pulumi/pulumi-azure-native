@@ -68,7 +68,6 @@ def get_sap_sizing_recommendations(app_location: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str app_location: The geo-location where the resource is to be created.
     :param Union[_builtins.str, 'SAPDatabaseType'] database_type: The database type.
     :param _builtins.float db_memory: The database memory configuration.
@@ -96,16 +95,16 @@ def get_sap_sizing_recommendations(app_location: Optional[_builtins.str] = None,
 
     return AwaitableGetSAPSizingRecommendationsResult(
         deployment_type=pulumi.get(__ret__, 'deployment_type'))
-def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                                          database_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]] = None,
-                                          db_memory: Optional[pulumi.Input[_builtins.float]] = None,
-                                          db_scale_method: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SAPDatabaseScaleMethod']]]] = None,
-                                          deployment_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDeploymentType']]] = None,
-                                          environment: Optional[pulumi.Input[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
-                                          high_availability_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SAPHighAvailabilityType']]]] = None,
-                                          location: Optional[pulumi.Input[_builtins.str]] = None,
-                                          sap_product: Optional[pulumi.Input[Union[_builtins.str, 'SAPProductType']]] = None,
-                                          saps: Optional[pulumi.Input[_builtins.float]] = None,
+def get_sap_sizing_recommendations_output(app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                                          database_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDatabaseType']]] = None,
+                                          db_memory: pulumi.Input[Optional[_builtins.float]] = None,
+                                          db_scale_method: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SAPDatabaseScaleMethod']]]] = None,
+                                          deployment_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDeploymentType']]] = None,
+                                          environment: pulumi.Input[Optional[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
+                                          high_availability_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SAPHighAvailabilityType']]]] = None,
+                                          location: pulumi.Input[Optional[_builtins.str]] = None,
+                                          sap_product: pulumi.Input[Optional[Union[_builtins.str, 'SAPProductType']]] = None,
+                                          saps: pulumi.Input[Optional[_builtins.float]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPSizingRecommendationsResult]:
     """
     Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
@@ -113,7 +112,6 @@ def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[_b
     Uses Azure REST API version 2023-10-01-preview.
 
     Other available API versions: 2023-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str app_location: The geo-location where the resource is to be created.
     :param Union[_builtins.str, 'SAPDatabaseType'] database_type: The database type.

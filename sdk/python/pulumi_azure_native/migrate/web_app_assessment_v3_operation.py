@@ -24,8 +24,8 @@ class WebAppAssessmentV3OperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['WebAppAssessmentV3PropertiesArgs']] = None):
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['WebAppAssessmentV3PropertiesArgs']] = None):
         """
         The set of arguments for constructing a WebAppAssessmentV3Operation resource.
 
@@ -67,26 +67,26 @@ class WebAppAssessmentV3OperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         WebApp Assessment ARM name
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['WebAppAssessmentV3PropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['WebAppAssessmentV3PropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['WebAppAssessmentV3PropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['WebAppAssessmentV3PropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,16 +96,15 @@ class WebAppAssessmentV3Operation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['WebAppAssessmentV3PropertiesArgs', 'WebAppAssessmentV3PropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WebAppAssessmentV3PropertiesArgs', 'WebAppAssessmentV3PropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         WebApp assessment resource.
 
         Uses Azure REST API version 2024-03-03-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class WebAppAssessmentV3Operation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppAssessmentV3OperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class WebAppAssessmentV3Operation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['WebAppAssessmentV3PropertiesArgs', 'WebAppAssessmentV3PropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['WebAppAssessmentV3PropertiesArgs', 'WebAppAssessmentV3PropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -26,10 +26,10 @@ class ConnectorArgs:
                  environment_id: pulumi.Input[_builtins.str],
                  organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connector_basic_info: Optional[pulumi.Input['ConnectorInfoBaseArgs']] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_service_type_info: Optional[pulumi.Input[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']]] = None,
-                 partner_connector_info: Optional[pulumi.Input[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']]] = None):
+                 connector_basic_info: pulumi.Input[Optional['ConnectorInfoBaseArgs']] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_service_type_info: pulumi.Input[Optional[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']]] = None,
+                 partner_connector_info: pulumi.Input[Optional[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -105,50 +105,50 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorBasicInfo")
-    def connector_basic_info(self) -> Optional[pulumi.Input['ConnectorInfoBaseArgs']]:
+    def connector_basic_info(self) -> pulumi.Input[Optional['ConnectorInfoBaseArgs']]:
         """
         Connector Info Base
         """
         return pulumi.get(self, "connector_basic_info")
 
     @connector_basic_info.setter
-    def connector_basic_info(self, value: Optional[pulumi.Input['ConnectorInfoBaseArgs']]):
+    def connector_basic_info(self, value: pulumi.Input[Optional['ConnectorInfoBaseArgs']]):
         pulumi.set(self, "connector_basic_info", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Confluent connector name
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorServiceTypeInfo")
-    def connector_service_type_info(self) -> Optional[pulumi.Input[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']]]:
+    def connector_service_type_info(self) -> pulumi.Input[Optional[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']]]:
         """
         Connector Service type info base properties.
         """
         return pulumi.get(self, "connector_service_type_info")
 
     @connector_service_type_info.setter
-    def connector_service_type_info(self, value: Optional[pulumi.Input[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']]]):
+    def connector_service_type_info(self, value: pulumi.Input[Optional[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']]]):
         pulumi.set(self, "connector_service_type_info", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerConnectorInfo")
-    def partner_connector_info(self) -> Optional[pulumi.Input[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']]]:
+    def partner_connector_info(self) -> pulumi.Input[Optional[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']]]:
         """
         The connection information consumed by applications.
         """
         return pulumi.get(self, "partner_connector_info")
 
     @partner_connector_info.setter
-    def partner_connector_info(self, value: Optional[pulumi.Input[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']]]):
+    def partner_connector_info(self, value: pulumi.Input[Optional[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']]]):
         pulumi.set(self, "partner_connector_info", value)
 
 
@@ -158,14 +158,14 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_basic_info: Optional[pulumi.Input[Union['ConnectorInfoBaseArgs', 'ConnectorInfoBaseArgsDict']]] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_service_type_info: Optional[pulumi.Input[Union[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSinkConnectorServiceInfoArgsDict'], Union['AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgsDict'], Union['AzureSynapseAnalyticsSinkConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgsDict']]]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_connector_info: Optional[pulumi.Input[Union[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSinkConnectorInfoArgsDict'], Union['KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgsDict'], Union['KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_basic_info: pulumi.Input[Optional[Union['ConnectorInfoBaseArgs', 'ConnectorInfoBaseArgsDict']]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_service_type_info: pulumi.Input[Optional[Union[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSinkConnectorServiceInfoArgsDict'], Union['AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgsDict'], Union['AzureSynapseAnalyticsSinkConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgsDict']]]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_connector_info: pulumi.Input[Optional[Union[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSinkConnectorInfoArgsDict'], Union['KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgsDict'], Union['KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Details of connector record
@@ -173,7 +173,6 @@ class Connector(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,7 +198,6 @@ class Connector(pulumi.CustomResource):
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,14 +213,14 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_basic_info: Optional[pulumi.Input[Union['ConnectorInfoBaseArgs', 'ConnectorInfoBaseArgsDict']]] = None,
-                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_service_type_info: Optional[pulumi.Input[Union[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSinkConnectorServiceInfoArgsDict'], Union['AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgsDict'], Union['AzureSynapseAnalyticsSinkConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgsDict']]]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_connector_info: Optional[pulumi.Input[Union[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSinkConnectorInfoArgsDict'], Union['KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgsDict'], Union['KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_basic_info: pulumi.Input[Optional[Union['ConnectorInfoBaseArgs', 'ConnectorInfoBaseArgsDict']]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_service_type_info: pulumi.Input[Optional[Union[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSinkConnectorServiceInfoArgsDict'], Union['AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgsDict'], Union['AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgsDict'], Union['AzureSynapseAnalyticsSinkConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgsDict']]]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_connector_info: pulumi.Input[Optional[Union[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSinkConnectorInfoArgsDict'], Union['KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgsDict'], Union['KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgsDict'], Union['KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -9284,7 +9284,7 @@ class MigrationEntityGroupPropertiesResponse(dict):
         Migration Entity Group Properties class.
 
         :param _builtins.str application_display_name: Display Name of the Workload.
-        :param _builtins.str application_id: Application id 
+        :param _builtins.str application_id: Application id
         :param _builtins.str execution_start_date: Execution Start Date
         :param _builtins.str execution_status: Migration Entity Group Status
         :param _builtins.str provisioning_state: The status of the last operation.
@@ -9316,7 +9316,7 @@ class MigrationEntityGroupPropertiesResponse(dict):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> _builtins.str:
         """
-        Application id 
+        Application id
         """
         return pulumi.get(self, "application_id")
 
@@ -9445,7 +9445,7 @@ class MigrationEntityPropertiesResponse(dict):
         """
         Migration Entity Properties class.
 
-        :param _builtins.str associated_inventory_resource_id: inventory resource id 
+        :param _builtins.str associated_inventory_resource_id: inventory resource id
         :param _builtins.str execution_readiness: Execution Readiness of Migration Entity.
         :param _builtins.str execution_stage: Execution Stage of Migration Entity.
         :param _builtins.str execution_start_date: Execution start date for Migration Entity.
@@ -9497,7 +9497,7 @@ class MigrationEntityPropertiesResponse(dict):
     @pulumi.getter(name="associatedInventoryResourceId")
     def associated_inventory_resource_id(self) -> _builtins.str:
         """
-        inventory resource id 
+        inventory resource id
         """
         return pulumi.get(self, "associated_inventory_resource_id")
 
@@ -15205,7 +15205,7 @@ class TaskPropertiesResponse(dict):
         Task Properties class.
 
         :param _builtins.str completion_date: Task completion Date
-        :param _builtins.str display_name: Task Dislay Name 
+        :param _builtins.str display_name: Task Dislay Name
         :param _builtins.bool is_editable: Indicates whether the task is editable.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str scope: Task Scope
@@ -15240,7 +15240,7 @@ class TaskPropertiesResponse(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
         """
-        Task Dislay Name 
+        Task Dislay Name
         """
         return pulumi.get(self, "display_name")
 

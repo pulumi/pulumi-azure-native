@@ -23,12 +23,12 @@ class WorkloadNetworkPortMirroringArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'PortMirroringDirectionEnum']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_mirroring_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'PortMirroringDirectionEnum']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_mirroring_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.float]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkPortMirroring resource.
 
@@ -82,74 +82,74 @@ class WorkloadNetworkPortMirroringArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination VM Group.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PortMirroringDirectionEnum']]]:
+    def direction(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PortMirroringDirectionEnum']]]:
         """
         Direction of port mirroring profile.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PortMirroringDirectionEnum']]]):
+    def direction(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PortMirroringDirectionEnum']]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the port mirroring profile.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="portMirroringId")
-    def port_mirroring_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port_mirroring_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the NSX port mirroring profile.
         """
         return pulumi.get(self, "port_mirroring_id")
 
     @port_mirroring_id.setter
-    def port_mirroring_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port_mirroring_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port_mirroring_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def revision(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         NSX revision number.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def revision(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source VM Group.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -159,14 +159,14 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'PortMirroringDirectionEnum']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_mirroring_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'PortMirroringDirectionEnum']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_mirroring_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.float]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         NSX Port Mirroring
@@ -174,7 +174,6 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkPortMirroringArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'PortMirroringDirectionEnum']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_mirroring_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.float]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'PortMirroringDirectionEnum']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_mirroring_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.float]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

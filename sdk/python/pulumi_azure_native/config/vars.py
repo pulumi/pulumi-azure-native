@@ -107,7 +107,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def oidc_request_url(self) -> Optional[str]:
         """
-        The URL to initiate the OIDC token exchange. 
+        The URL to initiate the OIDC token exchange.
         """
         return __config__.get('oidcRequestUrl')
 

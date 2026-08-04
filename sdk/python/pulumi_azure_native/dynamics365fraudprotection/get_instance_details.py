@@ -154,7 +154,6 @@ def get_instance_details(instance_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-02-01-preview.
 
-
     :param _builtins.str instance_name: The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
     :param _builtins.str resource_group_name: The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
     """
@@ -174,14 +173,13 @@ def get_instance_details(instance_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_instance_details_output(instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_details_output(instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceDetailsResult]:
     """
     Gets details about the specified instances.
 
     Uses Azure REST API version 2021-02-01-preview.
-
 
     :param _builtins.str instance_name: The name of the instance. It must be a minimum of 3 characters, and a maximum of 63.
     :param _builtins.str resource_group_name: The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.

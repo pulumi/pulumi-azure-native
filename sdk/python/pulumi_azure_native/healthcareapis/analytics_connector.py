@@ -27,10 +27,10 @@ class AnalyticsConnectorArgs:
                  data_source_configuration: pulumi.Input['AnalyticsConnectorFhirServiceDataSourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 analytics_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 analytics_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsConnector resource.
 
@@ -120,50 +120,50 @@ class AnalyticsConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="analyticsConnectorName")
-    def analytics_connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def analytics_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of Analytics Connector resource.
         """
         return pulumi.get(self, "analytics_connector_name")
 
     @analytics_connector_name.setter
-    def analytics_connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def analytics_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "analytics_connector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']]:
         """
         Setting indicating whether the service has a managed identity associated with it.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -173,21 +173,20 @@ class AnalyticsConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analytics_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_destination_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorDataLakeDataDestinationArgs', 'AnalyticsConnectorDataLakeDataDestinationArgsDict']]] = None,
-                 data_mapping_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirToParquetMappingArgs', 'AnalyticsConnectorFhirToParquetMappingArgsDict']]] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirServiceDataSourceArgs', 'AnalyticsConnectorFhirServiceDataSourceArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 analytics_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_destination_configuration: pulumi.Input[Optional[Union['AnalyticsConnectorDataLakeDataDestinationArgs', 'AnalyticsConnectorDataLakeDataDestinationArgsDict']]] = None,
+                 data_mapping_configuration: pulumi.Input[Optional[Union['AnalyticsConnectorFhirToParquetMappingArgs', 'AnalyticsConnectorFhirToParquetMappingArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['AnalyticsConnectorFhirServiceDataSourceArgs', 'AnalyticsConnectorFhirServiceDataSourceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Analytics Connector definition.
 
         Uses Azure REST API version 2022-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,7 +211,6 @@ class AnalyticsConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AnalyticsConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,15 +226,15 @@ class AnalyticsConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analytics_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_destination_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorDataLakeDataDestinationArgs', 'AnalyticsConnectorDataLakeDataDestinationArgsDict']]] = None,
-                 data_mapping_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirToParquetMappingArgs', 'AnalyticsConnectorFhirToParquetMappingArgsDict']]] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['AnalyticsConnectorFhirServiceDataSourceArgs', 'AnalyticsConnectorFhirServiceDataSourceArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 analytics_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_destination_configuration: pulumi.Input[Optional[Union['AnalyticsConnectorDataLakeDataDestinationArgs', 'AnalyticsConnectorDataLakeDataDestinationArgsDict']]] = None,
+                 data_mapping_configuration: pulumi.Input[Optional[Union['AnalyticsConnectorFhirToParquetMappingArgs', 'AnalyticsConnectorFhirToParquetMappingArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['AnalyticsConnectorFhirServiceDataSourceArgs', 'AnalyticsConnectorFhirServiceDataSourceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

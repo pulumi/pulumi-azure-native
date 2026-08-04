@@ -124,15 +124,15 @@ export interface GalleryInVMAccessControlProfileArgs {
     /**
      * The name of the gallery inVMAccessControlProfile to be retrieved.
      */
-    inVMAccessControlProfileName?: pulumi.Input<string>;
+    inVMAccessControlProfileName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Describes the properties of a gallery inVMAccessControlProfile.
      */
-    properties?: pulumi.Input<inputs.compute.GalleryInVMAccessControlProfilePropertiesArgs>;
+    properties?: pulumi.Input<inputs.compute.GalleryInVMAccessControlProfilePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface GalleryInVMAccessControlProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

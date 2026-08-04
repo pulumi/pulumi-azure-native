@@ -23,12 +23,12 @@ __all__ = ['WebAgentArgs', 'WebAgent']
 class WebAgentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPathArgs']]]] = None,
-                 system_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_agent_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 paths: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPathArgs']]]] = None,
+                 system_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_agent_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAgent resource.
 
@@ -68,74 +68,74 @@ class WebAgentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional textual description of the agent.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPathArgs']]]]:
+    def paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentPathArgs']]]]:
         """
         List of paths associated with the web agent.
         """
         return pulumi.get(self, "paths")
 
     @paths.setter
-    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPathArgs']]]]):
+    def paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPathArgs']]]]):
         pulumi.set(self, "paths", value)
 
     @_builtins.property
     @pulumi.getter(name="systemPrompt")
-    def system_prompt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_prompt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         System prompt for the web agent.
         """
         return pulumi.get(self, "system_prompt")
 
     @system_prompt.setter
-    def system_prompt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_prompt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_prompt", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="webAgentName")
-    def web_agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the web agent.
         """
         return pulumi.get(self, "web_agent_name")
 
     @web_agent_name.setter
-    def web_agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_agent_name", value)
 
 
@@ -145,19 +145,18 @@ class WebAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPathArgs', 'AgentPathArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPathArgs', 'AgentPathArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines a web agent resource for Azure CDN.
 
         Uses Azure REST API version 2025-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +179,6 @@ class WebAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param WebAgentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,13 +194,13 @@ class WebAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPathArgs', 'AgentPathArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPathArgs', 'AgentPathArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

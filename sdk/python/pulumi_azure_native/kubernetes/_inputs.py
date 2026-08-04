@@ -30,15 +30,15 @@ class AadProfileArgsDict(TypedDict):
     """
     AAD Profile specifies attributes for Azure Active Directory integration.
     """
-    admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    admin_group_object_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of AAD group object IDs that will have admin role of the cluster.
     """
-    enable_azure_rbac: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_azure_rbac: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Azure RBAC for Kubernetes authorization.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
     """
@@ -46,9 +46,9 @@ class AadProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AadProfileArgs:
     def __init__(__self__, *,
-                 admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_azure_rbac: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_group_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_azure_rbac: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         AAD Profile specifies attributes for Azure Active Directory integration.
 
@@ -65,38 +65,38 @@ class AadProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminGroupObjectIDs")
-    def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_group_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of AAD group object IDs that will have admin role of the cluster.
         """
         return pulumi.get(self, "admin_group_object_ids")
 
     @admin_group_object_ids.setter
-    def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_group_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_group_object_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAzureRBAC")
-    def enable_azure_rbac(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_azure_rbac(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Azure RBAC for Kubernetes authorization.
         """
         return pulumi.get(self, "enable_azure_rbac")
 
     @enable_azure_rbac.setter
-    def enable_azure_rbac(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_azure_rbac(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_azure_rbac", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantID")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -104,15 +104,15 @@ class ArcAgentProfileArgsDict(TypedDict):
     """
     Defines the Arc Agent properties for the clusters.
     """
-    agent_auto_upgrade: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoUpgradeOptions']]]
+    agent_auto_upgrade: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AutoUpgradeOptions']]]]
     """
     Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
     """
-    desired_agent_version: NotRequired[pulumi.Input[_builtins.str]]
+    desired_agent_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the Arc agents to be installed on the cluster resource
     """
-    system_components: NotRequired[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgsDict']]]]
+    system_components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SystemComponentArgsDict']]]]]
     """
     List of system extensions can be installed on the cluster resource.
     """
@@ -120,9 +120,9 @@ class ArcAgentProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ArcAgentProfileArgs:
     def __init__(__self__, *,
-                 agent_auto_upgrade: Optional[pulumi.Input[Union[_builtins.str, 'AutoUpgradeOptions']]] = None,
-                 desired_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_components: Optional[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgs']]]] = None):
+                 agent_auto_upgrade: pulumi.Input[Optional[Union[_builtins.str, 'AutoUpgradeOptions']]] = None,
+                 desired_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_components: pulumi.Input[Optional[Sequence[pulumi.Input['SystemComponentArgs']]]] = None):
         """
         Defines the Arc Agent properties for the clusters.
 
@@ -141,38 +141,38 @@ class ArcAgentProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentAutoUpgrade")
-    def agent_auto_upgrade(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutoUpgradeOptions']]]:
+    def agent_auto_upgrade(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutoUpgradeOptions']]]:
         """
         Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
         """
         return pulumi.get(self, "agent_auto_upgrade")
 
     @agent_auto_upgrade.setter
-    def agent_auto_upgrade(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AutoUpgradeOptions']]]):
+    def agent_auto_upgrade(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutoUpgradeOptions']]]):
         pulumi.set(self, "agent_auto_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredAgentVersion")
-    def desired_agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the Arc agents to be installed on the cluster resource
         """
         return pulumi.get(self, "desired_agent_version")
 
     @desired_agent_version.setter
-    def desired_agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_agent_version", value)
 
     @_builtins.property
     @pulumi.getter(name="systemComponents")
-    def system_components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgs']]]]:
+    def system_components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SystemComponentArgs']]]]:
         """
         List of system extensions can be installed on the cluster resource.
         """
         return pulumi.get(self, "system_components")
 
     @system_components.setter
-    def system_components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgs']]]]):
+    def system_components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SystemComponentArgs']]]]):
         pulumi.set(self, "system_components", value)
 
 
@@ -188,7 +188,7 @@ class ConnectedClusterIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectedClusterIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None):
         """
         Identity for the connected cluster.
 
@@ -215,15 +215,15 @@ class SystemComponentArgsDict(TypedDict):
     """
     System Extension and its desired versions to be installed on the cluster resource.
     """
-    major_version: NotRequired[pulumi.Input[_builtins.int]]
+    major_version: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Major Version of the system extension to be installed on the cluster resource.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the system extension
     """
-    user_specified_version: NotRequired[pulumi.Input[_builtins.str]]
+    user_specified_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the system extension to be installed on the cluster resource.
     """
@@ -231,9 +231,9 @@ class SystemComponentArgsDict(TypedDict):
 @pulumi.input_type
 class SystemComponentArgs:
     def __init__(__self__, *,
-                 major_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_specified_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 major_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_specified_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         System Extension and its desired versions to be installed on the cluster resource.
 
@@ -250,38 +250,38 @@ class SystemComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="majorVersion")
-    def major_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def major_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Major Version of the system extension to be installed on the cluster resource.
         """
         return pulumi.get(self, "major_version")
 
     @major_version.setter
-    def major_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def major_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "major_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the system extension
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userSpecifiedVersion")
-    def user_specified_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_specified_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the system extension to be installed on the cluster resource.
         """
         return pulumi.get(self, "user_specified_version")
 
     @user_specified_version.setter
-    def user_specified_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_specified_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_specified_version", value)
 
 

@@ -99,12 +99,12 @@ export class ElasticPool extends pulumi.CustomResource {
     declare public readonly preferredEnclaveType: pulumi.Output<string | undefined>;
     /**
      * The elastic pool SKU.
-     * 
+     *
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-     * 
+     *
      * ```azurecli
      * az sql elastic-pool list-editions -l <location> -o table
-     * ````
+     * ```
      */
     declare public readonly sku: pulumi.Output<outputs.sql.SkuResponse | undefined>;
     /**
@@ -198,47 +198,47 @@ export interface ElasticPoolArgs {
     /**
      * Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
      */
-    autoPauseDelay?: pulumi.Input<number>;
+    autoPauseDelay?: pulumi.Input<number | undefined>;
     /**
      * Specifies the availability zone the pool's primary replica is pinned to.
      */
-    availabilityZone?: pulumi.Input<string | enums.sql.AvailabilityZoneType>;
+    availabilityZone?: pulumi.Input<string | enums.sql.AvailabilityZoneType | undefined>;
     /**
      * The name of the elastic pool.
      */
-    elasticPoolName?: pulumi.Input<string>;
+    elasticPoolName?: pulumi.Input<string | undefined>;
     /**
      * The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
      */
-    highAvailabilityReplicaCount?: pulumi.Input<number>;
+    highAvailabilityReplicaCount?: pulumi.Input<number | undefined>;
     /**
      * The license type to apply for this elastic pool.
      */
-    licenseType?: pulumi.Input<string | enums.sql.ElasticPoolLicenseType>;
+    licenseType?: pulumi.Input<string | enums.sql.ElasticPoolLicenseType | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
      */
-    maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The storage limit for the database elastic pool in bytes.
      */
-    maxSizeBytes?: pulumi.Input<number>;
+    maxSizeBytes?: pulumi.Input<number | undefined>;
     /**
      * Minimal capacity that serverless pool will not shrink below, if not paused
      */
-    minCapacity?: pulumi.Input<number>;
+    minCapacity?: pulumi.Input<number | undefined>;
     /**
      * The per database settings for the elastic pool.
      */
-    perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettingsArgs>;
+    perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettingsArgs | undefined>;
     /**
      * Type of enclave requested on the elastic pool.
      */
-    preferredEnclaveType?: pulumi.Input<string | enums.sql.AlwaysEncryptedEnclaveType>;
+    preferredEnclaveType?: pulumi.Input<string | enums.sql.AlwaysEncryptedEnclaveType | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -249,20 +249,20 @@ export interface ElasticPoolArgs {
     serverName: pulumi.Input<string>;
     /**
      * The elastic pool SKU.
-     * 
+     *
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-     * 
+     *
      * ```azurecli
      * az sql elastic-pool list-editions -l <location> -o table
-     * ````
+     * ```
      */
-    sku?: pulumi.Input<inputs.sql.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
      */
-    zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean | undefined>;
 }

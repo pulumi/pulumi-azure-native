@@ -147,7 +147,7 @@ export interface ServerAdvisorArgs {
     /**
      * The name of the Server Advisor.
      */
-    advisorName?: pulumi.Input<string>;
+    advisorName?: pulumi.Input<string | undefined>;
     /**
      * Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
      */

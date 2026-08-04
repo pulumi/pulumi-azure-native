@@ -164,7 +164,6 @@ def get_tunnel_policy(profile_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-06-01-preview.
 
-
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
     :param _builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
     :param _builtins.str tunnel_policy_name: Name of the Tunnel Policy under the profile.
@@ -187,15 +186,14 @@ def get_tunnel_policy(profile_name: Optional[_builtins.str] = None,
         target_groups=pulumi.get(__ret__, 'target_groups'),
         tunnel_type=pulumi.get(__ret__, 'tunnel_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_tunnel_policy_output(profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             tunnel_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tunnel_policy_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             tunnel_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTunnelPolicyResult]:
     """
     Gets an existing tunnel policy within a profile.
 
     Uses Azure REST API version 2024-06-01-preview.
-
 
     :param _builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
     :param _builtins.str resource_group_name: Name of the Resource group within the Azure subscription.

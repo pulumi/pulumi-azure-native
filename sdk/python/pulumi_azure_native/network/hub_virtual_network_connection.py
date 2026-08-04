@@ -24,14 +24,14 @@ class HubVirtualNetworkConnectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
-                 allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None):
+                 allow_hub_to_remote_vnet_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_remote_vnet_to_use_hub_vnet_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_virtual_network: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 routing_configuration: pulumi.Input[Optional['RoutingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a HubVirtualNetworkConnection resource.
 
@@ -91,98 +91,98 @@ class HubVirtualNetworkConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowHubToRemoteVnetTransit")
-    def allow_hub_to_remote_vnet_transit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_hub_to_remote_vnet_transit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
         """
         return pulumi.get(self, "allow_hub_to_remote_vnet_transit")
 
     @allow_hub_to_remote_vnet_transit.setter
-    def allow_hub_to_remote_vnet_transit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_hub_to_remote_vnet_transit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_hub_to_remote_vnet_transit", value)
 
     @_builtins.property
     @pulumi.getter(name="allowRemoteVnetToUseHubVnetGateways")
-    def allow_remote_vnet_to_use_hub_vnet_gateways(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_remote_vnet_to_use_hub_vnet_gateways(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
         """
         return pulumi.get(self, "allow_remote_vnet_to_use_hub_vnet_gateways")
 
     @allow_remote_vnet_to_use_hub_vnet_gateways.setter
-    def allow_remote_vnet_to_use_hub_vnet_gateways(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_remote_vnet_to_use_hub_vnet_gateways(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_remote_vnet_to_use_hub_vnet_gateways", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionName")
-    def connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HubVirtualNetworkConnection.
         """
         return pulumi.get(self, "connection_name")
 
     @connection_name.setter
-    def connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_internet_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable internet security.
         """
         return pulumi.get(self, "enable_internet_security")
 
     @enable_internet_security.setter
-    def enable_internet_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_internet_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_internet_security", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def remote_virtual_network(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Reference to the remote virtual network.
         """
         return pulumi.get(self, "remote_virtual_network")
 
     @remote_virtual_network.setter
-    def remote_virtual_network(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def remote_virtual_network(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "remote_virtual_network", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
+    def routing_configuration(self) -> pulumi.Input[Optional['RoutingConfigurationArgs']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
+    def routing_configuration(self, value: pulumi.Input[Optional['RoutingConfigurationArgs']]):
         pulumi.set(self, "routing_configuration", value)
 
 
@@ -192,16 +192,16 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_hub_to_remote_vnet_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_remote_vnet_to_use_hub_vnet_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         HubVirtualNetworkConnection Resource.
@@ -209,7 +209,6 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
         Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param HubVirtualNetworkConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
-                 virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_hub_to_remote_vnet_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_remote_vnet_to_use_hub_vnet_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configuration: pulumi.Input[Optional[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
+                 virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

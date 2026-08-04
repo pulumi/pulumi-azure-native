@@ -27,14 +27,14 @@ class UserArgs:
                  last_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 app_type: Optional[pulumi.Input[Union[_builtins.str, 'AppType']]] = None,
-                 confirmation: Optional[pulumi.Input[Union[_builtins.str, 'Confirmation']]] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input['UserIdentityContractArgs']]]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UserState']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_type: pulumi.Input[Optional[Union[_builtins.str, 'AppType']]] = None,
+                 confirmation: pulumi.Input[Optional[Union[_builtins.str, 'Confirmation']]] = None,
+                 identities: pulumi.Input[Optional[Sequence[pulumi.Input['UserIdentityContractArgs']]]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UserState']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -138,98 +138,98 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="appType")
-    def app_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AppType']]]:
+    def app_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AppType']]]:
         """
         Determines the type of application which send the create user request. Default is legacy portal.
         """
         return pulumi.get(self, "app_type")
 
     @app_type.setter
-    def app_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AppType']]]):
+    def app_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AppType']]]):
         pulumi.set(self, "app_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def confirmation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Confirmation']]]:
+    def confirmation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Confirmation']]]:
         """
         Determines the type of confirmation e-mail that will be sent to the newly created user.
         """
         return pulumi.get(self, "confirmation")
 
     @confirmation.setter
-    def confirmation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Confirmation']]]):
+    def confirmation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Confirmation']]]):
         pulumi.set(self, "confirmation", value)
 
     @_builtins.property
     @pulumi.getter
-    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserIdentityContractArgs']]]]:
+    def identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserIdentityContractArgs']]]]:
         """
         Collection of user identities.
         """
         return pulumi.get(self, "identities")
 
     @identities.setter
-    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserIdentityContractArgs']]]]):
+    def identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserIdentityContractArgs']]]]):
         pulumi.set(self, "identities", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional note about a user set by the administrator.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter
-    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Send an Email notification to the User.
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Password. If no value is provided, a default password is generated.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UserState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UserState']]]:
         """
         Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UserState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UserState']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -239,19 +239,19 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_type: Optional[pulumi.Input[Union[_builtins.str, 'AppType']]] = None,
-                 confirmation: Optional[pulumi.Input[Union[_builtins.str, 'Confirmation']]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserIdentityContractArgs', 'UserIdentityContractArgsDict']]]]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UserState']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_type: pulumi.Input[Optional[Union[_builtins.str, 'AppType']]] = None,
+                 confirmation: pulumi.Input[Optional[Union[_builtins.str, 'Confirmation']]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserIdentityContractArgs', 'UserIdentityContractArgsDict']]]]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UserState']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         User details.
@@ -259,7 +259,6 @@ class User(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +289,6 @@ class User(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,19 +304,19 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_type: Optional[pulumi.Input[Union[_builtins.str, 'AppType']]] = None,
-                 confirmation: Optional[pulumi.Input[Union[_builtins.str, 'Confirmation']]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserIdentityContractArgs', 'UserIdentityContractArgsDict']]]]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UserState']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_type: pulumi.Input[Optional[Union[_builtins.str, 'AppType']]] = None,
+                 confirmation: pulumi.Input[Optional[Union[_builtins.str, 'Confirmation']]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserIdentityContractArgs', 'UserIdentityContractArgsDict']]]]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UserState']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

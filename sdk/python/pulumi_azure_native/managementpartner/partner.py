@@ -19,7 +19,7 @@ __all__ = ['PartnerArgs', 'Partner']
 @pulumi.input_type
 class PartnerArgs:
     def __init__(__self__, *,
-                 partner_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 partner_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Partner resource.
 
@@ -30,14 +30,14 @@ class PartnerArgs:
 
     @_builtins.property
     @pulumi.getter(name="partnerId")
-    def partner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Partner
         """
         return pulumi.get(self, "partner_id")
 
     @partner_id.setter
-    def partner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_id", value)
 
 
@@ -47,13 +47,12 @@ class Partner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 partner_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         this is the management partner operations response
 
         Uses Azure REST API version 2018-02-01. In version 2.x of the Azure Native provider, it used API version 2018-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -70,7 +69,6 @@ class Partner(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-02-01. In version 2.x of the Azure Native provider, it used API version 2018-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,7 +84,7 @@ class Partner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 partner_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

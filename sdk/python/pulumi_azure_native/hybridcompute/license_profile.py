@@ -24,14 +24,14 @@ class LicenseProfileArgs:
     def __init__(__self__, *,
                  machine_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assigned_license: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]] = None,
-                 product_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
-                 software_assurance_customer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscription_status: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 assigned_license: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_features: pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgs']]]] = None,
+                 product_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
+                 software_assurance_customer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscription_status: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LicenseProfile resource.
 
@@ -91,98 +91,98 @@ class LicenseProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignedLicense")
-    def assigned_license(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assigned_license(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the license.
         """
         return pulumi.get(self, "assigned_license")
 
     @assigned_license.setter
-    def assigned_license(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assigned_license(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assigned_license", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseProfileName")
-    def license_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the license profile.
         """
         return pulumi.get(self, "license_profile_name")
 
     @license_profile_name.setter
-    def license_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="productFeatures")
-    def product_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]:
+    def product_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgs']]]]:
         """
         The list of product features.
         """
         return pulumi.get(self, "product_features")
 
     @product_features.setter
-    def product_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]):
+    def product_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProductFeatureArgs']]]]):
         pulumi.set(self, "product_features", value)
 
     @_builtins.property
     @pulumi.getter(name="productType")
-    def product_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]]:
+    def product_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]]:
         """
         Indicates the product type of the license.
         """
         return pulumi.get(self, "product_type")
 
     @product_type.setter
-    def product_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]]):
+    def product_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]]):
         pulumi.set(self, "product_type", value)
 
     @_builtins.property
     @pulumi.getter(name="softwareAssuranceCustomer")
-    def software_assurance_customer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def software_assurance_customer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if this machine is licensed as part of a Software Assurance agreement.
         """
         return pulumi.get(self, "software_assurance_customer")
 
     @software_assurance_customer.setter
-    def software_assurance_customer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def software_assurance_customer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "software_assurance_customer", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionStatus")
-    def subscription_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]:
+    def subscription_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]:
         """
         Indicates the subscription status of the product.
         """
         return pulumi.get(self, "subscription_status")
 
     @subscription_status.setter
-    def subscription_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]):
+    def subscription_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]]):
         pulumi.set(self, "subscription_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,16 +192,16 @@ class LicenseProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_license: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
-                 product_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_assurance_customer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscription_status: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assigned_license: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
+                 product_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_assurance_customer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscription_status: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Describes a license profile in a hybrid machine.
@@ -209,7 +209,6 @@ class LicenseProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2023-06-20-preview.
 
         Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class LicenseProfile(pulumi.CustomResource):
 
         Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LicenseProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class LicenseProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_license: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
-                 product_type: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 software_assurance_customer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subscription_status: Optional[pulumi.Input[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assigned_license: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
+                 product_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileProductType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 software_assurance_customer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subscription_status: pulumi.Input[Optional[Union[_builtins.str, 'LicenseProfileSubscriptionStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

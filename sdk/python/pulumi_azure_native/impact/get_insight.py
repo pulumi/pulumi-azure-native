@@ -120,9 +120,8 @@ def get_insight(insight_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str insight_name: Name of the insight
-    :param _builtins.str workload_impact_name: workloadImpact resource 
+    :param _builtins.str workload_impact_name: workloadImpact resource
     """
     __args__ = dict()
     __args__['insightName'] = insight_name
@@ -137,8 +136,8 @@ def get_insight(insight_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_insight_output(insight_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_insight_output(insight_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInsightResult]:
     """
     Get Insight resources by workloadImpactName and insightName
@@ -147,9 +146,8 @@ def get_insight_output(insight_name: Optional[pulumi.Input[_builtins.str]] = Non
 
     Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str insight_name: Name of the insight
-    :param _builtins.str workload_impact_name: workloadImpact resource 
+    :param _builtins.str workload_impact_name: workloadImpact resource
     """
     __args__ = dict()
     __args__['insightName'] = insight_name

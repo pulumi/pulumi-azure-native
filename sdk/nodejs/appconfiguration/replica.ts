@@ -124,11 +124,11 @@ export interface ReplicaArgs {
     /**
      * The location of the replica.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the replica.
      */
-    replicaName?: pulumi.Input<string>;
+    replicaName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

@@ -13,7 +13,7 @@ export const DriveState = {
 } as const;
 
 /**
- * The drive's current state. 
+ * The drive's current state.
  */
 export type DriveState = (typeof DriveState)[keyof typeof DriveState];
 

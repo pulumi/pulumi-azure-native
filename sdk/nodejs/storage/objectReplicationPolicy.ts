@@ -146,11 +146,11 @@ export interface ObjectReplicationPolicyArgs {
     /**
      * Optional. The object replication policy metrics feature options.
      */
-    metrics?: pulumi.Input<inputs.storage.ObjectReplicationPolicyPropertiesMetricsArgs>;
+    metrics?: pulumi.Input<inputs.storage.ObjectReplicationPolicyPropertiesMetricsArgs | undefined>;
     /**
      * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
-    objectReplicationPolicyId?: pulumi.Input<string>;
+    objectReplicationPolicyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -158,7 +158,7 @@ export interface ObjectReplicationPolicyArgs {
     /**
      * The storage account object replication rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationPolicyRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationPolicyRuleArgs>[] | undefined>;
     /**
      * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
      */

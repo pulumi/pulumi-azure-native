@@ -23,9 +23,9 @@ __all__ = ['DrillArgs', 'Drill']
 class DrillArgs:
     def __init__(__self__, *,
                  service_group_name: pulumi.Input[_builtins.str],
-                 drill_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 properties: Optional[pulumi.Input[Union['RegionalDrillPropertiesArgs', 'ZonalDrillPropertiesArgs']]] = None):
+                 drill_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 properties: pulumi.Input[Optional[Union['RegionalDrillPropertiesArgs', 'ZonalDrillPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Drill resource.
 
@@ -56,38 +56,38 @@ class DrillArgs:
 
     @_builtins.property
     @pulumi.getter(name="drillName")
-    def drill_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def drill_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Drill
         """
         return pulumi.get(self, "drill_name")
 
     @drill_name.setter
-    def drill_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def drill_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "drill_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['RegionalDrillPropertiesArgs', 'ZonalDrillPropertiesArgs']]]:
+    def properties(self) -> pulumi.Input[Optional[Union['RegionalDrillPropertiesArgs', 'ZonalDrillPropertiesArgs']]]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['RegionalDrillPropertiesArgs', 'ZonalDrillPropertiesArgs']]]):
+    def properties(self, value: pulumi.Input[Optional[Union['RegionalDrillPropertiesArgs', 'ZonalDrillPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -97,10 +97,10 @@ class Drill(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 drill_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['RegionalDrillPropertiesArgs', 'RegionalDrillPropertiesArgsDict'], Union['ZonalDrillPropertiesArgs', 'ZonalDrillPropertiesArgsDict']]]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 drill_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['RegionalDrillPropertiesArgs', 'RegionalDrillPropertiesArgsDict'], Union['ZonalDrillPropertiesArgs', 'ZonalDrillPropertiesArgsDict']]]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Drill resource
@@ -108,7 +108,6 @@ class Drill(pulumi.CustomResource):
         Uses Azure REST API version 2026-03-01-preview.
 
         Other available API versions: 2025-02-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +129,6 @@ class Drill(pulumi.CustomResource):
 
         Other available API versions: 2025-02-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DrillArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,10 +144,10 @@ class Drill(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 drill_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['RegionalDrillPropertiesArgs', 'RegionalDrillPropertiesArgsDict'], Union['ZonalDrillPropertiesArgs', 'ZonalDrillPropertiesArgsDict']]]] = None,
-                 service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 drill_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['RegionalDrillPropertiesArgs', 'RegionalDrillPropertiesArgsDict'], Union['ZonalDrillPropertiesArgs', 'ZonalDrillPropertiesArgsDict']]]] = None,
+                 service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

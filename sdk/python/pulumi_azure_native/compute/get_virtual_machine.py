@@ -553,7 +553,6 @@ def get_virtual_machine(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str vm_name: The name of the virtual machine.
@@ -608,9 +607,9 @@ def get_virtual_machine(expand: Optional[_builtins.str] = None,
         virtual_machine_scale_set=pulumi.get(__ret__, 'virtual_machine_scale_set'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Retrieves information about the model view or the instance view of a virtual machine.
@@ -618,7 +617,6 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[_builtins.
     Uses Azure REST API version 2024-11-01.
 
     Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

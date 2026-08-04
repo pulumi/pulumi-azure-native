@@ -156,7 +156,6 @@ def get_device_security_group(device_security_group_name: Optional[_builtins.str
 
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -176,8 +175,8 @@ def get_device_security_group(device_security_group_name: Optional[_builtins.str
         threshold_rules=pulumi.get(__ret__, 'threshold_rules'),
         time_window_rules=pulumi.get(__ret__, 'time_window_rules'),
         type=pulumi.get(__ret__, 'type'))
-def get_device_security_group_output(device_security_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_device_security_group_output(device_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceSecurityGroupResult]:
     """
     Use this method to get the device security group for the specified IoT Hub resource.
@@ -185,7 +184,6 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
     Uses Azure REST API version 2019-08-01.
 
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.

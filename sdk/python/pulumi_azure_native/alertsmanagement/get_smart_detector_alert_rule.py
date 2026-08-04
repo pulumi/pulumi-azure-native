@@ -217,7 +217,6 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str alert_rule_name: The name of the alert rule.
     :param _builtins.bool expand_detector: Indicates if Smart Detector should be expanded.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -244,9 +243,9 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[_builtins.str] = Non
         tags=pulumi.get(__ret__, 'tags'),
         throttling=pulumi.get(__ret__, 'throttling'),
         type=pulumi.get(__ret__, 'type'))
-def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         expand_detector: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_smart_detector_alert_rule_output(alert_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         expand_detector: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSmartDetectorAlertRuleResult]:
     """
     Get a specific Smart Detector alert rule.
@@ -254,7 +253,6 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
     Uses Azure REST API version 2021-04-01.
 
     Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str alert_rule_name: The name of the alert rule.
     :param _builtins.bool expand_detector: Indicates if Smart Detector should be expanded.

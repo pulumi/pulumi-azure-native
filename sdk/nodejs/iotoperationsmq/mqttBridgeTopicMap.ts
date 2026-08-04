@@ -150,7 +150,7 @@ export interface MqttBridgeTopicMapArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ resource
      */
@@ -170,13 +170,13 @@ export interface MqttBridgeTopicMapArgs {
     /**
      * The route details for MqttBridge connector.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.iotoperationsmq.MqttBridgeRoutesArgs>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.iotoperationsmq.MqttBridgeRoutesArgs>[] | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of MQ mqttBridgeTopicMap resource
      */
-    topicMapName?: pulumi.Input<string>;
+    topicMapName?: pulumi.Input<string | undefined>;
 }

@@ -50,27 +50,27 @@ class AutoShutdownProfileArgsDict(TypedDict):
     """
     Profile for how to handle shutting down virtual machines.
     """
-    disconnect_delay: NotRequired[pulumi.Input[_builtins.str]]
+    disconnect_delay: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The amount of time a VM will stay running after a user disconnects if this behavior is enabled.
     """
-    idle_delay: NotRequired[pulumi.Input[_builtins.str]]
+    idle_delay: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The amount of time a VM will idle before it is shutdown if this behavior is enabled.
     """
-    no_connect_delay: NotRequired[pulumi.Input[_builtins.str]]
+    no_connect_delay: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled.
     """
-    shutdown_on_disconnect: NotRequired[pulumi.Input['EnableState']]
+    shutdown_on_disconnect: NotRequired[pulumi.Input[Optional['EnableState']]]
     """
     Whether shutdown on disconnect is enabled
     """
-    shutdown_on_idle: NotRequired[pulumi.Input['ShutdownOnIdleMode']]
+    shutdown_on_idle: NotRequired[pulumi.Input[Optional['ShutdownOnIdleMode']]]
     """
     Whether a VM will get shutdown when it has idled for a period of time.
     """
-    shutdown_when_not_connected: NotRequired[pulumi.Input['EnableState']]
+    shutdown_when_not_connected: NotRequired[pulumi.Input[Optional['EnableState']]]
     """
     Whether a VM will get shutdown when it hasn't been connected to after a period of time.
     """
@@ -78,12 +78,12 @@ class AutoShutdownProfileArgsDict(TypedDict):
 @pulumi.input_type
 class AutoShutdownProfileArgs:
     def __init__(__self__, *,
-                 disconnect_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_connect_delay: Optional[pulumi.Input[_builtins.str]] = None,
-                 shutdown_on_disconnect: Optional[pulumi.Input['EnableState']] = None,
-                 shutdown_on_idle: Optional[pulumi.Input['ShutdownOnIdleMode']] = None,
-                 shutdown_when_not_connected: Optional[pulumi.Input['EnableState']] = None):
+                 disconnect_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_connect_delay: pulumi.Input[Optional[_builtins.str]] = None,
+                 shutdown_on_disconnect: pulumi.Input[Optional['EnableState']] = None,
+                 shutdown_on_idle: pulumi.Input[Optional['ShutdownOnIdleMode']] = None,
+                 shutdown_when_not_connected: pulumi.Input[Optional['EnableState']] = None):
         """
         Profile for how to handle shutting down virtual machines.
 
@@ -115,74 +115,74 @@ class AutoShutdownProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="disconnectDelay")
-    def disconnect_delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disconnect_delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount of time a VM will stay running after a user disconnects if this behavior is enabled.
         """
         return pulumi.get(self, "disconnect_delay")
 
     @disconnect_delay.setter
-    def disconnect_delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disconnect_delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disconnect_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="idleDelay")
-    def idle_delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idle_delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount of time a VM will idle before it is shutdown if this behavior is enabled.
         """
         return pulumi.get(self, "idle_delay")
 
     @idle_delay.setter
-    def idle_delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idle_delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idle_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="noConnectDelay")
-    def no_connect_delay(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def no_connect_delay(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled.
         """
         return pulumi.get(self, "no_connect_delay")
 
     @no_connect_delay.setter
-    def no_connect_delay(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def no_connect_delay(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "no_connect_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="shutdownOnDisconnect")
-    def shutdown_on_disconnect(self) -> Optional[pulumi.Input['EnableState']]:
+    def shutdown_on_disconnect(self) -> pulumi.Input[Optional['EnableState']]:
         """
         Whether shutdown on disconnect is enabled
         """
         return pulumi.get(self, "shutdown_on_disconnect")
 
     @shutdown_on_disconnect.setter
-    def shutdown_on_disconnect(self, value: Optional[pulumi.Input['EnableState']]):
+    def shutdown_on_disconnect(self, value: pulumi.Input[Optional['EnableState']]):
         pulumi.set(self, "shutdown_on_disconnect", value)
 
     @_builtins.property
     @pulumi.getter(name="shutdownOnIdle")
-    def shutdown_on_idle(self) -> Optional[pulumi.Input['ShutdownOnIdleMode']]:
+    def shutdown_on_idle(self) -> pulumi.Input[Optional['ShutdownOnIdleMode']]:
         """
         Whether a VM will get shutdown when it has idled for a period of time.
         """
         return pulumi.get(self, "shutdown_on_idle")
 
     @shutdown_on_idle.setter
-    def shutdown_on_idle(self, value: Optional[pulumi.Input['ShutdownOnIdleMode']]):
+    def shutdown_on_idle(self, value: pulumi.Input[Optional['ShutdownOnIdleMode']]):
         pulumi.set(self, "shutdown_on_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="shutdownWhenNotConnected")
-    def shutdown_when_not_connected(self) -> Optional[pulumi.Input['EnableState']]:
+    def shutdown_when_not_connected(self) -> pulumi.Input[Optional['EnableState']]:
         """
         Whether a VM will get shutdown when it hasn't been connected to after a period of time.
         """
         return pulumi.get(self, "shutdown_when_not_connected")
 
     @shutdown_when_not_connected.setter
-    def shutdown_when_not_connected(self, value: Optional[pulumi.Input['EnableState']]):
+    def shutdown_when_not_connected(self, value: pulumi.Input[Optional['EnableState']]):
         pulumi.set(self, "shutdown_when_not_connected", value)
 
 
@@ -190,19 +190,19 @@ class ConnectionProfileArgsDict(TypedDict):
     """
     Connection profile for how users connect to lab virtual machines.
     """
-    client_rdp_access: NotRequired[pulumi.Input['ConnectionType']]
+    client_rdp_access: NotRequired[pulumi.Input[Optional['ConnectionType']]]
     """
     The enabled access level for Client Access over RDP.
     """
-    client_ssh_access: NotRequired[pulumi.Input['ConnectionType']]
+    client_ssh_access: NotRequired[pulumi.Input[Optional['ConnectionType']]]
     """
     The enabled access level for Client Access over SSH.
     """
-    web_rdp_access: NotRequired[pulumi.Input['ConnectionType']]
+    web_rdp_access: NotRequired[pulumi.Input[Optional['ConnectionType']]]
     """
     The enabled access level for Web Access over RDP.
     """
-    web_ssh_access: NotRequired[pulumi.Input['ConnectionType']]
+    web_ssh_access: NotRequired[pulumi.Input[Optional['ConnectionType']]]
     """
     The enabled access level for Web Access over SSH.
     """
@@ -210,10 +210,10 @@ class ConnectionProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionProfileArgs:
     def __init__(__self__, *,
-                 client_rdp_access: Optional[pulumi.Input['ConnectionType']] = None,
-                 client_ssh_access: Optional[pulumi.Input['ConnectionType']] = None,
-                 web_rdp_access: Optional[pulumi.Input['ConnectionType']] = None,
-                 web_ssh_access: Optional[pulumi.Input['ConnectionType']] = None):
+                 client_rdp_access: pulumi.Input[Optional['ConnectionType']] = None,
+                 client_ssh_access: pulumi.Input[Optional['ConnectionType']] = None,
+                 web_rdp_access: pulumi.Input[Optional['ConnectionType']] = None,
+                 web_ssh_access: pulumi.Input[Optional['ConnectionType']] = None):
         """
         Connection profile for how users connect to lab virtual machines.
 
@@ -241,50 +241,50 @@ class ConnectionProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientRdpAccess")
-    def client_rdp_access(self) -> Optional[pulumi.Input['ConnectionType']]:
+    def client_rdp_access(self) -> pulumi.Input[Optional['ConnectionType']]:
         """
         The enabled access level for Client Access over RDP.
         """
         return pulumi.get(self, "client_rdp_access")
 
     @client_rdp_access.setter
-    def client_rdp_access(self, value: Optional[pulumi.Input['ConnectionType']]):
+    def client_rdp_access(self, value: pulumi.Input[Optional['ConnectionType']]):
         pulumi.set(self, "client_rdp_access", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSshAccess")
-    def client_ssh_access(self) -> Optional[pulumi.Input['ConnectionType']]:
+    def client_ssh_access(self) -> pulumi.Input[Optional['ConnectionType']]:
         """
         The enabled access level for Client Access over SSH.
         """
         return pulumi.get(self, "client_ssh_access")
 
     @client_ssh_access.setter
-    def client_ssh_access(self, value: Optional[pulumi.Input['ConnectionType']]):
+    def client_ssh_access(self, value: pulumi.Input[Optional['ConnectionType']]):
         pulumi.set(self, "client_ssh_access", value)
 
     @_builtins.property
     @pulumi.getter(name="webRdpAccess")
-    def web_rdp_access(self) -> Optional[pulumi.Input['ConnectionType']]:
+    def web_rdp_access(self) -> pulumi.Input[Optional['ConnectionType']]:
         """
         The enabled access level for Web Access over RDP.
         """
         return pulumi.get(self, "web_rdp_access")
 
     @web_rdp_access.setter
-    def web_rdp_access(self, value: Optional[pulumi.Input['ConnectionType']]):
+    def web_rdp_access(self, value: pulumi.Input[Optional['ConnectionType']]):
         pulumi.set(self, "web_rdp_access", value)
 
     @_builtins.property
     @pulumi.getter(name="webSshAccess")
-    def web_ssh_access(self) -> Optional[pulumi.Input['ConnectionType']]:
+    def web_ssh_access(self) -> pulumi.Input[Optional['ConnectionType']]:
         """
         The enabled access level for Web Access over SSH.
         """
         return pulumi.get(self, "web_ssh_access")
 
     @web_ssh_access.setter
-    def web_ssh_access(self, value: Optional[pulumi.Input['ConnectionType']]):
+    def web_ssh_access(self, value: pulumi.Input[Optional['ConnectionType']]):
         pulumi.set(self, "web_ssh_access", value)
 
 
@@ -296,7 +296,7 @@ class CredentialsArgsDict(TypedDict):
     """
     The username to use when signing in to lab VMs.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password for the user. This is required for the TemplateVM createOption.
     """
@@ -305,7 +305,7 @@ class CredentialsArgsDict(TypedDict):
 class CredentialsArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Credentials for a user on a lab VM.
 
@@ -330,14 +330,14 @@ class CredentialsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the user. This is required for the TemplateVM createOption.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
 
@@ -345,7 +345,7 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type.
     """
@@ -353,7 +353,7 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None):
         """
         Identity for the resource.
 
@@ -364,14 +364,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -379,23 +379,23 @@ class ImageReferenceArgsDict(TypedDict):
     """
     Image reference information. Used in the virtual machine profile.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Image resource ID
     """
-    offer: NotRequired[pulumi.Input[_builtins.str]]
+    offer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image offer if applicable.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image publisher
     """
-    sku: NotRequired[pulumi.Input[_builtins.str]]
+    sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image SKU
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The image version specified on creation.
     """
@@ -403,11 +403,11 @@ class ImageReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ImageReferenceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Image reference information. Used in the virtual machine profile.
 
@@ -430,62 +430,62 @@ class ImageReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Image resource ID
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image offer if applicable.
         """
         return pulumi.get(self, "offer")
 
     @offer.setter
-    def offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image publisher
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image version specified on creation.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -493,15 +493,15 @@ class LabNetworkProfileArgsDict(TypedDict):
     """
     Profile for how to handle networking for Labs.
     """
-    load_balancer_id: NotRequired[pulumi.Input[_builtins.str]]
+    load_balancer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The external load balancer resource id
     """
-    public_ip_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The external public IP resource id
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The external subnet resource id
     """
@@ -509,9 +509,9 @@ class LabNetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class LabNetworkProfileArgs:
     def __init__(__self__, *,
-                 load_balancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Profile for how to handle networking for Labs.
 
@@ -528,38 +528,38 @@ class LabNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external load balancer resource id
         """
         return pulumi.get(self, "load_balancer_id")
 
     @load_balancer_id.setter
-    def load_balancer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpId")
-    def public_ip_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external public IP resource id
         """
         return pulumi.get(self, "public_ip_id")
 
     @public_ip_id.setter
-    def public_ip_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external subnet resource id
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -567,7 +567,7 @@ class LabPlanNetworkProfileArgsDict(TypedDict):
     """
     Profile for how to handle networking for Lab Plans.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The external subnet resource id
     """
@@ -575,7 +575,7 @@ class LabPlanNetworkProfileArgsDict(TypedDict):
 @pulumi.input_type
 class LabPlanNetworkProfileArgs:
     def __init__(__self__, *,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Profile for how to handle networking for Lab Plans.
 
@@ -586,14 +586,14 @@ class LabPlanNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external subnet resource id
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -609,11 +609,11 @@ class RecurrencePatternArgsDict(TypedDict):
     """
     The frequency of the recurrence.
     """
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
     """
-    week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['WeekDay']]]]
+    week_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WeekDay']]]]]
     """
     The week days the schedule runs. Used for when the Frequency is set to Weekly.
     """
@@ -623,8 +623,8 @@ class RecurrencePatternArgs:
     def __init__(__self__, *,
                  expiration_date: pulumi.Input[_builtins.str],
                  frequency: pulumi.Input['RecurrenceFrequency'],
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input['WeekDay']]]] = None):
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 week_days: pulumi.Input[Optional[Sequence[pulumi.Input['WeekDay']]]] = None):
         """
         Recurrence pattern of a lab schedule.
 
@@ -666,26 +666,26 @@ class RecurrencePatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WeekDay']]]]:
+    def week_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WeekDay']]]]:
         """
         The week days the schedule runs. Used for when the Frequency is set to Weekly.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WeekDay']]]]):
+    def week_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WeekDay']]]]):
         pulumi.set(self, "week_days", value)
 
 
@@ -693,23 +693,23 @@ class RosterProfileArgsDict(TypedDict):
     """
     The lab user list management profile.
     """
-    active_directory_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    active_directory_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
     """
-    lms_instance: NotRequired[pulumi.Input[_builtins.str]]
+    lms_instance: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The base URI identifying the lms instance.
     """
-    lti_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    lti_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique id of the azure lab services tool in the lms.
     """
-    lti_context_id: NotRequired[pulumi.Input[_builtins.str]]
+    lti_context_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique context identifier for the lab in the lms.
     """
-    lti_roster_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    lti_roster_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The uri of the names and roles service endpoint on the lms for the class attached to this lab.
     """
@@ -717,11 +717,11 @@ class RosterProfileArgsDict(TypedDict):
 @pulumi.input_type
 class RosterProfileArgs:
     def __init__(__self__, *,
-                 active_directory_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lms_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 lti_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lti_context_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lti_roster_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lms_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 lti_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lti_context_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lti_roster_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The lab user list management profile.
 
@@ -744,62 +744,62 @@ class RosterProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryGroupId")
-    def active_directory_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
         """
         return pulumi.get(self, "active_directory_group_id")
 
     @active_directory_group_id.setter
-    def active_directory_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lmsInstance")
-    def lms_instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lms_instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base URI identifying the lms instance.
         """
         return pulumi.get(self, "lms_instance")
 
     @lms_instance.setter
-    def lms_instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lms_instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lms_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="ltiClientId")
-    def lti_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lti_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique id of the azure lab services tool in the lms.
         """
         return pulumi.get(self, "lti_client_id")
 
     @lti_client_id.setter
-    def lti_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lti_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lti_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ltiContextId")
-    def lti_context_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lti_context_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique context identifier for the lab in the lms.
         """
         return pulumi.get(self, "lti_context_id")
 
     @lti_context_id.setter
-    def lti_context_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lti_context_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lti_context_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ltiRosterEndpoint")
-    def lti_roster_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lti_roster_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The uri of the names and roles service endpoint on the lms for the class attached to this lab.
         """
         return pulumi.get(self, "lti_roster_endpoint")
 
     @lti_roster_endpoint.setter
-    def lti_roster_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lti_roster_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lti_roster_endpoint", value)
 
 
@@ -807,7 +807,7 @@ class SecurityProfileArgsDict(TypedDict):
     """
     The lab security profile.
     """
-    open_access: NotRequired[pulumi.Input['EnableState']]
+    open_access: NotRequired[pulumi.Input[Optional['EnableState']]]
     """
     Whether any user or only specified users can register to a lab.
     """
@@ -815,7 +815,7 @@ class SecurityProfileArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityProfileArgs:
     def __init__(__self__, *,
-                 open_access: Optional[pulumi.Input['EnableState']] = None):
+                 open_access: pulumi.Input[Optional['EnableState']] = None):
         """
         The lab security profile.
 
@@ -826,14 +826,14 @@ class SecurityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="openAccess")
-    def open_access(self) -> Optional[pulumi.Input['EnableState']]:
+    def open_access(self) -> pulumi.Input[Optional['EnableState']]:
         """
         Whether any user or only specified users can register to a lab.
         """
         return pulumi.get(self, "open_access")
 
     @open_access.setter
-    def open_access(self, value: Optional[pulumi.Input['EnableState']]):
+    def open_access(self, value: pulumi.Input[Optional['EnableState']]):
         pulumi.set(self, "open_access", value)
 
 
@@ -845,19 +845,19 @@ class SkuArgsDict(TypedDict):
     """
     The name of the SKU. Ex - P3. It is typically a letter+number code
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the service has different generations of hardware, for the same SKU, then that can be captured here.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
     """
-    tier: NotRequired[pulumi.Input['SkuTier']]
+    tier: NotRequired[pulumi.Input[Optional['SkuTier']]]
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     """
@@ -866,17 +866,17 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional['SkuTier']] = None):
         """
         The resource model definition representing SKU
 
         :param pulumi.Input[_builtins.str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -903,50 +903,50 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> pulumi.Input[Optional['SkuTier']]:
         """
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: pulumi.Input[Optional['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -954,19 +954,19 @@ class SupportInfoArgsDict(TypedDict):
     """
     Support contact information and instructions.
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Support contact email address.
     """
-    instructions: NotRequired[pulumi.Input[_builtins.str]]
+    instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Support instructions.
     """
-    phone: NotRequired[pulumi.Input[_builtins.str]]
+    phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Support contact phone number.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Support web address.
     """
@@ -974,10 +974,10 @@ class SupportInfoArgsDict(TypedDict):
 @pulumi.input_type
 class SupportInfoArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Support contact information and instructions.
 
@@ -997,50 +997,50 @@ class SupportInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support contact email address.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support instructions.
         """
         return pulumi.get(self, "instructions")
 
     @instructions.setter
-    def instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instructions", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support contact phone number.
         """
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support web address.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -1048,7 +1048,7 @@ class VirtualMachineAdditionalCapabilitiesArgsDict(TypedDict):
     """
     The additional capabilities for a lab VM.
     """
-    install_gpu_drivers: NotRequired[pulumi.Input['EnableState']]
+    install_gpu_drivers: NotRequired[pulumi.Input[Optional['EnableState']]]
     """
     Flag to pre-install dedicated GPU drivers.
     """
@@ -1056,7 +1056,7 @@ class VirtualMachineAdditionalCapabilitiesArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachineAdditionalCapabilitiesArgs:
     def __init__(__self__, *,
-                 install_gpu_drivers: Optional[pulumi.Input['EnableState']] = None):
+                 install_gpu_drivers: pulumi.Input[Optional['EnableState']] = None):
         """
         The additional capabilities for a lab VM.
 
@@ -1069,14 +1069,14 @@ class VirtualMachineAdditionalCapabilitiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="installGpuDrivers")
-    def install_gpu_drivers(self) -> Optional[pulumi.Input['EnableState']]:
+    def install_gpu_drivers(self) -> pulumi.Input[Optional['EnableState']]:
         """
         Flag to pre-install dedicated GPU drivers.
         """
         return pulumi.get(self, "install_gpu_drivers")
 
     @install_gpu_drivers.setter
-    def install_gpu_drivers(self, value: Optional[pulumi.Input['EnableState']]):
+    def install_gpu_drivers(self, value: pulumi.Input[Optional['EnableState']]):
         pulumi.set(self, "install_gpu_drivers", value)
 
 
@@ -1104,15 +1104,15 @@ class VirtualMachineProfileArgsDict(TypedDict):
     """
     The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
     """
-    additional_capabilities: NotRequired[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgsDict']]
+    additional_capabilities: NotRequired[pulumi.Input[Optional['VirtualMachineAdditionalCapabilitiesArgsDict']]]
     """
     Additional VM capabilities.
     """
-    non_admin_user: NotRequired[pulumi.Input['CredentialsArgsDict']]
+    non_admin_user: NotRequired[pulumi.Input[Optional['CredentialsArgsDict']]]
     """
     Credentials for the non-admin user on the VM, if one exists.
     """
-    use_shared_password: NotRequired[pulumi.Input['EnableState']]
+    use_shared_password: NotRequired[pulumi.Input[Optional['EnableState']]]
     """
     Enabling this option will use the same password for all user VMs.
     """
@@ -1125,9 +1125,9 @@ class VirtualMachineProfileArgs:
                  image_reference: pulumi.Input['ImageReferenceArgs'],
                  sku: pulumi.Input['SkuArgs'],
                  usage_quota: pulumi.Input[_builtins.str],
-                 additional_capabilities: Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']] = None,
-                 non_admin_user: Optional[pulumi.Input['CredentialsArgs']] = None,
-                 use_shared_password: Optional[pulumi.Input['EnableState']] = None):
+                 additional_capabilities: pulumi.Input[Optional['VirtualMachineAdditionalCapabilitiesArgs']] = None,
+                 non_admin_user: pulumi.Input[Optional['CredentialsArgs']] = None,
+                 use_shared_password: pulumi.Input[Optional['EnableState']] = None):
         """
         The base virtual machine configuration for a lab.
 
@@ -1216,38 +1216,38 @@ class VirtualMachineProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['VirtualMachineAdditionalCapabilitiesArgs']]:
         """
         Additional VM capabilities.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['VirtualMachineAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="nonAdminUser")
-    def non_admin_user(self) -> Optional[pulumi.Input['CredentialsArgs']]:
+    def non_admin_user(self) -> pulumi.Input[Optional['CredentialsArgs']]:
         """
         Credentials for the non-admin user on the VM, if one exists.
         """
         return pulumi.get(self, "non_admin_user")
 
     @non_admin_user.setter
-    def non_admin_user(self, value: Optional[pulumi.Input['CredentialsArgs']]):
+    def non_admin_user(self, value: pulumi.Input[Optional['CredentialsArgs']]):
         pulumi.set(self, "non_admin_user", value)
 
     @_builtins.property
     @pulumi.getter(name="useSharedPassword")
-    def use_shared_password(self) -> Optional[pulumi.Input['EnableState']]:
+    def use_shared_password(self) -> pulumi.Input[Optional['EnableState']]:
         """
         Enabling this option will use the same password for all user VMs.
         """
         return pulumi.get(self, "use_shared_password")
 
     @use_shared_password.setter
-    def use_shared_password(self, value: Optional[pulumi.Input['EnableState']]):
+    def use_shared_password(self, value: pulumi.Input[Optional['EnableState']]):
         pulumi.set(self, "use_shared_password", value)
 
 

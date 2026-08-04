@@ -131,7 +131,7 @@ export interface GetPrivateEndpointOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the private endpoint.
      */

@@ -162,15 +162,15 @@ export interface ProjectCatalogArgs {
     /**
      * Properties for an Azure DevOps catalog type.
      */
-    adoGit?: pulumi.Input<inputs.devcenter.GitCatalogArgs>;
+    adoGit?: pulumi.Input<inputs.devcenter.GitCatalogArgs | undefined>;
     /**
      * The name of the Catalog.
      */
-    catalogName?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string | undefined>;
     /**
      * Properties for a GitHub catalog type.
      */
-    gitHub?: pulumi.Input<inputs.devcenter.GitCatalogArgs>;
+    gitHub?: pulumi.Input<inputs.devcenter.GitCatalogArgs | undefined>;
     /**
      * The name of the project.
      */
@@ -182,9 +182,9 @@ export interface ProjectCatalogArgs {
     /**
      * Indicates the type of sync that is configured for the catalog.
      */
-    syncType?: pulumi.Input<string | enums.devcenter.CatalogSyncType>;
+    syncType?: pulumi.Input<string | enums.devcenter.CatalogSyncType | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

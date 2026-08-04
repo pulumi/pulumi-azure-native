@@ -23,7 +23,7 @@ class DeploymentSafeguardArgs:
     def __init__(__self__, *,
                  level: pulumi.Input[Union[_builtins.str, 'DeploymentSafeguardsLevel']],
                  resource_uri: pulumi.Input[_builtins.str],
-                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentSafeguard resource.
 
@@ -62,14 +62,14 @@ class DeploymentSafeguardArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedNamespaces")
-    def excluded_namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         User defined list of namespaces to exclude from Deployment Safeguards. Deployments in these namespaces will not be checked against any safeguards
         """
         return pulumi.get(self, "excluded_namespaces")
 
     @excluded_namespaces.setter
-    def excluded_namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_namespaces", value)
 
 
@@ -79,9 +79,9 @@ class DeploymentSafeguard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentSafeguardsLevel']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'DeploymentSafeguardsLevel']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Deployment Safeguards
@@ -89,7 +89,6 @@ class DeploymentSafeguard(pulumi.CustomResource):
         Uses Azure REST API version 2025-04-02-preview.
 
         Other available API versions: 2025-04-01, 2025-05-02-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +109,6 @@ class DeploymentSafeguard(pulumi.CustomResource):
 
         Other available API versions: 2025-04-01, 2025-05-02-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DeploymentSafeguardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,9 +124,9 @@ class DeploymentSafeguard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 level: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentSafeguardsLevel']]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 level: pulumi.Input[Optional[Union[_builtins.str, 'DeploymentSafeguardsLevel']]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

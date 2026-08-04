@@ -428,8 +428,8 @@ class ApiManagementServiceIdentityResponse(dict):
         :param _builtins.str principal_id: The principal id of the identity.
         :param _builtins.str tenant_id: The client tenant id of the identity.
         :param _builtins.str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
-               dictionary key references will be ARM resource ids in the form: 
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity
+               dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -467,8 +467,8 @@ class ApiManagementServiceIdentityResponse(dict):
     @pulumi.getter(name="userAssignedIdentities")
     def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
         """
-        The list of user identities associated with the resource. The user identity 
-        dictionary key references will be ARM resource ids in the form: 
+        The list of user identities associated with the resource. The user identity
+        dictionary key references will be ARM resource ids in the form:
         '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
             providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -553,7 +553,7 @@ class ApiVersionConstraintResponse(dict):
 @pulumi.output_type
 class ApiVersionSetContractDetailsResponse(dict):
     """
-    An API Version Set contains the common configuration for a set of API Versions relating 
+    An API Version Set contains the common configuration for a set of API Versions relating
     """
     @staticmethod
     def __key_warning(key: str):
@@ -584,7 +584,7 @@ class ApiVersionSetContractDetailsResponse(dict):
                  version_query_name: Optional[_builtins.str] = None,
                  versioning_scheme: Optional[_builtins.str] = None):
         """
-        An API Version Set contains the common configuration for a set of API Versions relating 
+        An API Version Set contains the common configuration for a set of API Versions relating
 
         :param _builtins.str description: Description of API Version Set.
         :param _builtins.str id: Identifier for existing API Version Set. Omit this value to create a new Version Set.

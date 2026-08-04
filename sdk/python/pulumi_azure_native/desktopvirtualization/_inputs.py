@@ -50,19 +50,19 @@ class AgentUpdatePropertiesArgsDict(TypedDict):
     """
     The session host configuration for updating agent, monitoring agent, and stack component.
     """
-    maintenance_window_time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    maintenance_window_time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
     """
-    maintenance_windows: NotRequired[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgsDict']]]]
+    maintenance_windows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgsDict']]]]]
     """
     List of maintenance windows. Maintenance windows are 2 hours long.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostComponentUpdateType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SessionHostComponentUpdateType']]]]
     """
     The type of maintenance for session host components.
     """
-    use_session_host_local_time: NotRequired[pulumi.Input[_builtins.bool]]
+    use_session_host_local_time: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to use localTime of the virtual machine.
     """
@@ -70,10 +70,10 @@ class AgentUpdatePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AgentUpdatePropertiesArgs:
     def __init__(__self__, *,
-                 maintenance_window_time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostComponentUpdateType']]] = None,
-                 use_session_host_local_time: Optional[pulumi.Input[_builtins.bool]] = None):
+                 maintenance_window_time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostComponentUpdateType']]] = None,
+                 use_session_host_local_time: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The session host configuration for updating agent, monitoring agent, and stack component.
 
@@ -93,50 +93,50 @@ class AgentUpdatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindowTimeZone")
-    def maintenance_window_time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_window_time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
         """
         return pulumi.get(self, "maintenance_window_time_zone")
 
     @maintenance_window_time_zone.setter
-    def maintenance_window_time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_window_time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_window_time_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindows")
-    def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]]:
+    def maintenance_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]]:
         """
         List of maintenance windows. Maintenance windows are 2 hours long.
         """
         return pulumi.get(self, "maintenance_windows")
 
     @maintenance_windows.setter
-    def maintenance_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]]):
+    def maintenance_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]]):
         pulumi.set(self, "maintenance_windows", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostComponentUpdateType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostComponentUpdateType']]]:
         """
         The type of maintenance for session host components.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostComponentUpdateType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostComponentUpdateType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="useSessionHostLocalTime")
-    def use_session_host_local_time(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_session_host_local_time(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use localTime of the virtual machine.
         """
         return pulumi.get(self, "use_session_host_local_time")
 
     @use_session_host_local_time.setter
-    def use_session_host_local_time(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_session_host_local_time(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_session_host_local_time", value)
 
 
@@ -144,109 +144,109 @@ class AppAttachPackageInfoPropertiesArgsDict(TypedDict):
     """
     Schema for Import Package Information properties.
     """
-    certificate_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Date certificate expires, found in the appxmanifest.xml. 
+    Date certificate expires, found in the appxmanifest.xml.
     """
-    certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Certificate name found in the appxmanifest.xml. 
+    Certificate name found in the appxmanifest.xml.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    User friendly Name to be displayed in the portal. 
+    User friendly Name to be displayed in the portal.
     """
-    image_path: NotRequired[pulumi.Input[_builtins.str]]
+    image_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     VHD/CIM image path on Network Share.
     """
-    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    is_active: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Make this version of the package the active one across the hostpool. 
+    Make this version of the package the active one across the hostpool.
     """
-    is_package_timestamped: NotRequired[pulumi.Input[Union[_builtins.str, 'PackageTimestamped']]]
+    is_package_timestamped: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PackageTimestamped']]]]
     """
     Is package timestamped so it can ignore the certificate expiry date
     """
-    is_regular_registration: NotRequired[pulumi.Input[_builtins.bool]]
+    is_regular_registration: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies how to register Package in feed.
     """
-    last_updated: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Date Package was last updated, found in the appxmanifest.xml. 
+    Date Package was last updated, found in the appxmanifest.xml.
     """
-    package_alias: NotRequired[pulumi.Input[_builtins.str]]
+    package_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Alias of App Attach Package. Assigned at import time
     """
-    package_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgsDict']]]]
+    package_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageApplicationsArgsDict']]]]]
     """
-    List of package applications. 
+    List of package applications.
     """
-    package_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgsDict']]]]
+    package_dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageDependenciesArgsDict']]]]]
     """
-    List of package dependencies. 
+    List of package dependencies.
     """
-    package_family_name: NotRequired[pulumi.Input[_builtins.str]]
+    package_family_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+    Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
     """
-    package_full_name: NotRequired[pulumi.Input[_builtins.str]]
+    package_full_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Package Full Name from appxmanifest.xml. 
+    Package Full Name from appxmanifest.xml.
     """
-    package_name: NotRequired[pulumi.Input[_builtins.str]]
+    package_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Package Name from appxmanifest.xml. 
+    Package Name from appxmanifest.xml.
     """
-    package_relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    package_relative_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Relative Path to the package inside the image. 
+    Relative Path to the package inside the image.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Package version found in the appxmanifest.xml. 
+    Package version found in the appxmanifest.xml.
     """
 
 @pulumi.input_type
 class AppAttachPackageInfoPropertiesArgs:
     def __init__(__self__, *,
-                 certificate_expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_package_timestamped: Optional[pulumi.Input[Union[_builtins.str, 'PackageTimestamped']]] = None,
-                 is_regular_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]] = None,
-                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]] = None,
-                 package_family_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_relative_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_package_timestamped: pulumi.Input[Optional[Union[_builtins.str, 'PackageTimestamped']]] = None,
+                 is_regular_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_applications: pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]] = None,
+                 package_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]] = None,
+                 package_family_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Schema for Import Package Information properties.
 
-        :param pulumi.Input[_builtins.str] certificate_expiry: Date certificate expires, found in the appxmanifest.xml. 
-        :param pulumi.Input[_builtins.str] certificate_name: Certificate name found in the appxmanifest.xml. 
-        :param pulumi.Input[_builtins.str] display_name: User friendly Name to be displayed in the portal. 
+        :param pulumi.Input[_builtins.str] certificate_expiry: Date certificate expires, found in the appxmanifest.xml.
+        :param pulumi.Input[_builtins.str] certificate_name: Certificate name found in the appxmanifest.xml.
+        :param pulumi.Input[_builtins.str] display_name: User friendly Name to be displayed in the portal.
         :param pulumi.Input[_builtins.str] image_path: VHD/CIM image path on Network Share.
-        :param pulumi.Input[_builtins.bool] is_active: Make this version of the package the active one across the hostpool. 
+        :param pulumi.Input[_builtins.bool] is_active: Make this version of the package the active one across the hostpool.
         :param pulumi.Input[Union[_builtins.str, 'PackageTimestamped']] is_package_timestamped: Is package timestamped so it can ignore the certificate expiry date
         :param pulumi.Input[_builtins.bool] is_regular_registration: Specifies how to register Package in feed.
-        :param pulumi.Input[_builtins.str] last_updated: Date Package was last updated, found in the appxmanifest.xml. 
+        :param pulumi.Input[_builtins.str] last_updated: Date Package was last updated, found in the appxmanifest.xml.
         :param pulumi.Input[_builtins.str] package_alias: Alias of App Attach Package. Assigned at import time
-        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications. 
-        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies. 
-        :param pulumi.Input[_builtins.str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
-        :param pulumi.Input[_builtins.str] package_full_name: Package Full Name from appxmanifest.xml. 
-        :param pulumi.Input[_builtins.str] package_name: Package Name from appxmanifest.xml. 
-        :param pulumi.Input[_builtins.str] package_relative_path: Relative Path to the package inside the image. 
-        :param pulumi.Input[_builtins.str] version: Package version found in the appxmanifest.xml. 
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications.
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies.
+        :param pulumi.Input[_builtins.str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
+        :param pulumi.Input[_builtins.str] package_full_name: Package Full Name from appxmanifest.xml.
+        :param pulumi.Input[_builtins.str] package_name: Package Name from appxmanifest.xml.
+        :param pulumi.Input[_builtins.str] package_relative_path: Relative Path to the package inside the image.
+        :param pulumi.Input[_builtins.str] version: Package version found in the appxmanifest.xml.
         """
         if certificate_expiry is not None:
             pulumi.set(__self__, "certificate_expiry", certificate_expiry)
@@ -283,194 +283,194 @@ class AppAttachPackageInfoPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateExpiry")
-    def certificate_expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Date certificate expires, found in the appxmanifest.xml. 
+        Date certificate expires, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_expiry")
 
     @certificate_expiry.setter
-    def certificate_expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Certificate name found in the appxmanifest.xml. 
+        Certificate name found in the appxmanifest.xml.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        User friendly Name to be displayed in the portal. 
+        User friendly Name to be displayed in the portal.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="imagePath")
-    def image_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         VHD/CIM image path on Network Share.
         """
         return pulumi.get(self, "image_path")
 
     @image_path.setter
-    def image_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_path", value)
 
     @_builtins.property
     @pulumi.getter(name="isActive")
-    def is_active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Make this version of the package the active one across the hostpool. 
+        Make this version of the package the active one across the hostpool.
         """
         return pulumi.get(self, "is_active")
 
     @is_active.setter
-    def is_active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_active", value)
 
     @_builtins.property
     @pulumi.getter(name="isPackageTimestamped")
-    def is_package_timestamped(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PackageTimestamped']]]:
+    def is_package_timestamped(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PackageTimestamped']]]:
         """
         Is package timestamped so it can ignore the certificate expiry date
         """
         return pulumi.get(self, "is_package_timestamped")
 
     @is_package_timestamped.setter
-    def is_package_timestamped(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PackageTimestamped']]]):
+    def is_package_timestamped(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PackageTimestamped']]]):
         pulumi.set(self, "is_package_timestamped", value)
 
     @_builtins.property
     @pulumi.getter(name="isRegularRegistration")
-    def is_regular_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_regular_registration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies how to register Package in feed.
         """
         return pulumi.get(self, "is_regular_registration")
 
     @is_regular_registration.setter
-    def is_regular_registration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_regular_registration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_regular_registration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Date Package was last updated, found in the appxmanifest.xml. 
+        Date Package was last updated, found in the appxmanifest.xml.
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter(name="packageAlias")
-    def package_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alias of App Attach Package. Assigned at import time
         """
         return pulumi.get(self, "package_alias")
 
     @package_alias.setter
-    def package_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="packageApplications")
-    def package_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]:
+    def package_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]:
         """
-        List of package applications. 
+        List of package applications.
         """
         return pulumi.get(self, "package_applications")
 
     @package_applications.setter
-    def package_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]):
+    def package_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]):
         pulumi.set(self, "package_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="packageDependencies")
-    def package_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]:
+    def package_dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]:
         """
-        List of package dependencies. 
+        List of package dependencies.
         """
         return pulumi.get(self, "package_dependencies")
 
     @package_dependencies.setter
-    def package_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]):
+    def package_dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]):
         pulumi.set(self, "package_dependencies", value)
 
     @_builtins.property
     @pulumi.getter(name="packageFamilyName")
-    def package_family_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_family_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
         """
         return pulumi.get(self, "package_family_name")
 
     @package_family_name.setter
-    def package_family_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_family_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_family_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageFullName")
-    def package_full_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_full_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Package Full Name from appxmanifest.xml. 
+        Package Full Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_full_name")
 
     @package_full_name.setter
-    def package_full_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_full_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_full_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageName")
-    def package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Package Name from appxmanifest.xml. 
+        Package Name from appxmanifest.xml.
         """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
-    def package_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageRelativePath")
-    def package_relative_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_relative_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Relative Path to the package inside the image. 
+        Relative Path to the package inside the image.
         """
         return pulumi.get(self, "package_relative_path")
 
     @package_relative_path.setter
-    def package_relative_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_relative_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_relative_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Package version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -478,19 +478,19 @@ class AppAttachPackagePropertiesArgsDict(TypedDict):
     """
     Schema for App Attach Package properties.
     """
-    fail_health_check_on_staging_failure: NotRequired[pulumi.Input[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]
+    fail_health_check_on_staging_failure: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]]
     """
     Parameter indicating how the health check should behave if this package fails staging
     """
-    host_pool_references: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    host_pool_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of Hostpool resource Ids.
     """
-    image: NotRequired[pulumi.Input['AppAttachPackageInfoPropertiesArgsDict']]
+    image: NotRequired[pulumi.Input[Optional['AppAttachPackageInfoPropertiesArgsDict']]]
     """
     Detailed properties for App Attach Package
     """
-    key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL path to certificate name located in keyVault
     """
@@ -498,10 +498,10 @@ class AppAttachPackagePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AppAttachPackagePropertiesArgs:
     def __init__(__self__, *,
-                 fail_health_check_on_staging_failure: Optional[pulumi.Input[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]] = None,
-                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 image: Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']] = None,
-                 key_vault_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 fail_health_check_on_staging_failure: pulumi.Input[Optional[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]] = None,
+                 host_pool_references: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 image: pulumi.Input[Optional['AppAttachPackageInfoPropertiesArgs']] = None,
+                 key_vault_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Schema for App Attach Package properties.
 
@@ -521,50 +521,50 @@ class AppAttachPackagePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="failHealthCheckOnStagingFailure")
-    def fail_health_check_on_staging_failure(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]:
+    def fail_health_check_on_staging_failure(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]:
         """
         Parameter indicating how the health check should behave if this package fails staging
         """
         return pulumi.get(self, "fail_health_check_on_staging_failure")
 
     @fail_health_check_on_staging_failure.setter
-    def fail_health_check_on_staging_failure(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]):
+    def fail_health_check_on_staging_failure(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FailHealthCheckOnStagingFailure']]]):
         pulumi.set(self, "fail_health_check_on_staging_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPoolReferences")
-    def host_pool_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def host_pool_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Hostpool resource Ids.
         """
         return pulumi.get(self, "host_pool_references")
 
     @host_pool_references.setter
-    def host_pool_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def host_pool_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "host_pool_references", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']]:
+    def image(self) -> pulumi.Input[Optional['AppAttachPackageInfoPropertiesArgs']]:
         """
         Detailed properties for App Attach Package
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']]):
+    def image(self, value: pulumi.Input[Optional['AppAttachPackageInfoPropertiesArgs']]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultURL")
-    def key_vault_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL path to certificate name located in keyVault
         """
         return pulumi.get(self, "key_vault_url")
 
     @key_vault_url.setter
-    def key_vault_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_url", value)
 
 
@@ -572,11 +572,11 @@ class MaintenanceWindowPropertiesArgsDict(TypedDict):
     """
     Maintenance window starting hour and day of week.
     """
-    day_of_week: NotRequired[pulumi.Input['DayOfWeek']]
+    day_of_week: NotRequired[pulumi.Input[Optional['DayOfWeek']]]
     """
     Day of the week.
     """
-    hour: NotRequired[pulumi.Input[_builtins.int]]
+    hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The update start hour of the day. (0 - 23)
     """
@@ -584,8 +584,8 @@ class MaintenanceWindowPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MaintenanceWindowPropertiesArgs:
     def __init__(__self__, *,
-                 day_of_week: Optional[pulumi.Input['DayOfWeek']] = None,
-                 hour: Optional[pulumi.Input[_builtins.int]] = None):
+                 day_of_week: pulumi.Input[Optional['DayOfWeek']] = None,
+                 hour: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Maintenance window starting hour and day of week.
 
@@ -599,26 +599,26 @@ class MaintenanceWindowPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input['DayOfWeek']]:
+    def day_of_week(self) -> pulumi.Input[Optional['DayOfWeek']]:
         """
         Day of the week.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input['DayOfWeek']]):
+    def day_of_week(self, value: pulumi.Input[Optional['DayOfWeek']]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The update start hour of the day. (0 - 23)
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour", value)
 
 
@@ -626,31 +626,31 @@ class MsixPackageApplicationsArgsDict(TypedDict):
     """
     Schema for MSIX Package Application properties.
     """
-    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Package Application Id, found in appxmanifest.xml.
     """
-    app_user_model_id: NotRequired[pulumi.Input[_builtins.str]]
+    app_user_model_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of Package Application.
     """
-    friendly_name: NotRequired[pulumi.Input[_builtins.str]]
+    friendly_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User friendly name.
     """
-    icon_image_name: NotRequired[pulumi.Input[_builtins.str]]
+    icon_image_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     User friendly name.
     """
-    raw_icon: NotRequired[pulumi.Input[_builtins.str]]
+    raw_icon: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the icon a 64 bit string as a byte array.
     """
-    raw_png: NotRequired[pulumi.Input[_builtins.str]]
+    raw_png: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the icon a 64 bit string as a byte array.
     """
@@ -658,13 +658,13 @@ class MsixPackageApplicationsArgsDict(TypedDict):
 @pulumi.input_type
 class MsixPackageApplicationsArgs:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_user_model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 friendly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_png: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_user_model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_png: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Schema for MSIX Package Application properties.
 
@@ -693,86 +693,86 @@ class MsixPackageApplicationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Package Application Id, found in appxmanifest.xml.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appUserModelID")
-    def app_user_model_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_user_model_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
         """
         return pulumi.get(self, "app_user_model_id")
 
     @app_user_model_id.setter
-    def app_user_model_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_user_model_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_user_model_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of Package Application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def friendly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User friendly name.
         """
         return pulumi.get(self, "friendly_name")
 
     @friendly_name.setter
-    def friendly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iconImageName")
-    def icon_image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User friendly name.
         """
         return pulumi.get(self, "icon_image_name")
 
     @icon_image_name.setter
-    def icon_image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rawIcon")
-    def raw_icon(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def raw_icon(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the icon a 64 bit string as a byte array.
         """
         return pulumi.get(self, "raw_icon")
 
     @raw_icon.setter
-    def raw_icon(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def raw_icon(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "raw_icon", value)
 
     @_builtins.property
     @pulumi.getter(name="rawPng")
-    def raw_png(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def raw_png(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the icon a 64 bit string as a byte array.
         """
         return pulumi.get(self, "raw_png")
 
     @raw_png.setter
-    def raw_png(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def raw_png(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "raw_png", value)
 
 
@@ -780,15 +780,15 @@ class MsixPackageDependenciesArgsDict(TypedDict):
     """
     Schema for MSIX Package Dependencies properties.
     """
-    dependency_name: NotRequired[pulumi.Input[_builtins.str]]
+    dependency_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of package dependency.
     """
-    min_version: NotRequired[pulumi.Input[_builtins.str]]
+    min_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Dependency version required.
     """
-    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    publisher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of dependency publisher.
     """
@@ -796,9 +796,9 @@ class MsixPackageDependenciesArgsDict(TypedDict):
 @pulumi.input_type
 class MsixPackageDependenciesArgs:
     def __init__(__self__, *,
-                 dependency_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None):
+                 dependency_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Schema for MSIX Package Dependencies properties.
 
@@ -815,38 +815,38 @@ class MsixPackageDependenciesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependencyName")
-    def dependency_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dependency_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of package dependency.
         """
         return pulumi.get(self, "dependency_name")
 
     @dependency_name.setter
-    def dependency_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dependency_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dependency_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minVersion")
-    def min_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Dependency version required.
         """
         return pulumi.get(self, "min_version")
 
     @min_version.setter
-    def min_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of dependency publisher.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
 
@@ -854,15 +854,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -870,9 +870,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -889,38 +889,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -928,15 +928,15 @@ class RegistrationInfoArgsDict(TypedDict):
     """
     Represents a RegistrationInfo definition.
     """
-    expiration_time: NotRequired[pulumi.Input[_builtins.str]]
+    expiration_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Expiration time of registration token.
     """
-    registration_token_operation: NotRequired[pulumi.Input[Union[_builtins.str, 'RegistrationTokenOperation']]]
+    registration_token_operation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RegistrationTokenOperation']]]]
     """
     The type of resetting the token.
     """
-    token: NotRequired[pulumi.Input[_builtins.str]]
+    token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The registration token base64 encoded string.
     """
@@ -944,9 +944,9 @@ class RegistrationInfoArgsDict(TypedDict):
 @pulumi.input_type
 class RegistrationInfoArgs:
     def __init__(__self__, *,
-                 expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_token_operation: Optional[pulumi.Input[Union[_builtins.str, 'RegistrationTokenOperation']]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_token_operation: pulumi.Input[Optional[Union[_builtins.str, 'RegistrationTokenOperation']]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a RegistrationInfo definition.
 
@@ -963,43 +963,43 @@ class RegistrationInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="expirationTime")
-    def expiration_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration time of registration token.
         """
         return pulumi.get(self, "expiration_time")
 
     @expiration_time.setter
-    def expiration_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_time", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationTokenOperation")
-    def registration_token_operation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RegistrationTokenOperation']]]:
+    def registration_token_operation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RegistrationTokenOperation']]]:
         """
         The type of resetting the token.
         """
         return pulumi.get(self, "registration_token_operation")
 
     @registration_token_operation.setter
-    def registration_token_operation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RegistrationTokenOperation']]]):
+    def registration_token_operation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RegistrationTokenOperation']]]):
         pulumi.set(self, "registration_token_operation", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The registration token base64 encoded string.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
 
 class ResourceModelWithAllowedPropertySetIdentityArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type.
     """
@@ -1007,7 +1007,7 @@ class ResourceModelWithAllowedPropertySetIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceModelWithAllowedPropertySetIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None):
         """
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
@@ -1016,14 +1016,14 @@ class ResourceModelWithAllowedPropertySetIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1034,17 +1034,17 @@ class ResourceModelWithAllowedPropertySetPlanArgsDict(TypedDict):
     """
     product: pulumi.Input[_builtins.str]
     """
-    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
     """
     publisher: pulumi.Input[_builtins.str]
     """
     The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the desired product/artifact.
     """
@@ -1055,11 +1055,11 @@ class ResourceModelWithAllowedPropertySetPlanArgs:
                  name: pulumi.Input[_builtins.str],
                  product: pulumi.Input[_builtins.str],
                  publisher: pulumi.Input[_builtins.str],
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
@@ -1088,7 +1088,7 @@ class ResourceModelWithAllowedPropertySetPlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[_builtins.str]:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -1110,26 +1110,26 @@ class ResourceModelWithAllowedPropertySetPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         """
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the desired product/artifact.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1138,19 +1138,19 @@ class ResourceModelWithAllowedPropertySetSkuArgsDict(TypedDict):
     """
     The name of the SKU. E.g. P3. It is typically a letter+number code
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the service has different generations of hardware, for the same SKU, then that can be captured here.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
     """
-    tier: NotRequired[pulumi.Input['SkuTier']]
+    tier: NotRequired[pulumi.Input[Optional['SkuTier']]]
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     """
@@ -1159,15 +1159,15 @@ class ResourceModelWithAllowedPropertySetSkuArgsDict(TypedDict):
 class ResourceModelWithAllowedPropertySetSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional['SkuTier']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -1194,50 +1194,50 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> pulumi.Input[Optional['SkuTier']]:
         """
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: pulumi.Input[Optional['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -1245,11 +1245,11 @@ class ScalingHostPoolReferenceArgsDict(TypedDict):
     """
     Scaling plan reference to hostpool.
     """
-    host_pool_arm_path: NotRequired[pulumi.Input[_builtins.str]]
+    host_pool_arm_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Arm path of referenced hostpool.
     """
-    scaling_plan_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    scaling_plan_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the scaling plan enabled for this hostpool.
     """
@@ -1257,8 +1257,8 @@ class ScalingHostPoolReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class ScalingHostPoolReferenceArgs:
     def __init__(__self__, *,
-                 host_pool_arm_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 host_pool_arm_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Scaling plan reference to hostpool.
 
@@ -1272,26 +1272,26 @@ class ScalingHostPoolReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostPoolArmPath")
-    def host_pool_arm_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_pool_arm_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arm path of referenced hostpool.
         """
         return pulumi.get(self, "host_pool_arm_path")
 
     @host_pool_arm_path.setter
-    def host_pool_arm_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_pool_arm_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_pool_arm_path", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPlanEnabled")
-    def scaling_plan_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scaling_plan_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the scaling plan enabled for this hostpool.
         """
         return pulumi.get(self, "scaling_plan_enabled")
 
     @scaling_plan_enabled.setter
-    def scaling_plan_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scaling_plan_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scaling_plan_enabled", value)
 
 
@@ -1299,75 +1299,75 @@ class ScalingScheduleArgsDict(TypedDict):
     """
     A ScalingPlanPooledSchedule.
     """
-    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    days_of_week: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of days of the week on which this schedule is active.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the ScalingPlanPooledSchedule.
     """
-    off_peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    off_peak_load_balancing_algorithm: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]]
     """
     Load balancing algorithm for off-peak period.
     """
-    off_peak_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    off_peak_start_time: NotRequired[pulumi.Input[Optional['TimeArgsDict']]]
     """
     Starting time for off-peak period.
     """
-    peak_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    peak_load_balancing_algorithm: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]]
     """
     Load balancing algorithm for peak period.
     """
-    peak_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    peak_start_time: NotRequired[pulumi.Input[Optional['TimeArgsDict']]]
     """
     Starting time for peak period.
     """
-    ramp_down_capacity_threshold_pct: NotRequired[pulumi.Input[_builtins.int]]
+    ramp_down_capacity_threshold_pct: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Capacity threshold for ramp down period.
     """
-    ramp_down_force_logoff_users: NotRequired[pulumi.Input[_builtins.bool]]
+    ramp_down_force_logoff_users: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should users be logged off forcefully from hosts.
     """
-    ramp_down_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    ramp_down_load_balancing_algorithm: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]]
     """
     Load balancing algorithm for ramp down period.
     """
-    ramp_down_minimum_hosts_pct: NotRequired[pulumi.Input[_builtins.int]]
+    ramp_down_minimum_hosts_pct: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Minimum host percentage for ramp down period.
     """
-    ramp_down_notification_message: NotRequired[pulumi.Input[_builtins.str]]
+    ramp_down_notification_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Notification message for users during ramp down period.
     """
-    ramp_down_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    ramp_down_start_time: NotRequired[pulumi.Input[Optional['TimeArgsDict']]]
     """
     Starting time for ramp down period.
     """
-    ramp_down_stop_hosts_when: NotRequired[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]]
+    ramp_down_stop_hosts_when: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]]]
     """
     Specifies when to stop hosts during ramp down period.
     """
-    ramp_down_wait_time_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    ramp_down_wait_time_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of minutes to wait to stop hosts during ramp down period.
     """
-    ramp_up_capacity_threshold_pct: NotRequired[pulumi.Input[_builtins.int]]
+    ramp_up_capacity_threshold_pct: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Capacity threshold for ramp up period.
     """
-    ramp_up_load_balancing_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]
+    ramp_up_load_balancing_algorithm: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]]
     """
     Load balancing algorithm for ramp up period.
     """
-    ramp_up_minimum_hosts_pct: NotRequired[pulumi.Input[_builtins.int]]
+    ramp_up_minimum_hosts_pct: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Minimum host percentage for ramp up period.
     """
-    ramp_up_start_time: NotRequired[pulumi.Input['TimeArgsDict']]
+    ramp_up_start_time: NotRequired[pulumi.Input[Optional['TimeArgsDict']]]
     """
     Starting time for ramp up period.
     """
@@ -1375,24 +1375,24 @@ class ScalingScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class ScalingScheduleArgs:
     def __init__(__self__, *,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 ramp_down_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_force_logoff_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ramp_down_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_down_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_notification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 ramp_down_stop_hosts_when: Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]] = None,
-                 ramp_down_wait_time_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_up_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None):
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 off_peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 off_peak_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 peak_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 ramp_down_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_force_logoff_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ramp_down_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_down_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_notification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 ramp_down_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 ramp_down_stop_hosts_when: pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]] = None,
+                 ramp_down_wait_time_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_up_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_start_time: pulumi.Input[Optional['TimeArgs']] = None):
         """
         A ScalingPlanPooledSchedule.
 
@@ -1454,218 +1454,218 @@ class ScalingScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def days_of_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of days of the week on which this schedule is active.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def days_of_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "days_of_week", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ScalingPlanPooledSchedule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakLoadBalancingAlgorithm")
-    def off_peak_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def off_peak_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for off-peak period.
         """
         return pulumi.get(self, "off_peak_load_balancing_algorithm")
 
     @off_peak_load_balancing_algorithm.setter
-    def off_peak_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def off_peak_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "off_peak_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def off_peak_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for off-peak period.
         """
         return pulumi.get(self, "off_peak_start_time")
 
     @off_peak_start_time.setter
-    def off_peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def off_peak_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "off_peak_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="peakLoadBalancingAlgorithm")
-    def peak_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def peak_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for peak period.
         """
         return pulumi.get(self, "peak_load_balancing_algorithm")
 
     @peak_load_balancing_algorithm.setter
-    def peak_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def peak_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "peak_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def peak_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for peak period.
         """
         return pulumi.get(self, "peak_start_time")
 
     @peak_start_time.setter
-    def peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def peak_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "peak_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownCapacityThresholdPct")
-    def ramp_down_capacity_threshold_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_capacity_threshold_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Capacity threshold for ramp down period.
         """
         return pulumi.get(self, "ramp_down_capacity_threshold_pct")
 
     @ramp_down_capacity_threshold_pct.setter
-    def ramp_down_capacity_threshold_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_capacity_threshold_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_capacity_threshold_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownForceLogoffUsers")
-    def ramp_down_force_logoff_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ramp_down_force_logoff_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should users be logged off forcefully from hosts.
         """
         return pulumi.get(self, "ramp_down_force_logoff_users")
 
     @ramp_down_force_logoff_users.setter
-    def ramp_down_force_logoff_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ramp_down_force_logoff_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ramp_down_force_logoff_users", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownLoadBalancingAlgorithm")
-    def ramp_down_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def ramp_down_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for ramp down period.
         """
         return pulumi.get(self, "ramp_down_load_balancing_algorithm")
 
     @ramp_down_load_balancing_algorithm.setter
-    def ramp_down_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def ramp_down_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "ramp_down_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownMinimumHostsPct")
-    def ramp_down_minimum_hosts_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_minimum_hosts_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum host percentage for ramp down period.
         """
         return pulumi.get(self, "ramp_down_minimum_hosts_pct")
 
     @ramp_down_minimum_hosts_pct.setter
-    def ramp_down_minimum_hosts_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_minimum_hosts_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_minimum_hosts_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownNotificationMessage")
-    def ramp_down_notification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ramp_down_notification_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Notification message for users during ramp down period.
         """
         return pulumi.get(self, "ramp_down_notification_message")
 
     @ramp_down_notification_message.setter
-    def ramp_down_notification_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ramp_down_notification_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ramp_down_notification_message", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def ramp_down_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for ramp down period.
         """
         return pulumi.get(self, "ramp_down_start_time")
 
     @ramp_down_start_time.setter
-    def ramp_down_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def ramp_down_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "ramp_down_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownStopHostsWhen")
-    def ramp_down_stop_hosts_when(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]]:
+    def ramp_down_stop_hosts_when(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]]:
         """
         Specifies when to stop hosts during ramp down period.
         """
         return pulumi.get(self, "ramp_down_stop_hosts_when")
 
     @ramp_down_stop_hosts_when.setter
-    def ramp_down_stop_hosts_when(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]]):
+    def ramp_down_stop_hosts_when(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]]):
         pulumi.set(self, "ramp_down_stop_hosts_when", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownWaitTimeMinutes")
-    def ramp_down_wait_time_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_wait_time_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes to wait to stop hosts during ramp down period.
         """
         return pulumi.get(self, "ramp_down_wait_time_minutes")
 
     @ramp_down_wait_time_minutes.setter
-    def ramp_down_wait_time_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_wait_time_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_wait_time_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpCapacityThresholdPct")
-    def ramp_up_capacity_threshold_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_capacity_threshold_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Capacity threshold for ramp up period.
         """
         return pulumi.get(self, "ramp_up_capacity_threshold_pct")
 
     @ramp_up_capacity_threshold_pct.setter
-    def ramp_up_capacity_threshold_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_capacity_threshold_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_capacity_threshold_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpLoadBalancingAlgorithm")
-    def ramp_up_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def ramp_up_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for ramp up period.
         """
         return pulumi.get(self, "ramp_up_load_balancing_algorithm")
 
     @ramp_up_load_balancing_algorithm.setter
-    def ramp_up_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def ramp_up_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "ramp_up_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpMinimumHostsPct")
-    def ramp_up_minimum_hosts_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_minimum_hosts_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum host percentage for ramp up period.
         """
         return pulumi.get(self, "ramp_up_minimum_hosts_pct")
 
     @ramp_up_minimum_hosts_pct.setter
-    def ramp_up_minimum_hosts_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_minimum_hosts_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_minimum_hosts_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def ramp_up_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for ramp up period.
         """
         return pulumi.get(self, "ramp_up_start_time")
 
     @ramp_up_start_time.setter
-    def ramp_up_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def ramp_up_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "ramp_up_start_time", value)
 
 

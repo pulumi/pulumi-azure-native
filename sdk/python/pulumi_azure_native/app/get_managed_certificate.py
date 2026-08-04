@@ -145,7 +145,6 @@ def get_managed_certificate(environment_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str environment_name: Name of the Managed Environment.
     :param _builtins.str managed_certificate_name: Name of the Managed Certificate.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,9 +165,9 @@ def get_managed_certificate(environment_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_certificate_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   managed_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_certificate_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   managed_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedCertificateResult]:
     """
     Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
@@ -176,7 +175,6 @@ def get_managed_certificate_output(environment_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2025-02-02-preview.
 
     Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str environment_name: Name of the Managed Environment.
     :param _builtins.str managed_certificate_name: Name of the Managed Certificate.

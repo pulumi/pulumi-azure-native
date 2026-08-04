@@ -18,29 +18,29 @@ from ._enums import *
 __all__ = [
     'DnsConfigArgs',
     'DnsConfigArgsDict',
+    'EndpointArgs',
+    'EndpointArgsDict',
     'EndpointPropertiesCustomHeadersItemArgs',
     'EndpointPropertiesCustomHeadersItemArgsDict',
     'EndpointPropertiesSubnetsItemArgs',
     'EndpointPropertiesSubnetsItemArgsDict',
-    'EndpointArgs',
-    'EndpointArgsDict',
+    'MonitorConfigArgs',
+    'MonitorConfigArgsDict',
     'MonitorConfigCustomHeadersItemArgs',
     'MonitorConfigCustomHeadersItemArgsDict',
     'MonitorConfigExpectedStatusCodeRangesItemArgs',
     'MonitorConfigExpectedStatusCodeRangesItemArgsDict',
-    'MonitorConfigArgs',
-    'MonitorConfigArgsDict',
 ]
 
 class DnsConfigArgsDict(TypedDict):
     """
     Class containing DNS settings in a Traffic Manager profile.
     """
-    relative_name: NotRequired[pulumi.Input[_builtins.str]]
+    relative_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.float]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
     """
@@ -48,8 +48,8 @@ class DnsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DnsConfigArgs:
     def __init__(__self__, *,
-                 relative_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.float]] = None):
+                 relative_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Class containing DNS settings in a Traffic Manager profile.
 
@@ -63,226 +63,98 @@ class DnsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="relativeName")
-    def relative_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
         """
         return pulumi.get(self, "relative_name")
 
     @relative_name.setter
-    def relative_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "ttl", value)
-
-
-class EndpointPropertiesCustomHeadersItemArgsDict(TypedDict):
-    """
-    Custom header name and value.
-    """
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Header name.
-    """
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Header value.
-    """
-
-@pulumi.input_type
-class EndpointPropertiesCustomHeadersItemArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Custom header name and value.
-
-        :param pulumi.Input[_builtins.str] name: Header name.
-        :param pulumi.Input[_builtins.str] value: Header value.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Header name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Header value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-class EndpointPropertiesSubnetsItemArgsDict(TypedDict):
-    """
-    Subnet first address, scope, and/or last address.
-    """
-    first: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    First address in the subnet.
-    """
-    last: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Last address in the subnet.
-    """
-    scope: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Block size (number of leading bits in the subnet mask).
-    """
-
-@pulumi.input_type
-class EndpointPropertiesSubnetsItemArgs:
-    def __init__(__self__, *,
-                 first: Optional[pulumi.Input[_builtins.str]] = None,
-                 last: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        Subnet first address, scope, and/or last address.
-
-        :param pulumi.Input[_builtins.str] first: First address in the subnet.
-        :param pulumi.Input[_builtins.str] last: Last address in the subnet.
-        :param pulumi.Input[_builtins.int] scope: Block size (number of leading bits in the subnet mask).
-        """
-        if first is not None:
-            pulumi.set(__self__, "first", first)
-        if last is not None:
-            pulumi.set(__self__, "last", last)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @_builtins.property
-    @pulumi.getter
-    def first(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First address in the subnet.
-        """
-        return pulumi.get(self, "first")
-
-    @first.setter
-    def first(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "first", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def last(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last address in the subnet.
-        """
-        return pulumi.get(self, "last")
-
-    @last.setter
-    def last(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "last", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Block size (number of leading bits in the subnet mask).
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "scope", value)
 
 
 class EndpointArgsDict(TypedDict):
     """
     Class representing a Traffic Manager endpoint.
     """
-    always_serve: NotRequired[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]]
+    always_serve: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]]]
     """
     If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
     """
-    custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgsDict']]]]
+    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgsDict']]]]]
     """
     List of custom headers.
     """
-    endpoint_location: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
     """
-    endpoint_monitor_status: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]]
+    endpoint_monitor_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]]]
     """
     The monitoring status of the endpoint.
     """
-    endpoint_status: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]]
+    endpoint_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]]]
     """
     The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
     """
-    geo_mapping: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    geo_mapping: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
     """
-    min_child_endpoints: NotRequired[pulumi.Input[_builtins.float]]
+    min_child_endpoints: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
     """
-    min_child_endpoints_i_pv4: NotRequired[pulumi.Input[_builtins.float]]
+    min_child_endpoints_i_pv4: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
     """
-    min_child_endpoints_i_pv6: NotRequired[pulumi.Input[_builtins.float]]
+    min_child_endpoints_i_pv6: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the resource
     """
-    priority: NotRequired[pulumi.Input[_builtins.float]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
     """
-    subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgsDict']]]]
+    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgsDict']]]]]
     """
     The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
     """
-    target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
     """
-    weight: NotRequired[pulumi.Input[_builtins.float]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
     """
@@ -290,23 +162,23 @@ class EndpointArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointArgs:
     def __init__(__self__, *,
-                 always_serve: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
-                 endpoint_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]] = None,
-                 geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv4: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_child_endpoints_i_pv6: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.float]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.float]] = None):
+                 always_serve: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_monitor_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
+                 endpoint_status: pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]] = None,
+                 geo_mapping: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_child_endpoints: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv4: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_child_endpoints_i_pv6: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.float]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Class representing a Traffic Manager endpoint.
 
@@ -365,227 +237,227 @@ class EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysServe")
-    def always_serve(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]]:
+    def always_serve(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]]:
         """
         If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
         """
         return pulumi.get(self, "always_serve")
 
     @always_serve.setter
-    def always_serve(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]]):
+    def always_serve(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysServe']]]):
         pulumi.set(self, "always_serve", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]:
         """
         List of custom headers.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
-    def endpoint_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_location", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointMonitorStatus")
-    def endpoint_monitor_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]]:
+    def endpoint_monitor_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]]:
         """
         The monitoring status of the endpoint.
         """
         return pulumi.get(self, "endpoint_monitor_status")
 
     @endpoint_monitor_status.setter
-    def endpoint_monitor_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]]):
+    def endpoint_monitor_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointMonitorStatus']]]):
         pulumi.set(self, "endpoint_monitor_status", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointStatus")
-    def endpoint_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]]:
+    def endpoint_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]]:
         """
         The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         """
         return pulumi.get(self, "endpoint_status")
 
     @endpoint_status.setter
-    def endpoint_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointStatus']]]):
+    def endpoint_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EndpointStatus']]]):
         pulumi.set(self, "endpoint_status", value)
 
     @_builtins.property
     @pulumi.getter(name="geoMapping")
-    def geo_mapping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def geo_mapping(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         """
         return pulumi.get(self, "geo_mapping")
 
     @geo_mapping.setter
-    def geo_mapping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def geo_mapping(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "geo_mapping", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_child_endpoints(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints")
 
     @min_child_endpoints.setter
-    def min_child_endpoints(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_child_endpoints(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_child_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="minChildEndpointsIPv4")
-    def min_child_endpoints_i_pv4(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_child_endpoints_i_pv4(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints_i_pv4")
 
     @min_child_endpoints_i_pv4.setter
-    def min_child_endpoints_i_pv4(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_child_endpoints_i_pv4(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_child_endpoints_i_pv4", value)
 
     @_builtins.property
     @pulumi.getter(name="minChildEndpointsIPv6")
-    def min_child_endpoints_i_pv6(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_child_endpoints_i_pv6(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints_i_pv6")
 
     @min_child_endpoints_i_pv6.setter
-    def min_child_endpoints_i_pv6(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_child_endpoints_i_pv6(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_child_endpoints_i_pv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]:
         """
         The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "weight", value)
 
 
-class MonitorConfigCustomHeadersItemArgsDict(TypedDict):
+class EndpointPropertiesCustomHeadersItemArgsDict(TypedDict):
     """
     Custom header name and value.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Header name.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Header value.
     """
 
 @pulumi.input_type
-class MonitorConfigCustomHeadersItemArgs:
+class EndpointPropertiesCustomHeadersItemArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Custom header name and value.
 
@@ -599,120 +471,140 @@ class MonitorConfigCustomHeadersItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Header name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Header value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
-class MonitorConfigExpectedStatusCodeRangesItemArgsDict(TypedDict):
+class EndpointPropertiesSubnetsItemArgsDict(TypedDict):
     """
-    Min and max value of a status code range.
+    Subnet first address, scope, and/or last address.
     """
-    max: NotRequired[pulumi.Input[_builtins.int]]
+    first: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Max status code.
+    First address in the subnet.
     """
-    min: NotRequired[pulumi.Input[_builtins.int]]
+    last: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Min status code.
+    Last address in the subnet.
+    """
+    scope: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Block size (number of leading bits in the subnet mask).
     """
 
 @pulumi.input_type
-class MonitorConfigExpectedStatusCodeRangesItemArgs:
+class EndpointPropertiesSubnetsItemArgs:
     def __init__(__self__, *,
-                 max: Optional[pulumi.Input[_builtins.int]] = None,
-                 min: Optional[pulumi.Input[_builtins.int]] = None):
+                 first: pulumi.Input[Optional[_builtins.str]] = None,
+                 last: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        Min and max value of a status code range.
+        Subnet first address, scope, and/or last address.
 
-        :param pulumi.Input[_builtins.int] max: Max status code.
-        :param pulumi.Input[_builtins.int] min: Min status code.
+        :param pulumi.Input[_builtins.str] first: First address in the subnet.
+        :param pulumi.Input[_builtins.str] last: Last address in the subnet.
+        :param pulumi.Input[_builtins.int] scope: Block size (number of leading bits in the subnet mask).
         """
-        if max is not None:
-            pulumi.set(__self__, "max", max)
-        if min is not None:
-            pulumi.set(__self__, "min", min)
-
-    @_builtins.property
-    @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Max status code.
-        """
-        return pulumi.get(self, "max")
-
-    @max.setter
-    def max(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "max", value)
+        if first is not None:
+            pulumi.set(__self__, "first", first)
+        if last is not None:
+            pulumi.set(__self__, "last", last)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @_builtins.property
     @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def first(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Min status code.
+        First address in the subnet.
         """
-        return pulumi.get(self, "min")
+        return pulumi.get(self, "first")
 
-    @min.setter
-    def min(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "min", value)
+    @first.setter
+    def first(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "first", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def last(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Last address in the subnet.
+        """
+        return pulumi.get(self, "last")
+
+    @last.setter
+    def last(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Block size (number of leading bits in the subnet mask).
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "scope", value)
 
 
 class MonitorConfigArgsDict(TypedDict):
     """
     Class containing endpoint monitoring settings in a Traffic Manager profile.
     """
-    custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgsDict']]]]
+    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgsDict']]]]]
     """
     List of custom headers.
     """
-    expected_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgsDict']]]]
+    expected_status_code_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgsDict']]]]]
     """
     List of expected status code ranges.
     """
-    interval_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path relative to the endpoint domain name used to probe for endpoint health.
     """
-    port: NotRequired[pulumi.Input[_builtins.float]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The TCP port used to probe for endpoint health.
     """
-    profile_monitor_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ProfileMonitorStatus']]]
+    profile_monitor_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProfileMonitorStatus']]]]
     """
     The profile-level monitoring status of the Traffic Manager profile.
     """
-    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'MonitorProtocol']]]
+    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MonitorProtocol']]]]
     """
     The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.float]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
     """
-    tolerated_number_of_failures: NotRequired[pulumi.Input[_builtins.float]]
+    tolerated_number_of_failures: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
     """
@@ -720,15 +612,15 @@ class MonitorConfigArgsDict(TypedDict):
 @pulumi.input_type
 class MonitorConfigArgs:
     def __init__(__self__, *,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgs']]]] = None,
-                 expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgs']]]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.float]] = None,
-                 profile_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'ProfileMonitorStatus']]] = None,
-                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'MonitorProtocol']]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.float]] = None,
-                 tolerated_number_of_failures: Optional[pulumi.Input[_builtins.float]] = None):
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgs']]]] = None,
+                 expected_status_code_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgs']]]] = None,
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.float]] = None,
+                 profile_monitor_status: pulumi.Input[Optional[Union[_builtins.str, 'ProfileMonitorStatus']]] = None,
+                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'MonitorProtocol']]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
+                 tolerated_number_of_failures: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
 
@@ -763,110 +655,218 @@ class MonitorConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgs']]]]:
         """
         List of custom headers.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigCustomHeadersItemArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedStatusCodeRanges")
-    def expected_status_code_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgs']]]]:
+    def expected_status_code_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgs']]]]:
         """
         List of expected status code ranges.
         """
         return pulumi.get(self, "expected_status_code_ranges")
 
     @expected_status_code_ranges.setter
-    def expected_status_code_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgs']]]]):
+    def expected_status_code_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorConfigExpectedStatusCodeRangesItemArgs']]]]):
         pulumi.set(self, "expected_status_code_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path relative to the endpoint domain name used to probe for endpoint health.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The TCP port used to probe for endpoint health.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="profileMonitorStatus")
-    def profile_monitor_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProfileMonitorStatus']]]:
+    def profile_monitor_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProfileMonitorStatus']]]:
         """
         The profile-level monitoring status of the Traffic Manager profile.
         """
         return pulumi.get(self, "profile_monitor_status")
 
     @profile_monitor_status.setter
-    def profile_monitor_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProfileMonitorStatus']]]):
+    def profile_monitor_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProfileMonitorStatus']]]):
         pulumi.set(self, "profile_monitor_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MonitorProtocol']]]:
+    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MonitorProtocol']]]:
         """
         The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MonitorProtocol']]]):
+    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MonitorProtocol']]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def tolerated_number_of_failures(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
         return pulumi.get(self, "tolerated_number_of_failures")
 
     @tolerated_number_of_failures.setter
-    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def tolerated_number_of_failures(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "tolerated_number_of_failures", value)
+
+
+class MonitorConfigCustomHeadersItemArgsDict(TypedDict):
+    """
+    Custom header name and value.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Header name.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Header value.
+    """
+
+@pulumi.input_type
+class MonitorConfigCustomHeadersItemArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Custom header name and value.
+
+        :param pulumi.Input[_builtins.str] name: Header name.
+        :param pulumi.Input[_builtins.str] value: Header value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Header name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Header value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class MonitorConfigExpectedStatusCodeRangesItemArgsDict(TypedDict):
+    """
+    Min and max value of a status code range.
+    """
+    max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Max status code.
+    """
+    min: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Min status code.
+    """
+
+@pulumi.input_type
+class MonitorConfigExpectedStatusCodeRangesItemArgs:
+    def __init__(__self__, *,
+                 max: pulumi.Input[Optional[_builtins.int]] = None,
+                 min: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Min and max value of a status code range.
+
+        :param pulumi.Input[_builtins.int] max: Max status code.
+        :param pulumi.Input[_builtins.int] min: Min status code.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Max status code.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Min status code.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min", value)
 
 

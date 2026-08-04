@@ -114,7 +114,7 @@ export interface WorkspaceTagApiLinkArgs {
     /**
      * Tag-API link identifier. Must be unique in the current API Management service instance.
      */
-    apiLinkId?: pulumi.Input<string>;
+    apiLinkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

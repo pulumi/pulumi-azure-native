@@ -25,9 +25,9 @@ class JobScheduleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  runbook: pulumi.Input['RunbookAssociationPropertyArgs'],
                  schedule: pulumi.Input['ScheduleAssociationPropertyArgs'],
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobSchedule resource.
 
@@ -100,38 +100,38 @@ class JobScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobScheduleId")
-    def job_schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_schedule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The job schedule name.
         """
         return pulumi.get(self, "job_schedule_id")
 
     @job_schedule_id.setter
-    def job_schedule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_schedule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_schedule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets a list of job properties.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="runOn")
-    def run_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the hybrid worker group that the scheduled job should run on.
         """
         return pulumi.get(self, "run_on")
 
     @run_on.setter
-    def run_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_on", value)
 
 
@@ -141,13 +141,13 @@ class JobSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook: Optional[pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook: pulumi.Input[Optional[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']]] = None,
                  __props__=None):
         """
         Definition of the job schedule.
@@ -155,7 +155,6 @@ class JobSchedule(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +179,6 @@ class JobSchedule(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param JobScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,13 +194,13 @@ class JobSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook: Optional[pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook: pulumi.Input[Optional[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

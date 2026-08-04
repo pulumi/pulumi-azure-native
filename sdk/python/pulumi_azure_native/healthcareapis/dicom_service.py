@@ -24,14 +24,14 @@ class DicomServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 cors_configuration: Optional[pulumi.Input['CorsConfigurationArgs']] = None,
-                 dicom_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_data_partitions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input['StorageConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cors_configuration: pulumi.Input[Optional['CorsConfigurationArgs']] = None,
+                 dicom_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_data_partitions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
+                 identity: pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional['StorageConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DicomService resource.
 
@@ -91,98 +91,98 @@ class DicomServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['CorsConfigurationArgs']]:
+    def cors_configuration(self) -> pulumi.Input[Optional['CorsConfigurationArgs']]:
         """
         Dicom Service Cors configuration.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['CorsConfigurationArgs']]):
+    def cors_configuration(self, value: pulumi.Input[Optional['CorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dicomServiceName")
-    def dicom_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dicom_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of DICOM Service resource.
         """
         return pulumi.get(self, "dicom_service_name")
 
     @dicom_service_name.setter
-    def dicom_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dicom_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dicom_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDataPartitions")
-    def enable_data_partitions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_data_partitions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If data partitions is enabled or not.
         """
         return pulumi.get(self, "enable_data_partitions")
 
     @enable_data_partitions.setter
-    def enable_data_partitions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_data_partitions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_data_partitions", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['EncryptionArgs']]:
         """
         The encryption settings of the DICOM service
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['EncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']]:
         """
         Setting indicating whether the service has a managed identity associated with it.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> Optional[pulumi.Input['StorageConfigurationArgs']]:
+    def storage_configuration(self) -> pulumi.Input[Optional['StorageConfigurationArgs']]:
         """
         The configuration of external storage account
         """
         return pulumi.get(self, "storage_configuration")
 
     @storage_configuration.setter
-    def storage_configuration(self, value: Optional[pulumi.Input['StorageConfigurationArgs']]):
+    def storage_configuration(self, value: pulumi.Input[Optional['StorageConfigurationArgs']]):
         pulumi.set(self, "storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,16 +192,16 @@ class DicomService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors_configuration: Optional[pulumi.Input[Union['CorsConfigurationArgs', 'CorsConfigurationArgsDict']]] = None,
-                 dicom_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_data_partitions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input[Union['StorageConfigurationArgs', 'StorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional[Union['CorsConfigurationArgs', 'CorsConfigurationArgsDict']]] = None,
+                 dicom_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_data_partitions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['StorageConfigurationArgs', 'StorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The description of Dicom Service
@@ -209,7 +209,6 @@ class DicomService(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-31. In version 2.x of the Azure Native provider, it used API version 2023-02-28.
 
         Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class DicomService(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DicomServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class DicomService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors_configuration: Optional[pulumi.Input[Union['CorsConfigurationArgs', 'CorsConfigurationArgsDict']]] = None,
-                 dicom_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_data_partitions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input[Union['StorageConfigurationArgs', 'StorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional[Union['CorsConfigurationArgs', 'CorsConfigurationArgsDict']]] = None,
+                 dicom_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_data_partitions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['StorageConfigurationArgs', 'StorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

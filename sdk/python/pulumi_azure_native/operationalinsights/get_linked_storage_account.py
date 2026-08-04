@@ -120,7 +120,6 @@ def get_linked_storage_account(data_source_type: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str data_source_type: Linked storage accounts type.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -139,9 +138,9 @@ def get_linked_storage_account(data_source_type: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         storage_account_ids=pulumi.get(__ret__, 'storage_account_ids'),
         type=pulumi.get(__ret__, 'type'))
-def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_linked_storage_account_output(data_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedStorageAccountResult]:
     """
     Gets all linked storage account of a specific data source type associated with the specified workspace.
@@ -149,7 +148,6 @@ def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[_b
     Uses Azure REST API version 2023-09-01.
 
     Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str data_source_type: Linked storage accounts type.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

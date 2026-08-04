@@ -24,27 +24,27 @@ class BigDataPoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 auto_pause: Optional[pulumi.Input['AutoPausePropertiesArgs']] = None,
-                 auto_scale: Optional[pulumi.Input['AutoScalePropertiesArgs']] = None,
-                 big_data_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]]] = None,
-                 default_spark_log_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_executor_allocation: Optional[pulumi.Input['DynamicExecutorAllocationArgs']] = None,
-                 force: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_autotune_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 library_requirements: Optional[pulumi.Input['LibraryRequirementsArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_size: Optional[pulumi.Input[Union[_builtins.str, 'NodeSize']]] = None,
-                 node_size_family: Optional[pulumi.Input[Union[_builtins.str, 'NodeSizeFamily']]] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_level_packages_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input['SparkConfigPropertiesArgs']] = None,
-                 spark_events_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 spark_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_pause: pulumi.Input[Optional['AutoPausePropertiesArgs']] = None,
+                 auto_scale: pulumi.Input[Optional['AutoScalePropertiesArgs']] = None,
+                 big_data_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_libraries: pulumi.Input[Optional[Sequence[pulumi.Input['LibraryInfoArgs']]]] = None,
+                 default_spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_executor_allocation: pulumi.Input[Optional['DynamicExecutorAllocationArgs']] = None,
+                 force: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_autotune_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 library_requirements: pulumi.Input[Optional['LibraryRequirementsArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_size: pulumi.Input[Optional[Union[_builtins.str, 'NodeSize']]] = None,
+                 node_size_family: pulumi.Input[Optional[Union[_builtins.str, 'NodeSizeFamily']]] = None,
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_level_packages_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spark_config_properties: pulumi.Input[Optional['SparkConfigPropertiesArgs']] = None,
+                 spark_events_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 spark_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BigDataPool resource.
 
@@ -143,254 +143,254 @@ class BigDataPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoPause")
-    def auto_pause(self) -> Optional[pulumi.Input['AutoPausePropertiesArgs']]:
+    def auto_pause(self) -> pulumi.Input[Optional['AutoPausePropertiesArgs']]:
         """
         Auto-pausing properties
         """
         return pulumi.get(self, "auto_pause")
 
     @auto_pause.setter
-    def auto_pause(self, value: Optional[pulumi.Input['AutoPausePropertiesArgs']]):
+    def auto_pause(self, value: pulumi.Input[Optional['AutoPausePropertiesArgs']]):
         pulumi.set(self, "auto_pause", value)
 
     @_builtins.property
     @pulumi.getter(name="autoScale")
-    def auto_scale(self) -> Optional[pulumi.Input['AutoScalePropertiesArgs']]:
+    def auto_scale(self) -> pulumi.Input[Optional['AutoScalePropertiesArgs']]:
         """
         Auto-scaling properties
         """
         return pulumi.get(self, "auto_scale")
 
     @auto_scale.setter
-    def auto_scale(self, value: Optional[pulumi.Input['AutoScalePropertiesArgs']]):
+    def auto_scale(self, value: pulumi.Input[Optional['AutoScalePropertiesArgs']]):
         pulumi.set(self, "auto_scale", value)
 
     @_builtins.property
     @pulumi.getter(name="bigDataPoolName")
-    def big_data_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def big_data_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Big Data pool name
         """
         return pulumi.get(self, "big_data_pool_name")
 
     @big_data_pool_name.setter
-    def big_data_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def big_data_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "big_data_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The cache size
         """
         return pulumi.get(self, "cache_size")
 
     @cache_size.setter
-    def cache_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_size", value)
 
     @_builtins.property
     @pulumi.getter(name="customLibraries")
-    def custom_libraries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]]]:
+    def custom_libraries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LibraryInfoArgs']]]]:
         """
         List of custom libraries/packages associated with the spark pool.
         """
         return pulumi.get(self, "custom_libraries")
 
     @custom_libraries.setter
-    def custom_libraries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]]]):
+    def custom_libraries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LibraryInfoArgs']]]]):
         pulumi.set(self, "custom_libraries", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSparkLogFolder")
-    def default_spark_log_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_spark_log_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default folder where Spark logs will be written.
         """
         return pulumi.get(self, "default_spark_log_folder")
 
     @default_spark_log_folder.setter
-    def default_spark_log_folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_spark_log_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_spark_log_folder", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicExecutorAllocation")
-    def dynamic_executor_allocation(self) -> Optional[pulumi.Input['DynamicExecutorAllocationArgs']]:
+    def dynamic_executor_allocation(self) -> pulumi.Input[Optional['DynamicExecutorAllocationArgs']]:
         """
         Dynamic Executor Allocation
         """
         return pulumi.get(self, "dynamic_executor_allocation")
 
     @dynamic_executor_allocation.setter
-    def dynamic_executor_allocation(self, value: Optional[pulumi.Input['DynamicExecutorAllocationArgs']]):
+    def dynamic_executor_allocation(self, value: pulumi.Input[Optional['DynamicExecutorAllocationArgs']]):
         pulumi.set(self, "dynamic_executor_allocation", value)
 
     @_builtins.property
     @pulumi.getter
-    def force(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to stop any running jobs in the Big Data pool
         """
         return pulumi.get(self, "force")
 
     @force.setter
-    def force(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force", value)
 
     @_builtins.property
     @pulumi.getter(name="isAutotuneEnabled")
-    def is_autotune_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_autotune_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether autotune is required or not.
         """
         return pulumi.get(self, "is_autotune_enabled")
 
     @is_autotune_enabled.setter
-    def is_autotune_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_autotune_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_autotune_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isComputeIsolationEnabled")
-    def is_compute_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_compute_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether compute isolation is required or not.
         """
         return pulumi.get(self, "is_compute_isolation_enabled")
 
     @is_compute_isolation_enabled.setter
-    def is_compute_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_compute_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_compute_isolation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="libraryRequirements")
-    def library_requirements(self) -> Optional[pulumi.Input['LibraryRequirementsArgs']]:
+    def library_requirements(self) -> pulumi.Input[Optional['LibraryRequirementsArgs']]:
         """
         Library version requirements
         """
         return pulumi.get(self, "library_requirements")
 
     @library_requirements.setter
-    def library_requirements(self, value: Optional[pulumi.Input['LibraryRequirementsArgs']]):
+    def library_requirements(self, value: pulumi.Input[Optional['LibraryRequirementsArgs']]):
         pulumi.set(self, "library_requirements", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of nodes in the Big Data pool.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeSize")
-    def node_size(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NodeSize']]]:
+    def node_size(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NodeSize']]]:
         """
         The level of compute power that each node in the Big Data pool has.
         """
         return pulumi.get(self, "node_size")
 
     @node_size.setter
-    def node_size(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NodeSize']]]):
+    def node_size(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NodeSize']]]):
         pulumi.set(self, "node_size", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeSizeFamily")
-    def node_size_family(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NodeSizeFamily']]]:
+    def node_size_family(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NodeSizeFamily']]]:
         """
         The kind of nodes that the Big Data pool provides.
         """
         return pulumi.get(self, "node_size_family")
 
     @node_size_family.setter
-    def node_size_family(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NodeSizeFamily']]]):
+    def node_size_family(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NodeSizeFamily']]]):
         pulumi.set(self, "node_size_family", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the Big Data pool.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionLevelPackagesEnabled")
-    def session_level_packages_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def session_level_packages_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether session level packages enabled.
         """
         return pulumi.get(self, "session_level_packages_enabled")
 
     @session_level_packages_enabled.setter
-    def session_level_packages_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def session_level_packages_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "session_level_packages_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> Optional[pulumi.Input['SparkConfigPropertiesArgs']]:
+    def spark_config_properties(self) -> pulumi.Input[Optional['SparkConfigPropertiesArgs']]:
         """
         Spark configuration file to specify additional properties
         """
         return pulumi.get(self, "spark_config_properties")
 
     @spark_config_properties.setter
-    def spark_config_properties(self, value: Optional[pulumi.Input['SparkConfigPropertiesArgs']]):
+    def spark_config_properties(self, value: pulumi.Input[Optional['SparkConfigPropertiesArgs']]):
         pulumi.set(self, "spark_config_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkEventsFolder")
-    def spark_events_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spark_events_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Spark events folder
         """
         return pulumi.get(self, "spark_events_folder")
 
     @spark_events_folder.setter
-    def spark_events_folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spark_events_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spark_events_folder", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkVersion")
-    def spark_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spark_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Apache Spark version.
         """
         return pulumi.get(self, "spark_version")
 
     @spark_version.setter
-    def spark_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spark_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spark_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -400,29 +400,29 @@ class BigDataPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause: Optional[pulumi.Input[Union['AutoPausePropertiesArgs', 'AutoPausePropertiesArgsDict']]] = None,
-                 auto_scale: Optional[pulumi.Input[Union['AutoScalePropertiesArgs', 'AutoScalePropertiesArgsDict']]] = None,
-                 big_data_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LibraryInfoArgs', 'LibraryInfoArgsDict']]]]] = None,
-                 default_spark_log_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_executor_allocation: Optional[pulumi.Input[Union['DynamicExecutorAllocationArgs', 'DynamicExecutorAllocationArgsDict']]] = None,
-                 force: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_autotune_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 library_requirements: Optional[pulumi.Input[Union['LibraryRequirementsArgs', 'LibraryRequirementsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_size: Optional[pulumi.Input[Union[_builtins.str, 'NodeSize']]] = None,
-                 node_size_family: Optional[pulumi.Input[Union[_builtins.str, 'NodeSizeFamily']]] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_level_packages_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input[Union['SparkConfigPropertiesArgs', 'SparkConfigPropertiesArgsDict']]] = None,
-                 spark_events_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 spark_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_pause: pulumi.Input[Optional[Union['AutoPausePropertiesArgs', 'AutoPausePropertiesArgsDict']]] = None,
+                 auto_scale: pulumi.Input[Optional[Union['AutoScalePropertiesArgs', 'AutoScalePropertiesArgsDict']]] = None,
+                 big_data_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_libraries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LibraryInfoArgs', 'LibraryInfoArgsDict']]]]] = None,
+                 default_spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_executor_allocation: pulumi.Input[Optional[Union['DynamicExecutorAllocationArgs', 'DynamicExecutorAllocationArgsDict']]] = None,
+                 force: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_autotune_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 library_requirements: pulumi.Input[Optional[Union['LibraryRequirementsArgs', 'LibraryRequirementsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_size: pulumi.Input[Optional[Union[_builtins.str, 'NodeSize']]] = None,
+                 node_size_family: pulumi.Input[Optional[Union[_builtins.str, 'NodeSizeFamily']]] = None,
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_level_packages_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spark_config_properties: pulumi.Input[Optional[Union['SparkConfigPropertiesArgs', 'SparkConfigPropertiesArgsDict']]] = None,
+                 spark_events_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 spark_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A Big Data pool
@@ -430,7 +430,6 @@ class BigDataPool(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -471,7 +470,6 @@ class BigDataPool(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BigDataPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -487,29 +485,29 @@ class BigDataPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause: Optional[pulumi.Input[Union['AutoPausePropertiesArgs', 'AutoPausePropertiesArgsDict']]] = None,
-                 auto_scale: Optional[pulumi.Input[Union['AutoScalePropertiesArgs', 'AutoScalePropertiesArgsDict']]] = None,
-                 big_data_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LibraryInfoArgs', 'LibraryInfoArgsDict']]]]] = None,
-                 default_spark_log_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_executor_allocation: Optional[pulumi.Input[Union['DynamicExecutorAllocationArgs', 'DynamicExecutorAllocationArgsDict']]] = None,
-                 force: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_autotune_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_compute_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 library_requirements: Optional[pulumi.Input[Union['LibraryRequirementsArgs', 'LibraryRequirementsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 node_size: Optional[pulumi.Input[Union[_builtins.str, 'NodeSize']]] = None,
-                 node_size_family: Optional[pulumi.Input[Union[_builtins.str, 'NodeSizeFamily']]] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_level_packages_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input[Union['SparkConfigPropertiesArgs', 'SparkConfigPropertiesArgsDict']]] = None,
-                 spark_events_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 spark_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_pause: pulumi.Input[Optional[Union['AutoPausePropertiesArgs', 'AutoPausePropertiesArgsDict']]] = None,
+                 auto_scale: pulumi.Input[Optional[Union['AutoScalePropertiesArgs', 'AutoScalePropertiesArgsDict']]] = None,
+                 big_data_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_libraries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LibraryInfoArgs', 'LibraryInfoArgsDict']]]]] = None,
+                 default_spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_executor_allocation: pulumi.Input[Optional[Union['DynamicExecutorAllocationArgs', 'DynamicExecutorAllocationArgsDict']]] = None,
+                 force: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_autotune_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 library_requirements: pulumi.Input[Optional[Union['LibraryRequirementsArgs', 'LibraryRequirementsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 node_size: pulumi.Input[Optional[Union[_builtins.str, 'NodeSize']]] = None,
+                 node_size_family: pulumi.Input[Optional[Union[_builtins.str, 'NodeSizeFamily']]] = None,
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_level_packages_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spark_config_properties: pulumi.Input[Optional[Union['SparkConfigPropertiesArgs', 'SparkConfigPropertiesArgsDict']]] = None,
+                 spark_events_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 spark_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

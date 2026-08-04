@@ -185,23 +185,23 @@ export interface NetworkDeviceArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * The host name of the device.
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the Network Device.
      */
-    networkDeviceName?: pulumi.Input<string>;
+    networkDeviceName?: pulumi.Input<string | undefined>;
     /**
      * Network Device SKU name.
      */
-    networkDeviceSku?: pulumi.Input<string>;
+    networkDeviceSku?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -213,5 +213,5 @@ export interface NetworkDeviceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

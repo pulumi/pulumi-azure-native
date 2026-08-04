@@ -85,7 +85,6 @@ def list_appliance_keys(artifact_type: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str artifact_type: This sets the type of artifact being returned, when empty no artifact endpoint is returned.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: Appliances name.
@@ -101,9 +100,9 @@ def list_appliance_keys(artifact_type: Optional[_builtins.str] = None,
         artifact_profiles=pulumi.get(__ret__, 'artifact_profiles'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
-def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_appliance_keys_output(artifact_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceKeysResult]:
     """
     Returns the cluster customer credentials for the dedicated appliance.
@@ -111,7 +110,6 @@ def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[_bu
     Uses Azure REST API version 2022-10-27.
 
     Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str artifact_type: This sets the type of artifact being returned, when empty no artifact endpoint is returned.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

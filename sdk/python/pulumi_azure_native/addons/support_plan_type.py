@@ -20,7 +20,7 @@ __all__ = ['SupportPlanTypeArgs', 'SupportPlanType']
 class SupportPlanTypeArgs:
     def __init__(__self__, *,
                  provider_name: pulumi.Input[_builtins.str],
-                 plan_type_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 plan_type_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SupportPlanType resource.
 
@@ -45,14 +45,14 @@ class SupportPlanTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="planTypeName")
-    def plan_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Canonical support plan type.
         """
         return pulumi.get(self, "plan_type_name")
 
     @plan_type_name.setter
-    def plan_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_type_name", value)
 
 
@@ -62,14 +62,13 @@ class SupportPlanType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The status of the Canonical support plan.
 
         Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,7 +86,6 @@ class SupportPlanType(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param SupportPlanTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,8 +101,8 @@ class SupportPlanType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 plan_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

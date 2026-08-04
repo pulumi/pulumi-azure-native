@@ -23,8 +23,8 @@ class ReplicationLinkArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_type: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationLinkType']]] = None):
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_type: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationLinkType']]] = None):
         """
         The set of arguments for constructing a ReplicationLink resource.
 
@@ -79,23 +79,23 @@ class ReplicationLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkId")
-    def link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "link_id")
 
     @link_id.setter
-    def link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link_id", value)
 
     @_builtins.property
     @pulumi.getter(name="linkType")
-    def link_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationLinkType']]]:
+    def link_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReplicationLinkType']]]:
         """
         Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.
         """
         return pulumi.get(self, "link_type")
 
     @link_type.setter
-    def link_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationLinkType']]]):
+    def link_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationLinkType']]]):
         pulumi.set(self, "link_type", value)
 
 
@@ -105,11 +105,11 @@ class ReplicationLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_type: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationLinkType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_type: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationLinkType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A replication link.
@@ -117,7 +117,6 @@ class ReplicationLink(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +138,6 @@ class ReplicationLink(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ReplicationLinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +153,11 @@ class ReplicationLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_type: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationLinkType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_type: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationLinkType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

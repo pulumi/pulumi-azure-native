@@ -23,19 +23,19 @@ __all__ = ['IacProfileArgs', 'IacProfile']
 class IacProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iac_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_main_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input['StagePropertiesArgs']]]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 templates: Optional[pulumi.Input[Sequence[pulumi.Input['IacTemplatePropertiesArgs']]]] = None):
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iac_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_main_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input['StagePropertiesArgs']]]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 templates: pulumi.Input[Optional[Sequence[pulumi.Input['IacTemplatePropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a IacProfile resource.
 
@@ -94,152 +94,152 @@ class IacProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository Branch Name
         """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
-    def branch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iacProfileName")
-    def iac_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iac_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IacProfile.
         """
         return pulumi.get(self, "iac_profile_name")
 
     @iac_profile_name.setter
-    def iac_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iac_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iac_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryMainBranch")
-    def repository_main_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_main_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository Main Branch
         """
         return pulumi.get(self, "repository_main_branch")
 
     @repository_main_branch.setter
-    def repository_main_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_main_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_main_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository Name
         """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
-    def repository_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_name", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryOwner")
-    def repository_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository Owner
         """
         return pulumi.get(self, "repository_owner")
 
     @repository_owner.setter
-    def repository_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StagePropertiesArgs']]]]:
+    def stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StagePropertiesArgs']]]]:
         return pulumi.get(self, "stages")
 
     @stages.setter
-    def stages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StagePropertiesArgs']]]]):
+    def stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StagePropertiesArgs']]]]):
         pulumi.set(self, "stages", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Terraform Storage Account Name
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceGroup")
-    def storage_account_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Terraform Storage Account Resource Group
         """
         return pulumi.get(self, "storage_account_resource_group")
 
     @storage_account_resource_group.setter
-    def storage_account_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSubscription")
-    def storage_account_subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Terraform Storage Account Subscription
         """
         return pulumi.get(self, "storage_account_subscription")
 
     @storage_account_subscription.setter
-    def storage_account_subscription(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Terraform Container Name
         """
         return pulumi.get(self, "storage_container_name")
 
     @storage_container_name.setter
-    def storage_container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IacTemplatePropertiesArgs']]]]:
+    def templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IacTemplatePropertiesArgs']]]]:
         return pulumi.get(self, "templates")
 
     @templates.setter
-    def templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IacTemplatePropertiesArgs']]]]):
+    def templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IacTemplatePropertiesArgs']]]]):
         pulumi.set(self, "templates", value)
 
 
@@ -249,20 +249,20 @@ class IacProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iac_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_main_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StagePropertiesArgs', 'StagePropertiesArgsDict']]]]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IacTemplatePropertiesArgs', 'IacTemplatePropertiesArgsDict']]]]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iac_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_main_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StagePropertiesArgs', 'StagePropertiesArgsDict']]]]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IacTemplatePropertiesArgs', 'IacTemplatePropertiesArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource representation of a IacProfile.
@@ -270,7 +270,6 @@ class IacProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -300,7 +299,6 @@ class IacProfile(pulumi.CustomResource):
 
         Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IacProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,20 +314,20 @@ class IacProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iac_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_main_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StagePropertiesArgs', 'StagePropertiesArgsDict']]]]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IacTemplatePropertiesArgs', 'IacTemplatePropertiesArgsDict']]]]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iac_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_main_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StagePropertiesArgs', 'StagePropertiesArgsDict']]]]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IacTemplatePropertiesArgs', 'IacTemplatePropertiesArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

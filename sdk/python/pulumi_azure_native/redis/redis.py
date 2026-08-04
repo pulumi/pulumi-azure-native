@@ -24,25 +24,25 @@ class RedisArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 disable_access_key_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 redis_configuration: Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']] = None,
-                 redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_channel: Optional[pulumi.Input[Union[_builtins.str, 'UpdateChannel']]] = None,
-                 zonal_allocation_policy: Optional[pulumi.Input[Union[_builtins.str, 'ZonalAllocationPolicy']]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disable_access_key_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_non_ssl_port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 redis_configuration: pulumi.Input[Optional['RedisCommonPropertiesRedisConfigurationArgs']] = None,
+                 redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+                 replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_channel: pulumi.Input[Optional[Union[_builtins.str, 'UpdateChannel']]] = None,
+                 zonal_allocation_policy: pulumi.Input[Optional[Union[_builtins.str, 'ZonalAllocationPolicy']]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Redis resource.
 
@@ -139,230 +139,230 @@ class RedisArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableAccessKeyAuthentication")
-    def disable_access_key_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_access_key_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Authentication to Redis through access keys is disabled when set as true. Default value is false.
         """
         return pulumi.get(self, "disable_access_key_authentication")
 
     @disable_access_key_authentication.setter
-    def disable_access_key_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_access_key_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_access_key_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNonSslPort")
-    def enable_non_ssl_port(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_non_ssl_port(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the non-ssl Redis server port (6379) is enabled.
         """
         return pulumi.get(self, "enable_non_ssl_port")
 
     @enable_non_ssl_port.setter
-    def enable_non_ssl_port(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_non_ssl_port(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_non_ssl_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]:
         """
         Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         """
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the RedisResource
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']]:
+    def redis_configuration(self) -> pulumi.Input[Optional['RedisCommonPropertiesRedisConfigurationArgs']]:
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         """
         return pulumi.get(self, "redis_configuration")
 
     @redis_configuration.setter
-    def redis_configuration(self, value: Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']]):
+    def redis_configuration(self, value: pulumi.Input[Optional['RedisCommonPropertiesRedisConfigurationArgs']]):
         pulumi.set(self, "redis_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
         """
         return pulumi.get(self, "redis_version")
 
     @redis_version.setter
-    def redis_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_version", value)
 
     @_builtins.property
     @pulumi.getter(name="replicasPerMaster")
-    def replicas_per_master(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas_per_master(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of replicas to be created per primary.
         """
         return pulumi.get(self, "replicas_per_master")
 
     @replicas_per_master.setter
-    def replicas_per_master(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas_per_master(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas_per_master", value)
 
     @_builtins.property
     @pulumi.getter(name="replicasPerPrimary")
-    def replicas_per_primary(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas_per_primary(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of replicas to be created per primary.
         """
         return pulumi.get(self, "replicas_per_primary")
 
     @replicas_per_primary.setter
-    def replicas_per_primary(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas_per_primary(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas_per_primary", value)
 
     @_builtins.property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of shards to be created on a Premium Cluster Cache.
         """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
-    def shard_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def shard_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "shard_count", value)
 
     @_builtins.property
     @pulumi.getter(name="staticIP")
-    def static_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         """
         return pulumi.get(self, "static_ip")
 
     @static_ip.setter
-    def static_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantSettings")
-    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tenant_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A dictionary of tenant settings
         """
         return pulumi.get(self, "tenant_settings")
 
     @tenant_settings.setter
-    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tenant_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tenant_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="updateChannel")
-    def update_channel(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpdateChannel']]]:
+    def update_channel(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpdateChannel']]]:
         """
         Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
         """
         return pulumi.get(self, "update_channel")
 
     @update_channel.setter
-    def update_channel(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpdateChannel']]]):
+    def update_channel(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpdateChannel']]]):
         pulumi.set(self, "update_channel", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalAllocationPolicy")
-    def zonal_allocation_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ZonalAllocationPolicy']]]:
+    def zonal_allocation_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZonalAllocationPolicy']]]:
         """
         Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
         """
         return pulumi.get(self, "zonal_allocation_policy")
 
     @zonal_allocation_policy.setter
-    def zonal_allocation_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ZonalAllocationPolicy']]]):
+    def zonal_allocation_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ZonalAllocationPolicy']]]):
         pulumi.set(self, "zonal_allocation_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -372,27 +372,27 @@ class Redis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_access_key_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 redis_configuration: Optional[pulumi.Input[Union['RedisCommonPropertiesRedisConfigurationArgs', 'RedisCommonPropertiesRedisConfigurationArgsDict']]] = None,
-                 redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_channel: Optional[pulumi.Input[Union[_builtins.str, 'UpdateChannel']]] = None,
-                 zonal_allocation_policy: Optional[pulumi.Input[Union[_builtins.str, 'ZonalAllocationPolicy']]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_access_key_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_non_ssl_port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 redis_configuration: pulumi.Input[Optional[Union['RedisCommonPropertiesRedisConfigurationArgs', 'RedisCommonPropertiesRedisConfigurationArgsDict']]] = None,
+                 redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+                 replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_channel: pulumi.Input[Optional[Union[_builtins.str, 'UpdateChannel']]] = None,
+                 zonal_allocation_policy: pulumi.Input[Optional[Union[_builtins.str, 'ZonalAllocationPolicy']]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A single Redis item in List or Get Operation.
@@ -400,7 +400,6 @@ class Redis(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2015-08-01, 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -439,7 +438,6 @@ class Redis(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01, 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RedisArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -455,27 +453,27 @@ class Redis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_access_key_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 redis_configuration: Optional[pulumi.Input[Union['RedisCommonPropertiesRedisConfigurationArgs', 'RedisCommonPropertiesRedisConfigurationArgsDict']]] = None,
-                 redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 static_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_channel: Optional[pulumi.Input[Union[_builtins.str, 'UpdateChannel']]] = None,
-                 zonal_allocation_policy: Optional[pulumi.Input[Union[_builtins.str, 'ZonalAllocationPolicy']]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_access_key_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_non_ssl_port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 redis_configuration: pulumi.Input[Optional[Union['RedisCommonPropertiesRedisConfigurationArgs', 'RedisCommonPropertiesRedisConfigurationArgsDict']]] = None,
+                 redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+                 replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 static_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_channel: pulumi.Input[Optional[Union[_builtins.str, 'UpdateChannel']]] = None,
+                 zonal_allocation_policy: pulumi.Input[Optional[Union[_builtins.str, 'ZonalAllocationPolicy']]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -118,7 +118,7 @@ export interface WorkspaceTagArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId?: pulumi.Input<string>;
+    tagId?: pulumi.Input<string | undefined>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

@@ -544,7 +544,7 @@ class AliasPatternResponse(dict):
 @pulumi.output_type
 class AliasResponse(dict):
     """
-    The alias type. 
+    The alias type.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -575,7 +575,7 @@ class AliasResponse(dict):
                  paths: Optional[Sequence['outputs.AliasPathResponse']] = None,
                  type: Optional[_builtins.str] = None):
         """
-        The alias type. 
+        The alias type.
 
         :param 'AliasPathMetadataResponse' default_metadata: The default alias path metadata. Applies to the default path and to any alias path that doesn't have metadata
         :param _builtins.str default_path: The default path for an alias.
@@ -1307,8 +1307,8 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param 'OnErrorDeploymentExtendedResponse' on_error_deployment: The deployment on error behavior.
         :param Sequence['ResourceReferenceResponse'] output_resources: Array of provisioned resources.
         :param Any outputs: Key/value pairs that represent deployment output.
-        :param Any parameters: Deployment parameters. 
-        :param 'ParametersLinkResponse' parameters_link: The URI referencing the parameters. 
+        :param Any parameters: Deployment parameters.
+        :param 'ParametersLinkResponse' parameters_link: The URI referencing the parameters.
         :param Sequence['ProviderResponse'] providers: The list of resource providers needed for the deployment.
         :param _builtins.str provisioning_state: Denotes the state of provisioning.
         :param _builtins.str template_hash: The hash produced for the template.
@@ -1410,7 +1410,7 @@ class DeploymentPropertiesExtendedResponse(dict):
     @pulumi.getter
     def parameters(self) -> Any:
         """
-        Deployment parameters. 
+        Deployment parameters.
         """
         return pulumi.get(self, "parameters")
 
@@ -1418,7 +1418,7 @@ class DeploymentPropertiesExtendedResponse(dict):
     @pulumi.getter(name="parametersLink")
     def parameters_link(self) -> 'outputs.ParametersLinkResponse':
         """
-        The URI referencing the parameters. 
+        The URI referencing the parameters.
         """
         return pulumi.get(self, "parameters_link")
 
@@ -3790,7 +3790,7 @@ class PlanResponse(dict):
 @pulumi.output_type
 class ProviderExtendedLocationResponse(dict):
     """
-    The provider extended location. 
+    The provider extended location.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3814,7 +3814,7 @@ class ProviderExtendedLocationResponse(dict):
                  location: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        The provider extended location. 
+        The provider extended location.
 
         :param Sequence[_builtins.str] extended_locations: The extended locations for the azure location.
         :param _builtins.str location: The azure location.
@@ -4135,7 +4135,7 @@ class ResourceGroupPropertiesResponse(dict):
         """
         The resource group properties.
 
-        :param _builtins.str provisioning_state: The provisioning state. 
+        :param _builtins.str provisioning_state: The provisioning state.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
 
@@ -4143,7 +4143,7 @@ class ResourceGroupPropertiesResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
-        The provisioning state. 
+        The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 

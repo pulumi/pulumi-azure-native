@@ -24,11 +24,11 @@ class ProjectCatalogArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 ado_git: Optional[pulumi.Input['GitCatalogArgs']] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub: Optional[pulumi.Input['GitCatalogArgs']] = None,
-                 sync_type: Optional[pulumi.Input[Union[_builtins.str, 'CatalogSyncType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 ado_git: pulumi.Input[Optional['GitCatalogArgs']] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub: pulumi.Input[Optional['GitCatalogArgs']] = None,
+                 sync_type: pulumi.Input[Optional[Union[_builtins.str, 'CatalogSyncType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProjectCatalog resource.
 
@@ -79,62 +79,62 @@ class ProjectCatalogArgs:
 
     @_builtins.property
     @pulumi.getter(name="adoGit")
-    def ado_git(self) -> Optional[pulumi.Input['GitCatalogArgs']]:
+    def ado_git(self) -> pulumi.Input[Optional['GitCatalogArgs']]:
         """
         Properties for an Azure DevOps catalog type.
         """
         return pulumi.get(self, "ado_git")
 
     @ado_git.setter
-    def ado_git(self, value: Optional[pulumi.Input['GitCatalogArgs']]):
+    def ado_git(self, value: pulumi.Input[Optional['GitCatalogArgs']]):
         pulumi.set(self, "ado_git", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
-    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Catalog.
         """
         return pulumi.get(self, "catalog_name")
 
     @catalog_name.setter
-    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHub")
-    def git_hub(self) -> Optional[pulumi.Input['GitCatalogArgs']]:
+    def git_hub(self) -> pulumi.Input[Optional['GitCatalogArgs']]:
         """
         Properties for a GitHub catalog type.
         """
         return pulumi.get(self, "git_hub")
 
     @git_hub.setter
-    def git_hub(self, value: Optional[pulumi.Input['GitCatalogArgs']]):
+    def git_hub(self, value: pulumi.Input[Optional['GitCatalogArgs']]):
         pulumi.set(self, "git_hub", value)
 
     @_builtins.property
     @pulumi.getter(name="syncType")
-    def sync_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CatalogSyncType']]]:
+    def sync_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CatalogSyncType']]]:
         """
         Indicates the type of sync that is configured for the catalog.
         """
         return pulumi.get(self, "sync_type")
 
     @sync_type.setter
-    def sync_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CatalogSyncType']]]):
+    def sync_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CatalogSyncType']]]):
         pulumi.set(self, "sync_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class ProjectCatalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ado_git: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_type: Optional[pulumi.Input[Union[_builtins.str, 'CatalogSyncType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ado_git: pulumi.Input[Optional[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub: pulumi.Input[Optional[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_type: pulumi.Input[Optional[Union[_builtins.str, 'CatalogSyncType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a catalog.
@@ -158,7 +158,6 @@ class ProjectCatalog(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +182,6 @@ class ProjectCatalog(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ProjectCatalogArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,13 +197,13 @@ class ProjectCatalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ado_git: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
-                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 git_hub: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_type: Optional[pulumi.Input[Union[_builtins.str, 'CatalogSyncType']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ado_git: pulumi.Input[Optional[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 git_hub: pulumi.Input[Optional[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_type: pulumi.Input[Optional[Union[_builtins.str, 'CatalogSyncType']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

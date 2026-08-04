@@ -24,13 +24,13 @@ class VirtualNetworkArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allowed_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_provider_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allowed_subnets: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_provider_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetOverrideArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
 
@@ -87,86 +87,86 @@ class VirtualNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedSubnets")
-    def allowed_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
+    def allowed_subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]:
         """
         The allowed subnets of the virtual network.
         """
         return pulumi.get(self, "allowed_subnets")
 
     @allowed_subnets.setter
-    def allowed_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
+    def allowed_subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]]):
         pulumi.set(self, "allowed_subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the virtual network.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalProviderResourceId")
-    def external_provider_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_provider_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft.Network resource identifier of the virtual network.
         """
         return pulumi.get(self, "external_provider_resource_id")
 
     @external_provider_resource_id.setter
-    def external_provider_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_provider_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_provider_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual network.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetOverrides")
-    def subnet_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]]]:
+    def subnet_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubnetOverrideArgs']]]]:
         """
         The subnet overrides of the virtual network.
         """
         return pulumi.get(self, "subnet_overrides")
 
     @subnet_overrides.setter
-    def subnet_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetOverrideArgs']]]]):
+    def subnet_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetOverrideArgs']]]]):
         pulumi.set(self, "subnet_overrides", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -176,21 +176,20 @@ class VirtualNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_provider_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetOverrideArgs', 'SubnetOverrideArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_provider_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetOverrideArgs', 'SubnetOverrideArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A virtual network.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,7 +214,6 @@ class VirtualNetwork(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,15 +229,15 @@ class VirtualNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_provider_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetOverrideArgs', 'SubnetOverrideArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allowed_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_provider_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetOverrideArgs', 'SubnetOverrideArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

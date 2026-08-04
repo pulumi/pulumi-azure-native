@@ -276,7 +276,6 @@ def get_v_center(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str vcenter_name: Name of the vCenter.
     """
@@ -306,8 +305,8 @@ def get_v_center(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         version=pulumi.get(__ret__, 'version'))
-def get_v_center_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        vcenter_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_v_center_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        vcenter_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVCenterResult]:
     """
     Implements vCenter GET method.
@@ -315,7 +314,6 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2023-12-01.
 
     Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str vcenter_name: Name of the vCenter.

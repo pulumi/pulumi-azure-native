@@ -23,24 +23,24 @@ __all__ = ['MachineArgs', 'Machine']
 class MachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_upgrade: Optional[pulumi.Input['AgentUpgradeArgs']] = None,
-                 client_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]] = None,
-                 license_profile: Optional[pulumi.Input['LicenseProfileMachineInstanceViewArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input['LocationDataArgs']] = None,
-                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mssql_discovered: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_scope_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_statuses: Optional[pulumi.Input['ServiceStatusesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_upgrade: pulumi.Input[Optional['AgentUpgradeArgs']] = None,
+                 client_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ArcKindEnum']]] = None,
+                 license_profile: pulumi.Input[Optional['LicenseProfileMachineInstanceViewArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_data: pulumi.Input[Optional['LocationDataArgs']] = None,
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mssql_discovered: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_profile: pulumi.Input[Optional['OSProfileArgs']] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_statuses: pulumi.Input[Optional['ServiceStatusesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Machine resource.
 
@@ -116,218 +116,218 @@ class MachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentUpgrade")
-    def agent_upgrade(self) -> Optional[pulumi.Input['AgentUpgradeArgs']]:
+    def agent_upgrade(self) -> pulumi.Input[Optional['AgentUpgradeArgs']]:
         """
         The info of the machine w.r.t Agent Upgrade
         """
         return pulumi.get(self, "agent_upgrade")
 
     @agent_upgrade.setter
-    def agent_upgrade(self, value: Optional[pulumi.Input['AgentUpgradeArgs']]):
+    def agent_upgrade(self, value: pulumi.Input[Optional['AgentUpgradeArgs']]):
         pulumi.set(self, "agent_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPublicKey")
-    def client_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public Key that the client provides to be used during initial resource onboarding
         """
         return pulumi.get(self, "client_public_key")
 
     @client_public_key.setter
-    def client_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_public_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def expand(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expand(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expands referenced resources.
         """
         return pulumi.get(self, "expand")
 
     @expand.setter
-    def expand(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expand(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expand", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]]:
         """
         Machine Extensions information (deprecated field)
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ArcKindEnum']]]:
         """
         Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ArcKindEnum']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseProfile")
-    def license_profile(self) -> Optional[pulumi.Input['LicenseProfileMachineInstanceViewArgs']]:
+    def license_profile(self) -> pulumi.Input[Optional['LicenseProfileMachineInstanceViewArgs']]:
         """
         Specifies the License related properties for a machine.
         """
         return pulumi.get(self, "license_profile")
 
     @license_profile.setter
-    def license_profile(self, value: Optional[pulumi.Input['LicenseProfileMachineInstanceViewArgs']]):
+    def license_profile(self, value: pulumi.Input[Optional['LicenseProfileMachineInstanceViewArgs']]):
         pulumi.set(self, "license_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional[pulumi.Input['LocationDataArgs']]:
+    def location_data(self) -> pulumi.Input[Optional['LocationDataArgs']]:
         """
         Metadata pertaining to the geographic location of the resource.
         """
         return pulumi.get(self, "location_data")
 
     @location_data.setter
-    def location_data(self, value: Optional[pulumi.Input['LocationDataArgs']]):
+    def location_data(self, value: pulumi.Input[Optional['LocationDataArgs']]):
         pulumi.set(self, "location_data", value)
 
     @_builtins.property
     @pulumi.getter(name="machineName")
-    def machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the hybrid machine.
         """
         return pulumi.get(self, "machine_name")
 
     @machine_name.setter
-    def machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mssqlDiscovered")
-    def mssql_discovered(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mssql_discovered(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether any MS SQL instance is discovered on the machine.
         """
         return pulumi.get(self, "mssql_discovered")
 
     @mssql_discovered.setter
-    def mssql_discovered(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mssql_discovered(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mssql_discovered", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OSProfileArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['OSProfileArgs']]:
         """
         Specifies the operating system settings for the hybrid machine.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OSProfileArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['OSProfileArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Operating System (windows/linux).
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="parentClusterResourceId")
-    def parent_cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_cluster_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
         """
         return pulumi.get(self, "parent_cluster_resource_id")
 
     @parent_cluster_resource_id.setter
-    def parent_cluster_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_cluster_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_cluster_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkScopeResourceId")
-    def private_link_scope_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_scope_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the private link scope this machine is assigned to, if any.
         """
         return pulumi.get(self, "private_link_scope_resource_id")
 
     @private_link_scope_resource_id.setter
-    def private_link_scope_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_scope_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_scope_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceStatuses")
-    def service_statuses(self) -> Optional[pulumi.Input['ServiceStatusesArgs']]:
+    def service_statuses(self) -> pulumi.Input[Optional['ServiceStatusesArgs']]:
         """
         Statuses of dependent services that are reported back to ARM.
         """
         return pulumi.get(self, "service_statuses")
 
     @service_statuses.setter
-    def service_statuses(self, value: Optional[pulumi.Input['ServiceStatusesArgs']]):
+    def service_statuses(self, value: pulumi.Input[Optional['ServiceStatusesArgs']]):
         pulumi.set(self, "service_statuses", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vmId")
-    def vm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hybrid machine unique ID.
         """
         return pulumi.get(self, "vm_id")
 
     @vm_id.setter
-    def vm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_id", value)
 
 
@@ -337,25 +337,25 @@ class Machine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_upgrade: Optional[pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
-                 client_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]] = None,
-                 license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
-                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mssql_discovered: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_scope_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_statuses: Optional[pulumi.Input[Union['ServiceStatusesArgs', 'ServiceStatusesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_upgrade: pulumi.Input[Optional[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
+                 client_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ArcKindEnum']]] = None,
+                 license_profile: pulumi.Input[Optional[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_data: pulumi.Input[Optional[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mssql_discovered: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_statuses: pulumi.Input[Optional[Union['ServiceStatusesArgs', 'ServiceStatusesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a hybrid machine.
@@ -363,7 +363,6 @@ class Machine(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2022-12-27.
 
         Other available API versions: 2020-08-15-preview, 2021-01-28-preview, 2021-03-25-preview, 2021-04-22-preview, 2021-05-17-preview, 2021-05-20, 2021-06-10-preview, 2021-12-10-preview, 2022-03-10, 2022-05-10-preview, 2022-08-11-preview, 2022-11-10, 2022-12-27, 2022-12-27-preview, 2023-03-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -400,7 +399,6 @@ class Machine(pulumi.CustomResource):
 
         Other available API versions: 2020-08-15-preview, 2021-01-28-preview, 2021-03-25-preview, 2021-04-22-preview, 2021-05-17-preview, 2021-05-20, 2021-06-10-preview, 2021-12-10-preview, 2022-03-10, 2022-05-10-preview, 2022-08-11-preview, 2022-11-10, 2022-12-27, 2022-12-27-preview, 2023-03-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MachineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -416,25 +414,25 @@ class Machine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_upgrade: Optional[pulumi.Input[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
-                 client_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ArcKindEnum']]] = None,
-                 license_profile: Optional[pulumi.Input[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_data: Optional[pulumi.Input[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
-                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mssql_discovered: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_scope_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_statuses: Optional[pulumi.Input[Union['ServiceStatusesArgs', 'ServiceStatusesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_upgrade: pulumi.Input[Optional[Union['AgentUpgradeArgs', 'AgentUpgradeArgsDict']]] = None,
+                 client_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MachineExtensionInstanceViewArgs', 'MachineExtensionInstanceViewArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ArcKindEnum']]] = None,
+                 license_profile: pulumi.Input[Optional[Union['LicenseProfileMachineInstanceViewArgs', 'LicenseProfileMachineInstanceViewArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_data: pulumi.Input[Optional[Union['LocationDataArgs', 'LocationDataArgsDict']]] = None,
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mssql_discovered: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_statuses: pulumi.Input[Optional[Union['ServiceStatusesArgs', 'ServiceStatusesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

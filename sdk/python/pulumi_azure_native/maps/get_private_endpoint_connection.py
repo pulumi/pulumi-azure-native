@@ -157,7 +157,6 @@ def get_private_endpoint_connection(account_name: Optional[_builtins.str] = None
 
     Other available API versions: 2023-12-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the Maps Account.
     :param _builtins.str private_endpoint_connection_name: The name of the Private Endpoint Connection.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,9 +178,9 @@ def get_private_endpoint_connection(account_name: Optional[_builtins.str] = None
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the Maps Account.
@@ -189,7 +188,6 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2024-01-01-preview.
 
     Other available API versions: 2023-12-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the Maps Account.
     :param _builtins.str private_endpoint_connection_name: The name of the Private Endpoint Connection.

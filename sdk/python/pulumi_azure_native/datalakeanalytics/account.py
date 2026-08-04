@@ -25,20 +25,20 @@ class AccountArgs:
                  data_lake_store_accounts: pulumi.Input[Sequence[pulumi.Input['AddDataLakeStoreWithAccountParametersArgs']]],
                  default_data_lake_store_account: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]] = None,
-                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_degree_of_parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_job_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 new_tier: Optional[pulumi.Input['TierType']] = None,
-                 query_store_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_policies: pulumi.Input[Optional[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]] = None,
+                 firewall_allow_azure_ips: pulumi.Input[Optional['FirewallAllowAzureIpsState']] = None,
+                 firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]] = None,
+                 firewall_state: pulumi.Input[Optional['FirewallState']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_degree_of_parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_job_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 new_tier: pulumi.Input[Optional['TierType']] = None,
+                 query_store_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -144,170 +144,170 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Data Lake Analytics account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="computePolicies")
-    def compute_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]]:
+    def compute_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]]:
         """
         The list of compute policies associated with this account.
         """
         return pulumi.get(self, "compute_policies")
 
     @compute_policies.setter
-    def compute_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]]):
+    def compute_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]]):
         pulumi.set(self, "compute_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallAllowAzureIps")
-    def firewall_allow_azure_ips(self) -> Optional[pulumi.Input['FirewallAllowAzureIpsState']]:
+    def firewall_allow_azure_ips(self) -> pulumi.Input[Optional['FirewallAllowAzureIpsState']]:
         """
         The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         """
         return pulumi.get(self, "firewall_allow_azure_ips")
 
     @firewall_allow_azure_ips.setter
-    def firewall_allow_azure_ips(self, value: Optional[pulumi.Input['FirewallAllowAzureIpsState']]):
+    def firewall_allow_azure_ips(self, value: pulumi.Input[Optional['FirewallAllowAzureIpsState']]):
         pulumi.set(self, "firewall_allow_azure_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]:
+    def firewall_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]:
         """
         The list of firewall rules associated with this account.
         """
         return pulumi.get(self, "firewall_rules")
 
     @firewall_rules.setter
-    def firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]):
+    def firewall_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]]):
         pulumi.set(self, "firewall_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallState")
-    def firewall_state(self) -> Optional[pulumi.Input['FirewallState']]:
+    def firewall_state(self) -> pulumi.Input[Optional['FirewallState']]:
         """
         The current state of the IP address firewall for this account.
         """
         return pulumi.get(self, "firewall_state")
 
     @firewall_state.setter
-    def firewall_state(self, value: Optional[pulumi.Input['FirewallState']]):
+    def firewall_state(self, value: pulumi.Input[Optional['FirewallState']]):
         pulumi.set(self, "firewall_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDegreeOfParallelism")
-    def max_degree_of_parallelism(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_degree_of_parallelism(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum supported degree of parallelism for this account.
         """
         return pulumi.get(self, "max_degree_of_parallelism")
 
     @max_degree_of_parallelism.setter
-    def max_degree_of_parallelism(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_degree_of_parallelism(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_degree_of_parallelism", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_degree_of_parallelism_per_job(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum supported degree of parallelism per job for this account.
         """
         return pulumi.get(self, "max_degree_of_parallelism_per_job")
 
     @max_degree_of_parallelism_per_job.setter
-    def max_degree_of_parallelism_per_job(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_degree_of_parallelism_per_job(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_degree_of_parallelism_per_job", value)
 
     @_builtins.property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_job_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum supported jobs running under the account at the same time.
         """
         return pulumi.get(self, "max_job_count")
 
     @max_job_count.setter
-    def max_job_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_job_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_job_count", value)
 
     @_builtins.property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_priority_per_job(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum supported priority per job for this account.
         """
         return pulumi.get(self, "min_priority_per_job")
 
     @min_priority_per_job.setter
-    def min_priority_per_job(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_priority_per_job(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_priority_per_job", value)
 
     @_builtins.property
     @pulumi.getter(name="newTier")
-    def new_tier(self) -> Optional[pulumi.Input['TierType']]:
+    def new_tier(self) -> pulumi.Input[Optional['TierType']]:
         """
         The commitment tier for the next month.
         """
         return pulumi.get(self, "new_tier")
 
     @new_tier.setter
-    def new_tier(self, value: Optional[pulumi.Input['TierType']]):
+    def new_tier(self, value: pulumi.Input[Optional['TierType']]):
         pulumi.set(self, "new_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="queryStoreRetention")
-    def query_store_retention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_store_retention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that job metadata is retained.
         """
         return pulumi.get(self, "query_store_retention")
 
     @query_store_retention.setter
-    def query_store_retention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_store_retention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_store_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]]]:
         """
         The list of Azure Blob Storage accounts associated with this account.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -317,29 +317,28 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateComputePolicyWithAccountParametersArgs', 'CreateComputePolicyWithAccountParametersArgsDict']]]]] = None,
-                 data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddDataLakeStoreWithAccountParametersArgs', 'AddDataLakeStoreWithAccountParametersArgsDict']]]]] = None,
-                 default_data_lake_store_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
-                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_degree_of_parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_job_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 new_tier: Optional[pulumi.Input['TierType']] = None,
-                 query_store_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddStorageAccountWithAccountParametersArgs', 'AddStorageAccountWithAccountParametersArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateComputePolicyWithAccountParametersArgs', 'CreateComputePolicyWithAccountParametersArgsDict']]]]] = None,
+                 data_lake_store_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddDataLakeStoreWithAccountParametersArgs', 'AddDataLakeStoreWithAccountParametersArgsDict']]]]] = None,
+                 default_data_lake_store_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_allow_azure_ips: pulumi.Input[Optional['FirewallAllowAzureIpsState']] = None,
+                 firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
+                 firewall_state: pulumi.Input[Optional['FirewallState']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_degree_of_parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_job_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 new_tier: pulumi.Input[Optional['TierType']] = None,
+                 query_store_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddStorageAccountWithAccountParametersArgs', 'AddStorageAccountWithAccountParametersArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -372,7 +371,6 @@ class Account(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,23 +386,23 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateComputePolicyWithAccountParametersArgs', 'CreateComputePolicyWithAccountParametersArgsDict']]]]] = None,
-                 data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddDataLakeStoreWithAccountParametersArgs', 'AddDataLakeStoreWithAccountParametersArgsDict']]]]] = None,
-                 default_data_lake_store_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
-                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_degree_of_parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_job_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 new_tier: Optional[pulumi.Input['TierType']] = None,
-                 query_store_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddStorageAccountWithAccountParametersArgs', 'AddStorageAccountWithAccountParametersArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateComputePolicyWithAccountParametersArgs', 'CreateComputePolicyWithAccountParametersArgsDict']]]]] = None,
+                 data_lake_store_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddDataLakeStoreWithAccountParametersArgs', 'AddDataLakeStoreWithAccountParametersArgsDict']]]]] = None,
+                 default_data_lake_store_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_allow_azure_ips: pulumi.Input[Optional['FirewallAllowAzureIpsState']] = None,
+                 firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CreateFirewallRuleWithAccountParametersArgs', 'CreateFirewallRuleWithAccountParametersArgsDict']]]]] = None,
+                 firewall_state: pulumi.Input[Optional['FirewallState']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_degree_of_parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_job_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 new_tier: pulumi.Input[Optional['TierType']] = None,
+                 query_store_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddStorageAccountWithAccountParametersArgs', 'AddStorageAccountWithAccountParametersArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

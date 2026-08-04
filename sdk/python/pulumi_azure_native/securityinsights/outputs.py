@@ -1667,8 +1667,7 @@ class BooleanConditionPropertiesResponse(dict):
         """
         Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
 
-        :param _builtins.str condition_type: 
-               Expected value is 'Boolean'.
+        :param _builtins.str condition_type: Expected value is 'Boolean'.
         :param 'AutomationRuleBooleanConditionResponse' condition_properties: Describes an automation rule condition with boolean operators.
         """
         pulumi.set(__self__, "condition_type", 'Boolean')
@@ -1679,7 +1678,6 @@ class BooleanConditionPropertiesResponse(dict):
     @pulumi.getter(name="conditionType")
     def condition_type(self) -> _builtins.str:
         """
-
         Expected value is 'Boolean'.
         """
         return pulumi.get(self, "condition_type")
@@ -5955,8 +5953,7 @@ class PropertyArrayChangedConditionPropertiesResponse(dict):
         """
         Describes an automation rule condition that evaluates an array property's value change
 
-        :param _builtins.str condition_type: 
-               Expected value is 'PropertyArrayChanged'.
+        :param _builtins.str condition_type: Expected value is 'PropertyArrayChanged'.
         """
         pulumi.set(__self__, "condition_type", 'PropertyArrayChanged')
         if condition_properties is not None:
@@ -5966,7 +5963,6 @@ class PropertyArrayChangedConditionPropertiesResponse(dict):
     @pulumi.getter(name="conditionType")
     def condition_type(self) -> _builtins.str:
         """
-
         Expected value is 'PropertyArrayChanged'.
         """
         return pulumi.get(self, "condition_type")
@@ -6007,8 +6003,7 @@ class PropertyArrayConditionPropertiesResponse(dict):
         """
         Describes an automation rule condition that evaluates an array property's value
 
-        :param _builtins.str condition_type: 
-               Expected value is 'PropertyArray'.
+        :param _builtins.str condition_type: Expected value is 'PropertyArray'.
         :param 'AutomationRulePropertyArrayValuesConditionResponse' condition_properties: Describes an automation rule condition on array properties.
         """
         pulumi.set(__self__, "condition_type", 'PropertyArray')
@@ -6019,7 +6014,6 @@ class PropertyArrayConditionPropertiesResponse(dict):
     @pulumi.getter(name="conditionType")
     def condition_type(self) -> _builtins.str:
         """
-
         Expected value is 'PropertyArray'.
         """
         return pulumi.get(self, "condition_type")
@@ -6063,8 +6057,7 @@ class PropertyChangedConditionPropertiesResponse(dict):
         """
         Describes an automation rule condition that evaluates a property's value change
 
-        :param _builtins.str condition_type: 
-               Expected value is 'PropertyChanged'.
+        :param _builtins.str condition_type: Expected value is 'PropertyChanged'.
         """
         pulumi.set(__self__, "condition_type", 'PropertyChanged')
         if condition_properties is not None:
@@ -6074,7 +6067,6 @@ class PropertyChangedConditionPropertiesResponse(dict):
     @pulumi.getter(name="conditionType")
     def condition_type(self) -> _builtins.str:
         """
-
         Expected value is 'PropertyChanged'.
         """
         return pulumi.get(self, "condition_type")
@@ -6115,8 +6107,7 @@ class PropertyConditionPropertiesResponse(dict):
         """
         Describes an automation rule condition that evaluates a property's value
 
-        :param _builtins.str condition_type: 
-               Expected value is 'Property'.
+        :param _builtins.str condition_type: Expected value is 'Property'.
         """
         pulumi.set(__self__, "condition_type", 'Property')
         if condition_properties is not None:
@@ -6126,7 +6117,6 @@ class PropertyConditionPropertiesResponse(dict):
     @pulumi.getter(name="conditionType")
     def condition_type(self) -> _builtins.str:
         """
-
         Expected value is 'Property'.
         """
         return pulumi.get(self, "condition_type")

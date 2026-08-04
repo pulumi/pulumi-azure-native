@@ -24,15 +24,15 @@ class PolicyArgs:
                  lab_name: pulumi.Input[_builtins.str],
                  policy_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluator_type: Optional[pulumi.Input[Union[_builtins.str, 'PolicyEvaluatorType']]] = None,
-                 fact_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 fact_name: Optional[pulumi.Input[Union[_builtins.str, 'PolicyFactName']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluator_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyEvaluatorType']]] = None,
+                 fact_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 fact_name: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFactName']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -109,110 +109,110 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluatorType")
-    def evaluator_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyEvaluatorType']]]:
+    def evaluator_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyEvaluatorType']]]:
         """
         The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         """
         return pulumi.get(self, "evaluator_type")
 
     @evaluator_type.setter
-    def evaluator_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyEvaluatorType']]]):
+    def evaluator_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyEvaluatorType']]]):
         pulumi.set(self, "evaluator_type", value)
 
     @_builtins.property
     @pulumi.getter(name="factData")
-    def fact_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fact_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fact data of the policy.
         """
         return pulumi.get(self, "fact_data")
 
     @fact_data.setter
-    def fact_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fact_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fact_data", value)
 
     @_builtins.property
     @pulumi.getter(name="factName")
-    def fact_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyFactName']]]:
+    def fact_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyFactName']]]:
         """
         The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         """
         return pulumi.get(self, "fact_name")
 
     @fact_name.setter
-    def fact_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyFactName']]]):
+    def fact_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFactName']]]):
         pulumi.set(self, "fact_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Policy
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]]:
         """
         The status of the policy.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threshold", value)
 
 
@@ -222,24 +222,23 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluator_type: Optional[pulumi.Input[Union[_builtins.str, 'PolicyEvaluatorType']]] = None,
-                 fact_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 fact_name: Optional[pulumi.Input[Union[_builtins.str, 'PolicyFactName']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluator_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyEvaluatorType']]] = None,
+                 fact_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 fact_name: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFactName']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A Policy.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,7 +266,6 @@ class Policy(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,18 +281,18 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluator_type: Optional[pulumi.Input[Union[_builtins.str, 'PolicyEvaluatorType']]] = None,
-                 fact_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 fact_name: Optional[pulumi.Input[Union[_builtins.str, 'PolicyFactName']]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PolicyStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluator_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyEvaluatorType']]] = None,
+                 fact_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 fact_name: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFactName']]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PolicyStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -264,7 +264,6 @@ def get_iot_security_solution(resource_group_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str solution_name: The name of the IoT Security solution.
     """
@@ -293,8 +292,8 @@ def get_iot_security_solution(resource_group_name: Optional[_builtins.str] = Non
         unmasked_ip_logging_status=pulumi.get(__ret__, 'unmasked_ip_logging_status'),
         user_defined_resources=pulumi.get(__ret__, 'user_defined_resources'),
         workspace=pulumi.get(__ret__, 'workspace'))
-def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     solution_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_iot_security_solution_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     solution_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
     """
     User this method to get details of a specific IoT Security solution based on solution name
@@ -302,7 +301,6 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
     Uses Azure REST API version 2019-08-01.
 
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str solution_name: The name of the IoT Security solution.

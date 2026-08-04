@@ -24,9 +24,9 @@ class DaprComponentResiliencyPolicyArgs:
                  component_name: pulumi.Input[_builtins.str],
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 inbound_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs']] = None):
+                 inbound_policy: pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_policy: pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DaprComponentResiliencyPolicy resource.
 
@@ -85,38 +85,38 @@ class DaprComponentResiliencyPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="inboundPolicy")
-    def inbound_policy(self) -> Optional[pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs']]:
+    def inbound_policy(self) -> pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']]:
         """
         The optional inbound component resiliency policy configuration
         """
         return pulumi.get(self, "inbound_policy")
 
     @inbound_policy.setter
-    def inbound_policy(self, value: Optional[pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs']]):
+    def inbound_policy(self, value: pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']]):
         pulumi.set(self, "inbound_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Dapr Component Resiliency Policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundPolicy")
-    def outbound_policy(self) -> Optional[pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs']]:
+    def outbound_policy(self) -> pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']]:
         """
         The optional outbound component resiliency policy configuration
         """
         return pulumi.get(self, "outbound_policy")
 
     @outbound_policy.setter
-    def outbound_policy(self, value: Optional[pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs']]):
+    def outbound_policy(self, value: pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']]):
         pulumi.set(self, "outbound_policy", value)
 
 
@@ -126,12 +126,12 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_policy: pulumi.Input[Optional[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_policy: pulumi.Input[Optional[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Dapr Component Resiliency Policy.
@@ -139,7 +139,6 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +162,6 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DaprComponentResiliencyPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,12 +177,12 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_policy: Optional[pulumi.Input[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_policy: pulumi.Input[Optional[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_policy: pulumi.Input[Optional[Union['DaprComponentResiliencyPolicyConfigurationArgs', 'DaprComponentResiliencyPolicyConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

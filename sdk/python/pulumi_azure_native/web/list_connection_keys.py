@@ -73,7 +73,6 @@ def list_connection_keys(connection_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2015-08-01-preview.
 
-
     :param _builtins.str connection_name: The connection name.
     :param _builtins.str id: Resource Id
     :param _builtins.str kind: Kind of resource
@@ -100,21 +99,20 @@ def list_connection_keys(connection_name: Optional[_builtins.str] = None,
     return AwaitableListConnectionKeysResult(
         connection_key=pulumi.get(__ret__, 'connection_key'),
         parameter_values=pulumi.get(__ret__, 'parameter_values'))
-def list_connection_keys_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                kind: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                location: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                                type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                validity_time_span: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_connection_keys_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                kind: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                location: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                                type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                validity_time_span: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionKeysResult]:
     """
     Lists connection keys.
 
     Uses Azure REST API version 2015-08-01-preview.
-
 
     :param _builtins.str connection_name: The connection name.
     :param _builtins.str id: Resource Id

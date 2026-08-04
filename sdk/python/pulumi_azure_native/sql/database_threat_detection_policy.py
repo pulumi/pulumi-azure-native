@@ -24,15 +24,15 @@ class DatabaseThreatDetectionPolicyArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyState']],
-                 disabled_alerts: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_account_admins: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]] = None,
-                 email_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_alert_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_server_default: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None):
+                 disabled_alerts: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_account_admins: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]] = None,
+                 email_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_server_default: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None):
         """
         The set of arguments for constructing a DatabaseThreatDetectionPolicy resource.
 
@@ -123,110 +123,110 @@ class DatabaseThreatDetectionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disabled_alerts(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disabled_alerts(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]]:
+    def email_account_admins(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]]:
         """
         Specifies that the alert is sent to the account administrators.
         """
         return pulumi.get(self, "email_account_admins")
 
     @email_account_admins.setter
-    def email_account_admins(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]]):
+    def email_account_admins(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]]):
         pulumi.set(self, "email_account_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="securityAlertPolicyName")
-    def security_alert_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_alert_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security alert policy.
         """
         return pulumi.get(self, "security_alert_policy_name")
 
     @security_alert_policy_name.setter
-    def security_alert_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_alert_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_alert_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="useServerDefault")
-    def use_server_default(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]]:
+    def use_server_default(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]]:
         """
         Specifies whether to use the default server policy.
         """
         return pulumi.get(self, "use_server_default")
 
     @use_server_default.setter
-    def use_server_default(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]]):
+    def use_server_default(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]]):
         pulumi.set(self, "use_server_default", value)
 
 
@@ -236,25 +236,24 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled_alerts: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_account_admins: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]] = None,
-                 email_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_alert_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyState']]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_server_default: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled_alerts: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_account_admins: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]] = None,
+                 email_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyState']]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_server_default: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None,
                  __props__=None):
         """
         Contains information about a database Threat Detection policy.
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,7 +282,6 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
 
-
         :param str resource_name: The name of the resource.
         :param DatabaseThreatDetectionPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -299,19 +297,19 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled_alerts: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_account_admins: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]] = None,
-                 email_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_alert_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyState']]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_server_default: Optional[pulumi.Input[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled_alerts: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_account_admins: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyEmailAccountAdmins']]] = None,
+                 email_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyState']]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_server_default: pulumi.Input[Optional[Union[_builtins.str, 'SecurityAlertPolicyUseServerDefault']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

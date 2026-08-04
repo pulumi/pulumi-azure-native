@@ -119,7 +119,6 @@ def get_alias(alias_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
     """
     __args__ = dict()
@@ -134,7 +133,7 @@ def get_alias(alias_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_alias_output(alias_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alias_output(alias_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Get Alias Subscription.
@@ -142,7 +141,6 @@ def get_alias_output(alias_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-08-01-preview.
 
     Other available API versions: 2021-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
     """

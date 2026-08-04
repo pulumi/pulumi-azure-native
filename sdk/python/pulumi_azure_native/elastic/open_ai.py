@@ -23,8 +23,8 @@ class OpenAIArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['OpenAIIntegrationPropertiesArgs']] = None):
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['OpenAIIntegrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a OpenAI resource.
 
@@ -66,26 +66,26 @@ class OpenAIArgs:
 
     @_builtins.property
     @pulumi.getter(name="integrationName")
-    def integration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OpenAI Integration name
         """
         return pulumi.get(self, "integration_name")
 
     @integration_name.setter
-    def integration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['OpenAIIntegrationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['OpenAIIntegrationPropertiesArgs']]:
         """
         Open AI Integration details.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['OpenAIIntegrationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['OpenAIIntegrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class OpenAI(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['OpenAIIntegrationPropertiesArgs', 'OpenAIIntegrationPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['OpenAIIntegrationPropertiesArgs', 'OpenAIIntegrationPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Capture properties of Open AI resource Integration.
@@ -106,7 +106,6 @@ class OpenAI(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class OpenAI(pulumi.CustomResource):
 
         Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OpenAIArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class OpenAI(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['OpenAIIntegrationPropertiesArgs', 'OpenAIIntegrationPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['OpenAIIntegrationPropertiesArgs', 'OpenAIIntegrationPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

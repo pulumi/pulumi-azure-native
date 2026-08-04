@@ -102,15 +102,15 @@ export interface LinkedWorkspaceArgs {
     /**
      * Friendly name of the linked workspace
      */
-    linkName?: pulumi.Input<string>;
+    linkName?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of the linked workspace
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * LinkedWorkspace specific properties.
      */
-    properties?: pulumi.Input<inputs.machinelearningservices.LinkedWorkspacePropsArgs>;
+    properties?: pulumi.Input<inputs.machinelearningservices.LinkedWorkspacePropsArgs | undefined>;
     /**
      * Name of the resource group in which workspace is located.
      */

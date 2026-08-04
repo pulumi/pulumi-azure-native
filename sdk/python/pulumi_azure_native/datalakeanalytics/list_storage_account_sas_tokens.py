@@ -72,7 +72,6 @@ def list_storage_account_sas_tokens(account_name: Optional[_builtins.str] = None
 
     Uses Azure REST API version 2019-11-01-preview.
 
-
     :param _builtins.str account_name: The name of the Data Lake Analytics account.
     :param _builtins.str container_name: The name of the Azure storage container for which the SAS token is being requested.
     :param _builtins.str resource_group_name: The name of the Azure resource group.
@@ -89,16 +88,15 @@ def list_storage_account_sas_tokens(account_name: Optional[_builtins.str] = None
     return AwaitableListStorageAccountSasTokensResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_storage_account_sas_tokens_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_storage_account_sas_tokens_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountSasTokensResult]:
     """
     Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
 
     Uses Azure REST API version 2019-11-01-preview.
-
 
     :param _builtins.str account_name: The name of the Data Lake Analytics account.
     :param _builtins.str container_name: The name of the Azure storage container for which the SAS token is being requested.

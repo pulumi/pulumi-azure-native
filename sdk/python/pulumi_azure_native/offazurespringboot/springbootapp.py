@@ -23,8 +23,8 @@ class SpringbootappArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['SpringbootappsPropertiesArgs']] = None,
-                 springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['SpringbootappsPropertiesArgs']] = None,
+                 springbootapps_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Springbootapp resource.
 
@@ -66,26 +66,26 @@ class SpringbootappArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SpringbootappsPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['SpringbootappsPropertiesArgs']]:
         """
         The springbootapps resource definition.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SpringbootappsPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['SpringbootappsPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="springbootappsName")
-    def springbootapps_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def springbootapps_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The springbootapps name.
         """
         return pulumi.get(self, "springbootapps_name")
 
     @springbootapps_name.setter
-    def springbootapps_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def springbootapps_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "springbootapps_name", value)
 
 
@@ -95,16 +95,15 @@ class Springbootapp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 springbootapps_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The springbootapps envelope resource definition.
 
         Uses Azure REST API version 2024-04-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class Springbootapp(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param SpringbootappArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class Springbootapp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 springbootapps_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

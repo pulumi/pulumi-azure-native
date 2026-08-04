@@ -213,7 +213,7 @@ class EncryptionConfigArgsDict(TypedDict):
     """
     The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
     """
-    key_vault_meta_info: NotRequired[pulumi.Input['KeyVaultMetaInfoArgsDict']]
+    key_vault_meta_info: NotRequired[pulumi.Input[Optional['KeyVaultMetaInfoArgsDict']]]
     """
     The Key Vault information for connecting to user managed encryption keys.
     """
@@ -222,7 +222,7 @@ class EncryptionConfigArgsDict(TypedDict):
 class EncryptionConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['EncryptionConfigType'],
-                 key_vault_meta_info: Optional[pulumi.Input['KeyVaultMetaInfoArgs']] = None):
+                 key_vault_meta_info: pulumi.Input[Optional['KeyVaultMetaInfoArgs']] = None):
         """
         The encryption configuration for the account.
 
@@ -247,14 +247,14 @@ class EncryptionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultMetaInfo")
-    def key_vault_meta_info(self) -> Optional[pulumi.Input['KeyVaultMetaInfoArgs']]:
+    def key_vault_meta_info(self) -> pulumi.Input[Optional['KeyVaultMetaInfoArgs']]:
         """
         The Key Vault information for connecting to user managed encryption keys.
         """
         return pulumi.get(self, "key_vault_meta_info")
 
     @key_vault_meta_info.setter
-    def key_vault_meta_info(self, value: Optional[pulumi.Input['KeyVaultMetaInfoArgs']]):
+    def key_vault_meta_info(self, value: pulumi.Input[Optional['KeyVaultMetaInfoArgs']]):
         pulumi.set(self, "key_vault_meta_info", value)
 
 

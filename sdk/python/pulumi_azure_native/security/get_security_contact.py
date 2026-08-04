@@ -167,7 +167,6 @@ def get_security_contact(security_contact_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str security_contact_name: Name of the security contact object
     """
     __args__ = dict()
@@ -186,7 +185,7 @@ def get_security_contact(security_contact_name: Optional[_builtins.str] = None,
         phone=pulumi.get(__ret__, 'phone'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_security_contact_output(security_contact_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_contact_output(security_contact_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityContactResult]:
     """
     Get Default Security contact configurations for the subscription
@@ -194,7 +193,6 @@ def get_security_contact_output(security_contact_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2023-12-01-preview.
 
     Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str security_contact_name: Name of the security contact object
     """

@@ -22,11 +22,11 @@ class LongTermRetentionPolicyArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None):
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LongTermRetentionPolicy resource.
 
@@ -91,62 +91,62 @@ class LongTermRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="monthlyRetention")
-    def monthly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monthly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monthly retention policy for an LTR backup in an ISO 8601 format.
         """
         return pulumi.get(self, "monthly_retention")
 
     @monthly_retention.setter
-    def monthly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monthly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monthly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy name. Should always be Default.
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="weekOfYear")
-    def week_of_year(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def week_of_year(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The week of year to take the yearly backup in an ISO 8601 format.
         """
         return pulumi.get(self, "week_of_year")
 
     @week_of_year.setter
-    def week_of_year(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def week_of_year(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "week_of_year", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyRetention")
-    def weekly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly retention policy for an LTR backup in an ISO 8601 format.
         """
         return pulumi.get(self, "weekly_retention")
 
     @weekly_retention.setter
-    def weekly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="yearlyRetention")
-    def yearly_retention(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yearly_retention(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The yearly retention policy for an LTR backup in an ISO 8601 format.
         """
         return pulumi.get(self, "yearly_retention")
 
     @yearly_retention.setter
-    def yearly_retention(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yearly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yearly_retention", value)
 
 
@@ -156,14 +156,14 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A long term retention policy.
@@ -171,7 +171,6 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +196,6 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LongTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,14 +211,14 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 week_of_year: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_retention: Optional[pulumi.Input[_builtins.str]] = None,
-                 yearly_retention: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 yearly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

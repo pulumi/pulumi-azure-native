@@ -157,7 +157,6 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[_builti
 
     Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str access_policy_assignment_name: The name of the access policy assignment.
     :param _builtins.str cache_name: The name of the Redis cache.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,9 +178,9 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[_builti
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_access_policy_assignment_output(access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_policy_assignment_output(access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyAssignmentResult]:
     """
     Gets the list of assignments for an access policy of a redis cache
@@ -189,7 +188,6 @@ def get_access_policy_assignment_output(access_policy_assignment_name: Optional[
     Uses Azure REST API version 2024-11-01.
 
     Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str access_policy_assignment_name: The name of the access policy assignment.
     :param _builtins.str cache_name: The name of the Redis cache.

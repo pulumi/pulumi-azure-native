@@ -114,11 +114,11 @@ export interface VirtualNetworkSubnetArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azurestackhci.VirtualNetworkSubnetPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azurestackhci.VirtualNetworkSubnetPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,7 +126,7 @@ export interface VirtualNetworkSubnetArgs {
     /**
      * Name of the virtual network subnet
      */
-    subnetName?: pulumi.Input<string>;
+    subnetName?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual network
      */

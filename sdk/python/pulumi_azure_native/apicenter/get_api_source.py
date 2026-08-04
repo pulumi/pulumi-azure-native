@@ -168,7 +168,6 @@ def get_api_source(api_source_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-06-01-preview.
 
-
     :param _builtins.str api_source_name: The name of the API.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of Azure API Center service.
@@ -193,16 +192,15 @@ def get_api_source(api_source_name: Optional[_builtins.str] = None,
         target_environment_id=pulumi.get(__ret__, 'target_environment_id'),
         target_lifecycle_stage=pulumi.get(__ret__, 'target_lifecycle_stage'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_source_output(api_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_source_output(api_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiSourceResult]:
     """
     Returns details of the API source.
 
     Uses Azure REST API version 2024-06-01-preview.
-
 
     :param _builtins.str api_source_name: The name of the API.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

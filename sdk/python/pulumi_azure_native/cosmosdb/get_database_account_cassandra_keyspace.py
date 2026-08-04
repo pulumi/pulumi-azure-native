@@ -120,7 +120,6 @@ def get_database_account_cassandra_keyspace(account_name: Optional[_builtins.str
 
     Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str keyspace_name: Cosmos DB keyspace name.
     :param _builtins.str resource_group_name: Name of an Azure resource group.
@@ -139,9 +138,9 @@ def get_database_account_cassandra_keyspace(account_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_account_cassandra_keyspace_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_account_cassandra_keyspace_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountCassandraKeyspaceResult]:
     """
     Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
@@ -149,7 +148,6 @@ def get_database_account_cassandra_keyspace_output(account_name: Optional[pulumi
     Uses Azure REST API version 2016-03-31.
 
     Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: Cosmos DB database account name.
     :param _builtins.str keyspace_name: Cosmos DB keyspace name.

@@ -154,7 +154,6 @@ def get_job(job_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-01-01.
 
-
     :param _builtins.str job_name: The name of the import/export job.
     :param _builtins.str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
@@ -174,14 +173,13 @@ def get_job(job_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets information about an existing job.
 
     Uses Azure REST API version 2021-01-01.
-
 
     :param _builtins.str job_name: The name of the import/export job.
     :param _builtins.str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.

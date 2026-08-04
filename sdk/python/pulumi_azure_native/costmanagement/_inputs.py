@@ -18,10 +18,10 @@ from ._enums import *
 __all__ = [
     'BudgetComparisonExpressionArgs',
     'BudgetComparisonExpressionArgsDict',
-    'BudgetFilterPropertiesArgs',
-    'BudgetFilterPropertiesArgsDict',
     'BudgetFilterArgs',
     'BudgetFilterArgsDict',
+    'BudgetFilterPropertiesArgs',
+    'BudgetFilterPropertiesArgsDict',
     'BudgetTimePeriodArgs',
     'BudgetTimePeriodArgsDict',
     'CostAllocationProportionArgs',
@@ -32,10 +32,10 @@ __all__ = [
     'CostAllocationRulePropertiesArgsDict',
     'CustomerMetadataArgs',
     'CustomerMetadataArgsDict',
-    'ExportDatasetConfigurationArgs',
-    'ExportDatasetConfigurationArgsDict',
     'ExportDatasetArgs',
     'ExportDatasetArgsDict',
+    'ExportDatasetConfigurationArgs',
+    'ExportDatasetConfigurationArgsDict',
     'ExportDefinitionArgs',
     'ExportDefinitionArgsDict',
     'ExportDeliveryDestinationArgs',
@@ -52,10 +52,10 @@ __all__ = [
     'FileDestinationArgsDict',
     'KpiPropertiesArgs',
     'KpiPropertiesArgsDict',
-    'NotificationPropertiesArgs',
-    'NotificationPropertiesArgsDict',
     'NotificationArgs',
     'NotificationArgsDict',
+    'NotificationPropertiesArgs',
+    'NotificationPropertiesArgsDict',
     'PivotPropertiesArgs',
     'PivotPropertiesArgsDict',
     'ReportAggregationArgs',
@@ -66,10 +66,10 @@ __all__ = [
     'ReportConfigAggregationArgsDict',
     'ReportConfigComparisonExpressionArgs',
     'ReportConfigComparisonExpressionArgsDict',
-    'ReportConfigDatasetConfigurationArgs',
-    'ReportConfigDatasetConfigurationArgsDict',
     'ReportConfigDatasetArgs',
     'ReportConfigDatasetArgsDict',
+    'ReportConfigDatasetConfigurationArgs',
+    'ReportConfigDatasetConfigurationArgsDict',
     'ReportConfigFilterArgs',
     'ReportConfigFilterArgsDict',
     'ReportConfigGroupingArgs',
@@ -78,10 +78,10 @@ __all__ = [
     'ReportConfigSortingArgsDict',
     'ReportConfigTimePeriodArgs',
     'ReportConfigTimePeriodArgsDict',
-    'ReportDatasetConfigurationArgs',
-    'ReportDatasetConfigurationArgsDict',
     'ReportDatasetArgs',
     'ReportDatasetArgsDict',
+    'ReportDatasetConfigurationArgs',
+    'ReportDatasetConfigurationArgsDict',
     'ReportDefinitionArgs',
     'ReportDefinitionArgsDict',
     'ReportDeliveryDestinationArgs',
@@ -183,111 +183,29 @@ class BudgetComparisonExpressionArgs:
         pulumi.set(self, "values", value)
 
 
-class BudgetFilterPropertiesArgsDict(TypedDict):
-    """
-    The Dimensions or Tags to filter a budget by.
-
-     Supported for CategoryType(s): Cost, ReservationUtilization.
-    """
-    dimensions: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
-    """
-    Has comparison expression for a dimension.
-
-     Supported for CategoryType(s): Cost, ReservationUtilization.
-
-    Supported dimension names for **CategoryType: ReservationUtilization** 
-    - ReservationId
-    - ReservedResourceType
-    """
-    tags: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
-    """
-    Has comparison expression for a tag.
-
-     Supported for CategoryType(s): Cost.
-    """
-
-@pulumi.input_type
-class BudgetFilterPropertiesArgs:
-    def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
-        """
-        The Dimensions or Tags to filter a budget by.
-
-         Supported for CategoryType(s): Cost, ReservationUtilization.
-
-        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension.
-               
-                Supported for CategoryType(s): Cost, ReservationUtilization.
-               
-               Supported dimension names for **CategoryType: ReservationUtilization** 
-               - ReservationId
-               - ReservedResourceType
-        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag.
-               
-                Supported for CategoryType(s): Cost.
-        """
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a dimension.
-
-         Supported for CategoryType(s): Cost, ReservationUtilization.
-
-        Supported dimension names for **CategoryType: ReservationUtilization** 
-        - ReservationId
-        - ReservedResourceType
-        """
-        return pulumi.get(self, "dimensions")
-
-    @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
-        pulumi.set(self, "dimensions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a tag.
-
-         Supported for CategoryType(s): Cost.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
-        pulumi.set(self, "tags", value)
-
-
 class BudgetFilterArgsDict(TypedDict):
     """
     May be used to filter budgets by user-specified dimensions and/or tags.
 
      Supported for CategoryType(s): Cost, ReservationUtilization.
     """
-    and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgsDict']]]]
+    and_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgsDict']]]]]
     """
     The logical "AND" expression. Must have at least 2 items.
 
      Supported for CategoryType(s): Cost.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a dimension.
 
      Supported for CategoryType(s): Cost, ReservationUtilization.
 
-    Supported dimension names for **CategoryType: ReservationUtilization** 
+    Supported dimension names for **CategoryType: ReservationUtilization**
     - ReservationId
     - ReservedResourceType
     """
-    tags: NotRequired[pulumi.Input['BudgetComparisonExpressionArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a tag.
 
@@ -297,9 +215,9 @@ class BudgetFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
-                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
+                 and_: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
+                 dimensions: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None):
         """
         May be used to filter budgets by user-specified dimensions and/or tags.
 
@@ -312,7 +230,7 @@ class BudgetFilterArgs:
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
                
-               Supported dimension names for **CategoryType: ReservationUtilization** 
+               Supported dimension names for **CategoryType: ReservationUtilization**
                - ReservationId
                - ReservedResourceType
         :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag.
@@ -328,7 +246,7 @@ class BudgetFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]:
+    def and_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]:
         """
         The logical "AND" expression. Must have at least 2 items.
 
@@ -337,30 +255,30 @@ class BudgetFilterArgs:
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]):
+    def and_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
         """
         Has comparison expression for a dimension.
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
 
-        Supported dimension names for **CategoryType: ReservationUtilization** 
+        Supported dimension names for **CategoryType: ReservationUtilization**
         - ReservationId
         - ReservedResourceType
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
         """
         Has comparison expression for a tag.
 
@@ -369,7 +287,89 @@ class BudgetFilterArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "tags", value)
+
+
+class BudgetFilterPropertiesArgsDict(TypedDict):
+    """
+    The Dimensions or Tags to filter a budget by.
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+    """
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
+    """
+    Has comparison expression for a dimension.
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+
+    Supported dimension names for **CategoryType: ReservationUtilization**
+    - ReservationId
+    - ReservedResourceType
+    """
+    tags: NotRequired[pulumi.Input[Optional['BudgetComparisonExpressionArgsDict']]]
+    """
+    Has comparison expression for a tag.
+
+     Supported for CategoryType(s): Cost.
+    """
+
+@pulumi.input_type
+class BudgetFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetComparisonExpressionArgs']] = None):
+        """
+        The Dimensions or Tags to filter a budget by.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+               Supported dimension names for **CategoryType: ReservationUtilization**
+               - ReservationId
+               - ReservedResourceType
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag.
+               
+                Supported for CategoryType(s): Cost.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a dimension.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+        Supported dimension names for **CategoryType: ReservationUtilization**
+        - ReservationId
+        - ReservedResourceType
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a tag.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional['BudgetComparisonExpressionArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -389,7 +389,7 @@ class BudgetTimePeriodArgsDict(TypedDict):
 
     - Constraints for **CategoryType: ReservationUtilization** - Must be on or after the current date and less than the end date.
     """
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end date for the budget.
 
@@ -402,7 +402,7 @@ class BudgetTimePeriodArgsDict(TypedDict):
 class BudgetTimePeriodArgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[_builtins.str],
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.
 
@@ -443,7 +443,7 @@ class BudgetTimePeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date for the budget.
 
@@ -454,7 +454,7 @@ class BudgetTimePeriodArgs:
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
 
@@ -514,11 +514,11 @@ class CostAllocationRuleDetailsArgsDict(TypedDict):
     """
     Resource details of the cost allocation rule
     """
-    source_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgsDict']]]]
+    source_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SourceCostAllocationResourceArgsDict']]]]]
     """
     Source resources for cost allocation. At this time, this list can contain no more than one element.
     """
-    target_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgsDict']]]]
+    target_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TargetCostAllocationResourceArgsDict']]]]]
     """
     Target resources for cost allocation. At this time, this list can contain no more than one element.
     """
@@ -526,8 +526,8 @@ class CostAllocationRuleDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class CostAllocationRuleDetailsArgs:
     def __init__(__self__, *,
-                 source_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]] = None,
-                 target_resources: Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]] = None):
+                 source_resources: pulumi.Input[Optional[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]] = None,
+                 target_resources: pulumi.Input[Optional[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]] = None):
         """
         Resource details of the cost allocation rule
 
@@ -541,26 +541,26 @@ class CostAllocationRuleDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceResources")
-    def source_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]]:
+    def source_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]]:
         """
         Source resources for cost allocation. At this time, this list can contain no more than one element.
         """
         return pulumi.get(self, "source_resources")
 
     @source_resources.setter
-    def source_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]]):
+    def source_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]]):
         pulumi.set(self, "source_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResources")
-    def target_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]]:
+    def target_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]]:
         """
         Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
         return pulumi.get(self, "target_resources")
 
     @target_resources.setter
-    def target_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]]):
+    def target_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]]):
         pulumi.set(self, "target_resources", value)
 
 
@@ -576,7 +576,7 @@ class CostAllocationRulePropertiesArgsDict(TypedDict):
     """
     Status of the rule
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of a cost allocation rule.
     """
@@ -586,7 +586,7 @@ class CostAllocationRulePropertiesArgs:
     def __init__(__self__, *,
                  details: pulumi.Input['CostAllocationRuleDetailsArgs'],
                  status: pulumi.Input[Union[_builtins.str, 'RuleStatus']],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of a cost allocation rule
 
@@ -625,14 +625,14 @@ class CostAllocationRulePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of a cost allocation rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -688,49 +688,15 @@ class CustomerMetadataArgs:
         pulumi.set(self, "billing_profile_id", value)
 
 
-class ExportDatasetConfigurationArgsDict(TypedDict):
-    """
-    The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
-    """
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
-    """
-
-@pulumi.input_type
-class ExportDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @_builtins.property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "columns", value)
-
-
 class ExportDatasetArgsDict(TypedDict):
     """
     The definition for data in the export.
     """
-    configuration: NotRequired[pulumi.Input['ExportDatasetConfigurationArgsDict']]
+    configuration: NotRequired[pulumi.Input[Optional['ExportDatasetConfigurationArgsDict']]]
     """
     The export dataset configuration.
     """
-    granularity: NotRequired[pulumi.Input[Union[_builtins.str, 'GranularityType']]]
+    granularity: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]]]
     """
     The granularity of rows in the export. Currently only 'Daily' is supported.
     """
@@ -738,8 +704,8 @@ class ExportDatasetArgsDict(TypedDict):
 @pulumi.input_type
 class ExportDatasetArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['ExportDatasetConfigurationArgs']] = None,
-                 granularity: Optional[pulumi.Input[Union[_builtins.str, 'GranularityType']]] = None):
+                 configuration: pulumi.Input[Optional['ExportDatasetConfigurationArgs']] = None,
+                 granularity: pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]] = None):
         """
         The definition for data in the export.
 
@@ -753,27 +719,61 @@ class ExportDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ExportDatasetConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['ExportDatasetConfigurationArgs']]:
         """
         The export dataset configuration.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ExportDatasetConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['ExportDatasetConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GranularityType']]]:
+    def granularity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]]:
         """
         The granularity of rows in the export. Currently only 'Daily' is supported.
         """
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GranularityType']]]):
+    def granularity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]]):
         pulumi.set(self, "granularity", value)
+
+
+class ExportDatasetConfigurationArgsDict(TypedDict):
+    """
+    The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+    """
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+    """
+
+@pulumi.input_type
+class ExportDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "columns", value)
 
 
 class ExportDefinitionArgsDict(TypedDict):
@@ -788,11 +788,11 @@ class ExportDefinitionArgsDict(TypedDict):
     """
     The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
     """
-    data_set: NotRequired[pulumi.Input['ExportDatasetArgsDict']]
+    data_set: NotRequired[pulumi.Input[Optional['ExportDatasetArgsDict']]]
     """
     The definition for data in the export.
     """
-    time_period: NotRequired[pulumi.Input['ExportTimePeriodArgsDict']]
+    time_period: NotRequired[pulumi.Input[Optional['ExportTimePeriodArgsDict']]]
     """
     Has time period for pulling data for the export.
     """
@@ -802,8 +802,8 @@ class ExportDefinitionArgs:
     def __init__(__self__, *,
                  timeframe: pulumi.Input[Union[_builtins.str, 'TimeframeType']],
                  type: pulumi.Input[Union[_builtins.str, 'ExportType']],
-                 data_set: Optional[pulumi.Input['ExportDatasetArgs']] = None,
-                 time_period: Optional[pulumi.Input['ExportTimePeriodArgs']] = None):
+                 data_set: pulumi.Input[Optional['ExportDatasetArgs']] = None,
+                 time_period: pulumi.Input[Optional['ExportTimePeriodArgs']] = None):
         """
         The definition of an export.
 
@@ -845,26 +845,26 @@ class ExportDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSet")
-    def data_set(self) -> Optional[pulumi.Input['ExportDatasetArgs']]:
+    def data_set(self) -> pulumi.Input[Optional['ExportDatasetArgs']]:
         """
         The definition for data in the export.
         """
         return pulumi.get(self, "data_set")
 
     @data_set.setter
-    def data_set(self, value: Optional[pulumi.Input['ExportDatasetArgs']]):
+    def data_set(self, value: pulumi.Input[Optional['ExportDatasetArgs']]):
         pulumi.set(self, "data_set", value)
 
     @_builtins.property
     @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional[pulumi.Input['ExportTimePeriodArgs']]:
+    def time_period(self) -> pulumi.Input[Optional['ExportTimePeriodArgs']]:
         """
         Has time period for pulling data for the export.
         """
         return pulumi.get(self, "time_period")
 
     @time_period.setter
-    def time_period(self, value: Optional[pulumi.Input['ExportTimePeriodArgs']]):
+    def time_period(self, value: pulumi.Input[Optional['ExportTimePeriodArgs']]):
         pulumi.set(self, "time_period", value)
 
 
@@ -876,19 +876,19 @@ class ExportDeliveryDestinationArgsDict(TypedDict):
     """
     The name of the container where exports will be uploaded. If the container does not exist it will be created.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
     """
-    root_folder_path: NotRequired[pulumi.Input[_builtins.str]]
+    root_folder_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the directory where exports will be uploaded.
     """
-    sas_token: NotRequired[pulumi.Input[_builtins.str]]
+    sas_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
     """
-    storage_account: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
     """
@@ -897,10 +897,10 @@ class ExportDeliveryDestinationArgsDict(TypedDict):
 class ExportDeliveryDestinationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[_builtins.str],
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account: pulumi.Input[Optional[_builtins.str]] = None):
         """
         This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
 
@@ -934,50 +934,50 @@ class ExportDeliveryDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rootFolderPath")
-    def root_folder_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_folder_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the directory where exports will be uploaded.
         """
         return pulumi.get(self, "root_folder_path")
 
     @root_folder_path.setter
-    def root_folder_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_folder_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_folder_path", value)
 
     @_builtins.property
     @pulumi.getter(name="sasToken")
-    def sas_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
         """
         return pulumi.get(self, "sas_token")
 
     @sas_token.setter
-    def sas_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_token", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account", value)
 
 
@@ -1022,7 +1022,7 @@ class ExportRecurrencePeriodArgsDict(TypedDict):
     """
     The start date of recurrence.
     """
-    to: NotRequired[pulumi.Input[_builtins.str]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end date of recurrence.
     """
@@ -1031,7 +1031,7 @@ class ExportRecurrencePeriodArgsDict(TypedDict):
 class ExportRecurrencePeriodArgs:
     def __init__(__self__, *,
                  from_: pulumi.Input[_builtins.str],
-                 to: Optional[pulumi.Input[_builtins.str]] = None):
+                 to: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The start and end date for recurrence schedule.
 
@@ -1056,14 +1056,14 @@ class ExportRecurrencePeriodArgs:
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date of recurrence.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "to", value)
 
 
@@ -1071,15 +1071,15 @@ class ExportScheduleArgsDict(TypedDict):
     """
     The schedule associated with the export.
     """
-    recurrence: NotRequired[pulumi.Input[Union[_builtins.str, 'RecurrenceType']]]
+    recurrence: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceType']]]]
     """
     The schedule recurrence.
     """
-    recurrence_period: NotRequired[pulumi.Input['ExportRecurrencePeriodArgsDict']]
+    recurrence_period: NotRequired[pulumi.Input[Optional['ExportRecurrencePeriodArgsDict']]]
     """
     Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'StatusType']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]]]
     """
     The status of the export's schedule. If 'Inactive', the export's schedule is paused.
     """
@@ -1087,9 +1087,9 @@ class ExportScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class ExportScheduleArgs:
     def __init__(__self__, *,
-                 recurrence: Optional[pulumi.Input[Union[_builtins.str, 'RecurrenceType']]] = None,
-                 recurrence_period: Optional[pulumi.Input['ExportRecurrencePeriodArgs']] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'StatusType']]] = None):
+                 recurrence: pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceType']]] = None,
+                 recurrence_period: pulumi.Input[Optional['ExportRecurrencePeriodArgs']] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]] = None):
         """
         The schedule associated with the export.
 
@@ -1106,38 +1106,38 @@ class ExportScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RecurrenceType']]]:
+    def recurrence(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceType']]]:
         """
         The schedule recurrence.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RecurrenceType']]]):
+    def recurrence(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceType']]]):
         pulumi.set(self, "recurrence", value)
 
     @_builtins.property
     @pulumi.getter(name="recurrencePeriod")
-    def recurrence_period(self) -> Optional[pulumi.Input['ExportRecurrencePeriodArgs']]:
+    def recurrence_period(self) -> pulumi.Input[Optional['ExportRecurrencePeriodArgs']]:
         """
         Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         """
         return pulumi.get(self, "recurrence_period")
 
     @recurrence_period.setter
-    def recurrence_period(self, value: Optional[pulumi.Input['ExportRecurrencePeriodArgs']]):
+    def recurrence_period(self, value: pulumi.Input[Optional['ExportRecurrencePeriodArgs']]):
         pulumi.set(self, "recurrence_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StatusType']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]]:
         """
         The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StatusType']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]]):
         pulumi.set(self, "status", value)
 
 
@@ -1197,7 +1197,7 @@ class FileDestinationArgsDict(TypedDict):
     """
     Destination of the view data. This is optional. Currently only CSV format is supported.
     """
-    file_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]]
+    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]]]
     """
     Destination of the view data. Currently only CSV format is supported.
     """
@@ -1205,7 +1205,7 @@ class FileDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class FileDestinationArgs:
     def __init__(__self__, *,
-                 file_formats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]] = None):
+                 file_formats: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]] = None):
         """
         Destination of the view data. This is optional. Currently only CSV format is supported.
 
@@ -1216,14 +1216,14 @@ class FileDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileFormats")
-    def file_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]]:
+    def file_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]]:
         """
         Destination of the view data. Currently only CSV format is supported.
         """
         return pulumi.get(self, "file_formats")
 
     @file_formats.setter
-    def file_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]]):
+    def file_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'FileFormat']]]]]):
         pulumi.set(self, "file_formats", value)
 
 
@@ -1231,15 +1231,15 @@ class KpiPropertiesArgsDict(TypedDict):
     """
     Each KPI must contain a 'type' and 'enabled' key.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     show the KPI in the UI?
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of resource related to metric (budget).
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'KpiTypeType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KpiTypeType']]]]
     """
     KPI type (Forecast, Budget).
     """
@@ -1247,9 +1247,9 @@ class KpiPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KpiPropertiesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'KpiTypeType']]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'KpiTypeType']]] = None):
         """
         Each KPI must contain a 'type' and 'enabled' key.
 
@@ -1266,151 +1266,39 @@ class KpiPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         show the KPI in the UI?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of resource related to metric (budget).
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KpiTypeType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KpiTypeType']]]:
         """
         KPI type (Forecast, Budget).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KpiTypeType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KpiTypeType']]]):
         pulumi.set(self, "type", value)
-
-
-class NotificationPropertiesArgsDict(TypedDict):
-    """
-    The properties of the scheduled action notification.
-    """
-    subject: pulumi.Input[_builtins.str]
-    """
-    Subject of the email. Length is limited to 70 characters.
-    """
-    to: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    """
-    Array of email addresses.
-    """
-    language: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Locale of the email.
-    """
-    message: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Optional message to be added in the email. Length is limited to 250 characters.
-    """
-    regional_format: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Regional format used for formatting date/time and currency values in the email.
-    """
-
-@pulumi.input_type
-class NotificationPropertiesArgs:
-    def __init__(__self__, *,
-                 subject: pulumi.Input[_builtins.str],
-                 to: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_format: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The properties of the scheduled action notification.
-
-        :param pulumi.Input[_builtins.str] subject: Subject of the email. Length is limited to 70 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] to: Array of email addresses.
-        :param pulumi.Input[_builtins.str] language: Locale of the email.
-        :param pulumi.Input[_builtins.str] message: Optional message to be added in the email. Length is limited to 250 characters.
-        :param pulumi.Input[_builtins.str] regional_format: Regional format used for formatting date/time and currency values in the email.
-        """
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "to", to)
-        if language is not None:
-            pulumi.set(__self__, "language", language)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if regional_format is not None:
-            pulumi.set(__self__, "regional_format", regional_format)
-
-    @_builtins.property
-    @pulumi.getter
-    def subject(self) -> pulumi.Input[_builtins.str]:
-        """
-        Subject of the email. Length is limited to 70 characters.
-        """
-        return pulumi.get(self, "subject")
-
-    @subject.setter
-    def subject(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "subject", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def to(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Array of email addresses.
-        """
-        return pulumi.get(self, "to")
-
-    @to.setter
-    def to(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "to", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Locale of the email.
-        """
-        return pulumi.get(self, "language")
-
-    @language.setter
-    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "language", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Optional message to be added in the email. Length is limited to 250 characters.
-        """
-        return pulumi.get(self, "message")
-
-    @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "message", value)
-
-    @_builtins.property
-    @pulumi.getter(name="regionalFormat")
-    def regional_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Regional format used for formatting date/time and currency values in the email.
-        """
-        return pulumi.get(self, "regional_format")
-
-    @regional_format.setter
-    def regional_format(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "regional_format", value)
 
 
 class NotificationArgsDict(TypedDict):
@@ -1454,31 +1342,31 @@ class NotificationArgsDict(TypedDict):
 
      **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold.
     """
-    contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.
 
      Supported for CategoryType(s): Cost.
     """
-    contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.
 
      Supported for CategoryType(s): Cost.
     """
-    frequency: NotRequired[pulumi.Input[Union[_builtins.str, 'Frequency']]]
+    frequency: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Frequency']]]]
     """
     Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
 
      Supported for CategoryType(s): ReservationUtilization.
     """
-    locale: NotRequired[pulumi.Input[Union[_builtins.str, 'CultureCode']]]
+    locale: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]]]
     """
-    Language in which the recipient will receive the notification, 
+    Language in which the recipient will receive the notification,
 
      Supported for CategoryType(s): Cost, ReservationUtilization.
     """
-    threshold_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ThresholdType']]]
+    threshold_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]]]
     """
     The type of threshold.
 
@@ -1492,11 +1380,11 @@ class NotificationArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  operator: pulumi.Input[Union[_builtins.str, 'BudgetNotificationOperatorType']],
                  threshold: pulumi.Input[_builtins.float],
-                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 frequency: Optional[pulumi.Input[Union[_builtins.str, 'Frequency']]] = None,
-                 locale: Optional[pulumi.Input[Union[_builtins.str, 'CultureCode']]] = None,
-                 threshold_type: Optional[pulumi.Input[Union[_builtins.str, 'ThresholdType']]] = None):
+                 contact_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contact_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 frequency: pulumi.Input[Optional[Union[_builtins.str, 'Frequency']]] = None,
+                 locale: pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]] = None,
+                 threshold_type: pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]] = None):
         """
         The notification associated with a budget.
 
@@ -1534,7 +1422,7 @@ class NotificationArgs:
         :param pulumi.Input[Union[_builtins.str, 'Frequency']] frequency: Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
                
                 Supported for CategoryType(s): ReservationUtilization.
-        :param pulumi.Input[Union[_builtins.str, 'CultureCode']] locale: Language in which the recipient will receive the notification, 
+        :param pulumi.Input[Union[_builtins.str, 'CultureCode']] locale: Language in which the recipient will receive the notification,
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
         :param pulumi.Input[Union[_builtins.str, 'ThresholdType']] threshold_type: The type of threshold.
@@ -1627,7 +1515,7 @@ class NotificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.
 
@@ -1636,12 +1524,12 @@ class NotificationArgs:
         return pulumi.get(self, "contact_groups")
 
     @contact_groups.setter
-    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.
 
@@ -1650,12 +1538,12 @@ class NotificationArgs:
         return pulumi.get(self, "contact_roles")
 
     @contact_roles.setter
-    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Frequency']]]:
+    def frequency(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Frequency']]]:
         """
         Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
 
@@ -1664,26 +1552,26 @@ class NotificationArgs:
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Frequency']]]):
+    def frequency(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Frequency']]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CultureCode']]]:
+    def locale(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]]:
         """
-        Language in which the recipient will receive the notification, 
+        Language in which the recipient will receive the notification,
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CultureCode']]]):
+    def locale(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CultureCode']]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ThresholdType']]]:
+    def threshold_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]]:
         """
         The type of threshold.
 
@@ -1692,19 +1580,131 @@ class NotificationArgs:
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ThresholdType']]]):
+    def threshold_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ThresholdType']]]):
         pulumi.set(self, "threshold_type", value)
+
+
+class NotificationPropertiesArgsDict(TypedDict):
+    """
+    The properties of the scheduled action notification.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    Subject of the email. Length is limited to 70 characters.
+    """
+    to: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Array of email addresses.
+    """
+    language: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Locale of the email.
+    """
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional message to be added in the email. Length is limited to 250 characters.
+    """
+    regional_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Regional format used for formatting date/time and currency values in the email.
+    """
+
+@pulumi.input_type
+class NotificationPropertiesArgs:
+    def __init__(__self__, *,
+                 subject: pulumi.Input[_builtins.str],
+                 to: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_format: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The properties of the scheduled action notification.
+
+        :param pulumi.Input[_builtins.str] subject: Subject of the email. Length is limited to 70 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] to: Array of email addresses.
+        :param pulumi.Input[_builtins.str] language: Locale of the email.
+        :param pulumi.Input[_builtins.str] message: Optional message to be added in the email. Length is limited to 250 characters.
+        :param pulumi.Input[_builtins.str] regional_format: Regional format used for formatting date/time and currency values in the email.
+        """
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "to", to)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if regional_format is not None:
+            pulumi.set(__self__, "regional_format", regional_format)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        Subject of the email. Length is limited to 70 characters.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Array of email addresses.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "to", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Locale of the email.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "language", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional message to be added in the email. Length is limited to 250 characters.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter(name="regionalFormat")
+    def regional_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Regional format used for formatting date/time and currency values in the email.
+        """
+        return pulumi.get(self, "regional_format")
+
+    @regional_format.setter
+    def regional_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "regional_format", value)
 
 
 class PivotPropertiesArgsDict(TypedDict):
     """
     Each pivot must contain a 'type' and 'name'.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Data field to show in view.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'PivotTypeType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PivotTypeType']]]]
     """
     Data type to show in view.
     """
@@ -1712,8 +1712,8 @@ class PivotPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PivotPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'PivotTypeType']]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'PivotTypeType']]] = None):
         """
         Each pivot must contain a 'type' and 'name'.
 
@@ -1727,26 +1727,26 @@ class PivotPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data field to show in view.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PivotTypeType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PivotTypeType']]]:
         """
         Data type to show in view.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PivotTypeType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PivotTypeType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1996,65 +1996,31 @@ class ReportConfigComparisonExpressionArgs:
         pulumi.set(self, "values", value)
 
 
-class ReportConfigDatasetConfigurationArgsDict(TypedDict):
-    """
-    The configuration of dataset in the report.
-    """
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-    """
-
-@pulumi.input_type
-class ReportConfigDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The configuration of dataset in the report.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @_builtins.property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "columns", value)
-
-
 class ReportConfigDatasetArgsDict(TypedDict):
     """
     The definition of data present in the report.
     """
-    aggregation: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgsDict']]]]
+    aggregation: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportConfigAggregationArgsDict']]]]]
     """
     Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
     """
-    configuration: NotRequired[pulumi.Input['ReportConfigDatasetConfigurationArgsDict']]
+    configuration: NotRequired[pulumi.Input[Optional['ReportConfigDatasetConfigurationArgsDict']]]
     """
     Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
     """
-    filter: NotRequired[pulumi.Input['ReportConfigFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['ReportConfigFilterArgsDict']]]
     """
     Has filter expression to use in the report.
     """
-    granularity: NotRequired[pulumi.Input[Union[_builtins.str, 'ReportGranularityType']]]
+    granularity: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReportGranularityType']]]]
     """
     The granularity of rows in the report.
     """
-    grouping: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgsDict']]]]
+    grouping: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigGroupingArgsDict']]]]]
     """
     Array of group by expression to use in the report. Report can have up to 2 group by clauses.
     """
-    sorting: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgsDict']]]]
+    sorting: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigSortingArgsDict']]]]]
     """
     Array of order by expression to use in the report.
     """
@@ -2062,12 +2028,12 @@ class ReportConfigDatasetArgsDict(TypedDict):
 @pulumi.input_type
 class ReportConfigDatasetArgs:
     def __init__(__self__, *,
-                 aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]] = None,
-                 configuration: Optional[pulumi.Input['ReportConfigDatasetConfigurationArgs']] = None,
-                 filter: Optional[pulumi.Input['ReportConfigFilterArgs']] = None,
-                 granularity: Optional[pulumi.Input[Union[_builtins.str, 'ReportGranularityType']]] = None,
-                 grouping: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]] = None,
-                 sorting: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]] = None):
+                 aggregation: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]] = None,
+                 configuration: pulumi.Input[Optional['ReportConfigDatasetConfigurationArgs']] = None,
+                 filter: pulumi.Input[Optional['ReportConfigFilterArgs']] = None,
+                 granularity: pulumi.Input[Optional[Union[_builtins.str, 'ReportGranularityType']]] = None,
+                 grouping: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]] = None,
+                 sorting: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigSortingArgs']]]] = None):
         """
         The definition of data present in the report.
 
@@ -2093,94 +2059,128 @@ class ReportConfigDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aggregation(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]]:
+    def aggregation(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]]:
         """
         Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         """
         return pulumi.get(self, "aggregation")
 
     @aggregation.setter
-    def aggregation(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]]):
+    def aggregation(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]]):
         pulumi.set(self, "aggregation", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ReportConfigDatasetConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['ReportConfigDatasetConfigurationArgs']]:
         """
         Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ReportConfigDatasetConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['ReportConfigDatasetConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['ReportConfigFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['ReportConfigFilterArgs']]:
         """
         Has filter expression to use in the report.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['ReportConfigFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['ReportConfigFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReportGranularityType']]]:
+    def granularity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReportGranularityType']]]:
         """
         The granularity of rows in the report.
         """
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReportGranularityType']]]):
+    def granularity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReportGranularityType']]]):
         pulumi.set(self, "granularity", value)
 
     @_builtins.property
     @pulumi.getter
-    def grouping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]]:
+    def grouping(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]]:
         """
         Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
         return pulumi.get(self, "grouping")
 
     @grouping.setter
-    def grouping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]]):
+    def grouping(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]]):
         pulumi.set(self, "grouping", value)
 
     @_builtins.property
     @pulumi.getter
-    def sorting(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]:
+    def sorting(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]:
         """
         Array of order by expression to use in the report.
         """
         return pulumi.get(self, "sorting")
 
     @sorting.setter
-    def sorting(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]):
+    def sorting(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]):
         pulumi.set(self, "sorting", value)
+
+
+class ReportConfigDatasetConfigurationArgsDict(TypedDict):
+    """
+    The configuration of dataset in the report.
+    """
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+    """
+
+@pulumi.input_type
+class ReportConfigDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The configuration of dataset in the report.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "columns", value)
 
 
 class ReportConfigFilterArgsDict(TypedDict):
     """
     The filter expression to be used in the report.
     """
-    and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]
+    and_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]]
     """
     The logical "AND" expression. Must have at least 2 items.
     """
-    dimensions: NotRequired[pulumi.Input['ReportConfigComparisonExpressionArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['ReportConfigComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a dimension
     """
-    or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]
+    or_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgsDict']]]]]
     """
     The logical "OR" expression. Must have at least 2 items.
     """
-    tags: NotRequired[pulumi.Input['ReportConfigComparisonExpressionArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['ReportConfigComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a tag
     """
@@ -2188,10 +2188,10 @@ class ReportConfigFilterArgsDict(TypedDict):
 @pulumi.input_type
 class ReportConfigFilterArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
-                 dimensions: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
-                 or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
-                 tags: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None):
+                 and_: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
+                 dimensions: pulumi.Input[Optional['ReportConfigComparisonExpressionArgs']] = None,
+                 or_: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
+                 tags: pulumi.Input[Optional['ReportConfigComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the report.
 
@@ -2211,50 +2211,50 @@ class ReportConfigFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]:
+    def and_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]):
+    def and_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['ReportConfigComparisonExpressionArgs']]:
         """
         Has comparison expression for a dimension
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['ReportConfigComparisonExpressionArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]:
+    def or_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]:
         """
         The logical "OR" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "or_")
 
     @or_.setter
-    def or_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]):
+    def or_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]):
         pulumi.set(self, "or_", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
+    def tags(self) -> pulumi.Input[Optional['ReportConfigComparisonExpressionArgs']]:
         """
         Has comparison expression for a tag
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
+    def tags(self, value: pulumi.Input[Optional['ReportConfigComparisonExpressionArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -2318,7 +2318,7 @@ class ReportConfigSortingArgsDict(TypedDict):
     """
     The name of the column to sort.
     """
-    direction: NotRequired[pulumi.Input[Union[_builtins.str, 'ReportConfigSortingType']]]
+    direction: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ReportConfigSortingType']]]]
     """
     Direction of sort.
     """
@@ -2327,7 +2327,7 @@ class ReportConfigSortingArgsDict(TypedDict):
 class ReportConfigSortingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 direction: Optional[pulumi.Input[Union[_builtins.str, 'ReportConfigSortingType']]] = None):
+                 direction: pulumi.Input[Optional[Union[_builtins.str, 'ReportConfigSortingType']]] = None):
         """
         The order by expression to be used in the report.
 
@@ -2352,14 +2352,14 @@ class ReportConfigSortingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReportConfigSortingType']]]:
+    def direction(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ReportConfigSortingType']]]:
         """
         Direction of sort.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReportConfigSortingType']]]):
+    def direction(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ReportConfigSortingType']]]):
         pulumi.set(self, "direction", value)
 
 
@@ -2415,61 +2415,27 @@ class ReportConfigTimePeriodArgs:
         pulumi.set(self, "to", value)
 
 
-class ReportDatasetConfigurationArgsDict(TypedDict):
-    """
-    The configuration of dataset in the report.
-    """
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-    """
-
-@pulumi.input_type
-class ReportDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The configuration of dataset in the report.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @_builtins.property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "columns", value)
-
-
 class ReportDatasetArgsDict(TypedDict):
     """
     The definition of data present in the report.
     """
-    aggregation: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgsDict']]]]
+    aggregation: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportAggregationArgsDict']]]]]
     """
     Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
     """
-    configuration: NotRequired[pulumi.Input['ReportDatasetConfigurationArgsDict']]
+    configuration: NotRequired[pulumi.Input[Optional['ReportDatasetConfigurationArgsDict']]]
     """
     Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
     """
-    filter: NotRequired[pulumi.Input['ReportFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['ReportFilterArgsDict']]]
     """
     Has filter expression to use in the report.
     """
-    granularity: NotRequired[pulumi.Input[Union[_builtins.str, 'GranularityType']]]
+    granularity: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]]]
     """
     The granularity of rows in the report.
     """
-    grouping: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgsDict']]]]
+    grouping: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReportGroupingArgsDict']]]]]
     """
     Array of group by expression to use in the report. Report can have up to 2 group by clauses.
     """
@@ -2477,11 +2443,11 @@ class ReportDatasetArgsDict(TypedDict):
 @pulumi.input_type
 class ReportDatasetArgs:
     def __init__(__self__, *,
-                 aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]]] = None,
-                 configuration: Optional[pulumi.Input['ReportDatasetConfigurationArgs']] = None,
-                 filter: Optional[pulumi.Input['ReportFilterArgs']] = None,
-                 granularity: Optional[pulumi.Input[Union[_builtins.str, 'GranularityType']]] = None,
-                 grouping: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]] = None):
+                 aggregation: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportAggregationArgs']]]] = None,
+                 configuration: pulumi.Input[Optional['ReportDatasetConfigurationArgs']] = None,
+                 filter: pulumi.Input[Optional['ReportFilterArgs']] = None,
+                 granularity: pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]] = None,
+                 grouping: pulumi.Input[Optional[Sequence[pulumi.Input['ReportGroupingArgs']]]] = None):
         """
         The definition of data present in the report.
 
@@ -2504,63 +2470,97 @@ class ReportDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aggregation(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]]]:
+    def aggregation(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportAggregationArgs']]]]:
         """
         Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         """
         return pulumi.get(self, "aggregation")
 
     @aggregation.setter
-    def aggregation(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]]]):
+    def aggregation(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ReportAggregationArgs']]]]):
         pulumi.set(self, "aggregation", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ReportDatasetConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['ReportDatasetConfigurationArgs']]:
         """
         Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ReportDatasetConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['ReportDatasetConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['ReportFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['ReportFilterArgs']]:
         """
         Has filter expression to use in the report.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['ReportFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['ReportFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GranularityType']]]:
+    def granularity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]]:
         """
         The granularity of rows in the report.
         """
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GranularityType']]]):
+    def granularity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GranularityType']]]):
         pulumi.set(self, "granularity", value)
 
     @_builtins.property
     @pulumi.getter
-    def grouping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]]:
+    def grouping(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReportGroupingArgs']]]]:
         """
         Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
         return pulumi.get(self, "grouping")
 
     @grouping.setter
-    def grouping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]]):
+    def grouping(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReportGroupingArgs']]]]):
         pulumi.set(self, "grouping", value)
+
+
+class ReportDatasetConfigurationArgsDict(TypedDict):
+    """
+    The configuration of dataset in the report.
+    """
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+    """
+
+@pulumi.input_type
+class ReportDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The configuration of dataset in the report.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "columns", value)
 
 
 class ReportDefinitionArgsDict(TypedDict):
@@ -2575,11 +2575,11 @@ class ReportDefinitionArgsDict(TypedDict):
     """
     The type of the report.
     """
-    dataset: NotRequired[pulumi.Input['ReportDatasetArgsDict']]
+    dataset: NotRequired[pulumi.Input[Optional['ReportDatasetArgsDict']]]
     """
     Has definition for data in this report.
     """
-    time_period: NotRequired[pulumi.Input['ReportTimePeriodArgsDict']]
+    time_period: NotRequired[pulumi.Input[Optional['ReportTimePeriodArgsDict']]]
     """
     Has time period for pulling data for the report.
     """
@@ -2589,8 +2589,8 @@ class ReportDefinitionArgs:
     def __init__(__self__, *,
                  timeframe: pulumi.Input[Union[_builtins.str, 'TimeframeType']],
                  type: pulumi.Input[Union[_builtins.str, 'ReportType']],
-                 dataset: Optional[pulumi.Input['ReportDatasetArgs']] = None,
-                 time_period: Optional[pulumi.Input['ReportTimePeriodArgs']] = None):
+                 dataset: pulumi.Input[Optional['ReportDatasetArgs']] = None,
+                 time_period: pulumi.Input[Optional['ReportTimePeriodArgs']] = None):
         """
         The definition of a report.
 
@@ -2632,26 +2632,26 @@ class ReportDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['ReportDatasetArgs']]:
+    def dataset(self) -> pulumi.Input[Optional['ReportDatasetArgs']]:
         """
         Has definition for data in this report.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['ReportDatasetArgs']]):
+    def dataset(self, value: pulumi.Input[Optional['ReportDatasetArgs']]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional[pulumi.Input['ReportTimePeriodArgs']]:
+    def time_period(self) -> pulumi.Input[Optional['ReportTimePeriodArgs']]:
         """
         Has time period for pulling data for the report.
         """
         return pulumi.get(self, "time_period")
 
     @time_period.setter
-    def time_period(self, value: Optional[pulumi.Input['ReportTimePeriodArgs']]):
+    def time_period(self, value: pulumi.Input[Optional['ReportTimePeriodArgs']]):
         pulumi.set(self, "time_period", value)
 
 
@@ -2667,7 +2667,7 @@ class ReportDeliveryDestinationArgsDict(TypedDict):
     """
     The resource id of the storage account where reports will be delivered.
     """
-    root_folder_path: NotRequired[pulumi.Input[_builtins.str]]
+    root_folder_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the directory where reports will be uploaded.
     """
@@ -2677,7 +2677,7 @@ class ReportDeliveryDestinationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
-                 root_folder_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 root_folder_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The destination information for the delivery of the report.
 
@@ -2716,14 +2716,14 @@ class ReportDeliveryDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="rootFolderPath")
-    def root_folder_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_folder_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the directory where reports will be uploaded.
         """
         return pulumi.get(self, "root_folder_path")
 
     @root_folder_path.setter
-    def root_folder_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_folder_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_folder_path", value)
 
 
@@ -2764,23 +2764,23 @@ class ReportFilterArgsDict(TypedDict):
     """
     The filter expression to be used in the report.
     """
-    and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgsDict']]]]
+    and_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgsDict']]]]]
     """
     The logical "AND" expression. Must have at least 2 items.
     """
-    dimension: NotRequired[pulumi.Input['ReportComparisonExpressionArgsDict']]
+    dimension: NotRequired[pulumi.Input[Optional['ReportComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a dimension
     """
-    not_: NotRequired[pulumi.Input['ReportFilterArgsDict']]
+    not_: NotRequired[pulumi.Input[Optional['ReportFilterArgsDict']]]
     """
     The logical "NOT" expression.
     """
-    or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgsDict']]]]
+    or_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgsDict']]]]]
     """
     The logical "OR" expression. Must have at least 2 items.
     """
-    tag: NotRequired[pulumi.Input['ReportComparisonExpressionArgsDict']]
+    tag: NotRequired[pulumi.Input[Optional['ReportComparisonExpressionArgsDict']]]
     """
     Has comparison expression for a tag
     """
@@ -2788,11 +2788,11 @@ class ReportFilterArgsDict(TypedDict):
 @pulumi.input_type
 class ReportFilterArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
-                 dimension: Optional[pulumi.Input['ReportComparisonExpressionArgs']] = None,
-                 not_: Optional[pulumi.Input['ReportFilterArgs']] = None,
-                 or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
-                 tag: Optional[pulumi.Input['ReportComparisonExpressionArgs']] = None):
+                 and_: pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
+                 dimension: pulumi.Input[Optional['ReportComparisonExpressionArgs']] = None,
+                 not_: pulumi.Input[Optional['ReportFilterArgs']] = None,
+                 or_: pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgs']]]] = None,
+                 tag: pulumi.Input[Optional['ReportComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the report.
 
@@ -2815,62 +2815,62 @@ class ReportFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]:
+    def and_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgs']]]]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]):
+    def and_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['ReportComparisonExpressionArgs']]:
+    def dimension(self) -> pulumi.Input[Optional['ReportComparisonExpressionArgs']]:
         """
         Has comparison expression for a dimension
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['ReportComparisonExpressionArgs']]):
+    def dimension(self, value: pulumi.Input[Optional['ReportComparisonExpressionArgs']]):
         pulumi.set(self, "dimension", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['ReportFilterArgs']]:
+    def not_(self) -> pulumi.Input[Optional['ReportFilterArgs']]:
         """
         The logical "NOT" expression.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['ReportFilterArgs']]):
+    def not_(self, value: pulumi.Input[Optional['ReportFilterArgs']]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]:
+    def or_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgs']]]]:
         """
         The logical "OR" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "or_")
 
     @or_.setter
-    def or_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportFilterArgs']]]]):
+    def or_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReportFilterArgs']]]]):
         pulumi.set(self, "or_", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['ReportComparisonExpressionArgs']]:
+    def tag(self) -> pulumi.Input[Optional['ReportComparisonExpressionArgs']]:
         """
         Has comparison expression for a tag
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input['ReportComparisonExpressionArgs']]):
+    def tag(self, value: pulumi.Input[Optional['ReportComparisonExpressionArgs']]):
         pulumi.set(self, "tag", value)
 
 
@@ -2934,7 +2934,7 @@ class ReportRecurrencePeriodArgsDict(TypedDict):
     """
     The start date of recurrence.
     """
-    to: NotRequired[pulumi.Input[_builtins.str]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end date of recurrence.
     """
@@ -2943,7 +2943,7 @@ class ReportRecurrencePeriodArgsDict(TypedDict):
 class ReportRecurrencePeriodArgs:
     def __init__(__self__, *,
                  from_: pulumi.Input[_builtins.str],
-                 to: Optional[pulumi.Input[_builtins.str]] = None):
+                 to: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The start and end date for recurrence schedule.
 
@@ -2968,14 +2968,14 @@ class ReportRecurrencePeriodArgs:
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date of recurrence.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "to", value)
 
 
@@ -2987,11 +2987,11 @@ class ReportScheduleArgsDict(TypedDict):
     """
     The schedule recurrence.
     """
-    recurrence_period: NotRequired[pulumi.Input['ReportRecurrencePeriodArgsDict']]
+    recurrence_period: NotRequired[pulumi.Input[Optional['ReportRecurrencePeriodArgsDict']]]
     """
     Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'StatusType']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]]]
     """
     The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
     """
@@ -3000,8 +3000,8 @@ class ReportScheduleArgsDict(TypedDict):
 class ReportScheduleArgs:
     def __init__(__self__, *,
                  recurrence: pulumi.Input[Union[_builtins.str, 'RecurrenceType']],
-                 recurrence_period: Optional[pulumi.Input['ReportRecurrencePeriodArgs']] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'StatusType']]] = None):
+                 recurrence_period: pulumi.Input[Optional['ReportRecurrencePeriodArgs']] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]] = None):
         """
         The schedule associated with a report.
 
@@ -3029,26 +3029,26 @@ class ReportScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="recurrencePeriod")
-    def recurrence_period(self) -> Optional[pulumi.Input['ReportRecurrencePeriodArgs']]:
+    def recurrence_period(self) -> pulumi.Input[Optional['ReportRecurrencePeriodArgs']]:
         """
         Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         """
         return pulumi.get(self, "recurrence_period")
 
     @recurrence_period.setter
-    def recurrence_period(self, value: Optional[pulumi.Input['ReportRecurrencePeriodArgs']]):
+    def recurrence_period(self, value: pulumi.Input[Optional['ReportRecurrencePeriodArgs']]):
         pulumi.set(self, "recurrence_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StatusType']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]]:
         """
         The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StatusType']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StatusType']]]):
         pulumi.set(self, "status", value)
 
 
@@ -3120,19 +3120,19 @@ class SchedulePropertiesArgsDict(TypedDict):
     """
     The start date and time of the scheduled action (UTC).
     """
-    day_of_month: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_month: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.
     """
-    days_of_week: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]
+    days_of_week: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]]
     """
     Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.
     """
-    hour_of_day: NotRequired[pulumi.Input[_builtins.int]]
+    hour_of_day: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     UTC time at which cost analysis data will be emailed.
     """
-    weeks_of_month: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]]
+    weeks_of_month: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]]]
     """
     Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
     """
@@ -3143,10 +3143,10 @@ class SchedulePropertiesArgs:
                  end_date: pulumi.Input[_builtins.str],
                  frequency: pulumi.Input[Union[_builtins.str, 'ScheduleFrequency']],
                  start_date: pulumi.Input[_builtins.str],
-                 day_of_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]] = None,
-                 hour_of_day: Optional[pulumi.Input[_builtins.int]] = None,
-                 weeks_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]] = None):
+                 day_of_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]] = None,
+                 hour_of_day: pulumi.Input[Optional[_builtins.int]] = None,
+                 weeks_of_month: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]] = None):
         """
         The properties of the schedule.
 
@@ -3208,50 +3208,50 @@ class SchedulePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfMonth")
-    def day_of_month(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_month(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.
         """
         return pulumi.get(self, "day_of_month")
 
     @day_of_month.setter
-    def day_of_month(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_month(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_month", value)
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]:
+    def days_of_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]:
         """
         Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]):
+    def days_of_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]):
         pulumi.set(self, "days_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="hourOfDay")
-    def hour_of_day(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def hour_of_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         UTC time at which cost analysis data will be emailed.
         """
         return pulumi.get(self, "hour_of_day")
 
     @hour_of_day.setter
-    def hour_of_day(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def hour_of_day(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "hour_of_day", value)
 
     @_builtins.property
     @pulumi.getter(name="weeksOfMonth")
-    def weeks_of_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]]:
+    def weeks_of_month(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]]:
         """
         Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
         """
         return pulumi.get(self, "weeks_of_month")
 
     @weeks_of_month.setter
-    def weeks_of_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]]):
+    def weeks_of_month(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WeeksOfMonth']]]]]):
         pulumi.set(self, "weeks_of_month", value)
 
 
@@ -3272,11 +3272,11 @@ class SettingsPropertiesCacheArgsDict(TypedDict):
     """
     Indicates the type of modern account. Allowed values include: Individual, Enterprise, Partner, Indirect, NotApplicable
     """
-    parent: NotRequired[pulumi.Input[_builtins.str]]
+    parent: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
     """
@@ -3288,8 +3288,8 @@ class SettingsPropertiesCacheArgs:
                  id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  subchannel: pulumi.Input[_builtins.str],
-                 parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] channel: Indicates the account type. Allowed values include: EA, PAYG, Modern, Internal, Unknown.
         :param pulumi.Input[_builtins.str] id: Resource ID used by Resource Manager to uniquely identify the scope.
@@ -3357,26 +3357,26 @@ class SettingsPropertiesCacheArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
         """
         return pulumi.get(self, "parent")
 
     @parent.setter
-    def parent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 

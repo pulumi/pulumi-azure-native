@@ -70,7 +70,6 @@ def list_agent_spaces_connector_all_secrets(agent_space_name: Optional[_builtins
 
     Uses Azure REST API version 2026-01-01.
 
-
     :param _builtins.str agent_space_name: The name of the AgentSpace
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -83,14 +82,13 @@ def list_agent_spaces_connector_all_secrets(agent_space_name: Optional[_builtins
     return AwaitableListAgentSpacesConnectorAllSecretsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_agent_spaces_connector_all_secrets_output(agent_space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_agent_spaces_connector_all_secrets_output(agent_space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAgentSpacesConnectorAllSecretsResult]:
     """
     List all secrets for AgentSpace Connectors
 
     Uses Azure REST API version 2026-01-01.
-
 
     :param _builtins.str agent_space_name: The name of the AgentSpace
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

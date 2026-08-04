@@ -114,7 +114,7 @@ class GetDataCollectionRuleResult:
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional['outputs.DataCollectionRuleResponseDataSources']:
         """
-        The specification of data sources. 
+        The specification of data sources.
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         """
         return pulumi.get(self, "data_sources")
@@ -277,7 +277,6 @@ def get_data_collection_rule(data_collection_rule_name: Optional[_builtins.str] 
 
     Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -307,8 +306,8 @@ def get_data_collection_rule(data_collection_rule_name: Optional[_builtins.str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_collection_rule_output(data_collection_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
     """
     Definition of ARM tracked top level resource.
@@ -316,7 +315,6 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
     Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

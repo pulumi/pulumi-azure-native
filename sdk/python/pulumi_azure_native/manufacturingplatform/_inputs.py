@@ -198,7 +198,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -207,7 +207,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -232,14 +232,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -251,47 +251,47 @@ class MdsResourcePropertiesArgsDict(TypedDict):
     """
     AAD Application Id.
     """
-    aks_admin_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    aks_admin_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AKS Admin Group Id.
     """
-    cmk_profile: NotRequired[pulumi.Input['CmkProfileArgsDict']]
+    cmk_profile: NotRequired[pulumi.Input[Optional['CmkProfileArgsDict']]]
     """
     Profile of CMK Settings.
     """
-    deny_assignment_exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentExclusionArgsDict']]]]
+    deny_assignment_exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentExclusionArgsDict']]]]]
     """
     Deny Assignments exclusion list.
     """
-    enable_copilot: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_copilot: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable Copilot.
     """
-    enable_diagnostic_settings: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_diagnostic_settings: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable Diagnostic Settings.
     """
-    fabric_profile: NotRequired[pulumi.Input['FabricProfileArgsDict']]
+    fabric_profile: NotRequired[pulumi.Input[Optional['FabricProfileArgsDict']]]
     """
     Profile of Fabric resources.
     """
-    open_ai_profile: NotRequired[pulumi.Input['OpenAIProfileArgsDict']]
+    open_ai_profile: NotRequired[pulumi.Input[Optional['OpenAIProfileArgsDict']]]
     """
     Profile of OpenAI Resource.
     """
-    redundancy_state: NotRequired[pulumi.Input[Union[_builtins.str, 'RedundancyState']]]
+    redundancy_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RedundancyState']]]]
     """
     Zone redundancy state for resources
     """
-    resource_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    resource_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]]
     """
     State of the resource
     """
-    user_managed_open_ai_profile: NotRequired[pulumi.Input['UserManagedOpenAIProfileArgsDict']]
+    user_managed_open_ai_profile: NotRequired[pulumi.Input[Optional['UserManagedOpenAIProfileArgsDict']]]
     """
     Profile of User Managed OpenAI Resource.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Mds Resource Version.
     """
@@ -300,17 +300,17 @@ class MdsResourcePropertiesArgsDict(TypedDict):
 class MdsResourcePropertiesArgs:
     def __init__(__self__, *,
                  aad_application_id: pulumi.Input[_builtins.str],
-                 aks_admin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmk_profile: Optional[pulumi.Input['CmkProfileArgs']] = None,
-                 deny_assignment_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentExclusionArgs']]]] = None,
-                 enable_copilot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_diagnostic_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fabric_profile: Optional[pulumi.Input['FabricProfileArgs']] = None,
-                 open_ai_profile: Optional[pulumi.Input['OpenAIProfileArgs']] = None,
-                 redundancy_state: Optional[pulumi.Input[Union[_builtins.str, 'RedundancyState']]] = None,
-                 resource_state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None,
-                 user_managed_open_ai_profile: Optional[pulumi.Input['UserManagedOpenAIProfileArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 aks_admin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmk_profile: pulumi.Input[Optional['CmkProfileArgs']] = None,
+                 deny_assignment_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentExclusionArgs']]]] = None,
+                 enable_copilot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_diagnostic_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fabric_profile: pulumi.Input[Optional['FabricProfileArgs']] = None,
+                 open_ai_profile: pulumi.Input[Optional['OpenAIProfileArgs']] = None,
+                 redundancy_state: pulumi.Input[Optional[Union[_builtins.str, 'RedundancyState']]] = None,
+                 resource_state: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]] = None,
+                 user_managed_open_ai_profile: pulumi.Input[Optional['UserManagedOpenAIProfileArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details of the ManufacturingPlatform MdsResource.
 
@@ -367,134 +367,134 @@ class MdsResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="aksAdminGroupId")
-    def aks_admin_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aks_admin_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AKS Admin Group Id.
         """
         return pulumi.get(self, "aks_admin_group_id")
 
     @aks_admin_group_id.setter
-    def aks_admin_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aks_admin_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aks_admin_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cmkProfile")
-    def cmk_profile(self) -> Optional[pulumi.Input['CmkProfileArgs']]:
+    def cmk_profile(self) -> pulumi.Input[Optional['CmkProfileArgs']]:
         """
         Profile of CMK Settings.
         """
         return pulumi.get(self, "cmk_profile")
 
     @cmk_profile.setter
-    def cmk_profile(self, value: Optional[pulumi.Input['CmkProfileArgs']]):
+    def cmk_profile(self, value: pulumi.Input[Optional['CmkProfileArgs']]):
         pulumi.set(self, "cmk_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="denyAssignmentExclusions")
-    def deny_assignment_exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentExclusionArgs']]]]:
+    def deny_assignment_exclusions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentExclusionArgs']]]]:
         """
         Deny Assignments exclusion list.
         """
         return pulumi.get(self, "deny_assignment_exclusions")
 
     @deny_assignment_exclusions.setter
-    def deny_assignment_exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DenyAssignmentExclusionArgs']]]]):
+    def deny_assignment_exclusions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DenyAssignmentExclusionArgs']]]]):
         pulumi.set(self, "deny_assignment_exclusions", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCopilot")
-    def enable_copilot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_copilot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Copilot.
         """
         return pulumi.get(self, "enable_copilot")
 
     @enable_copilot.setter
-    def enable_copilot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_copilot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_copilot", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDiagnosticSettings")
-    def enable_diagnostic_settings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_diagnostic_settings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Diagnostic Settings.
         """
         return pulumi.get(self, "enable_diagnostic_settings")
 
     @enable_diagnostic_settings.setter
-    def enable_diagnostic_settings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_diagnostic_settings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_diagnostic_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="fabricProfile")
-    def fabric_profile(self) -> Optional[pulumi.Input['FabricProfileArgs']]:
+    def fabric_profile(self) -> pulumi.Input[Optional['FabricProfileArgs']]:
         """
         Profile of Fabric resources.
         """
         return pulumi.get(self, "fabric_profile")
 
     @fabric_profile.setter
-    def fabric_profile(self, value: Optional[pulumi.Input['FabricProfileArgs']]):
+    def fabric_profile(self, value: pulumi.Input[Optional['FabricProfileArgs']]):
         pulumi.set(self, "fabric_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="openAIProfile")
-    def open_ai_profile(self) -> Optional[pulumi.Input['OpenAIProfileArgs']]:
+    def open_ai_profile(self) -> pulumi.Input[Optional['OpenAIProfileArgs']]:
         """
         Profile of OpenAI Resource.
         """
         return pulumi.get(self, "open_ai_profile")
 
     @open_ai_profile.setter
-    def open_ai_profile(self, value: Optional[pulumi.Input['OpenAIProfileArgs']]):
+    def open_ai_profile(self, value: pulumi.Input[Optional['OpenAIProfileArgs']]):
         pulumi.set(self, "open_ai_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="redundancyState")
-    def redundancy_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RedundancyState']]]:
+    def redundancy_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RedundancyState']]]:
         """
         Zone redundancy state for resources
         """
         return pulumi.get(self, "redundancy_state")
 
     @redundancy_state.setter
-    def redundancy_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RedundancyState']]]):
+    def redundancy_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RedundancyState']]]):
         pulumi.set(self, "redundancy_state", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]:
+    def resource_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]:
         """
         State of the resource
         """
         return pulumi.get(self, "resource_state")
 
     @resource_state.setter
-    def resource_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]]):
+    def resource_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceState']]]):
         pulumi.set(self, "resource_state", value)
 
     @_builtins.property
     @pulumi.getter(name="userManagedOpenAIProfile")
-    def user_managed_open_ai_profile(self) -> Optional[pulumi.Input['UserManagedOpenAIProfileArgs']]:
+    def user_managed_open_ai_profile(self) -> pulumi.Input[Optional['UserManagedOpenAIProfileArgs']]:
         """
         Profile of User Managed OpenAI Resource.
         """
         return pulumi.get(self, "user_managed_open_ai_profile")
 
     @user_managed_open_ai_profile.setter
-    def user_managed_open_ai_profile(self, value: Optional[pulumi.Input['UserManagedOpenAIProfileArgs']]):
+    def user_managed_open_ai_profile(self, value: pulumi.Input[Optional['UserManagedOpenAIProfileArgs']]):
         pulumi.set(self, "user_managed_open_ai_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mds Resource Version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -502,35 +502,35 @@ class OpenAIProfileArgsDict(TypedDict):
     """
     The properties related to OpenAI Resource
     """
-    embedding_model_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    embedding_model_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Embedding Model Capacity
     """
-    embedding_model_name: NotRequired[pulumi.Input[_builtins.str]]
+    embedding_model_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Embedding Model Name
     """
-    embedding_model_sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    embedding_model_sku_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Embedding Model SKU Name
     """
-    embedding_model_version: NotRequired[pulumi.Input[_builtins.str]]
+    embedding_model_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Embedding Model Version
     """
-    gpt_model_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    gpt_model_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     GPT Model Capacity
     """
-    gpt_model_name: NotRequired[pulumi.Input[_builtins.str]]
+    gpt_model_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     GPT Model Name
     """
-    gpt_model_sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    gpt_model_sku_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     GPT Model SKU Name
     """
-    gpt_model_version: NotRequired[pulumi.Input[_builtins.str]]
+    gpt_model_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     GPT Model Version
     """
@@ -538,14 +538,14 @@ class OpenAIProfileArgsDict(TypedDict):
 @pulumi.input_type
 class OpenAIProfileArgs:
     def __init__(__self__, *,
-                 embedding_model_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 embedding_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 embedding_model_sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 embedding_model_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 gpt_model_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 gpt_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gpt_model_sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gpt_model_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 embedding_model_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 embedding_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 embedding_model_sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 embedding_model_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 gpt_model_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 gpt_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gpt_model_sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gpt_model_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties related to OpenAI Resource
 
@@ -577,98 +577,98 @@ class OpenAIProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelCapacity")
-    def embedding_model_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def embedding_model_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Embedding Model Capacity
         """
         return pulumi.get(self, "embedding_model_capacity")
 
     @embedding_model_capacity.setter
-    def embedding_model_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def embedding_model_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "embedding_model_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelName")
-    def embedding_model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def embedding_model_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Embedding Model Name
         """
         return pulumi.get(self, "embedding_model_name")
 
     @embedding_model_name.setter
-    def embedding_model_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def embedding_model_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "embedding_model_name", value)
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelSkuName")
-    def embedding_model_sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def embedding_model_sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Embedding Model SKU Name
         """
         return pulumi.get(self, "embedding_model_sku_name")
 
     @embedding_model_sku_name.setter
-    def embedding_model_sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def embedding_model_sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "embedding_model_sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelVersion")
-    def embedding_model_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def embedding_model_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Embedding Model Version
         """
         return pulumi.get(self, "embedding_model_version")
 
     @embedding_model_version.setter
-    def embedding_model_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def embedding_model_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "embedding_model_version", value)
 
     @_builtins.property
     @pulumi.getter(name="gptModelCapacity")
-    def gpt_model_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def gpt_model_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         GPT Model Capacity
         """
         return pulumi.get(self, "gpt_model_capacity")
 
     @gpt_model_capacity.setter
-    def gpt_model_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def gpt_model_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "gpt_model_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="gptModelName")
-    def gpt_model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gpt_model_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GPT Model Name
         """
         return pulumi.get(self, "gpt_model_name")
 
     @gpt_model_name.setter
-    def gpt_model_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gpt_model_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gpt_model_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gptModelSkuName")
-    def gpt_model_sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gpt_model_sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GPT Model SKU Name
         """
         return pulumi.get(self, "gpt_model_sku_name")
 
     @gpt_model_sku_name.setter
-    def gpt_model_sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gpt_model_sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gpt_model_sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gptModelVersion")
-    def gpt_model_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gpt_model_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GPT Model Version
         """
         return pulumi.get(self, "gpt_model_version")
 
     @gpt_model_version.setter
-    def gpt_model_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gpt_model_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gpt_model_version", value)
 
 
@@ -680,19 +680,19 @@ class SkuArgsDict(TypedDict):
     """
     The name of the SKU. E.g. P3. It is typically a letter+number code
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the service has different generations of hardware, for the same SKU, then that can be captured here.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
     """
-    tier: NotRequired[pulumi.Input['SkuTier']]
+    tier: NotRequired[pulumi.Input[Optional['SkuTier']]]
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     """
@@ -701,17 +701,17 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional['SkuTier']] = None):
         """
         The resource model definition representing SKU
 
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -738,50 +738,50 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> pulumi.Input[Optional['SkuTier']]:
         """
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: pulumi.Input[Optional['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 

@@ -239,7 +239,6 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[_bu
 
     Uses Azure REST API version 2016-06-01.
 
-
     :param _builtins.str integration_account_name: The integration account name.
     :param _builtins.str resource_group_name: The resource group name.
     :param _builtins.str rosetta_net_process_configuration_name: The integration account RosettaNetProcessConfiguration name.
@@ -268,15 +267,14 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[_bu
         responder_role_settings=pulumi.get(__ret__, 'responder_role_settings'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_rosetta_net_process_configuration_output(integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 rosetta_net_process_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rosetta_net_process_configuration_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 rosetta_net_process_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRosettaNetProcessConfigurationResult]:
     """
     Gets an integration account RosettaNetProcessConfiguration.
 
     Uses Azure REST API version 2016-06-01.
-
 
     :param _builtins.str integration_account_name: The integration account name.
     :param _builtins.str resource_group_name: The resource group name.

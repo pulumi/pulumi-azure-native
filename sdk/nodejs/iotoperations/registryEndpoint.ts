@@ -114,7 +114,7 @@ export interface RegistryEndpointArgs {
     /**
      * Edge location of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs | undefined>;
     /**
      * Name of instance.
      */
@@ -122,11 +122,11 @@ export interface RegistryEndpointArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.RegistryEndpointPropertiesArgs>;
+    properties?: pulumi.Input<inputs.iotoperations.RegistryEndpointPropertiesArgs | undefined>;
     /**
      * Name of RegistryEndpoint resource
      */
-    registryEndpointName?: pulumi.Input<string>;
+    registryEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

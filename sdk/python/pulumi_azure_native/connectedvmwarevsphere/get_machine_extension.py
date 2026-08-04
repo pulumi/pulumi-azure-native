@@ -241,7 +241,6 @@ def get_machine_extension(extension_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str extension_name: The name of the machine extension.
     :param _builtins.str resource_group_name: The Resource Group Name.
     :param _builtins.str virtual_machine_name: The name of the machine containing the extension.
@@ -270,9 +269,9 @@ def get_machine_extension(extension_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
-def get_machine_extension_output(extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_machine_extension_output(extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineExtensionResult]:
     """
     The operation to get the extension.
@@ -280,7 +279,6 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2023-03-01-preview.
 
     Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str extension_name: The name of the machine extension.
     :param _builtins.str resource_group_name: The Resource Group Name.

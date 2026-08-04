@@ -27,17 +27,17 @@ class AgentPoolArgs:
                  mode: pulumi.Input[Union[_builtins.str, 'AgentPoolMode']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_sku_name: pulumi.Input[_builtins.str],
-                 administrator_configuration: Optional[pulumi.Input['AdministratorConfigurationArgs']] = None,
-                 agent_options: Optional[pulumi.Input['AgentOptionsArgs']] = None,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attached_network_configuration: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
-                 upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None):
+                 administrator_configuration: pulumi.Input[Optional['AdministratorConfigurationArgs']] = None,
+                 agent_options: pulumi.Input[Optional['AgentOptionsArgs']] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attached_network_configuration: pulumi.Input[Optional['AttachedNetworkConfigurationArgs']] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
+                 upgrade_settings: pulumi.Input[Optional['AgentPoolUpgradeSettingsArgs']] = None):
         """
         The set of arguments for constructing a AgentPool resource.
 
@@ -148,134 +148,134 @@ class AgentPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorConfiguration")
-    def administrator_configuration(self) -> Optional[pulumi.Input['AdministratorConfigurationArgs']]:
+    def administrator_configuration(self) -> pulumi.Input[Optional['AdministratorConfigurationArgs']]:
         """
         The administrator credentials to be used for the nodes in this agent pool.
         """
         return pulumi.get(self, "administrator_configuration")
 
     @administrator_configuration.setter
-    def administrator_configuration(self, value: Optional[pulumi.Input['AdministratorConfigurationArgs']]):
+    def administrator_configuration(self, value: pulumi.Input[Optional['AdministratorConfigurationArgs']]):
         pulumi.set(self, "administrator_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="agentOptions")
-    def agent_options(self) -> Optional[pulumi.Input['AgentOptionsArgs']]:
+    def agent_options(self) -> pulumi.Input[Optional['AgentOptionsArgs']]:
         """
         The configurations that will be applied to each agent in this agent pool.
         """
         return pulumi.get(self, "agent_options")
 
     @agent_options.setter
-    def agent_options(self, value: Optional[pulumi.Input['AgentOptionsArgs']]):
+    def agent_options(self, value: pulumi.Input[Optional['AgentOptionsArgs']]):
         pulumi.set(self, "agent_options", value)
 
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kubernetes cluster agent pool.
         """
         return pulumi.get(self, "agent_pool_name")
 
     @agent_pool_name.setter
-    def agent_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="attachedNetworkConfiguration")
-    def attached_network_configuration(self) -> Optional[pulumi.Input['AttachedNetworkConfigurationArgs']]:
+    def attached_network_configuration(self) -> pulumi.Input[Optional['AttachedNetworkConfigurationArgs']]:
         """
         The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
         """
         return pulumi.get(self, "attached_network_configuration")
 
     @attached_network_configuration.setter
-    def attached_network_configuration(self, value: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']]):
+    def attached_network_configuration(self, value: pulumi.Input[Optional['AttachedNetworkConfigurationArgs']]):
         pulumi.set(self, "attached_network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extended location of the cluster associated with the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesLabelArgs']]]]:
         """
         The labels applied to the nodes in this agent pool.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]:
+    def taints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesLabelArgs']]]]:
         """
         The taints applied to the nodes in this agent pool.
         """
         return pulumi.get(self, "taints")
 
     @taints.setter
-    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]):
+    def taints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesLabelArgs']]]]):
         pulumi.set(self, "taints", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']]:
+    def upgrade_settings(self) -> pulumi.Input[Optional['AgentPoolUpgradeSettingsArgs']]:
         """
         The configuration of the agent pool.
         """
         return pulumi.get(self, "upgrade_settings")
 
     @upgrade_settings.setter
-    def upgrade_settings(self, value: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']]):
+    def upgrade_settings(self, value: pulumi.Input[Optional['AgentPoolUpgradeSettingsArgs']]):
         pulumi.set(self, "upgrade_settings", value)
 
 
@@ -285,28 +285,27 @@ class AgentPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_configuration: Optional[pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
-                 agent_options: Optional[pulumi.Input[Union['AgentOptionsArgs', 'AgentOptionsArgsDict']]] = None,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attached_network_configuration: Optional[pulumi.Input[Union['AttachedNetworkConfigurationArgs', 'AttachedNetworkConfigurationArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 count: Optional[pulumi.Input[_builtins.float]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 kubernetes_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolMode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
-                 upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
-                 vm_sku_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_configuration: pulumi.Input[Optional[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
+                 agent_options: pulumi.Input[Optional[Union['AgentOptionsArgs', 'AgentOptionsArgsDict']]] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attached_network_configuration: pulumi.Input[Optional[Union['AttachedNetworkConfigurationArgs', 'AttachedNetworkConfigurationArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 count: pulumi.Input[Optional[_builtins.float]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 kubernetes_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolMode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
+                 upgrade_settings: pulumi.Input[Optional[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
+                 vm_sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,7 +337,6 @@ class AgentPool(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,22 +352,22 @@ class AgentPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_configuration: Optional[pulumi.Input[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
-                 agent_options: Optional[pulumi.Input[Union['AgentOptionsArgs', 'AgentOptionsArgsDict']]] = None,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 attached_network_configuration: Optional[pulumi.Input[Union['AttachedNetworkConfigurationArgs', 'AttachedNetworkConfigurationArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 count: Optional[pulumi.Input[_builtins.float]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 kubernetes_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'AgentPoolMode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
-                 upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
-                 vm_sku_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_configuration: pulumi.Input[Optional[Union['AdministratorConfigurationArgs', 'AdministratorConfigurationArgsDict']]] = None,
+                 agent_options: pulumi.Input[Optional[Union['AgentOptionsArgs', 'AgentOptionsArgsDict']]] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 attached_network_configuration: pulumi.Input[Optional[Union['AttachedNetworkConfigurationArgs', 'AttachedNetworkConfigurationArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 count: pulumi.Input[Optional[_builtins.float]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 kubernetes_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'AgentPoolMode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesLabelArgs', 'KubernetesLabelArgsDict']]]]] = None,
+                 upgrade_settings: pulumi.Input[Optional[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
+                 vm_sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

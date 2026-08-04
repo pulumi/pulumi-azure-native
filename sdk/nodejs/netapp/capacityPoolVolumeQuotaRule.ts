@@ -150,7 +150,7 @@ export interface CapacityPoolVolumeQuotaRuleArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the capacity pool
      */
@@ -158,15 +158,15 @@ export interface CapacityPoolVolumeQuotaRuleArgs {
     /**
      * Size of quota
      */
-    quotaSizeInKiBs?: pulumi.Input<number>;
+    quotaSizeInKiBs?: pulumi.Input<number | undefined>;
     /**
      * UserID/GroupID/SID based on the quota target type. UserID and groupID can be found by running ‘id’ or ‘getent’ command for the user or group and SID can be found by running <wmic useraccount where name='user-name' get sid>
      */
-    quotaTarget?: pulumi.Input<string>;
+    quotaTarget?: pulumi.Input<string | undefined>;
     /**
      * Type of quota
      */
-    quotaType?: pulumi.Input<string | enums.netapp.Type>;
+    quotaType?: pulumi.Input<string | enums.netapp.Type | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -174,7 +174,7 @@ export interface CapacityPoolVolumeQuotaRuleArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the volume
      */
@@ -182,5 +182,5 @@ export interface CapacityPoolVolumeQuotaRuleArgs {
     /**
      * The name of volume quota rule
      */
-    volumeQuotaRuleName?: pulumi.Input<string>;
+    volumeQuotaRuleName?: pulumi.Input<string | undefined>;
 }

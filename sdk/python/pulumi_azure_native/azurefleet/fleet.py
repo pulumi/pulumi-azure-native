@@ -25,16 +25,16 @@ class FleetArgs:
                  compute_profile: pulumi.Input['ComputeProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_sizes_profile: pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]],
-                 additional_locations_profile: Optional[pulumi.Input['AdditionalLocationsProfileArgs']] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
-                 regular_priority_profile: Optional[pulumi.Input['RegularPriorityProfileArgs']] = None,
-                 spot_priority_profile: Optional[pulumi.Input['SpotPriorityProfileArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_attributes: Optional[pulumi.Input['VMAttributesArgs']] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_locations_profile: pulumi.Input[Optional['AdditionalLocationsProfileArgs']] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['PlanArgs']] = None,
+                 regular_priority_profile: pulumi.Input[Optional['RegularPriorityProfileArgs']] = None,
+                 spot_priority_profile: pulumi.Input[Optional['SpotPriorityProfileArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_attributes: pulumi.Input[Optional['VMAttributesArgs']] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
 
@@ -114,122 +114,122 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalLocationsProfile")
-    def additional_locations_profile(self) -> Optional[pulumi.Input['AdditionalLocationsProfileArgs']]:
+    def additional_locations_profile(self) -> pulumi.Input[Optional['AdditionalLocationsProfileArgs']]:
         """
         Represents the configuration for additional locations where Fleet resources may be deployed.
         """
         return pulumi.get(self, "additional_locations_profile")
 
     @additional_locations_profile.setter
-    def additional_locations_profile(self, value: Optional[pulumi.Input['AdditionalLocationsProfileArgs']]):
+    def additional_locations_profile(self, value: pulumi.Input[Optional['AdditionalLocationsProfileArgs']]):
         pulumi.set(self, "additional_locations_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetName")
-    def fleet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Compute Fleet
         """
         return pulumi.get(self, "fleet_name")
 
     @fleet_name.setter
-    def fleet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['PlanArgs']]:
         """
         Details of the resource plan.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="regularPriorityProfile")
-    def regular_priority_profile(self) -> Optional[pulumi.Input['RegularPriorityProfileArgs']]:
+    def regular_priority_profile(self) -> pulumi.Input[Optional['RegularPriorityProfileArgs']]:
         """
         Configuration Options for Regular instances in Compute Fleet.
         """
         return pulumi.get(self, "regular_priority_profile")
 
     @regular_priority_profile.setter
-    def regular_priority_profile(self, value: Optional[pulumi.Input['RegularPriorityProfileArgs']]):
+    def regular_priority_profile(self, value: pulumi.Input[Optional['RegularPriorityProfileArgs']]):
         pulumi.set(self, "regular_priority_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="spotPriorityProfile")
-    def spot_priority_profile(self) -> Optional[pulumi.Input['SpotPriorityProfileArgs']]:
+    def spot_priority_profile(self) -> pulumi.Input[Optional['SpotPriorityProfileArgs']]:
         """
         Configuration Options for Spot instances in Compute Fleet.
         """
         return pulumi.get(self, "spot_priority_profile")
 
     @spot_priority_profile.setter
-    def spot_priority_profile(self, value: Optional[pulumi.Input['SpotPriorityProfileArgs']]):
+    def spot_priority_profile(self, value: pulumi.Input[Optional['SpotPriorityProfileArgs']]):
         pulumi.set(self, "spot_priority_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vmAttributes")
-    def vm_attributes(self) -> Optional[pulumi.Input['VMAttributesArgs']]:
+    def vm_attributes(self) -> pulumi.Input[Optional['VMAttributesArgs']]:
         """
         Attribute based Fleet.
         """
         return pulumi.get(self, "vm_attributes")
 
     @vm_attributes.setter
-    def vm_attributes(self, value: Optional[pulumi.Input['VMAttributesArgs']]):
+    def vm_attributes(self, value: pulumi.Input[Optional['VMAttributesArgs']]):
         pulumi.set(self, "vm_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Zones in which the Compute Fleet is available
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -239,19 +239,19 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations_profile: Optional[pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
-                 compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 regular_priority_profile: Optional[pulumi.Input[Union['RegularPriorityProfileArgs', 'RegularPriorityProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spot_priority_profile: Optional[pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_attributes: Optional[pulumi.Input[Union['VMAttributesArgs', 'VMAttributesArgsDict']]] = None,
-                 vm_sizes_profile: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmSizeProfileArgs', 'VmSizeProfileArgsDict']]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_locations_profile: pulumi.Input[Optional[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
+                 compute_profile: pulumi.Input[Optional[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 regular_priority_profile: pulumi.Input[Optional[Union['RegularPriorityProfileArgs', 'RegularPriorityProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spot_priority_profile: pulumi.Input[Optional[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_attributes: pulumi.Input[Optional[Union['VMAttributesArgs', 'VMAttributesArgsDict']]] = None,
+                 vm_sizes_profile: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmSizeProfileArgs', 'VmSizeProfileArgsDict']]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An Compute Fleet resource
@@ -259,7 +259,6 @@ class Fleet(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +289,6 @@ class Fleet(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,19 +304,19 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations_profile: Optional[pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
-                 compute_profile: Optional[pulumi.Input[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 regular_priority_profile: Optional[pulumi.Input[Union['RegularPriorityProfileArgs', 'RegularPriorityProfileArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spot_priority_profile: Optional[pulumi.Input[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vm_attributes: Optional[pulumi.Input[Union['VMAttributesArgs', 'VMAttributesArgsDict']]] = None,
-                 vm_sizes_profile: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmSizeProfileArgs', 'VmSizeProfileArgsDict']]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_locations_profile: pulumi.Input[Optional[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']]] = None,
+                 compute_profile: pulumi.Input[Optional[Union['ComputeProfileArgs', 'ComputeProfileArgsDict']]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 regular_priority_profile: pulumi.Input[Optional[Union['RegularPriorityProfileArgs', 'RegularPriorityProfileArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spot_priority_profile: pulumi.Input[Optional[Union['SpotPriorityProfileArgs', 'SpotPriorityProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vm_attributes: pulumi.Input[Optional[Union['VMAttributesArgs', 'VMAttributesArgsDict']]] = None,
+                 vm_sizes_profile: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmSizeProfileArgs', 'VmSizeProfileArgsDict']]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

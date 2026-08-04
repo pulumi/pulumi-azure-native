@@ -24,11 +24,11 @@ class OpenIdConnectProviderArgs:
                  metadata_endpoint: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 opid: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_in_api_documentation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_in_test_console: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 opid: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_in_api_documentation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_in_test_console: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OpenIdConnectProvider resource.
 
@@ -121,62 +121,62 @@ class OpenIdConnectProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Secret of developer console which is the client application.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-friendly description of OpenID Connect Provider.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def opid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the OpenID Connect Provider.
         """
         return pulumi.get(self, "opid")
 
     @opid.setter
-    def opid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opid", value)
 
     @_builtins.property
     @pulumi.getter(name="useInApiDocumentation")
-    def use_in_api_documentation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_in_api_documentation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
         """
         return pulumi.get(self, "use_in_api_documentation")
 
     @use_in_api_documentation.setter
-    def use_in_api_documentation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_in_api_documentation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_in_api_documentation", value)
 
     @_builtins.property
     @pulumi.getter(name="useInTestConsole")
-    def use_in_test_console(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_in_test_console(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
         """
         return pulumi.get(self, "use_in_test_console")
 
     @use_in_test_console.setter
-    def use_in_test_console(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_in_test_console(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_in_test_console", value)
 
 
@@ -186,16 +186,16 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 opid: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_in_api_documentation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_in_test_console: Optional[pulumi.Input[_builtins.bool]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 opid: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_in_api_documentation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_in_test_console: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         OpenId Connect Provider details.
@@ -203,7 +203,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,7 +230,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OpenIdConnectProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,16 +245,16 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 opid: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_in_api_documentation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_in_test_console: Optional[pulumi.Input[_builtins.bool]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 opid: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_in_api_documentation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_in_test_console: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

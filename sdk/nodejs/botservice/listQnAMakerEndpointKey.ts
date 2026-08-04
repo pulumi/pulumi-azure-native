@@ -72,9 +72,9 @@ export interface ListQnAMakerEndpointKeyOutputArgs {
     /**
      * Subscription key which provides access to this API.
      */
-    authkey?: pulumi.Input<string>;
+    authkey?: pulumi.Input<string | undefined>;
     /**
      * the host name of the QnA Maker endpoint
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
 }

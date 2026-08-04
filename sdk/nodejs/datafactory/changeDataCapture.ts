@@ -157,15 +157,15 @@ export interface ChangeDataCaptureArgs {
     /**
      * A boolean to determine if the vnet configuration needs to be overwritten.
      */
-    allowVNetOverride?: pulumi.Input<boolean>;
+    allowVNetOverride?: pulumi.Input<boolean | undefined>;
     /**
      * The change data capture name.
      */
-    changeDataCaptureName?: pulumi.Input<string>;
+    changeDataCaptureName?: pulumi.Input<string | undefined>;
     /**
      * The description of the change data capture.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The factory name.
      */
@@ -173,7 +173,7 @@ export interface ChangeDataCaptureArgs {
     /**
      * The folder that this CDC is in. If not specified, CDC will appear at the root level.
      */
-    folder?: pulumi.Input<inputs.datafactory.ChangeDataCaptureFolderArgs>;
+    folder?: pulumi.Input<inputs.datafactory.ChangeDataCaptureFolderArgs | undefined>;
     /**
      * CDC policy
      */
@@ -189,7 +189,7 @@ export interface ChangeDataCaptureArgs {
     /**
      * Status of the CDC as to if it is running or stopped.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * List of target connections that can be used as sources in the CDC.
      */

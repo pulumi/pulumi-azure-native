@@ -23,9 +23,9 @@ class MeshMembershipArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 mesh_membership_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['MeshMembershipPropertiesArgs']] = None):
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 mesh_membership_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['MeshMembershipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MeshMembership resource.
 
@@ -70,38 +70,38 @@ class MeshMembershipArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="meshMembershipName")
-    def mesh_membership_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mesh_membership_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the mesh membership.
         """
         return pulumi.get(self, "mesh_membership_name")
 
     @mesh_membership_name.setter
-    def mesh_membership_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mesh_membership_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mesh_membership_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['MeshMembershipPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['MeshMembershipPropertiesArgs']]:
         """
         Mesh membership properties of a managed cluster.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['MeshMembershipPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['MeshMembershipPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -111,11 +111,11 @@ class MeshMembership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 mesh_membership_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MeshMembershipPropertiesArgs', 'MeshMembershipPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 mesh_membership_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MeshMembershipPropertiesArgs', 'MeshMembershipPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Mesh membership of a managed cluster.
@@ -123,7 +123,6 @@ class MeshMembership(pulumi.CustomResource):
         Uses Azure REST API version 2025-08-02-preview.
 
         Other available API versions: 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class MeshMembership(pulumi.CustomResource):
 
         Other available API versions: 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param MeshMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class MeshMembership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 mesh_membership_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['MeshMembershipPropertiesArgs', 'MeshMembershipPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 mesh_membership_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['MeshMembershipPropertiesArgs', 'MeshMembershipPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

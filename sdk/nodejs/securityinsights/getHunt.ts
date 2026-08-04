@@ -75,7 +75,7 @@ export interface GetHuntResult {
      */
     readonly id: string;
     /**
-     * List of labels relevant to this hunt 
+     * List of labels relevant to this hunt
      */
     readonly labels?: string[];
     /**

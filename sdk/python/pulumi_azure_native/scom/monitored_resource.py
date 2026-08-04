@@ -22,7 +22,7 @@ class MonitoredResourceArgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 monitored_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 monitored_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitoredResource resource.
 
@@ -61,14 +61,14 @@ class MonitoredResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="monitoredResourceName")
-    def monitored_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitored_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The monitored resource name.
         """
         return pulumi.get(self, "monitored_resource_name")
 
     @monitored_resource_name.setter
-    def monitored_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitored_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitored_resource_name", value)
 
 
@@ -78,15 +78,14 @@ class MonitoredResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitored_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitored_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A monitored resource.
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +104,6 @@ class MonitoredResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MonitoredResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,9 +119,9 @@ class MonitoredResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitored_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitored_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

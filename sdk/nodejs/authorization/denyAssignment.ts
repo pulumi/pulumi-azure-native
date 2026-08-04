@@ -185,47 +185,47 @@ export interface DenyAssignmentArgs {
     /**
      * The conditions on the deny assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string | undefined>;
     /**
      * Version of the condition.
      */
-    conditionVersion?: pulumi.Input<string>;
+    conditionVersion?: pulumi.Input<string | undefined>;
     /**
      * The effect of the deny assignment. 'enforced' blocks access, 'audit' logs without blocking.
      */
-    denyAssignmentEffect?: pulumi.Input<string | enums.authorization.DenyAssignmentEffect>;
+    denyAssignmentEffect?: pulumi.Input<string | enums.authorization.DenyAssignmentEffect | undefined>;
     /**
      * The ID of the deny assignment to get.
      */
-    denyAssignmentId?: pulumi.Input<string>;
+    denyAssignmentId?: pulumi.Input<string | undefined>;
     /**
      * The display name of the deny assignment.
      */
-    denyAssignmentName?: pulumi.Input<string>;
+    denyAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The description of the deny assignment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Determines if the deny assignment applies to child scopes. Default value is false.
      */
-    doNotApplyToChildScopes?: pulumi.Input<boolean>;
+    doNotApplyToChildScopes?: pulumi.Input<boolean | undefined>;
     /**
      * Array of principals to which the deny assignment does not apply.
      */
-    excludePrincipals?: pulumi.Input<pulumi.Input<inputs.authorization.DenyAssignmentPrincipalArgs>[]>;
+    excludePrincipals?: pulumi.Input<pulumi.Input<inputs.authorization.DenyAssignmentPrincipalArgs>[] | undefined>;
     /**
      * Specifies whether this deny assignment was created by Azure and cannot be edited or deleted.
      */
-    isSystemProtected?: pulumi.Input<boolean>;
+    isSystemProtected?: pulumi.Input<boolean | undefined>;
     /**
      * An array of permissions that are denied by the deny assignment.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.DenyAssignmentPermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.DenyAssignmentPermissionArgs>[] | undefined>;
     /**
      * Array of principals to which the deny assignment applies.
      */
-    principals?: pulumi.Input<pulumi.Input<inputs.authorization.DenyAssignmentPrincipalArgs>[]>;
+    principals?: pulumi.Input<pulumi.Input<inputs.authorization.DenyAssignmentPrincipalArgs>[] | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

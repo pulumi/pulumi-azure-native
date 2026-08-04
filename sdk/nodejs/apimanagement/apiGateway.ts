@@ -98,7 +98,7 @@ export class ApiGateway extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
-     * The type of VPN in which API Management gateway needs to be configured in. 
+     * The type of VPN in which API Management gateway needs to be configured in.
      */
     declare public readonly virtualNetworkType: pulumi.Output<string | undefined>;
 
@@ -167,15 +167,15 @@ export interface ApiGatewayArgs {
     /**
      * Information regarding how the gateway should integrate with backend systems.
      */
-    backend?: pulumi.Input<inputs.apimanagement.BackendConfigurationArgs>;
+    backend?: pulumi.Input<inputs.apimanagement.BackendConfigurationArgs | undefined>;
     /**
      * The name of the API Management gateway.
      */
-    gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -187,9 +187,9 @@ export interface ApiGatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of VPN in which API Management gateway needs to be configured in. 
+     * The type of VPN in which API Management gateway needs to be configured in.
      */
-    virtualNetworkType?: pulumi.Input<string | enums.apimanagement.VirtualNetworkType>;
+    virtualNetworkType?: pulumi.Input<string | enums.apimanagement.VirtualNetworkType | undefined>;
 }

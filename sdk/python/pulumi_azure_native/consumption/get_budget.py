@@ -216,7 +216,6 @@ def get_budget(budget_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str budget_name: Budget Name.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
@@ -241,8 +240,8 @@ def get_budget(budget_name: Optional[_builtins.str] = None,
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_period=pulumi.get(__ret__, 'time_period'),
         type=pulumi.get(__ret__, 'type'))
-def get_budget_output(budget_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_budget_output(budget_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      scope: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Gets the budget for the scope by budget name.
@@ -250,7 +249,6 @@ def get_budget_output(budget_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str budget_name: Budget Name.
     :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.

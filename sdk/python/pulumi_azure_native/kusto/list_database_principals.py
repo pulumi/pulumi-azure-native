@@ -61,7 +61,6 @@ def list_database_principals(cluster_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str database_name: The name of the database in the Kusto cluster.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -75,9 +74,9 @@ def list_database_principals(cluster_name: Optional[_builtins.str] = None,
 
     return AwaitableListDatabasePrincipalsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_database_principals_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_database_principals_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatabasePrincipalsResult]:
     """
     Returns a list of database principals of the given Kusto cluster and database.
@@ -85,7 +84,6 @@ def list_database_principals_output(cluster_name: Optional[pulumi.Input[_builtin
     Uses Azure REST API version 2024-04-13.
 
     Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cluster_name: The name of the Kusto cluster.
     :param _builtins.str database_name: The name of the database in the Kusto cluster.

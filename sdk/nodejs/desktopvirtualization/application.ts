@@ -193,15 +193,15 @@ export interface ApplicationArgs {
     /**
      * The name of the application within the specified application group
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * Resource Type of Application.
      */
-    applicationType?: pulumi.Input<string | enums.desktopvirtualization.RemoteApplicationType>;
+    applicationType?: pulumi.Input<string | enums.desktopvirtualization.RemoteApplicationType | undefined>;
     /**
      * Command Line Arguments for Application.
      */
-    commandLineArguments?: pulumi.Input<string>;
+    commandLineArguments?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
      */
@@ -209,31 +209,31 @@ export interface ApplicationArgs {
     /**
      * Description of Application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies a path for the executable file for the application.
      */
-    filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of Application.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Index of the icon.
      */
-    iconIndex?: pulumi.Input<number>;
+    iconIndex?: pulumi.Input<number | undefined>;
     /**
      * Path to icon.
      */
-    iconPath?: pulumi.Input<string>;
+    iconPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the package application Id for MSIX applications
      */
-    msixPackageApplicationId?: pulumi.Input<string>;
+    msixPackageApplicationId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the package family name for MSIX applications
      */
-    msixPackageFamilyName?: pulumi.Input<string>;
+    msixPackageFamilyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -241,5 +241,5 @@ export interface ApplicationArgs {
     /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
-    showInPortal?: pulumi.Input<boolean>;
+    showInPortal?: pulumi.Input<boolean | undefined>;
 }

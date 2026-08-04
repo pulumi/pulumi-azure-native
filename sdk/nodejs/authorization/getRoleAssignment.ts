@@ -139,5 +139,5 @@ export interface GetRoleAssignmentOutputArgs {
     /**
      * Tenant ID for cross-tenant request
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

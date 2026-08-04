@@ -130,7 +130,6 @@ def get_channel(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-01-preview.
 
-
     :param _builtins.str account_name: Account Name
     :param _builtins.str channel_name: Channel Name
     :param _builtins.str resource_group_name: Resource Group Name
@@ -150,15 +149,14 @@ def get_channel(account_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_channel_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     The EngagementFabric channel
 
     Uses Azure REST API version 2018-09-01-preview.
-
 
     :param _builtins.str account_name: Account Name
     :param _builtins.str channel_name: Channel Name

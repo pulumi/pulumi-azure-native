@@ -25,7 +25,7 @@ class ReachabilityAnalysisRunArgs:
                  properties: pulumi.Input['ReachabilityAnalysisRunPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 reachability_analysis_run_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 reachability_analysis_run_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReachabilityAnalysisRun resource.
 
@@ -92,14 +92,14 @@ class ReachabilityAnalysisRunArgs:
 
     @_builtins.property
     @pulumi.getter(name="reachabilityAnalysisRunName")
-    def reachability_analysis_run_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reachability_analysis_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reachability Analysis Run name.
         """
         return pulumi.get(self, "reachability_analysis_run_name")
 
     @reachability_analysis_run_name.setter
-    def reachability_analysis_run_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reachability_analysis_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reachability_analysis_run_name", value)
 
 
@@ -109,11 +109,11 @@ class ReachabilityAnalysisRun(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ReachabilityAnalysisRunPropertiesArgs', 'ReachabilityAnalysisRunPropertiesArgsDict']]] = None,
-                 reachability_analysis_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReachabilityAnalysisRunPropertiesArgs', 'ReachabilityAnalysisRunPropertiesArgsDict']]] = None,
+                 reachability_analysis_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration information for analysis run.
@@ -121,7 +121,6 @@ class ReachabilityAnalysisRun(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
         Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class ReachabilityAnalysisRun(pulumi.CustomResource):
 
         Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ReachabilityAnalysisRunArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class ReachabilityAnalysisRun(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ReachabilityAnalysisRunPropertiesArgs', 'ReachabilityAnalysisRunPropertiesArgsDict']]] = None,
-                 reachability_analysis_run_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ReachabilityAnalysisRunPropertiesArgs', 'ReachabilityAnalysisRunPropertiesArgsDict']]] = None,
+                 reachability_analysis_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -22,12 +22,12 @@ __all__ = ['DelegatedSubnetServiceDetailsArgs', 'DelegatedSubnetServiceDetails']
 class DelegatedSubnetServiceDetailsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allocation_block_prefix_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 controller_details: Optional[pulumi.Input['ControllerDetailsArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_details: Optional[pulumi.Input['SubnetDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 allocation_block_prefix_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 controller_details: pulumi.Input[Optional['ControllerDetailsArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_details: pulumi.Input[Optional['SubnetDetailsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DelegatedSubnetServiceDetails resource.
 
@@ -68,7 +68,7 @@ class DelegatedSubnetServiceDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocationBlockPrefixSize")
-    def allocation_block_prefix_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocation_block_prefix_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
         Delegated subnet's prefix size should be smaller than this by a minimum of 3.
@@ -76,67 +76,67 @@ class DelegatedSubnetServiceDetailsArgs:
         return pulumi.get(self, "allocation_block_prefix_size")
 
     @allocation_block_prefix_size.setter
-    def allocation_block_prefix_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocation_block_prefix_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocation_block_prefix_size", value)
 
     @_builtins.property
     @pulumi.getter(name="controllerDetails")
-    def controller_details(self) -> Optional[pulumi.Input['ControllerDetailsArgs']]:
+    def controller_details(self) -> pulumi.Input[Optional['ControllerDetailsArgs']]:
         """
         Properties of the controller.
         """
         return pulumi.get(self, "controller_details")
 
     @controller_details.setter
-    def controller_details(self, value: Optional[pulumi.Input['ControllerDetailsArgs']]):
+    def controller_details(self, value: pulumi.Input[Optional['ControllerDetailsArgs']]):
         pulumi.set(self, "controller_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetDetails")
-    def subnet_details(self) -> Optional[pulumi.Input['SubnetDetailsArgs']]:
+    def subnet_details(self) -> pulumi.Input[Optional['SubnetDetailsArgs']]:
         """
         subnet details
         """
         return pulumi.get(self, "subnet_details")
 
     @subnet_details.setter
-    def subnet_details(self, value: Optional[pulumi.Input['SubnetDetailsArgs']]):
+    def subnet_details(self, value: pulumi.Input[Optional['SubnetDetailsArgs']]):
         pulumi.set(self, "subnet_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -146,13 +146,13 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_block_prefix_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 controller_details: Optional[pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_details: Optional[pulumi.Input[Union['SubnetDetailsArgs', 'SubnetDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allocation_block_prefix_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 controller_details: pulumi.Input[Optional[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_details: pulumi.Input[Optional[Union['SubnetDetailsArgs', 'SubnetDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents an instance of a orchestrator.
@@ -160,7 +160,6 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
 
         Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,7 +185,6 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
 
         Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DelegatedSubnetServiceDetailsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,13 +200,13 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_block_prefix_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 controller_details: Optional[pulumi.Input[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_details: Optional[pulumi.Input[Union['SubnetDetailsArgs', 'SubnetDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 allocation_block_prefix_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 controller_details: pulumi.Input[Optional[Union['ControllerDetailsArgs', 'ControllerDetailsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_details: pulumi.Input[Optional[Union['SubnetDetailsArgs', 'SubnetDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

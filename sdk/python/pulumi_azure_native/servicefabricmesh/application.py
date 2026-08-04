@@ -23,13 +23,13 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 application_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 debug_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnostics: Optional[pulumi.Input['DiagnosticsDescriptionArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 application_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 debug_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnostics: pulumi.Input[Optional['DiagnosticsDescriptionArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -72,86 +72,86 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationResourceName")
-    def application_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity of the application.
         """
         return pulumi.get(self, "application_resource_name")
 
     @application_resource_name.setter
-    def application_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="debugParams")
-    def debug_params(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def debug_params(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal - used by Visual Studio to setup the debugging session on the local development environment.
         """
         return pulumi.get(self, "debug_params")
 
     @debug_params.setter
-    def debug_params(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def debug_params(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "debug_params", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User readable description of the application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def diagnostics(self) -> Optional[pulumi.Input['DiagnosticsDescriptionArgs']]:
+    def diagnostics(self) -> pulumi.Input[Optional['DiagnosticsDescriptionArgs']]:
         """
         Describes the diagnostics definition and usage for an application resource.
         """
         return pulumi.get(self, "diagnostics")
 
     @diagnostics.setter
-    def diagnostics(self, value: Optional[pulumi.Input['DiagnosticsDescriptionArgs']]):
+    def diagnostics(self, value: pulumi.Input[Optional['DiagnosticsDescriptionArgs']]):
         pulumi.set(self, "diagnostics", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]:
+    def services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]:
         """
         Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]):
+    def services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]]]):
         pulumi.set(self, "services", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,20 +161,19 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 debug_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnostics: Optional[pulumi.Input[Union['DiagnosticsDescriptionArgs', 'DiagnosticsDescriptionArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceResourceDescriptionArgs', 'ServiceResourceDescriptionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 debug_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['DiagnosticsDescriptionArgs', 'DiagnosticsDescriptionArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceResourceDescriptionArgs', 'ServiceResourceDescriptionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         This type describes an application resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +197,6 @@ class Application(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,14 +212,14 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 debug_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 diagnostics: Optional[pulumi.Input[Union['DiagnosticsDescriptionArgs', 'DiagnosticsDescriptionArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceResourceDescriptionArgs', 'ServiceResourceDescriptionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 debug_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['DiagnosticsDescriptionArgs', 'DiagnosticsDescriptionArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceResourceDescriptionArgs', 'ServiceResourceDescriptionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

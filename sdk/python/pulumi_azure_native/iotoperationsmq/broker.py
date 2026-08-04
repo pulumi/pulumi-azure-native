@@ -29,17 +29,17 @@ class BrokerArgs:
                  mode: pulumi.Input[Union[_builtins.str, 'RunMode']],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 broker_node_tolerations: Optional[pulumi.Input['NodeTolerationsArgs']] = None,
-                 cardinality: Optional[pulumi.Input['CardinalityArgs']] = None,
-                 diagnostics: Optional[pulumi.Input['BrokerDiagnosticsArgs']] = None,
-                 disk_backed_message_buffer_settings: Optional[pulumi.Input['DiskBackedMessageBufferSettingsArgs']] = None,
-                 encrypt_internal_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_manager_node_tolerations: Optional[pulumi.Input['NodeTolerationsArgs']] = None,
-                 internal_certs: Optional[pulumi.Input['CertManagerCertOptionsArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_profile: Optional[pulumi.Input[Union[_builtins.str, 'BrokerMemoryProfile']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_node_tolerations: pulumi.Input[Optional['NodeTolerationsArgs']] = None,
+                 cardinality: pulumi.Input[Optional['CardinalityArgs']] = None,
+                 diagnostics: pulumi.Input[Optional['BrokerDiagnosticsArgs']] = None,
+                 disk_backed_message_buffer_settings: pulumi.Input[Optional['DiskBackedMessageBufferSettingsArgs']] = None,
+                 encrypt_internal_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_manager_node_tolerations: pulumi.Input[Optional['NodeTolerationsArgs']] = None,
+                 internal_certs: pulumi.Input[Optional['CertManagerCertOptionsArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_profile: pulumi.Input[Optional[Union[_builtins.str, 'BrokerMemoryProfile']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Broker resource.
 
@@ -182,134 +182,134 @@ class BrokerArgs:
 
     @_builtins.property
     @pulumi.getter(name="brokerName")
-    def broker_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def broker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of MQ broker resource
         """
         return pulumi.get(self, "broker_name")
 
     @broker_name.setter
-    def broker_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def broker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "broker_name", value)
 
     @_builtins.property
     @pulumi.getter(name="brokerNodeTolerations")
-    def broker_node_tolerations(self) -> Optional[pulumi.Input['NodeTolerationsArgs']]:
+    def broker_node_tolerations(self) -> pulumi.Input[Optional['NodeTolerationsArgs']]:
         """
         The details of Node Tolerations for Broker Pods.
         """
         return pulumi.get(self, "broker_node_tolerations")
 
     @broker_node_tolerations.setter
-    def broker_node_tolerations(self, value: Optional[pulumi.Input['NodeTolerationsArgs']]):
+    def broker_node_tolerations(self, value: pulumi.Input[Optional['NodeTolerationsArgs']]):
         pulumi.set(self, "broker_node_tolerations", value)
 
     @_builtins.property
     @pulumi.getter
-    def cardinality(self) -> Optional[pulumi.Input['CardinalityArgs']]:
+    def cardinality(self) -> pulumi.Input[Optional['CardinalityArgs']]:
         """
         The cardinality details of the broker.
         """
         return pulumi.get(self, "cardinality")
 
     @cardinality.setter
-    def cardinality(self, value: Optional[pulumi.Input['CardinalityArgs']]):
+    def cardinality(self, value: pulumi.Input[Optional['CardinalityArgs']]):
         pulumi.set(self, "cardinality", value)
 
     @_builtins.property
     @pulumi.getter
-    def diagnostics(self) -> Optional[pulumi.Input['BrokerDiagnosticsArgs']]:
+    def diagnostics(self) -> pulumi.Input[Optional['BrokerDiagnosticsArgs']]:
         """
         The diagnostic details of the broker deployment.
         """
         return pulumi.get(self, "diagnostics")
 
     @diagnostics.setter
-    def diagnostics(self, value: Optional[pulumi.Input['BrokerDiagnosticsArgs']]):
+    def diagnostics(self, value: pulumi.Input[Optional['BrokerDiagnosticsArgs']]):
         pulumi.set(self, "diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="diskBackedMessageBufferSettings")
-    def disk_backed_message_buffer_settings(self) -> Optional[pulumi.Input['DiskBackedMessageBufferSettingsArgs']]:
+    def disk_backed_message_buffer_settings(self) -> pulumi.Input[Optional['DiskBackedMessageBufferSettingsArgs']]:
         """
         The settings of the disk-backed message buffer.
         """
         return pulumi.get(self, "disk_backed_message_buffer_settings")
 
     @disk_backed_message_buffer_settings.setter
-    def disk_backed_message_buffer_settings(self, value: Optional[pulumi.Input['DiskBackedMessageBufferSettingsArgs']]):
+    def disk_backed_message_buffer_settings(self, value: pulumi.Input[Optional['DiskBackedMessageBufferSettingsArgs']]):
         pulumi.set(self, "disk_backed_message_buffer_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptInternalTraffic")
-    def encrypt_internal_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt_internal_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The setting to enable or disable encryption of internal Traffic.
         """
         return pulumi.get(self, "encrypt_internal_traffic")
 
     @encrypt_internal_traffic.setter
-    def encrypt_internal_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt_internal_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt_internal_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="healthManagerNodeTolerations")
-    def health_manager_node_tolerations(self) -> Optional[pulumi.Input['NodeTolerationsArgs']]:
+    def health_manager_node_tolerations(self) -> pulumi.Input[Optional['NodeTolerationsArgs']]:
         """
         The details of Node Tolerations for Health Manager Pods.
         """
         return pulumi.get(self, "health_manager_node_tolerations")
 
     @health_manager_node_tolerations.setter
-    def health_manager_node_tolerations(self, value: Optional[pulumi.Input['NodeTolerationsArgs']]):
+    def health_manager_node_tolerations(self, value: pulumi.Input[Optional['NodeTolerationsArgs']]):
         pulumi.set(self, "health_manager_node_tolerations", value)
 
     @_builtins.property
     @pulumi.getter(name="internalCerts")
-    def internal_certs(self) -> Optional[pulumi.Input['CertManagerCertOptionsArgs']]:
+    def internal_certs(self) -> pulumi.Input[Optional['CertManagerCertOptionsArgs']]:
         """
         Details of the internal CA cert that will be used to secure communication between pods.
         """
         return pulumi.get(self, "internal_certs")
 
     @internal_certs.setter
-    def internal_certs(self, value: Optional[pulumi.Input['CertManagerCertOptionsArgs']]):
+    def internal_certs(self, value: pulumi.Input[Optional['CertManagerCertOptionsArgs']]):
         pulumi.set(self, "internal_certs", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryProfile")
-    def memory_profile(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BrokerMemoryProfile']]]:
+    def memory_profile(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BrokerMemoryProfile']]]:
         """
         Memory profile of broker.
         """
         return pulumi.get(self, "memory_profile")
 
     @memory_profile.setter
-    def memory_profile(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BrokerMemoryProfile']]]):
+    def memory_profile(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BrokerMemoryProfile']]]):
         pulumi.set(self, "memory_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -319,30 +319,29 @@ class Broker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 broker_image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 broker_node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 cardinality: Optional[pulumi.Input[Union['CardinalityArgs', 'CardinalityArgsDict']]] = None,
-                 diagnostics: Optional[pulumi.Input[Union['BrokerDiagnosticsArgs', 'BrokerDiagnosticsArgsDict']]] = None,
-                 disk_backed_message_buffer_settings: Optional[pulumi.Input[Union['DiskBackedMessageBufferSettingsArgs', 'DiskBackedMessageBufferSettingsArgsDict']]] = None,
-                 encrypt_internal_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 health_manager_image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 health_manager_node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 internal_certs: Optional[pulumi.Input[Union['CertManagerCertOptionsArgs', 'CertManagerCertOptionsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_profile: Optional[pulumi.Input[Union[_builtins.str, 'BrokerMemoryProfile']]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'RunMode']]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 broker_image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 cardinality: pulumi.Input[Optional[Union['CardinalityArgs', 'CardinalityArgsDict']]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['BrokerDiagnosticsArgs', 'BrokerDiagnosticsArgsDict']]] = None,
+                 disk_backed_message_buffer_settings: pulumi.Input[Optional[Union['DiskBackedMessageBufferSettingsArgs', 'DiskBackedMessageBufferSettingsArgsDict']]] = None,
+                 encrypt_internal_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 health_manager_image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 health_manager_node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 internal_certs: pulumi.Input[Optional[Union['CertManagerCertOptionsArgs', 'CertManagerCertOptionsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_profile: pulumi.Input[Optional[Union[_builtins.str, 'BrokerMemoryProfile']]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'RunMode']]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         MQ broker resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,7 +375,6 @@ class Broker(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-
         :param str resource_name: The name of the resource.
         :param BrokerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -392,24 +390,24 @@ class Broker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 broker_image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 broker_node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 cardinality: Optional[pulumi.Input[Union['CardinalityArgs', 'CardinalityArgsDict']]] = None,
-                 diagnostics: Optional[pulumi.Input[Union['BrokerDiagnosticsArgs', 'BrokerDiagnosticsArgsDict']]] = None,
-                 disk_backed_message_buffer_settings: Optional[pulumi.Input[Union['DiskBackedMessageBufferSettingsArgs', 'DiskBackedMessageBufferSettingsArgsDict']]] = None,
-                 encrypt_internal_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
-                 health_manager_image: Optional[pulumi.Input[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
-                 health_manager_node_tolerations: Optional[pulumi.Input[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
-                 internal_certs: Optional[pulumi.Input[Union['CertManagerCertOptionsArgs', 'CertManagerCertOptionsArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_profile: Optional[pulumi.Input[Union[_builtins.str, 'BrokerMemoryProfile']]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'RunMode']]] = None,
-                 mq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 broker_image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 cardinality: pulumi.Input[Optional[Union['CardinalityArgs', 'CardinalityArgsDict']]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['BrokerDiagnosticsArgs', 'BrokerDiagnosticsArgsDict']]] = None,
+                 disk_backed_message_buffer_settings: pulumi.Input[Optional[Union['DiskBackedMessageBufferSettingsArgs', 'DiskBackedMessageBufferSettingsArgsDict']]] = None,
+                 encrypt_internal_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationPropertyArgs', 'ExtendedLocationPropertyArgsDict']]] = None,
+                 health_manager_image: pulumi.Input[Optional[Union['ContainerImageArgs', 'ContainerImageArgsDict']]] = None,
+                 health_manager_node_tolerations: pulumi.Input[Optional[Union['NodeTolerationsArgs', 'NodeTolerationsArgsDict']]] = None,
+                 internal_certs: pulumi.Input[Optional[Union['CertManagerCertOptionsArgs', 'CertManagerCertOptionsArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_profile: pulumi.Input[Optional[Union[_builtins.str, 'BrokerMemoryProfile']]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'RunMode']]] = None,
+                 mq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

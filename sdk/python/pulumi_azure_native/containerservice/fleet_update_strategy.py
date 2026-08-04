@@ -24,7 +24,7 @@ class FleetUpdateStrategyArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  strategy: pulumi.Input['UpdateRunStrategyArgs'],
-                 update_strategy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 update_strategy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetUpdateStrategy resource.
 
@@ -77,14 +77,14 @@ class FleetUpdateStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="updateStrategyName")
-    def update_strategy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_strategy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the UpdateStrategy resource.
         """
         return pulumi.get(self, "update_strategy_name")
 
     @update_strategy_name.setter
-    def update_strategy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_strategy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_strategy_name", value)
 
 
@@ -94,10 +94,10 @@ class FleetUpdateStrategy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
-                 update_strategy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
+                 update_strategy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Defines a multi-stage process to perform update operations across members of a Fleet.
@@ -105,7 +105,6 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-15-preview.
 
         Other available API versions: 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class FleetUpdateStrategy(pulumi.CustomResource):
 
         Other available API versions: 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param FleetUpdateStrategyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,10 +141,10 @@ class FleetUpdateStrategy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
-                 update_strategy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
+                 update_strategy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

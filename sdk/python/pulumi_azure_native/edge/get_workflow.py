@@ -145,7 +145,6 @@ def get_workflow(context_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str context_name: The name of the Context.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str workflow_name: Name of the workflow
@@ -166,9 +165,9 @@ def get_workflow(context_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_workflow_output(context_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_output(context_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Get a Workflow resource
@@ -176,7 +175,6 @@ def get_workflow_output(context_name: Optional[pulumi.Input[_builtins.str]] = No
     Uses Azure REST API version 2025-06-01.
 
     Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str context_name: The name of the Context.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

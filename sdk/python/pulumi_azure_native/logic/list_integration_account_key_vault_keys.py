@@ -75,7 +75,6 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[_
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str integration_account_name: The integration account name.
     :param Union['KeyVaultReference', 'KeyVaultReferenceDict'] key_vault: The key vault reference.
     :param _builtins.str resource_group_name: The resource group name.
@@ -92,10 +91,10 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[_
     return AwaitableListIntegrationAccountKeyVaultKeysResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_integration_account_key_vault_keys_output(integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   key_vault: Optional[pulumi.Input[Union['KeyVaultReference', 'KeyVaultReferenceDict']]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_integration_account_key_vault_keys_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   key_vault: pulumi.Input[Optional[Union['KeyVaultReference', 'KeyVaultReferenceDict']]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
     """
     Gets the integration account's Key Vault keys.
@@ -103,7 +102,6 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str integration_account_name: The integration account name.
     :param Union['KeyVaultReference', 'KeyVaultReferenceDict'] key_vault: The key vault reference.

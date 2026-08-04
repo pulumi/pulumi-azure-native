@@ -182,7 +182,6 @@ def get_volume(elastic_san_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str elastic_san_name: The name of the ElasticSan.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str volume_group_name: The name of the VolumeGroup.
@@ -208,10 +207,10 @@ def get_volume(elastic_san_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         volume_id=pulumi.get(__ret__, 'volume_id'))
-def get_volume_output(elastic_san_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      volume_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_volume_output(elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Get an Volume.
@@ -219,7 +218,6 @@ def get_volume_output(elastic_san_name: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str elastic_san_name: The name of the ElasticSan.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

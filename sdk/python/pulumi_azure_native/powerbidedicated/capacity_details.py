@@ -24,11 +24,11 @@ class CapacityDetailsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['CapacitySkuArgs'],
-                 administration: Optional[pulumi.Input['DedicatedCapacityAdministratorsArgs']] = None,
-                 dedicated_capacity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'Mode']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 administration: pulumi.Input[Optional['DedicatedCapacityAdministratorsArgs']] = None,
+                 dedicated_capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'Mode']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityDetails resource.
 
@@ -79,62 +79,62 @@ class CapacityDetailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def administration(self) -> Optional[pulumi.Input['DedicatedCapacityAdministratorsArgs']]:
+    def administration(self) -> pulumi.Input[Optional['DedicatedCapacityAdministratorsArgs']]:
         """
         A collection of Dedicated capacity administrators
         """
         return pulumi.get(self, "administration")
 
     @administration.setter
-    def administration(self, value: Optional[pulumi.Input['DedicatedCapacityAdministratorsArgs']]):
+    def administration(self, value: pulumi.Input[Optional['DedicatedCapacityAdministratorsArgs']]):
         pulumi.set(self, "administration", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedCapacityName")
-    def dedicated_capacity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_capacity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         """
         return pulumi.get(self, "dedicated_capacity_name")
 
     @dedicated_capacity_name.setter
-    def dedicated_capacity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_capacity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_capacity_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Mode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Mode']]]:
         """
         Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Mode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Mode']]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,19 +144,18 @@ class CapacityDetails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration: Optional[pulumi.Input[Union['DedicatedCapacityAdministratorsArgs', 'DedicatedCapacityAdministratorsArgsDict']]] = None,
-                 dedicated_capacity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'Mode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administration: pulumi.Input[Optional[Union['DedicatedCapacityAdministratorsArgs', 'DedicatedCapacityAdministratorsArgsDict']]] = None,
+                 dedicated_capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'Mode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents an instance of a Dedicated Capacity resource.
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class CapacityDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
 
-
         :param str resource_name: The name of the resource.
         :param CapacityDetailsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class CapacityDetails(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration: Optional[pulumi.Input[Union['DedicatedCapacityAdministratorsArgs', 'DedicatedCapacityAdministratorsArgsDict']]] = None,
-                 dedicated_capacity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'Mode']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administration: pulumi.Input[Optional[Union['DedicatedCapacityAdministratorsArgs', 'DedicatedCapacityAdministratorsArgsDict']]] = None,
+                 dedicated_capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'Mode']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

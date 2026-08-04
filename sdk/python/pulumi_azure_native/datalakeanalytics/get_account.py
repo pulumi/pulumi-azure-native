@@ -478,7 +478,6 @@ def get_account(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2019-11-01-preview.
 
-
     :param _builtins.str account_name: The name of the Data Lake Analytics account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.
     """
@@ -525,14 +524,13 @@ def get_account(account_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
-def get_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Gets details of the specified Data Lake Analytics account.
 
     Uses Azure REST API version 2019-11-01-preview.
-
 
     :param _builtins.str account_name: The name of the Data Lake Analytics account.
     :param _builtins.str resource_group_name: The name of the Azure resource group.

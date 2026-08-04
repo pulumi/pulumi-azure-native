@@ -335,7 +335,6 @@ def get_azure_power_shell_script(resource_group_name: Optional[_builtins.str] = 
 
     Uses Azure REST API version 2023-08-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str script_name: Name of the deployment script.
     """
@@ -370,14 +369,13 @@ def get_azure_power_shell_script(resource_group_name: Optional[_builtins.str] = 
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
-def get_azure_power_shell_script_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        script_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_azure_power_shell_script_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        script_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzurePowerShellScriptResult]:
     """
     Gets a deployment script with a given name.
 
     Uses Azure REST API version 2023-08-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str script_name: Name of the deployment script.

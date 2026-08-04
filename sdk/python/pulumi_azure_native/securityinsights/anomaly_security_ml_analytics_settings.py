@@ -31,14 +31,14 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  settings_status: pulumi.Input[Union[_builtins.str, 'SettingsStatus']],
                  workspace_name: pulumi.Input[_builtins.str],
-                 anomaly_settings_version: Optional[pulumi.Input[_builtins.int]] = None,
+                 anomaly_settings_version: pulumi.Input[Optional[_builtins.int]] = None,
                  customizable_observations: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]] = None,
-                 settings_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_data_connectors: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]] = None,
+                 settings_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnomalySecurityMLAnalyticsSettings resource.
 
@@ -198,14 +198,14 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="anomalySettingsVersion")
-    def anomaly_settings_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def anomaly_settings_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.
         """
         return pulumi.get(self, "anomaly_settings_version")
 
     @anomaly_settings_version.setter
-    def anomaly_settings_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def anomaly_settings_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "anomaly_settings_version", value)
 
     @_builtins.property
@@ -222,74 +222,74 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the SecurityMLAnalyticsSettings.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredDataConnectors")
-    def required_data_connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]]:
+    def required_data_connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]]:
         """
         The required data sources for this SecurityMLAnalyticsSettings
         """
         return pulumi.get(self, "required_data_connectors")
 
     @required_data_connectors.setter
-    def required_data_connectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]]):
+    def required_data_connectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityMLAnalyticsSettingsDataSourceArgs']]]]):
         pulumi.set(self, "required_data_connectors", value)
 
     @_builtins.property
     @pulumi.getter(name="settingsDefinitionId")
-    def settings_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The anomaly settings definition Id
         """
         return pulumi.get(self, "settings_definition_id")
 
     @settings_definition_id.setter
-    def settings_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="settingsResourceName")
-    def settings_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security ML Analytics Settings resource name
         """
         return pulumi.get(self, "settings_resource_name")
 
     @settings_resource_name.setter
-    def settings_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]:
+    def tactics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]:
         """
         The tactics of the SecurityMLAnalyticsSettings
         """
         return pulumi.get(self, "tactics")
 
     @tactics.setter
-    def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]):
+    def tactics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]]):
         pulumi.set(self, "tactics", value)
 
     @_builtins.property
     @pulumi.getter
-    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def techniques(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The techniques of the SecurityMLAnalyticsSettings
         """
         return pulumi.get(self, "techniques")
 
     @techniques.setter
-    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def techniques(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "techniques", value)
 
 
@@ -299,29 +299,28 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anomaly_settings_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 anomaly_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 anomaly_settings_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 anomaly_version: pulumi.Input[Optional[_builtins.str]] = None,
                  customizable_observations: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMLAnalyticsSettingsDataSourceArgs', 'SecurityMLAnalyticsSettingsDataSourceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_status: Optional[pulumi.Input[Union[_builtins.str, 'SettingsStatus']]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_data_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMLAnalyticsSettingsDataSourceArgs', 'SecurityMLAnalyticsSettingsDataSourceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_status: pulumi.Input[Optional[Union[_builtins.str, 'SettingsStatus']]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents Anomaly Security ML Analytics Settings
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,7 +354,6 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-
         :param str resource_name: The name of the resource.
         :param AnomalySecurityMLAnalyticsSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -371,23 +369,23 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anomaly_settings_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 anomaly_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 anomaly_settings_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 anomaly_version: pulumi.Input[Optional[_builtins.str]] = None,
                  customizable_observations: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMLAnalyticsSettingsDataSourceArgs', 'SecurityMLAnalyticsSettingsDataSourceArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_status: Optional[pulumi.Input[Union[_builtins.str, 'SettingsStatus']]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 required_data_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMLAnalyticsSettingsDataSourceArgs', 'SecurityMLAnalyticsSettingsDataSourceArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_status: pulumi.Input[Optional[Union[_builtins.str, 'SettingsStatus']]] = None,
+                 tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
+                 techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

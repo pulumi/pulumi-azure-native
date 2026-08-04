@@ -24,7 +24,7 @@ class RetentionPolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scheduler_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['RetentionPolicyPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['RetentionPolicyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a RetentionPolicy resource.
 
@@ -63,14 +63,14 @@ class RetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['RetentionPolicyPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['RetentionPolicyPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['RetentionPolicyPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['RetentionPolicyPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,9 +80,9 @@ class RetentionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['RetentionPolicyPropertiesArgs', 'RetentionPolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduler_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RetentionPolicyPropertiesArgs', 'RetentionPolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduler_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A retention policy resource belonging to the scheduler
@@ -90,7 +90,6 @@ class RetentionPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-04-01-preview.
 
         Other available API versions: 2025-11-01, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +110,6 @@ class RetentionPolicy(pulumi.CustomResource):
 
         Other available API versions: 2025-11-01, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RetentionPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,9 +125,9 @@ class RetentionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['RetentionPolicyPropertiesArgs', 'RetentionPolicyPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduler_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RetentionPolicyPropertiesArgs', 'RetentionPolicyPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduler_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

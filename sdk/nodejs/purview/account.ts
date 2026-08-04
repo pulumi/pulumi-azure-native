@@ -230,35 +230,35 @@ export interface AccountArgs {
     /**
      * The name of the account.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The Managed Identity of the resource
      */
-    identity?: pulumi.Input<inputs.purview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.purview.IdentityArgs | undefined>;
     /**
      * Ingestion Storage Account Info
      */
-    ingestionStorage?: pulumi.Input<inputs.purview.IngestionStorageArgs>;
+    ingestionStorage?: pulumi.Input<inputs.purview.IngestionStorageArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
      */
-    managedEventHubState?: pulumi.Input<string | enums.purview.ManagedEventHubState>;
+    managedEventHubState?: pulumi.Input<string | enums.purview.ManagedEventHubState | undefined>;
     /**
      * Gets or sets the managed resource group name
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the public network access for managed resources.
      */
-    managedResourcesPublicNetworkAccess?: pulumi.Input<string | enums.purview.PublicNetworkAccess>;
+    managedResourcesPublicNetworkAccess?: pulumi.Input<string | enums.purview.PublicNetworkAccess | undefined>;
     /**
      * Gets or sets the public network access.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.purview.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.purview.PublicNetworkAccess | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -266,13 +266,13 @@ export interface AccountArgs {
     /**
      * Gets or sets the Sku.
      */
-    sku?: pulumi.Input<inputs.purview.AccountSkuArgs>;
+    sku?: pulumi.Input<inputs.purview.AccountSkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Gets or sets the state of tenant endpoint.
      */
-    tenantEndpointState?: pulumi.Input<string | enums.purview.TenantEndpointState>;
+    tenantEndpointState?: pulumi.Input<string | enums.purview.TenantEndpointState | undefined>;
 }

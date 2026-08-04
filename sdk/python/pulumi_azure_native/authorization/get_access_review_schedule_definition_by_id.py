@@ -395,7 +395,6 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
 
     Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str schedule_definition_id: The id of the access review schedule definition.
     """
     __args__ = dict()
@@ -433,7 +432,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
-def get_access_review_schedule_definition_by_id_output(schedule_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_review_schedule_definition_by_id_output(schedule_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessReviewScheduleDefinitionByIdResult]:
     """
     Get single access review definition
@@ -441,7 +440,6 @@ def get_access_review_schedule_definition_by_id_output(schedule_definition_id: O
     Uses Azure REST API version 2021-12-01-preview.
 
     Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str schedule_definition_id: The id of the access review schedule definition.
     """

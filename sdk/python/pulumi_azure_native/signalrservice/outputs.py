@@ -697,7 +697,7 @@ class ResourceSkuResponse(dict):
                    Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
                    Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
                    Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
-        :param _builtins.str tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
+        :param _builtins.str tier: Optional tier of this particular SKU. 'Standard' or 'Free'.
                
                `Basic` is deprecated, use `Standard` instead.
         """
@@ -722,7 +722,7 @@ class ResourceSkuResponse(dict):
     def name(self) -> _builtins.str:
         """
         The name of the SKU. Required.
-        
+
         Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         return pulumi.get(self, "name")
@@ -741,7 +741,7 @@ class ResourceSkuResponse(dict):
         """
         Optional, integer. The unit count of the resource.
         1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
-        
+
         If present, following values are allowed:
             Free_F1: 1;
             Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
@@ -754,8 +754,8 @@ class ResourceSkuResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[_builtins.str]:
         """
-        Optional tier of this particular SKU. 'Standard' or 'Free'. 
-        
+        Optional tier of this particular SKU. 'Standard' or 'Free'.
+
         `Basic` is deprecated, use `Standard` instead.
         """
         return pulumi.get(self, "tier")

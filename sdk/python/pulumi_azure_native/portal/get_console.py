@@ -69,7 +69,6 @@ def get_console(console_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-10-01.
 
-
     :param _builtins.str console_name: The name of the console
     """
     __args__ = dict()
@@ -80,13 +79,12 @@ def get_console(console_name: Optional[_builtins.str] = None,
     return AwaitableGetConsoleResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         properties=pulumi.get(__ret__, 'properties'))
-def get_console_output(console_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_console_output(console_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsoleResult]:
     """
     Gets the console for the user.
 
     Uses Azure REST API version 2018-10-01.
-
 
     :param _builtins.str console_name: The name of the console
     """

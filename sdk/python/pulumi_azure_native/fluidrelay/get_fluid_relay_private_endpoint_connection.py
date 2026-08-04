@@ -155,7 +155,6 @@ def get_fluid_relay_private_endpoint_connection(fluid_relay_server_name: Optiona
 
     Uses Azure REST API version 2025-06-20-preview.
 
-
     :param _builtins.str fluid_relay_server_name: The Fluid Relay server resource name.
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param _builtins.str resource_group: The resource group containing the resource.
@@ -177,15 +176,14 @@ def get_fluid_relay_private_endpoint_connection(fluid_relay_server_name: Optiona
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_fluid_relay_private_endpoint_connection_output(fluid_relay_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fluid_relay_private_endpoint_connection_output(fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluidRelayPrivateEndpointConnectionResult]:
     """
     The private endpoint connection resource.
 
     Uses Azure REST API version 2025-06-20-preview.
-
 
     :param _builtins.str fluid_relay_server_name: The Fluid Relay server resource name.
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.

@@ -24,24 +24,24 @@ class ScalingPlanPooledScheduleArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scaling_plan_name: pulumi.Input[_builtins.str],
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 ramp_down_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_force_logoff_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ramp_down_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_down_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_notification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 ramp_down_stop_hosts_when: Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]] = None,
-                 ramp_down_wait_time_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_up_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None,
-                 scaling_plan_schedule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 off_peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 off_peak_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 peak_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 ramp_down_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_force_logoff_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ramp_down_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_down_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_notification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 ramp_down_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 ramp_down_stop_hosts_when: pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]] = None,
+                 ramp_down_wait_time_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_up_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_start_time: pulumi.Input[Optional['TimeArgs']] = None,
+                 scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScalingPlanPooledSchedule resource.
 
@@ -131,218 +131,218 @@ class ScalingPlanPooledScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]:
+    def days_of_week(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]:
         """
         Set of days of the week on which this schedule is active.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]):
+    def days_of_week(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]]):
         pulumi.set(self, "days_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakLoadBalancingAlgorithm")
-    def off_peak_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def off_peak_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for off-peak period.
         """
         return pulumi.get(self, "off_peak_load_balancing_algorithm")
 
     @off_peak_load_balancing_algorithm.setter
-    def off_peak_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def off_peak_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "off_peak_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def off_peak_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for off-peak period.
         """
         return pulumi.get(self, "off_peak_start_time")
 
     @off_peak_start_time.setter
-    def off_peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def off_peak_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "off_peak_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="peakLoadBalancingAlgorithm")
-    def peak_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def peak_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for peak period.
         """
         return pulumi.get(self, "peak_load_balancing_algorithm")
 
     @peak_load_balancing_algorithm.setter
-    def peak_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def peak_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "peak_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def peak_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for peak period.
         """
         return pulumi.get(self, "peak_start_time")
 
     @peak_start_time.setter
-    def peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def peak_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "peak_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownCapacityThresholdPct")
-    def ramp_down_capacity_threshold_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_capacity_threshold_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Capacity threshold for ramp down period.
         """
         return pulumi.get(self, "ramp_down_capacity_threshold_pct")
 
     @ramp_down_capacity_threshold_pct.setter
-    def ramp_down_capacity_threshold_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_capacity_threshold_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_capacity_threshold_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownForceLogoffUsers")
-    def ramp_down_force_logoff_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ramp_down_force_logoff_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should users be logged off forcefully from hosts.
         """
         return pulumi.get(self, "ramp_down_force_logoff_users")
 
     @ramp_down_force_logoff_users.setter
-    def ramp_down_force_logoff_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ramp_down_force_logoff_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ramp_down_force_logoff_users", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownLoadBalancingAlgorithm")
-    def ramp_down_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def ramp_down_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for ramp down period.
         """
         return pulumi.get(self, "ramp_down_load_balancing_algorithm")
 
     @ramp_down_load_balancing_algorithm.setter
-    def ramp_down_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def ramp_down_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "ramp_down_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownMinimumHostsPct")
-    def ramp_down_minimum_hosts_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_minimum_hosts_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum host percentage for ramp down period.
         """
         return pulumi.get(self, "ramp_down_minimum_hosts_pct")
 
     @ramp_down_minimum_hosts_pct.setter
-    def ramp_down_minimum_hosts_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_minimum_hosts_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_minimum_hosts_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownNotificationMessage")
-    def ramp_down_notification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ramp_down_notification_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Notification message for users during ramp down period.
         """
         return pulumi.get(self, "ramp_down_notification_message")
 
     @ramp_down_notification_message.setter
-    def ramp_down_notification_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ramp_down_notification_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ramp_down_notification_message", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def ramp_down_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for ramp down period.
         """
         return pulumi.get(self, "ramp_down_start_time")
 
     @ramp_down_start_time.setter
-    def ramp_down_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def ramp_down_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "ramp_down_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownStopHostsWhen")
-    def ramp_down_stop_hosts_when(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]]:
+    def ramp_down_stop_hosts_when(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]]:
         """
         Specifies when to stop hosts during ramp down period.
         """
         return pulumi.get(self, "ramp_down_stop_hosts_when")
 
     @ramp_down_stop_hosts_when.setter
-    def ramp_down_stop_hosts_when(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]]):
+    def ramp_down_stop_hosts_when(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]]):
         pulumi.set(self, "ramp_down_stop_hosts_when", value)
 
     @_builtins.property
     @pulumi.getter(name="rampDownWaitTimeMinutes")
-    def ramp_down_wait_time_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_down_wait_time_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes to wait to stop hosts during ramp down period.
         """
         return pulumi.get(self, "ramp_down_wait_time_minutes")
 
     @ramp_down_wait_time_minutes.setter
-    def ramp_down_wait_time_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_down_wait_time_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_down_wait_time_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpCapacityThresholdPct")
-    def ramp_up_capacity_threshold_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_capacity_threshold_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Capacity threshold for ramp up period.
         """
         return pulumi.get(self, "ramp_up_capacity_threshold_pct")
 
     @ramp_up_capacity_threshold_pct.setter
-    def ramp_up_capacity_threshold_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_capacity_threshold_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_capacity_threshold_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpLoadBalancingAlgorithm")
-    def ramp_up_load_balancing_algorithm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
+    def ramp_up_load_balancing_algorithm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]:
         """
         Load balancing algorithm for ramp up period.
         """
         return pulumi.get(self, "ramp_up_load_balancing_algorithm")
 
     @ramp_up_load_balancing_algorithm.setter
-    def ramp_up_load_balancing_algorithm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
+    def ramp_up_load_balancing_algorithm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]]):
         pulumi.set(self, "ramp_up_load_balancing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpMinimumHostsPct")
-    def ramp_up_minimum_hosts_pct(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_minimum_hosts_pct(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum host percentage for ramp up period.
         """
         return pulumi.get(self, "ramp_up_minimum_hosts_pct")
 
     @ramp_up_minimum_hosts_pct.setter
-    def ramp_up_minimum_hosts_pct(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_minimum_hosts_pct(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_minimum_hosts_pct", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
+    def ramp_up_start_time(self) -> pulumi.Input[Optional['TimeArgs']]:
         """
         Starting time for ramp up period.
         """
         return pulumi.get(self, "ramp_up_start_time")
 
     @ramp_up_start_time.setter
-    def ramp_up_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
+    def ramp_up_start_time(self, value: pulumi.Input[Optional['TimeArgs']]):
         pulumi.set(self, "ramp_up_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPlanScheduleName")
-    def scaling_plan_schedule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_plan_schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ScalingPlanSchedule
         """
         return pulumi.get(self, "scaling_plan_schedule_name")
 
     @scaling_plan_schedule_name.setter
-    def scaling_plan_schedule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_plan_schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_plan_schedule_name", value)
 
 
@@ -352,26 +352,26 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_down_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_force_logoff_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ramp_down_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_down_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_notification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_down_stop_hosts_when: Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]] = None,
-                 ramp_down_wait_time_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_up_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 off_peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 off_peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_down_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_force_logoff_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ramp_down_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_down_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_notification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 ramp_down_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_down_stop_hosts_when: pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]] = None,
+                 ramp_down_wait_time_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_up_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a ScalingPlanPooledSchedule definition.
@@ -379,7 +379,6 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -417,7 +416,6 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-10-10, 2025-11-01-preview, 2026-01-01-preview, 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ScalingPlanPooledScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -433,26 +431,26 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
-                 off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 off_peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 peak_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 peak_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_down_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_force_logoff_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ramp_down_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_down_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_down_notification_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 ramp_down_stop_hosts_when: Optional[pulumi.Input[Union[_builtins.str, 'StopHostsWhen']]] = None,
-                 ramp_down_wait_time_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_capacity_threshold_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_load_balancing_algorithm: Optional[pulumi.Input[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 ramp_up_minimum_hosts_pct: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input[Union['TimeArgs', 'TimeArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_plan_schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
+                 off_peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 off_peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 peak_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 peak_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_down_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_force_logoff_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ramp_down_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_down_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_down_notification_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 ramp_down_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 ramp_down_stop_hosts_when: pulumi.Input[Optional[Union[_builtins.str, 'StopHostsWhen']]] = None,
+                 ramp_down_wait_time_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_capacity_threshold_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_load_balancing_algorithm: pulumi.Input[Optional[Union[_builtins.str, 'SessionHostLoadBalancingAlgorithm']]] = None,
+                 ramp_up_minimum_hosts_pct: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_start_time: pulumi.Input[Optional[Union['TimeArgs', 'TimeArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

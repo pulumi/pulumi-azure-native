@@ -121,11 +121,11 @@ export interface ClientGroupArgs {
     /**
      * The client group name.
      */
-    clientGroupName?: pulumi.Input<string>;
+    clientGroupName?: pulumi.Input<string | undefined>;
     /**
      * Description for the Client Group resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      */
@@ -134,7 +134,7 @@ export interface ClientGroupArgs {
      * The grouping query for the clients.
      * Example : attributes.keyName IN ['a', 'b', 'c'].
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

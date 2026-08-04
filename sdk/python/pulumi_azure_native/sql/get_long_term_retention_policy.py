@@ -145,7 +145,6 @@ def get_long_term_retention_policy(database_name: Optional[_builtins.str] = None
 
     Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str database_name: The name of the database.
     :param _builtins.str policy_name: The policy name. Should always be Default.
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -168,10 +167,10 @@ def get_long_term_retention_policy(database_name: Optional[_builtins.str] = None
         week_of_year=pulumi.get(__ret__, 'week_of_year'),
         weekly_retention=pulumi.get(__ret__, 'weekly_retention'),
         yearly_retention=pulumi.get(__ret__, 'yearly_retention'))
-def get_long_term_retention_policy_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_long_term_retention_policy_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLongTermRetentionPolicyResult]:
     """
     Gets a database's long term retention policy.
@@ -179,7 +178,6 @@ def get_long_term_retention_policy_output(database_name: Optional[pulumi.Input[_
     Uses Azure REST API version 2023-08-01.
 
     Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str database_name: The name of the database.
     :param _builtins.str policy_name: The policy name. Should always be Default.

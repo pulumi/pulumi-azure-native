@@ -156,7 +156,7 @@ export class ContainerApp extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.app.configurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["configuration"] = args ? pulumi.output(args.configuration).apply(v => v === undefined ? undefined : inputs.app.configurationArgsProvideDefaults(v)) : undefined;
             resourceInputs["containerAppName"] = args?.containerAppName;
             resourceInputs["environmentId"] = args?.environmentId;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
@@ -168,7 +168,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["patchingConfiguration"] = args?.patchingConfiguration;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["template"] = args ? (args.template ? pulumi.output(args.template).apply(inputs.app.templateArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["template"] = args ? pulumi.output(args.template).apply(v => v === undefined ? undefined : inputs.app.templateArgsProvideDefaults(v)) : undefined;
             resourceInputs["workloadProfileName"] = args?.workloadProfileName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
@@ -224,43 +224,43 @@ export interface ContainerAppArgs {
     /**
      * Non versioned Container App configuration properties.
      */
-    configuration?: pulumi.Input<inputs.app.ConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.app.ConfigurationArgs | undefined>;
     /**
      * Name of the Container App.
      */
-    containerAppName?: pulumi.Input<string>;
+    containerAppName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID of environment.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.app.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.app.ExtendedLocationArgs | undefined>;
     /**
      * managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
      */
-    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs | undefined>;
     /**
      * Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string | enums.app.Kind>;
+    kind?: pulumi.Input<string | enums.app.Kind | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * Deprecated. Resource ID of the Container App's environment.
      */
-    managedEnvironmentId?: pulumi.Input<string>;
+    managedEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Container App auto patch configuration.
      */
-    patchingConfiguration?: pulumi.Input<inputs.app.ContainerAppPatchingConfigurationArgs>;
+    patchingConfiguration?: pulumi.Input<inputs.app.ContainerAppPatchingConfigurationArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -268,13 +268,13 @@ export interface ContainerAppArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Container App versioned application definition.
      */
-    template?: pulumi.Input<inputs.app.TemplateArgs>;
+    template?: pulumi.Input<inputs.app.TemplateArgs | undefined>;
     /**
      * Workload profile name to pin for container app execution.
      */
-    workloadProfileName?: pulumi.Input<string>;
+    workloadProfileName?: pulumi.Input<string | undefined>;
 }

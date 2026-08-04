@@ -155,7 +155,6 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-02-02-preview.
 
-
     :param _builtins.str namespace_name: The name of the namespace.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the managed cluster resource.
@@ -177,15 +176,14 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_namespace_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Namespace managed by ARM.
 
     Uses Azure REST API version 2025-02-02-preview.
-
 
     :param _builtins.str namespace_name: The name of the namespace.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

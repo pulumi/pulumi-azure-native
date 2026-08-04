@@ -122,11 +122,11 @@ export interface PlanArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the devcenter plan.
      */
-    planName?: pulumi.Input<string>;
+    planName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -134,9 +134,9 @@ export interface PlanArgs {
     /**
      * The SKU for DevCenters created using this definition.
      */
-    sku?: pulumi.Input<inputs.devcenter.SkuArgs>;
+    sku?: pulumi.Input<inputs.devcenter.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

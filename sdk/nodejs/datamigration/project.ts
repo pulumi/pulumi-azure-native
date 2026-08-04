@@ -159,20 +159,20 @@ export interface ProjectArgs {
     /**
      * Field that defines the Azure active directory application info, used to connect to the target Azure resource
      */
-    azureAuthenticationInfo?: pulumi.Input<inputs.datamigration.AzureActiveDirectoryAppArgs>;
+    azureAuthenticationInfo?: pulumi.Input<inputs.datamigration.AzureActiveDirectoryAppArgs | undefined>;
     /**
      * List of DatabaseInfo
      */
-    databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.DatabaseInfoArgs>[]>;
+    databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.DatabaseInfoArgs>[] | undefined>;
     /**
      * Name of the resource group
      */
     groupName: pulumi.Input<string>;
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the project
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * Name of the service
      */
@@ -180,16 +180,16 @@ export interface ProjectArgs {
     /**
      * Information for connecting to source
      */
-    sourceConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MongoDbConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.OracleConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs>;
+    sourceConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MongoDbConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.OracleConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs | undefined>;
     /**
      * Source platform for the project
      */
     sourcePlatform: pulumi.Input<string | enums.datamigration.ProjectSourcePlatform>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Information for connecting to target
      */
-    targetConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MongoDbConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.OracleConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs>;
+    targetConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MongoDbConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.OracleConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs | undefined>;
     /**
      * Target platform for the project
      */

@@ -106,7 +106,6 @@ def get_draft_package_path(draft_package_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-11-01-preview.
 
-
     :param _builtins.str draft_package_name: The resource name of the Test Base Draft Package.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str test_base_account_name: The resource name of the Test Base Account.
@@ -124,15 +123,14 @@ def get_draft_package_path(draft_package_name: Optional[_builtins.str] = None,
         expiration_time=pulumi.get(__ret__, 'expiration_time'),
         sas_token=pulumi.get(__ret__, 'sas_token'),
         working_path=pulumi.get(__ret__, 'working_path'))
-def get_draft_package_path_output(draft_package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_draft_package_path_output(draft_package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDraftPackagePathResult]:
     """
     Gets draft package path and temp working path with SAS.
 
     Uses Azure REST API version 2023-11-01-preview.
-
 
     :param _builtins.str draft_package_name: The resource name of the Test Base Draft Package.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

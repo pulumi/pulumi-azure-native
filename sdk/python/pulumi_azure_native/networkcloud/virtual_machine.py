@@ -30,20 +30,20 @@ class VirtualMachineArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_profile: pulumi.Input['StorageProfileArgs'],
                  vm_image: pulumi.Input[_builtins.str],
-                 boot_method: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineBootMethod']]] = None,
-                 console_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 isolate_emulator_thread: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]] = None,
-                 network_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtio_interface: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_device_model: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineDeviceModelType']]] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input['ImageRepositoryCredentialsArgs']] = None):
+                 boot_method: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineBootMethod']]] = None,
+                 console_extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 isolate_emulator_thread: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_attachments: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAttachmentArgs']]]] = None,
+                 network_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_hints: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtio_interface: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_device_model: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineDeviceModelType']]] = None,
+                 vm_image_repository_credentials: pulumi.Input[Optional['ImageRepositoryCredentialsArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
 
@@ -213,170 +213,170 @@ class VirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="bootMethod")
-    def boot_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineBootMethod']]]:
+    def boot_method(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineBootMethod']]]:
         """
         Selects the boot method for the virtual machine.
         """
         return pulumi.get(self, "boot_method")
 
     @boot_method.setter
-    def boot_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineBootMethod']]]):
+    def boot_method(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineBootMethod']]]):
         pulumi.set(self, "boot_method", value)
 
     @_builtins.property
     @pulumi.getter(name="consoleExtendedLocation")
-    def console_extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def console_extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extended location to use for creation of a VM console resource.
         """
         return pulumi.get(self, "console_extended_location")
 
     @console_extended_location.setter
-    def console_extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def console_extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "console_extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="isolateEmulatorThread")
-    def isolate_emulator_thread(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]]:
+    def isolate_emulator_thread(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]]:
         """
         Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
         """
         return pulumi.get(self, "isolate_emulator_thread")
 
     @isolate_emulator_thread.setter
-    def isolate_emulator_thread(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]]):
+    def isolate_emulator_thread(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]]):
         pulumi.set(self, "isolate_emulator_thread", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAttachments")
-    def network_attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]]:
+    def network_attachments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAttachmentArgs']]]]:
         """
         The list of network attachments to the virtual machine.
         """
         return pulumi.get(self, "network_attachments")
 
     @network_attachments.setter
-    def network_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAttachmentArgs']]]]):
+    def network_attachments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkAttachmentArgs']]]]):
         pulumi.set(self, "network_attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="networkData")
-    def network_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64 encoded cloud-init network data.
         """
         return pulumi.get(self, "network_data")
 
     @network_data.setter
-    def network_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_data", value)
 
     @_builtins.property
     @pulumi.getter(name="placementHints")
-    def placement_hints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]]:
+    def placement_hints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]]:
         """
         The scheduling hints for the virtual machine.
         """
         return pulumi.get(self, "placement_hints")
 
     @placement_hints.setter
-    def placement_hints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]]):
+    def placement_hints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachinePlacementHintArgs']]]]):
         pulumi.set(self, "placement_hints", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPublicKeys")
-    def ssh_public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
+    def ssh_public_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
         """
         The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
         """
         return pulumi.get(self, "ssh_public_keys")
 
     @ssh_public_keys.setter
-    def ssh_public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
+    def ssh_public_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "ssh_public_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64 encoded cloud-init user data.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="virtioInterface")
-    def virtio_interface(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]]:
+    def virtio_interface(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]]:
         """
         Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
         """
         return pulumi.get(self, "virtio_interface")
 
     @virtio_interface.setter
-    def virtio_interface(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]]):
+    def virtio_interface(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]]):
         pulumi.set(self, "virtio_interface", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine.
         """
         return pulumi.get(self, "virtual_machine_name")
 
     @virtual_machine_name.setter
-    def virtual_machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmDeviceModel")
-    def vm_device_model(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineDeviceModelType']]]:
+    def vm_device_model(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineDeviceModelType']]]:
         """
         The type of the device model to use.
         """
         return pulumi.get(self, "vm_device_model")
 
     @vm_device_model.setter
-    def vm_device_model(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineDeviceModelType']]]):
+    def vm_device_model(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineDeviceModelType']]]):
         pulumi.set(self, "vm_device_model", value)
 
     @_builtins.property
     @pulumi.getter(name="vmImageRepositoryCredentials")
-    def vm_image_repository_credentials(self) -> Optional[pulumi.Input['ImageRepositoryCredentialsArgs']]:
+    def vm_image_repository_credentials(self) -> pulumi.Input[Optional['ImageRepositoryCredentialsArgs']]:
         """
         The credentials used to login to the image repository that has access to the specified image.
         """
         return pulumi.get(self, "vm_image_repository_credentials")
 
     @vm_image_repository_credentials.setter
-    def vm_image_repository_credentials(self, value: Optional[pulumi.Input['ImageRepositoryCredentialsArgs']]):
+    def vm_image_repository_credentials(self, value: pulumi.Input[Optional['ImageRepositoryCredentialsArgs']]):
         pulumi.set(self, "vm_image_repository_credentials", value)
 
 
@@ -386,34 +386,33 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_method: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineBootMethod']]] = None,
-                 cloud_services_network_attachment: Optional[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
-                 console_extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 cpu_cores: Optional[pulumi.Input[_builtins.float]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 isolate_emulator_thread: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]]] = None,
-                 network_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtio_interface: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_device_model: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineDeviceModelType']]] = None,
-                 vm_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_method: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineBootMethod']]] = None,
+                 cloud_services_network_attachment: pulumi.Input[Optional[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
+                 console_extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 cpu_cores: pulumi.Input[Optional[_builtins.float]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 isolate_emulator_thread: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 network_attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]]] = None,
+                 network_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_hints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtio_interface: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_device_model: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineDeviceModelType']]] = None,
+                 vm_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_repository_credentials: pulumi.Input[Optional[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,7 +450,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -467,28 +465,28 @@ class VirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_method: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineBootMethod']]] = None,
-                 cloud_services_network_attachment: Optional[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
-                 console_extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 cpu_cores: Optional[pulumi.Input[_builtins.float]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 isolate_emulator_thread: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 network_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]]] = None,
-                 network_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_hints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtio_interface: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_device_model: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineDeviceModelType']]] = None,
-                 vm_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_method: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineBootMethod']]] = None,
+                 cloud_services_network_attachment: pulumi.Input[Optional[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]] = None,
+                 console_extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 cpu_cores: pulumi.Input[Optional[_builtins.float]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 isolate_emulator_thread: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineIsolateEmulatorThread']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 network_attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]]] = None,
+                 network_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_hints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SshPublicKeyArgs', 'SshPublicKeyArgsDict']]]]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtio_interface: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineVirtioInterfaceType']]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_device_model: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineDeviceModelType']]] = None,
+                 vm_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_image_repository_credentials: pulumi.Input[Optional[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

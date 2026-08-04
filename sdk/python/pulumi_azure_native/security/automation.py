@@ -23,15 +23,15 @@ __all__ = ['AutomationArgs', 'Automation']
 class AutomationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]] = None,
-                 automation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationScopeArgs']]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]] = None,
+                 automation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationScopeArgs']]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Automation resource.
 
@@ -80,110 +80,110 @@ class AutomationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]]:
         """
         A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="automationName")
-    def automation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security automation name.
         """
         return pulumi.get(self, "automation_name")
 
     @automation_name.setter
-    def automation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security automation description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the security automation is enabled.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the resource
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationScopeArgs']]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationScopeArgs']]]]:
         """
         A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationScopeArgs']]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationScopeArgs']]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceArgs']]]]:
         """
         A collection of the source event types which evaluate the security automation set of rules.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -193,16 +193,16 @@ class Automation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationActionEventHubArgs', 'AutomationActionEventHubArgsDict'], Union['AutomationActionLogicAppArgs', 'AutomationActionLogicAppArgsDict'], Union['AutomationActionWorkspaceArgs', 'AutomationActionWorkspaceArgsDict']]]]]] = None,
-                 automation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationScopeArgs', 'AutomationScopeArgsDict']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['AutomationActionEventHubArgs', 'AutomationActionEventHubArgsDict'], Union['AutomationActionLogicAppArgs', 'AutomationActionLogicAppArgsDict'], Union['AutomationActionWorkspaceArgs', 'AutomationActionWorkspaceArgsDict']]]]]] = None,
+                 automation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationScopeArgs', 'AutomationScopeArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The security automation resource.
@@ -210,7 +210,6 @@ class Automation(pulumi.CustomResource):
         Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
         Other available API versions: 2019-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +237,6 @@ class Automation(pulumi.CustomResource):
 
         Other available API versions: 2019-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AutomationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,16 +252,16 @@ class Automation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationActionEventHubArgs', 'AutomationActionEventHubArgsDict'], Union['AutomationActionLogicAppArgs', 'AutomationActionLogicAppArgsDict'], Union['AutomationActionWorkspaceArgs', 'AutomationActionWorkspaceArgsDict']]]]]] = None,
-                 automation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationScopeArgs', 'AutomationScopeArgsDict']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['AutomationActionEventHubArgs', 'AutomationActionEventHubArgsDict'], Union['AutomationActionLogicAppArgs', 'AutomationActionLogicAppArgsDict'], Union['AutomationActionWorkspaceArgs', 'AutomationActionWorkspaceArgsDict']]]]]] = None,
+                 automation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationScopeArgs', 'AutomationScopeArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

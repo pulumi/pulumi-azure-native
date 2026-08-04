@@ -97,7 +97,7 @@ export function getPostRuleCountersOutput(args: GetPostRuleCountersOutputArgs, o
 }
 
 export interface GetPostRuleCountersOutputArgs {
-    firewallName?: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string | undefined>;
     /**
      * GlobalRulestack resource name
      */

@@ -24,7 +24,7 @@ class BgpPeerArgs:
                  peer_address: pulumi.Input[_builtins.str],
                  peer_asn: pulumi.Input[_builtins.int],
                  resource_uri: pulumi.Input[_builtins.str],
-                 bgp_peer_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bgp_peer_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BgpPeer resource.
 
@@ -91,14 +91,14 @@ class BgpPeerArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpPeerName")
-    def bgp_peer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bgp_peer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the BgpPeer
         """
         return pulumi.get(self, "bgp_peer_name")
 
     @bgp_peer_name.setter
-    def bgp_peer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bgp_peer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bgp_peer_name", value)
 
 
@@ -108,17 +108,16 @@ class BgpPeer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_peer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_peer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A BgpPeer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +138,6 @@ class BgpPeer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param BgpPeerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +153,11 @@ class BgpPeer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_peer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_peer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

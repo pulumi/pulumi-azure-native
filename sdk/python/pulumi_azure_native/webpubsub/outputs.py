@@ -138,7 +138,7 @@ class EventHandlerResponse(dict):
 @pulumi.output_type
 class EventHubEndpointResponse(dict):
     """
-    An Event Hub endpoint. 
+    An Event Hub endpoint.
     The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
     """
     @staticmethod
@@ -165,13 +165,12 @@ class EventHubEndpointResponse(dict):
                  fully_qualified_namespace: _builtins.str,
                  type: _builtins.str):
         """
-        An Event Hub endpoint. 
+        An Event Hub endpoint.
         The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
 
         :param _builtins.str event_hub_name: The name of the Event Hub.
         :param _builtins.str fully_qualified_namespace: The fully qualified namespace name of the Event Hub resource. For example, "example.servicebus.windows.net".
-        :param _builtins.str type: 
-               Expected value is 'EventHub'.
+        :param _builtins.str type: Expected value is 'EventHub'.
         """
         pulumi.set(__self__, "event_hub_name", event_hub_name)
         pulumi.set(__self__, "fully_qualified_namespace", fully_qualified_namespace)
@@ -197,7 +196,6 @@ class EventHubEndpointResponse(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-
         Expected value is 'EventHub'.
         """
         return pulumi.get(self, "type")
@@ -268,8 +266,7 @@ class EventNameFilterResponse(dict):
         """
         Filter events by their name.
 
-        :param _builtins.str type: 
-               Expected value is 'EventName'.
+        :param _builtins.str type: Expected value is 'EventName'.
         :param Sequence[_builtins.str] system_events: Gets or sets a list of system events. Supported events: "connected" and "disconnected". Blocking event "connect" is not supported because it requires a response.
         :param _builtins.str user_event_pattern: Gets or sets a matching pattern for event names.
                There are 3 kinds of patterns supported:
@@ -287,7 +284,6 @@ class EventNameFilterResponse(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-
         Expected value is 'EventName'.
         """
         return pulumi.get(self, "type")
@@ -966,7 +962,7 @@ class ResourceSkuResponse(dict):
                    Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
                    Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
                    Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
-        :param _builtins.str tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
+        :param _builtins.str tier: Optional tier of this particular SKU. 'Standard' or 'Free'.
                
                `Basic` is deprecated, use `Standard` instead.
         """
@@ -991,7 +987,7 @@ class ResourceSkuResponse(dict):
     def name(self) -> _builtins.str:
         """
         The name of the SKU. Required.
-        
+
         Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         return pulumi.get(self, "name")
@@ -1010,7 +1006,7 @@ class ResourceSkuResponse(dict):
         """
         Optional, integer. The unit count of the resource.
         1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
-        
+
         If present, following values are allowed:
             Free_F1: 1;
             Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
@@ -1023,8 +1019,8 @@ class ResourceSkuResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[_builtins.str]:
         """
-        Optional tier of this particular SKU. 'Standard' or 'Free'. 
-        
+        Optional tier of this particular SKU. 'Standard' or 'Free'.
+
         `Basic` is deprecated, use `Standard` instead.
         """
         return pulumi.get(self, "tier")
@@ -1587,7 +1583,7 @@ class WebPubSubSocketIOSettingsResponse(dict):
         """
         SocketIO settings for the resource
 
-        :param _builtins.str service_mode: The service mode of Web PubSub for Socket.IO. Values allowed: 
+        :param _builtins.str service_mode: The service mode of Web PubSub for Socket.IO. Values allowed:
                "Default": have your own backend Socket.IO server
                "Serverless": your application doesn't have a backend server
         """
@@ -1598,7 +1594,7 @@ class WebPubSubSocketIOSettingsResponse(dict):
     @pulumi.getter(name="serviceMode")
     def service_mode(self) -> Optional[_builtins.str]:
         """
-        The service mode of Web PubSub for Socket.IO. Values allowed: 
+        The service mode of Web PubSub for Socket.IO. Values allowed:
         "Default": have your own backend Socket.IO server
         "Serverless": your application doesn't have a backend server
         """

@@ -23,14 +23,14 @@ class WebAppSourceControlArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 git_hub_action_configuration: Optional[pulumi.Input['GitHubActionConfigurationArgs']] = None,
-                 is_git_hub_action: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_mercurial: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 git_hub_action_configuration: pulumi.Input[Optional['GitHubActionConfigurationArgs']] = None,
+                 is_git_hub_action: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppSourceControl resource.
 
@@ -90,98 +90,98 @@ class WebAppSourceControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of branch to use for deployment.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentRollbackEnabled")
-    def deployment_rollback_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deployment_rollback_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "deployment_rollback_enabled")
 
     @deployment_rollback_enabled.setter
-    def deployment_rollback_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deployment_rollback_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deployment_rollback_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHubActionConfiguration")
-    def git_hub_action_configuration(self) -> Optional[pulumi.Input['GitHubActionConfigurationArgs']]:
+    def git_hub_action_configuration(self) -> pulumi.Input[Optional['GitHubActionConfigurationArgs']]:
         """
         If GitHub Action is selected, than the associated configuration.
         """
         return pulumi.get(self, "git_hub_action_configuration")
 
     @git_hub_action_configuration.setter
-    def git_hub_action_configuration(self, value: Optional[pulumi.Input['GitHubActionConfigurationArgs']]):
+    def git_hub_action_configuration(self, value: pulumi.Input[Optional['GitHubActionConfigurationArgs']]):
         pulumi.set(self, "git_hub_action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="isGitHubAction")
-    def is_git_hub_action(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_git_hub_action(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> if this is deployed via GitHub action.
         """
         return pulumi.get(self, "is_git_hub_action")
 
     @is_git_hub_action.setter
-    def is_git_hub_action(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_git_hub_action(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_git_hub_action", value)
 
     @_builtins.property
     @pulumi.getter(name="isManualIntegration")
-    def is_manual_integration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_manual_integration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
         """
         return pulumi.get(self, "is_manual_integration")
 
     @is_manual_integration.setter
-    def is_manual_integration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_manual_integration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_manual_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="isMercurial")
-    def is_mercurial(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_mercurial(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
         """
         return pulumi.get(self, "is_mercurial")
 
     @is_mercurial.setter
-    def is_mercurial(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_mercurial(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_mercurial", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository or source control URL.
         """
         return pulumi.get(self, "repo_url")
 
     @repo_url.setter
-    def repo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_url", value)
 
 
@@ -191,16 +191,16 @@ class WebAppSourceControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 git_hub_action_configuration: Optional[pulumi.Input[Union['GitHubActionConfigurationArgs', 'GitHubActionConfigurationArgsDict']]] = None,
-                 is_git_hub_action: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_mercurial: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 git_hub_action_configuration: pulumi.Input[Optional[Union['GitHubActionConfigurationArgs', 'GitHubActionConfigurationArgsDict']]] = None,
+                 is_git_hub_action: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Source control configuration for an app.
@@ -208,7 +208,6 @@ class WebAppSourceControl(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +235,6 @@ class WebAppSourceControl(pulumi.CustomResource):
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WebAppSourceControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,16 +250,16 @@ class WebAppSourceControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_rollback_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 git_hub_action_configuration: Optional[pulumi.Input[Union['GitHubActionConfigurationArgs', 'GitHubActionConfigurationArgsDict']]] = None,
-                 is_git_hub_action: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_manual_integration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_mercurial: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 git_hub_action_configuration: pulumi.Input[Optional[Union['GitHubActionConfigurationArgs', 'GitHubActionConfigurationArgsDict']]] = None,
+                 is_git_hub_action: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_manual_integration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_mercurial: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

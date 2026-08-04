@@ -23,8 +23,8 @@ class PrivateEndpointArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 manual_private_link_service_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpoint resource.
 
@@ -66,26 +66,26 @@ class PrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
+    def manual_private_link_service_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
         """
         A list of connections to the remote resource. Immutable after it is set.
         """
         return pulumi.get(self, "manual_private_link_service_connections")
 
     @manual_private_link_service_connections.setter
-    def manual_private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
+    def manual_private_link_service_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
         pulumi.set(self, "manual_private_link_service_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointName")
-    def private_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the private endpoint.
         """
         return pulumi.get(self, "private_endpoint_name")
 
     @private_endpoint_name.setter
-    def private_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_name", value)
 
 
@@ -95,16 +95,15 @@ class PrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_private_link_service_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Complete information about the private endpoint.
 
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class PrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_private_link_service_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateLinkServiceConnectionArgs', 'PrivateLinkServiceConnectionArgsDict']]]]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -133,7 +133,7 @@ export interface SenderUsernameArgs {
     /**
      * The display name for the senderUsername.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Domains resource.
      */
@@ -149,7 +149,7 @@ export interface SenderUsernameArgs {
     /**
      * The valid sender Username.
      */
-    senderUsername?: pulumi.Input<string>;
+    senderUsername?: pulumi.Input<string | undefined>;
     /**
      * A sender senderUsername to be used when sending emails.
      */

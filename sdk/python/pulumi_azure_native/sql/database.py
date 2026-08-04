@@ -24,45 +24,45 @@ class DatabaseArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 auto_pause_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 availability_zone: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
-                 catalog_collation: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_protector: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_protector_auto_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 free_limit_exhaustion_behavior: Optional[pulumi.Input[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input['DatabaseIdentityArgs']] = None,
-                 is_ledger_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_retention_backup_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_cutover: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 perform_cutover: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preferred_enclave_type: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
-                 read_scale: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseReadScale']]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_services_recovery_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requested_backup_storage_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageRedundancy']]] = None,
-                 restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_name: Optional[pulumi.Input[Union[_builtins.str, 'SampleName']]] = None,
-                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryType']]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 source_database_deletion_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_free_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 availability_zone: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
+                 catalog_collation: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_protector: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_protector_auto_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 free_limit_exhaustion_behavior: pulumi.Input[Optional[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional['DatabaseIdentityArgs']] = None,
+                 is_ledger_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_retention_backup_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_cutover: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 perform_cutover: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preferred_enclave_type: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
+                 read_scale: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseReadScale']]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_services_recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requested_backup_storage_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageRedundancy']]] = None,
+                 restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_name: pulumi.Input[Optional[Union[_builtins.str, 'SampleName']]] = None,
+                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryType']]] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 source_database_deletion_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_free_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Database resource.
 
@@ -138,11 +138,11 @@ class DatabaseArgs:
                
                ```azurecli
                az sql db list-editions -l <location> -o table
-               ````
+               ```
                
                ```powershell
                Get-AzSqlServerServiceObjective -Location <location>
-               ````
+               ```
         :param pulumi.Input[_builtins.str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[_builtins.str] source_database_id: The resource identifier of the source database associated with create operation of this database.
         :param pulumi.Input[_builtins.str] source_resource_id: The resource identifier of the source associated with the create operation of this database.
@@ -157,7 +157,7 @@ class DatabaseArgs:
                
                When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
                
-               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] use_free_limit: Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
@@ -269,524 +269,524 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoPauseDelay")
-    def auto_pause_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_pause_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         """
         return pulumi.get(self, "auto_pause_delay")
 
     @auto_pause_delay.setter
-    def auto_pause_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_pause_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_pause_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]]:
+    def availability_zone(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]]:
         """
         Specifies the availability zone the database is pinned to.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]]):
+    def availability_zone(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogCollation")
-    def catalog_collation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]]:
+    def catalog_collation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]]:
         """
         Collation of the metadata catalog.
         """
         return pulumi.get(self, "catalog_collation")
 
     @catalog_collation.setter
-    def catalog_collation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]]):
+    def catalog_collation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]]):
         pulumi.set(self, "catalog_collation", value)
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The collation of the database.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]]:
+    def create_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]]:
         """
         Specifies the mode of database creation.
-        
+
         Default: regular database creation.
-        
+
         Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-        
+
         Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-        
+
         PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-        
+
         Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-        
+
         Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-        
+
         RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-        
+
         Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]]):
+    def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticPoolId")
-    def elastic_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the elastic pool containing this database.
         """
         return pulumi.get(self, "elastic_pool_id")
 
     @elastic_pool_id.setter
-    def elastic_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionProtector")
-    def encryption_protector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_protector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
         """
         return pulumi.get(self, "encryption_protector")
 
     @encryption_protector.setter
-    def encryption_protector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_protector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_protector", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionProtectorAutoRotation")
-    def encryption_protector_auto_rotation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_protector_auto_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag to enable or disable auto rotation of database encryption protector AKV key.
         """
         return pulumi.get(self, "encryption_protector_auto_rotation")
 
     @encryption_protector_auto_rotation.setter
-    def encryption_protector_auto_rotation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_protector_auto_rotation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_protector_auto_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="federatedClientId")
-    def federated_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def federated_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client id used for cross tenant per database CMK scenario
         """
         return pulumi.get(self, "federated_client_id")
 
     @federated_client_id.setter
-    def federated_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def federated_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "federated_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="freeLimitExhaustionBehavior")
-    def free_limit_exhaustion_behavior(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]]:
+    def free_limit_exhaustion_behavior(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]]:
         """
         Specifies the behavior when monthly free limits are exhausted for the free database.
-        
+
         AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
-        
+
         BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
         """
         return pulumi.get(self, "free_limit_exhaustion_behavior")
 
     @free_limit_exhaustion_behavior.setter
-    def free_limit_exhaustion_behavior(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]]):
+    def free_limit_exhaustion_behavior(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]]):
         pulumi.set(self, "free_limit_exhaustion_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityReplicaCount")
-    def high_availability_replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def high_availability_replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
     @high_availability_replica_count.setter
-    def high_availability_replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def high_availability_replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "high_availability_replica_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DatabaseIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['DatabaseIdentityArgs']]:
         """
         The Azure Active Directory identity of the database.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DatabaseIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['DatabaseIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="isLedgerOn")
-    def is_ledger_on(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_ledger_on(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         """
         return pulumi.get(self, "is_ledger_on")
 
     @is_ledger_on.setter
-    def is_ledger_on(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_ledger_on(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_ledger_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "keys", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DatabaseLicenseType']]]:
+    def license_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DatabaseLicenseType']]]:
         """
         The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseLicenseType']]]):
+    def license_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseLicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="longTermRetentionBackupResourceId")
-    def long_term_retention_backup_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def long_term_retention_backup_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the long term retention backup associated with create operation of this database.
         """
         return pulumi.get(self, "long_term_retention_backup_resource_id")
 
     @long_term_retention_backup_resource_id.setter
-    def long_term_retention_backup_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def long_term_retention_backup_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "long_term_retention_backup_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="manualCutover")
-    def manual_cutover(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manual_cutover(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
-        
+
         This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
-        
+
         When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
-        
+
         To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
         """
         return pulumi.get(self, "manual_cutover")
 
     @manual_cutover.setter
-    def manual_cutover(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manual_cutover(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manual_cutover", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_size_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The max size of the database expressed in bytes.
         """
         return pulumi.get(self, "max_size_bytes")
 
     @max_size_bytes.setter
-    def max_size_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_size_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Minimal capacity that database will always have allocated, if not paused
         """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
-    def min_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="performCutover")
-    def perform_cutover(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def perform_cutover(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
-        
+
         This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
-        
+
         This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
-        
+
         When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
         """
         return pulumi.get(self, "perform_cutover")
 
     @perform_cutover.setter
-    def perform_cutover(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def perform_cutover(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "perform_cutover", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredEnclaveType")
-    def preferred_enclave_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]:
+    def preferred_enclave_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]:
         """
         Type of enclave requested on the database i.e. Default or VBS enclaves.
         """
         return pulumi.get(self, "preferred_enclave_type")
 
     @preferred_enclave_type.setter
-    def preferred_enclave_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]):
+    def preferred_enclave_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]]):
         pulumi.set(self, "preferred_enclave_type", value)
 
     @_builtins.property
     @pulumi.getter(name="readScale")
-    def read_scale(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DatabaseReadScale']]]:
+    def read_scale(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DatabaseReadScale']]]:
         """
         The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "read_scale")
 
     @read_scale.setter
-    def read_scale(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseReadScale']]]):
+    def read_scale(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseReadScale']]]):
         pulumi.set(self, "read_scale", value)
 
     @_builtins.property
     @pulumi.getter(name="recoverableDatabaseId")
-    def recoverable_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recoverable_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the recoverable database associated with create operation of this database.
         """
         return pulumi.get(self, "recoverable_database_id")
 
     @recoverable_database_id.setter
-    def recoverable_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recoverable_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recoverable_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryServicesRecoveryPointId")
-    def recovery_services_recovery_point_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_services_recovery_point_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the recovery point associated with create operation of this database.
         """
         return pulumi.get(self, "recovery_services_recovery_point_id")
 
     @recovery_services_recovery_point_id.setter
-    def recovery_services_recovery_point_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_services_recovery_point_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_services_recovery_point_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requestedBackupStorageRedundancy")
-    def requested_backup_storage_redundancy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageRedundancy']]]:
+    def requested_backup_storage_redundancy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageRedundancy']]]:
         """
         The storage account type to be used to store backups for this database.
         """
         return pulumi.get(self, "requested_backup_storage_redundancy")
 
     @requested_backup_storage_redundancy.setter
-    def requested_backup_storage_redundancy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageRedundancy']]]):
+    def requested_backup_storage_redundancy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageRedundancy']]]):
         pulumi.set(self, "requested_backup_storage_redundancy", value)
 
     @_builtins.property
     @pulumi.getter(name="restorableDroppedDatabaseId")
-    def restorable_dropped_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restorable_dropped_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the restorable dropped database associated with create operation of this database.
         """
         return pulumi.get(self, "restorable_dropped_database_id")
 
     @restorable_dropped_database_id.setter
-    def restorable_dropped_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restorable_dropped_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restorable_dropped_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_in_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         """
         return pulumi.get(self, "restore_point_in_time")
 
     @restore_point_in_time.setter
-    def restore_point_in_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_in_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_in_time", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleName")
-    def sample_name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SampleName']]]:
+    def sample_name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SampleName']]]:
         """
         The name of the sample schema to apply when creating this database.
         """
         return pulumi.get(self, "sample_name")
 
     @sample_name.setter
-    def sample_name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SampleName']]]):
+    def sample_name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SampleName']]]):
         pulumi.set(self, "sample_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryType")
-    def secondary_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecondaryType']]]:
+    def secondary_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SecondaryType']]]:
         """
         The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         """
         return pulumi.get(self, "secondary_type")
 
     @secondary_type.setter
-    def secondary_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryType']]]):
+    def secondary_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryType']]]):
         pulumi.set(self, "secondary_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         The database SKU.
-        
+
         The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        
+
         ```azurecli
         az sql db list-editions -l <location> -o table
-        ````
-        
+        ```
+
         ```powershell
         Get-AzSqlServerServiceObjective -Location <location>
-        ````
+        ```
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_deletion_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time that the database was deleted.
         """
         return pulumi.get(self, "source_database_deletion_date")
 
     @source_database_deletion_date.setter
-    def source_database_deletion_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_deletion_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_deletion_date", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the source database associated with create operation of this database.
         """
         return pulumi.get(self, "source_database_id")
 
     @source_database_id.setter
-    def source_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource identifier of the source associated with the create operation of this database.
-        
+
         This property is only supported for DataWarehouse edition and allows to restore across subscriptions.
-        
+
         When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
-        
+
         When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of the existing database or existing sql pool, and restorePointInTime must be specified.
-        
+
         When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
-        
+
         When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
-        
-        When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+
+        When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useFreeLimit")
-    def use_free_limit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_free_limit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
         """
         return pulumi.get(self, "use_free_limit")
 
     @use_free_limit.setter
-    def use_free_limit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_free_limit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_free_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -796,47 +796,47 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 availability_zone: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
-                 catalog_collation: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_protector: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_protector_auto_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 free_limit_exhaustion_behavior: Optional[pulumi.Input[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
-                 is_ledger_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_retention_backup_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_cutover: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 perform_cutover: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preferred_enclave_type: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
-                 read_scale: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseReadScale']]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_services_recovery_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requested_backup_storage_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageRedundancy']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_name: Optional[pulumi.Input[Union[_builtins.str, 'SampleName']]] = None,
-                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryType']]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 source_database_deletion_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_free_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 availability_zone: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
+                 catalog_collation: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_protector: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_protector_auto_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 free_limit_exhaustion_behavior: pulumi.Input[Optional[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
+                 is_ledger_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_retention_backup_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_cutover: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 perform_cutover: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preferred_enclave_type: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
+                 read_scale: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseReadScale']]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_services_recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requested_backup_storage_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageRedundancy']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_name: pulumi.Input[Optional[Union[_builtins.str, 'SampleName']]] = None,
+                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryType']]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 source_database_deletion_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_free_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         A database resource.
@@ -844,7 +844,6 @@ class Database(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -920,11 +919,11 @@ class Database(pulumi.CustomResource):
                
                ```azurecli
                az sql db list-editions -l <location> -o table
-               ````
+               ```
                
                ```powershell
                Get-AzSqlServerServiceObjective -Location <location>
-               ````
+               ```
         :param pulumi.Input[_builtins.str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[_builtins.str] source_database_id: The resource identifier of the source database associated with create operation of this database.
         :param pulumi.Input[_builtins.str] source_resource_id: The resource identifier of the source associated with the create operation of this database.
@@ -939,7 +938,7 @@ class Database(pulumi.CustomResource):
                
                When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
                
-               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] use_free_limit: Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
@@ -957,7 +956,6 @@ class Database(pulumi.CustomResource):
 
         Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -973,47 +971,47 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 availability_zone: Optional[pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
-                 catalog_collation: Optional[pulumi.Input[Union[_builtins.str, 'CatalogCollationType']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_protector: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_protector_auto_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 free_limit_exhaustion_behavior: Optional[pulumi.Input[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
-                 is_ledger_on: Optional[pulumi.Input[_builtins.bool]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 license_type: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseLicenseType']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_term_retention_backup_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_cutover: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 perform_cutover: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preferred_enclave_type: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
-                 read_scale: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseReadScale']]] = None,
-                 recoverable_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_services_recovery_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requested_backup_storage_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'BackupStorageRedundancy']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restorable_dropped_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_name: Optional[pulumi.Input[Union[_builtins.str, 'SampleName']]] = None,
-                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryType']]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 source_database_deletion_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_free_limit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 availability_zone: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
+                 catalog_collation: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_protector: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_protector_auto_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 free_limit_exhaustion_behavior: pulumi.Input[Optional[Union[_builtins.str, 'FreeLimitExhaustionBehavior']]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional[Union['DatabaseIdentityArgs', 'DatabaseIdentityArgsDict']]] = None,
+                 is_ledger_on: pulumi.Input[Optional[_builtins.bool]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 license_type: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseLicenseType']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_term_retention_backup_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_cutover: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 perform_cutover: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preferred_enclave_type: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysEncryptedEnclaveType']]] = None,
+                 read_scale: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseReadScale']]] = None,
+                 recoverable_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_services_recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requested_backup_storage_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageRedundancy']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restorable_dropped_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_name: pulumi.Input[Optional[Union[_builtins.str, 'SampleName']]] = None,
+                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryType']]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 source_database_deletion_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_free_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1301,9 +1299,9 @@ class Database(pulumi.CustomResource):
     def free_limit_exhaustion_behavior(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Specifies the behavior when monthly free limits are exhausted for the free database.
-        
+
         AutoPause: The database will be auto paused upon exhaustion of free limits for remainder of the month.
-        
+
         BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
         """
         return pulumi.get(self, "free_limit_exhaustion_behavior")
@@ -1393,11 +1391,11 @@ class Database(pulumi.CustomResource):
     def manual_cutover(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
-        
+
         This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
-        
+
         When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
-        
+
         To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
         """
         return pulumi.get(self, "manual_cutover")
@@ -1447,11 +1445,11 @@ class Database(pulumi.CustomResource):
     def perform_cutover(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
-        
+
         This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
-        
+
         This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
-        
+
         When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
         """
         return pulumi.get(self, "perform_cutover")
@@ -1509,16 +1507,16 @@ class Database(pulumi.CustomResource):
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The database SKU.
-        
+
         The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        
+
         ```azurecli
         az sql db list-editions -l <location> -o table
-        ````
-        
+        ```
+
         ```powershell
         Get-AzSqlServerServiceObjective -Location <location>
-        ````
+        ```
         """
         return pulumi.get(self, "sku")
 

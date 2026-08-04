@@ -77,7 +77,7 @@ export interface GetTestBaseAccountFileUploadUrlOutputArgs {
     /**
      * The custom file name of the uploaded blob.
      */
-    blobName?: pulumi.Input<string>;
+    blobName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetTestBaseAccountFileUploadUrlOutputArgs {
     /**
      * Resource type for file uploading.
      */
-    resourceType?: pulumi.Input<string | enums.testbase.FileUploadResourceType>;
+    resourceType?: pulumi.Input<string | enums.testbase.FileUploadResourceType | undefined>;
     /**
      * The resource name of the Test Base Account.
      */

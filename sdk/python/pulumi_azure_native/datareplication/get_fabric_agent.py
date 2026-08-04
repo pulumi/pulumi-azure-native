@@ -121,7 +121,6 @@ def get_fabric_agent(fabric_agent_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str fabric_agent_name: The fabric agent name.
     :param _builtins.str fabric_name: The fabric name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -140,9 +139,9 @@ def get_fabric_agent(fabric_agent_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_fabric_agent_output(fabric_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fabric_agent_output(fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFabricAgentResult]:
     """
     Gets the details of the fabric agent.
@@ -150,7 +149,6 @@ def get_fabric_agent_output(fabric_agent_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2024-09-01.
 
     Other available API versions: 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str fabric_agent_name: The fabric agent name.
     :param _builtins.str fabric_name: The fabric name.

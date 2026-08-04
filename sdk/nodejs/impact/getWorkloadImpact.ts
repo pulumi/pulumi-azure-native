@@ -23,7 +23,7 @@ export function getWorkloadImpact(args: GetWorkloadImpactArgs, opts?: pulumi.Inv
 
 export interface GetWorkloadImpactArgs {
     /**
-     * workloadImpact resource 
+     * workloadImpact resource
      */
     workloadImpactName: string;
 }
@@ -73,7 +73,7 @@ export function getWorkloadImpactOutput(args: GetWorkloadImpactOutputArgs, opts?
 
 export interface GetWorkloadImpactOutputArgs {
     /**
-     * workloadImpact resource 
+     * workloadImpact resource
      */
     workloadImpactName: pulumi.Input<string>;
 }

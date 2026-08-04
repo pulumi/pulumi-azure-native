@@ -118,7 +118,7 @@ export interface AgentApplicationArgs {
     /**
      * Name for the Agent Application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of Cognitive Services account's project.
      */

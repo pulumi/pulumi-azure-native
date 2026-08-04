@@ -26,7 +26,7 @@ class ServerTrustGroupArgs:
                  location_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  trust_scopes: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]],
-                 server_trust_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTrustGroup resource.
 
@@ -93,14 +93,14 @@ class ServerTrustGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverTrustGroupName")
-    def server_trust_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_trust_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the server trust group.
         """
         return pulumi.get(self, "server_trust_group_name")
 
     @server_trust_group_name.setter
-    def server_trust_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_trust_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_trust_group_name", value)
 
 
@@ -110,11 +110,11 @@ class ServerTrustGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
-                 location_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_trust_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
+                 group_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
+                 location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
                  __props__=None):
         """
         A server trust group.
@@ -122,7 +122,6 @@ class ServerTrustGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class ServerTrustGroup(pulumi.CustomResource):
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServerTrustGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class ServerTrustGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
-                 location_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_trust_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
+                 group_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
+                 location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

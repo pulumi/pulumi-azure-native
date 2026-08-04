@@ -26,10 +26,10 @@ class MachineGroupArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'MachineGroupType']]] = None,
-                 machine_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 machines: Optional[pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]] = None):
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'MachineGroupType']]] = None,
+                 machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 machines: pulumi.Input[Optional[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]] = None):
         """
         The set of arguments for constructing a MachineGroup resource.
 
@@ -107,50 +107,50 @@ class MachineGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count", value)
 
     @_builtins.property
     @pulumi.getter(name="groupType")
-    def group_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MachineGroupType']]]:
+    def group_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MachineGroupType']]]:
         """
         Type of the machine group
         """
         return pulumi.get(self, "group_type")
 
     @group_type.setter
-    def group_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MachineGroupType']]]):
+    def group_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MachineGroupType']]]):
         pulumi.set(self, "group_type", value)
 
     @_builtins.property
     @pulumi.getter(name="machineGroupName")
-    def machine_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def machine_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Machine Group resource name.
         """
         return pulumi.get(self, "machine_group_name")
 
     @machine_group_name.setter
-    def machine_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def machine_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "machine_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]]:
+    def machines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]]:
         """
         References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         """
         return pulumi.get(self, "machines")
 
     @machines.setter
-    def machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]]):
+    def machines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]]):
         pulumi.set(self, "machines", value)
 
 
@@ -160,20 +160,19 @@ class MachineGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'MachineGroupType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineReferenceWithHintsArgs', 'MachineReferenceWithHintsArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'MachineGroupType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 machines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MachineReferenceWithHintsArgs', 'MachineReferenceWithHintsArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A user-defined logical grouping of machines.
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +197,6 @@ class MachineGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param MachineGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,14 +212,14 @@ class MachineGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 count: Optional[pulumi.Input[_builtins.int]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_type: Optional[pulumi.Input[Union[_builtins.str, 'MachineGroupType']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MachineReferenceWithHintsArgs', 'MachineReferenceWithHintsArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 count: pulumi.Input[Optional[_builtins.int]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_type: pulumi.Input[Optional[Union[_builtins.str, 'MachineGroupType']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 machines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MachineReferenceWithHintsArgs', 'MachineReferenceWithHintsArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

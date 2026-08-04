@@ -43,17 +43,17 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
 
     /**
      * Specifies the Actions-Groups and Actions to audit.
-     * 
+     *
      * The recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
-     * 
+     *
      * BATCH_COMPLETED_GROUP,
      * SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,
      * FAILED_DATABASE_AUTHENTICATION_GROUP.
-     * 
+     *
      * This above combination is also the set that is configured by default when enabling auditing from the Azure portal.
-     * 
+     *
      * The supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):
-     * 
+     *
      * APPLICATION_ROLE_CHANGE_PASSWORD_GROUP
      * BACKUP_RESTORE_GROUP
      * DATABASE_LOGOUT_GROUP
@@ -78,11 +78,11 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
      * DATABASE_OWNERSHIP_CHANGE_GROUP
      * DATABASE_CHANGE_GROUP
      * LEDGER_OPERATION_GROUP
-     * 
+     *
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
-     * 
+     *
      * For more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).
-     * 
+     *
      * For Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:
      * SELECT
      * UPDATE
@@ -91,17 +91,17 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
      * EXECUTE
      * RECEIVE
      * REFERENCES
-     * 
+     *
      * The general form for defining an action to be audited is:
      * {action} ON {object} BY {principal}
-     * 
+     *
      * Note that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.
-     * 
+     *
      * For example:
      * SELECT on dbo.myTable by public
      * SELECT on DATABASE::myDatabase by public
      * SELECT on SCHEMA::mySchema by public
-     * 
+     *
      * For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
      */
     declare public readonly auditActionsAndGroups: pulumi.Output<string[] | undefined>;
@@ -110,15 +110,15 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Specifies whether audit events are sent to Azure Monitor. 
+     * Specifies whether audit events are sent to Azure Monitor.
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
-     * 
+     *
      * When using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.
      * Note that for server level audit you should use the 'master' database as {databaseName}.
-     * 
+     *
      * Diagnostic Settings URI format:
      * PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-     * 
+     *
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
@@ -126,12 +126,12 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
     /**
      * Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true
-     * 
+     *
      * When using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.
-     * 
+     *
      * Diagnostic Settings URI format:
      * PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-     * 
+     *
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
@@ -245,17 +245,17 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
 export interface ExtendedServerBlobAuditingPolicyArgs {
     /**
      * Specifies the Actions-Groups and Actions to audit.
-     * 
+     *
      * The recommended set of action groups to use is the following combination - this will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
-     * 
+     *
      * BATCH_COMPLETED_GROUP,
      * SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP,
      * FAILED_DATABASE_AUTHENTICATION_GROUP.
-     * 
+     *
      * This above combination is also the set that is configured by default when enabling auditing from the Azure portal.
-     * 
+     *
      * The supported action groups to audit are (note: choose only specific groups that cover your auditing needs. Using unnecessary groups could lead to very large quantities of audit records):
-     * 
+     *
      * APPLICATION_ROLE_CHANGE_PASSWORD_GROUP
      * BACKUP_RESTORE_GROUP
      * DATABASE_LOGOUT_GROUP
@@ -280,11 +280,11 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * DATABASE_OWNERSHIP_CHANGE_GROUP
      * DATABASE_CHANGE_GROUP
      * LEDGER_OPERATION_GROUP
-     * 
+     *
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
-     * 
+     *
      * For more information, see [Database-Level Audit Action Groups](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-action-groups).
-     * 
+     *
      * For Database auditing policy, specific Actions can also be specified (note that Actions cannot be specified for Server auditing policy). The supported actions to audit are:
      * SELECT
      * UPDATE
@@ -293,68 +293,68 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * EXECUTE
      * RECEIVE
      * REFERENCES
-     * 
+     *
      * The general form for defining an action to be audited is:
      * {action} ON {object} BY {principal}
-     * 
+     *
      * Note that <object> in the above format can refer to an object like a table, view, or stored procedure, or an entire database or schema. For the latter cases, the forms DATABASE::{db_name} and SCHEMA::{schema_name} are used, respectively.
-     * 
+     *
      * For example:
      * SELECT on dbo.myTable by public
      * SELECT on DATABASE::myDatabase by public
      * SELECT on SCHEMA::mySchema by public
-     * 
+     *
      * For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
      */
-    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName?: pulumi.Input<string>;
+    blobAuditingPolicyName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether audit events are sent to Azure Monitor. 
+     * Specifies whether audit events are sent to Azure Monitor.
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
-     * 
+     *
      * When using REST API to configure auditing, Diagnostic Settings with 'SQLSecurityAuditEvents' diagnostic logs category on the database should be also created.
      * Note that for server level audit you should use the 'master' database as {databaseName}.
-     * 
+     *
      * Diagnostic Settings URI format:
      * PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-     * 
+     *
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
-    isAzureMonitorTargetEnabled?: pulumi.Input<boolean>;
+    isAzureMonitorTargetEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the state of devops audit. If state is Enabled, devops logs will be sent to Azure Monitor.
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled', 'IsAzureMonitorTargetEnabled' as true and 'IsDevopsAuditEnabled' as true
-     * 
+     *
      * When using REST API to configure auditing, Diagnostic Settings with 'DevOpsOperationsAudit' diagnostic logs category on the master database should also be created.
-     * 
+     *
      * Diagnostic Settings URI format:
      * PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/master/providers/microsoft.insights/diagnosticSettings/{settingsName}?api-version=2017-05-01-preview
-     * 
+     *
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
-    isDevopsAuditEnabled?: pulumi.Input<boolean>;
+    isDevopsAuditEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether Managed Identity is used to access blob storage
      */
-    isManagedIdentityInUse?: pulumi.Input<boolean>;
+    isManagedIdentityInUse?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
-    isStorageSecondaryKeyInUse?: pulumi.Input<boolean>;
+    isStorageSecondaryKeyInUse?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies condition of where clause when creating an audit.
      */
-    predicateExpression?: pulumi.Input<string>;
+    predicateExpression?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
      * The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
      */
-    queueDelayMs?: pulumi.Input<number>;
+    queueDelayMs?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -362,7 +362,7 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
     /**
      * Specifies the number of days to keep in the audit logs in the storage account.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
     /**
      * The name of the server.
      */
@@ -372,20 +372,20 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      */
     state: pulumi.Input<enums.sql.BlobAuditingPolicyState>;
     /**
-     * Specifies the identifier key of the auditing storage account. 
+     * Specifies the identifier key of the auditing storage account.
      * If state is Enabled and storageEndpoint is specified, not specifying the storageAccountAccessKey will use SQL server system-assigned managed identity to access the storage.
      * Prerequisites for using managed identity authentication:
      * 1. Assign SQL Server a system-assigned managed identity in Azure Active Directory (AAD).
      * 2. Grant SQL Server identity access to the storage account by adding 'Storage Blob Data Contributor' RBAC role to the server identity.
-     * For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
+     *    For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage subscription Id.
      */
-    storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }

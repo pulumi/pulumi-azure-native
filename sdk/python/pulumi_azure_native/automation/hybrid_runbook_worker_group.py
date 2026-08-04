@@ -23,9 +23,9 @@ class HybridRunbookWorkerGroupArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 credential: Optional[pulumi.Input['RunAsCredentialAssociationPropertyArgs']] = None,
-                 hybrid_runbook_worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential: pulumi.Input[Optional['RunAsCredentialAssociationPropertyArgs']] = None,
+                 hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridRunbookWorkerGroup resource.
 
@@ -70,38 +70,38 @@ class HybridRunbookWorkerGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credential(self) -> Optional[pulumi.Input['RunAsCredentialAssociationPropertyArgs']]:
+    def credential(self) -> pulumi.Input[Optional['RunAsCredentialAssociationPropertyArgs']]:
         """
         Sets the credential of a worker group.
         """
         return pulumi.get(self, "credential")
 
     @credential.setter
-    def credential(self, value: Optional[pulumi.Input['RunAsCredentialAssociationPropertyArgs']]):
+    def credential(self, value: pulumi.Input[Optional['RunAsCredentialAssociationPropertyArgs']]):
         pulumi.set(self, "credential", value)
 
     @_builtins.property
     @pulumi.getter(name="hybridRunbookWorkerGroupName")
-    def hybrid_runbook_worker_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hybrid_runbook_worker_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hybrid runbook worker group name
         """
         return pulumi.get(self, "hybrid_runbook_worker_group_name")
 
     @hybrid_runbook_worker_group_name.setter
-    def hybrid_runbook_worker_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hybrid_runbook_worker_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hybrid_runbook_worker_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the name of the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -111,11 +111,11 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential: Optional[pulumi.Input[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']]] = None,
-                 hybrid_runbook_worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential: pulumi.Input[Optional[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']]] = None,
+                 hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of hybrid runbook worker group.
@@ -123,7 +123,6 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
 
         Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential: Optional[pulumi.Input[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']]] = None,
-                 hybrid_runbook_worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential: pulumi.Input[Optional[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']]] = None,
+                 hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

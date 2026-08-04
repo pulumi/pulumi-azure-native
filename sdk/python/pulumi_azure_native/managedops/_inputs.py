@@ -108,11 +108,11 @@ class DesiredConfigurationArgsDict(TypedDict):
     """
     User assigned Managed Identity used to perform operations on machines managed by Ops360.
     """
-    defender_cspm: NotRequired[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]]
+    defender_cspm: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]]]
     """
     Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
     """
-    defender_for_servers: NotRequired[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]]
+    defender_for_servers: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]]]
     """
     Desired enablement state of the Defender For Servers service.
     """
@@ -123,8 +123,8 @@ class DesiredConfigurationArgs:
                  azure_monitor_insights: pulumi.Input['AzureMonitorConfigurationArgs'],
                  change_tracking_and_inventory: pulumi.Input['ChangeTrackingConfigurationArgs'],
                  user_assigned_managed_identity_id: pulumi.Input[_builtins.str],
-                 defender_cspm: Optional[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]] = None,
-                 defender_for_servers: Optional[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]] = None):
+                 defender_cspm: pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]] = None,
+                 defender_for_servers: pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]] = None):
         """
         Desired configuration input by the user.
 
@@ -180,26 +180,26 @@ class DesiredConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defenderCspm")
-    def defender_cspm(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]]:
+    def defender_cspm(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]]:
         """
         Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
         """
         return pulumi.get(self, "defender_cspm")
 
     @defender_cspm.setter
-    def defender_cspm(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]]):
+    def defender_cspm(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]]):
         pulumi.set(self, "defender_cspm", value)
 
     @_builtins.property
     @pulumi.getter(name="defenderForServers")
-    def defender_for_servers(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]]:
+    def defender_for_servers(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]]:
         """
         Desired enablement state of the Defender For Servers service.
         """
         return pulumi.get(self, "defender_for_servers")
 
     @defender_for_servers.setter
-    def defender_for_servers(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DesiredEnablementState']]]):
+    def defender_for_servers(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DesiredEnablementState']]]):
         pulumi.set(self, "defender_for_servers", value)
 
 

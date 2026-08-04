@@ -135,19 +135,19 @@ export interface WorkspaceLoggerArgs {
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
      */
-    credentials?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    credentials?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Logger description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether records are buffered in the logger before publishing. Default is assumed to be true.
      */
-    isBuffered?: pulumi.Input<boolean>;
+    isBuffered?: pulumi.Input<boolean | undefined>;
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    loggerId?: pulumi.Input<string>;
+    loggerId?: pulumi.Input<string | undefined>;
     /**
      * Logger type.
      */
@@ -159,7 +159,7 @@ export interface WorkspaceLoggerArgs {
     /**
      * Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management service.
      */

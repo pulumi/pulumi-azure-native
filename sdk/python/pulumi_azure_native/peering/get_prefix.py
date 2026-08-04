@@ -182,7 +182,6 @@ def get_prefix(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: The properties to be expanded.
     :param _builtins.str peering_service_name: The name of the peering service.
     :param _builtins.str prefix_name: The name of the prefix.
@@ -208,10 +207,10 @@ def get_prefix(expand: Optional[_builtins.str] = None,
         prefix_validation_state=pulumi.get(__ret__, 'prefix_validation_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_prefix_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      peering_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      prefix_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prefix_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixResult]:
     """
     Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
@@ -219,7 +218,6 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = 
     Uses Azure REST API version 2022-10-01.
 
     Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: The properties to be expanded.
     :param _builtins.str peering_service_name: The name of the peering service.

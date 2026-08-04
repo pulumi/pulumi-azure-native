@@ -141,7 +141,6 @@ def get_fabric(fabric_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-09-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str fabric_name: The fabric name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -160,8 +159,8 @@ def get_fabric(fabric_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_fabric_output(fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fabric_output(fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFabricResult]:
     """
     Gets the details of the fabric.
@@ -169,7 +168,6 @@ def get_fabric_output(fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2021-02-16-preview.
 
     Other available API versions: 2024-09-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str fabric_name: The fabric name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

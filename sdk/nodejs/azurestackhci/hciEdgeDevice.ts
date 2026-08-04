@@ -112,7 +112,7 @@ export interface HciEdgeDeviceArgs {
     /**
      * Name of Device
      */
-    edgeDeviceName?: pulumi.Input<string>;
+    edgeDeviceName?: pulumi.Input<string | undefined>;
     /**
      * Edge device kind.
      * Expected value is 'HCI'.
@@ -121,7 +121,7 @@ export interface HciEdgeDeviceArgs {
     /**
      * properties for Arc-enabled edge device with HCI OS.
      */
-    properties?: pulumi.Input<inputs.azurestackhci.HciEdgeDevicePropertiesArgs>;
+    properties?: pulumi.Input<inputs.azurestackhci.HciEdgeDevicePropertiesArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

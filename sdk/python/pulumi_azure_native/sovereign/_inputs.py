@@ -217,75 +217,75 @@ class LandingZoneConfigurationResourcePropertiesArgsDict(TypedDict):
     """
     The managed identity to be assigned to this landing zone configuration.
     """
-    azure_bastion_subnet_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    azure_bastion_subnet_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Bastion subnet address. Specify the address using IPv4 CIDR notation.
     """
-    custom_naming_convention: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomNamingConventionArgsDict']]]]
+    custom_naming_convention: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CustomNamingConventionArgsDict']]]]]
     """
     The custom naming convention applied to specific resource types for this landing zone configuration, which overrides the default naming convention for those resource types. Example - 'customNamingConvention': [{'resourceType': 'azureFirewalls', 'formula': '{DeploymentPrefix}-afwl-{DeploymentSuffix}'}]
     """
-    decommissioned_mg_metadata: NotRequired[pulumi.Input['DecommissionedManagementGroupPropertiesArgsDict']]
+    decommissioned_mg_metadata: NotRequired[pulumi.Input[Optional['DecommissionedManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the 'Decommissioned' management group and indicator to create it or not.
     """
-    existing_azure_bastion_id: NotRequired[pulumi.Input[_builtins.str]]
+    existing_azure_bastion_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Bastion when reusing an existing one.
     """
-    existing_ddos_protection_id: NotRequired[pulumi.Input[_builtins.str]]
+    existing_ddos_protection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the DDoS protection plan when reusing an existing one.
     """
-    existing_log_analytics_workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    existing_log_analytics_workspace_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the log analytics workspace when reusing an existing one.
     """
-    firewall_subnet_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_subnet_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Firewall subnet address used for deploying a firewall. Specify the Firewall subnet using IPv4 CIDR notation.
     """
-    landing_zones_mg_children: NotRequired[pulumi.Input[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgsDict']]]]
+    landing_zones_mg_children: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgsDict']]]]]
     """
     The child management groups of 'Landing Zones' management group and their assigned policies.
     """
-    landing_zones_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    landing_zones_mg_metadata: NotRequired[pulumi.Input[Optional['ManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the 'Landing Zones' management group.
     """
-    naming_convention_formula: NotRequired[pulumi.Input[_builtins.str]]
+    naming_convention_formula: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default naming convention applied to all resources for this landing zone configuration. Example - {DeploymentPrefix}-Contoso-{ResourceTypeAbbreviation}{DeploymentSuffix}-{Environment}-testing
     """
-    platform_connectivity_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    platform_connectivity_mg_metadata: NotRequired[pulumi.Input[Optional['ManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the 'Connectivity' management group under 'Platform' management group.
     """
-    platform_identity_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    platform_identity_mg_metadata: NotRequired[pulumi.Input[Optional['ManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the 'Identity' management group under 'Platform' management group.
     """
-    platform_management_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    platform_management_mg_metadata: NotRequired[pulumi.Input[Optional['ManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the 'Management' management group under 'Platform' management group.
     """
-    platform_mg_children: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgsDict']]]]
+    platform_mg_children: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgsDict']]]]]
     """
     The names of the 'Platform' child management groups and their assigned policies, excluding the default ones: 'Connectivity', 'Identity', and 'Management'
     """
-    platform_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    platform_mg_metadata: NotRequired[pulumi.Input[Optional['ManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the 'Platform' management group.
     """
-    sandbox_mg_metadata: NotRequired[pulumi.Input['SandboxManagementGroupPropertiesArgsDict']]
+    sandbox_mg_metadata: NotRequired[pulumi.Input[Optional['SandboxManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the 'Sandbox' management group and indicator to create it or not.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagsArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagsArgsDict']]]]]
     """
     Tags are key-value pairs that can be assigned to a resource to organize and manage it more effectively. Example: {'name': 'a tag name', 'value': 'a tag value'}
     """
-    top_level_mg_metadata: NotRequired[pulumi.Input['ManagementGroupPropertiesArgsDict']]
+    top_level_mg_metadata: NotRequired[pulumi.Input[Optional['ManagementGroupPropertiesArgsDict']]]
     """
     The assigned policies of the parent management group.
     """
@@ -301,24 +301,24 @@ class LandingZoneConfigurationResourcePropertiesArgs:
                  log_analytics_workspace_creation_option: pulumi.Input[Union[_builtins.str, 'ResourceCreationOptions']],
                  log_retention_in_days: pulumi.Input[_builtins.float],
                  managed_identity: pulumi.Input['ManagedIdentityPropertiesArgs'],
-                 azure_bastion_subnet_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_naming_convention: Optional[pulumi.Input[Sequence[pulumi.Input['CustomNamingConventionArgs']]]] = None,
-                 decommissioned_mg_metadata: Optional[pulumi.Input['DecommissionedManagementGroupPropertiesArgs']] = None,
-                 existing_azure_bastion_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_ddos_protection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_subnet_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 landing_zones_mg_children: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgs']]]] = None,
-                 landing_zones_mg_metadata: Optional[pulumi.Input['ManagementGroupPropertiesArgs']] = None,
-                 naming_convention_formula: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_connectivity_mg_metadata: Optional[pulumi.Input['ManagementGroupPropertiesArgs']] = None,
-                 platform_identity_mg_metadata: Optional[pulumi.Input['ManagementGroupPropertiesArgs']] = None,
-                 platform_management_mg_metadata: Optional[pulumi.Input['ManagementGroupPropertiesArgs']] = None,
-                 platform_mg_children: Optional[pulumi.Input[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgs']]]] = None,
-                 platform_mg_metadata: Optional[pulumi.Input['ManagementGroupPropertiesArgs']] = None,
-                 sandbox_mg_metadata: Optional[pulumi.Input['SandboxManagementGroupPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagsArgs']]]] = None,
-                 top_level_mg_metadata: Optional[pulumi.Input['ManagementGroupPropertiesArgs']] = None):
+                 azure_bastion_subnet_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_naming_convention: pulumi.Input[Optional[Sequence[pulumi.Input['CustomNamingConventionArgs']]]] = None,
+                 decommissioned_mg_metadata: pulumi.Input[Optional['DecommissionedManagementGroupPropertiesArgs']] = None,
+                 existing_azure_bastion_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_ddos_protection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_subnet_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 landing_zones_mg_children: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgs']]]] = None,
+                 landing_zones_mg_metadata: pulumi.Input[Optional['ManagementGroupPropertiesArgs']] = None,
+                 naming_convention_formula: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_connectivity_mg_metadata: pulumi.Input[Optional['ManagementGroupPropertiesArgs']] = None,
+                 platform_identity_mg_metadata: pulumi.Input[Optional['ManagementGroupPropertiesArgs']] = None,
+                 platform_management_mg_metadata: pulumi.Input[Optional['ManagementGroupPropertiesArgs']] = None,
+                 platform_mg_children: pulumi.Input[Optional[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgs']]]] = None,
+                 platform_mg_metadata: pulumi.Input[Optional['ManagementGroupPropertiesArgs']] = None,
+                 sandbox_mg_metadata: pulumi.Input[Optional['SandboxManagementGroupPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['TagsArgs']]]] = None,
+                 top_level_mg_metadata: pulumi.Input[Optional['ManagementGroupPropertiesArgs']] = None):
         """
         The properties of landing zone configuration resource type.
 
@@ -492,218 +492,218 @@ class LandingZoneConfigurationResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureBastionSubnetCidrBlock")
-    def azure_bastion_subnet_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_bastion_subnet_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Bastion subnet address. Specify the address using IPv4 CIDR notation.
         """
         return pulumi.get(self, "azure_bastion_subnet_cidr_block")
 
     @azure_bastion_subnet_cidr_block.setter
-    def azure_bastion_subnet_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_bastion_subnet_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_bastion_subnet_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="customNamingConvention")
-    def custom_naming_convention(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomNamingConventionArgs']]]]:
+    def custom_naming_convention(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomNamingConventionArgs']]]]:
         """
         The custom naming convention applied to specific resource types for this landing zone configuration, which overrides the default naming convention for those resource types. Example - 'customNamingConvention': [{'resourceType': 'azureFirewalls', 'formula': '{DeploymentPrefix}-afwl-{DeploymentSuffix}'}]
         """
         return pulumi.get(self, "custom_naming_convention")
 
     @custom_naming_convention.setter
-    def custom_naming_convention(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomNamingConventionArgs']]]]):
+    def custom_naming_convention(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomNamingConventionArgs']]]]):
         pulumi.set(self, "custom_naming_convention", value)
 
     @_builtins.property
     @pulumi.getter(name="decommissionedMgMetadata")
-    def decommissioned_mg_metadata(self) -> Optional[pulumi.Input['DecommissionedManagementGroupPropertiesArgs']]:
+    def decommissioned_mg_metadata(self) -> pulumi.Input[Optional['DecommissionedManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the 'Decommissioned' management group and indicator to create it or not.
         """
         return pulumi.get(self, "decommissioned_mg_metadata")
 
     @decommissioned_mg_metadata.setter
-    def decommissioned_mg_metadata(self, value: Optional[pulumi.Input['DecommissionedManagementGroupPropertiesArgs']]):
+    def decommissioned_mg_metadata(self, value: pulumi.Input[Optional['DecommissionedManagementGroupPropertiesArgs']]):
         pulumi.set(self, "decommissioned_mg_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="existingAzureBastionId")
-    def existing_azure_bastion_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_azure_bastion_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Bastion when reusing an existing one.
         """
         return pulumi.get(self, "existing_azure_bastion_id")
 
     @existing_azure_bastion_id.setter
-    def existing_azure_bastion_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_azure_bastion_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_azure_bastion_id", value)
 
     @_builtins.property
     @pulumi.getter(name="existingDdosProtectionId")
-    def existing_ddos_protection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_ddos_protection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the DDoS protection plan when reusing an existing one.
         """
         return pulumi.get(self, "existing_ddos_protection_id")
 
     @existing_ddos_protection_id.setter
-    def existing_ddos_protection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_ddos_protection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_ddos_protection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="existingLogAnalyticsWorkspaceId")
-    def existing_log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the log analytics workspace when reusing an existing one.
         """
         return pulumi.get(self, "existing_log_analytics_workspace_id")
 
     @existing_log_analytics_workspace_id.setter
-    def existing_log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallSubnetCidrBlock")
-    def firewall_subnet_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_subnet_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Firewall subnet address used for deploying a firewall. Specify the Firewall subnet using IPv4 CIDR notation.
         """
         return pulumi.get(self, "firewall_subnet_cidr_block")
 
     @firewall_subnet_cidr_block.setter
-    def firewall_subnet_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_subnet_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_subnet_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="landingZonesMgChildren")
-    def landing_zones_mg_children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgs']]]]:
+    def landing_zones_mg_children(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgs']]]]:
         """
         The child management groups of 'Landing Zones' management group and their assigned policies.
         """
         return pulumi.get(self, "landing_zones_mg_children")
 
     @landing_zones_mg_children.setter
-    def landing_zones_mg_children(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgs']]]]):
+    def landing_zones_mg_children(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneManagementGroupPropertiesArgs']]]]):
         pulumi.set(self, "landing_zones_mg_children", value)
 
     @_builtins.property
     @pulumi.getter(name="landingZonesMgMetadata")
-    def landing_zones_mg_metadata(self) -> Optional[pulumi.Input['ManagementGroupPropertiesArgs']]:
+    def landing_zones_mg_metadata(self) -> pulumi.Input[Optional['ManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the 'Landing Zones' management group.
         """
         return pulumi.get(self, "landing_zones_mg_metadata")
 
     @landing_zones_mg_metadata.setter
-    def landing_zones_mg_metadata(self, value: Optional[pulumi.Input['ManagementGroupPropertiesArgs']]):
+    def landing_zones_mg_metadata(self, value: pulumi.Input[Optional['ManagementGroupPropertiesArgs']]):
         pulumi.set(self, "landing_zones_mg_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="namingConventionFormula")
-    def naming_convention_formula(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def naming_convention_formula(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default naming convention applied to all resources for this landing zone configuration. Example - {DeploymentPrefix}-Contoso-{ResourceTypeAbbreviation}{DeploymentSuffix}-{Environment}-testing
         """
         return pulumi.get(self, "naming_convention_formula")
 
     @naming_convention_formula.setter
-    def naming_convention_formula(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def naming_convention_formula(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "naming_convention_formula", value)
 
     @_builtins.property
     @pulumi.getter(name="platformConnectivityMgMetadata")
-    def platform_connectivity_mg_metadata(self) -> Optional[pulumi.Input['ManagementGroupPropertiesArgs']]:
+    def platform_connectivity_mg_metadata(self) -> pulumi.Input[Optional['ManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the 'Connectivity' management group under 'Platform' management group.
         """
         return pulumi.get(self, "platform_connectivity_mg_metadata")
 
     @platform_connectivity_mg_metadata.setter
-    def platform_connectivity_mg_metadata(self, value: Optional[pulumi.Input['ManagementGroupPropertiesArgs']]):
+    def platform_connectivity_mg_metadata(self, value: pulumi.Input[Optional['ManagementGroupPropertiesArgs']]):
         pulumi.set(self, "platform_connectivity_mg_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="platformIdentityMgMetadata")
-    def platform_identity_mg_metadata(self) -> Optional[pulumi.Input['ManagementGroupPropertiesArgs']]:
+    def platform_identity_mg_metadata(self) -> pulumi.Input[Optional['ManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the 'Identity' management group under 'Platform' management group.
         """
         return pulumi.get(self, "platform_identity_mg_metadata")
 
     @platform_identity_mg_metadata.setter
-    def platform_identity_mg_metadata(self, value: Optional[pulumi.Input['ManagementGroupPropertiesArgs']]):
+    def platform_identity_mg_metadata(self, value: pulumi.Input[Optional['ManagementGroupPropertiesArgs']]):
         pulumi.set(self, "platform_identity_mg_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="platformManagementMgMetadata")
-    def platform_management_mg_metadata(self) -> Optional[pulumi.Input['ManagementGroupPropertiesArgs']]:
+    def platform_management_mg_metadata(self) -> pulumi.Input[Optional['ManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the 'Management' management group under 'Platform' management group.
         """
         return pulumi.get(self, "platform_management_mg_metadata")
 
     @platform_management_mg_metadata.setter
-    def platform_management_mg_metadata(self, value: Optional[pulumi.Input['ManagementGroupPropertiesArgs']]):
+    def platform_management_mg_metadata(self, value: pulumi.Input[Optional['ManagementGroupPropertiesArgs']]):
         pulumi.set(self, "platform_management_mg_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="platformMgChildren")
-    def platform_mg_children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgs']]]]:
+    def platform_mg_children(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgs']]]]:
         """
         The names of the 'Platform' child management groups and their assigned policies, excluding the default ones: 'Connectivity', 'Identity', and 'Management'
         """
         return pulumi.get(self, "platform_mg_children")
 
     @platform_mg_children.setter
-    def platform_mg_children(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgs']]]]):
+    def platform_mg_children(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlatformManagementGroupPropertiesArgs']]]]):
         pulumi.set(self, "platform_mg_children", value)
 
     @_builtins.property
     @pulumi.getter(name="platformMgMetadata")
-    def platform_mg_metadata(self) -> Optional[pulumi.Input['ManagementGroupPropertiesArgs']]:
+    def platform_mg_metadata(self) -> pulumi.Input[Optional['ManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the 'Platform' management group.
         """
         return pulumi.get(self, "platform_mg_metadata")
 
     @platform_mg_metadata.setter
-    def platform_mg_metadata(self, value: Optional[pulumi.Input['ManagementGroupPropertiesArgs']]):
+    def platform_mg_metadata(self, value: pulumi.Input[Optional['ManagementGroupPropertiesArgs']]):
         pulumi.set(self, "platform_mg_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="sandboxMgMetadata")
-    def sandbox_mg_metadata(self) -> Optional[pulumi.Input['SandboxManagementGroupPropertiesArgs']]:
+    def sandbox_mg_metadata(self) -> pulumi.Input[Optional['SandboxManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the 'Sandbox' management group and indicator to create it or not.
         """
         return pulumi.get(self, "sandbox_mg_metadata")
 
     @sandbox_mg_metadata.setter
-    def sandbox_mg_metadata(self, value: Optional[pulumi.Input['SandboxManagementGroupPropertiesArgs']]):
+    def sandbox_mg_metadata(self, value: pulumi.Input[Optional['SandboxManagementGroupPropertiesArgs']]):
         pulumi.set(self, "sandbox_mg_metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagsArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagsArgs']]]]:
         """
         Tags are key-value pairs that can be assigned to a resource to organize and manage it more effectively. Example: {'name': 'a tag name', 'value': 'a tag value'}
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagsArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagsArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="topLevelMgMetadata")
-    def top_level_mg_metadata(self) -> Optional[pulumi.Input['ManagementGroupPropertiesArgs']]:
+    def top_level_mg_metadata(self) -> pulumi.Input[Optional['ManagementGroupPropertiesArgs']]:
         """
         The assigned policies of the parent management group.
         """
         return pulumi.get(self, "top_level_mg_metadata")
 
     @top_level_mg_metadata.setter
-    def top_level_mg_metadata(self, value: Optional[pulumi.Input['ManagementGroupPropertiesArgs']]):
+    def top_level_mg_metadata(self, value: pulumi.Input[Optional['ManagementGroupPropertiesArgs']]):
         pulumi.set(self, "top_level_mg_metadata", value)
 
 
@@ -771,7 +771,7 @@ class LandingZoneRegistrationResourcePropertiesArgsDict(TypedDict):
     """
     The resource id of the top level management group
     """
-    managed_identity: NotRequired[pulumi.Input['ManagedIdentityPropertiesArgsDict']]
+    managed_identity: NotRequired[pulumi.Input[Optional['ManagedIdentityPropertiesArgsDict']]]
     """
     The managed identity to be assigned to this landing zone registration.
     """
@@ -781,7 +781,7 @@ class LandingZoneRegistrationResourcePropertiesArgs:
     def __init__(__self__, *,
                  existing_landing_zone_configuration_id: pulumi.Input[_builtins.str],
                  existing_top_level_mg_id: pulumi.Input[_builtins.str],
-                 managed_identity: Optional[pulumi.Input['ManagedIdentityPropertiesArgs']] = None):
+                 managed_identity: pulumi.Input[Optional['ManagedIdentityPropertiesArgs']] = None):
         """
         The properties of landing zone registration resource type.
 
@@ -820,14 +820,14 @@ class LandingZoneRegistrationResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentityPropertiesArgs']]:
+    def managed_identity(self) -> pulumi.Input[Optional['ManagedIdentityPropertiesArgs']]:
         """
         The managed identity to be assigned to this landing zone registration.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['ManagedIdentityPropertiesArgs']]):
+    def managed_identity(self, value: pulumi.Input[Optional['ManagedIdentityPropertiesArgs']]):
         pulumi.set(self, "managed_identity", value)
 
 
@@ -839,7 +839,7 @@ class ManagedIdentityPropertiesArgsDict(TypedDict):
     """
     The type of managed identity.
     """
-    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource id of the managed identity.
     """
@@ -848,7 +848,7 @@ class ManagedIdentityPropertiesArgsDict(TypedDict):
 class ManagedIdentityPropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedIdentityResourceType']],
-                 user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of managed identity, specifically including type and resource ID.
 
@@ -873,14 +873,14 @@ class ManagedIdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityResourceId")
-    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of the managed identity.
         """
         return pulumi.get(self, "user_assigned_identity_resource_id")
 
     @user_assigned_identity_resource_id.setter
-    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
@@ -892,7 +892,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -901,7 +901,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -926,14 +926,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1134,7 +1134,7 @@ class TagsArgsDict(TypedDict):
     """
     A tag name.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A tag value.
     """
@@ -1143,7 +1143,7 @@ class TagsArgsDict(TypedDict):
 class TagsArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Key-value pairs that can be assigned to this resource.
 
@@ -1168,14 +1168,14 @@ class TagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A tag value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

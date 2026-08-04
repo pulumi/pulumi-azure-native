@@ -75,5 +75,5 @@ export interface ListManagedClusterAdminCredentialsOutputArgs {
     /**
      * server fqdn type for credentials to be returned
      */
-    serverFqdn?: pulumi.Input<string>;
+    serverFqdn?: pulumi.Input<string | undefined>;
 }

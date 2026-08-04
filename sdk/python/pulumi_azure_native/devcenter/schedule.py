@@ -28,11 +28,11 @@ class ScheduleArgs:
                  time: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'ScheduledType']],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ScheduleEnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 top: Optional[pulumi.Input[_builtins.int]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ScheduleEnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 top: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Schedule resource.
 
@@ -153,62 +153,62 @@ class ScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleName")
-    def schedule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the schedule that uniquely identifies it.
         """
         return pulumi.get(self, "schedule_name")
 
     @schedule_name.setter
-    def schedule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScheduleEnableStatus']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScheduleEnableStatus']]]:
         """
         Indicates whether or not this scheduled task is enabled.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScheduleEnableStatus']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScheduleEnableStatus']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def top(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def top(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of resources to return from the operation. Example: '$top=10'.
         """
         return pulumi.get(self, "top")
 
     @top.setter
-    def top(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def top(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "top", value)
 
 
@@ -218,18 +218,18 @@ class Schedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 frequency: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledFrequency']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ScheduleEnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 top: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledType']]] = None,
+                 frequency: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledFrequency']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ScheduleEnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 top: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledType']]] = None,
                  __props__=None):
         """
         Represents a Schedule to execute a task.
@@ -237,7 +237,6 @@ class Schedule(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,7 +266,6 @@ class Schedule(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,18 +281,18 @@ class Schedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 frequency: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledFrequency']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'ScheduleEnableStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 top: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledType']]] = None,
+                 frequency: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledFrequency']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'ScheduleEnableStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 top: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

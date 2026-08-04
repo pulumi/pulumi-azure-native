@@ -25,12 +25,12 @@ class CertificateProfileArgs:
                  identity_validation_id: pulumi.Input[_builtins.str],
                  profile_type: pulumi.Input[Union[_builtins.str, 'ProfileType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 include_city: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_country: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_postal_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_state: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_street_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 include_city: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_country: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_postal_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_state: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_street_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateProfile resource.
 
@@ -122,74 +122,74 @@ class CertificateProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeCity")
-    def include_city(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_city(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
         """
         return pulumi.get(self, "include_city")
 
     @include_city.setter
-    def include_city(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_city(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_city", value)
 
     @_builtins.property
     @pulumi.getter(name="includeCountry")
-    def include_country(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_country(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to include C in the certificate subject name. Applicable only for private trust, private trust ci profile types
         """
         return pulumi.get(self, "include_country")
 
     @include_country.setter
-    def include_country(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_country(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_country", value)
 
     @_builtins.property
     @pulumi.getter(name="includePostalCode")
-    def include_postal_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_postal_code(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to include PC in the certificate subject name.
         """
         return pulumi.get(self, "include_postal_code")
 
     @include_postal_code.setter
-    def include_postal_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_postal_code(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="includeState")
-    def include_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_state(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to include S in the certificate subject name. Applicable only for private trust, private trust ci profile types
         """
         return pulumi.get(self, "include_state")
 
     @include_state.setter
-    def include_state(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_state(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_state", value)
 
     @_builtins.property
     @pulumi.getter(name="includeStreetAddress")
-    def include_street_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_street_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to include STREET in the certificate subject name.
         """
         return pulumi.get(self, "include_street_address")
 
     @include_street_address.setter
-    def include_street_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_street_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_street_address", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate profile name.
         """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
-    def profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_name", value)
 
 
@@ -199,16 +199,16 @@ class CertificateProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_validation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_city: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_country: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_postal_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_state: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_street_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_type: Optional[pulumi.Input[Union[_builtins.str, 'ProfileType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_validation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_city: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_country: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_postal_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_state: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_street_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_type: pulumi.Input[Optional[Union[_builtins.str, 'ProfileType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Certificate profile resource.
@@ -216,7 +216,6 @@ class CertificateProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
         Other available API versions: 2024-02-05-preview, 2025-10-13, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,7 +243,6 @@ class CertificateProfile(pulumi.CustomResource):
 
         Other available API versions: 2024-02-05-preview, 2025-10-13, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param CertificateProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,16 +258,16 @@ class CertificateProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_validation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_city: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_country: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_postal_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_state: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_street_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_type: Optional[pulumi.Input[Union[_builtins.str, 'ProfileType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_validation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_city: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_country: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_postal_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_state: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_street_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_type: pulumi.Input[Optional[Union[_builtins.str, 'ProfileType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -26,7 +26,7 @@ class OutboundRuleArgs:
                  properties: pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundRule resource.
 
@@ -93,14 +93,14 @@ class OutboundRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the workspace managed network outbound rule
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -110,17 +110,16 @@ class OutboundRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-04-01-preview.
 
         Other available API versions: 2024-10-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +140,6 @@ class OutboundRule(pulumi.CustomResource):
 
         Other available API versions: 2024-10-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OutboundRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +155,11 @@ class OutboundRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -178,7 +178,6 @@ def get_single_server_server_security_alert_policy(resource_group_name: Optional
 
     Uses Azure REST API version 2017-12-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str security_alert_policy_name: The name of the security alert policy.
     :param _builtins.str server_name: The name of the server.
@@ -202,15 +201,14 @@ def get_single_server_server_security_alert_policy(resource_group_name: Optional
         storage_account_access_key=pulumi.get(__ret__, 'storage_account_access_key'),
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         type=pulumi.get(__ret__, 'type'))
-def get_single_server_server_security_alert_policy_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          security_alert_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_single_server_server_security_alert_policy_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSingleServerServerSecurityAlertPolicyResult]:
     """
     Get a server's security alert policy.
 
     Uses Azure REST API version 2017-12-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str security_alert_policy_name: The name of the security alert policy.

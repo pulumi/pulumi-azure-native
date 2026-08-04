@@ -217,7 +217,6 @@ def get_source_control(automation_account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str source_control_name: The name of source control.
@@ -244,9 +243,9 @@ def get_source_control(automation_account_name: Optional[_builtins.str] = None,
         source_type=pulumi.get(__ret__, 'source_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_source_control_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              source_control_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_source_control_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Retrieve the source control identified by source control name.
@@ -254,7 +253,6 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[_bu
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

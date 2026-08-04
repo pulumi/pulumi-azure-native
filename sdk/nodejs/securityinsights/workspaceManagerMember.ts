@@ -138,7 +138,7 @@ export interface WorkspaceManagerMemberArgs {
     /**
      * The name of the workspace manager member
      */
-    workspaceManagerMemberName?: pulumi.Input<string>;
+    workspaceManagerMemberName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

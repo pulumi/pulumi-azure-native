@@ -155,7 +155,6 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-12-15-preview.
 
-
     :param _builtins.str metadata_name: Name of the HybridIdentityMetadata.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_machine_name: Name of the vm.
@@ -177,15 +176,14 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[_builtins.str] = None,
         resource_uid=pulumi.get(__ret__, 'resource_uid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hybrid_identity_metadatum_output(metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Implements HybridIdentityMetadata GET method.
 
     Uses Azure REST API version 2022-12-15-preview.
-
 
     :param _builtins.str metadata_name: Name of the HybridIdentityMetadata.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

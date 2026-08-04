@@ -133,7 +133,6 @@ def get_firewall_rule(cache_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str cache_name: The name of the Redis cache.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_name: The name of the firewall rule.
@@ -153,9 +152,9 @@ def get_firewall_rule(cache_name: Optional[_builtins.str] = None,
         start_ip=pulumi.get(__ret__, 'start_ip'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_rule_output(cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_rule_output(cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets a single firewall rule in a specified redis cache.
@@ -163,7 +162,6 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[_builtins.str]] =
     Uses Azure REST API version 2024-11-01.
 
     Other available API versions: 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str cache_name: The name of the Redis cache.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

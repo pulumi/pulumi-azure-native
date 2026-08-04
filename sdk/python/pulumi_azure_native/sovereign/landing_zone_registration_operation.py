@@ -24,8 +24,8 @@ class LandingZoneRegistrationOperationArgs:
     def __init__(__self__, *,
                  landing_zone_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 landing_zone_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['LandingZoneRegistrationResourcePropertiesArgs']] = None):
+                 landing_zone_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['LandingZoneRegistrationResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a LandingZoneRegistrationOperation resource.
 
@@ -67,26 +67,26 @@ class LandingZoneRegistrationOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="landingZoneRegistrationName")
-    def landing_zone_registration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def landing_zone_registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the landing zone registration resource.
         """
         return pulumi.get(self, "landing_zone_registration_name")
 
     @landing_zone_registration_name.setter
-    def landing_zone_registration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def landing_zone_registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "landing_zone_registration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['LandingZoneRegistrationResourcePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['LandingZoneRegistrationResourcePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['LandingZoneRegistrationResourcePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['LandingZoneRegistrationResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,16 +96,15 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 landing_zone_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 landing_zone_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['LandingZoneRegistrationResourcePropertiesArgs', 'LandingZoneRegistrationResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 landing_zone_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 landing_zone_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['LandingZoneRegistrationResourcePropertiesArgs', 'LandingZoneRegistrationResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Landing zone registration resource type.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
 
-
         :param str resource_name: The name of the resource.
         :param LandingZoneRegistrationOperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 landing_zone_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 landing_zone_registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['LandingZoneRegistrationResourcePropertiesArgs', 'LandingZoneRegistrationResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 landing_zone_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 landing_zone_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['LandingZoneRegistrationResourcePropertiesArgs', 'LandingZoneRegistrationResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

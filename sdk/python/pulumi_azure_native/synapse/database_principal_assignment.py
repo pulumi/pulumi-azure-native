@@ -28,8 +28,8 @@ class DatabasePrincipalAssignmentArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input[Union[_builtins.str, 'DatabasePrincipalRole']],
                  workspace_name: pulumi.Input[_builtins.str],
-                 principal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabasePrincipalAssignment resource.
 
@@ -141,26 +141,26 @@ class DatabasePrincipalAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalAssignmentName")
-    def principal_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kusto principalAssignment.
         """
         return pulumi.get(self, "principal_assignment_name")
 
     @principal_assignment_name.setter
-    def principal_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the principal
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -170,21 +170,20 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[Union[_builtins.str, 'DatabasePrincipalRole']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[Union[_builtins.str, 'DatabasePrincipalRole']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing a database principal assignment.
 
         Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +208,6 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param DatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,15 +223,15 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[Union[_builtins.str, 'DatabasePrincipalRole']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[Union[_builtins.str, 'DatabasePrincipalRole']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -229,7 +229,6 @@ def get_capacity_pool_backup(account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-11-01.
 
-
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str backup_name: The name of the backup
     :param _builtins.str pool_name: The name of the capacity pool
@@ -261,17 +260,16 @@ def get_capacity_pool_backup(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_existing_snapshot=pulumi.get(__ret__, 'use_existing_snapshot'),
         volume_name=pulumi.get(__ret__, 'volume_name'))
-def get_capacity_pool_backup_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    backup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    volume_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_pool_backup_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    backup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolBackupResult]:
     """
     Gets the specified backup of the volume
 
     Uses Azure REST API version 2022-11-01.
-
 
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str backup_name: The name of the backup

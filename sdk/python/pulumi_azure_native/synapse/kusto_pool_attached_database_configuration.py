@@ -28,9 +28,9 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
                  kusto_pool_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 attached_database_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']] = None):
+                 attached_database_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_level_sharing_properties: pulumi.Input[Optional['TableLevelSharingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a KustoPoolAttachedDatabaseConfiguration resource.
 
@@ -131,38 +131,38 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachedDatabaseConfigurationName")
-    def attached_database_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attached_database_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attached database configuration.
         """
         return pulumi.get(self, "attached_database_configuration_name")
 
     @attached_database_configuration_name.setter
-    def attached_database_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attached_database_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attached_database_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="tableLevelSharingProperties")
-    def table_level_sharing_properties(self) -> Optional[pulumi.Input['TableLevelSharingPropertiesArgs']]:
+    def table_level_sharing_properties(self) -> pulumi.Input[Optional['TableLevelSharingPropertiesArgs']]:
         """
         Table level sharing specifications
         """
         return pulumi.get(self, "table_level_sharing_properties")
 
     @table_level_sharing_properties.setter
-    def table_level_sharing_properties(self, value: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']]):
+    def table_level_sharing_properties(self, value: pulumi.Input[Optional['TableLevelSharingPropertiesArgs']]):
         pulumi.set(self, "table_level_sharing_properties", value)
 
 
@@ -172,21 +172,20 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_database_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_principals_modification_kind: Optional[pulumi.Input[Union[_builtins.str, 'DefaultPrincipalsModificationKind']]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_database_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_principals_modification_kind: pulumi.Input[Optional[Union[_builtins.str, 'DefaultPrincipalsModificationKind']]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_level_sharing_properties: pulumi.Input[Optional[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing an attached database configuration.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +210,6 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param KustoPoolAttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,15 +225,15 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_database_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_principals_modification_kind: Optional[pulumi.Input[Union[_builtins.str, 'DefaultPrincipalsModificationKind']]] = None,
-                 kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_pool_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_database_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_principals_modification_kind: pulumi.Input[Optional[Union[_builtins.str, 'DefaultPrincipalsModificationKind']]] = None,
+                 kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_pool_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_level_sharing_properties: pulumi.Input[Optional[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

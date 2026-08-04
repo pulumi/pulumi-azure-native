@@ -70,7 +70,6 @@ def get_license(license_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01.
 
-
     :param _builtins.str license_name: Name of the license.
     :param _builtins.str private_cloud_name: Name of the private cloud
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -85,15 +84,14 @@ def get_license(license_name: Optional[_builtins.str] = None,
     return AwaitableGetLicenseResult(
         kind=pulumi.get(__ret__, 'kind'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'))
-def get_license_output(license_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_license_output(license_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseResult]:
     """
     Just like ArmResourceActionSync, but with no request body.
 
     Uses Azure REST API version 2025-09-01.
-
 
     :param _builtins.str license_name: Name of the license.
     :param _builtins.str private_cloud_name: Name of the private cloud

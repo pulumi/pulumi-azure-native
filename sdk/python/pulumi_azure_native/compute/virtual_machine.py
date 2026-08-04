@@ -23,37 +23,37 @@ __all__ = ['VirtualMachineArgs', 'VirtualMachine']
 class VirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_capabilities: Optional[pulumi.Input['AdditionalCapabilitiesArgs']] = None,
-                 application_profile: Optional[pulumi.Input['ApplicationProfileArgs']] = None,
-                 availability_set: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 billing_profile: Optional[pulumi.Input['BillingProfileArgs']] = None,
-                 capacity_reservation: Optional[pulumi.Input['CapacityReservationProfileArgs']] = None,
-                 diagnostics_profile: Optional[pulumi.Input['DiagnosticsProfileArgs']] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
-                 host: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 host_group: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 identity: Optional[pulumi.Input['VirtualMachineIdentityArgs']] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
-                 placement: Optional[pulumi.Input['PlacementArgs']] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachinePriorityTypes']]] = None,
-                 proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 scheduled_events_policy: Optional[pulumi.Input['ScheduledEventsPolicyArgs']] = None,
-                 scheduled_events_profile: Optional[pulumi.Input['ScheduledEventsProfileArgs']] = None,
-                 security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
-                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_capabilities: pulumi.Input[Optional['AdditionalCapabilitiesArgs']] = None,
+                 application_profile: pulumi.Input[Optional['ApplicationProfileArgs']] = None,
+                 availability_set: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 billing_profile: pulumi.Input[Optional['BillingProfileArgs']] = None,
+                 capacity_reservation: pulumi.Input[Optional['CapacityReservationProfileArgs']] = None,
+                 diagnostics_profile: pulumi.Input[Optional['DiagnosticsProfileArgs']] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]] = None,
+                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_profile: pulumi.Input[Optional['HardwareProfileArgs']] = None,
+                 host: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 host_group: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 identity: pulumi.Input[Optional['VirtualMachineIdentityArgs']] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
+                 os_profile: pulumi.Input[Optional['OSProfileArgs']] = None,
+                 placement: pulumi.Input[Optional['PlacementArgs']] = None,
+                 plan: pulumi.Input[Optional['PlanArgs']] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachinePriorityTypes']]] = None,
+                 proximity_placement_group: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 scheduled_events_policy: pulumi.Input[Optional['ScheduledEventsPolicyArgs']] = None,
+                 scheduled_events_profile: pulumi.Input[Optional['ScheduledEventsProfileArgs']] = None,
+                 security_profile: pulumi.Input[Optional['SecurityProfileArgs']] = None,
+                 storage_profile: pulumi.Input[Optional['StorageProfileArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
 
@@ -168,374 +168,374 @@ class VirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['AdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['AdditionalCapabilitiesArgs']]:
         """
         Specifies additional capabilities enabled or disabled on the virtual machine.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['AdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['AdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationProfile")
-    def application_profile(self) -> Optional[pulumi.Input['ApplicationProfileArgs']]:
+    def application_profile(self) -> pulumi.Input[Optional['ApplicationProfileArgs']]:
         """
         Specifies the gallery applications that should be made available to the VM/VMSS.
         """
         return pulumi.get(self, "application_profile")
 
     @application_profile.setter
-    def application_profile(self, value: Optional[pulumi.Input['ApplicationProfileArgs']]):
+    def application_profile(self, value: pulumi.Input[Optional['ApplicationProfileArgs']]):
         pulumi.set(self, "application_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilitySet")
-    def availability_set(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def availability_set(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         """
         return pulumi.get(self, "availability_set")
 
     @availability_set.setter
-    def availability_set(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def availability_set(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "availability_set", value)
 
     @_builtins.property
     @pulumi.getter(name="billingProfile")
-    def billing_profile(self) -> Optional[pulumi.Input['BillingProfileArgs']]:
+    def billing_profile(self) -> pulumi.Input[Optional['BillingProfileArgs']]:
         """
         Specifies the billing related details of a Azure Spot virtual machine. Minimum api-version: 2019-03-01.
         """
         return pulumi.get(self, "billing_profile")
 
     @billing_profile.setter
-    def billing_profile(self, value: Optional[pulumi.Input['BillingProfileArgs']]):
+    def billing_profile(self, value: pulumi.Input[Optional['BillingProfileArgs']]):
         pulumi.set(self, "billing_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservation")
-    def capacity_reservation(self) -> Optional[pulumi.Input['CapacityReservationProfileArgs']]:
+    def capacity_reservation(self) -> pulumi.Input[Optional['CapacityReservationProfileArgs']]:
         """
         Specifies information about the capacity reservation that is used to allocate virtual machine. Minimum api-version: 2021-04-01.
         """
         return pulumi.get(self, "capacity_reservation")
 
     @capacity_reservation.setter
-    def capacity_reservation(self, value: Optional[pulumi.Input['CapacityReservationProfileArgs']]):
+    def capacity_reservation(self, value: pulumi.Input[Optional['CapacityReservationProfileArgs']]):
         pulumi.set(self, "capacity_reservation", value)
 
     @_builtins.property
     @pulumi.getter(name="diagnosticsProfile")
-    def diagnostics_profile(self) -> Optional[pulumi.Input['DiagnosticsProfileArgs']]:
+    def diagnostics_profile(self) -> pulumi.Input[Optional['DiagnosticsProfileArgs']]:
         """
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
 
     @diagnostics_profile.setter
-    def diagnostics_profile(self, value: Optional[pulumi.Input['DiagnosticsProfileArgs']]):
+    def diagnostics_profile(self, value: pulumi.Input[Optional['DiagnosticsProfileArgs']]):
         pulumi.set(self, "diagnostics_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]]:
         """
         Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         """
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
         """
         The extended location of the Virtual Machine.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extensions_time_budget(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "extensions_time_budget")
 
     @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extensions_time_budget(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
+    def hardware_profile(self) -> pulumi.Input[Optional['HardwareProfileArgs']]:
         """
         Specifies the hardware settings for the virtual machine.
         """
         return pulumi.get(self, "hardware_profile")
 
     @hardware_profile.setter
-    def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
+    def hardware_profile(self, value: pulumi.Input[Optional['HardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def host(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies information about the dedicated host that the virtual machine resides in. Minimum api-version: 2018-10-01.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def host(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroup")
-    def host_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def host_group(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies information about the dedicated host group that the virtual machine resides in. **Note:** User cannot specify both host and hostGroup properties. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "host_group")
 
     @host_group.setter
-    def host_group(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def host_group(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "host_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['VirtualMachineIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['VirtualMachineIdentityArgs']]:
         """
         The identity of the virtual machine, if configured.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['VirtualMachineIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['VirtualMachineIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['NetworkProfileArgs']]:
         """
         Specifies the network interfaces of the virtual machine.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['NetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['OSProfileArgs']]:
+    def os_profile(self) -> pulumi.Input[Optional['OSProfileArgs']]:
         """
         Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['OSProfileArgs']]):
+    def os_profile(self, value: pulumi.Input[Optional['OSProfileArgs']]):
         pulumi.set(self, "os_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def placement(self) -> Optional[pulumi.Input['PlacementArgs']]:
+    def placement(self) -> pulumi.Input[Optional['PlacementArgs']]:
         """
         Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
         """
         return pulumi.get(self, "placement")
 
     @placement.setter
-    def placement(self, value: Optional[pulumi.Input['PlacementArgs']]):
+    def placement(self, value: pulumi.Input[Optional['PlacementArgs']]):
         pulumi.set(self, "placement", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['PlanArgs']]:
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains. This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set. The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' greater than 1. This property cannot be updated once the Virtual Machine is created. Fault domain assignment can be viewed in the Virtual Machine Instance View. Minimum api‐version: 2020‐12‐01.
         """
         return pulumi.get(self, "platform_fault_domain")
 
     @platform_fault_domain.setter
-    def platform_fault_domain(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachinePriorityTypes']]]:
+    def priority(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachinePriorityTypes']]]:
         """
         Specifies the priority for the virtual machine. Minimum api-version: 2019-03-01
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachinePriorityTypes']]]):
+    def priority(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachinePriorityTypes']]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def proximity_placement_group(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies information about the proximity placement group that the virtual machine should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 
     @proximity_placement_group.setter
-    def proximity_placement_group(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def proximity_placement_group(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "proximity_placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledEventsPolicy")
-    def scheduled_events_policy(self) -> Optional[pulumi.Input['ScheduledEventsPolicyArgs']]:
+    def scheduled_events_policy(self) -> pulumi.Input[Optional['ScheduledEventsPolicyArgs']]:
         """
         Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
         """
         return pulumi.get(self, "scheduled_events_policy")
 
     @scheduled_events_policy.setter
-    def scheduled_events_policy(self, value: Optional[pulumi.Input['ScheduledEventsPolicyArgs']]):
+    def scheduled_events_policy(self, value: pulumi.Input[Optional['ScheduledEventsPolicyArgs']]):
         pulumi.set(self, "scheduled_events_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledEventsProfile")
-    def scheduled_events_profile(self) -> Optional[pulumi.Input['ScheduledEventsProfileArgs']]:
+    def scheduled_events_profile(self) -> pulumi.Input[Optional['ScheduledEventsProfileArgs']]:
         """
         Specifies Scheduled Event related configurations.
         """
         return pulumi.get(self, "scheduled_events_profile")
 
     @scheduled_events_profile.setter
-    def scheduled_events_profile(self, value: Optional[pulumi.Input['ScheduledEventsProfileArgs']]):
+    def scheduled_events_profile(self, value: pulumi.Input[Optional['ScheduledEventsProfileArgs']]):
         pulumi.set(self, "scheduled_events_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['SecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['SecurityProfileArgs']]:
         """
         Specifies the Security related profile settings for the virtual machine.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['SecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['SecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+    def storage_profile(self) -> pulumi.Input[Optional['StorageProfileArgs']]:
         """
         Specifies the storage settings for the virtual machine disks.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+    def storage_profile(self, value: pulumi.Input[Optional['StorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineScaleSet")
-    def virtual_machine_scale_set(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+    def virtual_machine_scale_set(self) -> pulumi.Input[Optional['SubResourceArgs']]:
         """
         Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. This property cannot exist along with a non-null properties.availabilitySet reference. Minimum api‐version: 2019‐03‐01.
         """
         return pulumi.get(self, "virtual_machine_scale_set")
 
     @virtual_machine_scale_set.setter
-    def virtual_machine_scale_set(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+    def virtual_machine_scale_set(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "virtual_machine_scale_set", value)
 
     @_builtins.property
     @pulumi.getter(name="vmName")
-    def vm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual machine.
         """
         return pulumi.get(self, "vm_name")
 
     @vm_name.setter
-    def vm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The availability zones.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -545,38 +545,38 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']]] = None,
-                 application_profile: Optional[pulumi.Input[Union['ApplicationProfileArgs', 'ApplicationProfileArgsDict']]] = None,
-                 availability_set: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 billing_profile: Optional[pulumi.Input[Union['BillingProfileArgs', 'BillingProfileArgsDict']]] = None,
-                 capacity_reservation: Optional[pulumi.Input[Union['CapacityReservationProfileArgs', 'CapacityReservationProfileArgsDict']]] = None,
-                 diagnostics_profile: Optional[pulumi.Input[Union['DiagnosticsProfileArgs', 'DiagnosticsProfileArgsDict']]] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 host: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 host_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
-                 placement: Optional[pulumi.Input[Union['PlacementArgs', 'PlacementArgsDict']]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachinePriorityTypes']]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
-                 scheduled_events_profile: Optional[pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']]] = None,
+                 application_profile: pulumi.Input[Optional[Union['ApplicationProfileArgs', 'ApplicationProfileArgsDict']]] = None,
+                 availability_set: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 billing_profile: pulumi.Input[Optional[Union['BillingProfileArgs', 'BillingProfileArgsDict']]] = None,
+                 capacity_reservation: pulumi.Input[Optional[Union['CapacityReservationProfileArgs', 'CapacityReservationProfileArgsDict']]] = None,
+                 diagnostics_profile: pulumi.Input[Optional[Union['DiagnosticsProfileArgs', 'DiagnosticsProfileArgsDict']]] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 host: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 host_group: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 placement: pulumi.Input[Optional[Union['PlacementArgs', 'PlacementArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachinePriorityTypes']]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_events_policy: pulumi.Input[Optional[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
+                 scheduled_events_profile: pulumi.Input[Optional[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Describes a Virtual Machine.
@@ -584,7 +584,6 @@ class VirtualMachine(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -634,7 +633,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -650,38 +648,38 @@ class VirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']]] = None,
-                 application_profile: Optional[pulumi.Input[Union['ApplicationProfileArgs', 'ApplicationProfileArgsDict']]] = None,
-                 availability_set: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 billing_profile: Optional[pulumi.Input[Union['BillingProfileArgs', 'BillingProfileArgsDict']]] = None,
-                 capacity_reservation: Optional[pulumi.Input[Union['CapacityReservationProfileArgs', 'CapacityReservationProfileArgsDict']]] = None,
-                 diagnostics_profile: Optional[pulumi.Input[Union['DiagnosticsProfileArgs', 'DiagnosticsProfileArgsDict']]] = None,
-                 eviction_policy: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_profile: Optional[pulumi.Input[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
-                 host: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 host_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 os_profile: Optional[pulumi.Input[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
-                 placement: Optional[pulumi.Input[Union['PlacementArgs', 'PlacementArgsDict']]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'VirtualMachinePriorityTypes']]] = None,
-                 proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
-                 scheduled_events_profile: Optional[pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
-                 storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']]] = None,
+                 application_profile: pulumi.Input[Optional[Union['ApplicationProfileArgs', 'ApplicationProfileArgsDict']]] = None,
+                 availability_set: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 billing_profile: pulumi.Input[Optional[Union['BillingProfileArgs', 'BillingProfileArgsDict']]] = None,
+                 capacity_reservation: pulumi.Input[Optional[Union['CapacityReservationProfileArgs', 'CapacityReservationProfileArgsDict']]] = None,
+                 diagnostics_profile: pulumi.Input[Optional[Union['DiagnosticsProfileArgs', 'DiagnosticsProfileArgsDict']]] = None,
+                 eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachineEvictionPolicyTypes']]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_profile: pulumi.Input[Optional[Union['HardwareProfileArgs', 'HardwareProfileArgsDict']]] = None,
+                 host: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 host_group: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 os_profile: pulumi.Input[Optional[Union['OSProfileArgs', 'OSProfileArgsDict']]] = None,
+                 placement: pulumi.Input[Optional[Union['PlacementArgs', 'PlacementArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[Union[_builtins.str, 'VirtualMachinePriorityTypes']]] = None,
+                 proximity_placement_group: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_events_policy: pulumi.Input[Optional[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
+                 scheduled_events_profile: pulumi.Input[Optional[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
+                 storage_profile: pulumi.Input[Optional[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

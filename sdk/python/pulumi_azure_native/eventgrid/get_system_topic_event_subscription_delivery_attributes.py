@@ -61,7 +61,6 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str event_subscription_name: Name of the event subscription.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription.
     :param _builtins.str system_topic_name: Name of the system topic.
@@ -75,9 +74,9 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
 
     return AwaitableGetSystemTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__ret__, 'value'))
-def get_system_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                   system_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_system_topic_event_subscription_delivery_attributes_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                   system_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription.
@@ -85,7 +84,6 @@ def get_system_topic_event_subscription_delivery_attributes_output(event_subscri
     Uses Azure REST API version 2025-02-15.
 
     Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str event_subscription_name: Name of the event subscription.
     :param _builtins.str resource_group_name: The name of the resource group within the user's subscription.

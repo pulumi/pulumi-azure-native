@@ -133,7 +133,6 @@ def get_metadata_schema(metadata_schema_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str metadata_schema_name: The name of the metadata schema.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of Azure API Center service.
@@ -153,9 +152,9 @@ def get_metadata_schema(metadata_schema_name: Optional[_builtins.str] = None,
         schema=pulumi.get(__ret__, 'schema'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_metadata_schema_output(metadata_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetadataSchemaResult]:
     """
     Returns details of the metadata schema.
@@ -163,7 +162,6 @@ def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2024-03-15-preview.
 
     Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str metadata_schema_name: The name of the metadata schema.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

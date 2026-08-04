@@ -28,10 +28,10 @@ __all__ = [
     'IpFilterRuleArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
-    'PrivateEndpointConnectionPropertiesArgs',
-    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionArgs',
     'PrivateEndpointConnectionArgsDict',
+    'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs',
@@ -42,11 +42,11 @@ class CertificatePropertiesArgsDict(TypedDict):
     """
     The description of an X509 CA Certificate.
     """
-    certificate: NotRequired[pulumi.Input[_builtins.str]]
+    certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     base-64 representation of X509 certificate .cer file or just .pem file content.
     """
-    is_verified: NotRequired[pulumi.Input[_builtins.bool]]
+    is_verified: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether certificate has been verified.
     """
@@ -54,8 +54,8 @@ class CertificatePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class CertificatePropertiesArgs:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_verified: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_verified: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The description of an X509 CA Certificate.
 
@@ -69,26 +69,26 @@ class CertificatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         base-64 representation of X509 certificate .cer file or just .pem file content.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="isVerified")
-    def is_verified(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_verified(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether certificate has been verified.
         """
         return pulumi.get(self, "is_verified")
 
     @is_verified.setter
-    def is_verified(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_verified(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_verified", value)
 
 
@@ -96,44 +96,44 @@ class IotDpsPropertiesDescriptionArgsDict(TypedDict):
     """
     the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
     """
-    allocation_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationPolicy']]]
+    allocation_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AllocationPolicy']]]]
     """
     Allocation policy to be used by this provisioning service.
     """
-    authorization_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict']]]]
+    authorization_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict']]]]]
     """
     List of authorization keys for a provisioning service.
     """
-    enable_data_residency: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_data_residency: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Optional.
     Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
     """
-    iot_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgsDict']]]]
+    iot_hubs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgsDict']]]]]
     """
     List of IoT hubs associated with this provisioning service.
     """
-    ip_filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgsDict']]]]
+    ip_filter_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IpFilterRuleArgsDict']]]]]
     """
     The IP filter rules.
     """
-    portal_operations_host_name: NotRequired[pulumi.Input[_builtins.str]]
+    portal_operations_host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Portal endpoint to enable CORS for this provisioning service.
     """
-    private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+    private_endpoint_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]]
     """
     Private endpoint connections created on this IotHub
     """
-    provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARM provisioning state of the provisioning service.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]]
     """
     Whether requests from Public Network are allowed
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'State']]]]
     """
     Current state of the provisioning service.
     """
@@ -141,16 +141,16 @@ class IotDpsPropertiesDescriptionArgsDict(TypedDict):
 @pulumi.input_type
 class IotDpsPropertiesDescriptionArgs:
     def __init__(__self__, *,
-                 allocation_policy: Optional[pulumi.Input[Union[_builtins.str, 'AllocationPolicy']]] = None,
-                 authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
-                 enable_data_residency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
-                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
-                 portal_operations_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
-                 provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
+                 allocation_policy: pulumi.Input[Optional[Union[_builtins.str, 'AllocationPolicy']]] = None,
+                 authorization_policies: pulumi.Input[Optional[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
+                 enable_data_residency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iot_hubs: pulumi.Input[Optional[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
+                 ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
+                 portal_operations_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+                 provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None):
         """
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 
@@ -189,31 +189,31 @@ class IotDpsPropertiesDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocationPolicy")
-    def allocation_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AllocationPolicy']]]:
+    def allocation_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AllocationPolicy']]]:
         """
         Allocation policy to be used by this provisioning service.
         """
         return pulumi.get(self, "allocation_policy")
 
     @allocation_policy.setter
-    def allocation_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AllocationPolicy']]]):
+    def allocation_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AllocationPolicy']]]):
         pulumi.set(self, "allocation_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationPolicies")
-    def authorization_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]:
+    def authorization_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]:
         """
         List of authorization keys for a provisioning service.
         """
         return pulumi.get(self, "authorization_policies")
 
     @authorization_policies.setter
-    def authorization_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]):
+    def authorization_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]):
         pulumi.set(self, "authorization_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDataResidency")
-    def enable_data_residency(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_data_residency(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Optional.
         Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
@@ -221,91 +221,91 @@ class IotDpsPropertiesDescriptionArgs:
         return pulumi.get(self, "enable_data_residency")
 
     @enable_data_residency.setter
-    def enable_data_residency(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_data_residency(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_data_residency", value)
 
     @_builtins.property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]:
+    def iot_hubs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]:
         """
         List of IoT hubs associated with this provisioning service.
         """
         return pulumi.get(self, "iot_hubs")
 
     @iot_hubs.setter
-    def iot_hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]):
+    def iot_hubs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]]):
         pulumi.set(self, "iot_hubs", value)
 
     @_builtins.property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]:
+    def ip_filter_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpFilterRuleArgs']]]]:
         """
         The IP filter rules.
         """
         return pulumi.get(self, "ip_filter_rules")
 
     @ip_filter_rules.setter
-    def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]):
+    def ip_filter_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpFilterRuleArgs']]]]):
         pulumi.set(self, "ip_filter_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="portalOperationsHostName")
-    def portal_operations_host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_operations_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Portal endpoint to enable CORS for this provisioning service.
         """
         return pulumi.get(self, "portal_operations_host_name")
 
     @portal_operations_host_name.setter
-    def portal_operations_host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_operations_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_operations_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+    def private_endpoint_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         Private endpoint connections created on this IotHub
         """
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
+    def private_endpoint_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM provisioning state of the provisioning service.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         Whether requests from Public Network are allowed
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'State']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'State']]]:
         """
         Current state of the provisioning service.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'State']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'State']]]):
         pulumi.set(self, "state", value)
 
 
@@ -313,11 +313,11 @@ class IotDpsSkuInfoArgsDict(TypedDict):
     """
     List of possible provisioning service SKUs.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The number of units to provision
     """
-    name: NotRequired[pulumi.Input[Union[_builtins.str, 'IotDpsSku']]]
+    name: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IotDpsSku']]]]
     """
     Sku name.
     """
@@ -325,8 +325,8 @@ class IotDpsSkuInfoArgsDict(TypedDict):
 @pulumi.input_type
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[Union[_builtins.str, 'IotDpsSku']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[Union[_builtins.str, 'IotDpsSku']]] = None):
         """
         List of possible provisioning service SKUs.
 
@@ -340,26 +340,26 @@ class IotDpsSkuInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of units to provision
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IotDpsSku']]]:
+    def name(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IotDpsSku']]]:
         """
         Sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IotDpsSku']]]):
+    def name(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IotDpsSku']]]):
         pulumi.set(self, "name", value)
 
 
@@ -375,11 +375,11 @@ class IotHubDefinitionDescriptionArgsDict(TypedDict):
     """
     ARM region of the IoT hub.
     """
-    allocation_weight: NotRequired[pulumi.Input[_builtins.int]]
+    allocation_weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     weight to apply for a given iot h.
     """
-    apply_allocation_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_allocation_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     flag for applying allocationPolicy or not for a given iot hub.
     """
@@ -389,8 +389,8 @@ class IotHubDefinitionDescriptionArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[_builtins.str],
                  location: pulumi.Input[_builtins.str],
-                 allocation_weight: Optional[pulumi.Input[_builtins.int]] = None,
-                 apply_allocation_policy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allocation_weight: pulumi.Input[Optional[_builtins.int]] = None,
+                 apply_allocation_policy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Description of the IoT hub.
 
@@ -432,26 +432,26 @@ class IotHubDefinitionDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocationWeight")
-    def allocation_weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocation_weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         weight to apply for a given iot h.
         """
         return pulumi.get(self, "allocation_weight")
 
     @allocation_weight.setter
-    def allocation_weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocation_weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocation_weight", value)
 
     @_builtins.property
     @pulumi.getter(name="applyAllocationPolicy")
-    def apply_allocation_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_allocation_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         flag for applying allocationPolicy or not for a given iot hub.
         """
         return pulumi.get(self, "apply_allocation_policy")
 
     @apply_allocation_policy.setter
-    def apply_allocation_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_allocation_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_allocation_policy", value)
 
 
@@ -471,7 +471,7 @@ class IpFilterRuleArgsDict(TypedDict):
     """
     A string that contains the IP address range in CIDR notation for the rule.
     """
-    target: NotRequired[pulumi.Input['IpFilterTargetType']]
+    target: NotRequired[pulumi.Input[Optional['IpFilterTargetType']]]
     """
     Target for requests captured by this rule.
     """
@@ -482,7 +482,7 @@ class IpFilterRuleArgs:
                  action: pulumi.Input['IpFilterActionType'],
                  filter_name: pulumi.Input[_builtins.str],
                  ip_mask: pulumi.Input[_builtins.str],
-                 target: Optional[pulumi.Input['IpFilterTargetType']] = None):
+                 target: pulumi.Input[Optional['IpFilterTargetType']] = None):
         """
         The IP filter rules for a provisioning Service.
 
@@ -535,14 +535,14 @@ class IpFilterRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['IpFilterTargetType']]:
+    def target(self) -> pulumi.Input[Optional['IpFilterTargetType']]:
         """
         Target for requests captured by this rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['IpFilterTargetType']]):
+    def target(self, value: pulumi.Input[Optional['IpFilterTargetType']]):
         pulumi.set(self, "target", value)
 
 
@@ -554,7 +554,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -563,7 +563,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -588,48 +588,15 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-    """
-    The properties of a private endpoint connection
-    """
-    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-    """
-    The current state of a private endpoint connection
-    """
-
-@pulumi.input_type
-class PrivateEndpointConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        """
-        The properties of a private endpoint connection
-
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
-        """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
-        """
-        The current state of a private endpoint connection
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 class PrivateEndpointConnectionArgsDict(TypedDict):
@@ -665,6 +632,39 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "properties", value)
 
 
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    The properties of a private endpoint connection
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    The current state of a private endpoint connection
+    """
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        """
+        The properties of a private endpoint connection
+
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        The current state of a private endpoint connection
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
 class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     The current state of a private endpoint connection
@@ -677,7 +677,7 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     The status of a private endpoint connection
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Actions required for a private endpoint connection
     """
@@ -687,7 +687,7 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']],
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The current state of a private endpoint connection
 
@@ -726,14 +726,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Actions required for a private endpoint connection
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
 
@@ -749,11 +749,11 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict(Type
     """
     Rights that this key has.
     """
-    primary_key: NotRequired[pulumi.Input[_builtins.str]]
+    primary_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Primary SAS key value.
     """
-    secondary_key: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary SAS key value.
     """
@@ -763,8 +763,8 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[_builtins.str],
                  rights: pulumi.Input[Union[_builtins.str, 'AccessRightsDescription']],
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Description of the shared access key.
 
@@ -806,26 +806,26 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary SAS key value.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary SAS key value.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
 

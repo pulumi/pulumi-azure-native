@@ -24,11 +24,11 @@ class AppServiceCertificateArgsDict(TypedDict):
     """
     Key Vault container for a certificate that is purchased through Azure.
     """
-    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key Vault resource Id.
     """
-    key_vault_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key Vault secret name.
     """
@@ -36,8 +36,8 @@ class AppServiceCertificateArgsDict(TypedDict):
 @pulumi.input_type
 class AppServiceCertificateArgs:
     def __init__(__self__, *,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Key Vault container for a certificate that is purchased through Azure.
 
@@ -51,26 +51,26 @@ class AppServiceCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key Vault resource Id.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretName")
-    def key_vault_secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key Vault secret name.
         """
         return pulumi.get(self, "key_vault_secret_name")
 
     @key_vault_secret_name.setter
-    def key_vault_secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_name", value)
 
 

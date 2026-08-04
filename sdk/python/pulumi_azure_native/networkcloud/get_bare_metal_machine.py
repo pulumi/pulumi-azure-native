@@ -537,7 +537,6 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[_builtins.str] = No
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str bare_metal_machine_name: The name of the bare metal machine.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -589,8 +588,8 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[_builtins.str] = No
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
-def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bare_metal_machine_output(bare_metal_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """
     Get properties of the provided bare metal machine.
@@ -598,7 +597,6 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
     Uses Azure REST API version 2025-02-01.
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str bare_metal_machine_name: The name of the bare metal machine.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -191,7 +191,6 @@ def get_summary_log(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-07-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str summary_logs_name: The name of the summary logs. Must not contain '/'.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -216,15 +215,14 @@ def get_summary_log(resource_group_name: Optional[_builtins.str] = None,
         status_code=pulumi.get(__ret__, 'status_code'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_summary_log_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           summary_logs_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_summary_log_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           summary_logs_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSummaryLogResult]:
     """
     Gets Log Analytics workspace Summary rules.
 
     Uses Azure REST API version 2025-07-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str summary_logs_name: The name of the summary logs. Must not contain '/'.

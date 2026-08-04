@@ -32,7 +32,7 @@ class AssessmentPropertiesArgsDict(TypedDict):
     """
     The name of the assessment template whose rules will be evaluated (e.g. 'Edu'). Immutable after creation.
     """
-    initial_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['EduInitialValueArgsDict']]]]
+    initial_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EduInitialValueArgsDict']]]]]
     """
     Optional initial values applied to the rules created with this assessment. Write-only — these values are routed to the per-kind rules and are not returned on read.
     """
@@ -41,7 +41,7 @@ class AssessmentPropertiesArgsDict(TypedDict):
 class AssessmentPropertiesArgs:
     def __init__(__self__, *,
                  assessment_type: pulumi.Input[Union[_builtins.str, 'AssessmentType']],
-                 initial_values: Optional[pulumi.Input[Sequence[pulumi.Input['EduInitialValueArgs']]]] = None):
+                 initial_values: pulumi.Input[Optional[Sequence[pulumi.Input['EduInitialValueArgs']]]] = None):
         """
         The properties of an Assessment resource
 
@@ -66,14 +66,14 @@ class AssessmentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="initialValues")
-    def initial_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EduInitialValueArgs']]]]:
+    def initial_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EduInitialValueArgs']]]]:
         """
         Optional initial values applied to the rules created with this assessment. Write-only — these values are routed to the per-kind rules and are not returned on read.
         """
         return pulumi.get(self, "initial_values")
 
     @initial_values.setter
-    def initial_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EduInitialValueArgs']]]]):
+    def initial_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EduInitialValueArgs']]]]):
         pulumi.set(self, "initial_values", value)
 
 
@@ -85,7 +85,7 @@ class DomainEntryArgsDict(TypedDict):
     """
     Domain names associated with a tenant.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Microsoft Entra tenant ID owning these domains. Defaults to the calling user's tenant when omitted.
     """
@@ -94,7 +94,7 @@ class DomainEntryArgsDict(TypedDict):
 class DomainEntryArgs:
     def __init__(__self__, *,
                  domain_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A domain entry within an education qualification rule. `domainNames` and `tenantId` are supplied on creation; `state` and `error` are returned by the service.
 
@@ -119,14 +119,14 @@ class DomainEntryArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Entra tenant ID owning these domains. Defaults to the calling user's tenant when omitted.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

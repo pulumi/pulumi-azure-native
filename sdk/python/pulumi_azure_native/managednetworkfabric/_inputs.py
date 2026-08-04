@@ -28,34 +28,34 @@ __all__ = [
     'ActionIpCommunityPropertiesArgsDict',
     'ActionIpExtendedCommunityPropertiesArgs',
     'ActionIpExtendedCommunityPropertiesArgsDict',
-    'AggregateRouteConfigurationArgs',
-    'AggregateRouteConfigurationArgsDict',
     'AggregateRouteArgs',
     'AggregateRouteArgsDict',
+    'AggregateRouteConfigurationArgs',
+    'AggregateRouteConfigurationArgsDict',
     'BfdConfigurationArgs',
     'BfdConfigurationArgsDict',
     'BmpConfigurationPropertiesArgs',
     'BmpConfigurationPropertiesArgsDict',
     'CommonDynamicMatchConfigurationArgs',
     'CommonDynamicMatchConfigurationArgsDict',
-    'ConnectedSubnetRoutePolicyArgs',
-    'ConnectedSubnetRoutePolicyArgsDict',
     'ConnectedSubnetArgs',
     'ConnectedSubnetArgsDict',
-    'ExportRoutePolicyInformationArgs',
-    'ExportRoutePolicyInformationArgsDict',
+    'ConnectedSubnetRoutePolicyArgs',
+    'ConnectedSubnetRoutePolicyArgsDict',
     'ExportRoutePolicyArgs',
     'ExportRoutePolicyArgsDict',
+    'ExportRoutePolicyInformationArgs',
+    'ExportRoutePolicyInformationArgsDict',
     'ExpressRouteConnectionInformationArgs',
     'ExpressRouteConnectionInformationArgsDict',
     'ExternalNetworkPropertiesOptionAPropertiesArgs',
     'ExternalNetworkPropertiesOptionAPropertiesArgsDict',
     'FabricOptionBPropertiesArgs',
     'FabricOptionBPropertiesArgsDict',
-    'ImportRoutePolicyInformationArgs',
-    'ImportRoutePolicyInformationArgsDict',
     'ImportRoutePolicyArgs',
     'ImportRoutePolicyArgsDict',
+    'ImportRoutePolicyInformationArgs',
+    'ImportRoutePolicyInformationArgsDict',
     'InternalNetworkPropertiesBgpConfigurationArgs',
     'InternalNetworkPropertiesBgpConfigurationArgsDict',
     'InternalNetworkPropertiesStaticRouteConfigurationArgs',
@@ -128,21 +128,21 @@ __all__ = [
     'VlanGroupPropertiesArgsDict',
     'VlanMatchConditionArgs',
     'VlanMatchConditionArgsDict',
-    'VpnConfigurationPropertiesOptionAPropertiesArgs',
-    'VpnConfigurationPropertiesOptionAPropertiesArgsDict',
     'VpnConfigurationPropertiesArgs',
     'VpnConfigurationPropertiesArgsDict',
+    'VpnConfigurationPropertiesOptionAPropertiesArgs',
+    'VpnConfigurationPropertiesOptionAPropertiesArgsDict',
 ]
 
 class AccessControlListActionArgsDict(TypedDict):
     """
     Action that need to performed.
     """
-    counter_name: NotRequired[pulumi.Input[_builtins.str]]
+    counter_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the counter block to get match count information.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'AclActionType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AclActionType']]]]
     """
     Type of actions that can be performed.
     """
@@ -150,8 +150,8 @@ class AccessControlListActionArgsDict(TypedDict):
 @pulumi.input_type
 class AccessControlListActionArgs:
     def __init__(__self__, *,
-                 counter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AclActionType']]] = None):
+                 counter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AclActionType']]] = None):
         """
         Action that need to performed.
 
@@ -165,26 +165,26 @@ class AccessControlListActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="counterName")
-    def counter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def counter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the counter block to get match count information.
         """
         return pulumi.get(self, "counter_name")
 
     @counter_name.setter
-    def counter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def counter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "counter_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AclActionType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AclActionType']]]:
         """
         Type of actions that can be performed.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AclActionType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AclActionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -192,39 +192,39 @@ class AccessControlListMatchConditionArgsDict(TypedDict):
     """
     Defines the match condition that is supported to filter the traffic.
     """
-    dscp_markings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dscp_markings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of DSCP Markings that need to be matched.
     """
-    ether_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ether_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of ether type values that need to be matched.
     """
-    fragments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    fragments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP fragment packets that need to be matched.
     """
-    ip_condition: NotRequired[pulumi.Input['IpMatchConditionArgsDict']]
+    ip_condition: NotRequired[pulumi.Input[Optional['IpMatchConditionArgsDict']]]
     """
     IP condition that needs to be matched.
     """
-    ip_lengths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_lengths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP Lengths that need to be matched.
     """
-    port_condition: NotRequired[pulumi.Input['AccessControlListPortConditionArgsDict']]
+    port_condition: NotRequired[pulumi.Input[Optional['AccessControlListPortConditionArgsDict']]]
     """
     Defines the port condition that needs to be matched.
     """
-    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    protocol_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the protocols that need to be matched.
     """
-    ttl_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ttl_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of TTL [Time To Live] values that need to be matched.
     """
-    vlan_match_condition: NotRequired[pulumi.Input['VlanMatchConditionArgsDict']]
+    vlan_match_condition: NotRequired[pulumi.Input[Optional['VlanMatchConditionArgsDict']]]
     """
     Vlan match condition that needs to be matched.
     """
@@ -232,15 +232,15 @@ class AccessControlListMatchConditionArgsDict(TypedDict):
 @pulumi.input_type
 class AccessControlListMatchConditionArgs:
     def __init__(__self__, *,
-                 dscp_markings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ether_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fragments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_condition: Optional[pulumi.Input['IpMatchConditionArgs']] = None,
-                 ip_lengths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 port_condition: Optional[pulumi.Input['AccessControlListPortConditionArgs']] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ttl_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlan_match_condition: Optional[pulumi.Input['VlanMatchConditionArgs']] = None):
+                 dscp_markings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ether_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fragments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_condition: pulumi.Input[Optional['IpMatchConditionArgs']] = None,
+                 ip_lengths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 port_condition: pulumi.Input[Optional['AccessControlListPortConditionArgs']] = None,
+                 protocol_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ttl_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlan_match_condition: pulumi.Input[Optional['VlanMatchConditionArgs']] = None):
         """
         Defines the match condition that is supported to filter the traffic.
 
@@ -275,110 +275,110 @@ class AccessControlListMatchConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="dscpMarkings")
-    def dscp_markings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dscp_markings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of DSCP Markings that need to be matched.
         """
         return pulumi.get(self, "dscp_markings")
 
     @dscp_markings.setter
-    def dscp_markings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dscp_markings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dscp_markings", value)
 
     @_builtins.property
     @pulumi.getter(name="etherTypes")
-    def ether_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ether_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ether type values that need to be matched.
         """
         return pulumi.get(self, "ether_types")
 
     @ether_types.setter
-    def ether_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ether_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ether_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def fragments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fragments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP fragment packets that need to be matched.
         """
         return pulumi.get(self, "fragments")
 
     @fragments.setter
-    def fragments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fragments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fragments", value)
 
     @_builtins.property
     @pulumi.getter(name="ipCondition")
-    def ip_condition(self) -> Optional[pulumi.Input['IpMatchConditionArgs']]:
+    def ip_condition(self) -> pulumi.Input[Optional['IpMatchConditionArgs']]:
         """
         IP condition that needs to be matched.
         """
         return pulumi.get(self, "ip_condition")
 
     @ip_condition.setter
-    def ip_condition(self, value: Optional[pulumi.Input['IpMatchConditionArgs']]):
+    def ip_condition(self, value: pulumi.Input[Optional['IpMatchConditionArgs']]):
         pulumi.set(self, "ip_condition", value)
 
     @_builtins.property
     @pulumi.getter(name="ipLengths")
-    def ip_lengths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_lengths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP Lengths that need to be matched.
         """
         return pulumi.get(self, "ip_lengths")
 
     @ip_lengths.setter
-    def ip_lengths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_lengths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_lengths", value)
 
     @_builtins.property
     @pulumi.getter(name="portCondition")
-    def port_condition(self) -> Optional[pulumi.Input['AccessControlListPortConditionArgs']]:
+    def port_condition(self) -> pulumi.Input[Optional['AccessControlListPortConditionArgs']]:
         """
         Defines the port condition that needs to be matched.
         """
         return pulumi.get(self, "port_condition")
 
     @port_condition.setter
-    def port_condition(self, value: Optional[pulumi.Input['AccessControlListPortConditionArgs']]):
+    def port_condition(self, value: pulumi.Input[Optional['AccessControlListPortConditionArgs']]):
         pulumi.set(self, "port_condition", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def protocol_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the protocols that need to be matched.
         """
         return pulumi.get(self, "protocol_types")
 
     @protocol_types.setter
-    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def protocol_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "protocol_types", value)
 
     @_builtins.property
     @pulumi.getter(name="ttlValues")
-    def ttl_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ttl_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of TTL [Time To Live] values that need to be matched.
         """
         return pulumi.get(self, "ttl_values")
 
     @ttl_values.setter
-    def ttl_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ttl_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ttl_values", value)
 
     @_builtins.property
     @pulumi.getter(name="vlanMatchCondition")
-    def vlan_match_condition(self) -> Optional[pulumi.Input['VlanMatchConditionArgs']]:
+    def vlan_match_condition(self) -> pulumi.Input[Optional['VlanMatchConditionArgs']]:
         """
         Vlan match condition that needs to be matched.
         """
         return pulumi.get(self, "vlan_match_condition")
 
     @vlan_match_condition.setter
-    def vlan_match_condition(self, value: Optional[pulumi.Input['VlanMatchConditionArgs']]):
+    def vlan_match_condition(self, value: pulumi.Input[Optional['VlanMatchConditionArgs']]):
         pulumi.set(self, "vlan_match_condition", value)
 
 
@@ -386,23 +386,23 @@ class AccessControlListMatchConfigurationArgsDict(TypedDict):
     """
     Defines the match configuration that are supported to filter the traffic.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgsDict']]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListActionArgsDict']]]]]
     """
     List of actions that need to be performed for the matched conditions.
     """
-    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]]
     """
     Type of IP Address. IPv4 or IPv6
     """
-    match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgsDict']]]]
+    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListMatchConditionArgsDict']]]]]
     """
     List of the match conditions.
     """
-    match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    match_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the match configuration.
     """
-    sequence_number: NotRequired[pulumi.Input[_builtins.float]]
+    sequence_number: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Sequence Number of the match configuration.
     """
@@ -410,11 +410,11 @@ class AccessControlListMatchConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AccessControlListMatchConfigurationArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgs']]]] = None,
-                 ip_address_type: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]] = None,
-                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]]] = None,
-                 match_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sequence_number: Optional[pulumi.Input[_builtins.float]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListActionArgs']]]] = None,
+                 ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]] = None,
+                 match_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]]] = None,
+                 match_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sequence_number: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Defines the match configuration that are supported to filter the traffic.
 
@@ -437,62 +437,62 @@ class AccessControlListMatchConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListActionArgs']]]]:
         """
         List of actions that need to be performed for the matched conditions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]:
         """
         Type of IP Address. IPv4 or IPv6
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]]]:
+    def match_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]]]:
         """
         List of the match conditions.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]]]):
+    def match_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]]]):
         pulumi.set(self, "match_conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="matchConfigurationName")
-    def match_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the match configuration.
         """
         return pulumi.get(self, "match_configuration_name")
 
     @match_configuration_name.setter
-    def match_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sequenceNumber")
-    def sequence_number(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sequence_number(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Sequence Number of the match configuration.
         """
         return pulumi.get(self, "sequence_number")
 
     @sequence_number.setter
-    def sequence_number(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sequence_number(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sequence_number", value)
 
 
@@ -504,19 +504,19 @@ class AccessControlListPortConditionArgsDict(TypedDict):
     """
     Layer4 protocol type that needs to be matched.
     """
-    flags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    flags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg
     """
-    port_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    port_group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the port Group Names that need to be matched.
     """
-    port_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PortType']]]
+    port_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PortType']]]]
     """
     Port type that needs to be matched.
     """
-    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the Ports that need to be matched.
     """
@@ -525,10 +525,10 @@ class AccessControlListPortConditionArgsDict(TypedDict):
 class AccessControlListPortConditionArgs:
     def __init__(__self__, *,
                  layer4_protocol: pulumi.Input[Union[_builtins.str, 'Layer4Protocol']],
-                 flags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 port_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 port_type: Optional[pulumi.Input[Union[_builtins.str, 'PortType']]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 flags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 port_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 port_type: pulumi.Input[Optional[Union[_builtins.str, 'PortType']]] = None,
+                 ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Defines the port condition that needs to be matched.
 
@@ -562,50 +562,50 @@ class AccessControlListPortConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def flags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def flags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg
         """
         return pulumi.get(self, "flags")
 
     @flags.setter
-    def flags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def flags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "flags", value)
 
     @_builtins.property
     @pulumi.getter(name="portGroupNames")
-    def port_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def port_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the port Group Names that need to be matched.
         """
         return pulumi.get(self, "port_group_names")
 
     @port_group_names.setter
-    def port_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def port_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "port_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="portType")
-    def port_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PortType']]]:
+    def port_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PortType']]]:
         """
         Port type that needs to be matched.
         """
         return pulumi.get(self, "port_type")
 
     @port_type.setter
-    def port_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PortType']]]):
+    def port_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PortType']]]):
         pulumi.set(self, "port_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the Ports that need to be matched.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ports", value)
 
 
@@ -613,15 +613,15 @@ class ActionIpCommunityPropertiesArgsDict(TypedDict):
     """
     IP Community Properties.
     """
-    add: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
+    add: NotRequired[pulumi.Input[Optional['IpCommunityIdListArgsDict']]]
     """
     List of IP Community IDs.
     """
-    delete: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
+    delete: NotRequired[pulumi.Input[Optional['IpCommunityIdListArgsDict']]]
     """
     List of IP Community IDs.
     """
-    set: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
+    set: NotRequired[pulumi.Input[Optional['IpCommunityIdListArgsDict']]]
     """
     List of IP Community IDs.
     """
@@ -629,9 +629,9 @@ class ActionIpCommunityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ActionIpCommunityPropertiesArgs:
     def __init__(__self__, *,
-                 add: Optional[pulumi.Input['IpCommunityIdListArgs']] = None,
-                 delete: Optional[pulumi.Input['IpCommunityIdListArgs']] = None,
-                 set: Optional[pulumi.Input['IpCommunityIdListArgs']] = None):
+                 add: pulumi.Input[Optional['IpCommunityIdListArgs']] = None,
+                 delete: pulumi.Input[Optional['IpCommunityIdListArgs']] = None,
+                 set: pulumi.Input[Optional['IpCommunityIdListArgs']] = None):
         """
         IP Community Properties.
 
@@ -648,38 +648,38 @@ class ActionIpCommunityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def add(self) -> Optional[pulumi.Input['IpCommunityIdListArgs']]:
+    def add(self) -> pulumi.Input[Optional['IpCommunityIdListArgs']]:
         """
         List of IP Community IDs.
         """
         return pulumi.get(self, "add")
 
     @add.setter
-    def add(self, value: Optional[pulumi.Input['IpCommunityIdListArgs']]):
+    def add(self, value: pulumi.Input[Optional['IpCommunityIdListArgs']]):
         pulumi.set(self, "add", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input['IpCommunityIdListArgs']]:
+    def delete(self) -> pulumi.Input[Optional['IpCommunityIdListArgs']]:
         """
         List of IP Community IDs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input['IpCommunityIdListArgs']]):
+    def delete(self, value: pulumi.Input[Optional['IpCommunityIdListArgs']]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def set(self) -> Optional[pulumi.Input['IpCommunityIdListArgs']]:
+    def set(self) -> pulumi.Input[Optional['IpCommunityIdListArgs']]:
         """
         List of IP Community IDs.
         """
         return pulumi.get(self, "set")
 
     @set.setter
-    def set(self, value: Optional[pulumi.Input['IpCommunityIdListArgs']]):
+    def set(self, value: pulumi.Input[Optional['IpCommunityIdListArgs']]):
         pulumi.set(self, "set", value)
 
 
@@ -687,15 +687,15 @@ class ActionIpExtendedCommunityPropertiesArgsDict(TypedDict):
     """
     IP Extended Community Properties.
     """
-    add: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
+    add: NotRequired[pulumi.Input[Optional['IpExtendedCommunityIdListArgsDict']]]
     """
     List of IP Extended Community IDs.
     """
-    delete: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
+    delete: NotRequired[pulumi.Input[Optional['IpExtendedCommunityIdListArgsDict']]]
     """
     List of IP Extended Community IDs.
     """
-    set: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
+    set: NotRequired[pulumi.Input[Optional['IpExtendedCommunityIdListArgsDict']]]
     """
     List of IP Extended Community IDs.
     """
@@ -703,9 +703,9 @@ class ActionIpExtendedCommunityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ActionIpExtendedCommunityPropertiesArgs:
     def __init__(__self__, *,
-                 add: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']] = None,
-                 delete: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']] = None,
-                 set: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']] = None):
+                 add: pulumi.Input[Optional['IpExtendedCommunityIdListArgs']] = None,
+                 delete: pulumi.Input[Optional['IpExtendedCommunityIdListArgs']] = None,
+                 set: pulumi.Input[Optional['IpExtendedCommunityIdListArgs']] = None):
         """
         IP Extended Community Properties.
 
@@ -722,93 +722,39 @@ class ActionIpExtendedCommunityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def add(self) -> Optional[pulumi.Input['IpExtendedCommunityIdListArgs']]:
+    def add(self) -> pulumi.Input[Optional['IpExtendedCommunityIdListArgs']]:
         """
         List of IP Extended Community IDs.
         """
         return pulumi.get(self, "add")
 
     @add.setter
-    def add(self, value: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']]):
+    def add(self, value: pulumi.Input[Optional['IpExtendedCommunityIdListArgs']]):
         pulumi.set(self, "add", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input['IpExtendedCommunityIdListArgs']]:
+    def delete(self) -> pulumi.Input[Optional['IpExtendedCommunityIdListArgs']]:
         """
         List of IP Extended Community IDs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']]):
+    def delete(self, value: pulumi.Input[Optional['IpExtendedCommunityIdListArgs']]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def set(self) -> Optional[pulumi.Input['IpExtendedCommunityIdListArgs']]:
+    def set(self) -> pulumi.Input[Optional['IpExtendedCommunityIdListArgs']]:
         """
         List of IP Extended Community IDs.
         """
         return pulumi.get(self, "set")
 
     @set.setter
-    def set(self, value: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']]):
+    def set(self, value: pulumi.Input[Optional['IpExtendedCommunityIdListArgs']]):
         pulumi.set(self, "set", value)
-
-
-class AggregateRouteConfigurationArgsDict(TypedDict):
-    """
-    List of IPv4 and IPv6 aggregate routes.
-    """
-    ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]
-    """
-    List of IPv4 Route prefixes.
-    """
-    ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]
-    """
-    List of Ipv6Routes prefixes.
-    """
-
-@pulumi.input_type
-class AggregateRouteConfigurationArgs:
-    def __init__(__self__, *,
-                 ipv4_routes: Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]] = None,
-                 ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]] = None):
-        """
-        List of IPv4 and IPv6 aggregate routes.
-
-        :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv4_routes: List of IPv4 Route prefixes.
-        :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv6_routes: List of Ipv6Routes prefixes.
-        """
-        if ipv4_routes is not None:
-            pulumi.set(__self__, "ipv4_routes", ipv4_routes)
-        if ipv6_routes is not None:
-            pulumi.set(__self__, "ipv6_routes", ipv6_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="ipv4Routes")
-    def ipv4_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]]:
-        """
-        List of IPv4 Route prefixes.
-        """
-        return pulumi.get(self, "ipv4_routes")
-
-    @ipv4_routes.setter
-    def ipv4_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]]):
-        pulumi.set(self, "ipv4_routes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipv6Routes")
-    def ipv6_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]]:
-        """
-        List of Ipv6Routes prefixes.
-        """
-        return pulumi.get(self, "ipv6_routes")
-
-    @ipv6_routes.setter
-    def ipv6_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]]):
-        pulumi.set(self, "ipv6_routes", value)
 
 
 class AggregateRouteArgsDict(TypedDict):
@@ -844,15 +790,69 @@ class AggregateRouteArgs:
         pulumi.set(self, "prefix", value)
 
 
+class AggregateRouteConfigurationArgsDict(TypedDict):
+    """
+    List of IPv4 and IPv6 aggregate routes.
+    """
+    ipv4_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]]
+    """
+    List of IPv4 Route prefixes.
+    """
+    ipv6_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]]
+    """
+    List of Ipv6Routes prefixes.
+    """
+
+@pulumi.input_type
+class AggregateRouteConfigurationArgs:
+    def __init__(__self__, *,
+                 ipv4_routes: pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgs']]]] = None,
+                 ipv6_routes: pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgs']]]] = None):
+        """
+        List of IPv4 and IPv6 aggregate routes.
+
+        :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv4_routes: List of IPv4 Route prefixes.
+        :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv6_routes: List of Ipv6Routes prefixes.
+        """
+        if ipv4_routes is not None:
+            pulumi.set(__self__, "ipv4_routes", ipv4_routes)
+        if ipv6_routes is not None:
+            pulumi.set(__self__, "ipv6_routes", ipv6_routes)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Routes")
+    def ipv4_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgs']]]]:
+        """
+        List of IPv4 Route prefixes.
+        """
+        return pulumi.get(self, "ipv4_routes")
+
+    @ipv4_routes.setter
+    def ipv4_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgs']]]]):
+        pulumi.set(self, "ipv4_routes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Routes")
+    def ipv6_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgs']]]]:
+        """
+        List of Ipv6Routes prefixes.
+        """
+        return pulumi.get(self, "ipv6_routes")
+
+    @ipv6_routes.setter
+    def ipv6_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AggregateRouteArgs']]]]):
+        pulumi.set(self, "ipv6_routes", value)
+
+
 class BfdConfigurationArgsDict(TypedDict):
     """
     BFD configuration properties
     """
-    interval_in_milli_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    interval_in_milli_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Interval in milliseconds. Example: 300.
     """
-    multiplier: NotRequired[pulumi.Input[_builtins.int]]
+    multiplier: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Multiplier for the Bfd Configuration. Example: 5.
     """
@@ -860,8 +860,8 @@ class BfdConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class BfdConfigurationArgs:
     def __init__(__self__, *,
-                 interval_in_milli_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 multiplier: Optional[pulumi.Input[_builtins.int]] = None):
+                 interval_in_milli_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 multiplier: pulumi.Input[Optional[_builtins.int]] = None):
         """
         BFD configuration properties
 
@@ -879,26 +879,26 @@ class BfdConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="intervalInMilliSeconds")
-    def interval_in_milli_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_milli_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Interval in milliseconds. Example: 300.
         """
         return pulumi.get(self, "interval_in_milli_seconds")
 
     @interval_in_milli_seconds.setter
-    def interval_in_milli_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_milli_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_milli_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def multiplier(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def multiplier(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Multiplier for the Bfd Configuration. Example: 5.
         """
         return pulumi.get(self, "multiplier")
 
     @multiplier.setter
-    def multiplier(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def multiplier(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "multiplier", value)
 
 
@@ -906,47 +906,47 @@ class BmpConfigurationPropertiesArgsDict(TypedDict):
     """
     BGP Monitoring Protocol (BMP) Configuration properties.
     """
-    export_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'BmpExportPolicy']]]
+    export_policy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BmpExportPolicy']]]]
     """
     Export Policy for the BMP Configuration.
     """
-    monitored_address_families: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]
+    monitored_address_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]]
     """
     Monitored Address Families for the BMP Configuration.
     """
-    monitored_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    monitored_networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The List of Network ID's that need to be monitored.
     """
-    scope_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    scope_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Scope resource ARM Identifier.
     """
-    station_configuration_state: NotRequired[pulumi.Input[Union[_builtins.str, 'StationConfigurationState']]]
+    station_configuration_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StationConfigurationState']]]]
     """
     Enabling a station. Either True/False.
     """
-    station_connection_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'StationConnectionMode']]]
+    station_connection_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'StationConnectionMode']]]]
     """
     Station Connection Mode.
     """
-    station_connection_properties: NotRequired[pulumi.Input['StationConnectionPropertiesArgsDict']]
+    station_connection_properties: NotRequired[pulumi.Input[Optional['StationConnectionPropertiesArgsDict']]]
     """
     Station Connection Properties.
     """
-    station_ip: NotRequired[pulumi.Input[_builtins.str]]
+    station_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP Address of the station.
     """
-    station_name: NotRequired[pulumi.Input[_builtins.str]]
+    station_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the station.
     """
-    station_network: NotRequired[pulumi.Input[_builtins.str]]
+    station_network: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Network of the station
     """
-    station_port: NotRequired[pulumi.Input[_builtins.int]]
+    station_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port of the station. Default value is 5000.
     """
@@ -954,17 +954,17 @@ class BmpConfigurationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BmpConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 export_policy: Optional[pulumi.Input[Union[_builtins.str, 'BmpExportPolicy']]] = None,
-                 monitored_address_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]] = None,
-                 monitored_networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scope_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 station_configuration_state: Optional[pulumi.Input[Union[_builtins.str, 'StationConfigurationState']]] = None,
-                 station_connection_mode: Optional[pulumi.Input[Union[_builtins.str, 'StationConnectionMode']]] = None,
-                 station_connection_properties: Optional[pulumi.Input['StationConnectionPropertiesArgs']] = None,
-                 station_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 station_network: Optional[pulumi.Input[_builtins.str]] = None,
-                 station_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 export_policy: pulumi.Input[Optional[Union[_builtins.str, 'BmpExportPolicy']]] = None,
+                 monitored_address_families: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]] = None,
+                 monitored_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 station_configuration_state: pulumi.Input[Optional[Union[_builtins.str, 'StationConfigurationState']]] = None,
+                 station_connection_mode: pulumi.Input[Optional[Union[_builtins.str, 'StationConnectionMode']]] = None,
+                 station_connection_properties: pulumi.Input[Optional['StationConnectionPropertiesArgs']] = None,
+                 station_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 station_network: pulumi.Input[Optional[_builtins.str]] = None,
+                 station_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         BGP Monitoring Protocol (BMP) Configuration properties.
 
@@ -1009,134 +1009,134 @@ class BmpConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BmpExportPolicy']]]:
+    def export_policy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BmpExportPolicy']]]:
         """
         Export Policy for the BMP Configuration.
         """
         return pulumi.get(self, "export_policy")
 
     @export_policy.setter
-    def export_policy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BmpExportPolicy']]]):
+    def export_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BmpExportPolicy']]]):
         pulumi.set(self, "export_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoredAddressFamilies")
-    def monitored_address_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]:
+    def monitored_address_families(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]:
         """
         Monitored Address Families for the BMP Configuration.
         """
         return pulumi.get(self, "monitored_address_families")
 
     @monitored_address_families.setter
-    def monitored_address_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]):
+    def monitored_address_families(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]):
         pulumi.set(self, "monitored_address_families", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoredNetworks")
-    def monitored_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def monitored_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The List of Network ID's that need to be monitored.
         """
         return pulumi.get(self, "monitored_networks")
 
     @monitored_networks.setter
-    def monitored_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def monitored_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "monitored_networks", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeResourceId")
-    def scope_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope resource ARM Identifier.
         """
         return pulumi.get(self, "scope_resource_id")
 
     @scope_resource_id.setter
-    def scope_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stationConfigurationState")
-    def station_configuration_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StationConfigurationState']]]:
+    def station_configuration_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StationConfigurationState']]]:
         """
         Enabling a station. Either True/False.
         """
         return pulumi.get(self, "station_configuration_state")
 
     @station_configuration_state.setter
-    def station_configuration_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StationConfigurationState']]]):
+    def station_configuration_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StationConfigurationState']]]):
         pulumi.set(self, "station_configuration_state", value)
 
     @_builtins.property
     @pulumi.getter(name="stationConnectionMode")
-    def station_connection_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StationConnectionMode']]]:
+    def station_connection_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StationConnectionMode']]]:
         """
         Station Connection Mode.
         """
         return pulumi.get(self, "station_connection_mode")
 
     @station_connection_mode.setter
-    def station_connection_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StationConnectionMode']]]):
+    def station_connection_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StationConnectionMode']]]):
         pulumi.set(self, "station_connection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="stationConnectionProperties")
-    def station_connection_properties(self) -> Optional[pulumi.Input['StationConnectionPropertiesArgs']]:
+    def station_connection_properties(self) -> pulumi.Input[Optional['StationConnectionPropertiesArgs']]:
         """
         Station Connection Properties.
         """
         return pulumi.get(self, "station_connection_properties")
 
     @station_connection_properties.setter
-    def station_connection_properties(self, value: Optional[pulumi.Input['StationConnectionPropertiesArgs']]):
+    def station_connection_properties(self, value: pulumi.Input[Optional['StationConnectionPropertiesArgs']]):
         pulumi.set(self, "station_connection_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="stationIp")
-    def station_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def station_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address of the station.
         """
         return pulumi.get(self, "station_ip")
 
     @station_ip.setter
-    def station_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def station_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "station_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="stationName")
-    def station_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def station_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the station.
         """
         return pulumi.get(self, "station_name")
 
     @station_name.setter
-    def station_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def station_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "station_name", value)
 
     @_builtins.property
     @pulumi.getter(name="stationNetwork")
-    def station_network(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def station_network(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network of the station
         """
         return pulumi.get(self, "station_network")
 
     @station_network.setter
-    def station_network(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def station_network(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "station_network", value)
 
     @_builtins.property
     @pulumi.getter(name="stationPort")
-    def station_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def station_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port of the station. Default value is 5000.
         """
         return pulumi.get(self, "station_port")
 
     @station_port.setter
-    def station_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def station_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "station_port", value)
 
 
@@ -1144,15 +1144,15 @@ class CommonDynamicMatchConfigurationArgsDict(TypedDict):
     """
     Dynamic match configuration object.
     """
-    ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgsDict']]]]
+    ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IpGroupPropertiesArgsDict']]]]]
     """
     List of IP Groups.
     """
-    port_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgsDict']]]]
+    port_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PortGroupPropertiesArgsDict']]]]]
     """
     List of the port groups.
     """
-    vlan_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgsDict']]]]
+    vlan_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VlanGroupPropertiesArgsDict']]]]]
     """
     List of vlan groups.
     """
@@ -1160,9 +1160,9 @@ class CommonDynamicMatchConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CommonDynamicMatchConfigurationArgs:
     def __init__(__self__, *,
-                 ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]] = None,
-                 port_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]] = None,
-                 vlan_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]] = None):
+                 ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]] = None,
+                 port_groups: pulumi.Input[Optional[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]] = None,
+                 vlan_groups: pulumi.Input[Optional[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]] = None):
         """
         Dynamic match configuration object.
 
@@ -1179,93 +1179,39 @@ class CommonDynamicMatchConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipGroups")
-    def ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]]:
+    def ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]]:
         """
         List of IP Groups.
         """
         return pulumi.get(self, "ip_groups")
 
     @ip_groups.setter
-    def ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]]):
+    def ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]]):
         pulumi.set(self, "ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="portGroups")
-    def port_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]]:
+    def port_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]]:
         """
         List of the port groups.
         """
         return pulumi.get(self, "port_groups")
 
     @port_groups.setter
-    def port_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]]):
+    def port_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]]):
         pulumi.set(self, "port_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="vlanGroups")
-    def vlan_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]]:
+    def vlan_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]]:
         """
         List of vlan groups.
         """
         return pulumi.get(self, "vlan_groups")
 
     @vlan_groups.setter
-    def vlan_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]]):
+    def vlan_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]]):
         pulumi.set(self, "vlan_groups", value)
-
-
-class ConnectedSubnetRoutePolicyArgsDict(TypedDict):
-    """
-    Connected Subnet Route Policy properties.
-    """
-    export_route_policy: NotRequired[pulumi.Input['L3ExportRoutePolicyArgsDict']]
-    """
-    Array of ARM Resource ID of the RoutePolicies.
-    """
-    export_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    ARM Resource ID of the Route Policy. This is used for the backward compatibility.
-    """
-
-@pulumi.input_type
-class ConnectedSubnetRoutePolicyArgs:
-    def __init__(__self__, *,
-                 export_route_policy: Optional[pulumi.Input['L3ExportRoutePolicyArgs']] = None,
-                 export_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Connected Subnet Route Policy properties.
-
-        :param pulumi.Input['L3ExportRoutePolicyArgs'] export_route_policy: Array of ARM Resource ID of the RoutePolicies.
-        :param pulumi.Input[_builtins.str] export_route_policy_id: ARM Resource ID of the Route Policy. This is used for the backward compatibility.
-        """
-        if export_route_policy is not None:
-            pulumi.set(__self__, "export_route_policy", export_route_policy)
-        if export_route_policy_id is not None:
-            pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
-
-    @_builtins.property
-    @pulumi.getter(name="exportRoutePolicy")
-    def export_route_policy(self) -> Optional[pulumi.Input['L3ExportRoutePolicyArgs']]:
-        """
-        Array of ARM Resource ID of the RoutePolicies.
-        """
-        return pulumi.get(self, "export_route_policy")
-
-    @export_route_policy.setter
-    def export_route_policy(self, value: Optional[pulumi.Input['L3ExportRoutePolicyArgs']]):
-        pulumi.set(self, "export_route_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="exportRoutePolicyId")
-    def export_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARM Resource ID of the Route Policy. This is used for the backward compatibility.
-        """
-        return pulumi.get(self, "export_route_policy_id")
-
-    @export_route_policy_id.setter
-    def export_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "export_route_policy_id", value)
 
 
 class ConnectedSubnetArgsDict(TypedDict):
@@ -1276,7 +1222,7 @@ class ConnectedSubnetArgsDict(TypedDict):
     """
     Prefix of the Connected Subnet.
     """
-    annotation: NotRequired[pulumi.Input[_builtins.str]]
+    annotation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Switch configuration description.
     """
@@ -1285,7 +1231,7 @@ class ConnectedSubnetArgsDict(TypedDict):
 class ConnectedSubnetArgs:
     def __init__(__self__, *,
                  prefix: pulumi.Input[_builtins.str],
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Connected Subnet properties.
 
@@ -1310,80 +1256,80 @@ class ConnectedSubnetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
 
-class ExportRoutePolicyInformationArgsDict(TypedDict):
+class ConnectedSubnetRoutePolicyArgsDict(TypedDict):
     """
-    Export Route Policy Configuration.
+    Connected Subnet Route Policy properties.
     """
-    export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    export_route_policy: NotRequired[pulumi.Input[Optional['L3ExportRoutePolicyArgsDict']]]
     """
-    Export IPv4 Route Policy Id.
+    Array of ARM Resource ID of the RoutePolicies.
     """
-    export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    export_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Export IPv6 Route Policy Id.
+    ARM Resource ID of the Route Policy. This is used for the backward compatibility.
     """
 
 @pulumi.input_type
-class ExportRoutePolicyInformationArgs:
+class ConnectedSubnetRoutePolicyArgs:
     def __init__(__self__, *,
-                 export_ipv4_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 export_route_policy: pulumi.Input[Optional['L3ExportRoutePolicyArgs']] = None,
+                 export_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Export Route Policy Configuration.
+        Connected Subnet Route Policy properties.
 
-        :param pulumi.Input[_builtins.str] export_ipv4_route_policy_id: Export IPv4 Route Policy Id.
-        :param pulumi.Input[_builtins.str] export_ipv6_route_policy_id: Export IPv6 Route Policy Id.
+        :param pulumi.Input['L3ExportRoutePolicyArgs'] export_route_policy: Array of ARM Resource ID of the RoutePolicies.
+        :param pulumi.Input[_builtins.str] export_route_policy_id: ARM Resource ID of the Route Policy. This is used for the backward compatibility.
         """
-        if export_ipv4_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv4_route_policy_id", export_ipv4_route_policy_id)
-        if export_ipv6_route_policy_id is not None:
-            pulumi.set(__self__, "export_ipv6_route_policy_id", export_ipv6_route_policy_id)
-
-    @_builtins.property
-    @pulumi.getter(name="exportIpv4RoutePolicyId")
-    def export_ipv4_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Export IPv4 Route Policy Id.
-        """
-        return pulumi.get(self, "export_ipv4_route_policy_id")
-
-    @export_ipv4_route_policy_id.setter
-    def export_ipv4_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "export_ipv4_route_policy_id", value)
+        if export_route_policy is not None:
+            pulumi.set(__self__, "export_route_policy", export_route_policy)
+        if export_route_policy_id is not None:
+            pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
 
     @_builtins.property
-    @pulumi.getter(name="exportIpv6RoutePolicyId")
-    def export_ipv6_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter(name="exportRoutePolicy")
+    def export_route_policy(self) -> pulumi.Input[Optional['L3ExportRoutePolicyArgs']]:
         """
-        Export IPv6 Route Policy Id.
+        Array of ARM Resource ID of the RoutePolicies.
         """
-        return pulumi.get(self, "export_ipv6_route_policy_id")
+        return pulumi.get(self, "export_route_policy")
 
-    @export_ipv6_route_policy_id.setter
-    def export_ipv6_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "export_ipv6_route_policy_id", value)
+    @export_route_policy.setter
+    def export_route_policy(self, value: pulumi.Input[Optional['L3ExportRoutePolicyArgs']]):
+        pulumi.set(self, "export_route_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exportRoutePolicyId")
+    def export_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARM Resource ID of the Route Policy. This is used for the backward compatibility.
+        """
+        return pulumi.get(self, "export_route_policy_id")
+
+    @export_route_policy_id.setter
+    def export_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "export_route_policy_id", value)
 
 
 class ExportRoutePolicyArgsDict(TypedDict):
     """
     Export Route Policy either IPv4 or IPv6.
     """
-    export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    export_ipv4_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM resource ID of RoutePolicy.
     """
-    export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    export_ipv6_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM resource ID of RoutePolicy.
     """
@@ -1391,8 +1337,8 @@ class ExportRoutePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ExportRoutePolicyArgs:
     def __init__(__self__, *,
-                 export_ipv4_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 export_ipv4_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_ipv6_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Export Route Policy either IPv4 or IPv6.
 
@@ -1406,26 +1352,80 @@ class ExportRoutePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportIpv4RoutePolicyId")
-    def export_ipv4_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_ipv4_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM resource ID of RoutePolicy.
         """
         return pulumi.get(self, "export_ipv4_route_policy_id")
 
     @export_ipv4_route_policy_id.setter
-    def export_ipv4_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_ipv4_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_ipv4_route_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="exportIpv6RoutePolicyId")
-    def export_ipv6_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_ipv6_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM resource ID of RoutePolicy.
         """
         return pulumi.get(self, "export_ipv6_route_policy_id")
 
     @export_ipv6_route_policy_id.setter
-    def export_ipv6_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_ipv6_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "export_ipv6_route_policy_id", value)
+
+
+class ExportRoutePolicyInformationArgsDict(TypedDict):
+    """
+    Export Route Policy Configuration.
+    """
+    export_ipv4_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Export IPv4 Route Policy Id.
+    """
+    export_ipv6_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Export IPv6 Route Policy Id.
+    """
+
+@pulumi.input_type
+class ExportRoutePolicyInformationArgs:
+    def __init__(__self__, *,
+                 export_ipv4_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_ipv6_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Export Route Policy Configuration.
+
+        :param pulumi.Input[_builtins.str] export_ipv4_route_policy_id: Export IPv4 Route Policy Id.
+        :param pulumi.Input[_builtins.str] export_ipv6_route_policy_id: Export IPv6 Route Policy Id.
+        """
+        if export_ipv4_route_policy_id is not None:
+            pulumi.set(__self__, "export_ipv4_route_policy_id", export_ipv4_route_policy_id)
+        if export_ipv6_route_policy_id is not None:
+            pulumi.set(__self__, "export_ipv6_route_policy_id", export_ipv6_route_policy_id)
+
+    @_builtins.property
+    @pulumi.getter(name="exportIpv4RoutePolicyId")
+    def export_ipv4_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Export IPv4 Route Policy Id.
+        """
+        return pulumi.get(self, "export_ipv4_route_policy_id")
+
+    @export_ipv4_route_policy_id.setter
+    def export_ipv4_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "export_ipv4_route_policy_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exportIpv6RoutePolicyId")
+    def export_ipv6_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Export IPv6 Route Policy Id.
+        """
+        return pulumi.get(self, "export_ipv6_route_policy_id")
+
+    @export_ipv6_route_policy_id.setter
+    def export_ipv6_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_ipv6_route_policy_id", value)
 
 
@@ -1493,35 +1493,35 @@ class ExternalNetworkPropertiesOptionAPropertiesArgsDict(TypedDict):
     """
     Vlan identifier. Example : 501
     """
-    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    bfd_configuration: NotRequired[pulumi.Input[Optional['BfdConfigurationArgsDict']]]
     """
     BFD configuration properties
     """
-    egress_acl_id: NotRequired[pulumi.Input[_builtins.str]]
+    egress_acl_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Egress Acl. ARM resource ID of Access Control Lists.
     """
-    ingress_acl_id: NotRequired[pulumi.Input[_builtins.str]]
+    ingress_acl_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ingress Acl. ARM resource ID of Access Control Lists.
     """
-    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    mtu: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     MTU to use for option A peering.
     """
-    primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    primary_ipv4_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv4 Address Prefix.
     """
-    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    primary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv6 Address Prefix.
     """
-    secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_ipv4_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary IPv4 Address Prefix.
     """
-    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary IPv6 Address Prefix.
     """
@@ -1531,14 +1531,14 @@ class ExternalNetworkPropertiesOptionAPropertiesArgs:
     def __init__(__self__, *,
                  peer_asn: pulumi.Input[_builtins.float],
                  vlan_id: pulumi.Input[_builtins.int],
-                 bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
-                 egress_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingress_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bfd_configuration: pulumi.Input[Optional['BfdConfigurationArgs']] = None,
+                 egress_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingress_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         option A properties object
 
@@ -1600,98 +1600,98 @@ class ExternalNetworkPropertiesOptionAPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bfdConfiguration")
-    def bfd_configuration(self) -> Optional[pulumi.Input['BfdConfigurationArgs']]:
+    def bfd_configuration(self) -> pulumi.Input[Optional['BfdConfigurationArgs']]:
         """
         BFD configuration properties
         """
         return pulumi.get(self, "bfd_configuration")
 
     @bfd_configuration.setter
-    def bfd_configuration(self, value: Optional[pulumi.Input['BfdConfigurationArgs']]):
+    def bfd_configuration(self, value: pulumi.Input[Optional['BfdConfigurationArgs']]):
         pulumi.set(self, "bfd_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="egressAclId")
-    def egress_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def egress_acl_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Egress Acl. ARM resource ID of Access Control Lists.
         """
         return pulumi.get(self, "egress_acl_id")
 
     @egress_acl_id.setter
-    def egress_acl_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def egress_acl_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "egress_acl_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressAclId")
-    def ingress_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingress_acl_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ingress Acl. ARM resource ID of Access Control Lists.
         """
         return pulumi.get(self, "ingress_acl_id")
 
     @ingress_acl_id.setter
-    def ingress_acl_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingress_acl_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingress_acl_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         MTU to use for option A peering.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryIpv4Prefix")
-    def primary_ipv4_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_ipv4_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv4 Address Prefix.
         """
         return pulumi.get(self, "primary_ipv4_prefix")
 
     @primary_ipv4_prefix.setter
-    def primary_ipv4_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_ipv4_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_ipv4_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryIpv6Prefix")
-    def primary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv6 Address Prefix.
         """
         return pulumi.get(self, "primary_ipv6_prefix")
 
     @primary_ipv6_prefix.setter
-    def primary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_ipv6_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpv4Prefix")
-    def secondary_ipv4_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_ipv4_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IPv4 Address Prefix.
         """
         return pulumi.get(self, "secondary_ipv4_prefix")
 
     @secondary_ipv4_prefix.setter
-    def secondary_ipv4_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_ipv4_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_ipv4_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpv6Prefix")
-    def secondary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IPv6 Address Prefix.
         """
         return pulumi.get(self, "secondary_ipv6_prefix")
 
     @secondary_ipv6_prefix.setter
-    def secondary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_ipv6_prefix", value)
 
 
@@ -1699,15 +1699,15 @@ class FabricOptionBPropertiesArgsDict(TypedDict):
     """
     Option B configuration to be used for Management VPN.
     """
-    export_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    export_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
     """
-    import_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    import_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
     """
-    route_targets: NotRequired[pulumi.Input['RouteTargetInformationArgsDict']]
+    route_targets: NotRequired[pulumi.Input[Optional['RouteTargetInformationArgsDict']]]
     """
     Route Targets to be applied.
     """
@@ -1715,9 +1715,9 @@ class FabricOptionBPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FabricOptionBPropertiesArgs:
     def __init__(__self__, *,
-                 export_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 import_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_targets: Optional[pulumi.Input['RouteTargetInformationArgs']] = None):
+                 export_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 import_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 route_targets: pulumi.Input[Optional['RouteTargetInformationArgs']] = None):
         """
         Option B configuration to be used for Management VPN.
 
@@ -1734,104 +1734,50 @@ class FabricOptionBPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportRouteTargets")
-    def export_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def export_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
         """
         return pulumi.get(self, "export_route_targets")
 
     @export_route_targets.setter
-    def export_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def export_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "export_route_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="importRouteTargets")
-    def import_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def import_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
         """
         return pulumi.get(self, "import_route_targets")
 
     @import_route_targets.setter
-    def import_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def import_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "import_route_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTargets")
-    def route_targets(self) -> Optional[pulumi.Input['RouteTargetInformationArgs']]:
+    def route_targets(self) -> pulumi.Input[Optional['RouteTargetInformationArgs']]:
         """
         Route Targets to be applied.
         """
         return pulumi.get(self, "route_targets")
 
     @route_targets.setter
-    def route_targets(self, value: Optional[pulumi.Input['RouteTargetInformationArgs']]):
+    def route_targets(self, value: pulumi.Input[Optional['RouteTargetInformationArgs']]):
         pulumi.set(self, "route_targets", value)
-
-
-class ImportRoutePolicyInformationArgsDict(TypedDict):
-    """
-    Import Route Policy Configuration.
-    """
-    import_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Import IPv4 Route Policy Id.
-    """
-    import_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Import IPv6 Route Policy Id.
-    """
-
-@pulumi.input_type
-class ImportRoutePolicyInformationArgs:
-    def __init__(__self__, *,
-                 import_ipv4_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Import Route Policy Configuration.
-
-        :param pulumi.Input[_builtins.str] import_ipv4_route_policy_id: Import IPv4 Route Policy Id.
-        :param pulumi.Input[_builtins.str] import_ipv6_route_policy_id: Import IPv6 Route Policy Id.
-        """
-        if import_ipv4_route_policy_id is not None:
-            pulumi.set(__self__, "import_ipv4_route_policy_id", import_ipv4_route_policy_id)
-        if import_ipv6_route_policy_id is not None:
-            pulumi.set(__self__, "import_ipv6_route_policy_id", import_ipv6_route_policy_id)
-
-    @_builtins.property
-    @pulumi.getter(name="importIpv4RoutePolicyId")
-    def import_ipv4_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Import IPv4 Route Policy Id.
-        """
-        return pulumi.get(self, "import_ipv4_route_policy_id")
-
-    @import_ipv4_route_policy_id.setter
-    def import_ipv4_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "import_ipv4_route_policy_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="importIpv6RoutePolicyId")
-    def import_ipv6_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Import IPv6 Route Policy Id.
-        """
-        return pulumi.get(self, "import_ipv6_route_policy_id")
-
-    @import_ipv6_route_policy_id.setter
-    def import_ipv6_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "import_ipv6_route_policy_id", value)
 
 
 class ImportRoutePolicyArgsDict(TypedDict):
     """
     Import Route Policy either IPv4 or IPv6.
     """
-    import_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    import_ipv4_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM resource ID of RoutePolicy.
     """
-    import_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    import_ipv6_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM resource ID of RoutePolicy.
     """
@@ -1839,8 +1785,8 @@ class ImportRoutePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ImportRoutePolicyArgs:
     def __init__(__self__, *,
-                 import_ipv4_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 import_ipv4_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_ipv6_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Import Route Policy either IPv4 or IPv6.
 
@@ -1854,26 +1800,80 @@ class ImportRoutePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="importIpv4RoutePolicyId")
-    def import_ipv4_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_ipv4_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM resource ID of RoutePolicy.
         """
         return pulumi.get(self, "import_ipv4_route_policy_id")
 
     @import_ipv4_route_policy_id.setter
-    def import_ipv4_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_ipv4_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_ipv4_route_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="importIpv6RoutePolicyId")
-    def import_ipv6_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_ipv6_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM resource ID of RoutePolicy.
         """
         return pulumi.get(self, "import_ipv6_route_policy_id")
 
     @import_ipv6_route_policy_id.setter
-    def import_ipv6_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_ipv6_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "import_ipv6_route_policy_id", value)
+
+
+class ImportRoutePolicyInformationArgsDict(TypedDict):
+    """
+    Import Route Policy Configuration.
+    """
+    import_ipv4_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Import IPv4 Route Policy Id.
+    """
+    import_ipv6_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Import IPv6 Route Policy Id.
+    """
+
+@pulumi.input_type
+class ImportRoutePolicyInformationArgs:
+    def __init__(__self__, *,
+                 import_ipv4_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_ipv6_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Import Route Policy Configuration.
+
+        :param pulumi.Input[_builtins.str] import_ipv4_route_policy_id: Import IPv4 Route Policy Id.
+        :param pulumi.Input[_builtins.str] import_ipv6_route_policy_id: Import IPv6 Route Policy Id.
+        """
+        if import_ipv4_route_policy_id is not None:
+            pulumi.set(__self__, "import_ipv4_route_policy_id", import_ipv4_route_policy_id)
+        if import_ipv6_route_policy_id is not None:
+            pulumi.set(__self__, "import_ipv6_route_policy_id", import_ipv6_route_policy_id)
+
+    @_builtins.property
+    @pulumi.getter(name="importIpv4RoutePolicyId")
+    def import_ipv4_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Import IPv4 Route Policy Id.
+        """
+        return pulumi.get(self, "import_ipv4_route_policy_id")
+
+    @import_ipv4_route_policy_id.setter
+    def import_ipv4_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "import_ipv4_route_policy_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="importIpv6RoutePolicyId")
+    def import_ipv6_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Import IPv6 Route Policy Id.
+        """
+        return pulumi.get(self, "import_ipv6_route_policy_id")
+
+    @import_ipv6_route_policy_id.setter
+    def import_ipv6_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_ipv6_route_policy_id", value)
 
 
@@ -1885,39 +1885,39 @@ class InternalNetworkPropertiesBgpConfigurationArgsDict(TypedDict):
     """
     Peer ASN. Example: 65047.
     """
-    allow_as: NotRequired[pulumi.Input[_builtins.int]]
+    allow_as: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. 0 is disable, Possible values are 1-10, default is 2.
     """
-    allow_as_override: NotRequired[pulumi.Input[Union[_builtins.str, 'AllowASOverride']]]
+    allow_as_override: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AllowASOverride']]]]
     """
     Enable Or Disable state.
     """
-    annotation: NotRequired[pulumi.Input[_builtins.str]]
+    annotation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Switch configuration description.
     """
-    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    bfd_configuration: NotRequired[pulumi.Input[Optional['BfdConfigurationArgsDict']]]
     """
     BFD configuration properties
     """
-    default_route_originate: NotRequired[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]
+    default_route_originate: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]]]
     """
     Originate a defaultRoute. Ex: "True" | "False".
     """
-    ipv4_listen_range_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ipv4_listen_range_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of BGP IPv4 Listen Range prefixes.
     """
-    ipv4_neighbor_address: NotRequired[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]
+    ipv4_neighbor_address: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]]
     """
     List with stringified IPv4 Neighbor Addresses.
     """
-    ipv6_listen_range_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ipv6_listen_range_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of BGP IPv6 Listen Ranges prefixes.
     """
-    ipv6_neighbor_address: NotRequired[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]
+    ipv6_neighbor_address: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]]
     """
     List with stringified IPv6 Neighbor Address.
     """
@@ -1926,15 +1926,15 @@ class InternalNetworkPropertiesBgpConfigurationArgsDict(TypedDict):
 class InternalNetworkPropertiesBgpConfigurationArgs:
     def __init__(__self__, *,
                  peer_asn: pulumi.Input[_builtins.float],
-                 allow_as: Optional[pulumi.Input[_builtins.int]] = None,
-                 allow_as_override: Optional[pulumi.Input[Union[_builtins.str, 'AllowASOverride']]] = None,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
-                 default_route_originate: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]] = None,
-                 ipv4_listen_range_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv4_neighbor_address: Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]] = None,
-                 ipv6_listen_range_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_neighbor_address: Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]] = None):
+                 allow_as: pulumi.Input[Optional[_builtins.int]] = None,
+                 allow_as_override: pulumi.Input[Optional[Union[_builtins.str, 'AllowASOverride']]] = None,
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 bfd_configuration: pulumi.Input[Optional['BfdConfigurationArgs']] = None,
+                 default_route_originate: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]] = None,
+                 ipv4_listen_range_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv4_neighbor_address: pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgs']]]] = None,
+                 ipv6_listen_range_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_neighbor_address: pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgs']]]] = None):
         """
         BGP configuration properties.
 
@@ -1985,110 +1985,110 @@ class InternalNetworkPropertiesBgpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAS")
-    def allow_as(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allow_as(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. 0 is disable, Possible values are 1-10, default is 2.
         """
         return pulumi.get(self, "allow_as")
 
     @allow_as.setter
-    def allow_as(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allow_as(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allow_as", value)
 
     @_builtins.property
     @pulumi.getter(name="allowASOverride")
-    def allow_as_override(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AllowASOverride']]]:
+    def allow_as_override(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AllowASOverride']]]:
         """
         Enable Or Disable state.
         """
         return pulumi.get(self, "allow_as_override")
 
     @allow_as_override.setter
-    def allow_as_override(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AllowASOverride']]]):
+    def allow_as_override(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AllowASOverride']]]):
         pulumi.set(self, "allow_as_override", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="bfdConfiguration")
-    def bfd_configuration(self) -> Optional[pulumi.Input['BfdConfigurationArgs']]:
+    def bfd_configuration(self) -> pulumi.Input[Optional['BfdConfigurationArgs']]:
         """
         BFD configuration properties
         """
         return pulumi.get(self, "bfd_configuration")
 
     @bfd_configuration.setter
-    def bfd_configuration(self, value: Optional[pulumi.Input['BfdConfigurationArgs']]):
+    def bfd_configuration(self, value: pulumi.Input[Optional['BfdConfigurationArgs']]):
         pulumi.set(self, "bfd_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRouteOriginate")
-    def default_route_originate(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]:
+    def default_route_originate(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]]:
         """
         Originate a defaultRoute. Ex: "True" | "False".
         """
         return pulumi.get(self, "default_route_originate")
 
     @default_route_originate.setter
-    def default_route_originate(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]):
+    def default_route_originate(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]]):
         pulumi.set(self, "default_route_originate", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4ListenRangePrefixes")
-    def ipv4_listen_range_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv4_listen_range_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of BGP IPv4 Listen Range prefixes.
         """
         return pulumi.get(self, "ipv4_listen_range_prefixes")
 
     @ipv4_listen_range_prefixes.setter
-    def ipv4_listen_range_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv4_listen_range_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv4_listen_range_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4NeighborAddress")
-    def ipv4_neighbor_address(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]]:
+    def ipv4_neighbor_address(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgs']]]]:
         """
         List with stringified IPv4 Neighbor Addresses.
         """
         return pulumi.get(self, "ipv4_neighbor_address")
 
     @ipv4_neighbor_address.setter
-    def ipv4_neighbor_address(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]]):
+    def ipv4_neighbor_address(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgs']]]]):
         pulumi.set(self, "ipv4_neighbor_address", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6ListenRangePrefixes")
-    def ipv6_listen_range_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_listen_range_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of BGP IPv6 Listen Ranges prefixes.
         """
         return pulumi.get(self, "ipv6_listen_range_prefixes")
 
     @ipv6_listen_range_prefixes.setter
-    def ipv6_listen_range_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_listen_range_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_listen_range_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6NeighborAddress")
-    def ipv6_neighbor_address(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]]:
+    def ipv6_neighbor_address(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgs']]]]:
         """
         List with stringified IPv6 Neighbor Address.
         """
         return pulumi.get(self, "ipv6_neighbor_address")
 
     @ipv6_neighbor_address.setter
-    def ipv6_neighbor_address(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]]):
+    def ipv6_neighbor_address(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NeighborAddressArgs']]]]):
         pulumi.set(self, "ipv6_neighbor_address", value)
 
 
@@ -2096,19 +2096,19 @@ class InternalNetworkPropertiesStaticRouteConfigurationArgsDict(TypedDict):
     """
     Static Route Configuration properties.
     """
-    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    bfd_configuration: NotRequired[pulumi.Input[Optional['BfdConfigurationArgsDict']]]
     """
     BFD configuration properties
     """
-    extension: NotRequired[pulumi.Input[Union[_builtins.str, 'Extension']]]
+    extension: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Extension']]]]
     """
     Extension. Example: NoExtension | NPB.
     """
-    ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    ipv4_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]]
     """
     List of IPv4 Routes.
     """
-    ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    ipv6_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]]
     """
     List of IPv6 Routes.
     """
@@ -2116,10 +2116,10 @@ class InternalNetworkPropertiesStaticRouteConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class InternalNetworkPropertiesStaticRouteConfigurationArgs:
     def __init__(__self__, *,
-                 bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
-                 extension: Optional[pulumi.Input[Union[_builtins.str, 'Extension']]] = None,
-                 ipv4_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
-                 ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None):
+                 bfd_configuration: pulumi.Input[Optional['BfdConfigurationArgs']] = None,
+                 extension: pulumi.Input[Optional[Union[_builtins.str, 'Extension']]] = None,
+                 ipv4_routes: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
+                 ipv6_routes: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None):
         """
         Static Route Configuration properties.
 
@@ -2141,50 +2141,50 @@ class InternalNetworkPropertiesStaticRouteConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bfdConfiguration")
-    def bfd_configuration(self) -> Optional[pulumi.Input['BfdConfigurationArgs']]:
+    def bfd_configuration(self) -> pulumi.Input[Optional['BfdConfigurationArgs']]:
         """
         BFD configuration properties
         """
         return pulumi.get(self, "bfd_configuration")
 
     @bfd_configuration.setter
-    def bfd_configuration(self, value: Optional[pulumi.Input['BfdConfigurationArgs']]):
+    def bfd_configuration(self, value: pulumi.Input[Optional['BfdConfigurationArgs']]):
         pulumi.set(self, "bfd_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Extension']]]:
+    def extension(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Extension']]]:
         """
         Extension. Example: NoExtension | NPB.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Extension']]]):
+    def extension(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Extension']]]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4Routes")
-    def ipv4_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
+    def ipv4_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
         """
         List of IPv4 Routes.
         """
         return pulumi.get(self, "ipv4_routes")
 
     @ipv4_routes.setter
-    def ipv4_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
+    def ipv4_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
         pulumi.set(self, "ipv4_routes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Routes")
-    def ipv6_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
+    def ipv6_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
         """
         List of IPv6 Routes.
         """
         return pulumi.get(self, "ipv6_routes")
 
     @ipv6_routes.setter
-    def ipv6_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
+    def ipv6_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
         pulumi.set(self, "ipv6_routes", value)
 
 
@@ -2192,7 +2192,7 @@ class IpCommunityIdListArgsDict(TypedDict):
     """
     IP Community ID list properties.
     """
-    ip_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_community_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP Community resource IDs.
     """
@@ -2200,7 +2200,7 @@ class IpCommunityIdListArgsDict(TypedDict):
 @pulumi.input_type
 class IpCommunityIdListArgs:
     def __init__(__self__, *,
-                 ip_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ip_community_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         IP Community ID list properties.
 
@@ -2211,14 +2211,14 @@ class IpCommunityIdListArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipCommunityIds")
-    def ip_community_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_community_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP Community resource IDs.
         """
         return pulumi.get(self, "ip_community_ids")
 
     @ip_community_ids.setter
-    def ip_community_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_community_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_community_ids", value)
 
 
@@ -2238,7 +2238,7 @@ class IpCommunityRuleArgsDict(TypedDict):
     """
     Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
     """
-    well_known_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]
+    well_known_communities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]]
     """
     Supported well known Community List.
     """
@@ -2249,7 +2249,7 @@ class IpCommunityRuleArgs:
                  action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']],
                  community_members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  sequence_number: pulumi.Input[_builtins.float],
-                 well_known_communities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]] = None):
+                 well_known_communities: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]] = None):
         """
         IP Community patchable properties.
 
@@ -2302,14 +2302,14 @@ class IpCommunityRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="wellKnownCommunities")
-    def well_known_communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]:
+    def well_known_communities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]:
         """
         Supported well known Community List.
         """
         return pulumi.get(self, "well_known_communities")
 
     @well_known_communities.setter
-    def well_known_communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]):
+    def well_known_communities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]):
         pulumi.set(self, "well_known_communities", value)
 
 
@@ -2317,7 +2317,7 @@ class IpExtendedCommunityIdListArgsDict(TypedDict):
     """
     IP Extended Community Id list properties.
     """
-    ip_extended_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_extended_community_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP Extended Community resource IDs.
     """
@@ -2325,7 +2325,7 @@ class IpExtendedCommunityIdListArgsDict(TypedDict):
 @pulumi.input_type
 class IpExtendedCommunityIdListArgs:
     def __init__(__self__, *,
-                 ip_extended_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ip_extended_community_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         IP Extended Community Id list properties.
 
@@ -2336,14 +2336,14 @@ class IpExtendedCommunityIdListArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipExtendedCommunityIds")
-    def ip_extended_community_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_extended_community_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP Extended Community resource IDs.
         """
         return pulumi.get(self, "ip_extended_community_ids")
 
     @ip_extended_community_ids.setter
-    def ip_extended_community_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_extended_community_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_extended_community_ids", value)
 
 
@@ -2422,15 +2422,15 @@ class IpGroupPropertiesArgsDict(TypedDict):
     """
     IP Group properties.
     """
-    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]]
     """
     IP Address type.
     """
-    ip_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP Prefixes.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP Group name.
     """
@@ -2438,9 +2438,9 @@ class IpGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IpGroupPropertiesArgs:
     def __init__(__self__, *,
-                 ip_address_type: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]] = None,
-                 ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]] = None,
+                 ip_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IP Group properties.
 
@@ -2457,38 +2457,38 @@ class IpGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]:
         """
         IP Address type.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipPrefixes")
-    def ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP Prefixes.
         """
         return pulumi.get(self, "ip_prefixes")
 
     @ip_prefixes.setter
-    def ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Group name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2496,19 +2496,19 @@ class IpMatchConditionArgsDict(TypedDict):
     """
     Defines the condition that can be filtered using the selected IPs.
     """
-    ip_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The List of IP Group Names that need to be matched.
     """
-    ip_prefix_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_prefix_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of IP Prefixes that need to be matched.
     """
-    prefix_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrefixType']]]
+    prefix_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrefixType']]]]
     """
     IP Prefix Type that needs to be matched.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'SourceDestinationType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SourceDestinationType']]]]
     """
     IP Address type that needs to be matched.
     """
@@ -2516,10 +2516,10 @@ class IpMatchConditionArgsDict(TypedDict):
 @pulumi.input_type
 class IpMatchConditionArgs:
     def __init__(__self__, *,
-                 ip_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_prefix_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 prefix_type: Optional[pulumi.Input[Union[_builtins.str, 'PrefixType']]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'SourceDestinationType']]] = None):
+                 ip_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_prefix_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 prefix_type: pulumi.Input[Optional[Union[_builtins.str, 'PrefixType']]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'SourceDestinationType']]] = None):
         """
         Defines the condition that can be filtered using the selected IPs.
 
@@ -2539,50 +2539,50 @@ class IpMatchConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipGroupNames")
-    def ip_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The List of IP Group Names that need to be matched.
         """
         return pulumi.get(self, "ip_group_names")
 
     @ip_group_names.setter
-    def ip_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="ipPrefixValues")
-    def ip_prefix_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_prefix_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IP Prefixes that need to be matched.
         """
         return pulumi.get(self, "ip_prefix_values")
 
     @ip_prefix_values.setter
-    def ip_prefix_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_prefix_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_prefix_values", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixType")
-    def prefix_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrefixType']]]:
+    def prefix_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrefixType']]]:
         """
         IP Prefix Type that needs to be matched.
         """
         return pulumi.get(self, "prefix_type")
 
     @prefix_type.setter
-    def prefix_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrefixType']]]):
+    def prefix_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrefixType']]]):
         pulumi.set(self, "prefix_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SourceDestinationType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SourceDestinationType']]]:
         """
         IP Address type that needs to be matched.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SourceDestinationType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SourceDestinationType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -2596,17 +2596,17 @@ class IpPrefixRuleArgsDict(TypedDict):
     """
     network_prefix: pulumi.Input[_builtins.str]
     """
-    Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
+    Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126
     """
     sequence_number: pulumi.Input[_builtins.float]
     """
     Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
     """
-    condition: NotRequired[pulumi.Input[Union[_builtins.str, 'Condition']]]
+    condition: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Condition']]]]
     """
     Specify prefix-list bounds.
     """
-    subnet_mask_length: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_mask_length: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SubnetMaskLength gives the minimum NetworkPrefix length to be matched. Possible values for IPv4 are 1 - 32 . Possible values of IPv6 are 1 - 128.
     """
@@ -2617,13 +2617,13 @@ class IpPrefixRuleArgs:
                  action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']],
                  network_prefix: pulumi.Input[_builtins.str],
                  sequence_number: pulumi.Input[_builtins.float],
-                 condition: Optional[pulumi.Input[Union[_builtins.str, 'Condition']]] = None,
-                 subnet_mask_length: Optional[pulumi.Input[_builtins.str]] = None):
+                 condition: pulumi.Input[Optional[Union[_builtins.str, 'Condition']]] = None,
+                 subnet_mask_length: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IP Prefix Rule properties.
 
         :param pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']] action: Action to be taken on the configuration. Example: Permit | Deny.
-        :param pulumi.Input[_builtins.str] network_prefix: Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
+        :param pulumi.Input[_builtins.str] network_prefix: Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126
         :param pulumi.Input[_builtins.float] sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
         :param pulumi.Input[Union[_builtins.str, 'Condition']] condition: Specify prefix-list bounds.
         :param pulumi.Input[_builtins.str] subnet_mask_length: SubnetMaskLength gives the minimum NetworkPrefix length to be matched. Possible values for IPv4 are 1 - 32 . Possible values of IPv6 are 1 - 128.
@@ -2652,7 +2652,7 @@ class IpPrefixRuleArgs:
     @pulumi.getter(name="networkPrefix")
     def network_prefix(self) -> pulumi.Input[_builtins.str]:
         """
-        Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
+        Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126
         """
         return pulumi.get(self, "network_prefix")
 
@@ -2674,26 +2674,26 @@ class IpPrefixRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Condition']]]:
+    def condition(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Condition']]]:
         """
         Specify prefix-list bounds.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Condition']]]):
+    def condition(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Condition']]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetMaskLength")
-    def subnet_mask_length(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_mask_length(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SubnetMaskLength gives the minimum NetworkPrefix length to be matched. Possible values for IPv4 are 1 - 32 . Possible values of IPv6 are 1 - 128.
         """
         return pulumi.get(self, "subnet_mask_length")
 
     @subnet_mask_length.setter
-    def subnet_mask_length(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_mask_length(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_mask_length", value)
 
 
@@ -2701,11 +2701,11 @@ class IsolationDomainPropertiesArgsDict(TypedDict):
     """
     Isolation Domain Properties.
     """
-    encapsulation: NotRequired[pulumi.Input[Union[_builtins.str, 'Encapsulation']]]
+    encapsulation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Encapsulation']]]]
     """
     Type of encapsulation.
     """
-    neighbor_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    neighbor_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of Neighbor Group IDs.
     """
@@ -2713,8 +2713,8 @@ class IsolationDomainPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IsolationDomainPropertiesArgs:
     def __init__(__self__, *,
-                 encapsulation: Optional[pulumi.Input[Union[_builtins.str, 'Encapsulation']]] = None,
-                 neighbor_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 encapsulation: pulumi.Input[Optional[Union[_builtins.str, 'Encapsulation']]] = None,
+                 neighbor_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Isolation Domain Properties.
 
@@ -2728,26 +2728,26 @@ class IsolationDomainPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encapsulation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Encapsulation']]]:
+    def encapsulation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Encapsulation']]]:
         """
         Type of encapsulation.
         """
         return pulumi.get(self, "encapsulation")
 
     @encapsulation.setter
-    def encapsulation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Encapsulation']]]):
+    def encapsulation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Encapsulation']]]):
         pulumi.set(self, "encapsulation", value)
 
     @_builtins.property
     @pulumi.getter(name="neighborGroupIds")
-    def neighbor_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def neighbor_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Neighbor Group IDs.
         """
         return pulumi.get(self, "neighbor_group_ids")
 
     @neighbor_group_ids.setter
-    def neighbor_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def neighbor_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "neighbor_group_ids", value)
 
 
@@ -2755,11 +2755,11 @@ class L3ExportRoutePolicyArgsDict(TypedDict):
     """
     Array of ARM Resource ID of the RoutePolicies.
     """
-    export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    export_ipv4_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Resource ID of the RoutePolicy.
     """
-    export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    export_ipv6_route_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Resource ID of the RoutePolicy.
     """
@@ -2767,8 +2767,8 @@ class L3ExportRoutePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class L3ExportRoutePolicyArgs:
     def __init__(__self__, *,
-                 export_ipv4_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 export_ipv4_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_ipv6_route_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Array of ARM Resource ID of the RoutePolicies.
 
@@ -2782,26 +2782,26 @@ class L3ExportRoutePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportIpv4RoutePolicyId")
-    def export_ipv4_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_ipv4_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Resource ID of the RoutePolicy.
         """
         return pulumi.get(self, "export_ipv4_route_policy_id")
 
     @export_ipv4_route_policy_id.setter
-    def export_ipv4_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_ipv4_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_ipv4_route_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="exportIpv6RoutePolicyId")
-    def export_ipv6_route_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_ipv6_route_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Resource ID of the RoutePolicy.
         """
         return pulumi.get(self, "export_ipv6_route_policy_id")
 
     @export_ipv6_route_policy_id.setter
-    def export_ipv6_route_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_ipv6_route_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_ipv6_route_policy_id", value)
 
 
@@ -2809,15 +2809,15 @@ class L3OptionBPropertiesArgsDict(TypedDict):
     """
     Option B configuration.
     """
-    export_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    export_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     RouteTargets to be applied. This is used for the backward compatibility.
     """
-    import_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    import_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     RouteTargets to be applied. This is used for the backward compatibility.
     """
-    route_targets: NotRequired[pulumi.Input['RouteTargetInformationArgsDict']]
+    route_targets: NotRequired[pulumi.Input[Optional['RouteTargetInformationArgsDict']]]
     """
     RouteTargets to be applied.
     """
@@ -2825,9 +2825,9 @@ class L3OptionBPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class L3OptionBPropertiesArgs:
     def __init__(__self__, *,
-                 export_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 import_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_targets: Optional[pulumi.Input['RouteTargetInformationArgs']] = None):
+                 export_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 import_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 route_targets: pulumi.Input[Optional['RouteTargetInformationArgs']] = None):
         """
         Option B configuration.
 
@@ -2844,38 +2844,38 @@ class L3OptionBPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportRouteTargets")
-    def export_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def export_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         RouteTargets to be applied. This is used for the backward compatibility.
         """
         return pulumi.get(self, "export_route_targets")
 
     @export_route_targets.setter
-    def export_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def export_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "export_route_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="importRouteTargets")
-    def import_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def import_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         RouteTargets to be applied. This is used for the backward compatibility.
         """
         return pulumi.get(self, "import_route_targets")
 
     @import_route_targets.setter
-    def import_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def import_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "import_route_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTargets")
-    def route_targets(self) -> Optional[pulumi.Input['RouteTargetInformationArgs']]:
+    def route_targets(self) -> pulumi.Input[Optional['RouteTargetInformationArgs']]:
         """
         RouteTargets to be applied.
         """
         return pulumi.get(self, "route_targets")
 
     @route_targets.setter
-    def route_targets(self, value: Optional[pulumi.Input['RouteTargetInformationArgs']]):
+    def route_targets(self, value: pulumi.Input[Optional['RouteTargetInformationArgs']]):
         pulumi.set(self, "route_targets", value)
 
 
@@ -2883,11 +2883,11 @@ class Layer2ConfigurationArgsDict(TypedDict):
     """
     Common properties for Layer2 Configuration.
     """
-    interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of network device interfaces resource IDs.
     """
-    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    mtu: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     MTU of the packets between PE & CE.
     """
@@ -2895,8 +2895,8 @@ class Layer2ConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class Layer2ConfigurationArgs:
     def __init__(__self__, *,
-                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None):
+                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Common properties for Layer2 Configuration.
 
@@ -2912,26 +2912,26 @@ class Layer2ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of network device interfaces resource IDs.
         """
         return pulumi.get(self, "interfaces")
 
     @interfaces.setter
-    def interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "interfaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         MTU of the packets between PE & CE.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
 
@@ -2939,11 +2939,11 @@ class ManagedResourceGroupConfigurationArgsDict(TypedDict):
     """
     Managed Resource Group configuration properties.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Managed resource group location.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The NFC service will be hosted in a Managed resource group.
     """
@@ -2951,8 +2951,8 @@ class ManagedResourceGroupConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Managed Resource Group configuration properties.
 
@@ -2966,26 +2966,26 @@ class ManagedResourceGroupConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Managed resource group location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The NFC service will be hosted in a Managed resource group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2997,7 +2997,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -3006,7 +3006,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -3031,14 +3031,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3098,7 +3098,7 @@ class NeighborAddressArgsDict(TypedDict):
     """
     Neighbor Address properties.
     """
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP Address.
     """
@@ -3106,7 +3106,7 @@ class NeighborAddressArgsDict(TypedDict):
 @pulumi.input_type
 class NeighborAddressArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Neighbor Address properties.
 
@@ -3117,14 +3117,14 @@ class NeighborAddressArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
 
@@ -3132,11 +3132,11 @@ class NeighborGroupDestinationArgsDict(TypedDict):
     """
     An array of destination IPv4 Addresses or IPv6 Addresses.
     """
-    ipv4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ipv4_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Array of IPv4 Addresses.
     """
-    ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ipv6_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Array of IPv6 Addresses.
     """
@@ -3144,8 +3144,8 @@ class NeighborGroupDestinationArgsDict(TypedDict):
 @pulumi.input_type
 class NeighborGroupDestinationArgs:
     def __init__(__self__, *,
-                 ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ipv4_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An array of destination IPv4 Addresses or IPv6 Addresses.
 
@@ -3159,26 +3159,26 @@ class NeighborGroupDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv4Addresses")
-    def ipv4_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv4_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of IPv4 Addresses.
         """
         return pulumi.get(self, "ipv4_addresses")
 
     @ipv4_addresses.setter
-    def ipv4_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv4_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv4_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of IPv6 Addresses.
         """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
-    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_addresses", value)
 
 
@@ -3198,11 +3198,11 @@ class NetworkTapPropertiesDestinationsArgsDict(TypedDict):
     """
     Destination name.
     """
-    destination_tap_rule_id: NotRequired[pulumi.Input[_builtins.str]]
+    destination_tap_rule_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM Resource ID of destination Tap Rule that contains match configurations.
     """
-    isolation_domain_properties: NotRequired[pulumi.Input['IsolationDomainPropertiesArgsDict']]
+    isolation_domain_properties: NotRequired[pulumi.Input[Optional['IsolationDomainPropertiesArgsDict']]]
     """
     Isolation Domain Properties.
     """
@@ -3213,8 +3213,8 @@ class NetworkTapPropertiesDestinationsArgs:
                  destination_id: pulumi.Input[_builtins.str],
                  destination_type: pulumi.Input[Union[_builtins.str, 'DestinationType']],
                  name: pulumi.Input[_builtins.str],
-                 destination_tap_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 isolation_domain_properties: Optional[pulumi.Input['IsolationDomainPropertiesArgs']] = None):
+                 destination_tap_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 isolation_domain_properties: pulumi.Input[Optional['IsolationDomainPropertiesArgs']] = None):
         """
         Destination.
 
@@ -3270,26 +3270,26 @@ class NetworkTapPropertiesDestinationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationTapRuleId")
-    def destination_tap_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_tap_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Resource ID of destination Tap Rule that contains match configurations.
         """
         return pulumi.get(self, "destination_tap_rule_id")
 
     @destination_tap_rule_id.setter
-    def destination_tap_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_tap_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_tap_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isolationDomainProperties")
-    def isolation_domain_properties(self) -> Optional[pulumi.Input['IsolationDomainPropertiesArgs']]:
+    def isolation_domain_properties(self) -> pulumi.Input[Optional['IsolationDomainPropertiesArgs']]:
         """
         Isolation Domain Properties.
         """
         return pulumi.get(self, "isolation_domain_properties")
 
     @isolation_domain_properties.setter
-    def isolation_domain_properties(self, value: Optional[pulumi.Input['IsolationDomainPropertiesArgs']]):
+    def isolation_domain_properties(self, value: pulumi.Input[Optional['IsolationDomainPropertiesArgs']]):
         pulumi.set(self, "isolation_domain_properties", value)
 
 
@@ -3297,23 +3297,23 @@ class NetworkTapRuleActionArgsDict(TypedDict):
     """
     Action that need to performed.
     """
-    destination_id: NotRequired[pulumi.Input[_builtins.str]]
+    destination_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
     """
-    is_timestamp_enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]
+    is_timestamp_enabled: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]]]
     """
     The parameter to enable or disable the timestamp.
     """
-    match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    match_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
     """
-    truncate: NotRequired[pulumi.Input[_builtins.str]]
+    truncate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Truncate. 0 indicates do not truncate.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'TapRuleActionType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TapRuleActionType']]]]
     """
     Type of actions that can be performed.
     """
@@ -3321,11 +3321,11 @@ class NetworkTapRuleActionArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkTapRuleActionArgs:
     def __init__(__self__, *,
-                 destination_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_timestamp_enabled: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]] = None,
-                 match_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 truncate: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'TapRuleActionType']]] = None):
+                 destination_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_timestamp_enabled: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]] = None,
+                 match_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 truncate: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'TapRuleActionType']]] = None):
         """
         Action that need to performed.
 
@@ -3348,62 +3348,62 @@ class NetworkTapRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationId")
-    def destination_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
         """
         return pulumi.get(self, "destination_id")
 
     @destination_id.setter
-    def destination_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isTimestampEnabled")
-    def is_timestamp_enabled(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]:
+    def is_timestamp_enabled(self) -> pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]]:
         """
         The parameter to enable or disable the timestamp.
         """
         return pulumi.get(self, "is_timestamp_enabled")
 
     @is_timestamp_enabled.setter
-    def is_timestamp_enabled(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]):
+    def is_timestamp_enabled(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnumProperty']]]):
         pulumi.set(self, "is_timestamp_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="matchConfigurationName")
-    def match_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
         """
         return pulumi.get(self, "match_configuration_name")
 
     @match_configuration_name.setter
-    def match_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def truncate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def truncate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Truncate. 0 indicates do not truncate.
         """
         return pulumi.get(self, "truncate")
 
     @truncate.setter
-    def truncate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def truncate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "truncate", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TapRuleActionType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TapRuleActionType']]]:
         """
         Type of actions that can be performed.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TapRuleActionType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TapRuleActionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -3411,23 +3411,23 @@ class NetworkTapRuleMatchConditionArgsDict(TypedDict):
     """
     Defines the match condition that is supported to filter the traffic.
     """
-    encapsulation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EncapsulationType']]]
+    encapsulation_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EncapsulationType']]]]
     """
     Encapsulation Type that needs to be matched.
     """
-    ip_condition: NotRequired[pulumi.Input['IpMatchConditionArgsDict']]
+    ip_condition: NotRequired[pulumi.Input[Optional['IpMatchConditionArgsDict']]]
     """
     IP condition that needs to be matched.
     """
-    port_condition: NotRequired[pulumi.Input['PortConditionArgsDict']]
+    port_condition: NotRequired[pulumi.Input[Optional['PortConditionArgsDict']]]
     """
     Defines the port condition that needs to be matched.
     """
-    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    protocol_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the protocols that need to be matched.
     """
-    vlan_match_condition: NotRequired[pulumi.Input['VlanMatchConditionArgsDict']]
+    vlan_match_condition: NotRequired[pulumi.Input[Optional['VlanMatchConditionArgsDict']]]
     """
     Vlan match condition that needs to be matched.
     """
@@ -3435,11 +3435,11 @@ class NetworkTapRuleMatchConditionArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkTapRuleMatchConditionArgs:
     def __init__(__self__, *,
-                 encapsulation_type: Optional[pulumi.Input[Union[_builtins.str, 'EncapsulationType']]] = None,
-                 ip_condition: Optional[pulumi.Input['IpMatchConditionArgs']] = None,
-                 port_condition: Optional[pulumi.Input['PortConditionArgs']] = None,
-                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlan_match_condition: Optional[pulumi.Input['VlanMatchConditionArgs']] = None):
+                 encapsulation_type: pulumi.Input[Optional[Union[_builtins.str, 'EncapsulationType']]] = None,
+                 ip_condition: pulumi.Input[Optional['IpMatchConditionArgs']] = None,
+                 port_condition: pulumi.Input[Optional['PortConditionArgs']] = None,
+                 protocol_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlan_match_condition: pulumi.Input[Optional['VlanMatchConditionArgs']] = None):
         """
         Defines the match condition that is supported to filter the traffic.
 
@@ -3464,62 +3464,62 @@ class NetworkTapRuleMatchConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encapsulationType")
-    def encapsulation_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncapsulationType']]]:
+    def encapsulation_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EncapsulationType']]]:
         """
         Encapsulation Type that needs to be matched.
         """
         return pulumi.get(self, "encapsulation_type")
 
     @encapsulation_type.setter
-    def encapsulation_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncapsulationType']]]):
+    def encapsulation_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EncapsulationType']]]):
         pulumi.set(self, "encapsulation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipCondition")
-    def ip_condition(self) -> Optional[pulumi.Input['IpMatchConditionArgs']]:
+    def ip_condition(self) -> pulumi.Input[Optional['IpMatchConditionArgs']]:
         """
         IP condition that needs to be matched.
         """
         return pulumi.get(self, "ip_condition")
 
     @ip_condition.setter
-    def ip_condition(self, value: Optional[pulumi.Input['IpMatchConditionArgs']]):
+    def ip_condition(self, value: pulumi.Input[Optional['IpMatchConditionArgs']]):
         pulumi.set(self, "ip_condition", value)
 
     @_builtins.property
     @pulumi.getter(name="portCondition")
-    def port_condition(self) -> Optional[pulumi.Input['PortConditionArgs']]:
+    def port_condition(self) -> pulumi.Input[Optional['PortConditionArgs']]:
         """
         Defines the port condition that needs to be matched.
         """
         return pulumi.get(self, "port_condition")
 
     @port_condition.setter
-    def port_condition(self, value: Optional[pulumi.Input['PortConditionArgs']]):
+    def port_condition(self, value: pulumi.Input[Optional['PortConditionArgs']]):
         pulumi.set(self, "port_condition", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def protocol_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the protocols that need to be matched.
         """
         return pulumi.get(self, "protocol_types")
 
     @protocol_types.setter
-    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def protocol_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "protocol_types", value)
 
     @_builtins.property
     @pulumi.getter(name="vlanMatchCondition")
-    def vlan_match_condition(self) -> Optional[pulumi.Input['VlanMatchConditionArgs']]:
+    def vlan_match_condition(self) -> pulumi.Input[Optional['VlanMatchConditionArgs']]:
         """
         Vlan match condition that needs to be matched.
         """
         return pulumi.get(self, "vlan_match_condition")
 
     @vlan_match_condition.setter
-    def vlan_match_condition(self, value: Optional[pulumi.Input['VlanMatchConditionArgs']]):
+    def vlan_match_condition(self, value: pulumi.Input[Optional['VlanMatchConditionArgs']]):
         pulumi.set(self, "vlan_match_condition", value)
 
 
@@ -3527,23 +3527,23 @@ class NetworkTapRuleMatchConfigurationArgsDict(TypedDict):
     """
     Defines the match configuration that are supported to filter the traffic.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgsDict']]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleActionArgsDict']]]]]
     """
     List of actions that need to be performed for the matched conditions.
     """
-    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]]
     """
     Type of IP Address. IPv4 or IPv6
     """
-    match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgsDict']]]]
+    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgsDict']]]]]
     """
     List of the match conditions.
     """
-    match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    match_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the match configuration.
     """
-    sequence_number: NotRequired[pulumi.Input[_builtins.float]]
+    sequence_number: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Sequence Number of the match configuration..
     """
@@ -3551,11 +3551,11 @@ class NetworkTapRuleMatchConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkTapRuleMatchConfigurationArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]] = None,
-                 ip_address_type: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]] = None,
-                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]] = None,
-                 match_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sequence_number: Optional[pulumi.Input[_builtins.float]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]] = None,
+                 ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]] = None,
+                 match_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]] = None,
+                 match_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sequence_number: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Defines the match configuration that are supported to filter the traffic.
 
@@ -3578,62 +3578,62 @@ class NetworkTapRuleMatchConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]]:
         """
         List of actions that need to be performed for the matched conditions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]:
         """
         Type of IP Address. IPv4 or IPv6
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IPAddressType']]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]]:
+    def match_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]]:
         """
         List of the match conditions.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]]):
+    def match_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]]):
         pulumi.set(self, "match_conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="matchConfigurationName")
-    def match_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the match configuration.
         """
         return pulumi.get(self, "match_configuration_name")
 
     @match_configuration_name.setter
-    def match_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sequenceNumber")
-    def sequence_number(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sequence_number(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Sequence Number of the match configuration..
         """
         return pulumi.get(self, "sequence_number")
 
     @sequence_number.setter
-    def sequence_number(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sequence_number(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sequence_number", value)
 
 
@@ -3649,19 +3649,19 @@ class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgsDict(T
     """
     VLAN for CE/PE Layer 3 connectivity.Example : 501
     """
-    primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    primary_ipv4_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv4 Address Prefix.
     """
-    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    primary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv6 Address Prefix.
     """
-    secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_ipv4_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary IPv4 Address Prefix.
     """
-    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary IPv6 Address Prefix.
     """
@@ -3671,10 +3671,10 @@ class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs:
     def __init__(__self__, *,
                  peer_asn: pulumi.Input[_builtins.float],
                  vlan_id: pulumi.Input[_builtins.int],
-                 primary_ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary_ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Common properties for Layer3Configuration.
 
@@ -3722,50 +3722,50 @@ class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryIpv4Prefix")
-    def primary_ipv4_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_ipv4_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv4 Address Prefix.
         """
         return pulumi.get(self, "primary_ipv4_prefix")
 
     @primary_ipv4_prefix.setter
-    def primary_ipv4_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_ipv4_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_ipv4_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryIpv6Prefix")
-    def primary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv6 Address Prefix.
         """
         return pulumi.get(self, "primary_ipv6_prefix")
 
     @primary_ipv6_prefix.setter
-    def primary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_ipv6_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpv4Prefix")
-    def secondary_ipv4_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_ipv4_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IPv4 Address Prefix.
         """
         return pulumi.get(self, "secondary_ipv4_prefix")
 
     @secondary_ipv4_prefix.setter
-    def secondary_ipv4_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_ipv4_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_ipv4_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpv6Prefix")
-    def secondary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IPv6 Address Prefix.
         """
         return pulumi.get(self, "secondary_ipv6_prefix")
 
     @secondary_ipv6_prefix.setter
-    def secondary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_ipv6_prefix", value)
 
 
@@ -3773,15 +3773,15 @@ class NpbStaticRouteConfigurationArgsDict(TypedDict):
     """
     NPB Static Route Configuration properties.
     """
-    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    bfd_configuration: NotRequired[pulumi.Input[Optional['BfdConfigurationArgsDict']]]
     """
     BFD Configuration properties.
     """
-    ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    ipv4_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]]
     """
     List of IPv4 Routes.
     """
-    ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    ipv6_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]]
     """
     List of IPv6 Routes.
     """
@@ -3789,9 +3789,9 @@ class NpbStaticRouteConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class NpbStaticRouteConfigurationArgs:
     def __init__(__self__, *,
-                 bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
-                 ipv4_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
-                 ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None):
+                 bfd_configuration: pulumi.Input[Optional['BfdConfigurationArgs']] = None,
+                 ipv4_routes: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None,
+                 ipv6_routes: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None):
         """
         NPB Static Route Configuration properties.
 
@@ -3808,38 +3808,38 @@ class NpbStaticRouteConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bfdConfiguration")
-    def bfd_configuration(self) -> Optional[pulumi.Input['BfdConfigurationArgs']]:
+    def bfd_configuration(self) -> pulumi.Input[Optional['BfdConfigurationArgs']]:
         """
         BFD Configuration properties.
         """
         return pulumi.get(self, "bfd_configuration")
 
     @bfd_configuration.setter
-    def bfd_configuration(self, value: Optional[pulumi.Input['BfdConfigurationArgs']]):
+    def bfd_configuration(self, value: pulumi.Input[Optional['BfdConfigurationArgs']]):
         pulumi.set(self, "bfd_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4Routes")
-    def ipv4_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
+    def ipv4_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
         """
         List of IPv4 Routes.
         """
         return pulumi.get(self, "ipv4_routes")
 
     @ipv4_routes.setter
-    def ipv4_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
+    def ipv4_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
         pulumi.set(self, "ipv4_routes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Routes")
-    def ipv6_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
+    def ipv6_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]:
         """
         List of IPv6 Routes.
         """
         return pulumi.get(self, "ipv6_routes")
 
     @ipv6_routes.setter
-    def ipv6_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
+    def ipv6_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]]):
         pulumi.set(self, "ipv6_routes", value)
 
 
@@ -3851,15 +3851,15 @@ class PortConditionArgsDict(TypedDict):
     """
     Layer4 protocol type that needs to be matched.
     """
-    port_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    port_group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the port Group Names that need to be matched.
     """
-    port_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PortType']]]
+    port_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PortType']]]]
     """
     Port type that needs to be matched.
     """
-    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the Ports that need to be matched.
     """
@@ -3868,9 +3868,9 @@ class PortConditionArgsDict(TypedDict):
 class PortConditionArgs:
     def __init__(__self__, *,
                  layer4_protocol: pulumi.Input[Union[_builtins.str, 'Layer4Protocol']],
-                 port_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 port_type: Optional[pulumi.Input[Union[_builtins.str, 'PortType']]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 port_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 port_type: pulumi.Input[Optional[Union[_builtins.str, 'PortType']]] = None,
+                 ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Port condition that needs to be matched.
 
@@ -3901,38 +3901,38 @@ class PortConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="portGroupNames")
-    def port_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def port_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the port Group Names that need to be matched.
         """
         return pulumi.get(self, "port_group_names")
 
     @port_group_names.setter
-    def port_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def port_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "port_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="portType")
-    def port_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PortType']]]:
+    def port_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PortType']]]:
         """
         Port type that needs to be matched.
         """
         return pulumi.get(self, "port_type")
 
     @port_type.setter
-    def port_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PortType']]]):
+    def port_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PortType']]]):
         pulumi.set(self, "port_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the Ports that need to be matched.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ports", value)
 
 
@@ -3940,11 +3940,11 @@ class PortGroupPropertiesArgsDict(TypedDict):
     """
     Port Group properties.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the port group.
     """
-    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the ports that need to be matched.
     """
@@ -3952,8 +3952,8 @@ class PortGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PortGroupPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Port Group properties.
 
@@ -3967,26 +3967,26 @@ class PortGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the port group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the ports that need to be matched.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ports", value)
 
 
@@ -4006,7 +4006,7 @@ class RoutePolicyStatementPropertiesArgsDict(TypedDict):
     """
     Sequence to insert to/delete from existing route.
     """
-    annotation: NotRequired[pulumi.Input[_builtins.str]]
+    annotation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Switch configuration description.
     """
@@ -4017,7 +4017,7 @@ class RoutePolicyStatementPropertiesArgs:
                  action: pulumi.Input['StatementActionPropertiesArgs'],
                  condition: pulumi.Input['StatementConditionPropertiesArgs'],
                  sequence_number: pulumi.Input[_builtins.float],
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Route Policy Statement properties.
 
@@ -4070,14 +4070,14 @@ class RoutePolicyStatementPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
 
@@ -4085,19 +4085,19 @@ class RouteTargetInformationArgsDict(TypedDict):
     """
     Route Target Configuration.
     """
-    export_ipv4_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    export_ipv4_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Route Targets to be applied for outgoing routes into CE.
     """
-    export_ipv6_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    export_ipv6_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Route Targets to be applied for outgoing routes from CE.
     """
-    import_ipv4_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    import_ipv4_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Route Targets to be applied for incoming routes into CE.
     """
-    import_ipv6_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    import_ipv6_route_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Route Targets to be applied for incoming routes from CE.
     """
@@ -4105,10 +4105,10 @@ class RouteTargetInformationArgsDict(TypedDict):
 @pulumi.input_type
 class RouteTargetInformationArgs:
     def __init__(__self__, *,
-                 export_ipv4_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_ipv6_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 import_ipv4_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 import_ipv6_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 export_ipv4_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_ipv6_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 import_ipv4_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 import_ipv6_route_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Route Target Configuration.
 
@@ -4128,50 +4128,50 @@ class RouteTargetInformationArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportIpv4RouteTargets")
-    def export_ipv4_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def export_ipv4_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Route Targets to be applied for outgoing routes into CE.
         """
         return pulumi.get(self, "export_ipv4_route_targets")
 
     @export_ipv4_route_targets.setter
-    def export_ipv4_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def export_ipv4_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "export_ipv4_route_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="exportIpv6RouteTargets")
-    def export_ipv6_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def export_ipv6_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Route Targets to be applied for outgoing routes from CE.
         """
         return pulumi.get(self, "export_ipv6_route_targets")
 
     @export_ipv6_route_targets.setter
-    def export_ipv6_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def export_ipv6_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "export_ipv6_route_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="importIpv4RouteTargets")
-    def import_ipv4_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def import_ipv4_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Route Targets to be applied for incoming routes into CE.
         """
         return pulumi.get(self, "import_ipv4_route_targets")
 
     @import_ipv4_route_targets.setter
-    def import_ipv4_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def import_ipv4_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "import_ipv4_route_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="importIpv6RouteTargets")
-    def import_ipv6_route_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def import_ipv6_route_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Route Targets to be applied for incoming routes from CE.
         """
         return pulumi.get(self, "import_ipv6_route_targets")
 
     @import_ipv6_route_targets.setter
-    def import_ipv6_route_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def import_ipv6_route_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "import_ipv6_route_targets", value)
 
 
@@ -4235,15 +4235,15 @@ class StatementActionPropertiesArgsDict(TypedDict):
     """
     Action type. Example: Permit | Deny | Continue.
     """
-    ip_community_properties: NotRequired[pulumi.Input['ActionIpCommunityPropertiesArgsDict']]
+    ip_community_properties: NotRequired[pulumi.Input[Optional['ActionIpCommunityPropertiesArgsDict']]]
     """
     IP Community Properties.
     """
-    ip_extended_community_properties: NotRequired[pulumi.Input['ActionIpExtendedCommunityPropertiesArgsDict']]
+    ip_extended_community_properties: NotRequired[pulumi.Input[Optional['ActionIpExtendedCommunityPropertiesArgsDict']]]
     """
     IP Extended Community Properties.
     """
-    local_preference: NotRequired[pulumi.Input[_builtins.float]]
+    local_preference: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Local Preference of the route policy.
     """
@@ -4252,9 +4252,9 @@ class StatementActionPropertiesArgsDict(TypedDict):
 class StatementActionPropertiesArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[Union[_builtins.str, 'RoutePolicyActionType']],
-                 ip_community_properties: Optional[pulumi.Input['ActionIpCommunityPropertiesArgs']] = None,
-                 ip_extended_community_properties: Optional[pulumi.Input['ActionIpExtendedCommunityPropertiesArgs']] = None,
-                 local_preference: Optional[pulumi.Input[_builtins.float]] = None):
+                 ip_community_properties: pulumi.Input[Optional['ActionIpCommunityPropertiesArgs']] = None,
+                 ip_extended_community_properties: pulumi.Input[Optional['ActionIpExtendedCommunityPropertiesArgs']] = None,
+                 local_preference: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Route policy action properties.
 
@@ -4285,38 +4285,38 @@ class StatementActionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipCommunityProperties")
-    def ip_community_properties(self) -> Optional[pulumi.Input['ActionIpCommunityPropertiesArgs']]:
+    def ip_community_properties(self) -> pulumi.Input[Optional['ActionIpCommunityPropertiesArgs']]:
         """
         IP Community Properties.
         """
         return pulumi.get(self, "ip_community_properties")
 
     @ip_community_properties.setter
-    def ip_community_properties(self, value: Optional[pulumi.Input['ActionIpCommunityPropertiesArgs']]):
+    def ip_community_properties(self, value: pulumi.Input[Optional['ActionIpCommunityPropertiesArgs']]):
         pulumi.set(self, "ip_community_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ipExtendedCommunityProperties")
-    def ip_extended_community_properties(self) -> Optional[pulumi.Input['ActionIpExtendedCommunityPropertiesArgs']]:
+    def ip_extended_community_properties(self) -> pulumi.Input[Optional['ActionIpExtendedCommunityPropertiesArgs']]:
         """
         IP Extended Community Properties.
         """
         return pulumi.get(self, "ip_extended_community_properties")
 
     @ip_extended_community_properties.setter
-    def ip_extended_community_properties(self, value: Optional[pulumi.Input['ActionIpExtendedCommunityPropertiesArgs']]):
+    def ip_extended_community_properties(self, value: pulumi.Input[Optional['ActionIpExtendedCommunityPropertiesArgs']]):
         pulumi.set(self, "ip_extended_community_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="localPreference")
-    def local_preference(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def local_preference(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Local Preference of the route policy.
         """
         return pulumi.get(self, "local_preference")
 
     @local_preference.setter
-    def local_preference(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def local_preference(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "local_preference", value)
 
 
@@ -4324,19 +4324,19 @@ class StatementConditionPropertiesArgsDict(TypedDict):
     """
     Route policy statement condition properties.
     """
-    ip_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_community_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP Community resource IDs.
     """
-    ip_extended_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_extended_community_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IP Extended Community resource IDs.
     """
-    ip_prefix_id: NotRequired[pulumi.Input[_builtins.str]]
+    ip_prefix_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Arm Resource Id of IpPrefix.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutePolicyConditionType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RoutePolicyConditionType']]]]
     """
     Type of the condition used.
     """
@@ -4344,10 +4344,10 @@ class StatementConditionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class StatementConditionPropertiesArgs:
     def __init__(__self__, *,
-                 ip_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_extended_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'RoutePolicyConditionType']]] = None):
+                 ip_community_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_extended_community_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'RoutePolicyConditionType']]] = None):
         """
         Route policy statement condition properties.
 
@@ -4369,50 +4369,50 @@ class StatementConditionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipCommunityIds")
-    def ip_community_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_community_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP Community resource IDs.
         """
         return pulumi.get(self, "ip_community_ids")
 
     @ip_community_ids.setter
-    def ip_community_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_community_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_community_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ipExtendedCommunityIds")
-    def ip_extended_community_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_extended_community_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IP Extended Community resource IDs.
         """
         return pulumi.get(self, "ip_extended_community_ids")
 
     @ip_extended_community_ids.setter
-    def ip_extended_community_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_extended_community_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_extended_community_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ipPrefixId")
-    def ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arm Resource Id of IpPrefix.
         """
         return pulumi.get(self, "ip_prefix_id")
 
     @ip_prefix_id.setter
-    def ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RoutePolicyConditionType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RoutePolicyConditionType']]]:
         """
         Type of the condition used.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RoutePolicyConditionType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RoutePolicyConditionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -4472,15 +4472,15 @@ class StationConnectionPropertiesArgsDict(TypedDict):
     """
     Station Connection Properties.
     """
-    keepalive_idle_time: NotRequired[pulumi.Input[_builtins.int]]
+    keepalive_idle_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Connection keepalive idle time in seconds
     """
-    probe_count: NotRequired[pulumi.Input[_builtins.int]]
+    probe_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Probe count, default value is 10
     """
-    probe_interval: NotRequired[pulumi.Input[_builtins.int]]
+    probe_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Probe interval in seconds, default value is 60
     """
@@ -4488,9 +4488,9 @@ class StationConnectionPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class StationConnectionPropertiesArgs:
     def __init__(__self__, *,
-                 keepalive_idle_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 keepalive_idle_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Station Connection Properties.
 
@@ -4513,38 +4513,38 @@ class StationConnectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keepaliveIdleTime")
-    def keepalive_idle_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def keepalive_idle_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Connection keepalive idle time in seconds
         """
         return pulumi.get(self, "keepalive_idle_time")
 
     @keepalive_idle_time.setter
-    def keepalive_idle_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def keepalive_idle_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "keepalive_idle_time", value)
 
     @_builtins.property
     @pulumi.getter(name="probeCount")
-    def probe_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probe_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Probe count, default value is 10
         """
         return pulumi.get(self, "probe_count")
 
     @probe_count.setter
-    def probe_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probe_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probe_count", value)
 
     @_builtins.property
     @pulumi.getter(name="probeInterval")
-    def probe_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probe_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Probe interval in seconds, default value is 60
         """
         return pulumi.get(self, "probe_interval")
 
     @probe_interval.setter
-    def probe_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probe_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probe_interval", value)
 
 
@@ -4568,15 +4568,15 @@ class TerminalServerConfigurationArgsDict(TypedDict):
     """
     Username for the terminal server connection.
     """
-    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    primary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv6 Address Prefix.
     """
-    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary IPv6 Address Prefix.
     """
-    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    serial_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Serial Number of Terminal server.
     """
@@ -4588,9 +4588,9 @@ class TerminalServerConfigurationArgs:
                  primary_ipv4_prefix: pulumi.Input[_builtins.str],
                  secondary_ipv4_prefix: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 primary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 serial_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 serial_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Network and credentials configuration currently applied to terminal server.
 
@@ -4663,38 +4663,38 @@ class TerminalServerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryIpv6Prefix")
-    def primary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv6 Address Prefix.
         """
         return pulumi.get(self, "primary_ipv6_prefix")
 
     @primary_ipv6_prefix.setter
-    def primary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_ipv6_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpv6Prefix")
-    def secondary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IPv6 Address Prefix.
         """
         return pulumi.get(self, "secondary_ipv6_prefix")
 
     @secondary_ipv6_prefix.setter
-    def secondary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_ipv6_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serial_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Serial Number of Terminal server.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serial_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serial_number", value)
 
 
@@ -4702,11 +4702,11 @@ class VlanGroupPropertiesArgsDict(TypedDict):
     """
     Vlan group properties.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Vlan group name.
     """
-    vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vlans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of vlans.
     """
@@ -4714,8 +4714,8 @@ class VlanGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VlanGroupPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Vlan group properties.
 
@@ -4729,26 +4729,26 @@ class VlanGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vlan group name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of vlans.
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
 
 
@@ -4756,15 +4756,15 @@ class VlanMatchConditionArgsDict(TypedDict):
     """
     The vlan match conditions that need to be matched.
     """
-    inner_vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inner_vlans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of inner vlans that need to be matched.
     """
-    vlan_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vlan_group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of vlan group names that need to be matched.
     """
-    vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vlans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of vlans that need to be matched.
     """
@@ -4772,9 +4772,9 @@ class VlanMatchConditionArgsDict(TypedDict):
 @pulumi.input_type
 class VlanMatchConditionArgs:
     def __init__(__self__, *,
-                 inner_vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlan_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 inner_vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlan_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The vlan match conditions that need to be matched.
 
@@ -4791,39 +4791,132 @@ class VlanMatchConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="innerVlans")
-    def inner_vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inner_vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of inner vlans that need to be matched.
         """
         return pulumi.get(self, "inner_vlans")
 
     @inner_vlans.setter
-    def inner_vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inner_vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inner_vlans", value)
 
     @_builtins.property
     @pulumi.getter(name="vlanGroupNames")
-    def vlan_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlan_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of vlan group names that need to be matched.
         """
         return pulumi.get(self, "vlan_group_names")
 
     @vlan_group_names.setter
-    def vlan_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlan_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlan_group_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of vlans that need to be matched.
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
+
+
+class VpnConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Network and credential configuration currently applied on terminal server.
+    """
+    peering_option: pulumi.Input[Union[_builtins.str, 'PeeringOption']]
+    """
+    Peering option list.
+    """
+    network_to_network_interconnect_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARM Resource ID of the Network To Network Interconnect.
+    """
+    option_a_properties: NotRequired[pulumi.Input[Optional['VpnConfigurationPropertiesOptionAPropertiesArgsDict']]]
+    """
+    option A properties
+    """
+    option_b_properties: NotRequired[pulumi.Input[Optional['FabricOptionBPropertiesArgsDict']]]
+    """
+    option B properties
+    """
+
+@pulumi.input_type
+class VpnConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 peering_option: pulumi.Input[Union[_builtins.str, 'PeeringOption']],
+                 network_to_network_interconnect_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_a_properties: pulumi.Input[Optional['VpnConfigurationPropertiesOptionAPropertiesArgs']] = None,
+                 option_b_properties: pulumi.Input[Optional['FabricOptionBPropertiesArgs']] = None):
+        """
+        Network and credential configuration currently applied on terminal server.
+
+        :param pulumi.Input[Union[_builtins.str, 'PeeringOption']] peering_option: Peering option list.
+        :param pulumi.Input[_builtins.str] network_to_network_interconnect_id: ARM Resource ID of the Network To Network Interconnect.
+        :param pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs'] option_a_properties: option A properties
+        :param pulumi.Input['FabricOptionBPropertiesArgs'] option_b_properties: option B properties
+        """
+        pulumi.set(__self__, "peering_option", peering_option)
+        if network_to_network_interconnect_id is not None:
+            pulumi.set(__self__, "network_to_network_interconnect_id", network_to_network_interconnect_id)
+        if option_a_properties is not None:
+            pulumi.set(__self__, "option_a_properties", option_a_properties)
+        if option_b_properties is not None:
+            pulumi.set(__self__, "option_b_properties", option_b_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="peeringOption")
+    def peering_option(self) -> pulumi.Input[Union[_builtins.str, 'PeeringOption']]:
+        """
+        Peering option list.
+        """
+        return pulumi.get(self, "peering_option")
+
+    @peering_option.setter
+    def peering_option(self, value: pulumi.Input[Union[_builtins.str, 'PeeringOption']]):
+        pulumi.set(self, "peering_option", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkToNetworkInterconnectId")
+    def network_to_network_interconnect_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARM Resource ID of the Network To Network Interconnect.
+        """
+        return pulumi.get(self, "network_to_network_interconnect_id")
+
+    @network_to_network_interconnect_id.setter
+    def network_to_network_interconnect_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_to_network_interconnect_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="optionAProperties")
+    def option_a_properties(self) -> pulumi.Input[Optional['VpnConfigurationPropertiesOptionAPropertiesArgs']]:
+        """
+        option A properties
+        """
+        return pulumi.get(self, "option_a_properties")
+
+    @option_a_properties.setter
+    def option_a_properties(self, value: pulumi.Input[Optional['VpnConfigurationPropertiesOptionAPropertiesArgs']]):
+        pulumi.set(self, "option_a_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="optionBProperties")
+    def option_b_properties(self) -> pulumi.Input[Optional['FabricOptionBPropertiesArgs']]:
+        """
+        option B properties
+        """
+        return pulumi.get(self, "option_b_properties")
+
+    @option_b_properties.setter
+    def option_b_properties(self, value: pulumi.Input[Optional['FabricOptionBPropertiesArgs']]):
+        pulumi.set(self, "option_b_properties", value)
 
 
 class VpnConfigurationPropertiesOptionAPropertiesArgsDict(TypedDict):
@@ -4838,27 +4931,27 @@ class VpnConfigurationPropertiesOptionAPropertiesArgsDict(TypedDict):
     """
     Vlan Id.Example : 501
     """
-    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    bfd_configuration: NotRequired[pulumi.Input[Optional['BfdConfigurationArgsDict']]]
     """
     BFD Configuration properties.
     """
-    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    mtu: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     MTU to use for option A peering.
     """
-    primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    primary_ipv4_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv4 Address Prefix.
     """
-    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    primary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv6 Address Prefix.
     """
-    secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_ipv4_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary IPv4 Address Prefix.
     """
-    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secondary IPv6 Address Prefix.
     """
@@ -4868,12 +4961,12 @@ class VpnConfigurationPropertiesOptionAPropertiesArgs:
     def __init__(__self__, *,
                  peer_asn: pulumi.Input[_builtins.float],
                  vlan_id: pulumi.Input[_builtins.int],
-                 bfd_configuration: Optional[pulumi.Input['BfdConfigurationArgs']] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ipv4_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bfd_configuration: pulumi.Input[Optional['BfdConfigurationArgs']] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ipv4_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         option A properties
 
@@ -4929,167 +5022,74 @@ class VpnConfigurationPropertiesOptionAPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bfdConfiguration")
-    def bfd_configuration(self) -> Optional[pulumi.Input['BfdConfigurationArgs']]:
+    def bfd_configuration(self) -> pulumi.Input[Optional['BfdConfigurationArgs']]:
         """
         BFD Configuration properties.
         """
         return pulumi.get(self, "bfd_configuration")
 
     @bfd_configuration.setter
-    def bfd_configuration(self, value: Optional[pulumi.Input['BfdConfigurationArgs']]):
+    def bfd_configuration(self, value: pulumi.Input[Optional['BfdConfigurationArgs']]):
         pulumi.set(self, "bfd_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         MTU to use for option A peering.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryIpv4Prefix")
-    def primary_ipv4_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_ipv4_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv4 Address Prefix.
         """
         return pulumi.get(self, "primary_ipv4_prefix")
 
     @primary_ipv4_prefix.setter
-    def primary_ipv4_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_ipv4_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_ipv4_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryIpv6Prefix")
-    def primary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv6 Address Prefix.
         """
         return pulumi.get(self, "primary_ipv6_prefix")
 
     @primary_ipv6_prefix.setter
-    def primary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_ipv6_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpv4Prefix")
-    def secondary_ipv4_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_ipv4_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IPv4 Address Prefix.
         """
         return pulumi.get(self, "secondary_ipv4_prefix")
 
     @secondary_ipv4_prefix.setter
-    def secondary_ipv4_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_ipv4_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_ipv4_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpv6Prefix")
-    def secondary_ipv6_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_ipv6_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IPv6 Address Prefix.
         """
         return pulumi.get(self, "secondary_ipv6_prefix")
 
     @secondary_ipv6_prefix.setter
-    def secondary_ipv6_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_ipv6_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_ipv6_prefix", value)
-
-
-class VpnConfigurationPropertiesArgsDict(TypedDict):
-    """
-    Network and credential configuration currently applied on terminal server.
-    """
-    peering_option: pulumi.Input[Union[_builtins.str, 'PeeringOption']]
-    """
-    Peering option list.
-    """
-    network_to_network_interconnect_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    ARM Resource ID of the Network To Network Interconnect.
-    """
-    option_a_properties: NotRequired[pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgsDict']]
-    """
-    option A properties
-    """
-    option_b_properties: NotRequired[pulumi.Input['FabricOptionBPropertiesArgsDict']]
-    """
-    option B properties
-    """
-
-@pulumi.input_type
-class VpnConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 peering_option: pulumi.Input[Union[_builtins.str, 'PeeringOption']],
-                 network_to_network_interconnect_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_a_properties: Optional[pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs']] = None,
-                 option_b_properties: Optional[pulumi.Input['FabricOptionBPropertiesArgs']] = None):
-        """
-        Network and credential configuration currently applied on terminal server.
-
-        :param pulumi.Input[Union[_builtins.str, 'PeeringOption']] peering_option: Peering option list.
-        :param pulumi.Input[_builtins.str] network_to_network_interconnect_id: ARM Resource ID of the Network To Network Interconnect.
-        :param pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs'] option_a_properties: option A properties
-        :param pulumi.Input['FabricOptionBPropertiesArgs'] option_b_properties: option B properties
-        """
-        pulumi.set(__self__, "peering_option", peering_option)
-        if network_to_network_interconnect_id is not None:
-            pulumi.set(__self__, "network_to_network_interconnect_id", network_to_network_interconnect_id)
-        if option_a_properties is not None:
-            pulumi.set(__self__, "option_a_properties", option_a_properties)
-        if option_b_properties is not None:
-            pulumi.set(__self__, "option_b_properties", option_b_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="peeringOption")
-    def peering_option(self) -> pulumi.Input[Union[_builtins.str, 'PeeringOption']]:
-        """
-        Peering option list.
-        """
-        return pulumi.get(self, "peering_option")
-
-    @peering_option.setter
-    def peering_option(self, value: pulumi.Input[Union[_builtins.str, 'PeeringOption']]):
-        pulumi.set(self, "peering_option", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkToNetworkInterconnectId")
-    def network_to_network_interconnect_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARM Resource ID of the Network To Network Interconnect.
-        """
-        return pulumi.get(self, "network_to_network_interconnect_id")
-
-    @network_to_network_interconnect_id.setter
-    def network_to_network_interconnect_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "network_to_network_interconnect_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="optionAProperties")
-    def option_a_properties(self) -> Optional[pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs']]:
-        """
-        option A properties
-        """
-        return pulumi.get(self, "option_a_properties")
-
-    @option_a_properties.setter
-    def option_a_properties(self, value: Optional[pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs']]):
-        pulumi.set(self, "option_a_properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="optionBProperties")
-    def option_b_properties(self) -> Optional[pulumi.Input['FabricOptionBPropertiesArgs']]:
-        """
-        option B properties
-        """
-        return pulumi.get(self, "option_b_properties")
-
-    @option_b_properties.setter
-    def option_b_properties(self, value: Optional[pulumi.Input['FabricOptionBPropertiesArgs']]):
-        pulumi.set(self, "option_b_properties", value)
 
 

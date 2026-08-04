@@ -143,7 +143,6 @@ def get_hierarchy_setting(group_id: Optional[_builtins.str] = None,
 
     Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str group_id: Management Group ID.
     """
     __args__ = dict()
@@ -160,7 +159,7 @@ def get_hierarchy_setting(group_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hierarchy_setting_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHierarchySettingResult]:
     """
     Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
@@ -168,7 +167,6 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[_builtins.str]]
     Uses Azure REST API version 2023-04-01.
 
     Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str group_id: Management Group ID.
     """

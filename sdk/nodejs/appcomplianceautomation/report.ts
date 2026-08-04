@@ -188,11 +188,11 @@ export interface ReportArgs {
     /**
      * A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
      */
-    offerGuid?: pulumi.Input<string>;
+    offerGuid?: pulumi.Input<string | undefined>;
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string>;
+    reportName?: pulumi.Input<string | undefined>;
     /**
      * List of resource data.
      */
@@ -200,7 +200,7 @@ export interface ReportArgs {
     /**
      * The information of 'bring your own storage' binding to the report
      */
-    storageInfo?: pulumi.Input<inputs.appcomplianceautomation.StorageInfoArgs>;
+    storageInfo?: pulumi.Input<inputs.appcomplianceautomation.StorageInfoArgs | undefined>;
     /**
      * Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
      * An example of valid timezone id is "Pacific Standard Time".

@@ -23,11 +23,11 @@ class LoggerArgs:
                  logger_type: pulumi.Input[Union[_builtins.str, 'LoggerType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_buffered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_buffered: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Logger resource.
 
@@ -93,7 +93,7 @@ class LoggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def credentials(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The name and SendRule connection string of the event hub for azureEventHub logger.
         Instrumentation key for applicationInsights logger.
@@ -101,55 +101,55 @@ class LoggerArgs:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def credentials(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logger description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isBuffered")
-    def is_buffered(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_buffered(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether records are buffered in the logger before publishing. Default is assumed to be true.
         """
         return pulumi.get(self, "is_buffered")
 
     @is_buffered.setter
-    def is_buffered(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_buffered(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_buffered", value)
 
     @_builtins.property
     @pulumi.getter(name="loggerId")
-    def logger_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logger_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logger identifier. Must be unique in the API Management service instance.
         """
         return pulumi.get(self, "logger_id")
 
     @logger_id.setter
-    def logger_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logger_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logger_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -159,14 +159,14 @@ class Logger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_buffered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logger_type: Optional[pulumi.Input[Union[_builtins.str, 'LoggerType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_buffered: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logger_type: pulumi.Input[Optional[Union[_builtins.str, 'LoggerType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Logger details.
@@ -174,7 +174,6 @@ class Logger(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class Logger(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param LoggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,14 +215,14 @@ class Logger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_buffered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 logger_type: Optional[pulumi.Input[Union[_builtins.str, 'LoggerType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_buffered: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 logger_type: pulumi.Input[Optional[Union[_builtins.str, 'LoggerType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

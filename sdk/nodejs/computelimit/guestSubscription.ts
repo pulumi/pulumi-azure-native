@@ -104,7 +104,7 @@ export interface GuestSubscriptionArgs {
     /**
      * The name of the GuestSubscription
      */
-    guestSubscriptionId?: pulumi.Input<string>;
+    guestSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure region.
      */

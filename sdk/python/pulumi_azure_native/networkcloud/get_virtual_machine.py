@@ -453,7 +453,6 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_machine_name: The name of the virtual machine.
     """
@@ -498,8 +497,8 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
         vm_image=pulumi.get(__ret__, 'vm_image'),
         vm_image_repository_credentials=pulumi.get(__ret__, 'vm_image_repository_credentials'),
         volumes=pulumi.get(__ret__, 'volumes'))
-def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Get properties of the provided virtual machine.
@@ -507,7 +506,6 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_built
     Uses Azure REST API version 2025-02-01.
 
     Other available API versions: 2024-07-01, 2025-09-01, 2026-01-01-preview, 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str virtual_machine_name: The name of the virtual machine.

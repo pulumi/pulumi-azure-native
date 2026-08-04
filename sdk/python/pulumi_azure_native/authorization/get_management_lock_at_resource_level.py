@@ -147,11 +147,10 @@ def get_management_lock_at_resource_level(api_version: Optional[_builtins.str] =
 
     Uses Azure REST API version 2020-05-01.
 
-
     :param _builtins.str api_version: The API version to use for this operation.
     :param _builtins.str lock_name: The name of lock.
     :param _builtins.str parent_resource_path: An extra path parameter needed in some services, like SQL Databases.
-    :param _builtins.str resource_group_name: The name of the resource group. 
+    :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The name of the resource.
     :param _builtins.str resource_provider_namespace: The namespace of the resource provider.
     :param _builtins.str resource_type: The type of the resource.
@@ -176,24 +175,23 @@ def get_management_lock_at_resource_level(api_version: Optional[_builtins.str] =
         owners=pulumi.get(__ret__, 'owners'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_lock_at_resource_level_output(api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 lock_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 parent_resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_management_lock_at_resource_level_output(api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 parent_resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementLockAtResourceLevelResult]:
     """
     Get the management lock of a resource or any level below resource.
 
     Uses Azure REST API version 2020-05-01.
 
-
     :param _builtins.str api_version: The API version to use for this operation.
     :param _builtins.str lock_name: The name of lock.
     :param _builtins.str parent_resource_path: An extra path parameter needed in some services, like SQL Databases.
-    :param _builtins.str resource_group_name: The name of the resource group. 
+    :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str resource_name: The name of the resource.
     :param _builtins.str resource_provider_namespace: The namespace of the resource provider.
     :param _builtins.str resource_type: The type of the resource.

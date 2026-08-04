@@ -137,7 +137,7 @@ export interface GetScheduleOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=status)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * labs
      */

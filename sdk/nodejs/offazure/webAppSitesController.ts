@@ -63,7 +63,7 @@ export class WebAppSitesController extends pulumi.CustomResource {
     declare public /*out*/ readonly serviceEndpoint: pulumi.Output<string>;
     /**
      * Gets or sets the appliance details used by service to communicate
-     *            
+     *
      * to the appliance.
      */
     declare public readonly siteAppliancePropertiesCollection: pulumi.Output<outputs.offazure.SiteAppliancePropertiesResponse[] | undefined>;
@@ -128,17 +128,17 @@ export interface WebAppSitesControllerArgs {
     /**
      * Gets or sets the discovery scenario.
      */
-    discoveryScenario?: pulumi.Input<string | enums.offazure.WebAppSitePropertiesDiscoveryScenario>;
+    discoveryScenario?: pulumi.Input<string | enums.offazure.WebAppSitePropertiesDiscoveryScenario | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the appliance details used by service to communicate
-     *            
+     *
      * to the appliance.
      */
-    siteAppliancePropertiesCollection?: pulumi.Input<pulumi.Input<inputs.offazure.SiteAppliancePropertiesArgs>[]>;
+    siteAppliancePropertiesCollection?: pulumi.Input<pulumi.Input<inputs.offazure.SiteAppliancePropertiesArgs>[] | undefined>;
     /**
      * Site name
      */
@@ -146,5 +146,5 @@ export interface WebAppSitesControllerArgs {
     /**
      * Web app site name.
      */
-    webAppSiteName?: pulumi.Input<string>;
+    webAppSiteName?: pulumi.Input<string | undefined>;
 }

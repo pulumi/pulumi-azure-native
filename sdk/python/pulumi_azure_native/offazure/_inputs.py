@@ -32,15 +32,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     Service Connection State
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     actions required
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     description string
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]]
     """
     state status
     """
@@ -48,9 +48,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]] = None):
         """
         Service Connection State
 
@@ -67,38 +67,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         actions required
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         description string
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]:
         """
         state status
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateLinkServiceConnectionStateStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -106,11 +106,11 @@ class SiteAgentPropertiesArgsDict(TypedDict):
     """
     Class for site agent properties.
     """
-    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the key vault ARM Id.
     """
-    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the key vault URI.
     """
@@ -118,8 +118,8 @@ class SiteAgentPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SiteAgentPropertiesArgs:
     def __init__(__self__, *,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Class for site agent properties.
 
@@ -133,26 +133,26 @@ class SiteAgentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the key vault ARM Id.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the key vault URI.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
 
@@ -160,31 +160,31 @@ class SiteAppliancePropertiesArgsDict(TypedDict):
     """
     Class for site appliance properties.
     """
-    agent_details: NotRequired[pulumi.Input['SiteAgentPropertiesArgsDict']]
+    agent_details: NotRequired[pulumi.Input[Optional['SiteAgentPropertiesArgsDict']]]
     """
     Gets or sets the on-premises agent details.
     """
-    appliance_name: NotRequired[pulumi.Input[_builtins.str]]
+    appliance_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the Appliance Name.
     """
-    service_principal_identity_details: NotRequired[pulumi.Input['SiteSpnPropertiesArgsDict']]
+    service_principal_identity_details: NotRequired[pulumi.Input[Optional['SiteSpnPropertiesArgsDict']]]
     """
-     Gets or sets the service principal identity details used by agent for  communication              to the service.  
+     Gets or sets the service principal identity details used by agent for  communication              to the service.
     """
 
 @pulumi.input_type
 class SiteAppliancePropertiesArgs:
     def __init__(__self__, *,
-                 agent_details: Optional[pulumi.Input['SiteAgentPropertiesArgs']] = None,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_identity_details: Optional[pulumi.Input['SiteSpnPropertiesArgs']] = None):
+                 agent_details: pulumi.Input[Optional['SiteAgentPropertiesArgs']] = None,
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_identity_details: pulumi.Input[Optional['SiteSpnPropertiesArgs']] = None):
         """
         Class for site appliance properties.
 
         :param pulumi.Input['SiteAgentPropertiesArgs'] agent_details: Gets or sets the on-premises agent details.
         :param pulumi.Input[_builtins.str] appliance_name: Gets or sets the Appliance Name.
-        :param pulumi.Input['SiteSpnPropertiesArgs'] service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.  
+        :param pulumi.Input['SiteSpnPropertiesArgs'] service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.
         """
         if agent_details is not None:
             pulumi.set(__self__, "agent_details", agent_details)
@@ -195,38 +195,38 @@ class SiteAppliancePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentDetails")
-    def agent_details(self) -> Optional[pulumi.Input['SiteAgentPropertiesArgs']]:
+    def agent_details(self) -> pulumi.Input[Optional['SiteAgentPropertiesArgs']]:
         """
         Gets or sets the on-premises agent details.
         """
         return pulumi.get(self, "agent_details")
 
     @agent_details.setter
-    def agent_details(self, value: Optional[pulumi.Input['SiteAgentPropertiesArgs']]):
+    def agent_details(self, value: pulumi.Input[Optional['SiteAgentPropertiesArgs']]):
         pulumi.set(self, "agent_details", value)
 
     @_builtins.property
     @pulumi.getter(name="applianceName")
-    def appliance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the Appliance Name.
         """
         return pulumi.get(self, "appliance_name")
 
     @appliance_name.setter
-    def appliance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "appliance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalIdentityDetails")
-    def service_principal_identity_details(self) -> Optional[pulumi.Input['SiteSpnPropertiesArgs']]:
+    def service_principal_identity_details(self) -> pulumi.Input[Optional['SiteSpnPropertiesArgs']]:
         """
-         Gets or sets the service principal identity details used by agent for  communication              to the service.  
+         Gets or sets the service principal identity details used by agent for  communication              to the service.
         """
         return pulumi.get(self, "service_principal_identity_details")
 
     @service_principal_identity_details.setter
-    def service_principal_identity_details(self, value: Optional[pulumi.Input['SiteSpnPropertiesArgs']]):
+    def service_principal_identity_details(self, value: pulumi.Input[Optional['SiteSpnPropertiesArgs']]):
         pulumi.set(self, "service_principal_identity_details", value)
 
 
@@ -234,19 +234,19 @@ class SitePropertiesArgsDict(TypedDict):
     """
     Class for site properties.
     """
-    agent_details: NotRequired[pulumi.Input['SiteAgentPropertiesArgsDict']]
+    agent_details: NotRequired[pulumi.Input[Optional['SiteAgentPropertiesArgsDict']]]
     """
     On-premises agent details.
     """
-    appliance_name: NotRequired[pulumi.Input[_builtins.str]]
+    appliance_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Appliance Name.
     """
-    discovery_solution_id: NotRequired[pulumi.Input[_builtins.str]]
+    discovery_solution_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARM ID of migration hub solution for SDS.
     """
-    service_principal_identity_details: NotRequired[pulumi.Input['SiteSpnPropertiesArgsDict']]
+    service_principal_identity_details: NotRequired[pulumi.Input[Optional['SiteSpnPropertiesArgsDict']]]
     """
     Service principal identity details used by agent for communication to the service.
     """
@@ -254,10 +254,10 @@ class SitePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SitePropertiesArgs:
     def __init__(__self__, *,
-                 agent_details: Optional[pulumi.Input['SiteAgentPropertiesArgs']] = None,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 discovery_solution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_identity_details: Optional[pulumi.Input['SiteSpnPropertiesArgs']] = None):
+                 agent_details: pulumi.Input[Optional['SiteAgentPropertiesArgs']] = None,
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_identity_details: pulumi.Input[Optional['SiteSpnPropertiesArgs']] = None):
         """
         Class for site properties.
 
@@ -277,50 +277,50 @@ class SitePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentDetails")
-    def agent_details(self) -> Optional[pulumi.Input['SiteAgentPropertiesArgs']]:
+    def agent_details(self) -> pulumi.Input[Optional['SiteAgentPropertiesArgs']]:
         """
         On-premises agent details.
         """
         return pulumi.get(self, "agent_details")
 
     @agent_details.setter
-    def agent_details(self, value: Optional[pulumi.Input['SiteAgentPropertiesArgs']]):
+    def agent_details(self, value: pulumi.Input[Optional['SiteAgentPropertiesArgs']]):
         pulumi.set(self, "agent_details", value)
 
     @_builtins.property
     @pulumi.getter(name="applianceName")
-    def appliance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Appliance Name.
         """
         return pulumi.get(self, "appliance_name")
 
     @appliance_name.setter
-    def appliance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "appliance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySolutionId")
-    def discovery_solution_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_solution_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM ID of migration hub solution for SDS.
         """
         return pulumi.get(self, "discovery_solution_id")
 
     @discovery_solution_id.setter
-    def discovery_solution_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_solution_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_solution_id", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalIdentityDetails")
-    def service_principal_identity_details(self) -> Optional[pulumi.Input['SiteSpnPropertiesArgs']]:
+    def service_principal_identity_details(self) -> pulumi.Input[Optional['SiteSpnPropertiesArgs']]:
         """
         Service principal identity details used by agent for communication to the service.
         """
         return pulumi.get(self, "service_principal_identity_details")
 
     @service_principal_identity_details.setter
-    def service_principal_identity_details(self, value: Optional[pulumi.Input['SiteSpnPropertiesArgs']]):
+    def service_principal_identity_details(self, value: pulumi.Input[Optional['SiteSpnPropertiesArgs']]):
         pulumi.set(self, "service_principal_identity_details", value)
 
 
@@ -328,36 +328,36 @@ class SiteSpnPropertiesArgsDict(TypedDict):
     """
     Class for site properties.
     """
-    aad_authority: NotRequired[pulumi.Input[_builtins.str]]
+    aad_authority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the AAD Authority URL which was used to request the token for
     the
                 service principal.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the application/client Id for the service principal with which
     the
                 on-premise management/data plane components would communicate
-    with our Azure 
+    with our Azure
                 services.
     """
-    audience: NotRequired[pulumi.Input[_builtins.str]]
+    audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the intended audience for the service principal.
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the object Id of the service principal with which the on-premise
 
                management/data plane components would communicate with our Azure
     services.
     """
-    raw_cert_data: NotRequired[pulumi.Input[_builtins.str]]
+    raw_cert_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the raw certificate data for building certificate expiry flows.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets or sets the tenant Id for the service principal with which the
     on-premise
@@ -368,12 +368,12 @@ class SiteSpnPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SiteSpnPropertiesArgs:
     def __init__(__self__, *,
-                 aad_authority: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_cert_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aad_authority: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_cert_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Class for site properties.
 
@@ -383,7 +383,7 @@ class SiteSpnPropertiesArgs:
         :param pulumi.Input[_builtins.str] application_id: Gets or sets the application/client Id for the service principal with which
                the
                            on-premise management/data plane components would communicate
-               with our Azure 
+               with our Azure
                            services.
         :param pulumi.Input[_builtins.str] audience: Gets or sets the intended audience for the service principal.
         :param pulumi.Input[_builtins.str] object_id: Gets or sets the object Id of the service principal with which the on-premise
@@ -411,7 +411,7 @@ class SiteSpnPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadAuthority")
-    def aad_authority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aad_authority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the AAD Authority URL which was used to request the token for
         the
@@ -420,40 +420,40 @@ class SiteSpnPropertiesArgs:
         return pulumi.get(self, "aad_authority")
 
     @aad_authority.setter
-    def aad_authority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aad_authority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aad_authority", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the application/client Id for the service principal with which
         the
                     on-premise management/data plane components would communicate
-        with our Azure 
+        with our Azure
                     services.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the intended audience for the service principal.
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the object Id of the service principal with which the on-premise
 
@@ -463,24 +463,24 @@ class SiteSpnPropertiesArgs:
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rawCertData")
-    def raw_cert_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def raw_cert_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the raw certificate data for building certificate expiry flows.
         """
         return pulumi.get(self, "raw_cert_data")
 
     @raw_cert_data.setter
-    def raw_cert_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def raw_cert_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "raw_cert_data", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the tenant Id for the service principal with which the
         on-premise
@@ -490,7 +490,7 @@ class SiteSpnPropertiesArgs:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

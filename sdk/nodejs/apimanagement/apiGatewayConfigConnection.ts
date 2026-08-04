@@ -59,7 +59,7 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * The current provisioning state of the API Management gateway config connection 
+     * The current provisioning state of the API Management gateway config connection
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export interface ApiGatewayConfigConnectionArgs {
     /**
      * The name of the API Management gateway config connection.
      */
-    configConnectionName?: pulumi.Input<string>;
+    configConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management gateway.
      */
@@ -131,7 +131,7 @@ export interface ApiGatewayConfigConnectionArgs {
     /**
      * The hostnames of the data-plane gateway to which requests can be sent.
      */
-    hostnames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostnames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -139,5 +139,5 @@ export interface ApiGatewayConfigConnectionArgs {
     /**
      * The link to the API Management service workspace.
      */
-    sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string | undefined>;
 }

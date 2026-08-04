@@ -23,27 +23,27 @@ __all__ = ['SqlVirtualMachineArgs', 'SqlVirtualMachine']
 class SqlVirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assessment_settings: Optional[pulumi.Input['AssessmentSettingsArgs']] = None,
-                 auto_backup_settings: Optional[pulumi.Input['AutoBackupSettingsArgs']] = None,
-                 auto_patching_settings: Optional[pulumi.Input['AutoPatchingSettingsArgs']] = None,
-                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
-                 key_vault_credential_settings: Optional[pulumi.Input['KeyVaultCredentialSettingsArgs']] = None,
-                 least_privilege_mode: Optional[pulumi.Input[Union[_builtins.str, 'LeastPrivilegeMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_configurations_management_settings: Optional[pulumi.Input['ServerConfigurationsManagementSettingsArgs']] = None,
-                 sql_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[Union[_builtins.str, 'SqlImageSku']]] = None,
-                 sql_management: Optional[pulumi.Input[Union[_builtins.str, 'SqlManagementMode']]] = None,
-                 sql_server_license_type: Optional[pulumi.Input[Union[_builtins.str, 'SqlServerLicenseType']]] = None,
-                 sql_virtual_machine_group_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration_settings: Optional[pulumi.Input['StorageConfigurationSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_identity_settings: Optional[pulumi.Input['VirtualMachineIdentityArgs']] = None,
-                 virtual_machine_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 wsfc_domain_credentials: Optional[pulumi.Input['WsfcDomainCredentialsArgs']] = None,
-                 wsfc_static_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 assessment_settings: pulumi.Input[Optional['AssessmentSettingsArgs']] = None,
+                 auto_backup_settings: pulumi.Input[Optional['AutoBackupSettingsArgs']] = None,
+                 auto_patching_settings: pulumi.Input[Optional['AutoPatchingSettingsArgs']] = None,
+                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
+                 key_vault_credential_settings: pulumi.Input[Optional['KeyVaultCredentialSettingsArgs']] = None,
+                 least_privilege_mode: pulumi.Input[Optional[Union[_builtins.str, 'LeastPrivilegeMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_configurations_management_settings: pulumi.Input[Optional['ServerConfigurationsManagementSettingsArgs']] = None,
+                 sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_sku: pulumi.Input[Optional[Union[_builtins.str, 'SqlImageSku']]] = None,
+                 sql_management: pulumi.Input[Optional[Union[_builtins.str, 'SqlManagementMode']]] = None,
+                 sql_server_license_type: pulumi.Input[Optional[Union[_builtins.str, 'SqlServerLicenseType']]] = None,
+                 sql_virtual_machine_group_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration_settings: pulumi.Input[Optional['StorageConfigurationSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_identity_settings: pulumi.Input[Optional['VirtualMachineIdentityArgs']] = None,
+                 virtual_machine_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 wsfc_domain_credentials: pulumi.Input[Optional['WsfcDomainCredentialsArgs']] = None,
+                 wsfc_static_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlVirtualMachine resource.
 
@@ -132,254 +132,254 @@ class SqlVirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentSettings")
-    def assessment_settings(self) -> Optional[pulumi.Input['AssessmentSettingsArgs']]:
+    def assessment_settings(self) -> pulumi.Input[Optional['AssessmentSettingsArgs']]:
         """
         SQL best practices Assessment Settings.
         """
         return pulumi.get(self, "assessment_settings")
 
     @assessment_settings.setter
-    def assessment_settings(self, value: Optional[pulumi.Input['AssessmentSettingsArgs']]):
+    def assessment_settings(self, value: pulumi.Input[Optional['AssessmentSettingsArgs']]):
         pulumi.set(self, "assessment_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="autoBackupSettings")
-    def auto_backup_settings(self) -> Optional[pulumi.Input['AutoBackupSettingsArgs']]:
+    def auto_backup_settings(self) -> pulumi.Input[Optional['AutoBackupSettingsArgs']]:
         """
         Auto backup settings for SQL Server.
         """
         return pulumi.get(self, "auto_backup_settings")
 
     @auto_backup_settings.setter
-    def auto_backup_settings(self, value: Optional[pulumi.Input['AutoBackupSettingsArgs']]):
+    def auto_backup_settings(self, value: pulumi.Input[Optional['AutoBackupSettingsArgs']]):
         pulumi.set(self, "auto_backup_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="autoPatchingSettings")
-    def auto_patching_settings(self) -> Optional[pulumi.Input['AutoPatchingSettingsArgs']]:
+    def auto_patching_settings(self) -> pulumi.Input[Optional['AutoPatchingSettingsArgs']]:
         """
         Auto patching settings for applying critical security updates to SQL virtual machine.
         """
         return pulumi.get(self, "auto_patching_settings")
 
     @auto_patching_settings.setter
-    def auto_patching_settings(self, value: Optional[pulumi.Input['AutoPatchingSettingsArgs']]):
+    def auto_patching_settings(self, value: pulumi.Input[Optional['AutoPatchingSettingsArgs']]):
         pulumi.set(self, "auto_patching_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpgrade")
-    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable automatic upgrade of Sql IaaS extension Agent.
         """
         return pulumi.get(self, "enable_automatic_upgrade")
 
     @enable_automatic_upgrade.setter
-    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_upgrade", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ResourceIdentityArgs']]:
         """
         DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultCredentialSettings")
-    def key_vault_credential_settings(self) -> Optional[pulumi.Input['KeyVaultCredentialSettingsArgs']]:
+    def key_vault_credential_settings(self) -> pulumi.Input[Optional['KeyVaultCredentialSettingsArgs']]:
         """
         Key vault credential settings.
         """
         return pulumi.get(self, "key_vault_credential_settings")
 
     @key_vault_credential_settings.setter
-    def key_vault_credential_settings(self, value: Optional[pulumi.Input['KeyVaultCredentialSettingsArgs']]):
+    def key_vault_credential_settings(self, value: pulumi.Input[Optional['KeyVaultCredentialSettingsArgs']]):
         pulumi.set(self, "key_vault_credential_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="leastPrivilegeMode")
-    def least_privilege_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LeastPrivilegeMode']]]:
+    def least_privilege_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LeastPrivilegeMode']]]:
         """
         SQL IaaS Agent least privilege mode.
         """
         return pulumi.get(self, "least_privilege_mode")
 
     @least_privilege_mode.setter
-    def least_privilege_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LeastPrivilegeMode']]]):
+    def least_privilege_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LeastPrivilegeMode']]]):
         pulumi.set(self, "least_privilege_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="serverConfigurationsManagementSettings")
-    def server_configurations_management_settings(self) -> Optional[pulumi.Input['ServerConfigurationsManagementSettingsArgs']]:
+    def server_configurations_management_settings(self) -> pulumi.Input[Optional['ServerConfigurationsManagementSettingsArgs']]:
         """
         SQL Server configuration management settings.
         """
         return pulumi.get(self, "server_configurations_management_settings")
 
     @server_configurations_management_settings.setter
-    def server_configurations_management_settings(self, value: Optional[pulumi.Input['ServerConfigurationsManagementSettingsArgs']]):
+    def server_configurations_management_settings(self, value: pulumi.Input[Optional['ServerConfigurationsManagementSettingsArgs']]):
         pulumi.set(self, "server_configurations_management_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlImageOffer")
-    def sql_image_offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_image_offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
         """
         return pulumi.get(self, "sql_image_offer")
 
     @sql_image_offer.setter
-    def sql_image_offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_image_offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_image_offer", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlImageSku")
-    def sql_image_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SqlImageSku']]]:
+    def sql_image_sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SqlImageSku']]]:
         """
         SQL Server edition type.
         """
         return pulumi.get(self, "sql_image_sku")
 
     @sql_image_sku.setter
-    def sql_image_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SqlImageSku']]]):
+    def sql_image_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SqlImageSku']]]):
         pulumi.set(self, "sql_image_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlManagement")
-    def sql_management(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SqlManagementMode']]]:
+    def sql_management(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SqlManagementMode']]]:
         """
         SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         """
         return pulumi.get(self, "sql_management")
 
     @sql_management.setter
-    def sql_management(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SqlManagementMode']]]):
+    def sql_management(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SqlManagementMode']]]):
         pulumi.set(self, "sql_management", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlServerLicenseType")
-    def sql_server_license_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SqlServerLicenseType']]]:
+    def sql_server_license_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SqlServerLicenseType']]]:
         """
         SQL Server license type.
         """
         return pulumi.get(self, "sql_server_license_type")
 
     @sql_server_license_type.setter
-    def sql_server_license_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SqlServerLicenseType']]]):
+    def sql_server_license_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SqlServerLicenseType']]]):
         pulumi.set(self, "sql_server_license_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlVirtualMachineGroupResourceId")
-    def sql_virtual_machine_group_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_virtual_machine_group_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
         """
         return pulumi.get(self, "sql_virtual_machine_group_resource_id")
 
     @sql_virtual_machine_group_resource_id.setter
-    def sql_virtual_machine_group_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_virtual_machine_group_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_virtual_machine_group_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlVirtualMachineName")
-    def sql_virtual_machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SQL virtual machine.
         """
         return pulumi.get(self, "sql_virtual_machine_name")
 
     @sql_virtual_machine_name.setter
-    def sql_virtual_machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageConfigurationSettings")
-    def storage_configuration_settings(self) -> Optional[pulumi.Input['StorageConfigurationSettingsArgs']]:
+    def storage_configuration_settings(self) -> pulumi.Input[Optional['StorageConfigurationSettingsArgs']]:
         """
         Storage Configuration Settings.
         """
         return pulumi.get(self, "storage_configuration_settings")
 
     @storage_configuration_settings.setter
-    def storage_configuration_settings(self, value: Optional[pulumi.Input['StorageConfigurationSettingsArgs']]):
+    def storage_configuration_settings(self, value: pulumi.Input[Optional['StorageConfigurationSettingsArgs']]):
         pulumi.set(self, "storage_configuration_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineIdentitySettings")
-    def virtual_machine_identity_settings(self) -> Optional[pulumi.Input['VirtualMachineIdentityArgs']]:
+    def virtual_machine_identity_settings(self) -> pulumi.Input[Optional['VirtualMachineIdentityArgs']]:
         """
         Virtual Machine Identity details used for Sql IaaS extension configurations.
         """
         return pulumi.get(self, "virtual_machine_identity_settings")
 
     @virtual_machine_identity_settings.setter
-    def virtual_machine_identity_settings(self, value: Optional[pulumi.Input['VirtualMachineIdentityArgs']]):
+    def virtual_machine_identity_settings(self, value: pulumi.Input[Optional['VirtualMachineIdentityArgs']]):
         pulumi.set(self, "virtual_machine_identity_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineResourceId")
-    def virtual_machine_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Resource id of underlying virtual machine created from SQL marketplace image.
         """
         return pulumi.get(self, "virtual_machine_resource_id")
 
     @virtual_machine_resource_id.setter
-    def virtual_machine_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="wsfcDomainCredentials")
-    def wsfc_domain_credentials(self) -> Optional[pulumi.Input['WsfcDomainCredentialsArgs']]:
+    def wsfc_domain_credentials(self) -> pulumi.Input[Optional['WsfcDomainCredentialsArgs']]:
         """
         Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """
         return pulumi.get(self, "wsfc_domain_credentials")
 
     @wsfc_domain_credentials.setter
-    def wsfc_domain_credentials(self, value: Optional[pulumi.Input['WsfcDomainCredentialsArgs']]):
+    def wsfc_domain_credentials(self, value: pulumi.Input[Optional['WsfcDomainCredentialsArgs']]):
         pulumi.set(self, "wsfc_domain_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="wsfcStaticIp")
-    def wsfc_static_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wsfc_static_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """
         return pulumi.get(self, "wsfc_static_ip")
 
     @wsfc_static_ip.setter
-    def wsfc_static_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wsfc_static_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wsfc_static_ip", value)
 
 
@@ -389,28 +389,28 @@ class SqlVirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_settings: Optional[pulumi.Input[Union['AssessmentSettingsArgs', 'AssessmentSettingsArgsDict']]] = None,
-                 auto_backup_settings: Optional[pulumi.Input[Union['AutoBackupSettingsArgs', 'AutoBackupSettingsArgsDict']]] = None,
-                 auto_patching_settings: Optional[pulumi.Input[Union['AutoPatchingSettingsArgs', 'AutoPatchingSettingsArgsDict']]] = None,
-                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 key_vault_credential_settings: Optional[pulumi.Input[Union['KeyVaultCredentialSettingsArgs', 'KeyVaultCredentialSettingsArgsDict']]] = None,
-                 least_privilege_mode: Optional[pulumi.Input[Union[_builtins.str, 'LeastPrivilegeMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_configurations_management_settings: Optional[pulumi.Input[Union['ServerConfigurationsManagementSettingsArgs', 'ServerConfigurationsManagementSettingsArgsDict']]] = None,
-                 sql_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[Union[_builtins.str, 'SqlImageSku']]] = None,
-                 sql_management: Optional[pulumi.Input[Union[_builtins.str, 'SqlManagementMode']]] = None,
-                 sql_server_license_type: Optional[pulumi.Input[Union[_builtins.str, 'SqlServerLicenseType']]] = None,
-                 sql_virtual_machine_group_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration_settings: Optional[pulumi.Input[Union['StorageConfigurationSettingsArgs', 'StorageConfigurationSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_identity_settings: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
-                 virtual_machine_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 wsfc_domain_credentials: Optional[pulumi.Input[Union['WsfcDomainCredentialsArgs', 'WsfcDomainCredentialsArgsDict']]] = None,
-                 wsfc_static_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_settings: pulumi.Input[Optional[Union['AssessmentSettingsArgs', 'AssessmentSettingsArgsDict']]] = None,
+                 auto_backup_settings: pulumi.Input[Optional[Union['AutoBackupSettingsArgs', 'AutoBackupSettingsArgsDict']]] = None,
+                 auto_patching_settings: pulumi.Input[Optional[Union['AutoPatchingSettingsArgs', 'AutoPatchingSettingsArgsDict']]] = None,
+                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 key_vault_credential_settings: pulumi.Input[Optional[Union['KeyVaultCredentialSettingsArgs', 'KeyVaultCredentialSettingsArgsDict']]] = None,
+                 least_privilege_mode: pulumi.Input[Optional[Union[_builtins.str, 'LeastPrivilegeMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_configurations_management_settings: pulumi.Input[Optional[Union['ServerConfigurationsManagementSettingsArgs', 'ServerConfigurationsManagementSettingsArgsDict']]] = None,
+                 sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_sku: pulumi.Input[Optional[Union[_builtins.str, 'SqlImageSku']]] = None,
+                 sql_management: pulumi.Input[Optional[Union[_builtins.str, 'SqlManagementMode']]] = None,
+                 sql_server_license_type: pulumi.Input[Optional[Union[_builtins.str, 'SqlServerLicenseType']]] = None,
+                 sql_virtual_machine_group_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration_settings: pulumi.Input[Optional[Union['StorageConfigurationSettingsArgs', 'StorageConfigurationSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_identity_settings: pulumi.Input[Optional[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
+                 virtual_machine_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 wsfc_domain_credentials: pulumi.Input[Optional[Union['WsfcDomainCredentialsArgs', 'WsfcDomainCredentialsArgsDict']]] = None,
+                 wsfc_static_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A SQL virtual machine.
@@ -418,7 +418,6 @@ class SqlVirtualMachine(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01. In version 2.x of the Azure Native provider, it used API version 2022-02-01.
 
         Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -458,7 +457,6 @@ class SqlVirtualMachine(pulumi.CustomResource):
 
         Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -474,28 +472,28 @@ class SqlVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_settings: Optional[pulumi.Input[Union['AssessmentSettingsArgs', 'AssessmentSettingsArgsDict']]] = None,
-                 auto_backup_settings: Optional[pulumi.Input[Union['AutoBackupSettingsArgs', 'AutoBackupSettingsArgsDict']]] = None,
-                 auto_patching_settings: Optional[pulumi.Input[Union['AutoPatchingSettingsArgs', 'AutoPatchingSettingsArgsDict']]] = None,
-                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 key_vault_credential_settings: Optional[pulumi.Input[Union['KeyVaultCredentialSettingsArgs', 'KeyVaultCredentialSettingsArgsDict']]] = None,
-                 least_privilege_mode: Optional[pulumi.Input[Union[_builtins.str, 'LeastPrivilegeMode']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_configurations_management_settings: Optional[pulumi.Input[Union['ServerConfigurationsManagementSettingsArgs', 'ServerConfigurationsManagementSettingsArgsDict']]] = None,
-                 sql_image_offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[Union[_builtins.str, 'SqlImageSku']]] = None,
-                 sql_management: Optional[pulumi.Input[Union[_builtins.str, 'SqlManagementMode']]] = None,
-                 sql_server_license_type: Optional[pulumi.Input[Union[_builtins.str, 'SqlServerLicenseType']]] = None,
-                 sql_virtual_machine_group_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration_settings: Optional[pulumi.Input[Union['StorageConfigurationSettingsArgs', 'StorageConfigurationSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_identity_settings: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
-                 virtual_machine_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 wsfc_domain_credentials: Optional[pulumi.Input[Union['WsfcDomainCredentialsArgs', 'WsfcDomainCredentialsArgsDict']]] = None,
-                 wsfc_static_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_settings: pulumi.Input[Optional[Union['AssessmentSettingsArgs', 'AssessmentSettingsArgsDict']]] = None,
+                 auto_backup_settings: pulumi.Input[Optional[Union['AutoBackupSettingsArgs', 'AutoBackupSettingsArgsDict']]] = None,
+                 auto_patching_settings: pulumi.Input[Optional[Union['AutoPatchingSettingsArgs', 'AutoPatchingSettingsArgsDict']]] = None,
+                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 key_vault_credential_settings: pulumi.Input[Optional[Union['KeyVaultCredentialSettingsArgs', 'KeyVaultCredentialSettingsArgsDict']]] = None,
+                 least_privilege_mode: pulumi.Input[Optional[Union[_builtins.str, 'LeastPrivilegeMode']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_configurations_management_settings: pulumi.Input[Optional[Union['ServerConfigurationsManagementSettingsArgs', 'ServerConfigurationsManagementSettingsArgsDict']]] = None,
+                 sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_image_sku: pulumi.Input[Optional[Union[_builtins.str, 'SqlImageSku']]] = None,
+                 sql_management: pulumi.Input[Optional[Union[_builtins.str, 'SqlManagementMode']]] = None,
+                 sql_server_license_type: pulumi.Input[Optional[Union[_builtins.str, 'SqlServerLicenseType']]] = None,
+                 sql_virtual_machine_group_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration_settings: pulumi.Input[Optional[Union['StorageConfigurationSettingsArgs', 'StorageConfigurationSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_identity_settings: pulumi.Input[Optional[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
+                 virtual_machine_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 wsfc_domain_credentials: pulumi.Input[Optional[Union['WsfcDomainCredentialsArgs', 'WsfcDomainCredentialsArgsDict']]] = None,
+                 wsfc_static_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

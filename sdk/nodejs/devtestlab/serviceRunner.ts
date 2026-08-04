@@ -117,7 +117,7 @@ export interface ServiceRunnerArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.devtestlab.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.devtestlab.IdentityPropertiesArgs | undefined>;
     /**
      * The name of the lab.
      */
@@ -125,11 +125,11 @@ export interface ServiceRunnerArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the service runner.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,5 +137,5 @@ export interface ServiceRunnerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

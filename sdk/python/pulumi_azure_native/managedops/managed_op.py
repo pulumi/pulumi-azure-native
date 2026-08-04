@@ -22,8 +22,8 @@ __all__ = ['ManagedOpArgs', 'ManagedOp']
 @pulumi.input_type
 class ManagedOpArgs:
     def __init__(__self__, *,
-                 managed_ops_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ManagedOpsPropertiesArgs']] = None):
+                 managed_ops_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ManagedOpsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagedOp resource.
 
@@ -37,26 +37,26 @@ class ManagedOpArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedOpsName")
-    def managed_ops_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_ops_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource.
         """
         return pulumi.get(self, "managed_ops_name")
 
     @managed_ops_name.setter
-    def managed_ops_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_ops_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_ops_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ManagedOpsPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ManagedOpsPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ManagedOpsPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ManagedOpsPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -66,14 +66,13 @@ class ManagedOp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_ops_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ManagedOpsPropertiesArgs', 'ManagedOpsPropertiesArgsDict']]] = None,
+                 managed_ops_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ManagedOpsPropertiesArgs', 'ManagedOpsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         The Managed Operations resource.
 
         Uses Azure REST API version 2025-07-28-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,7 +90,6 @@ class ManagedOp(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-28-preview.
 
-
         :param str resource_name: The name of the resource.
         :param ManagedOpArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,8 +105,8 @@ class ManagedOp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_ops_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ManagedOpsPropertiesArgs', 'ManagedOpsPropertiesArgsDict']]] = None,
+                 managed_ops_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ManagedOpsPropertiesArgs', 'ManagedOpsPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

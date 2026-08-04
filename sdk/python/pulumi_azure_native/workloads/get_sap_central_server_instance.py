@@ -299,7 +299,6 @@ def get_sap_central_server_instance(central_instance_name: Optional[_builtins.st
 
     Uses Azure REST API version 2024-09-01.
 
-
     :param _builtins.str central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
@@ -333,15 +332,14 @@ def get_sap_central_server_instance(central_instance_name: Optional[_builtins.st
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_details=pulumi.get(__ret__, 'vm_details'))
-def get_sap_central_server_instance_output(central_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           sap_virtual_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sap_central_server_instance_output(central_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           sap_virtual_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapCentralServerInstanceResult]:
     """
     Gets the SAP Central Services Instance resource.
 
     Uses Azure REST API version 2024-09-01.
-
 
     :param _builtins.str central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

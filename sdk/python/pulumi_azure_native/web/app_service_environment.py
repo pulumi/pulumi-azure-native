@@ -24,22 +24,22 @@ class AppServiceEnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network: pulumi.Input['VirtualNetworkProfileArgs'],
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
-                 custom_dns_suffix_configuration: Optional[pulumi.Input['CustomDnsSuffixConfigurationArgs']] = None,
-                 dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 front_end_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancingMode']]] = None,
-                 ipssl_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking_configuration: Optional[pulumi.Input['AseV3NetworkingConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_preference: Optional[pulumi.Input[Union[_builtins.str, 'UpgradePreference']]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+                 custom_dns_suffix_configuration: pulumi.Input[Optional['CustomDnsSuffixConfigurationArgs']] = None,
+                 dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 front_end_scale_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal_load_balancing_mode: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancingMode']]] = None,
+                 ipssl_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking_configuration: pulumi.Input[Optional['AseV3NetworkingConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_preference: pulumi.Input[Optional[Union[_builtins.str, 'UpgradePreference']]] = None,
+                 user_whitelisted_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AppServiceEnvironment resource.
 
@@ -125,194 +125,194 @@ class AppServiceEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
+    def cluster_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]:
         """
         Custom settings for changing the behavior of the App Service Environment.
         """
         return pulumi.get(self, "cluster_settings")
 
     @cluster_settings.setter
-    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
+    def cluster_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NameValuePairArgs']]]]):
         pulumi.set(self, "cluster_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="customDnsSuffixConfiguration")
-    def custom_dns_suffix_configuration(self) -> Optional[pulumi.Input['CustomDnsSuffixConfigurationArgs']]:
+    def custom_dns_suffix_configuration(self) -> pulumi.Input[Optional['CustomDnsSuffixConfigurationArgs']]:
         """
         Full view of the custom domain suffix configuration for ASEv3.
         """
         return pulumi.get(self, "custom_dns_suffix_configuration")
 
     @custom_dns_suffix_configuration.setter
-    def custom_dns_suffix_configuration(self, value: Optional[pulumi.Input['CustomDnsSuffixConfigurationArgs']]):
+    def custom_dns_suffix_configuration(self, value: pulumi.Input[Optional['CustomDnsSuffixConfigurationArgs']]):
         pulumi.set(self, "custom_dns_suffix_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostCount")
-    def dedicated_host_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dedicated_host_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Dedicated Host Count
         """
         return pulumi.get(self, "dedicated_host_count")
 
     @dedicated_host_count.setter
-    def dedicated_host_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dedicated_host_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dedicated_host_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSuffix")
-    def dns_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS suffix of the App Service Environment.
         """
         return pulumi.get(self, "dns_suffix")
 
     @dns_suffix.setter
-    def dns_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="frontEndScaleFactor")
-    def front_end_scale_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def front_end_scale_factor(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Scale factor for front-ends.
         """
         return pulumi.get(self, "front_end_scale_factor")
 
     @front_end_scale_factor.setter
-    def front_end_scale_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def front_end_scale_factor(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "front_end_scale_factor", value)
 
     @_builtins.property
     @pulumi.getter(name="internalLoadBalancingMode")
-    def internal_load_balancing_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancingMode']]]:
+    def internal_load_balancing_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancingMode']]]:
         """
         Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         """
         return pulumi.get(self, "internal_load_balancing_mode")
 
     @internal_load_balancing_mode.setter
-    def internal_load_balancing_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancingMode']]]):
+    def internal_load_balancing_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancingMode']]]):
         pulumi.set(self, "internal_load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="ipsslAddressCount")
-    def ipssl_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipssl_address_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of IP SSL addresses reserved for the App Service Environment.
         """
         return pulumi.get(self, "ipssl_address_count")
 
     @ipssl_address_count.setter
-    def ipssl_address_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipssl_address_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipssl_address_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="multiSize")
-    def multi_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Front-end VM size, e.g. "Medium", "Large".
         """
         return pulumi.get(self, "multi_size")
 
     @multi_size.setter
-    def multi_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the App Service Environment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkingConfiguration")
-    def networking_configuration(self) -> Optional[pulumi.Input['AseV3NetworkingConfigurationArgs']]:
+    def networking_configuration(self) -> pulumi.Input[Optional['AseV3NetworkingConfigurationArgs']]:
         """
         Full view of networking configuration for an ASE.
         """
         return pulumi.get(self, "networking_configuration")
 
     @networking_configuration.setter
-    def networking_configuration(self, value: Optional[pulumi.Input['AseV3NetworkingConfigurationArgs']]):
+    def networking_configuration(self, value: pulumi.Input[Optional['AseV3NetworkingConfigurationArgs']]):
         pulumi.set(self, "networking_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradePreference")
-    def upgrade_preference(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpgradePreference']]]:
+    def upgrade_preference(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpgradePreference']]]:
         """
         Upgrade Preference
         """
         return pulumi.get(self, "upgrade_preference")
 
     @upgrade_preference.setter
-    def upgrade_preference(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpgradePreference']]]):
+    def upgrade_preference(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpgradePreference']]]):
         pulumi.set(self, "upgrade_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="userWhitelistedIpRanges")
-    def user_whitelisted_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_whitelisted_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         User added ip ranges to whitelist on ASE db
         """
         return pulumi.get(self, "user_whitelisted_ip_ranges")
 
     @user_whitelisted_ip_ranges.setter
-    def user_whitelisted_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_whitelisted_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_whitelisted_ip_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this App Service Environment is zone-redundant.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -322,24 +322,24 @@ class AppServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
-                 custom_dns_suffix_configuration: Optional[pulumi.Input[Union['CustomDnsSuffixConfigurationArgs', 'CustomDnsSuffixConfigurationArgsDict']]] = None,
-                 dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 front_end_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancingMode']]] = None,
-                 ipssl_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking_configuration: Optional[pulumi.Input[Union['AseV3NetworkingConfigurationArgs', 'AseV3NetworkingConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_preference: Optional[pulumi.Input[Union[_builtins.str, 'UpgradePreference']]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
+                 custom_dns_suffix_configuration: pulumi.Input[Optional[Union['CustomDnsSuffixConfigurationArgs', 'CustomDnsSuffixConfigurationArgsDict']]] = None,
+                 dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 front_end_scale_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal_load_balancing_mode: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancingMode']]] = None,
+                 ipssl_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking_configuration: pulumi.Input[Optional[Union['AseV3NetworkingConfigurationArgs', 'AseV3NetworkingConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_preference: pulumi.Input[Optional[Union[_builtins.str, 'UpgradePreference']]] = None,
+                 user_whitelisted_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         App Service Environment ARM resource.
@@ -347,7 +347,6 @@ class AppServiceEnvironment(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -383,7 +382,6 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
         Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -399,24 +397,24 @@ class AppServiceEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
-                 custom_dns_suffix_configuration: Optional[pulumi.Input[Union['CustomDnsSuffixConfigurationArgs', 'CustomDnsSuffixConfigurationArgsDict']]] = None,
-                 dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 front_end_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancingMode']]] = None,
-                 ipssl_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 networking_configuration: Optional[pulumi.Input[Union['AseV3NetworkingConfigurationArgs', 'AseV3NetworkingConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_preference: Optional[pulumi.Input[Union[_builtins.str, 'UpgradePreference']]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NameValuePairArgs', 'NameValuePairArgsDict']]]]] = None,
+                 custom_dns_suffix_configuration: pulumi.Input[Optional[Union['CustomDnsSuffixConfigurationArgs', 'CustomDnsSuffixConfigurationArgsDict']]] = None,
+                 dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 front_end_scale_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal_load_balancing_mode: pulumi.Input[Optional[Union[_builtins.str, 'LoadBalancingMode']]] = None,
+                 ipssl_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 networking_configuration: pulumi.Input[Optional[Union['AseV3NetworkingConfigurationArgs', 'AseV3NetworkingConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_preference: pulumi.Input[Optional[Union[_builtins.str, 'UpgradePreference']]] = None,
+                 user_whitelisted_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['VirtualNetworkProfileArgs', 'VirtualNetworkProfileArgsDict']]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

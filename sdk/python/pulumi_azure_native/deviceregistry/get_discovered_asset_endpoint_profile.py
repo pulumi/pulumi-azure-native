@@ -226,7 +226,6 @@ def get_discovered_asset_endpoint_profile(discovered_asset_endpoint_profile_name
 
     Uses Azure REST API version 2024-09-01-preview.
 
-
     :param _builtins.str discovered_asset_endpoint_profile_name: Discovered Asset Endpoint Profile name parameter.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -252,14 +251,13 @@ def get_discovered_asset_endpoint_profile(discovered_asset_endpoint_profile_name
         target_address=pulumi.get(__ret__, 'target_address'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_discovered_asset_endpoint_profile_output(discovered_asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_discovered_asset_endpoint_profile_output(discovered_asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveredAssetEndpointProfileResult]:
     """
     Get a DiscoveredAssetEndpointProfile
 
     Uses Azure REST API version 2024-09-01-preview.
-
 
     :param _builtins.str discovered_asset_endpoint_profile_name: Discovered Asset Endpoint Profile name parameter.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -44,15 +44,15 @@ class AppLinkMemberPropertiesArgsDict(TypedDict):
     """
     AppLink Member Metadata
     """
-    cluster_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ClusterType']]]
+    cluster_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ClusterType']]]]
     """
     Cluster type
     """
-    connectivity_profile: NotRequired[pulumi.Input['ConnectivityProfileArgsDict']]
+    connectivity_profile: NotRequired[pulumi.Input[Optional['ConnectivityProfileArgsDict']]]
     """
     Connectivity profile.
     """
-    upgrade_profile: NotRequired[pulumi.Input['UpgradeProfileArgsDict']]
+    upgrade_profile: NotRequired[pulumi.Input[Optional['UpgradeProfileArgsDict']]]
     """
     Upgrade profile.
     """
@@ -61,9 +61,9 @@ class AppLinkMemberPropertiesArgsDict(TypedDict):
 class AppLinkMemberPropertiesArgs:
     def __init__(__self__, *,
                  metadata: pulumi.Input['MetadataArgs'],
-                 cluster_type: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]] = None,
-                 connectivity_profile: Optional[pulumi.Input['ConnectivityProfileArgs']] = None,
-                 upgrade_profile: Optional[pulumi.Input['UpgradeProfileArgs']] = None):
+                 cluster_type: pulumi.Input[Optional[Union[_builtins.str, 'ClusterType']]] = None,
+                 connectivity_profile: pulumi.Input[Optional['ConnectivityProfileArgs']] = None,
+                 upgrade_profile: pulumi.Input[Optional['UpgradeProfileArgs']] = None):
         """
         AppLink Member properties
 
@@ -94,38 +94,38 @@ class AppLinkMemberPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]:
+    def cluster_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ClusterType']]]:
         """
         Cluster type
         """
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
-    def cluster_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClusterType']]]):
+    def cluster_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClusterType']]]):
         pulumi.set(self, "cluster_type", value)
 
     @_builtins.property
     @pulumi.getter(name="connectivityProfile")
-    def connectivity_profile(self) -> Optional[pulumi.Input['ConnectivityProfileArgs']]:
+    def connectivity_profile(self) -> pulumi.Input[Optional['ConnectivityProfileArgs']]:
         """
         Connectivity profile.
         """
         return pulumi.get(self, "connectivity_profile")
 
     @connectivity_profile.setter
-    def connectivity_profile(self, value: Optional[pulumi.Input['ConnectivityProfileArgs']]):
+    def connectivity_profile(self, value: pulumi.Input[Optional['ConnectivityProfileArgs']]):
         pulumi.set(self, "connectivity_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeProfile")
-    def upgrade_profile(self) -> Optional[pulumi.Input['UpgradeProfileArgs']]:
+    def upgrade_profile(self) -> pulumi.Input[Optional['UpgradeProfileArgs']]:
         """
         Upgrade profile.
         """
         return pulumi.get(self, "upgrade_profile")
 
     @upgrade_profile.setter
-    def upgrade_profile(self, value: Optional[pulumi.Input['UpgradeProfileArgs']]):
+    def upgrade_profile(self, value: pulumi.Input[Optional['UpgradeProfileArgs']]):
         pulumi.set(self, "upgrade_profile", value)
 
 
@@ -133,11 +133,11 @@ class ConnectivityProfileArgsDict(TypedDict):
     """
     AppLinkMember connectivity profile.
     """
-    east_west_gateway: NotRequired[pulumi.Input['EastWestGatewayProfileArgsDict']]
+    east_west_gateway: NotRequired[pulumi.Input[Optional['EastWestGatewayProfileArgsDict']]]
     """
     East-West gateway profile.
     """
-    private_connect: NotRequired[pulumi.Input['PrivateConnectProfileArgsDict']]
+    private_connect: NotRequired[pulumi.Input[Optional['PrivateConnectProfileArgsDict']]]
     """
     Private connect profile.
     """
@@ -145,8 +145,8 @@ class ConnectivityProfileArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectivityProfileArgs:
     def __init__(__self__, *,
-                 east_west_gateway: Optional[pulumi.Input['EastWestGatewayProfileArgs']] = None,
-                 private_connect: Optional[pulumi.Input['PrivateConnectProfileArgs']] = None):
+                 east_west_gateway: pulumi.Input[Optional['EastWestGatewayProfileArgs']] = None,
+                 private_connect: pulumi.Input[Optional['PrivateConnectProfileArgs']] = None):
         """
         AppLinkMember connectivity profile.
 
@@ -160,26 +160,26 @@ class ConnectivityProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="eastWestGateway")
-    def east_west_gateway(self) -> Optional[pulumi.Input['EastWestGatewayProfileArgs']]:
+    def east_west_gateway(self) -> pulumi.Input[Optional['EastWestGatewayProfileArgs']]:
         """
         East-West gateway profile.
         """
         return pulumi.get(self, "east_west_gateway")
 
     @east_west_gateway.setter
-    def east_west_gateway(self, value: Optional[pulumi.Input['EastWestGatewayProfileArgs']]):
+    def east_west_gateway(self, value: pulumi.Input[Optional['EastWestGatewayProfileArgs']]):
         pulumi.set(self, "east_west_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="privateConnect")
-    def private_connect(self) -> Optional[pulumi.Input['PrivateConnectProfileArgs']]:
+    def private_connect(self) -> pulumi.Input[Optional['PrivateConnectProfileArgs']]:
         """
         Private connect profile.
         """
         return pulumi.get(self, "private_connect")
 
     @private_connect.setter
-    def private_connect(self, value: Optional[pulumi.Input['PrivateConnectProfileArgs']]):
+    def private_connect(self, value: pulumi.Input[Optional['PrivateConnectProfileArgs']]):
         pulumi.set(self, "private_connect", value)
 
 
@@ -257,7 +257,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -266,7 +266,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -291,14 +291,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -409,11 +409,11 @@ class UpgradeProfileArgsDict(TypedDict):
     """
     Upgrade mode.
     """
-    fully_managed_upgrade_profile: NotRequired[pulumi.Input['FullyManagedUpgradeProfileArgsDict']]
+    fully_managed_upgrade_profile: NotRequired[pulumi.Input[Optional['FullyManagedUpgradeProfileArgsDict']]]
     """
     Fully managed upgrade profile.
     """
-    self_managed_upgrade_profile: NotRequired[pulumi.Input['SelfManagedUpgradeProfileArgsDict']]
+    self_managed_upgrade_profile: NotRequired[pulumi.Input[Optional['SelfManagedUpgradeProfileArgsDict']]]
     """
     Self managed upgrade profile.
     """
@@ -422,8 +422,8 @@ class UpgradeProfileArgsDict(TypedDict):
 class UpgradeProfileArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[Union[_builtins.str, 'UpgradeMode']],
-                 fully_managed_upgrade_profile: Optional[pulumi.Input['FullyManagedUpgradeProfileArgs']] = None,
-                 self_managed_upgrade_profile: Optional[pulumi.Input['SelfManagedUpgradeProfileArgs']] = None):
+                 fully_managed_upgrade_profile: pulumi.Input[Optional['FullyManagedUpgradeProfileArgs']] = None,
+                 self_managed_upgrade_profile: pulumi.Input[Optional['SelfManagedUpgradeProfileArgs']] = None):
         """
         AppLinkMember upgrade profile.
 
@@ -451,26 +451,26 @@ class UpgradeProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="fullyManagedUpgradeProfile")
-    def fully_managed_upgrade_profile(self) -> Optional[pulumi.Input['FullyManagedUpgradeProfileArgs']]:
+    def fully_managed_upgrade_profile(self) -> pulumi.Input[Optional['FullyManagedUpgradeProfileArgs']]:
         """
         Fully managed upgrade profile.
         """
         return pulumi.get(self, "fully_managed_upgrade_profile")
 
     @fully_managed_upgrade_profile.setter
-    def fully_managed_upgrade_profile(self, value: Optional[pulumi.Input['FullyManagedUpgradeProfileArgs']]):
+    def fully_managed_upgrade_profile(self, value: pulumi.Input[Optional['FullyManagedUpgradeProfileArgs']]):
         pulumi.set(self, "fully_managed_upgrade_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="selfManagedUpgradeProfile")
-    def self_managed_upgrade_profile(self) -> Optional[pulumi.Input['SelfManagedUpgradeProfileArgs']]:
+    def self_managed_upgrade_profile(self) -> pulumi.Input[Optional['SelfManagedUpgradeProfileArgs']]:
         """
         Self managed upgrade profile.
         """
         return pulumi.get(self, "self_managed_upgrade_profile")
 
     @self_managed_upgrade_profile.setter
-    def self_managed_upgrade_profile(self, value: Optional[pulumi.Input['SelfManagedUpgradeProfileArgs']]):
+    def self_managed_upgrade_profile(self, value: pulumi.Input[Optional['SelfManagedUpgradeProfileArgs']]):
         pulumi.set(self, "self_managed_upgrade_profile", value)
 
 

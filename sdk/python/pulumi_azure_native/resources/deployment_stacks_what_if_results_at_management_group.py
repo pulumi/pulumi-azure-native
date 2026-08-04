@@ -23,10 +23,10 @@ __all__ = ['DeploymentStacksWhatIfResultsAtManagementGroupArgs', 'DeploymentStac
 class DeploymentStacksWhatIfResultsAtManagementGroupArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
-                 deployment_stacks_what_if_result_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['DeploymentStacksWhatIfResultPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 deployment_stacks_what_if_result_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['DeploymentStacksWhatIfResultPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStacksWhatIfResultsAtManagementGroup resource.
 
@@ -60,50 +60,50 @@ class DeploymentStacksWhatIfResultsAtManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentStacksWhatIfResultName")
-    def deployment_stacks_what_if_result_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_stacks_what_if_result_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the deployment stack what-if result.
         """
         return pulumi.get(self, "deployment_stacks_what_if_result_name")
 
     @deployment_stacks_what_if_result_name.setter
-    def deployment_stacks_what_if_result_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_stacks_what_if_result_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_stacks_what_if_result_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DeploymentStacksWhatIfResultPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['DeploymentStacksWhatIfResultPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DeploymentStacksWhatIfResultPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['DeploymentStacksWhatIfResultPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,17 +113,16 @@ class DeploymentStacksWhatIfResultsAtManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_stacks_what_if_result_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DeploymentStacksWhatIfResultPropertiesArgs', 'DeploymentStacksWhatIfResultPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 deployment_stacks_what_if_result_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DeploymentStacksWhatIfResultPropertiesArgs', 'DeploymentStacksWhatIfResultPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Deployment stack object.
 
         Uses Azure REST API version 2025-07-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +143,6 @@ class DeploymentStacksWhatIfResultsAtManagementGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
-
         :param str resource_name: The name of the resource.
         :param DeploymentStacksWhatIfResultsAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +158,11 @@ class DeploymentStacksWhatIfResultsAtManagementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_stacks_what_if_result_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['DeploymentStacksWhatIfResultPropertiesArgs', 'DeploymentStacksWhatIfResultPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 deployment_stacks_what_if_result_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['DeploymentStacksWhatIfResultPropertiesArgs', 'DeploymentStacksWhatIfResultPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

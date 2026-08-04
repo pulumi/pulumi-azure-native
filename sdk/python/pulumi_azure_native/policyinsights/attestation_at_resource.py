@@ -24,15 +24,15 @@ class AttestationAtResourceArgs:
     def __init__(__self__, *,
                  policy_assignment_id: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
-                 assessment_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 attestation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 compliance_state: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceState']]] = None,
-                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 attestation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 compliance_state: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceState']]] = None,
+                 evidence: pulumi.Input[Optional[Sequence[pulumi.Input['AttestationEvidenceArgs']]]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AttestationAtResource resource.
 
@@ -95,74 +95,74 @@ class AttestationAtResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentDate")
-    def assessment_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time the evidence was assessed
         """
         return pulumi.get(self, "assessment_date")
 
     @assessment_date.setter
-    def assessment_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_date", value)
 
     @_builtins.property
     @pulumi.getter(name="attestationName")
-    def attestation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attestation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attestation.
         """
         return pulumi.get(self, "attestation_name")
 
     @attestation_name.setter
-    def attestation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attestation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attestation_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def comments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comments describing why this attestation was created.
         """
         return pulumi.get(self, "comments")
 
     @comments.setter
-    def comments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comments", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceState")
-    def compliance_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ComplianceState']]]:
+    def compliance_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ComplianceState']]]:
         """
         The compliance state that should be set on the resource.
         """
         return pulumi.get(self, "compliance_state")
 
     @compliance_state.setter
-    def compliance_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceState']]]):
+    def compliance_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceState']]]):
         pulumi.set(self, "compliance_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def evidence(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]]:
+    def evidence(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AttestationEvidenceArgs']]]]:
         """
         The evidence supporting the compliance state set in this attestation.
         """
         return pulumi.get(self, "evidence")
 
     @evidence.setter
-    def evidence(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]]):
+    def evidence(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AttestationEvidenceArgs']]]]):
         pulumi.set(self, "evidence", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresOn")
-    def expires_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time the compliance state should expire.
         """
         return pulumi.get(self, "expires_on")
 
     @expires_on.setter
-    def expires_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_on", value)
 
     @_builtins.property
@@ -179,26 +179,26 @@ class AttestationAtResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
@@ -208,17 +208,17 @@ class AttestationAtResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 attestation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 compliance_state: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceState']]] = None,
-                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AttestationEvidenceArgs', 'AttestationEvidenceArgsDict']]]]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 attestation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 compliance_state: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceState']]] = None,
+                 evidence: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AttestationEvidenceArgs', 'AttestationEvidenceArgsDict']]]]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An attestation resource.
@@ -226,7 +226,6 @@ class AttestationAtResource(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +254,6 @@ class AttestationAtResource(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param AttestationAtResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,17 +269,17 @@ class AttestationAtResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 attestation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 compliance_state: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceState']]] = None,
-                 evidence: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AttestationEvidenceArgs', 'AttestationEvidenceArgsDict']]]]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 attestation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 compliance_state: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceState']]] = None,
+                 evidence: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AttestationEvidenceArgs', 'AttestationEvidenceArgsDict']]]]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

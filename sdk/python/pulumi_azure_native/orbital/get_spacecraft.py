@@ -190,7 +190,6 @@ def get_spacecraft(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-11-01.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str spacecraft_name: Spacecraft ID.
     """
@@ -213,14 +212,13 @@ def get_spacecraft(resource_group_name: Optional[_builtins.str] = None,
         tle_line1=pulumi.get(__ret__, 'tle_line1'),
         tle_line2=pulumi.get(__ret__, 'tle_line2'),
         type=pulumi.get(__ret__, 'type'))
-def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          spacecraft_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_spacecraft_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          spacecraft_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpacecraftResult]:
     """
     Gets the specified spacecraft in a specified resource group.
 
     Uses Azure REST API version 2022-11-01.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str spacecraft_name: Spacecraft ID.

@@ -85,7 +85,7 @@ export class ElasticBackup extends pulumi.CustomResource {
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["backupName"] = args?.backupName;
             resourceInputs["backupVaultName"] = args?.backupVaultName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.netapp.elasticBackupPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.netapp.elasticBackupPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -116,7 +116,7 @@ export interface ElasticBackupArgs {
     /**
      * The name of the ElasticBackup
      */
-    backupName?: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the ElasticBackupVault
      */
@@ -124,7 +124,7 @@ export interface ElasticBackupArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.netapp.ElasticBackupPropertiesArgs>;
+    properties?: pulumi.Input<inputs.netapp.ElasticBackupPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

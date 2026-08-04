@@ -27,12 +27,12 @@ class StorageAccountCredentialArgs:
                  device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  ssl_status: pulumi.Input[Union[_builtins.str, 'SSLStatus']],
-                 account_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
-                 blob_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_key: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']] = None,
+                 blob_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageAccountCredential resource.
 
@@ -128,74 +128,74 @@ class StorageAccountCredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+    def account_key(self) -> pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]:
         """
         Encrypted storage key.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+    def account_key(self, value: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="blobDomainName")
-    def blob_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Blob end point for private clouds.
         """
         return pulumi.get(self, "blob_domain_name")
 
     @blob_domain_name.setter
-    def blob_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connection string for the storage account. Use this string if username and account key are not specified.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage account credential name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the storage account.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username for the storage account.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -205,17 +205,17 @@ class StorageAccountCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
-                 account_type: Optional[pulumi.Input[Union[_builtins.str, 'AccountType']]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_status: Optional[pulumi.Input[Union[_builtins.str, 'SSLStatus']]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_key: pulumi.Input[Optional[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
+                 account_type: pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_status: pulumi.Input[Optional[Union[_builtins.str, 'SSLStatus']]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The storage account credential.
@@ -223,7 +223,6 @@ class StorageAccountCredential(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,7 +251,6 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param StorageAccountCredentialArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,17 +266,17 @@ class StorageAccountCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
-                 account_type: Optional[pulumi.Input[Union[_builtins.str, 'AccountType']]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_status: Optional[pulumi.Input[Union[_builtins.str, 'SSLStatus']]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_key: pulumi.Input[Optional[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
+                 account_type: pulumi.Input[Optional[Union[_builtins.str, 'AccountType']]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_status: pulumi.Input[Optional[Union[_builtins.str, 'SSLStatus']]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -24,9 +24,9 @@ class ServiceConfigurationArgs:
                  endpoint_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[Union[_builtins.str, 'ServiceName']],
-                 port: Optional[pulumi.Input[_builtins.float]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 port: pulumi.Input[Optional[_builtins.float]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceConfiguration resource.
 
@@ -85,38 +85,38 @@ class ServiceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The port on which service is enabled.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id of the connectivity endpoint (optional).
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConfigurationName")
-    def service_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service name.
         """
         return pulumi.get(self, "service_configuration_name")
 
     @service_configuration_name.setter
-    def service_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_configuration_name", value)
 
 
@@ -126,12 +126,12 @@ class ServiceConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.float]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[Union[_builtins.str, 'ServiceName']]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.float]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[Union[_builtins.str, 'ServiceName']]] = None,
                  __props__=None):
         """
         The service configuration details associated with the target resource.
@@ -139,7 +139,6 @@ class ServiceConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +162,6 @@ class ServiceConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,12 +177,12 @@ class ServiceConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.float]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[Union[_builtins.str, 'ServiceName']]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.float]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[Union[_builtins.str, 'ServiceName']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

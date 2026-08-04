@@ -26,16 +26,16 @@ class WorkspaceDiagnosticArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 always_log: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysLog']]] = None,
-                 backend: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']] = None,
-                 diagnostic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[Union[_builtins.str, 'HttpCorrelationProtocol']]] = None,
-                 log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 operation_name_format: Optional[pulumi.Input[Union[_builtins.str, 'OperationNameFormat']]] = None,
-                 sampling: Optional[pulumi.Input['SamplingSettingsArgs']] = None,
-                 verbosity: Optional[pulumi.Input[Union[_builtins.str, 'Verbosity']]] = None):
+                 always_log: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysLog']]] = None,
+                 backend: pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']] = None,
+                 diagnostic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend: pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']] = None,
+                 http_correlation_protocol: pulumi.Input[Optional[Union[_builtins.str, 'HttpCorrelationProtocol']]] = None,
+                 log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 operation_name_format: pulumi.Input[Optional[Union[_builtins.str, 'OperationNameFormat']]] = None,
+                 sampling: pulumi.Input[Optional['SamplingSettingsArgs']] = None,
+                 verbosity: pulumi.Input[Optional[Union[_builtins.str, 'Verbosity']]] = None):
         """
         The set of arguments for constructing a WorkspaceDiagnostic resource.
 
@@ -129,122 +129,122 @@ class WorkspaceDiagnosticArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysLog")
-    def always_log(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AlwaysLog']]]:
+    def always_log(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AlwaysLog']]]:
         """
         Specifies for what type of messages sampling settings should not apply.
         """
         return pulumi.get(self, "always_log")
 
     @always_log.setter
-    def always_log(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysLog']]]):
+    def always_log(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysLog']]]):
         pulumi.set(self, "always_log", value)
 
     @_builtins.property
     @pulumi.getter
-    def backend(self) -> Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]:
+    def backend(self) -> pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']]:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         """
         return pulumi.get(self, "backend")
 
     @backend.setter
-    def backend(self, value: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]):
+    def backend(self, value: pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']]):
         pulumi.set(self, "backend", value)
 
     @_builtins.property
     @pulumi.getter(name="diagnosticId")
-    def diagnostic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def diagnostic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Diagnostic identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "diagnostic_id")
 
     @diagnostic_id.setter
-    def diagnostic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def diagnostic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "diagnostic_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def frontend(self) -> Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]:
+    def frontend(self) -> pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']]:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         """
         return pulumi.get(self, "frontend")
 
     @frontend.setter
-    def frontend(self, value: Optional[pulumi.Input['PipelineDiagnosticSettingsArgs']]):
+    def frontend(self, value: pulumi.Input[Optional['PipelineDiagnosticSettingsArgs']]):
         pulumi.set(self, "frontend", value)
 
     @_builtins.property
     @pulumi.getter(name="httpCorrelationProtocol")
-    def http_correlation_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HttpCorrelationProtocol']]]:
+    def http_correlation_protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HttpCorrelationProtocol']]]:
         """
         Sets correlation protocol to use for Application Insights diagnostics.
         """
         return pulumi.get(self, "http_correlation_protocol")
 
     @http_correlation_protocol.setter
-    def http_correlation_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HttpCorrelationProtocol']]]):
+    def http_correlation_protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HttpCorrelationProtocol']]]):
         pulumi.set(self, "http_correlation_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="logClientIp")
-    def log_client_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_client_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Log the ClientIP. Default is false.
         """
         return pulumi.get(self, "log_client_ip")
 
     @log_client_ip.setter
-    def log_client_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_client_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_client_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metrics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metrics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="operationNameFormat")
-    def operation_name_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OperationNameFormat']]]:
+    def operation_name_format(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OperationNameFormat']]]:
         """
         The format of the Operation Name for Application Insights telemetries. Default is Name.
         """
         return pulumi.get(self, "operation_name_format")
 
     @operation_name_format.setter
-    def operation_name_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OperationNameFormat']]]):
+    def operation_name_format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OperationNameFormat']]]):
         pulumi.set(self, "operation_name_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def sampling(self) -> Optional[pulumi.Input['SamplingSettingsArgs']]:
+    def sampling(self) -> pulumi.Input[Optional['SamplingSettingsArgs']]:
         """
         Sampling settings for Diagnostic.
         """
         return pulumi.get(self, "sampling")
 
     @sampling.setter
-    def sampling(self, value: Optional[pulumi.Input['SamplingSettingsArgs']]):
+    def sampling(self, value: pulumi.Input[Optional['SamplingSettingsArgs']]):
         pulumi.set(self, "sampling", value)
 
     @_builtins.property
     @pulumi.getter
-    def verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Verbosity']]]:
+    def verbosity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Verbosity']]]:
         """
         The verbosity level applied to traces emitted by trace policies.
         """
         return pulumi.get(self, "verbosity")
 
     @verbosity.setter
-    def verbosity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Verbosity']]]):
+    def verbosity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Verbosity']]]):
         pulumi.set(self, "verbosity", value)
 
 
@@ -254,20 +254,20 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_log: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysLog']]] = None,
-                 backend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
-                 diagnostic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[Union[_builtins.str, 'HttpCorrelationProtocol']]] = None,
-                 log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 operation_name_format: Optional[pulumi.Input[Union[_builtins.str, 'OperationNameFormat']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling: Optional[pulumi.Input[Union['SamplingSettingsArgs', 'SamplingSettingsArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 verbosity: Optional[pulumi.Input[Union[_builtins.str, 'Verbosity']]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_log: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysLog']]] = None,
+                 backend: pulumi.Input[Optional[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
+                 diagnostic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend: pulumi.Input[Optional[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
+                 http_correlation_protocol: pulumi.Input[Optional[Union[_builtins.str, 'HttpCorrelationProtocol']]] = None,
+                 log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 operation_name_format: pulumi.Input[Optional[Union[_builtins.str, 'OperationNameFormat']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling: pulumi.Input[Optional[Union['SamplingSettingsArgs', 'SamplingSettingsArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 verbosity: pulumi.Input[Optional[Union[_builtins.str, 'Verbosity']]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Diagnostic details.
@@ -275,7 +275,6 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +306,6 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param WorkspaceDiagnosticArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,20 +321,20 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_log: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysLog']]] = None,
-                 backend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
-                 diagnostic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend: Optional[pulumi.Input[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[Union[_builtins.str, 'HttpCorrelationProtocol']]] = None,
-                 log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 operation_name_format: Optional[pulumi.Input[Union[_builtins.str, 'OperationNameFormat']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling: Optional[pulumi.Input[Union['SamplingSettingsArgs', 'SamplingSettingsArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 verbosity: Optional[pulumi.Input[Union[_builtins.str, 'Verbosity']]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_log: pulumi.Input[Optional[Union[_builtins.str, 'AlwaysLog']]] = None,
+                 backend: pulumi.Input[Optional[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
+                 diagnostic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend: pulumi.Input[Optional[Union['PipelineDiagnosticSettingsArgs', 'PipelineDiagnosticSettingsArgsDict']]] = None,
+                 http_correlation_protocol: pulumi.Input[Optional[Union[_builtins.str, 'HttpCorrelationProtocol']]] = None,
+                 log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 operation_name_format: pulumi.Input[Optional[Union[_builtins.str, 'OperationNameFormat']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling: pulumi.Input[Optional[Union['SamplingSettingsArgs', 'SamplingSettingsArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 verbosity: pulumi.Input[Optional[Union[_builtins.str, 'Verbosity']]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

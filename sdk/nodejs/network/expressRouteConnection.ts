@@ -145,19 +145,19 @@ export interface ExpressRouteConnectionArgs {
     /**
      * Authorization key to establish the connection.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the connection subresource.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Enable internet security.
      */
-    enableInternetSecurity?: pulumi.Input<boolean>;
+    enableInternetSecurity?: pulumi.Input<boolean | undefined>;
     /**
      * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
      */
-    enablePrivateLinkFastPath?: pulumi.Input<boolean>;
+    enablePrivateLinkFastPath?: pulumi.Input<boolean | undefined>;
     /**
      * The ExpressRoute circuit peering.
      */
@@ -165,7 +165,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * Enable FastPath to vWan Firewall hub.
      */
-    expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    expressRouteGatewayBypass?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the ExpressRoute gateway.
      */
@@ -173,7 +173,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource.
      */
@@ -185,9 +185,9 @@ export interface ExpressRouteConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
+    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs | undefined>;
     /**
      * The routing weight associated to the connection.
      */
-    routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number | undefined>;
 }

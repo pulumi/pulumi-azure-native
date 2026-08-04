@@ -109,7 +109,6 @@ def get_monitored_subscription(configuration_name: Optional[_builtins.str] = Non
 
     Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str configuration_name: The configuration name. Only 'default' value is supported.
     :param _builtins.str monitor_name: Monitor resource name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -127,9 +126,9 @@ def get_monitored_subscription(configuration_name: Optional[_builtins.str] = Non
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_monitored_subscription_output(configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitored_subscription_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoredSubscriptionResult]:
     """
     The request to update subscriptions needed to be monitored by the Elastic monitor resource.
@@ -137,7 +136,6 @@ def get_monitored_subscription_output(configuration_name: Optional[pulumi.Input[
     Uses Azure REST API version 2025-01-15-preview.
 
     Other available API versions: 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str configuration_name: The configuration name. Only 'default' value is supported.
     :param _builtins.str monitor_name: Monitor resource name

@@ -157,11 +157,11 @@ export interface DatasetArgs {
     /**
      * Name of dataset.
      */
-    datasetName?: pulumi.Input<string>;
+    datasetName?: pulumi.Input<string | undefined>;
     /**
      * Detailed description of the Dataset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Edge location of the resource.
      */
@@ -173,15 +173,15 @@ export interface DatasetArgs {
     /**
      * List of keys that can be used for joining on enrich.
      */
-    keys?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iotoperationsdataprocessor.DatasetPropertyKeyArgs>}>;
+    keys?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iotoperationsdataprocessor.DatasetPropertyKeyArgs>} | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Path to the payload in the message. Enrich will add only the payload to the enriched message, other fields will not be kept except for in the indexes.
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -189,13 +189,13 @@ export interface DatasetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Path to an RFC3339 timestamp in the message. If no path is provided, the ingestion time of the record is used for time-based joins.
      */
-    timestamp?: pulumi.Input<string>;
+    timestamp?: pulumi.Input<string | undefined>;
     /**
      * Time to live for individual records.
      */
-    ttl?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string | undefined>;
 }

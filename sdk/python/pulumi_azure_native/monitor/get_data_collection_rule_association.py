@@ -180,7 +180,6 @@ def get_data_collection_rule_association(association_name: Optional[_builtins.st
 
     Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str association_name: The name of the association. The name is case insensitive.
     :param _builtins.str resource_uri: The identifier of the resource.
     """
@@ -202,8 +201,8 @@ def get_data_collection_rule_association(association_name: Optional[_builtins.st
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_collection_rule_association_output(association_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_collection_rule_association_output(association_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionRuleAssociationResult]:
     """
     Definition of generic ARM proxy resource.
@@ -211,7 +210,6 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
     Uses Azure REST API version 2022-06-01.
 
     Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str association_name: The name of the association. The name is case insensitive.
     :param _builtins.str resource_uri: The identifier of the resource.

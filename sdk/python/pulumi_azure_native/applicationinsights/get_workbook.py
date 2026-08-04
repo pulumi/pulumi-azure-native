@@ -289,7 +289,6 @@ def get_workbook(can_fetch_content: Optional[_builtins.bool] = None,
 
     Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str resource_name: The name of the workbook resource. The value must be an UUID.
@@ -322,9 +321,9 @@ def get_workbook(can_fetch_content: Optional[_builtins.bool] = None,
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'),
         version=pulumi.get(__ret__, 'version'))
-def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workbook_output(can_fetch_content: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     Get a single workbook by its resourceName.
@@ -332,7 +331,6 @@ def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[_built
     Uses Azure REST API version 2023-06-01.
 
     Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

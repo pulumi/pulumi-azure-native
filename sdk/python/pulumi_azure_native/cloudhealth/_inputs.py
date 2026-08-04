@@ -72,11 +72,11 @@ class AlertConfigurationArgsDict(TypedDict):
     """
     The severity of triggered alert.
     """
-    action_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    action_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Optional list of action group resource IDs to be notified when the alert is triggered.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alert rule description.
     """
@@ -85,8 +85,8 @@ class AlertConfigurationArgsDict(TypedDict):
 class AlertConfigurationArgs:
     def __init__(__self__, *,
                  severity: pulumi.Input[Union[_builtins.str, 'AlertSeverity']],
-                 action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Alert configuration details
 
@@ -114,26 +114,26 @@ class AlertConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionGroupIds")
-    def action_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def action_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optional list of action group resource IDs to be notified when the alert is triggered.
         """
         return pulumi.get(self, "action_group_ids")
 
     @action_group_ids.setter
-    def action_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def action_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "action_group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alert rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -149,7 +149,7 @@ class AzureMonitorWorkspaceSignalGroupArgsDict(TypedDict):
     """
     Azure Monitor workspace resource ID
     """
-    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    signal_assignments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]]
     """
     Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
     """
@@ -159,7 +159,7 @@ class AzureMonitorWorkspaceSignalGroupArgs:
     def __init__(__self__, *,
                  authentication_setting: pulumi.Input[_builtins.str],
                  azure_monitor_workspace_resource_id: pulumi.Input[_builtins.str],
-                 signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
+                 signal_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Azure Monitor Workspace
 
@@ -198,14 +198,14 @@ class AzureMonitorWorkspaceSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="signalAssignments")
-    def signal_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
+    def signal_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
         """
         Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
         """
         return pulumi.get(self, "signal_assignments")
 
     @signal_assignments.setter
-    def signal_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
+    def signal_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
         pulumi.set(self, "signal_assignments", value)
 
 
@@ -221,7 +221,7 @@ class AzureResourceSignalGroupArgsDict(TypedDict):
     """
     Azure resource ID
     """
-    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    signal_assignments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]]
     """
     Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
     """
@@ -231,7 +231,7 @@ class AzureResourceSignalGroupArgs:
     def __init__(__self__, *,
                  authentication_setting: pulumi.Input[_builtins.str],
                  azure_resource_id: pulumi.Input[_builtins.str],
-                 signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
+                 signal_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for an Azure resource
 
@@ -270,14 +270,14 @@ class AzureResourceSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="signalAssignments")
-    def signal_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
+    def signal_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
         """
         Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
         """
         return pulumi.get(self, "signal_assignments")
 
     @signal_assignments.setter
-    def signal_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
+    def signal_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
         pulumi.set(self, "signal_assignments", value)
 
 
@@ -289,11 +289,11 @@ class DependenciesSignalGroupArgsDict(TypedDict):
     """
     Aggregation type for child dependencies.
     """
-    degraded_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    degraded_threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
     """
-    unhealthy_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    unhealthy_threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
     """
@@ -301,9 +301,9 @@ class DependenciesSignalGroupArgsDict(TypedDict):
 @pulumi.input_type
 class DependenciesSignalGroupArgs:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']]] = None,
-                 degraded_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 unhealthy_threshold: Optional[pulumi.Input[_builtins.str]] = None):
+                 aggregation_type: pulumi.Input[Optional[Union[_builtins.str, 'DependenciesAggregationType']]] = None,
+                 degraded_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 unhealthy_threshold: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties for dependent entities, i.e. child entities
 
@@ -333,26 +333,26 @@ class DependenciesSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="degradedThreshold")
-    def degraded_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def degraded_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         """
         return pulumi.get(self, "degraded_threshold")
 
     @degraded_threshold.setter
-    def degraded_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def degraded_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "degraded_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unhealthy_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
     @unhealthy_threshold.setter
-    def unhealthy_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unhealthy_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unhealthy_threshold", value)
 
 
@@ -376,7 +376,7 @@ class DiscoveryRulePropertiesArgsDict(TypedDict):
     """
     Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
@@ -388,7 +388,7 @@ class DiscoveryRulePropertiesArgs:
                  authentication_setting: pulumi.Input[_builtins.str],
                  discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']],
                  resource_graph_query: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Discovery rule properties
 
@@ -455,14 +455,14 @@ class DiscoveryRulePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -482,7 +482,7 @@ class DynamicDetectionRuleArgsDict(TypedDict):
     """
     ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
     """
-    training_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    training_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start time of the training in UTC.
     """
@@ -493,7 +493,7 @@ class DynamicDetectionRuleArgs:
                  dynamic_threshold_direction: pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']],
                  dynamic_threshold_model: pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']],
                  model_sensitivity: pulumi.Input[_builtins.float],
-                 training_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 training_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         ML-based evaluation rule for a signal definition
 
@@ -546,14 +546,14 @@ class DynamicDetectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="trainingStartTime")
-    def training_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def training_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start time of the training in UTC.
         """
         return pulumi.get(self, "training_start_time")
 
     @training_start_time.setter
-    def training_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def training_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "training_start_time", value)
 
 
@@ -561,11 +561,11 @@ class EntityAlertsArgsDict(TypedDict):
     """
     Alert configuration for an entity
     """
-    degraded: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    degraded: NotRequired[pulumi.Input[Optional['AlertConfigurationArgsDict']]]
     """
     Alert to be triggered on state change to degraded
     """
-    unhealthy: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    unhealthy: NotRequired[pulumi.Input[Optional['AlertConfigurationArgsDict']]]
     """
     Alert to be triggered on state change to unhealthy
     """
@@ -573,8 +573,8 @@ class EntityAlertsArgsDict(TypedDict):
 @pulumi.input_type
 class EntityAlertsArgs:
     def __init__(__self__, *,
-                 degraded: Optional[pulumi.Input['AlertConfigurationArgs']] = None,
-                 unhealthy: Optional[pulumi.Input['AlertConfigurationArgs']] = None):
+                 degraded: pulumi.Input[Optional['AlertConfigurationArgs']] = None,
+                 unhealthy: pulumi.Input[Optional['AlertConfigurationArgs']] = None):
         """
         Alert configuration for an entity
 
@@ -588,26 +588,26 @@ class EntityAlertsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def degraded(self) -> Optional[pulumi.Input['AlertConfigurationArgs']]:
+    def degraded(self) -> pulumi.Input[Optional['AlertConfigurationArgs']]:
         """
         Alert to be triggered on state change to degraded
         """
         return pulumi.get(self, "degraded")
 
     @degraded.setter
-    def degraded(self, value: Optional[pulumi.Input['AlertConfigurationArgs']]):
+    def degraded(self, value: pulumi.Input[Optional['AlertConfigurationArgs']]):
         pulumi.set(self, "degraded", value)
 
     @_builtins.property
     @pulumi.getter
-    def unhealthy(self) -> Optional[pulumi.Input['AlertConfigurationArgs']]:
+    def unhealthy(self) -> pulumi.Input[Optional['AlertConfigurationArgs']]:
         """
         Alert to be triggered on state change to unhealthy
         """
         return pulumi.get(self, "unhealthy")
 
     @unhealthy.setter
-    def unhealthy(self, value: Optional[pulumi.Input['AlertConfigurationArgs']]):
+    def unhealthy(self, value: pulumi.Input[Optional['AlertConfigurationArgs']]):
         pulumi.set(self, "unhealthy", value)
 
 
@@ -667,39 +667,39 @@ class EntityPropertiesArgsDict(TypedDict):
     """
     Properties which are common across all kinds of entities
     """
-    alerts: NotRequired[pulumi.Input['EntityAlertsArgsDict']]
+    alerts: NotRequired[pulumi.Input[Optional['EntityAlertsArgsDict']]]
     """
     Alert configuration for this entity
     """
-    canvas_position: NotRequired[pulumi.Input['EntityCoordinatesArgsDict']]
+    canvas_position: NotRequired[pulumi.Input[Optional['EntityCoordinatesArgsDict']]]
     """
     Positioning of the entity on the model canvas
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    health_objective: NotRequired[pulumi.Input[_builtins.float]]
+    health_objective: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Health objective as a percentage of time the entity should be healthy.
     """
-    icon: NotRequired[pulumi.Input['IconDefinitionArgsDict']]
+    icon: NotRequired[pulumi.Input[Optional['IconDefinitionArgsDict']]]
     """
     Visual icon definition. If not set, a default icon is used.
     """
-    impact: NotRequired[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]
+    impact: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]]]
     """
     Impact of the entity in health state propagation
     """
-    kind: NotRequired[pulumi.Input[_builtins.str]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Entity kind
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
-    signals: NotRequired[pulumi.Input['SignalGroupArgsDict']]
+    signals: NotRequired[pulumi.Input[Optional['SignalGroupArgsDict']]]
     """
     Signal groups which are assigned to this entity
     """
@@ -707,15 +707,15 @@ class EntityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class EntityPropertiesArgs:
     def __init__(__self__, *,
-                 alerts: Optional[pulumi.Input['EntityAlertsArgs']] = None,
-                 canvas_position: Optional[pulumi.Input['EntityCoordinatesArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_objective: Optional[pulumi.Input[_builtins.float]] = None,
-                 icon: Optional[pulumi.Input['IconDefinitionArgs']] = None,
-                 impact: Optional[pulumi.Input[Union[_builtins.str, 'EntityImpact']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 signals: Optional[pulumi.Input['SignalGroupArgs']] = None):
+                 alerts: pulumi.Input[Optional['EntityAlertsArgs']] = None,
+                 canvas_position: pulumi.Input[Optional['EntityCoordinatesArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_objective: pulumi.Input[Optional[_builtins.float]] = None,
+                 icon: pulumi.Input[Optional['IconDefinitionArgs']] = None,
+                 impact: pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 signals: pulumi.Input[Optional['SignalGroupArgs']] = None):
         """
         Properties which are common across all kinds of entities
 
@@ -754,110 +754,110 @@ class EntityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alerts(self) -> Optional[pulumi.Input['EntityAlertsArgs']]:
+    def alerts(self) -> pulumi.Input[Optional['EntityAlertsArgs']]:
         """
         Alert configuration for this entity
         """
         return pulumi.get(self, "alerts")
 
     @alerts.setter
-    def alerts(self, value: Optional[pulumi.Input['EntityAlertsArgs']]):
+    def alerts(self, value: pulumi.Input[Optional['EntityAlertsArgs']]):
         pulumi.set(self, "alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="canvasPosition")
-    def canvas_position(self) -> Optional[pulumi.Input['EntityCoordinatesArgs']]:
+    def canvas_position(self) -> pulumi.Input[Optional['EntityCoordinatesArgs']]:
         """
         Positioning of the entity on the model canvas
         """
         return pulumi.get(self, "canvas_position")
 
     @canvas_position.setter
-    def canvas_position(self, value: Optional[pulumi.Input['EntityCoordinatesArgs']]):
+    def canvas_position(self, value: pulumi.Input[Optional['EntityCoordinatesArgs']]):
         pulumi.set(self, "canvas_position", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthObjective")
-    def health_objective(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def health_objective(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Health objective as a percentage of time the entity should be healthy.
         """
         return pulumi.get(self, "health_objective")
 
     @health_objective.setter
-    def health_objective(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def health_objective(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "health_objective", value)
 
     @_builtins.property
     @pulumi.getter
-    def icon(self) -> Optional[pulumi.Input['IconDefinitionArgs']]:
+    def icon(self) -> pulumi.Input[Optional['IconDefinitionArgs']]:
         """
         Visual icon definition. If not set, a default icon is used.
         """
         return pulumi.get(self, "icon")
 
     @icon.setter
-    def icon(self, value: Optional[pulumi.Input['IconDefinitionArgs']]):
+    def icon(self, value: pulumi.Input[Optional['IconDefinitionArgs']]):
         pulumi.set(self, "icon", value)
 
     @_builtins.property
     @pulumi.getter
-    def impact(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]:
+    def impact(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]]:
         """
         Impact of the entity in health state propagation
         """
         return pulumi.get(self, "impact")
 
     @impact.setter
-    def impact(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]):
+    def impact(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EntityImpact']]]):
         pulumi.set(self, "impact", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Entity kind
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def signals(self) -> Optional[pulumi.Input['SignalGroupArgs']]:
+    def signals(self) -> pulumi.Input[Optional['SignalGroupArgs']]:
         """
         Signal groups which are assigned to this entity
         """
         return pulumi.get(self, "signals")
 
     @signals.setter
-    def signals(self, value: Optional[pulumi.Input['SignalGroupArgs']]):
+    def signals(self, value: pulumi.Input[Optional['SignalGroupArgs']]):
         pulumi.set(self, "signals", value)
 
 
@@ -865,15 +865,15 @@ class EvaluationRuleArgsDict(TypedDict):
     """
     Evaluation rule for a signal definition
     """
-    degraded_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    degraded_rule: NotRequired[pulumi.Input[Optional['ThresholdRuleArgsDict']]]
     """
     Degraded rule with static threshold.
     """
-    dynamic_detection_rule: NotRequired[pulumi.Input['DynamicDetectionRuleArgsDict']]
+    dynamic_detection_rule: NotRequired[pulumi.Input[Optional['DynamicDetectionRuleArgsDict']]]
     """
     Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
     """
-    unhealthy_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    unhealthy_rule: NotRequired[pulumi.Input[Optional['ThresholdRuleArgsDict']]]
     """
     Unhealthy rule with static threshold.
     """
@@ -881,9 +881,9 @@ class EvaluationRuleArgsDict(TypedDict):
 @pulumi.input_type
 class EvaluationRuleArgs:
     def __init__(__self__, *,
-                 degraded_rule: Optional[pulumi.Input['ThresholdRuleArgs']] = None,
-                 dynamic_detection_rule: Optional[pulumi.Input['DynamicDetectionRuleArgs']] = None,
-                 unhealthy_rule: Optional[pulumi.Input['ThresholdRuleArgs']] = None):
+                 degraded_rule: pulumi.Input[Optional['ThresholdRuleArgs']] = None,
+                 dynamic_detection_rule: pulumi.Input[Optional['DynamicDetectionRuleArgs']] = None,
+                 unhealthy_rule: pulumi.Input[Optional['ThresholdRuleArgs']] = None):
         """
         Evaluation rule for a signal definition
 
@@ -900,38 +900,38 @@ class EvaluationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="degradedRule")
-    def degraded_rule(self) -> Optional[pulumi.Input['ThresholdRuleArgs']]:
+    def degraded_rule(self) -> pulumi.Input[Optional['ThresholdRuleArgs']]:
         """
         Degraded rule with static threshold.
         """
         return pulumi.get(self, "degraded_rule")
 
     @degraded_rule.setter
-    def degraded_rule(self, value: Optional[pulumi.Input['ThresholdRuleArgs']]):
+    def degraded_rule(self, value: pulumi.Input[Optional['ThresholdRuleArgs']]):
         pulumi.set(self, "degraded_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicDetectionRule")
-    def dynamic_detection_rule(self) -> Optional[pulumi.Input['DynamicDetectionRuleArgs']]:
+    def dynamic_detection_rule(self) -> pulumi.Input[Optional['DynamicDetectionRuleArgs']]:
         """
         Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
         """
         return pulumi.get(self, "dynamic_detection_rule")
 
     @dynamic_detection_rule.setter
-    def dynamic_detection_rule(self, value: Optional[pulumi.Input['DynamicDetectionRuleArgs']]):
+    def dynamic_detection_rule(self, value: pulumi.Input[Optional['DynamicDetectionRuleArgs']]):
         pulumi.set(self, "dynamic_detection_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyRule")
-    def unhealthy_rule(self) -> Optional[pulumi.Input['ThresholdRuleArgs']]:
+    def unhealthy_rule(self) -> pulumi.Input[Optional['ThresholdRuleArgs']]:
         """
         Unhealthy rule with static threshold.
         """
         return pulumi.get(self, "unhealthy_rule")
 
     @unhealthy_rule.setter
-    def unhealthy_rule(self, value: Optional[pulumi.Input['ThresholdRuleArgs']]):
+    def unhealthy_rule(self, value: pulumi.Input[Optional['ThresholdRuleArgs']]):
         pulumi.set(self, "unhealthy_rule", value)
 
 
@@ -939,7 +939,7 @@ class HealthModelPropertiesArgsDict(TypedDict):
     """
     HealthModel properties
     """
-    discovery: NotRequired[pulumi.Input['ModelDiscoverySettingsArgsDict']]
+    discovery: NotRequired[pulumi.Input[Optional['ModelDiscoverySettingsArgsDict']]]
     """
     Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
     """
@@ -947,7 +947,7 @@ class HealthModelPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class HealthModelPropertiesArgs:
     def __init__(__self__, *,
-                 discovery: Optional[pulumi.Input['ModelDiscoverySettingsArgs']] = None):
+                 discovery: pulumi.Input[Optional['ModelDiscoverySettingsArgs']] = None):
         """
         HealthModel properties
 
@@ -958,14 +958,14 @@ class HealthModelPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def discovery(self) -> Optional[pulumi.Input['ModelDiscoverySettingsArgs']]:
+    def discovery(self) -> pulumi.Input[Optional['ModelDiscoverySettingsArgs']]:
         """
         Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
         """
         return pulumi.get(self, "discovery")
 
     @discovery.setter
-    def discovery(self, value: Optional[pulumi.Input['ModelDiscoverySettingsArgs']]):
+    def discovery(self, value: pulumi.Input[Optional['ModelDiscoverySettingsArgs']]):
         pulumi.set(self, "discovery", value)
 
 
@@ -977,7 +977,7 @@ class IconDefinitionArgsDict(TypedDict):
     """
     Name of the built-in icon, or 'Custom' to use customData
     """
-    custom_data: NotRequired[pulumi.Input[_builtins.str]]
+    custom_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
     """
@@ -986,7 +986,7 @@ class IconDefinitionArgsDict(TypedDict):
 class IconDefinitionArgs:
     def __init__(__self__, *,
                  icon_name: pulumi.Input[_builtins.str],
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Visual icon definition of an entity
 
@@ -1011,14 +1011,14 @@ class IconDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
 
@@ -1039,27 +1039,27 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgsDict(TypedDict):
     Supported signal kinds as discriminator
     Expected value is 'LogAnalyticsQuery'.
     """
-    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    data_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
-    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]]
     """
     Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
     """
-    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    time_grain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
     """
-    value_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    value_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
     """
@@ -1070,12 +1070,12 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
                  evaluation_rules: pulumi.Input['EvaluationRuleArgs'],
                  query_text: pulumi.Input[_builtins.str],
                  signal_kind: pulumi.Input[_builtins.str],
-                 data_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 refresh_interval: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]] = None,
-                 time_grain: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_column_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 refresh_interval: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]] = None,
+                 time_grain: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_column_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Log Analytics Query Signal Definition properties
 
@@ -1147,74 +1147,74 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataUnit")
-    def data_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
         """
         return pulumi.get(self, "data_unit")
 
     @data_unit.setter
-    def data_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshInterval")
-    def refresh_interval(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]:
+    def refresh_interval(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]:
         """
         Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
         """
         return pulumi.get(self, "refresh_interval")
 
     @refresh_interval.setter
-    def refresh_interval(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]):
+    def refresh_interval(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]):
         pulumi.set(self, "refresh_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_grain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
         """
         return pulumi.get(self, "time_grain")
 
     @time_grain.setter
-    def time_grain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_grain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_grain", value)
 
     @_builtins.property
     @pulumi.getter(name="valueColumnName")
-    def value_column_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
         """
         return pulumi.get(self, "value_column_name")
 
     @value_column_name.setter
-    def value_column_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_column_name", value)
 
 
@@ -1230,7 +1230,7 @@ class LogAnalyticsSignalGroupArgsDict(TypedDict):
     """
     Log Analytics Workspace resource ID
     """
-    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    signal_assignments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]]
     """
     Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
     """
@@ -1240,7 +1240,7 @@ class LogAnalyticsSignalGroupArgs:
     def __init__(__self__, *,
                  authentication_setting: pulumi.Input[_builtins.str],
                  log_analytics_workspace_resource_id: pulumi.Input[_builtins.str],
-                 signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
+                 signal_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Log Analytics Workspace
 
@@ -1279,14 +1279,14 @@ class LogAnalyticsSignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="signalAssignments")
-    def signal_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
+    def signal_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]:
         """
         Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
         """
         return pulumi.get(self, "signal_assignments")
 
     @signal_assignments.setter
-    def signal_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
+    def signal_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignalAssignmentArgs']]]]):
         pulumi.set(self, "signal_assignments", value)
 
 
@@ -1303,7 +1303,7 @@ class ManagedIdentityAuthenticationSettingPropertiesArgsDict(TypedDict):
     """
     Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
@@ -1313,7 +1313,7 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
     def __init__(__self__, *,
                  authentication_kind: pulumi.Input[_builtins.str],
                  managed_identity_name: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authentication setting properties for Azure Managed Identity
 
@@ -1354,14 +1354,14 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -1373,7 +1373,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -1382,7 +1382,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -1407,14 +1407,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1430,7 +1430,7 @@ class ModelDiscoverySettingsArgsDict(TypedDict):
     """
     The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
     """
-    identity: NotRequired[pulumi.Input[_builtins.str]]
+    identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
     """
@@ -1440,7 +1440,7 @@ class ModelDiscoverySettingsArgs:
     def __init__(__self__, *,
                  add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']],
                  scope: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Settings for automatically discovering entities for the health model.
 
@@ -1479,14 +1479,14 @@ class ModelDiscoverySettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity", value)
 
 
@@ -1507,23 +1507,23 @@ class PrometheusMetricsSignalDefinitionPropertiesArgsDict(TypedDict):
     Supported signal kinds as discriminator
     Expected value is 'PrometheusMetricsQuery'.
     """
-    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    data_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
-    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]]
     """
     Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
     """
-    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    time_grain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time range of signal. ISO duration format like PT10M.
     """
@@ -1534,11 +1534,11 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
                  evaluation_rules: pulumi.Input['EvaluationRuleArgs'],
                  query_text: pulumi.Input[_builtins.str],
                  signal_kind: pulumi.Input[_builtins.str],
-                 data_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 refresh_interval: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]] = None,
-                 time_grain: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 refresh_interval: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]] = None,
+                 time_grain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Prometheus Metrics Signal Definition properties
 
@@ -1607,62 +1607,62 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataUnit")
-    def data_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
         """
         return pulumi.get(self, "data_unit")
 
     @data_unit.setter
-    def data_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshInterval")
-    def refresh_interval(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]:
+    def refresh_interval(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]:
         """
         Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
         """
         return pulumi.get(self, "refresh_interval")
 
     @refresh_interval.setter
-    def refresh_interval(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]):
+    def refresh_interval(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]):
         pulumi.set(self, "refresh_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_grain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time range of signal. ISO duration format like PT10M.
         """
         return pulumi.get(self, "time_grain")
 
     @time_grain.setter
-    def time_grain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_grain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_grain", value)
 
 
@@ -1678,11 +1678,11 @@ class RelationshipPropertiesArgsDict(TypedDict):
     """
     Resource name of the parent entity
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
@@ -1692,8 +1692,8 @@ class RelationshipPropertiesArgs:
     def __init__(__self__, *,
                  child_entity_name: pulumi.Input[_builtins.str],
                  parent_entity_name: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Relationship properties
 
@@ -1735,26 +1735,26 @@ class RelationshipPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
 
@@ -1787,27 +1787,27 @@ class ResourceMetricSignalDefinitionPropertiesArgsDict(TypedDict):
     """
     Time range of signal. ISO duration format like PT10M.
     """
-    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    data_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
     """
-    dimension: NotRequired[pulumi.Input[_builtins.str]]
+    dimension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional: Dimension to split by
     """
-    dimension_filter: NotRequired[pulumi.Input[_builtins.str]]
+    dimension_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Display name
     """
-    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Optional set of labels (key-value pairs)
     """
-    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    refresh_interval: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]]
     """
     Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
     """
@@ -1821,12 +1821,12 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
                  metric_namespace: pulumi.Input[_builtins.str],
                  signal_kind: pulumi.Input[_builtins.str],
                  time_grain: pulumi.Input[_builtins.str],
-                 data_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                 dimension_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 refresh_interval: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]] = None):
+                 data_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                 dimension_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 refresh_interval: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]] = None):
         """
         Azure Resource Metric Signal Definition properties
 
@@ -1940,74 +1940,74 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataUnit")
-    def data_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
         """
         return pulumi.get(self, "data_unit")
 
     @data_unit.setter
-    def data_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dimension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional: Dimension to split by
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dimension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dimension", value)
 
     @_builtins.property
     @pulumi.getter(name="dimensionFilter")
-    def dimension_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dimension_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
         """
         return pulumi.get(self, "dimension_filter")
 
     @dimension_filter.setter
-    def dimension_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dimension_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dimension_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional set of labels (key-value pairs)
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshInterval")
-    def refresh_interval(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]:
+    def refresh_interval(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]:
         """
         Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
         """
         return pulumi.get(self, "refresh_interval")
 
     @refresh_interval.setter
-    def refresh_interval(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]):
+    def refresh_interval(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RefreshInterval']]]):
         pulumi.set(self, "refresh_interval", value)
 
 
@@ -2048,19 +2048,19 @@ class SignalGroupArgsDict(TypedDict):
     """
     Contains various signal groups that can be assigned to an entity
     """
-    azure_log_analytics: NotRequired[pulumi.Input['LogAnalyticsSignalGroupArgsDict']]
+    azure_log_analytics: NotRequired[pulumi.Input[Optional['LogAnalyticsSignalGroupArgsDict']]]
     """
     Log Analytics Signal Group
     """
-    azure_monitor_workspace: NotRequired[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgsDict']]
+    azure_monitor_workspace: NotRequired[pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgsDict']]]
     """
     Azure Monitor Workspace Signal Group
     """
-    azure_resource: NotRequired[pulumi.Input['AzureResourceSignalGroupArgsDict']]
+    azure_resource: NotRequired[pulumi.Input[Optional['AzureResourceSignalGroupArgsDict']]]
     """
     Azure Resource Signal Group
     """
-    dependencies: NotRequired[pulumi.Input['DependenciesSignalGroupArgsDict']]
+    dependencies: NotRequired[pulumi.Input[Optional['DependenciesSignalGroupArgsDict']]]
     """
     Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
     """
@@ -2068,10 +2068,10 @@ class SignalGroupArgsDict(TypedDict):
 @pulumi.input_type
 class SignalGroupArgs:
     def __init__(__self__, *,
-                 azure_log_analytics: Optional[pulumi.Input['LogAnalyticsSignalGroupArgs']] = None,
-                 azure_monitor_workspace: Optional[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs']] = None,
-                 azure_resource: Optional[pulumi.Input['AzureResourceSignalGroupArgs']] = None,
-                 dependencies: Optional[pulumi.Input['DependenciesSignalGroupArgs']] = None):
+                 azure_log_analytics: pulumi.Input[Optional['LogAnalyticsSignalGroupArgs']] = None,
+                 azure_monitor_workspace: pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgs']] = None,
+                 azure_resource: pulumi.Input[Optional['AzureResourceSignalGroupArgs']] = None,
+                 dependencies: pulumi.Input[Optional['DependenciesSignalGroupArgs']] = None):
         """
         Contains various signal groups that can be assigned to an entity
 
@@ -2091,50 +2091,50 @@ class SignalGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureLogAnalytics")
-    def azure_log_analytics(self) -> Optional[pulumi.Input['LogAnalyticsSignalGroupArgs']]:
+    def azure_log_analytics(self) -> pulumi.Input[Optional['LogAnalyticsSignalGroupArgs']]:
         """
         Log Analytics Signal Group
         """
         return pulumi.get(self, "azure_log_analytics")
 
     @azure_log_analytics.setter
-    def azure_log_analytics(self, value: Optional[pulumi.Input['LogAnalyticsSignalGroupArgs']]):
+    def azure_log_analytics(self, value: pulumi.Input[Optional['LogAnalyticsSignalGroupArgs']]):
         pulumi.set(self, "azure_log_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorWorkspace")
-    def azure_monitor_workspace(self) -> Optional[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs']]:
+    def azure_monitor_workspace(self) -> pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgs']]:
         """
         Azure Monitor Workspace Signal Group
         """
         return pulumi.get(self, "azure_monitor_workspace")
 
     @azure_monitor_workspace.setter
-    def azure_monitor_workspace(self, value: Optional[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs']]):
+    def azure_monitor_workspace(self, value: pulumi.Input[Optional['AzureMonitorWorkspaceSignalGroupArgs']]):
         pulumi.set(self, "azure_monitor_workspace", value)
 
     @_builtins.property
     @pulumi.getter(name="azureResource")
-    def azure_resource(self) -> Optional[pulumi.Input['AzureResourceSignalGroupArgs']]:
+    def azure_resource(self) -> pulumi.Input[Optional['AzureResourceSignalGroupArgs']]:
         """
         Azure Resource Signal Group
         """
         return pulumi.get(self, "azure_resource")
 
     @azure_resource.setter
-    def azure_resource(self, value: Optional[pulumi.Input['AzureResourceSignalGroupArgs']]):
+    def azure_resource(self, value: pulumi.Input[Optional['AzureResourceSignalGroupArgs']]):
         pulumi.set(self, "azure_resource", value)
 
     @_builtins.property
     @pulumi.getter
-    def dependencies(self) -> Optional[pulumi.Input['DependenciesSignalGroupArgs']]:
+    def dependencies(self) -> pulumi.Input[Optional['DependenciesSignalGroupArgs']]:
         """
         Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
         """
         return pulumi.get(self, "dependencies")
 
     @dependencies.setter
-    def dependencies(self, value: Optional[pulumi.Input['DependenciesSignalGroupArgs']]):
+    def dependencies(self, value: pulumi.Input[Optional['DependenciesSignalGroupArgs']]):
         pulumi.set(self, "dependencies", value)
 
 

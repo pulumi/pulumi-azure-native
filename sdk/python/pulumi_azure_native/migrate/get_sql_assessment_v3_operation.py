@@ -119,7 +119,6 @@ def get_sql_assessment_v3_operation(assessment_name: Optional[_builtins.str] = N
 
     Uses Azure REST API version 2024-03-03-preview.
 
-
     :param _builtins.str assessment_name: SQL Assessment arm name.
     :param _builtins.str project_name: Assessment Project Name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,15 +137,14 @@ def get_sql_assessment_v3_operation(assessment_name: Optional[_builtins.str] = N
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_assessment_v3_operation_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_assessment_v3_operation_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlAssessmentV3OperationResult]:
     """
     Get a SqlAssessmentV3
 
     Uses Azure REST API version 2024-03-03-preview.
-
 
     :param _builtins.str assessment_name: SQL Assessment arm name.
     :param _builtins.str project_name: Assessment Project Name

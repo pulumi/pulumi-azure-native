@@ -265,7 +265,6 @@ def get_virtual_machine_schedule(expand: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-15.
 
-
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param _builtins.str lab_name: labs
     :param _builtins.str name: The name of the Schedule
@@ -300,17 +299,16 @@ def get_virtual_machine_schedule(expand: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         weekly_recurrence=pulumi.get(__ret__, 'weekly_recurrence'))
-def get_virtual_machine_schedule_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_schedule_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScheduleResult]:
     """
     Get schedule.
 
     Uses Azure REST API version 2018-09-15.
-
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param _builtins.str lab_name: labs

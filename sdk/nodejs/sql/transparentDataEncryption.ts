@@ -125,5 +125,5 @@ export interface TransparentDataEncryptionArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    tdeName?: pulumi.Input<string>;
+    tdeName?: pulumi.Input<string | undefined>;
 }

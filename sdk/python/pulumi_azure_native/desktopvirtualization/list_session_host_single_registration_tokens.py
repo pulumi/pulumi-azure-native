@@ -74,7 +74,6 @@ def list_session_host_single_registration_tokens(expiration_time_in_utc: Optiona
 
     Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expiration_time_in_utc: Expiration time of the registration token in UTC.
     :param _builtins.str host_pool_name: The name of the host pool within the specified resource group
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -91,10 +90,10 @@ def list_session_host_single_registration_tokens(expiration_time_in_utc: Optiona
     return AwaitableListSessionHostSingleRegistrationTokensResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_session_host_single_registration_tokens_output(expiration_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        session_host_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_session_host_single_registration_tokens_output(expiration_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        session_host_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSessionHostSingleRegistrationTokensResult]:
     """
     Operation to list the scoped RegistrationTokens associated with the SessionHost.
@@ -102,7 +101,6 @@ def list_session_host_single_registration_tokens_output(expiration_time_in_utc: 
     Uses Azure REST API version 2026-01-01-preview.
 
     Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expiration_time_in_utc: Expiration time of the registration token in UTC.
     :param _builtins.str host_pool_name: The name of the host pool within the specified resource group

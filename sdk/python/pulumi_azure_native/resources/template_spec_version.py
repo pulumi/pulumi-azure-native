@@ -23,13 +23,13 @@ class TemplateSpecVersionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  template_spec_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_templates: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  main_template: Optional[Any] = None,
                  metadata: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_spec_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_spec_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ui_form_definition: Optional[Any] = None):
         """
         The set of arguments for constructing a TemplateSpecVersion resource.
@@ -90,38 +90,38 @@ class TemplateSpecVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template Spec version description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedTemplates")
-    def linked_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]:
+    def linked_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]:
         """
         An array of linked template artifacts.
         """
         return pulumi.get(self, "linked_templates")
 
     @linked_templates.setter
-    def linked_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]):
+    def linked_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedTemplateArtifactArgs']]]]):
         pulumi.set(self, "linked_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the Template Spec Version. It must match the location of the parent Template Spec.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
@@ -150,26 +150,26 @@ class TemplateSpecVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateSpecVersion")
-    def template_spec_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_spec_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Template Spec.
         """
         return pulumi.get(self, "template_spec_version")
 
     @template_spec_version.setter
-    def template_spec_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_spec_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_spec_version", value)
 
     @_builtins.property
@@ -191,15 +191,15 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkedTemplateArtifactArgs', 'LinkedTemplateArtifactArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedTemplateArtifactArgs', 'LinkedTemplateArtifactArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  main_template: Optional[Any] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_spec_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_spec_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_spec_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ui_form_definition: Optional[Any] = None,
                  __props__=None):
         """
@@ -208,7 +208,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
         Uses Azure REST API version 2022-02-01. In version 2.x of the Azure Native provider, it used API version 2022-02-01.
 
         Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +235,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         Other available API versions: 2021-03-01-preview, 2021-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TemplateSpecVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,15 +250,15 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkedTemplateArtifactArgs', 'LinkedTemplateArtifactArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedTemplateArtifactArgs', 'LinkedTemplateArtifactArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  main_template: Optional[Any] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_spec_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_spec_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_spec_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ui_form_definition: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

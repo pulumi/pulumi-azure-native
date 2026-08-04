@@ -24,8 +24,8 @@ class LinkedSubscriptionArgs:
                  linked_subscription_id: pulumi.Input[_builtins.str],
                  registration_resource_id: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
-                 linked_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[Union[_builtins.str, 'Location']]] = None):
+                 linked_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None):
         """
         The set of arguments for constructing a LinkedSubscription resource.
 
@@ -81,26 +81,26 @@ class LinkedSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkedSubscriptionName")
-    def linked_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Linked Subscription resource.
         """
         return pulumi.get(self, "linked_subscription_name")
 
     @linked_subscription_name.setter
-    def linked_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Location']]]:
+    def location(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Location']]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Location']]]):
+    def location(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Location']]]):
         pulumi.set(self, "location", value)
 
 
@@ -110,17 +110,16 @@ class LinkedSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[Union[_builtins.str, 'Location']]] = None,
-                 registration_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None,
+                 registration_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Linked Subscription information.
 
         Uses Azure REST API version 2020-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-06-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +140,6 @@ class LinkedSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-06-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param LinkedSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +155,11 @@ class LinkedSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[Union[_builtins.str, 'Location']]] = None,
-                 registration_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None,
+                 registration_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

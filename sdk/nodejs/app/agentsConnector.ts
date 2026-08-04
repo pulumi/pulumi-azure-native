@@ -110,11 +110,11 @@ export interface AgentsConnectorArgs {
     /**
      * The name of the AgentConnector
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.app.AgentConnectorPropertiesArgs>;
+    properties?: pulumi.Input<inputs.app.AgentConnectorPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

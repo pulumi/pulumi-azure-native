@@ -227,7 +227,6 @@ def get_api_collection_by_azure_api_management_service(api_id: Optional[_builtin
 
     Uses Azure REST API version 2023-11-15.
 
-
     :param _builtins.str api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_name: The name of the API Management service.
@@ -255,15 +254,14 @@ def get_api_collection_by_azure_api_management_service(api_id: Optional[_builtin
         sensitivity_label=pulumi.get(__ret__, 'sensitivity_label'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_collection_by_azure_api_management_service_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_collection_by_azure_api_management_service_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAPICollectionByAzureApiManagementServiceResult]:
     """
     Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
 
     Uses Azure REST API version 2023-11-15.
-
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -265,7 +265,6 @@ def get_remediation_at_management_group(management_group_id: Optional[_builtins.
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str management_group_id: Management group ID.
     :param _builtins.str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param _builtins.str remediation_name: The name of the remediation.
@@ -296,9 +295,9 @@ def get_remediation_at_management_group(management_group_id: Optional[_builtins.
         status_message=pulumi.get(__ret__, 'status_message'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_remediation_at_management_group_output(management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                               management_groups_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                                               remediation_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_remediation_at_management_group_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                               management_groups_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                                               remediation_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtManagementGroupResult]:
     """
     Gets an existing remediation at management group scope.
@@ -306,7 +305,6 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
     Uses Azure REST API version 2024-10-01.
 
     Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str management_group_id: Management group ID.
     :param _builtins.str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.

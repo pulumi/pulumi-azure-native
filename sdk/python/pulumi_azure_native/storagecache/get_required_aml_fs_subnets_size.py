@@ -60,7 +60,6 @@ def get_required_aml_fs_subnets_size(sku: Optional[Union['SkuName', 'SkuNameDict
 
     Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param Union['SkuName', 'SkuNameDict'] sku: SKU for the resource.
     :param _builtins.float storage_capacity_ti_b: The size of the AML file system, in TiB.
     """
@@ -72,8 +71,8 @@ def get_required_aml_fs_subnets_size(sku: Optional[Union['SkuName', 'SkuNameDict
 
     return AwaitableGetRequiredAmlFSSubnetsSizeResult(
         filesystem_subnet_size=pulumi.get(__ret__, 'filesystem_subnet_size'))
-def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[Union['SkuName', 'SkuNameDict']]]] = None,
-                                            storage_capacity_ti_b: Optional[pulumi.Input[Optional[_builtins.float]]] = None,
+def get_required_aml_fs_subnets_size_output(sku: pulumi.Input[Optional[Optional[Union['SkuName', 'SkuNameDict']]]] = None,
+                                            storage_capacity_ti_b: pulumi.Input[Optional[Optional[_builtins.float]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequiredAmlFSSubnetsSizeResult]:
     """
     Get the number of available IP addresses needed for the AML file system information provided.
@@ -81,7 +80,6 @@ def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[
     Uses Azure REST API version 2024-03-01.
 
     Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param Union['SkuName', 'SkuNameDict'] sku: SKU for the resource.
     :param _builtins.float storage_capacity_ti_b: The size of the AML file system, in TiB.

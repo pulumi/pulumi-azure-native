@@ -21,11 +21,11 @@ class ConnectionMonitorTestArgs:
     def __init__(__self__, *,
                  peering_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connection_monitor_test_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_agent: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_frequency_in_sec: Optional[pulumi.Input[_builtins.int]] = None):
+                 connection_monitor_test_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_agent: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_frequency_in_sec: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ConnectionMonitorTest resource.
 
@@ -76,62 +76,62 @@ class ConnectionMonitorTestArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionMonitorTestName")
-    def connection_monitor_test_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_monitor_test_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the connection monitor test
         """
         return pulumi.get(self, "connection_monitor_test_name")
 
     @connection_monitor_test_name.setter
-    def connection_monitor_test_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_monitor_test_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_monitor_test_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Connection Monitor test destination
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Connection Monitor test destination port
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAgent")
-    def source_agent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_agent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Connection Monitor test source agent
         """
         return pulumi.get(self, "source_agent")
 
     @source_agent.setter
-    def source_agent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_agent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="testFrequencyInSec")
-    def test_frequency_in_sec(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def test_frequency_in_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Connection Monitor test frequency in seconds
         """
         return pulumi.get(self, "test_frequency_in_sec")
 
     @test_frequency_in_sec.setter
-    def test_frequency_in_sec(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def test_frequency_in_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "test_frequency_in_sec", value)
 
 
@@ -141,13 +141,13 @@ class ConnectionMonitorTest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_monitor_test_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 peering_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_agent: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_frequency_in_sec: Optional[pulumi.Input[_builtins.int]] = None,
+                 connection_monitor_test_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_agent: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_frequency_in_sec: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         The Connection Monitor Test class.
@@ -155,7 +155,6 @@ class ConnectionMonitorTest(pulumi.CustomResource):
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +179,6 @@ class ConnectionMonitorTest(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ConnectionMonitorTestArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,13 +194,13 @@ class ConnectionMonitorTest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_monitor_test_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 peering_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_agent: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_frequency_in_sec: Optional[pulumi.Input[_builtins.int]] = None,
+                 connection_monitor_test_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_agent: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_frequency_in_sec: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

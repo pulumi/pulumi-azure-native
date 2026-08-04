@@ -23,9 +23,9 @@ class ImportCollectorsOperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None):
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None):
         """
         The set of arguments for constructing a ImportCollectorsOperation resource.
 
@@ -70,38 +70,38 @@ class ImportCollectorsOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
-    def discovery_site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_site_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets the discovery site id.
         """
         return pulumi.get(self, "discovery_site_id")
 
     @discovery_site_id.setter
-    def discovery_site_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_site_id", value)
 
     @_builtins.property
     @pulumi.getter(name="importCollectorName")
-    def import_collector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Import collector ARM name
         """
         return pulumi.get(self, "import_collector_name")
 
     @import_collector_name.setter
-    def import_collector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
 
@@ -111,11 +111,11 @@ class ImportCollectorsOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Import collector resource.
@@ -123,7 +123,6 @@ class ImportCollectorsOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,6 @@ class ImportCollectorsOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ImportCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +160,11 @@ class ImportCollectorsOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

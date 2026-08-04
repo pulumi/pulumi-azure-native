@@ -121,7 +121,7 @@ export interface BrokerAuthenticationArgs {
     /**
      * Name of Instance broker authentication resource
      */
-    authenticationName?: pulumi.Input<string>;
+    authenticationName?: pulumi.Input<string | undefined>;
     /**
      * Name of broker.
      */
@@ -137,7 +137,7 @@ export interface BrokerAuthenticationArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.BrokerAuthenticationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.iotoperations.BrokerAuthenticationPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

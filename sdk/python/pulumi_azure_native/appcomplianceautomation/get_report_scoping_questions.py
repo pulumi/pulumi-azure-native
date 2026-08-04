@@ -57,7 +57,6 @@ def get_report_scoping_questions(report_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-06-27.
 
-
     :param _builtins.str report_name: Report Name.
     """
     __args__ = dict()
@@ -67,13 +66,12 @@ def get_report_scoping_questions(report_name: Optional[_builtins.str] = None,
 
     return AwaitableGetReportScopingQuestionsResult(
         questions=pulumi.get(__ret__, 'questions'))
-def get_report_scoping_questions_output(report_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_report_scoping_questions_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportScopingQuestionsResult]:
     """
     Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
 
     Uses Azure REST API version 2024-06-27.
-
 
     :param _builtins.str report_name: Report Name.
     """

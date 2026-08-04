@@ -102,7 +102,7 @@ export class Skus extends pulumi.CustomResource {
  * The set of arguments for constructing a Skus resource.
  */
 export interface SkusArgs {
-    properties?: pulumi.Input<inputs.providerhub.SkuResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.providerhub.SkuResourcePropertiesArgs | undefined>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
@@ -114,5 +114,5 @@ export interface SkusArgs {
     /**
      * The SKU.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
 }

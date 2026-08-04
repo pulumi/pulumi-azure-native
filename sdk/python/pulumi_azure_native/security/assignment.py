@@ -22,19 +22,19 @@ __all__ = ['AssignmentArgs', 'Assignment']
 class AssignmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_data: Optional[pulumi.Input['AssignmentPropertiesAdditionalDataArgs']] = None,
-                 assigned_component: Optional[pulumi.Input['AssignedComponentItemArgs']] = None,
-                 assigned_standard: Optional[pulumi.Input['CommonAssignedStandardItemArgs']] = None,
-                 assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 effect: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_data: pulumi.Input[Optional['AssignmentPropertiesAdditionalDataArgs']] = None,
+                 assigned_component: pulumi.Input[Optional['AssignedComponentItemArgs']] = None,
+                 assigned_standard: pulumi.Input[Optional['CommonAssignedStandardItemArgs']] = None,
+                 assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 effect: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Assignment resource.
 
@@ -95,122 +95,122 @@ class AssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> Optional[pulumi.Input['AssignmentPropertiesAdditionalDataArgs']]:
+    def additional_data(self) -> pulumi.Input[Optional['AssignmentPropertiesAdditionalDataArgs']]:
         """
         Additional data about the assignment
         """
         return pulumi.get(self, "additional_data")
 
     @additional_data.setter
-    def additional_data(self, value: Optional[pulumi.Input['AssignmentPropertiesAdditionalDataArgs']]):
+    def additional_data(self, value: pulumi.Input[Optional['AssignmentPropertiesAdditionalDataArgs']]):
         pulumi.set(self, "additional_data", value)
 
     @_builtins.property
     @pulumi.getter(name="assignedComponent")
-    def assigned_component(self) -> Optional[pulumi.Input['AssignedComponentItemArgs']]:
+    def assigned_component(self) -> pulumi.Input[Optional['AssignedComponentItemArgs']]:
         """
         Component item with key as applied to this standard assignment over the given scope
         """
         return pulumi.get(self, "assigned_component")
 
     @assigned_component.setter
-    def assigned_component(self, value: Optional[pulumi.Input['AssignedComponentItemArgs']]):
+    def assigned_component(self, value: pulumi.Input[Optional['AssignedComponentItemArgs']]):
         pulumi.set(self, "assigned_component", value)
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> Optional[pulumi.Input['CommonAssignedStandardItemArgs']]:
+    def assigned_standard(self) -> pulumi.Input[Optional['CommonAssignedStandardItemArgs']]:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
         return pulumi.get(self, "assigned_standard")
 
     @assigned_standard.setter
-    def assigned_standard(self, value: Optional[pulumi.Input['CommonAssignedStandardItemArgs']]):
+    def assigned_standard(self, value: pulumi.Input[Optional['CommonAssignedStandardItemArgs']]):
         pulumi.set(self, "assigned_standard", value)
 
     @_builtins.property
     @pulumi.getter(name="assignmentId")
-    def assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security assignment key - unique key for the standard assignment
         """
         return pulumi.get(self, "assignment_id")
 
     @assignment_id.setter
-    def assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         description of the standardAssignment
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         display name of the standardAssignment
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def effect(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def effect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         expected effect of this assignment (Disable/Exempt/etc)
         """
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def effect(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "effect", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresOn")
-    def expires_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration date of this assignment as a full ISO date
         """
         return pulumi.get(self, "expires_on")
 
     @expires_on.setter
-    def expires_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the resource
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
@@ -227,26 +227,26 @@ class AssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -256,26 +256,25 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
-                 assigned_component: Optional[pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
-                 assigned_standard: Optional[pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
-                 assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 effect: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_data: pulumi.Input[Optional[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
+                 assigned_component: pulumi.Input[Optional[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
+                 assigned_standard: pulumi.Input[Optional[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
+                 assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 effect: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Security Assignment on a resource group over a given scope
 
         Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,7 +304,6 @@ class Assignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,20 +319,20 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: Optional[pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
-                 assigned_component: Optional[pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
-                 assigned_standard: Optional[pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
-                 assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 effect: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_data: pulumi.Input[Optional[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
+                 assigned_component: pulumi.Input[Optional[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
+                 assigned_standard: pulumi.Input[Optional[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
+                 assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 effect: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

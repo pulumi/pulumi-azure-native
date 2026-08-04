@@ -97,7 +97,6 @@ def get_network_virtual_appliance_connection(connection_name: Optional[_builtins
 
     Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str connection_name: The name of the NVA connection.
     :param _builtins.str network_virtual_appliance_name: The name of the Network Virtual Appliance.
     :param _builtins.str resource_group_name: The name of the resource group.
@@ -114,9 +113,9 @@ def get_network_virtual_appliance_connection(connection_name: Optional[_builtins
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'))
-def get_network_virtual_appliance_connection_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    network_virtual_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_virtual_appliance_connection_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceConnectionResult]:
     """
     Retrieves the details of specified NVA connection.
@@ -124,7 +123,6 @@ def get_network_virtual_appliance_connection_output(connection_name: Optional[pu
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str connection_name: The name of the NVA connection.
     :param _builtins.str network_virtual_appliance_name: The name of the Network Virtual Appliance.

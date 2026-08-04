@@ -145,7 +145,6 @@ def get_modeling(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the RecommendationsService Account resource.
     :param _builtins.str modeling_name: The name of the Modeling resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,9 +165,9 @@ def get_modeling(account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_modeling_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        modeling_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_modeling_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        modeling_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelingResult]:
     """
     Returns Modeling resources for a given name.
@@ -176,7 +175,6 @@ def get_modeling_output(account_name: Optional[pulumi.Input[_builtins.str]] = No
     Uses Azure REST API version 2022-03-01-preview.
 
     Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the RecommendationsService Account resource.
     :param _builtins.str modeling_name: The name of the Modeling resource.

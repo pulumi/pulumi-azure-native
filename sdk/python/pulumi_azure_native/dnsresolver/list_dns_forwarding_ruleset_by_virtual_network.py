@@ -73,7 +73,6 @@ def list_dns_forwarding_ruleset_by_virtual_network(resource_group_name: Optional
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.int top: The maximum number of results to return. If not specified, returns up to 100 results.
     :param _builtins.str virtual_network_name: The name of the virtual network.
@@ -88,9 +87,9 @@ def list_dns_forwarding_ruleset_by_virtual_network(resource_group_name: Optional
     return AwaitableListDnsForwardingRulesetByVirtualNetworkResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_dns_forwarding_ruleset_by_virtual_network_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                                          virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_dns_forwarding_ruleset_by_virtual_network_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                                          virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDnsForwardingRulesetByVirtualNetworkResult]:
     """
     Lists DNS forwarding ruleset resource IDs attached to a virtual network.
@@ -98,7 +97,6 @@ def list_dns_forwarding_ruleset_by_virtual_network_output(resource_group_name: O
     Uses Azure REST API version 2023-07-01-preview.
 
     Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.int top: The maximum number of results to return. If not specified, returns up to 100 results.

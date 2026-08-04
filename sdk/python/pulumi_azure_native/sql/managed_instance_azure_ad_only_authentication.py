@@ -22,7 +22,7 @@ class ManagedInstanceAzureADOnlyAuthenticationArgs:
                  azure_ad_only_authentication: pulumi.Input[_builtins.bool],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceAzureADOnlyAuthentication resource.
 
@@ -75,14 +75,14 @@ class ManagedInstanceAzureADOnlyAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationName")
-    def authentication_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of server azure active directory only authentication.
         """
         return pulumi.get(self, "authentication_name")
 
     @authentication_name.setter
-    def authentication_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_name", value)
 
 
@@ -92,10 +92,10 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_only_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_only_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Active Directory only authentication.
@@ -103,7 +103,6 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ManagedInstanceAzureADOnlyAuthenticationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_only_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_only_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

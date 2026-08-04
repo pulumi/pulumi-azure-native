@@ -28,7 +28,7 @@ class IoTAddonArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role_name: pulumi.Input[_builtins.str],
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IoTAddon resource.
 
@@ -125,14 +125,14 @@ class IoTAddonArgs:
 
     @_builtins.property
     @pulumi.getter(name="addonName")
-    def addon_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The addon name.
         """
         return pulumi.get(self, "addon_name")
 
     @addon_name.setter
-    def addon_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_name", value)
 
 
@@ -142,19 +142,18 @@ class IoTAddon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 io_t_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 io_t_device_details: pulumi.Input[Optional[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 io_t_edge_device_details: pulumi.Input[Optional[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         IoT Addon.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +177,6 @@ class IoTAddon(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-
         :param str resource_name: The name of the resource.
         :param IoTAddonArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,13 +192,13 @@ class IoTAddon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 io_t_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
-                 io_t_edge_device_details: Optional[pulumi.Input[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 io_t_device_details: pulumi.Input[Optional[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 io_t_edge_device_details: pulumi.Input[Optional[Union['IoTDeviceInfoArgs', 'IoTDeviceInfoArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

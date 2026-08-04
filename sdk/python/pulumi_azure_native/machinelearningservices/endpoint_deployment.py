@@ -26,7 +26,7 @@ class EndpointDeploymentArgs:
                  properties: pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointDeployment resource.
 
@@ -89,14 +89,14 @@ class EndpointDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the deployment resource
         """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
-    def deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_name", value)
 
 
@@ -106,17 +106,16 @@ class EndpointDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ContentSafetyEndpointDeploymentResourcePropertiesArgsDict'], Union['ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgsDict'], Union['OpenAIEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgsDict'], Union['SpeechEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ContentSafetyEndpointDeploymentResourcePropertiesArgsDict'], Union['ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgsDict'], Union['OpenAIEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgsDict'], Union['SpeechEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
         Other available API versions: 2024-01-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +135,6 @@ class EndpointDeployment(pulumi.CustomResource):
 
         Other available API versions: 2024-01-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param EndpointDeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,11 +150,11 @@ class EndpointDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ContentSafetyEndpointDeploymentResourcePropertiesArgsDict'], Union['ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgsDict'], Union['OpenAIEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgsDict'], Union['SpeechEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgsDict']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ContentSafetyEndpointDeploymentResourcePropertiesArgsDict'], Union['ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgsDict'], Union['OpenAIEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgsDict'], Union['SpeechEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgsDict']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

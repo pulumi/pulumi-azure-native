@@ -29,7 +29,7 @@ class DomainGroupArgsDict(TypedDict):
     """
     The edu domain names in this group.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Entra tenant ID that owns these domains. Defaults to the caller's tenant if omitted.
     """
@@ -38,7 +38,7 @@ class DomainGroupArgsDict(TypedDict):
 class DomainGroupArgs:
     def __init__(__self__, *,
                  domain_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A group of edu domains scoped to an Entra tenant.
 
@@ -63,14 +63,14 @@ class DomainGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Entra tenant ID that owns these domains. Defaults to the caller's tenant if omitted.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

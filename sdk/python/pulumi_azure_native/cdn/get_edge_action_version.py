@@ -193,7 +193,6 @@ def get_edge_action_version(edge_action_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str edge_action_name: The name of the Edge Action
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str version: The name of the Edge Action version
@@ -218,9 +217,9 @@ def get_edge_action_version(edge_action_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validation_status=pulumi.get(__ret__, 'validation_status'))
-def get_edge_action_version_output(edge_action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_edge_action_version_output(edge_action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   version: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEdgeActionVersionResult]:
     """
     Get a EdgeActionVersion
@@ -228,7 +227,6 @@ def get_edge_action_version_output(edge_action_name: Optional[pulumi.Input[_buil
     Uses Azure REST API version 2025-09-01-preview.
 
     Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str edge_action_name: The name of the Edge Action
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

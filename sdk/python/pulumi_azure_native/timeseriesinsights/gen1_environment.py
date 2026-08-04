@@ -26,11 +26,11 @@ class Gen1EnvironmentArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]] = None,
-                 storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[_builtins.str, 'StorageLimitExceededBehavior']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_properties: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]] = None,
+                 storage_limit_exceeded_behavior: pulumi.Input[Optional[Union[_builtins.str, 'StorageLimitExceededBehavior']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gen1Environment resource.
 
@@ -111,62 +111,62 @@ class Gen1EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the environment
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]]:
+    def partition_key_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]]:
         """
         The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
         """
         return pulumi.get(self, "partition_key_properties")
 
     @partition_key_properties.setter
-    def partition_key_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]]):
+    def partition_key_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]]):
         pulumi.set(self, "partition_key_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLimitExceededBehavior")
-    def storage_limit_exceeded_behavior(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageLimitExceededBehavior']]]:
+    def storage_limit_exceeded_behavior(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageLimitExceededBehavior']]]:
         """
         The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         """
         return pulumi.get(self, "storage_limit_exceeded_behavior")
 
     @storage_limit_exceeded_behavior.setter
-    def storage_limit_exceeded_behavior(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageLimitExceededBehavior']]]):
+    def storage_limit_exceeded_behavior(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageLimitExceededBehavior']]]):
         pulumi.set(self, "storage_limit_exceeded_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of additional properties for the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -176,21 +176,20 @@ class Gen1Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[_builtins.str, 'StorageLimitExceededBehavior']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_retention_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_limit_exceeded_behavior: pulumi.Input[Optional[Union[_builtins.str, 'StorageLimitExceededBehavior']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,7 +215,6 @@ class Gen1Environment(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
-
         :param str resource_name: The name of the resource.
         :param Gen1EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,15 +230,15 @@ class Gen1Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[_builtins.str, 'StorageLimitExceededBehavior']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_retention_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TimeSeriesIdPropertyArgs', 'TimeSeriesIdPropertyArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 storage_limit_exceeded_behavior: pulumi.Input[Optional[Union[_builtins.str, 'StorageLimitExceededBehavior']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

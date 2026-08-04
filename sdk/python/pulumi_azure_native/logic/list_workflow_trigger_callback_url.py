@@ -121,7 +121,6 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[_builtins.s
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: The resource group name.
     :param _builtins.str trigger_name: The workflow trigger name.
     :param _builtins.str workflow_name: The workflow name.
@@ -140,9 +139,9 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[_builtins.s
         relative_path=pulumi.get(__ret__, 'relative_path'),
         relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
         value=pulumi.get(__ret__, 'value'))
-def list_workflow_trigger_callback_url_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workflow_trigger_callback_url_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
     """
     Get the callback URL for a workflow trigger.
@@ -150,7 +149,6 @@ def list_workflow_trigger_callback_url_output(resource_group_name: Optional[pulu
     Uses Azure REST API version 2019-05-01.
 
     Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: The resource group name.
     :param _builtins.str trigger_name: The workflow trigger name.

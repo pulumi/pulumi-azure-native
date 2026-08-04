@@ -71,7 +71,6 @@ def list_issue_alerts(filter: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-03-01-preview.
 
-
     :param _builtins.str filter: The filter to apply on the operation. For example, to filter by relevance, use "$filter=relevance eq 'Relevant'"
     :param _builtins.str issue_name: The name of the IssueResource
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -86,15 +85,14 @@ def list_issue_alerts(filter: Optional[_builtins.str] = None,
     return AwaitableListIssueAlertsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_issue_alerts_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             issue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def list_issue_alerts_output(filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             issue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIssueAlertsResult]:
     """
     List all alerts in the issue - this method uses pagination to return all alerts
 
     Uses Azure REST API version 2025-03-01-preview.
-
 
     :param _builtins.str filter: The filter to apply on the operation. For example, to filter by relevance, use "$filter=relevance eq 'Relevant'"
     :param _builtins.str issue_name: The name of the IssueResource

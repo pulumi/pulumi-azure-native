@@ -22,13 +22,13 @@ __all__ = ['DiagnosticSettingArgs', 'DiagnosticSetting']
 @pulumi.input_type
 class DiagnosticSettingArgs:
     def __init__(__self__, *,
-                 event_hub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_hub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input['LogSettingsArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DiagnosticSetting resource.
 
@@ -57,86 +57,86 @@ class DiagnosticSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventHubAuthorizationRuleId")
-    def event_hub_authorization_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_hub_authorization_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource Id for the event hub authorization rule.
         """
         return pulumi.get(self, "event_hub_authorization_rule_id")
 
     @event_hub_authorization_rule_id.setter
-    def event_hub_authorization_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_hub_authorization_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_hub_authorization_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event hub. If none is specified, the default event hub will be selected.
         """
         return pulumi.get(self, "event_hub_name")
 
     @event_hub_name.setter
-    def event_hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_hub_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]]]:
+    def logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogSettingsArgs']]]]:
         """
         The list of logs settings.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]]]):
+    def logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogSettingsArgs']]]]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the diagnostic setting.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBusRuleId")
-    def service_bus_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_bus_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         """
         return pulumi.get(self, "service_bus_rule_id")
 
     @service_bus_rule_id.setter
-    def service_bus_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_bus_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_bus_rule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the storage account to which you would like to send Diagnostic Logs.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -146,19 +146,18 @@ class DiagnosticSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_hub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_hub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The diagnostic setting resource.
 
         Uses Azure REST API version 2017-04-01. In version 2.x of the Azure Native provider, it used API version 2017-04-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-01. In version 2.x of the Azure Native provider, it used API version 2017-04-01.
 
-
         :param str resource_name: The name of the resource.
         :param DiagnosticSettingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +195,13 @@ class DiagnosticSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_hub_authorization_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_hub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

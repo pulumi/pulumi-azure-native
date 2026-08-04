@@ -106,7 +106,7 @@ export interface SqlAssessmentV3OperationArgs {
     /**
      * SQL Assessment arm name.
      */
-    assessmentName?: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */
@@ -114,7 +114,7 @@ export interface SqlAssessmentV3OperationArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.SqlAssessmentV3PropertiesArgs>;
+    properties?: pulumi.Input<inputs.migrate.SqlAssessmentV3PropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

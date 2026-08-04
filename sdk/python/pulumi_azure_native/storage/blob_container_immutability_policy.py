@@ -22,10 +22,10 @@ class BlobContainerImmutabilityPolicyArgs:
                  account_name: pulumi.Input[_builtins.str],
                  container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_protected_append_writes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_protected_append_writes_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 immutability_period_since_creation_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 immutability_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_protected_append_writes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_protected_append_writes_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 immutability_period_since_creation_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 immutability_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BlobContainerImmutabilityPolicy resource.
 
@@ -87,50 +87,50 @@ class BlobContainerImmutabilityPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowProtectedAppendWrites")
-    def allow_protected_append_writes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_protected_append_writes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
         """
         return pulumi.get(self, "allow_protected_append_writes")
 
     @allow_protected_append_writes.setter
-    def allow_protected_append_writes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_protected_append_writes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_protected_append_writes", value)
 
     @_builtins.property
     @pulumi.getter(name="allowProtectedAppendWritesAll")
-    def allow_protected_append_writes_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_protected_append_writes_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         """
         return pulumi.get(self, "allow_protected_append_writes_all")
 
     @allow_protected_append_writes_all.setter
-    def allow_protected_append_writes_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_protected_append_writes_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_protected_append_writes_all", value)
 
     @_builtins.property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def immutability_period_since_creation_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """
         return pulumi.get(self, "immutability_period_since_creation_in_days")
 
     @immutability_period_since_creation_in_days.setter
-    def immutability_period_since_creation_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def immutability_period_since_creation_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "immutability_period_since_creation_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="immutabilityPolicyName")
-    def immutability_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def immutability_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         """
         return pulumi.get(self, "immutability_policy_name")
 
     @immutability_policy_name.setter
-    def immutability_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def immutability_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "immutability_policy_name", value)
 
 
@@ -140,13 +140,13 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_protected_append_writes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_protected_append_writes_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 immutability_period_since_creation_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 immutability_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_protected_append_writes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_protected_append_writes_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 immutability_period_since_creation_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 immutability_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
@@ -154,7 +154,6 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param BlobContainerImmutabilityPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_protected_append_writes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_protected_append_writes_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 immutability_period_since_creation_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 immutability_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_protected_append_writes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_protected_append_writes_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 immutability_period_since_creation_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 immutability_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

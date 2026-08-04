@@ -25,13 +25,13 @@ class AnalyticsItemArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  scope_path: pulumi.Input[_builtins.str],
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_item: Optional[pulumi.Input[_builtins.bool]] = None,
-                 properties: Optional[pulumi.Input['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ItemScope']]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ItemType']]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_item: pulumi.Input[Optional[_builtins.bool]] = None,
+                 properties: pulumi.Input[Optional['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ItemScope']]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ItemType']]] = None):
         """
         The set of arguments for constructing a AnalyticsItem resource.
 
@@ -102,86 +102,86 @@ class AnalyticsItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of this item
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internally assigned unique id of the item definition.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-defined name of the item.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideItem")
-    def override_item(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_item(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
         """
         return pulumi.get(self, "override_item")
 
     @override_item.setter
-    def override_item(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_item(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_item", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]:
         """
         A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ItemScope']]]:
+    def scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ItemScope']]]:
         """
         Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ItemScope']]]):
+    def scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ItemScope']]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ItemType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ItemType']]]:
         """
         Enum indicating the type of the Analytics item.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ItemType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ItemType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -191,22 +191,21 @@ class AnalyticsItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_item: Optional[pulumi.Input[_builtins.bool]] = None,
-                 properties: Optional[pulumi.Input[Union['ApplicationInsightsComponentAnalyticsItemPropertiesArgs', 'ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ItemScope']]] = None,
-                 scope_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ItemType']]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_item: pulumi.Input[Optional[_builtins.bool]] = None,
+                 properties: pulumi.Input[Optional[Union['ApplicationInsightsComponentAnalyticsItemPropertiesArgs', 'ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ItemScope']]] = None,
+                 scope_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ItemType']]] = None,
                  __props__=None):
         """
         Properties that define an Analytics item that is associated to an Application Insights component.
 
         Uses Azure REST API version 2015-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,7 +231,6 @@ class AnalyticsItem(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param AnalyticsItemArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,16 +246,16 @@ class AnalyticsItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_item: Optional[pulumi.Input[_builtins.bool]] = None,
-                 properties: Optional[pulumi.Input[Union['ApplicationInsightsComponentAnalyticsItemPropertiesArgs', 'ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union[_builtins.str, 'ItemScope']]] = None,
-                 scope_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ItemType']]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_item: pulumi.Input[Optional[_builtins.bool]] = None,
+                 properties: pulumi.Input[Optional[Union['ApplicationInsightsComponentAnalyticsItemPropertiesArgs', 'ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union[_builtins.str, 'ItemScope']]] = None,
+                 scope_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ItemType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

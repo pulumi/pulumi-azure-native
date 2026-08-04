@@ -23,17 +23,17 @@ __all__ = ['OpenShiftClusterArgs', 'OpenShiftCluster']
 class OpenShiftClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 apiserver_profile: Optional[pulumi.Input['APIServerProfileArgs']] = None,
-                 cluster_profile: Optional[pulumi.Input['ClusterProfileArgs']] = None,
-                 ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_profile: Optional[pulumi.Input['MasterProfileArgs']] = None,
-                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_profile: Optional[pulumi.Input['ServicePrincipalProfileArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WorkerProfileArgs']]]] = None):
+                 apiserver_profile: pulumi.Input[Optional['APIServerProfileArgs']] = None,
+                 cluster_profile: pulumi.Input[Optional['ClusterProfileArgs']] = None,
+                 ingress_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['IngressProfileArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_profile: pulumi.Input[Optional['MasterProfileArgs']] = None,
+                 network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_profile: pulumi.Input[Optional['ServicePrincipalProfileArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['WorkerProfileArgs']]]] = None):
         """
         The set of arguments for constructing a OpenShiftCluster resource.
 
@@ -88,134 +88,134 @@ class OpenShiftClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiserverProfile")
-    def apiserver_profile(self) -> Optional[pulumi.Input['APIServerProfileArgs']]:
+    def apiserver_profile(self) -> pulumi.Input[Optional['APIServerProfileArgs']]:
         """
         The cluster API server profile.
         """
         return pulumi.get(self, "apiserver_profile")
 
     @apiserver_profile.setter
-    def apiserver_profile(self, value: Optional[pulumi.Input['APIServerProfileArgs']]):
+    def apiserver_profile(self, value: pulumi.Input[Optional['APIServerProfileArgs']]):
         pulumi.set(self, "apiserver_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterProfile")
-    def cluster_profile(self) -> Optional[pulumi.Input['ClusterProfileArgs']]:
+    def cluster_profile(self) -> pulumi.Input[Optional['ClusterProfileArgs']]:
         """
         The cluster profile.
         """
         return pulumi.get(self, "cluster_profile")
 
     @cluster_profile.setter
-    def cluster_profile(self, value: Optional[pulumi.Input['ClusterProfileArgs']]):
+    def cluster_profile(self, value: pulumi.Input[Optional['ClusterProfileArgs']]):
         pulumi.set(self, "cluster_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressProfiles")
-    def ingress_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]]]:
+    def ingress_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IngressProfileArgs']]]]:
         """
         The cluster ingress profiles.
         """
         return pulumi.get(self, "ingress_profiles")
 
     @ingress_profiles.setter
-    def ingress_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]]]):
+    def ingress_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IngressProfileArgs']]]]):
         pulumi.set(self, "ingress_profiles", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="masterProfile")
-    def master_profile(self) -> Optional[pulumi.Input['MasterProfileArgs']]:
+    def master_profile(self) -> pulumi.Input[Optional['MasterProfileArgs']]:
         """
         The cluster master profile.
         """
         return pulumi.get(self, "master_profile")
 
     @master_profile.setter
-    def master_profile(self, value: Optional[pulumi.Input['MasterProfileArgs']]):
+    def master_profile(self, value: pulumi.Input[Optional['MasterProfileArgs']]):
         pulumi.set(self, "master_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+    def network_profile(self) -> pulumi.Input[Optional['NetworkProfileArgs']]:
         """
         The cluster network profile.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+    def network_profile(self, value: pulumi.Input[Optional['NetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         The cluster provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OpenShift cluster resource.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional[pulumi.Input['ServicePrincipalProfileArgs']]:
+    def service_principal_profile(self) -> pulumi.Input[Optional['ServicePrincipalProfileArgs']]:
         """
         The cluster service principal profile.
         """
         return pulumi.get(self, "service_principal_profile")
 
     @service_principal_profile.setter
-    def service_principal_profile(self, value: Optional[pulumi.Input['ServicePrincipalProfileArgs']]):
+    def service_principal_profile(self, value: pulumi.Input[Optional['ServicePrincipalProfileArgs']]):
         pulumi.set(self, "service_principal_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workerProfiles")
-    def worker_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkerProfileArgs']]]]:
+    def worker_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkerProfileArgs']]]]:
         """
         The cluster worker profiles.
         """
         return pulumi.get(self, "worker_profiles")
 
     @worker_profiles.setter
-    def worker_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkerProfileArgs']]]]):
+    def worker_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkerProfileArgs']]]]):
         pulumi.set(self, "worker_profiles", value)
 
 
@@ -225,18 +225,18 @@ class OpenShiftCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apiserver_profile: Optional[pulumi.Input[Union['APIServerProfileArgs', 'APIServerProfileArgsDict']]] = None,
-                 cluster_profile: Optional[pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
-                 ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IngressProfileArgs', 'IngressProfileArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_profile: Optional[pulumi.Input[Union['MasterProfileArgs', 'MasterProfileArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_profile: Optional[pulumi.Input[Union['ServicePrincipalProfileArgs', 'ServicePrincipalProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkerProfileArgs', 'WorkerProfileArgsDict']]]]] = None,
+                 apiserver_profile: pulumi.Input[Optional[Union['APIServerProfileArgs', 'APIServerProfileArgsDict']]] = None,
+                 cluster_profile: pulumi.Input[Optional[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
+                 ingress_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IngressProfileArgs', 'IngressProfileArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_profile: pulumi.Input[Optional[Union['MasterProfileArgs', 'MasterProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_profile: pulumi.Input[Optional[Union['ServicePrincipalProfileArgs', 'ServicePrincipalProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkerProfileArgs', 'WorkerProfileArgsDict']]]]] = None,
                  __props__=None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
@@ -244,7 +244,6 @@ class OpenShiftCluster(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-22. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
 
         Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview, 2025-07-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,7 +273,6 @@ class OpenShiftCluster(pulumi.CustomResource):
 
         Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview, 2025-07-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param OpenShiftClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,18 +288,18 @@ class OpenShiftCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apiserver_profile: Optional[pulumi.Input[Union['APIServerProfileArgs', 'APIServerProfileArgsDict']]] = None,
-                 cluster_profile: Optional[pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
-                 ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IngressProfileArgs', 'IngressProfileArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_profile: Optional[pulumi.Input[Union['MasterProfileArgs', 'MasterProfileArgsDict']]] = None,
-                 network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_profile: Optional[pulumi.Input[Union['ServicePrincipalProfileArgs', 'ServicePrincipalProfileArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkerProfileArgs', 'WorkerProfileArgsDict']]]]] = None,
+                 apiserver_profile: pulumi.Input[Optional[Union['APIServerProfileArgs', 'APIServerProfileArgsDict']]] = None,
+                 cluster_profile: pulumi.Input[Optional[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
+                 ingress_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IngressProfileArgs', 'IngressProfileArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_profile: pulumi.Input[Optional[Union['MasterProfileArgs', 'MasterProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_profile: pulumi.Input[Optional[Union['ServicePrincipalProfileArgs', 'ServicePrincipalProfileArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkerProfileArgs', 'WorkerProfileArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

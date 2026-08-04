@@ -133,7 +133,6 @@ def get_private_endpoint_connection_controller_private_endpoint_connection(migra
 
     Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str migrate_project_name: Migrate project name.
     :param _builtins.str pe_connection_name: Private endpoint connection name.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -153,9 +152,9 @@ def get_private_endpoint_connection_controller_private_endpoint_connection(migra
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_controller_private_endpoint_connection_output(migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                                  pe_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_controller_private_endpoint_connection_output(migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                                  pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult]:
     """
     Get the private endpoint with the specified name.
@@ -163,7 +162,6 @@ def get_private_endpoint_connection_controller_private_endpoint_connection_outpu
     Uses Azure REST API version 2020-05-01.
 
     Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str migrate_project_name: Migrate project name.
     :param _builtins.str pe_connection_name: Private endpoint connection name.

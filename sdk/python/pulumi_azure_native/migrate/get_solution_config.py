@@ -58,7 +58,6 @@ def get_solution_config(migrate_project_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-01-preview.
 
-
     :param _builtins.str migrate_project_name: Name of the Azure Migrate project.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that migrate project is part of.
     :param _builtins.str solution_name: Unique name of a migration solution within a migrate project.
@@ -72,15 +71,14 @@ def get_solution_config(migrate_project_name: Optional[_builtins.str] = None,
 
     return AwaitableGetSolutionConfigResult(
         publisher_sas_uri=pulumi.get(__ret__, 'publisher_sas_uri'))
-def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               solution_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_solution_config_output(migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               solution_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionConfigResult]:
     """
     Class representing the config for the solution in the migrate project.
 
     Uses Azure REST API version 2018-09-01-preview.
-
 
     :param _builtins.str migrate_project_name: Name of the Azure Migrate project.
     :param _builtins.str resource_group_name: Name of the Azure Resource Group that migrate project is part of.

@@ -22,15 +22,15 @@ __all__ = ['WebhookArgs', 'Webhook']
 class WebhookArgs:
     def __init__(__self__, *,
                  report_name: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]] = None,
-                 enable_ssl_verification: Optional[pulumi.Input[Union[_builtins.str, 'EnableSslVerification']]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]] = None,
-                 payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_all_events: Optional[pulumi.Input[Union[_builtins.str, 'SendAllEvents']]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'WebhookStatus']]] = None,
-                 update_webhook_key: Optional[pulumi.Input[Union[_builtins.str, 'UpdateWebhookKey']]] = None,
-                 webhook_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[Union[_builtins.str, 'ContentType']]] = None,
+                 enable_ssl_verification: pulumi.Input[Optional[Union[_builtins.str, 'EnableSslVerification']]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]] = None,
+                 payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_all_events: pulumi.Input[Optional[Union[_builtins.str, 'SendAllEvents']]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'WebhookStatus']]] = None,
+                 update_webhook_key: pulumi.Input[Optional[Union[_builtins.str, 'UpdateWebhookKey']]] = None,
+                 webhook_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
 
@@ -79,110 +79,110 @@ class WebhookArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]]:
+    def content_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ContentType']]]:
         """
         content type
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]]):
+    def content_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ContentType']]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSslVerification")
-    def enable_ssl_verification(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnableSslVerification']]]:
+    def enable_ssl_verification(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnableSslVerification']]]:
         """
         whether to enable ssl verification
         """
         return pulumi.get(self, "enable_ssl_verification")
 
     @enable_ssl_verification.setter
-    def enable_ssl_verification(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnableSslVerification']]]):
+    def enable_ssl_verification(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnableSslVerification']]]):
         pulumi.set(self, "enable_ssl_verification", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]]:
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]]:
         """
         under which event notification should be sent.
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]]):
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadUrl")
-    def payload_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         webhook payload url
         """
         return pulumi.get(self, "payload_url")
 
     @payload_url.setter
-    def payload_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_url", value)
 
     @_builtins.property
     @pulumi.getter(name="sendAllEvents")
-    def send_all_events(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SendAllEvents']]]:
+    def send_all_events(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SendAllEvents']]]:
         """
         whether to send notification under any event.
         """
         return pulumi.get(self, "send_all_events")
 
     @send_all_events.setter
-    def send_all_events(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SendAllEvents']]]):
+    def send_all_events(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SendAllEvents']]]):
         pulumi.set(self, "send_all_events", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'WebhookStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WebhookStatus']]]:
         """
         Webhook status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WebhookStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'WebhookStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="updateWebhookKey")
-    def update_webhook_key(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpdateWebhookKey']]]:
+    def update_webhook_key(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpdateWebhookKey']]]:
         """
         whether to update webhookKey.
         """
         return pulumi.get(self, "update_webhook_key")
 
     @update_webhook_key.setter
-    def update_webhook_key(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpdateWebhookKey']]]):
+    def update_webhook_key(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpdateWebhookKey']]]):
         pulumi.set(self, "update_webhook_key", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookKey")
-    def webhook_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         webhook secret token. If not set, this field value is null; otherwise, please set a string value.
         """
         return pulumi.get(self, "webhook_key")
 
     @webhook_key.setter
-    def webhook_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_key", value)
 
     @_builtins.property
     @pulumi.getter(name="webhookName")
-    def webhook_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webhook_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Webhook Name.
         """
         return pulumi.get(self, "webhook_name")
 
     @webhook_name.setter
-    def webhook_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webhook_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webhook_name", value)
 
 
@@ -192,22 +192,21 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]] = None,
-                 enable_ssl_verification: Optional[pulumi.Input[Union[_builtins.str, 'EnableSslVerification']]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]] = None,
-                 payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_all_events: Optional[pulumi.Input[Union[_builtins.str, 'SendAllEvents']]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'WebhookStatus']]] = None,
-                 update_webhook_key: Optional[pulumi.Input[Union[_builtins.str, 'UpdateWebhookKey']]] = None,
-                 webhook_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[Union[_builtins.str, 'ContentType']]] = None,
+                 enable_ssl_verification: pulumi.Input[Optional[Union[_builtins.str, 'EnableSslVerification']]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]] = None,
+                 payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_all_events: pulumi.Input[Optional[Union[_builtins.str, 'SendAllEvents']]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'WebhookStatus']]] = None,
+                 update_webhook_key: pulumi.Input[Optional[Union[_builtins.str, 'UpdateWebhookKey']]] = None,
+                 webhook_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A class represent an AppComplianceAutomation webhook resource.
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +232,6 @@ class Webhook(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
 
-
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,16 +247,16 @@ class Webhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_type: Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]] = None,
-                 enable_ssl_verification: Optional[pulumi.Input[Union[_builtins.str, 'EnableSslVerification']]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]] = None,
-                 payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_all_events: Optional[pulumi.Input[Union[_builtins.str, 'SendAllEvents']]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'WebhookStatus']]] = None,
-                 update_webhook_key: Optional[pulumi.Input[Union[_builtins.str, 'UpdateWebhookKey']]] = None,
-                 webhook_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[Union[_builtins.str, 'ContentType']]] = None,
+                 enable_ssl_verification: pulumi.Input[Optional[Union[_builtins.str, 'EnableSslVerification']]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NotificationEvent']]]]] = None,
+                 payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_all_events: pulumi.Input[Optional[Union[_builtins.str, 'SendAllEvents']]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'WebhookStatus']]] = None,
+                 update_webhook_key: pulumi.Input[Optional[Union[_builtins.str, 'UpdateWebhookKey']]] = None,
+                 webhook_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

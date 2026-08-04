@@ -191,7 +191,6 @@ def get_published_blueprint(blueprint_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-11-01-preview.
 
-
     :param _builtins.str blueprint_name: Name of the blueprint definition.
     :param _builtins.str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
     :param _builtins.str version_id: Version of the published blueprint definition.
@@ -216,15 +215,14 @@ def get_published_blueprint(blueprint_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         target_scope=pulumi.get(__ret__, 'target_scope'),
         type=pulumi.get(__ret__, 'type'))
-def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                                   version_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_published_blueprint_output(blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                                   version_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
     """
     Get a published version of a blueprint definition.
 
     Uses Azure REST API version 2018-11-01-preview.
-
 
     :param _builtins.str blueprint_name: Name of the blueprint definition.
     :param _builtins.str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').

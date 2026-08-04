@@ -183,7 +183,7 @@ export interface BlobContainerDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string>;
+    dataSetMappingName?: pulumi.Input<string | undefined>;
     /**
      * Kind of data set mapping.
      * Expected value is 'Container'.

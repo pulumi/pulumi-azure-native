@@ -193,7 +193,7 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["transformation"] = args ? (args.transformation ? pulumi.output(args.transformation).apply(inputs.streamanalytics.transformationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["transformation"] = args ? pulumi.output(args.transformation).apply(v => v === undefined ? undefined : inputs.streamanalytics.transformationArgsProvideDefaults(v)) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -248,75 +248,75 @@ export interface StreamingJobArgs {
     /**
      * The cluster which streaming jobs will run on.
      */
-    cluster?: pulumi.Input<inputs.streamanalytics.ClusterInfoArgs>;
+    cluster?: pulumi.Input<inputs.streamanalytics.ClusterInfoArgs | undefined>;
     /**
      * Controls certain runtime behaviors of the streaming job.
      */
-    compatibilityLevel?: pulumi.Input<string | enums.streamanalytics.CompatibilityLevel>;
+    compatibilityLevel?: pulumi.Input<string | enums.streamanalytics.CompatibilityLevel | undefined>;
     /**
      * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
      */
-    contentStoragePolicy?: pulumi.Input<string | enums.streamanalytics.ContentStoragePolicy>;
+    contentStoragePolicy?: pulumi.Input<string | enums.streamanalytics.ContentStoragePolicy | undefined>;
     /**
      * The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
      */
-    dataLocale?: pulumi.Input<string>;
+    dataLocale?: pulumi.Input<string | undefined>;
     /**
      * The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
      */
-    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
      */
-    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Indicates the policy to apply to events that arrive out of order in the input event stream.
      */
-    eventsOutOfOrderPolicy?: pulumi.Input<string | enums.streamanalytics.EventsOutOfOrderPolicy>;
+    eventsOutOfOrderPolicy?: pulumi.Input<string | enums.streamanalytics.EventsOutOfOrderPolicy | undefined>;
     /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionArgs>[]>;
+    functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionArgs>[] | undefined>;
     /**
      * Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
      */
-    identity?: pulumi.Input<inputs.streamanalytics.IdentityArgs>;
+    identity?: pulumi.Input<inputs.streamanalytics.IdentityArgs | undefined>;
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
-    inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.InputArgs>[]>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.InputArgs>[] | undefined>;
     /**
      * The name of the streaming job.
      */
-    jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string | undefined>;
     /**
      * The properties that are associated with an Azure Storage account with MSI
      */
-    jobStorageAccount?: pulumi.Input<inputs.streamanalytics.JobStorageAccountArgs>;
+    jobStorageAccount?: pulumi.Input<inputs.streamanalytics.JobStorageAccountArgs | undefined>;
     /**
      * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
      */
-    jobType?: pulumi.Input<string | enums.streamanalytics.JobType>;
+    jobType?: pulumi.Input<string | enums.streamanalytics.JobType | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
      */
-    outputErrorPolicy?: pulumi.Input<string | enums.streamanalytics.OutputErrorPolicy>;
+    outputErrorPolicy?: pulumi.Input<string | enums.streamanalytics.OutputErrorPolicy | undefined>;
     /**
      * This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
      */
-    outputStartMode?: pulumi.Input<string | enums.streamanalytics.OutputStartMode>;
+    outputStartMode?: pulumi.Input<string | enums.streamanalytics.OutputStartMode | undefined>;
     /**
      * Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
      */
-    outputStartTime?: pulumi.Input<string>;
+    outputStartTime?: pulumi.Input<string | undefined>;
     /**
      * A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.OutputArgs>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.OutputArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -324,13 +324,13 @@ export interface StreamingJobArgs {
     /**
      * Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
      */
-    sku?: pulumi.Input<inputs.streamanalytics.SkuArgs>;
+    sku?: pulumi.Input<inputs.streamanalytics.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    transformation?: pulumi.Input<inputs.streamanalytics.TransformationArgs>;
+    transformation?: pulumi.Input<inputs.streamanalytics.TransformationArgs | undefined>;
 }

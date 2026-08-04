@@ -108,11 +108,11 @@ export interface EnrollmentArgs {
     /**
      * The name of the enrollment.
      */
-    enrollmentName?: pulumi.Input<string>;
+    enrollmentName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azureresiliencemanagement.EnrollmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azureresiliencemanagement.EnrollmentPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

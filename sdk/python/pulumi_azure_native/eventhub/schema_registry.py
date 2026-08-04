@@ -23,17 +23,17 @@ class SchemaRegistryArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 group_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 schema_compatibility: Optional[pulumi.Input[Union[_builtins.str, 'SchemaCompatibility']]] = None,
-                 schema_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None):
+                 group_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 schema_compatibility: pulumi.Input[Optional[Union[_builtins.str, 'SchemaCompatibility']]] = None,
+                 schema_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None):
         """
         The set of arguments for constructing a SchemaRegistry resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] group_properties: dictionary object for SchemaGroup group properties
-        :param pulumi.Input[_builtins.str] schema_group_name: The Schema Group name 
+        :param pulumi.Input[_builtins.str] schema_group_name: The Schema Group name
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -72,44 +72,44 @@ class SchemaRegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupProperties")
-    def group_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def group_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         dictionary object for SchemaGroup group properties
         """
         return pulumi.get(self, "group_properties")
 
     @group_properties.setter
-    def group_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def group_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaCompatibility")
-    def schema_compatibility(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SchemaCompatibility']]]:
+    def schema_compatibility(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SchemaCompatibility']]]:
         return pulumi.get(self, "schema_compatibility")
 
     @schema_compatibility.setter
-    def schema_compatibility(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SchemaCompatibility']]]):
+    def schema_compatibility(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SchemaCompatibility']]]):
         pulumi.set(self, "schema_compatibility", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaGroupName")
-    def schema_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Schema Group name 
+        The Schema Group name
         """
         return pulumi.get(self, "schema_group_name")
 
     @schema_group_name.setter
-    def schema_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaType")
-    def schema_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]]:
+    def schema_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]]:
         return pulumi.get(self, "schema_type")
 
     @schema_type.setter
-    def schema_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]]):
+    def schema_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]]):
         pulumi.set(self, "schema_type", value)
 
 
@@ -119,12 +119,12 @@ class SchemaRegistry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_compatibility: Optional[pulumi.Input[Union[_builtins.str, 'SchemaCompatibility']]] = None,
-                 schema_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None,
+                 group_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_compatibility: pulumi.Input[Optional[Union[_builtins.str, 'SchemaCompatibility']]] = None,
+                 schema_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None,
                  __props__=None):
         """
         Single item in List or Get Schema Group operation
@@ -133,13 +133,12 @@ class SchemaRegistry(pulumi.CustomResource):
 
         Other available API versions: 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] group_properties: dictionary object for SchemaGroup group properties
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[_builtins.str] schema_group_name: The Schema Group name 
+        :param pulumi.Input[_builtins.str] schema_group_name: The Schema Group name
         """
         ...
     @overload
@@ -153,7 +152,6 @@ class SchemaRegistry(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
         Other available API versions: 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryArgs args: The arguments to use to populate this resource's properties.
@@ -170,12 +168,12 @@ class SchemaRegistry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_compatibility: Optional[pulumi.Input[Union[_builtins.str, 'SchemaCompatibility']]] = None,
-                 schema_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_type: Optional[pulumi.Input[Union[_builtins.str, 'SchemaType']]] = None,
+                 group_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_compatibility: pulumi.Input[Optional[Union[_builtins.str, 'SchemaCompatibility']]] = None,
+                 schema_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_type: pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

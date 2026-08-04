@@ -24,18 +24,18 @@ class CustomImageArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 author: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_image_plan: Optional[pulumi.Input['CustomImagePropertiesFromPlanArgs']] = None,
-                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_plan_authorized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vhd: Optional[pulumi.Input['CustomImagePropertiesCustomArgs']] = None,
-                 vm: Optional[pulumi.Input['CustomImagePropertiesFromVmArgs']] = None):
+                 author: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_image_plan: pulumi.Input[Optional['CustomImagePropertiesFromPlanArgs']] = None,
+                 data_disk_storage_info: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_plan_authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vhd: pulumi.Input[Optional['CustomImagePropertiesCustomArgs']] = None,
+                 vm: pulumi.Input[Optional['CustomImagePropertiesFromVmArgs']] = None):
         """
         The set of arguments for constructing a CustomImage resource.
 
@@ -107,146 +107,146 @@ class CustomImageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def author(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The author of the custom image.
         """
         return pulumi.get(self, "author")
 
     @author.setter
-    def author(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author", value)
 
     @_builtins.property
     @pulumi.getter(name="customImagePlan")
-    def custom_image_plan(self) -> Optional[pulumi.Input['CustomImagePropertiesFromPlanArgs']]:
+    def custom_image_plan(self) -> pulumi.Input[Optional['CustomImagePropertiesFromPlanArgs']]:
         """
         Storage information about the plan related to this custom image
         """
         return pulumi.get(self, "custom_image_plan")
 
     @custom_image_plan.setter
-    def custom_image_plan(self, value: Optional[pulumi.Input['CustomImagePropertiesFromPlanArgs']]):
+    def custom_image_plan(self, value: pulumi.Input[Optional['CustomImagePropertiesFromPlanArgs']]):
         pulumi.set(self, "custom_image_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDiskStorageInfo")
-    def data_disk_storage_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]]]:
+    def data_disk_storage_info(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]]]:
         """
         Storage information about the data disks present in the custom image
         """
         return pulumi.get(self, "data_disk_storage_info")
 
     @data_disk_storage_info.setter
-    def data_disk_storage_info(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]]]):
+    def data_disk_storage_info(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataDiskStorageTypeInfoArgs']]]]):
         pulumi.set(self, "data_disk_storage_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the custom image.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isPlanAuthorized")
-    def is_plan_authorized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_plan_authorized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
         """
         return pulumi.get(self, "is_plan_authorized")
 
     @is_plan_authorized.setter
-    def is_plan_authorized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_plan_authorized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_plan_authorized", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Managed Image Id backing the custom image.
         """
         return pulumi.get(self, "managed_image_id")
 
     @managed_image_id.setter
-    def managed_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedSnapshotId")
-    def managed_snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Managed Snapshot Id backing the custom image.
         """
         return pulumi.get(self, "managed_snapshot_id")
 
     @managed_snapshot_id.setter
-    def managed_snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CustomImage
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def vhd(self) -> Optional[pulumi.Input['CustomImagePropertiesCustomArgs']]:
+    def vhd(self) -> pulumi.Input[Optional['CustomImagePropertiesCustomArgs']]:
         """
         The VHD from which the image is to be created.
         """
         return pulumi.get(self, "vhd")
 
     @vhd.setter
-    def vhd(self, value: Optional[pulumi.Input['CustomImagePropertiesCustomArgs']]):
+    def vhd(self, value: pulumi.Input[Optional['CustomImagePropertiesCustomArgs']]):
         pulumi.set(self, "vhd", value)
 
     @_builtins.property
     @pulumi.getter
-    def vm(self) -> Optional[pulumi.Input['CustomImagePropertiesFromVmArgs']]:
+    def vm(self) -> pulumi.Input[Optional['CustomImagePropertiesFromVmArgs']]:
         """
         The virtual machine from which the image is to be created.
         """
         return pulumi.get(self, "vm")
 
     @vm.setter
-    def vm(self, value: Optional[pulumi.Input['CustomImagePropertiesFromVmArgs']]):
+    def vm(self, value: pulumi.Input[Optional['CustomImagePropertiesFromVmArgs']]):
         pulumi.set(self, "vm", value)
 
 
@@ -256,26 +256,25 @@ class CustomImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_image_plan: Optional[pulumi.Input[Union['CustomImagePropertiesFromPlanArgs', 'CustomImagePropertiesFromPlanArgsDict']]] = None,
-                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskStorageTypeInfoArgs', 'DataDiskStorageTypeInfoArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_plan_authorized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vhd: Optional[pulumi.Input[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']]] = None,
-                 vm: Optional[pulumi.Input[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']]] = None,
+                 author: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_image_plan: pulumi.Input[Optional[Union['CustomImagePropertiesFromPlanArgs', 'CustomImagePropertiesFromPlanArgsDict']]] = None,
+                 data_disk_storage_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataDiskStorageTypeInfoArgs', 'DataDiskStorageTypeInfoArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_plan_authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vhd: pulumi.Input[Optional[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']]] = None,
+                 vm: pulumi.Input[Optional[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         """
         A custom image.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,7 +304,6 @@ class CustomImage(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-
         :param str resource_name: The name of the resource.
         :param CustomImageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,20 +319,20 @@ class CustomImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_image_plan: Optional[pulumi.Input[Union['CustomImagePropertiesFromPlanArgs', 'CustomImagePropertiesFromPlanArgsDict']]] = None,
-                 data_disk_storage_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataDiskStorageTypeInfoArgs', 'DataDiskStorageTypeInfoArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_plan_authorized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vhd: Optional[pulumi.Input[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']]] = None,
-                 vm: Optional[pulumi.Input[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']]] = None,
+                 author: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_image_plan: pulumi.Input[Optional[Union['CustomImagePropertiesFromPlanArgs', 'CustomImagePropertiesFromPlanArgsDict']]] = None,
+                 data_disk_storage_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataDiskStorageTypeInfoArgs', 'DataDiskStorageTypeInfoArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_plan_authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vhd: pulumi.Input[Optional[Union['CustomImagePropertiesCustomArgs', 'CustomImagePropertiesCustomArgsDict']]] = None,
+                 vm: pulumi.Input[Optional[Union['CustomImagePropertiesFromVmArgs', 'CustomImagePropertiesFromVmArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

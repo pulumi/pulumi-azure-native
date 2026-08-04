@@ -134,7 +134,6 @@ def get_recovery_point_access_token(container_name: Optional[_builtins.str] = No
     """
     Uses Azure REST API version 2023-01-15.
 
-
     :param _builtins.str container_name: Name of the container.
     :param _builtins.str e_tag: Optional ETag.
     :param _builtins.str fabric_name: Fabric name associated with the container.
@@ -168,20 +167,19 @@ def get_recovery_point_access_token(container_name: Optional[_builtins.str] = No
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_recovery_point_access_token_output(container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           e_tag: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           location: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           properties: Optional[pulumi.Input[Optional[Union['AADProperties', 'AADPropertiesDict']]]] = None,
-                                           protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           recovery_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                                           vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_recovery_point_access_token_output(container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           e_tag: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           location: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           properties: pulumi.Input[Optional[Optional[Union['AADProperties', 'AADPropertiesDict']]]] = None,
+                                           protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           recovery_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                                           vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecoveryPointAccessTokenResult]:
     """
     Uses Azure REST API version 2023-01-15.
-
 
     :param _builtins.str container_name: Name of the container.
     :param _builtins.str e_tag: Optional ETag.

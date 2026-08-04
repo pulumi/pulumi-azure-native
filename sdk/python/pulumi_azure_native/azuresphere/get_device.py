@@ -193,7 +193,6 @@ def get_device(catalog_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-01.
 
-
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str device_group_name: Name of device group.
     :param _builtins.str device_name: Device name
@@ -222,17 +221,16 @@ def get_device(catalog_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_device_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_device_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
 
     Uses Azure REST API version 2024-04-01.
-
 
     :param _builtins.str catalog_name: Name of catalog
     :param _builtins.str device_group_name: Name of device group.

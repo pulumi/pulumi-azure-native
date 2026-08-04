@@ -23,15 +23,15 @@ __all__ = ['PartnerNamespaceArgs', 'PartnerNamespace']
 class PartnerNamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 partner_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_fully_qualified_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_routing_mode: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicRoutingMode']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version_allowed: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 partner_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_fully_qualified_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_routing_mode: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicRoutingMode']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerNamespace resource.
 
@@ -89,67 +89,67 @@ class PartnerNamespaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
         """
         return pulumi.get(self, "disable_local_auth")
 
     @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_local_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InboundIpRuleArgs']]]]:
         """
         This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InboundIpRuleArgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersionAllowed")
-    def minimum_tls_version_allowed(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]]:
+    def minimum_tls_version_allowed(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]:
         """
         Minimum TLS version of the publisher allowed to publish to this partner namespace
         """
         return pulumi.get(self, "minimum_tls_version_allowed")
 
     @minimum_tls_version_allowed.setter
-    def minimum_tls_version_allowed(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]]):
+    def minimum_tls_version_allowed(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]):
         pulumi.set(self, "minimum_tls_version_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerNamespaceName")
-    def partner_namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the partner namespace.
         """
         return pulumi.get(self, "partner_namespace_name")
 
     @partner_namespace_name.setter
-    def partner_namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationFullyQualifiedId")
-    def partner_registration_fully_qualified_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_registration_fully_qualified_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
         /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
@@ -157,12 +157,12 @@ class PartnerNamespaceArgs:
         return pulumi.get(self, "partner_registration_fully_qualified_id")
 
     @partner_registration_fully_qualified_id.setter
-    def partner_registration_fully_qualified_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_registration_fully_qualified_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_registration_fully_qualified_id", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerTopicRoutingMode")
-    def partner_topic_routing_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicRoutingMode']]]:
+    def partner_topic_routing_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicRoutingMode']]]:
         """
         This determines if events published to this partner namespace should use the source attribute in the event payload
         or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
@@ -170,12 +170,12 @@ class PartnerNamespaceArgs:
         return pulumi.get(self, "partner_topic_routing_mode")
 
     @partner_topic_routing_mode.setter
-    def partner_topic_routing_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicRoutingMode']]]):
+    def partner_topic_routing_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicRoutingMode']]]):
         pulumi.set(self, "partner_topic_routing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
         This determines if traffic is allowed over public network. By default it is enabled.
         You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
@@ -183,19 +183,19 @@ class PartnerNamespaceArgs:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -205,16 +205,16 @@ class PartnerNamespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 partner_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_fully_qualified_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_routing_mode: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicRoutingMode']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version_allowed: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 partner_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_fully_qualified_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_routing_mode: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicRoutingMode']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         EventGrid Partner Namespace.
@@ -222,7 +222,6 @@ class PartnerNamespace(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +252,6 @@ class PartnerNamespace(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PartnerNamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,16 +267,16 @@ class PartnerNamespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
-                 partner_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_registration_fully_qualified_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_topic_routing_mode: Optional[pulumi.Input[Union[_builtins.str, 'PartnerTopicRoutingMode']]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version_allowed: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 partner_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_registration_fully_qualified_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_routing_mode: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicRoutingMode']]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

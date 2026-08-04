@@ -24,10 +24,10 @@ class P2sVpnServerConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_wan_name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 p2_s_vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['P2SVpnServerConfigurationPropertiesArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 p2_s_vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['P2SVpnServerConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a P2sVpnServerConfiguration resource.
 
@@ -75,50 +75,50 @@ class P2sVpnServerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="p2SVpnServerConfigurationName")
-    def p2_s_vpn_server_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def p2_s_vpn_server_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the P2SVpnServerConfiguration.
         """
         return pulumi.get(self, "p2_s_vpn_server_configuration_name")
 
     @p2_s_vpn_server_configuration_name.setter
-    def p2_s_vpn_server_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def p2_s_vpn_server_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "p2_s_vpn_server_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['P2SVpnServerConfigurationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['P2SVpnServerConfigurationPropertiesArgs']]:
         """
         Properties of the P2SVpnServer configuration.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['P2SVpnServerConfigurationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['P2SVpnServerConfigurationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -128,12 +128,12 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 p2_s_vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['P2SVpnServerConfigurationPropertiesArgs', 'P2SVpnServerConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 p2_s_vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['P2SVpnServerConfigurationPropertiesArgs', 'P2SVpnServerConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         P2SVpnServerConfiguration Resource.
@@ -141,7 +141,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2019-07-01. In version 2.x of the Azure Native provider, it used API version 2019-07-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param P2sVpnServerConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 p2_s_vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['P2SVpnServerConfigurationPropertiesArgs', 'P2SVpnServerConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 p2_s_vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['P2SVpnServerConfigurationPropertiesArgs', 'P2SVpnServerConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

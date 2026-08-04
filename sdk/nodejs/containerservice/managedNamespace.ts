@@ -93,7 +93,7 @@ export class ManagedNamespace extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args?.location;
             resourceInputs["managedNamespaceName"] = args?.managedNamespaceName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.containerservice.namespacePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.containerservice.namespacePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["tags"] = args?.tags;
@@ -126,15 +126,15 @@ export interface ManagedNamespaceArgs {
     /**
      * The location of the namespace.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed namespace.
      */
-    managedNamespaceName?: pulumi.Input<string>;
+    managedNamespaceName?: pulumi.Input<string | undefined>;
     /**
      * Properties of a namespace.
      */
-    properties?: pulumi.Input<inputs.containerservice.NamespacePropertiesArgs>;
+    properties?: pulumi.Input<inputs.containerservice.NamespacePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -146,5 +146,5 @@ export interface ManagedNamespaceArgs {
     /**
      * The tags to be persisted on the managed cluster namespace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

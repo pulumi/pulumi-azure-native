@@ -97,9 +97,9 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.sqlManagedInstancePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.azurearcdata.sqlManagedInstancePropertiesArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.azurearcdata.sqlManagedInstanceSkuArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(v => v === undefined ? undefined : inputs.azurearcdata.sqlManagedInstanceSkuArgsProvideDefaults(v)) : undefined;
             resourceInputs["sqlManagedInstanceName"] = args?.sqlManagedInstanceName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -131,11 +131,11 @@ export interface SqlManagedInstanceArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurearcdata.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.azurearcdata.ExtendedLocationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * null
      */
@@ -147,13 +147,13 @@ export interface SqlManagedInstanceArgs {
     /**
      * Resource sku.
      */
-    sku?: pulumi.Input<inputs.azurearcdata.SqlManagedInstanceSkuArgs>;
+    sku?: pulumi.Input<inputs.azurearcdata.SqlManagedInstanceSkuArgs | undefined>;
     /**
      * Name of SQL Managed Instance
      */
-    sqlManagedInstanceName?: pulumi.Input<string>;
+    sqlManagedInstanceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

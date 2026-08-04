@@ -119,7 +119,6 @@ def get_time_series_database_connection(resource_group_name: Optional[_builtins.
 
     Uses Azure REST API version 2023-01-31.
 
-
     :param _builtins.str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param _builtins.str resource_name: The name of the DigitalTwinsInstance.
     :param _builtins.str time_series_database_connection_name: Name of time series database connection.
@@ -138,15 +137,14 @@ def get_time_series_database_connection(resource_group_name: Optional[_builtins.
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_time_series_database_connection_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               time_series_database_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_time_series_database_connection_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               time_series_database_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTimeSeriesDatabaseConnectionResult]:
     """
     Get the description of an existing time series database connection.
 
     Uses Azure REST API version 2023-01-31.
-
 
     :param _builtins.str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param _builtins.str resource_name: The name of the DigitalTwinsInstance.

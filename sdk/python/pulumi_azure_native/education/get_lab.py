@@ -240,7 +240,6 @@ def get_lab(billing_account_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-12-01-preview.
 
-
     :param _builtins.str billing_account_name: The name of the billing account.
     :param _builtins.str billing_profile_name: The name of the billing profile.
     :param _builtins.bool include_budget: May be used to include budget information.
@@ -271,16 +270,15 @@ def get_lab(billing_account_name: Optional[_builtins.str] = None,
         total_budget=pulumi.get(__ret__, 'total_budget'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_lab_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   include_budget: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                   invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lab_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   include_budget: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                   invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
 
     Uses Azure REST API version 2021-12-01-preview.
-
 
     :param _builtins.str billing_account_name: The name of the billing account.
     :param _builtins.str billing_profile_name: The name of the billing profile.

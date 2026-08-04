@@ -33,7 +33,7 @@ class DatasetPropertyKeyArgsDict(TypedDict):
     """
     Path to the input value from the message.
     """
-    primary_key: NotRequired[pulumi.Input[_builtins.bool]]
+    primary_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true the property will be used as a primary key. At most one primary key can exists.
     """
@@ -42,7 +42,7 @@ class DatasetPropertyKeyArgsDict(TypedDict):
 class DatasetPropertyKeyArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
-                 primary_key: Optional[pulumi.Input[_builtins.bool]] = None):
+                 primary_key: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Key that can be used for joining on enrich.
 
@@ -67,14 +67,14 @@ class DatasetPropertyKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true the property will be used as a primary key. At most one primary key can exists.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary_key", value)
 
 
@@ -142,7 +142,7 @@ class PipelineInputArgsDict(TypedDict):
     """
     ARM resource type.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description for stage.
     """
@@ -152,7 +152,7 @@ class PipelineInputArgs:
     def __init__(__self__, *,
                  next: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Stage configuration for Pipeline input stage.
 
@@ -191,14 +191,14 @@ class PipelineInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for stage.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -210,11 +210,11 @@ class PipelineStageArgsDict(TypedDict):
     """
     ARM resource type.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description for stage.
     """
-    next: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    next: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Next stage in the pipeline. Not required if output stage.
     """
@@ -223,8 +223,8 @@ class PipelineStageArgsDict(TypedDict):
 class PipelineStageArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 next: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 next: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Stage configurations for all Pipeline processing and output stages.
 
@@ -252,26 +252,26 @@ class PipelineStageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for stage.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def next(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def next(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Next stage in the pipeline. Not required if output stage.
         """
         return pulumi.get(self, "next")
 
     @next.setter
-    def next(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def next(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "next", value)
 
 

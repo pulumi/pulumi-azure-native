@@ -263,7 +263,6 @@ def get_global_schedule(expand: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2018-09-15.
 
-
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param _builtins.str name: The name of the Schedule
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -294,15 +293,14 @@ def get_global_schedule(expand: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         weekly_recurrence=pulumi.get(__ret__, 'weekly_recurrence'))
-def get_global_schedule_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_schedule_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalScheduleResult]:
     """
     Get schedule.
 
     Uses Azure REST API version 2018-09-15.
-
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param _builtins.str name: The name of the Schedule

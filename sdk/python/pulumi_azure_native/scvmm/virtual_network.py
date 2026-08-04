@@ -23,12 +23,12 @@ class VirtualNetworkArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 inventory_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmm_server_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmm_server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
 
@@ -82,74 +82,74 @@ class VirtualNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="inventoryItemId")
-    def inventory_item_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inventory_item_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the inventory Item ID for the resource.
         """
         return pulumi.get(self, "inventory_item_id")
 
     @inventory_item_id.setter
-    def inventory_item_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inventory_item_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inventory_item_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets or sets the location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique ID of the virtual network.
         """
         return pulumi.get(self, "uuid")
 
     @uuid.setter
-    def uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uuid", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkName")
-    def virtual_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the VirtualNetwork.
         """
         return pulumi.get(self, "virtual_network_name")
 
     @virtual_network_name.setter
-    def virtual_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmmServerId")
-    def vmm_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vmm_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Id of the vmmServer resource in which this resource resides.
         """
         return pulumi.get(self, "vmm_server_id")
 
     @vmm_server_id.setter
-    def vmm_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vmm_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vmm_server_id", value)
 
 
@@ -159,14 +159,14 @@ class VirtualNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmm_server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmm_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The VirtualNetworks resource definition.
@@ -174,7 +174,6 @@ class VirtualNetwork(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +199,6 @@ class VirtualNetwork(pulumi.CustomResource):
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,14 +214,14 @@ class VirtualNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 inventory_item_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmm_server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmm_server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

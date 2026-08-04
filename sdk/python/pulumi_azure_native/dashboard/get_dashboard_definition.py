@@ -119,7 +119,6 @@ def get_dashboard_definition(dashboard_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01-preview.
 
-
     :param _builtins.str dashboard_name: The name of the Azure Managed Dashboard.
     :param _builtins.str definition_name: The name of the Dashboard Definition.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,15 +137,14 @@ def get_dashboard_definition(dashboard_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dashboard_definition_output(dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_definition_output(dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardDefinitionResult]:
     """
     Get the properties of a specific dashboard definition.
 
     Uses Azure REST API version 2025-09-01-preview.
-
 
     :param _builtins.str dashboard_name: The name of the Azure Managed Dashboard.
     :param _builtins.str definition_name: The name of the Dashboard Definition.

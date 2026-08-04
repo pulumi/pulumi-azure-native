@@ -23,8 +23,8 @@ class EnrollmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  usage_plan_name: pulumi.Input[_builtins.str],
-                 enrollment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['EnrollmentPropertiesArgs']] = None):
+                 enrollment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['EnrollmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Enrollment resource.
 
@@ -66,26 +66,26 @@ class EnrollmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="enrollmentName")
-    def enrollment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enrollment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the enrollment.
         """
         return pulumi.get(self, "enrollment_name")
 
     @enrollment_name.setter
-    def enrollment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enrollment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enrollment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['EnrollmentPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['EnrollmentPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['EnrollmentPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['EnrollmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class Enrollment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enrollment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnrollmentPropertiesArgs', 'EnrollmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 enrollment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnrollmentPropertiesArgs', 'EnrollmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An enrollment that links a usage plan to a service group.
@@ -106,7 +106,6 @@ class Enrollment(pulumi.CustomResource):
         Uses Azure REST API version 2026-03-01-preview.
 
         Other available API versions: 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class Enrollment(pulumi.CustomResource):
 
         Other available API versions: 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureresiliencemanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param EnrollmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class Enrollment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enrollment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnrollmentPropertiesArgs', 'EnrollmentPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 enrollment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnrollmentPropertiesArgs', 'EnrollmentPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

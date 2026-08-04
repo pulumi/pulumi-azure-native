@@ -22,18 +22,18 @@ class SiteCertificateArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 canonical_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 pfx_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 canonical_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 pfx_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SiteCertificate resource.
 
@@ -105,146 +105,146 @@ class SiteCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="canonicalName")
-    def canonical_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def canonical_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CNAME of the certificate to be issued via free certificate
         """
         return pulumi.get(self, "canonical_name")
 
     @canonical_name.setter
-    def canonical_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def canonical_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "canonical_name", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the certificate.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainValidationMethod")
-    def domain_validation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_validation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Method of domain validation for free cert
         """
         return pulumi.get(self, "domain_validation_method")
 
     @domain_validation_method.setter
-    def domain_validation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_validation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_validation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def host_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Host names the certificate applies to.
         """
         return pulumi.get(self, "host_names")
 
     @host_names.setter
-    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def host_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "host_names", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Key Vault Csm resource Id.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretName")
-    def key_vault_secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Key Vault secret name.
         """
         return pulumi.get(self, "key_vault_secret_name")
 
     @key_vault_secret_name.setter
-    def key_vault_secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate password.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="pfxBlob")
-    def pfx_blob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pfx_blob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pfx blob.
         """
         return pulumi.get(self, "pfx_blob")
 
     @pfx_blob.setter
-    def pfx_blob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pfx_blob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pfx_blob", value)
 
     @_builtins.property
     @pulumi.getter(name="serverFarmId")
-    def server_farm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_farm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the associated App Service plan.
         """
         return pulumi.get(self, "server_farm_id")
 
     @server_farm_id.setter
-    def server_farm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_farm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_farm_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -254,20 +254,20 @@ class SiteCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 canonical_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 pfx_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 canonical_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 pfx_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         SSL certificate for an app.
@@ -275,7 +275,6 @@ class SiteCertificate(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01.
 
         Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +306,6 @@ class SiteCertificate(pulumi.CustomResource):
 
         Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SiteCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,20 +321,20 @@ class SiteCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 canonical_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 pfx_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 canonical_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 pfx_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

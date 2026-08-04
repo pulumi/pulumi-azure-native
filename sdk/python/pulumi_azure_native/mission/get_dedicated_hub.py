@@ -193,7 +193,6 @@ def get_dedicated_hub(community_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str community_name: The name of the communityResource Resource
     :param _builtins.str dedicated_hub_name: The name of the Dedicated Hub Resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -218,9 +217,9 @@ def get_dedicated_hub(community_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         v_hub_resource_id=pulumi.get(__ret__, 'v_hub_resource_id'))
-def get_dedicated_hub_output(community_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             dedicated_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dedicated_hub_output(community_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             dedicated_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHubResult]:
     """
     Get a DedicatedHubResource
@@ -228,7 +227,6 @@ def get_dedicated_hub_output(community_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2025-11-01-preview.
 
     Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str community_name: The name of the communityResource Resource
     :param _builtins.str dedicated_hub_name: The name of the Dedicated Hub Resource

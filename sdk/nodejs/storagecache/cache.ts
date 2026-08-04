@@ -146,11 +146,11 @@ export class Cache extends pulumi.CustomResource {
             }
             resourceInputs["cacheName"] = args?.cacheName;
             resourceInputs["cacheSizeGB"] = args?.cacheSizeGB;
-            resourceInputs["directoryServicesSettings"] = args ? (args.directoryServicesSettings ? pulumi.output(args.directoryServicesSettings).apply(inputs.storagecache.cacheDirectorySettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["directoryServicesSettings"] = args ? pulumi.output(args.directoryServicesSettings).apply(v => v === undefined ? undefined : inputs.storagecache.cacheDirectorySettingsArgsProvideDefaults(v)) : undefined;
             resourceInputs["encryptionSettings"] = args?.encryptionSettings;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["networkSettings"] = args ? (args.networkSettings ? pulumi.output(args.networkSettings).apply(inputs.storagecache.cacheNetworkSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["networkSettings"] = args ? pulumi.output(args.networkSettings).apply(v => v === undefined ? undefined : inputs.storagecache.cacheNetworkSettingsArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["securitySettings"] = args?.securitySettings;
             resourceInputs["sku"] = args?.sku;
@@ -206,31 +206,31 @@ export interface CacheArgs {
     /**
      * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
-    cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string | undefined>;
     /**
      * The size of this Cache, in GB.
      */
-    cacheSizeGB?: pulumi.Input<number>;
+    cacheSizeGB?: pulumi.Input<number | undefined>;
     /**
      * Specifies Directory Services settings of the cache.
      */
-    directoryServicesSettings?: pulumi.Input<inputs.storagecache.CacheDirectorySettingsArgs>;
+    directoryServicesSettings?: pulumi.Input<inputs.storagecache.CacheDirectorySettingsArgs | undefined>;
     /**
      * Specifies encryption settings of the cache.
      */
-    encryptionSettings?: pulumi.Input<inputs.storagecache.CacheEncryptionSettingsArgs>;
+    encryptionSettings?: pulumi.Input<inputs.storagecache.CacheEncryptionSettingsArgs | undefined>;
     /**
      * The identity of the cache, if configured.
      */
-    identity?: pulumi.Input<inputs.storagecache.CacheIdentityArgs>;
+    identity?: pulumi.Input<inputs.storagecache.CacheIdentityArgs | undefined>;
     /**
      * Region name string.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies network settings of the cache.
      */
-    networkSettings?: pulumi.Input<inputs.storagecache.CacheNetworkSettingsArgs>;
+    networkSettings?: pulumi.Input<inputs.storagecache.CacheNetworkSettingsArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -238,25 +238,25 @@ export interface CacheArgs {
     /**
      * Specifies security settings of the cache.
      */
-    securitySettings?: pulumi.Input<inputs.storagecache.CacheSecuritySettingsArgs>;
+    securitySettings?: pulumi.Input<inputs.storagecache.CacheSecuritySettingsArgs | undefined>;
     /**
      * SKU for the cache.
      */
-    sku?: pulumi.Input<inputs.storagecache.CacheSkuArgs>;
+    sku?: pulumi.Input<inputs.storagecache.CacheSkuArgs | undefined>;
     /**
      * Subnet used for the cache.
      */
-    subnet?: pulumi.Input<string>;
+    subnet?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Upgrade settings of the cache.
      */
-    upgradeSettings?: pulumi.Input<inputs.storagecache.CacheUpgradeSettingsArgs>;
+    upgradeSettings?: pulumi.Input<inputs.storagecache.CacheUpgradeSettingsArgs | undefined>;
     /**
      * Availability zones for resources. This field should only contain a single element in the array.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

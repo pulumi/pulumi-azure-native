@@ -26,18 +26,18 @@ class ExtensionArgs:
                  cluster_resource_name: pulumi.Input[_builtins.str],
                  cluster_rp: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 aks_assigned_identity: Optional[pulumi.Input['ExtensionAksAssignedIdentityArgs']] = None,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 plan: Optional[pulumi.Input['PlanArgs']] = None,
-                 release_train: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 aks_assigned_identity: pulumi.Input[Optional['ExtensionAksAssignedIdentityArgs']] = None,
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 plan: pulumi.Input[Optional['PlanArgs']] = None,
+                 release_train: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['ScopeArgs']] = None,
+                 statuses: pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionStatusArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
@@ -141,146 +141,146 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="aksAssignedIdentity")
-    def aks_assigned_identity(self) -> Optional[pulumi.Input['ExtensionAksAssignedIdentityArgs']]:
+    def aks_assigned_identity(self) -> pulumi.Input[Optional['ExtensionAksAssignedIdentityArgs']]:
         """
         Identity of the Extension resource in an AKS cluster
         """
         return pulumi.get(self, "aks_assigned_identity")
 
     @aks_assigned_identity.setter
-    def aks_assigned_identity(self, value: Optional[pulumi.Input['ExtensionAksAssignedIdentityArgs']]):
+    def aks_assigned_identity(self, value: pulumi.Input[Optional['ExtensionAksAssignedIdentityArgs']]):
         pulumi.set(self, "aks_assigned_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_upgrade_minor_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to note if this extension participates in auto upgrade of minor version, or not.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @auto_upgrade_minor_version.setter
-    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_upgrade_minor_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationProtectedSettings")
-    def configuration_protected_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_protected_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         """
         return pulumi.get(self, "configuration_protected_settings")
 
     @configuration_protected_settings.setter
-    def configuration_protected_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_protected_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_protected_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationSettings")
-    def configuration_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def configuration_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration settings, as name-value pairs for configuring this extension.
         """
         return pulumi.get(self, "configuration_settings")
 
     @configuration_settings.setter
-    def configuration_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def configuration_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionName")
-    def extension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Extension.
         """
         return pulumi.get(self, "extension_name")
 
     @extension_name.setter
-    def extension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionType")
-    def extension_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
         """
         return pulumi.get(self, "extension_type")
 
     @extension_type.setter
-    def extension_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         Identity of the Extension resource
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['PlanArgs']]:
         """
         The plan information.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseTrain")
-    def release_train(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_train(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
         """
         return pulumi.get(self, "release_train")
 
     @release_train.setter
-    def release_train(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_train(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_train", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['ScopeArgs']]:
         """
         Scope at which the extension is installed.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['ScopeArgs']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]]:
+    def statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionStatusArgs']]]]:
         """
         Status from this extension.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionStatusArgs']]]]):
+    def statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExtensionStatusArgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -290,22 +290,22 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aks_assigned_identity: Optional[pulumi.Input[Union['ExtensionAksAssignedIdentityArgs', 'ExtensionAksAssignedIdentityArgsDict']]] = None,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_rp: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 release_train: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExtensionStatusArgs', 'ExtensionStatusArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 aks_assigned_identity: pulumi.Input[Optional[Union['ExtensionAksAssignedIdentityArgs', 'ExtensionAksAssignedIdentityArgsDict']]] = None,
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 release_train: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
+                 statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionStatusArgs', 'ExtensionStatusArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The Extension object.
@@ -313,7 +313,6 @@ class Extension(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2022-04-02-preview, 2022-07-01, 2022-11-01, 2024-11-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,7 +346,6 @@ class Extension(pulumi.CustomResource):
 
         Other available API versions: 2022-04-02-preview, 2022-07-01, 2022-11-01, 2024-11-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -363,22 +361,22 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aks_assigned_identity: Optional[pulumi.Input[Union['ExtensionAksAssignedIdentityArgs', 'ExtensionAksAssignedIdentityArgsDict']]] = None,
-                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_rp: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 release_train: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExtensionStatusArgs', 'ExtensionStatusArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 aks_assigned_identity: pulumi.Input[Optional[Union['ExtensionAksAssignedIdentityArgs', 'ExtensionAksAssignedIdentityArgsDict']]] = None,
+                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 release_train: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['ScopeArgs', 'ScopeArgsDict']]] = None,
+                 statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExtensionStatusArgs', 'ExtensionStatusArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

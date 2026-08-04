@@ -106,7 +106,7 @@ class ListWebAppSitePushSettingsResult:
         """
         Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
         Tags can consist of alphanumeric characters and the following:
-        '_', '@', '#', '.', ':', '-'. 
+        '_', '@', '#', '.', ':', '-'.
         Validation should be performed at the PushRequestHandler.
         """
         return pulumi.get(self, "tags_requiring_auth")
@@ -146,7 +146,6 @@ def list_web_app_site_push_settings(name: Optional[_builtins.str] = None,
 
     Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str name: Name of the app.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -165,8 +164,8 @@ def list_web_app_site_push_settings(name: Optional[_builtins.str] = None,
         tag_whitelist_json=pulumi.get(__ret__, 'tag_whitelist_json'),
         tags_requiring_auth=pulumi.get(__ret__, 'tags_requiring_auth'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_site_push_settings_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_site_push_settings_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSitePushSettingsResult]:
     """
     Description for Gets the Push settings associated with web app.
@@ -174,7 +173,6 @@ def list_web_app_site_push_settings_output(name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2025-05-01.
 
     Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str name: Name of the app.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

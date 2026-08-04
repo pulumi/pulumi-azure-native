@@ -23,15 +23,15 @@ __all__ = ['StandardArgs', 'Standard']
 class StandardArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 standard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_clouds: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_clouds: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Standard resource.
 
@@ -80,110 +80,110 @@ class StandardArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         category of the standard provided
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]]:
+    def components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]]:
         """
         List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]]):
+    def components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         description of the standard
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         display name of the standard, equivalent to the standardId
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kind of the resource
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="standardId")
-    def standard_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standard_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Security Standard key - unique key for the standard type
         """
         return pulumi.get(self, "standard_id")
 
     @standard_id.setter
-    def standard_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standard_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standard_id", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedClouds")
-    def supported_clouds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]]:
+    def supported_clouds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardSupportedClouds']]]]:
         """
         List of all standard supported clouds.
         """
         return pulumi.get(self, "supported_clouds")
 
     @supported_clouds.setter
-    def supported_clouds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]]):
+    def supported_clouds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSupportedClouds']]]]):
         pulumi.set(self, "supported_clouds", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -193,22 +193,21 @@ class Standard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardComponentPropertiesArgs', 'StandardComponentPropertiesArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 standard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_clouds: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardComponentPropertiesArgs', 'StandardComponentPropertiesArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_clouds: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Security Standard on a resource
 
         Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,7 +233,6 @@ class Standard(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
 
-
         :param str resource_name: The name of the resource.
         :param StandardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,16 +248,16 @@ class Standard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardComponentPropertiesArgs', 'StandardComponentPropertiesArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 standard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 supported_clouds: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardComponentPropertiesArgs', 'StandardComponentPropertiesArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_clouds: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -71,7 +71,6 @@ def list_effective_connectivity_configuration(resource_group_name: Optional[_bui
 
     Uses Azure REST API version 2021-02-01-preview.
 
-
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
     :param _builtins.str virtual_network_name: The name of the virtual network.
@@ -86,15 +85,14 @@ def list_effective_connectivity_configuration(resource_group_name: Optional[_bui
     return AwaitableListEffectiveConnectivityConfigurationResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_effective_connectivity_configuration_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                     virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_effective_connectivity_configuration_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                     virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEffectiveConnectivityConfigurationResult]:
     """
     List all effective connectivity configurations applied on a virtual network.
 
     Uses Azure REST API version 2021-02-01-preview.
-
 
     :param _builtins.str resource_group_name: The name of the resource group.
     :param _builtins.str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.

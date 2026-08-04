@@ -117,23 +117,23 @@ export interface GetLogAnalyticExportRequestRateByIntervalOutputArgs {
     /**
      * Group query result by Client Application ID.
      */
-    groupByClientApplicationId?: pulumi.Input<boolean>;
+    groupByClientApplicationId?: pulumi.Input<boolean | undefined>;
     /**
      * Group query result by Operation Name.
      */
-    groupByOperationName?: pulumi.Input<boolean>;
+    groupByOperationName?: pulumi.Input<boolean | undefined>;
     /**
      * Group query result by Resource Name.
      */
-    groupByResourceName?: pulumi.Input<boolean>;
+    groupByResourceName?: pulumi.Input<boolean | undefined>;
     /**
      * Group query result by Throttle Policy applied.
      */
-    groupByThrottlePolicy?: pulumi.Input<boolean>;
+    groupByThrottlePolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Group query result by User Agent.
      */
-    groupByUserAgent?: pulumi.Input<boolean>;
+    groupByUserAgent?: pulumi.Input<boolean | undefined>;
     /**
      * Interval value in minutes used to create LogAnalytics call rate logs.
      */

@@ -170,7 +170,6 @@ def get_capacity_pool_cache(account_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str cache_name: The name of the cache resource.
     :param _builtins.str pool_name: The name of the capacity pool
@@ -195,10 +194,10 @@ def get_capacity_pool_cache(account_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_capacity_pool_cache_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_pool_cache_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolCacheResult]:
     """
     Get the details of the specified Cache
@@ -206,7 +205,6 @@ def get_capacity_pool_cache_output(account_name: Optional[pulumi.Input[_builtins
     Uses Azure REST API version 2025-09-01-preview.
 
     Other available API versions: 2025-12-15-preview, 2026-01-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-04-01, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str account_name: The name of the NetApp account
     :param _builtins.str cache_name: The name of the cache resource.

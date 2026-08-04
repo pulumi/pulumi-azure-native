@@ -120,7 +120,6 @@ def get_authentication_setting(authentication_setting_name: Optional[_builtins.s
 
     Uses Azure REST API version 2025-05-03-preview.
 
-
     :param _builtins.str authentication_setting_name: Name of the authentication setting. Must be unique within a health model.
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param _builtins.str health_model_name: Name of health model resource
@@ -141,16 +140,15 @@ def get_authentication_setting(authentication_setting_name: Optional[_builtins.s
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_authentication_setting_output(authentication_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authentication_setting_output(authentication_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticationSettingResult]:
     """
     Get a AuthenticationSetting
 
     Uses Azure REST API version 2025-05-03-preview.
-
 
     :param _builtins.str authentication_setting_name: Name of the authentication setting. Must be unique within a health model.
     :param _builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive

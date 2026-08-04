@@ -22,7 +22,7 @@ class SyncGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_sync_service_name: pulumi.Input[_builtins.str],
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncGroup resource.
 
@@ -61,14 +61,14 @@ class SyncGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="syncGroupName")
-    def sync_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Sync Group resource.
         """
         return pulumi.get(self, "sync_group_name")
 
     @sync_group_name.setter
-    def sync_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_group_name", value)
 
 
@@ -78,9 +78,9 @@ class SyncGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Sync Group object.
@@ -88,7 +88,6 @@ class SyncGroup(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +108,6 @@ class SyncGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param SyncGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,9 +123,9 @@ class SyncGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -74,7 +74,6 @@ def get_test_result_console_log_download_url(log_file_name: Optional[_builtins.s
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str log_file_name: The log file name corresponding to the download URL.
     :param _builtins.str package_name: The resource name of the Test Base Package.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -93,11 +92,11 @@ def get_test_result_console_log_download_url(log_file_name: Optional[_builtins.s
     return AwaitableGetTestResultConsoleLogDownloadURLResult(
         download_url=pulumi.get(__ret__, 'download_url'),
         expiration_time=pulumi.get(__ret__, 'expiration_time'))
-def get_test_result_console_log_download_url_output(log_file_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    test_result_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_test_result_console_log_download_url_output(log_file_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    test_result_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultConsoleLogDownloadURLResult]:
     """
     Gets the download URL of the test execution console log file.
@@ -105,7 +104,6 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
     Uses Azure REST API version 2023-11-01-preview.
 
     Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str log_file_name: The log file name corresponding to the download URL.
     :param _builtins.str package_name: The resource name of the Test Base Package.

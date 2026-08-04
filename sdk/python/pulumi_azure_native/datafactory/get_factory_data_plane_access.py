@@ -87,7 +87,6 @@ def get_factory_data_plane_access(access_resource_path: Optional[_builtins.str] 
 
     Uses Azure REST API version 2018-06-01.
 
-
     :param _builtins.str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
     :param _builtins.str expire_time: Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
     :param _builtins.str factory_name: The factory name.
@@ -111,19 +110,18 @@ def get_factory_data_plane_access(access_resource_path: Optional[_builtins.str] 
         access_token=pulumi.get(__ret__, 'access_token'),
         data_plane_url=pulumi.get(__ret__, 'data_plane_url'),
         policy=pulumi.get(__ret__, 'policy'))
-def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         expire_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         permissions: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         profile_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         start_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_factory_data_plane_access_output(access_resource_path: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         expire_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         permissions: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         start_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFactoryDataPlaneAccessResult]:
     """
     Get Data Plane access.
 
     Uses Azure REST API version 2018-06-01.
-
 
     :param _builtins.str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
     :param _builtins.str expire_time: Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.

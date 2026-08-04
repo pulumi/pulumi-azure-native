@@ -73,7 +73,6 @@ def list_configuration_store_keys(config_store_name: Optional[_builtins.str] = N
 
     Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str config_store_name: The name of the configuration store.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.
     :param _builtins.str skip_token: A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
@@ -88,9 +87,9 @@ def list_configuration_store_keys(config_store_name: Optional[_builtins.str] = N
     return AwaitableListConfigurationStoreKeysResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_configuration_store_keys_output(config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConfigurationStoreKeysResult]:
     """
     Lists the access key for the specified configuration store.
@@ -98,7 +97,6 @@ def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Inpu
     Uses Azure REST API version 2024-05-01.
 
     Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str config_store_name: The name of the configuration store.
     :param _builtins.str resource_group_name: The name of the resource group to which the container registry belongs.

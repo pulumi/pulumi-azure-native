@@ -223,7 +223,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The Azure ASN.
      */
-    azureASN?: pulumi.Input<number>;
+    azureASN?: pulumi.Input<number | undefined>;
     /**
      * The name of the express route circuit.
      */
@@ -232,47 +232,47 @@ export interface ExpressRouteCircuitPeeringArgs {
      * The list of circuit connections associated with Azure Private Peering for this circuit.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    connections?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteCircuitConnectionArgs>[]>;
+    connections?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteCircuitConnectionArgs>[] | undefined>;
     /**
      * The GatewayManager Etag.
      */
-    gatewayManagerEtag?: pulumi.Input<string>;
+    gatewayManagerEtag?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The IPv6 peering configuration.
      */
-    ipv6PeeringConfig?: pulumi.Input<inputs.network.Ipv6ExpressRouteCircuitPeeringConfigArgs>;
+    ipv6PeeringConfig?: pulumi.Input<inputs.network.Ipv6ExpressRouteCircuitPeeringConfigArgs | undefined>;
     /**
      * The Microsoft peering configuration.
      */
-    microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringConfigArgs>;
+    microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringConfigArgs | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The peer ASN.
      */
-    peerASN?: pulumi.Input<number>;
+    peerASN?: pulumi.Input<number | undefined>;
     /**
      * The name of the peering.
      */
-    peeringName?: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string | undefined>;
     /**
      * The peering type.
      */
-    peeringType?: pulumi.Input<string | enums.network.ExpressRoutePeeringType>;
+    peeringType?: pulumi.Input<string | enums.network.ExpressRoutePeeringType | undefined>;
     /**
      * The primary port.
      */
-    primaryAzurePort?: pulumi.Input<string>;
+    primaryAzurePort?: pulumi.Input<string | undefined>;
     /**
      * The primary address prefix.
      */
-    primaryPeerAddressPrefix?: pulumi.Input<string>;
+    primaryPeerAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -280,29 +280,29 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The reference to the RouteFilter resource.
      */
-    routeFilter?: pulumi.Input<inputs.network.SubResourceArgs>;
+    routeFilter?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * The secondary port.
      */
-    secondaryAzurePort?: pulumi.Input<string>;
+    secondaryAzurePort?: pulumi.Input<string | undefined>;
     /**
      * The secondary address prefix.
      */
-    secondaryPeerAddressPrefix?: pulumi.Input<string>;
+    secondaryPeerAddressPrefix?: pulumi.Input<string | undefined>;
     /**
      * The shared key.
      */
-    sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string | undefined>;
     /**
      * The peering state.
      */
-    state?: pulumi.Input<string | enums.network.ExpressRoutePeeringState>;
+    state?: pulumi.Input<string | enums.network.ExpressRoutePeeringState | undefined>;
     /**
      * The peering stats of express route circuit.
      */
-    stats?: pulumi.Input<inputs.network.ExpressRouteCircuitStatsArgs>;
+    stats?: pulumi.Input<inputs.network.ExpressRouteCircuitStatsArgs | undefined>;
     /**
      * The VLAN ID.
      */
-    vlanId?: pulumi.Input<number>;
+    vlanId?: pulumi.Input<number | undefined>;
 }

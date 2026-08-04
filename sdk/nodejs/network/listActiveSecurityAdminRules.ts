@@ -87,7 +87,7 @@ export interface ListActiveSecurityAdminRulesOutputArgs {
     /**
      * List of regions.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group.
      */
@@ -95,9 +95,9 @@ export interface ListActiveSecurityAdminRulesOutputArgs {
     /**
      * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
      */
-    skipToken?: pulumi.Input<string>;
+    skipToken?: pulumi.Input<string | undefined>;
     /**
      * An optional query parameter which specifies the maximum number of records to be returned by the server.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

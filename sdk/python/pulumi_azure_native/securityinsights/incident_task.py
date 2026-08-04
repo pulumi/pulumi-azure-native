@@ -27,10 +27,10 @@ class IncidentTaskArgs:
                  status: pulumi.Input[Union[_builtins.str, 'IncidentTaskStatus']],
                  title: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 created_by: Optional[pulumi.Input['ClientInfoArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_by: Optional[pulumi.Input['ClientInfoArgs']] = None):
+                 created_by: pulumi.Input[Optional['ClientInfoArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_by: pulumi.Input[Optional['ClientInfoArgs']] = None):
         """
         The set of arguments for constructing a IncidentTask resource.
 
@@ -120,50 +120,50 @@ class IncidentTaskArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input['ClientInfoArgs']]:
+    def created_by(self) -> pulumi.Input[Optional['ClientInfoArgs']]:
         """
         Information on the client (user or application) that made some action
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input['ClientInfoArgs']]):
+    def created_by(self, value: pulumi.Input[Optional['ClientInfoArgs']]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the task
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentTaskId")
-    def incident_task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def incident_task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Incident task ID
         """
         return pulumi.get(self, "incident_task_id")
 
     @incident_task_id.setter
-    def incident_task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def incident_task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "incident_task_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input['ClientInfoArgs']]:
+    def last_modified_by(self) -> pulumi.Input[Optional['ClientInfoArgs']]:
         """
         Information on the client (user or application) that made some action
         """
         return pulumi.get(self, "last_modified_by")
 
     @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input['ClientInfoArgs']]):
+    def last_modified_by(self, value: pulumi.Input[Optional['ClientInfoArgs']]):
         pulumi.set(self, "last_modified_by", value)
 
 
@@ -173,15 +173,15 @@ class IncidentTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'IncidentTaskStatus']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_by: pulumi.Input[Optional[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'IncidentTaskStatus']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Describes incident task properties
@@ -189,7 +189,6 @@ class IncidentTask(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,7 +215,6 @@ class IncidentTask(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param IncidentTaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,15 +230,15 @@ class IncidentTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_by: Optional[pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'IncidentTaskStatus']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_by: pulumi.Input[Optional[Union['ClientInfoArgs', 'ClientInfoArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'IncidentTaskStatus']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

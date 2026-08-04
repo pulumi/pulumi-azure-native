@@ -37375,7 +37375,7 @@ class PublicIPAddressDnsSettingsInterfaceEndpointResponse(dict):
 
         :param _builtins.str domain_name_label: Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param _builtins.str fqdn: Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-        :param _builtins.str reverse_fqdn: Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+        :param _builtins.str reverse_fqdn: Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         """
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
@@ -37404,7 +37404,7 @@ class PublicIPAddressDnsSettingsInterfaceEndpointResponse(dict):
     @pulumi.getter(name="reverseFqdn")
     def reverse_fqdn(self) -> Optional[_builtins.str]:
         """
-        Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+        Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         """
         return pulumi.get(self, "reverse_fqdn")
 
@@ -43260,7 +43260,7 @@ class SecurityRuleInterfaceEndpointResponse(dict):
         :param _builtins.str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param _builtins.int priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param _builtins.str provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param _builtins.str source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        :param _builtins.str source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param Sequence[_builtins.str] source_address_prefixes: The CIDR or source IP ranges.
         :param Sequence['ApplicationSecurityGroupResponse'] source_application_security_groups: The application security group specified as source.
         :param _builtins.str source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
@@ -43418,7 +43418,7 @@ class SecurityRuleInterfaceEndpointResponse(dict):
     @pulumi.getter(name="sourceAddressPrefix")
     def source_address_prefix(self) -> Optional[_builtins.str]:
         """
-        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         """
         return pulumi.get(self, "source_address_prefix")
 
@@ -47113,7 +47113,7 @@ class SubnetInterfaceEndpointResponse(dict):
         """
         Subnet in a virtual network resource.
 
-        :param Sequence['InterfaceEndpointResponse'] interface_endpoints: An array of references to interface endpoints 
+        :param Sequence['InterfaceEndpointResponse'] interface_endpoints: An array of references to interface endpoints
         :param Sequence['IPConfigurationProfileInterfaceEndpointResponse'] ip_configuration_profiles: Array of IP configuration profiles which reference this subnet.
         :param Sequence['IPConfigurationInterfaceEndpointResponse'] ip_configurations: Gets an array of references to the network interface IP configurations using subnet.
         :param _builtins.str purpose: A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
@@ -47169,7 +47169,7 @@ class SubnetInterfaceEndpointResponse(dict):
     @pulumi.getter(name="interfaceEndpoints")
     def interface_endpoints(self) -> Sequence['outputs.InterfaceEndpointResponse']:
         """
-        An array of references to interface endpoints 
+        An array of references to interface endpoints
         """
         return pulumi.get(self, "interface_endpoints")
 

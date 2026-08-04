@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetCloudEdgeManagementRoleResult:
     """
-    The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal. 
+    The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal.
     For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
     """
@@ -158,7 +158,6 @@ def get_cloud_edge_management_role(device_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-07-01.
 
-
     :param _builtins.str device_name: The device name.
     :param _builtins.str name: The role name.
     :param _builtins.str resource_group_name: The resource group name.
@@ -180,15 +179,14 @@ def get_cloud_edge_management_role(device_name: Optional[_builtins.str] = None,
         role_status=pulumi.get(__ret__, 'role_status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_edge_management_role_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudEdgeManagementRoleResult]:
     """
     Gets a specific role by name.
 
     Uses Azure REST API version 2023-07-01.
-
 
     :param _builtins.str device_name: The device name.
     :param _builtins.str name: The role name.

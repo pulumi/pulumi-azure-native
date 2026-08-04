@@ -69,5 +69,5 @@ export interface ListRemediationDeploymentsAtSubscriptionOutputArgs {
     /**
      * Maximum number of records to return.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

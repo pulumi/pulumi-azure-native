@@ -44,10 +44,10 @@ __all__ = [
     'OverrideArgsDict',
     'PIMOnlyModeSettingsArgs',
     'PIMOnlyModeSettingsArgsDict',
-    'ParameterDefinitionsValueMetadataArgs',
-    'ParameterDefinitionsValueMetadataArgsDict',
     'ParameterDefinitionsValueArgs',
     'ParameterDefinitionsValueArgsDict',
+    'ParameterDefinitionsValueMetadataArgs',
+    'ParameterDefinitionsValueMetadataArgsDict',
     'ParameterValuesValueArgs',
     'ParameterValuesValueArgsDict',
     'PermissionArgs',
@@ -96,27 +96,27 @@ class AccessReviewHistoryInstanceArgsDict(TypedDict):
     """
     Access Review History Definition Instance.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name for the parent history definition.
     """
-    expiration: NotRequired[pulumi.Input[_builtins.str]]
+    expiration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date time when history data report expires and the associated data is deleted.
     """
-    fulfilled_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    fulfilled_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date time when the history data report is scheduled to be generated.
     """
-    review_history_period_end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    review_history_period_end_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
     """
-    review_history_period_start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    review_history_period_start_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
     """
-    run_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    run_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date time when the history data report is scheduled to be generated.
     """
@@ -124,12 +124,12 @@ class AccessReviewHistoryInstanceArgsDict(TypedDict):
 @pulumi.input_type
 class AccessReviewHistoryInstanceArgs:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 fulfilled_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 review_history_period_end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 review_history_period_start_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_date_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 fulfilled_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 review_history_period_end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 review_history_period_start_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_date_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Access Review History Definition Instance.
 
@@ -155,74 +155,74 @@ class AccessReviewHistoryInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the parent history definition.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date time when history data report expires and the associated data is deleted.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfilledDateTime")
-    def fulfilled_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fulfilled_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date time when the history data report is scheduled to be generated.
         """
         return pulumi.get(self, "fulfilled_date_time")
 
     @fulfilled_date_time.setter
-    def fulfilled_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fulfilled_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fulfilled_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewHistoryPeriodEndDateTime")
-    def review_history_period_end_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def review_history_period_end_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
         """
         return pulumi.get(self, "review_history_period_end_date_time")
 
     @review_history_period_end_date_time.setter
-    def review_history_period_end_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def review_history_period_end_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "review_history_period_end_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewHistoryPeriodStartDateTime")
-    def review_history_period_start_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def review_history_period_start_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
         """
         return pulumi.get(self, "review_history_period_start_date_time")
 
     @review_history_period_start_date_time.setter
-    def review_history_period_start_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def review_history_period_start_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "review_history_period_start_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="runDateTime")
-    def run_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date time when the history data report is scheduled to be generated.
         """
         return pulumi.get(self, "run_date_time")
 
     @run_date_time.setter
-    def run_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_date_time", value)
 
 
@@ -230,19 +230,19 @@ class AccessReviewInstanceArgsDict(TypedDict):
     """
     Access Review Instance.
     """
-    backup_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+    backup_reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]]
     """
     This is the collection of backup reviewers.
     """
-    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DateTime when the review instance is scheduled to end.
     """
-    reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+    reviewers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]]
     """
     This is the collection of reviewers.
     """
-    start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DateTime when the review instance is scheduled to be start.
     """
@@ -250,10 +250,10 @@ class AccessReviewInstanceArgsDict(TypedDict):
 @pulumi.input_type
 class AccessReviewInstanceArgs:
     def __init__(__self__, *,
-                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
-                 end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
-                 start_date_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+                 end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+                 start_date_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Access Review Instance.
 
@@ -273,50 +273,50 @@ class AccessReviewInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupReviewers")
-    def backup_reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
+    def backup_reviewers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
         """
         This is the collection of backup reviewers.
         """
         return pulumi.get(self, "backup_reviewers")
 
     @backup_reviewers.setter
-    def backup_reviewers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
+    def backup_reviewers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
         pulumi.set(self, "backup_reviewers", value)
 
     @_builtins.property
     @pulumi.getter(name="endDateTime")
-    def end_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DateTime when the review instance is scheduled to end.
         """
         return pulumi.get(self, "end_date_time")
 
     @end_date_time.setter
-    def end_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def reviewers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
+    def reviewers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]:
         """
         This is the collection of reviewers.
         """
         return pulumi.get(self, "reviewers")
 
     @reviewers.setter
-    def reviewers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
+    def reviewers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]]):
         pulumi.set(self, "reviewers", value)
 
     @_builtins.property
     @pulumi.getter(name="startDateTime")
-    def start_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DateTime when the review instance is scheduled to be start.
         """
         return pulumi.get(self, "start_date_time")
 
     @start_date_time.setter
-    def start_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date_time", value)
 
 
@@ -324,19 +324,19 @@ class AccessReviewRecurrenceRangeArgsDict(TypedDict):
     """
     Recurrence Range of an Access Review Schedule Definition.
     """
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DateTime when the review is scheduled to end. Required if type is endDate
     """
-    number_of_occurrences: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_occurrences: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of times to repeat the access review. Required and must be positive if type is numbered.
     """
-    start_date: NotRequired[pulumi.Input[_builtins.str]]
+    start_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]]
     """
     The recurrence range type. The possible values are: endDate, noEnd, numbered.
     """
@@ -344,10 +344,10 @@ class AccessReviewRecurrenceRangeArgsDict(TypedDict):
 @pulumi.input_type
 class AccessReviewRecurrenceRangeArgs:
     def __init__(__self__, *,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_occurrences: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_occurrences: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]] = None):
         """
         Recurrence Range of an Access Review Schedule Definition.
 
@@ -367,50 +367,50 @@ class AccessReviewRecurrenceRangeArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DateTime when the review is scheduled to end. Required if type is endDate
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfOccurrences")
-    def number_of_occurrences(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_occurrences(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of times to repeat the access review. Required and must be positive if type is numbered.
         """
         return pulumi.get(self, "number_of_occurrences")
 
     @number_of_occurrences.setter
-    def number_of_occurrences(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_occurrences(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_occurrences", value)
 
     @_builtins.property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
         """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]:
         """
         The recurrence range type. The possible values are: endDate, noEnd, numbered.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -418,7 +418,7 @@ class AccessReviewReviewerArgsDict(TypedDict):
     """
     Descriptor for what needs to be reviewed
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the reviewer(user/servicePrincipal)
     """
@@ -426,7 +426,7 @@ class AccessReviewReviewerArgsDict(TypedDict):
 @pulumi.input_type
 class AccessReviewReviewerArgs:
     def __init__(__self__, *,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Descriptor for what needs to be reviewed
 
@@ -437,14 +437,14 @@ class AccessReviewReviewerArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the reviewer(user/servicePrincipal)
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
 
@@ -452,27 +452,27 @@ class AccessReviewScopeArgsDict(TypedDict):
     """
     Descriptor for what needs to be reviewed
     """
-    exclude_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    exclude_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is used to indicate the resource id(s) to exclude
     """
-    exclude_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    exclude_role_definition_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is used to indicate the role definition id(s) to exclude
     """
-    expand_nested_memberships: NotRequired[pulumi.Input[_builtins.bool]]
+    expand_nested_memberships: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to indicate whether to expand nested memberships or not.
     """
-    inactive_duration: NotRequired[pulumi.Input[_builtins.str]]
+    inactive_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
     """
-    include_access_below_resource: NotRequired[pulumi.Input[_builtins.bool]]
+    include_access_below_resource: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to indicate whether to expand nested memberships or not.
     """
-    include_inherited_access: NotRequired[pulumi.Input[_builtins.bool]]
+    include_inherited_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag to indicate whether to expand nested memberships or not.
     """
@@ -480,12 +480,12 @@ class AccessReviewScopeArgsDict(TypedDict):
 @pulumi.input_type
 class AccessReviewScopeArgs:
     def __init__(__self__, *,
-                 exclude_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expand_nested_memberships: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inactive_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_access_below_resource: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_inherited_access: Optional[pulumi.Input[_builtins.bool]] = None):
+                 exclude_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expand_nested_memberships: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inactive_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_access_below_resource: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_inherited_access: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Descriptor for what needs to be reviewed
 
@@ -511,74 +511,74 @@ class AccessReviewScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludeResourceId")
-    def exclude_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclude_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is used to indicate the resource id(s) to exclude
         """
         return pulumi.get(self, "exclude_resource_id")
 
     @exclude_resource_id.setter
-    def exclude_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclude_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclude_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeRoleDefinitionId")
-    def exclude_role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclude_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is used to indicate the role definition id(s) to exclude
         """
         return pulumi.get(self, "exclude_role_definition_id")
 
     @exclude_role_definition_id.setter
-    def exclude_role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclude_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclude_role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expandNestedMemberships")
-    def expand_nested_memberships(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expand_nested_memberships(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether to expand nested memberships or not.
         """
         return pulumi.get(self, "expand_nested_memberships")
 
     @expand_nested_memberships.setter
-    def expand_nested_memberships(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expand_nested_memberships(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expand_nested_memberships", value)
 
     @_builtins.property
     @pulumi.getter(name="inactiveDuration")
-    def inactive_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inactive_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         """
         return pulumi.get(self, "inactive_duration")
 
     @inactive_duration.setter
-    def inactive_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inactive_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inactive_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAccessBelowResource")
-    def include_access_below_resource(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_access_below_resource(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether to expand nested memberships or not.
         """
         return pulumi.get(self, "include_access_below_resource")
 
     @include_access_below_resource.setter
-    def include_access_below_resource(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_access_below_resource(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_access_below_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="includeInheritedAccess")
-    def include_inherited_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_inherited_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to indicate whether to expand nested memberships or not.
         """
         return pulumi.get(self, "include_inherited_access")
 
     @include_inherited_access.setter
-    def include_inherited_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_inherited_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_inherited_access", value)
 
 
@@ -586,23 +586,23 @@ class ApprovalSettingsArgsDict(TypedDict):
     """
     The approval settings.
     """
-    approval_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalMode']]]
+    approval_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ApprovalMode']]]]
     """
     The type of rule
     """
-    approval_stages: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgsDict']]]]
+    approval_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalStageArgsDict']]]]]
     """
     The approval stages of the request.
     """
-    is_approval_required: NotRequired[pulumi.Input[_builtins.bool]]
+    is_approval_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether approval is required or not.
     """
-    is_approval_required_for_extension: NotRequired[pulumi.Input[_builtins.bool]]
+    is_approval_required_for_extension: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether approval is required for assignment extension.
     """
-    is_requestor_justification_required: NotRequired[pulumi.Input[_builtins.bool]]
+    is_requestor_justification_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determine whether requestor justification is required.
     """
@@ -610,11 +610,11 @@ class ApprovalSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ApprovalSettingsArgs:
     def __init__(__self__, *,
-                 approval_mode: Optional[pulumi.Input[Union[_builtins.str, 'ApprovalMode']]] = None,
-                 approval_stages: Optional[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]]] = None,
-                 is_approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_approval_required_for_extension: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_requestor_justification_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 approval_mode: pulumi.Input[Optional[Union[_builtins.str, 'ApprovalMode']]] = None,
+                 approval_stages: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalStageArgs']]]] = None,
+                 is_approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_approval_required_for_extension: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_requestor_justification_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The approval settings.
 
@@ -637,62 +637,62 @@ class ApprovalSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvalMode")
-    def approval_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ApprovalMode']]]:
+    def approval_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ApprovalMode']]]:
         """
         The type of rule
         """
         return pulumi.get(self, "approval_mode")
 
     @approval_mode.setter
-    def approval_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ApprovalMode']]]):
+    def approval_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ApprovalMode']]]):
         pulumi.set(self, "approval_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="approvalStages")
-    def approval_stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]]]:
+    def approval_stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalStageArgs']]]]:
         """
         The approval stages of the request.
         """
         return pulumi.get(self, "approval_stages")
 
     @approval_stages.setter
-    def approval_stages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]]]):
+    def approval_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApprovalStageArgs']]]]):
         pulumi.set(self, "approval_stages", value)
 
     @_builtins.property
     @pulumi.getter(name="isApprovalRequired")
-    def is_approval_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_approval_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether approval is required or not.
         """
         return pulumi.get(self, "is_approval_required")
 
     @is_approval_required.setter
-    def is_approval_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_approval_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_approval_required", value)
 
     @_builtins.property
     @pulumi.getter(name="isApprovalRequiredForExtension")
-    def is_approval_required_for_extension(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_approval_required_for_extension(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether approval is required for assignment extension.
         """
         return pulumi.get(self, "is_approval_required_for_extension")
 
     @is_approval_required_for_extension.setter
-    def is_approval_required_for_extension(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_approval_required_for_extension(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_approval_required_for_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="isRequestorJustificationRequired")
-    def is_requestor_justification_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_requestor_justification_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determine whether requestor justification is required.
         """
         return pulumi.get(self, "is_requestor_justification_required")
 
     @is_requestor_justification_required.setter
-    def is_requestor_justification_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_requestor_justification_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_requestor_justification_required", value)
 
 
@@ -700,27 +700,27 @@ class ApprovalStageArgsDict(TypedDict):
     """
     The approval stage.
     """
-    approval_stage_time_out_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    approval_stage_time_out_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time in days when approval request would be timed out
     """
-    escalation_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+    escalation_approvers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgsDict']]]]]
     """
     The escalation approver of the request.
     """
-    escalation_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    escalation_time_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time in minutes when the approval request would be escalated if the primary approver does not approve
     """
-    is_approver_justification_required: NotRequired[pulumi.Input[_builtins.bool]]
+    is_approver_justification_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether approver need to provide justification for his decision.
     """
-    is_escalation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_escalation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value determine whether escalation feature is enabled.
     """
-    primary_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+    primary_approvers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgsDict']]]]]
     """
     The primary approver of the request.
     """
@@ -728,12 +728,12 @@ class ApprovalStageArgsDict(TypedDict):
 @pulumi.input_type
 class ApprovalStageArgs:
     def __init__(__self__, *,
-                 approval_stage_time_out_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 escalation_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]] = None,
-                 escalation_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_approver_justification_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_escalation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]] = None):
+                 approval_stage_time_out_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 escalation_approvers: pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]] = None,
+                 escalation_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_approver_justification_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_escalation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_approvers: pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]] = None):
         """
         The approval stage.
 
@@ -759,74 +759,74 @@ class ApprovalStageArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvalStageTimeOutInDays")
-    def approval_stage_time_out_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def approval_stage_time_out_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in days when approval request would be timed out
         """
         return pulumi.get(self, "approval_stage_time_out_in_days")
 
     @approval_stage_time_out_in_days.setter
-    def approval_stage_time_out_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def approval_stage_time_out_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "approval_stage_time_out_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="escalationApprovers")
-    def escalation_approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]:
+    def escalation_approvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]]:
         """
         The escalation approver of the request.
         """
         return pulumi.get(self, "escalation_approvers")
 
     @escalation_approvers.setter
-    def escalation_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]):
+    def escalation_approvers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]]):
         pulumi.set(self, "escalation_approvers", value)
 
     @_builtins.property
     @pulumi.getter(name="escalationTimeInMinutes")
-    def escalation_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def escalation_time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in minutes when the approval request would be escalated if the primary approver does not approve
         """
         return pulumi.get(self, "escalation_time_in_minutes")
 
     @escalation_time_in_minutes.setter
-    def escalation_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def escalation_time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "escalation_time_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="isApproverJustificationRequired")
-    def is_approver_justification_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_approver_justification_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether approver need to provide justification for his decision.
         """
         return pulumi.get(self, "is_approver_justification_required")
 
     @is_approver_justification_required.setter
-    def is_approver_justification_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_approver_justification_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_approver_justification_required", value)
 
     @_builtins.property
     @pulumi.getter(name="isEscalationEnabled")
-    def is_escalation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_escalation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value determine whether escalation feature is enabled.
         """
         return pulumi.get(self, "is_escalation_enabled")
 
     @is_escalation_enabled.setter
-    def is_escalation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_escalation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_escalation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryApprovers")
-    def primary_approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]:
+    def primary_approvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]]:
         """
         The primary approver of the request.
         """
         return pulumi.get(self, "primary_approvers")
 
     @primary_approvers.setter
-    def primary_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]):
+    def primary_approvers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]]):
         pulumi.set(self, "primary_approvers", value)
 
 
@@ -834,27 +834,27 @@ class DenyAssignmentPermissionArgsDict(TypedDict):
     """
     Deny assignment permissions.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Actions to which the deny assignment does not grant access.
     """
-    condition: NotRequired[pulumi.Input[_builtins.str]]
+    condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The conditions on the Deny assignment permission. This limits the resources it applies to.
     """
-    condition_version: NotRequired[pulumi.Input[_builtins.str]]
+    condition_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the condition.
     """
-    data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Data actions to which the deny assignment does not grant access.
     """
-    not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Actions to exclude from that the deny assignment does not grant access.
     """
-    not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Data actions to exclude from that the deny assignment does not grant access.
     """
@@ -862,12 +862,12 @@ class DenyAssignmentPermissionArgsDict(TypedDict):
 @pulumi.input_type
 class DenyAssignmentPermissionArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Deny assignment permissions.
 
@@ -893,74 +893,74 @@ class DenyAssignmentPermissionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Actions to which the deny assignment does not grant access.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The conditions on the Deny assignment permission. This limits the resources it applies to.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the condition.
         """
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="dataActions")
-    def data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Data actions to which the deny assignment does not grant access.
         """
         return pulumi.get(self, "data_actions")
 
     @data_actions.setter
-    def data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Actions to exclude from that the deny assignment does not grant access.
         """
         return pulumi.get(self, "not_actions")
 
     @not_actions.setter
-    def not_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="notDataActions")
-    def not_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Data actions to exclude from that the deny assignment does not grant access.
         """
         return pulumi.get(self, "not_data_actions")
 
     @not_data_actions.setter
-    def not_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_data_actions", value)
 
 
@@ -968,11 +968,11 @@ class DenyAssignmentPrincipalArgsDict(TypedDict):
     """
     Deny assignment principal.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object ID of the principal.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the principal such as user, group, servicePrincipal, etc.
     """
@@ -980,8 +980,8 @@ class DenyAssignmentPrincipalArgsDict(TypedDict):
 @pulumi.input_type
 class DenyAssignmentPrincipalArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Deny assignment principal.
 
@@ -995,26 +995,26 @@ class DenyAssignmentPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the principal.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the principal such as user, group, servicePrincipal, etc.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -1022,11 +1022,11 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The identity type. This is the only required field when adding a system or user assigned identity to a resource.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
     """
@@ -1034,8 +1034,8 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
 
@@ -1049,26 +1049,26 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -1076,7 +1076,7 @@ class ManagementLockOwnerArgsDict(TypedDict):
     """
     Lock owner properties.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The application ID of the lock owner.
     """
@@ -1084,7 +1084,7 @@ class ManagementLockOwnerArgsDict(TypedDict):
 @pulumi.input_type
 class ManagementLockOwnerArgs:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Lock owner properties.
 
@@ -1095,14 +1095,14 @@ class ManagementLockOwnerArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application ID of the lock owner.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
 
@@ -1114,7 +1114,7 @@ class NonComplianceMessageArgsDict(TypedDict):
     """
     A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
     """
-    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    policy_definition_reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
     """
@@ -1123,7 +1123,7 @@ class NonComplianceMessageArgsDict(TypedDict):
 class NonComplianceMessageArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[_builtins.str],
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
 
@@ -1148,14 +1148,14 @@ class NonComplianceMessageArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
@@ -1163,15 +1163,15 @@ class OverrideArgsDict(TypedDict):
     """
     The policy property value override.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'OverrideKind']]]
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OverrideKind']]]]
     """
     The override kind.
     """
-    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgsDict']]]]]
     """
     The list of the selector expressions.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value to override the policy property.
     """
@@ -1179,9 +1179,9 @@ class OverrideArgsDict(TypedDict):
 @pulumi.input_type
 class OverrideArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'OverrideKind']]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'OverrideKind']]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgs']]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The policy property value override.
 
@@ -1198,38 +1198,38 @@ class OverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OverrideKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OverrideKind']]]:
         """
         The override kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OverrideKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OverrideKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgs']]]]:
         """
         The list of the selector expressions.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value to override the policy property.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1237,15 +1237,15 @@ class PIMOnlyModeSettingsArgsDict(TypedDict):
     """
     The PIM Only Mode settings.
     """
-    excluded_assignment_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]
+    excluded_assignment_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]]
     """
     The list of excluded assignment types allowed.
     """
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgsDict']]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgsDict']]]]]
     """
     The list of excluded entities that the rule does not apply to.
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PIMOnlyMode']]]]
     """
     Determines whether the setting is enabled, disabled or report only.
     """
@@ -1253,9 +1253,9 @@ class PIMOnlyModeSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class PIMOnlyModeSettingsArgs:
     def __init__(__self__, *,
-                 excluded_assignment_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]] = None,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']]] = None):
+                 excluded_assignment_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]] = None,
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'PIMOnlyMode']]] = None):
         """
         The PIM Only Mode settings.
 
@@ -1272,140 +1272,46 @@ class PIMOnlyModeSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedAssignmentTypes")
-    def excluded_assignment_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]:
+    def excluded_assignment_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]:
         """
         The list of excluded assignment types allowed.
         """
         return pulumi.get(self, "excluded_assignment_types")
 
     @excluded_assignment_types.setter
-    def excluded_assignment_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]):
+    def excluded_assignment_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]):
         pulumi.set(self, "excluded_assignment_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]]:
         """
         The list of excluded entities that the rule does not apply to.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PIMOnlyMode']]]:
         """
         Determines whether the setting is enabled, disabled or report only.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PIMOnlyMode']]]):
         pulumi.set(self, "mode", value)
-
-
-class ParameterDefinitionsValueMetadataArgsDict(TypedDict):
-    """
-    General metadata for the parameter.
-    """
-    assign_permissions: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The description of the parameter.
-    """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The display name for the parameter.
-    """
-    strong_type: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-    """
-
-@pulumi.input_type
-class ParameterDefinitionsValueMetadataArgs:
-    def __init__(__self__, *,
-                 assign_permissions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strong_type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        General metadata for the parameter.
-
-        :param pulumi.Input[_builtins.bool] assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-        :param pulumi.Input[_builtins.str] description: The description of the parameter.
-        :param pulumi.Input[_builtins.str] display_name: The display name for the parameter.
-        :param pulumi.Input[_builtins.str] strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-        """
-        if assign_permissions is not None:
-            pulumi.set(__self__, "assign_permissions", assign_permissions)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if strong_type is not None:
-            pulumi.set(__self__, "strong_type", strong_type)
-
-    @_builtins.property
-    @pulumi.getter(name="assignPermissions")
-    def assign_permissions(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-        """
-        return pulumi.get(self, "assign_permissions")
-
-    @assign_permissions.setter
-    def assign_permissions(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "assign_permissions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the parameter.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name for the parameter.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="strongType")
-    def strong_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-        """
-        return pulumi.get(self, "strong_type")
-
-    @strong_type.setter
-    def strong_type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "strong_type", value)
 
 
 class ParameterDefinitionsValueArgsDict(TypedDict):
     """
     The definition of a parameter that can be provided to the policy.
     """
-    allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
+    allowed_values: NotRequired[pulumi.Input[Optional[Sequence[Any]]]]
     """
     The allowed values for the parameter.
     """
@@ -1413,7 +1319,7 @@ class ParameterDefinitionsValueArgsDict(TypedDict):
     """
     The default value for the parameter if no value is provided.
     """
-    metadata: NotRequired[pulumi.Input['ParameterDefinitionsValueMetadataArgsDict']]
+    metadata: NotRequired[pulumi.Input[Optional['ParameterDefinitionsValueMetadataArgsDict']]]
     """
     General metadata for the parameter.
     """
@@ -1421,7 +1327,7 @@ class ParameterDefinitionsValueArgsDict(TypedDict):
     """
     Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ParameterType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ParameterType']]]]
     """
     The data type of the parameter.
     """
@@ -1429,11 +1335,11 @@ class ParameterDefinitionsValueArgsDict(TypedDict):
 @pulumi.input_type
 class ParameterDefinitionsValueArgs:
     def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 allowed_values: pulumi.Input[Optional[Sequence[Any]]] = None,
                  default_value: Optional[Any] = None,
-                 metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
+                 metadata: pulumi.Input[Optional['ParameterDefinitionsValueMetadataArgs']] = None,
                  schema: Optional[Any] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ParameterType']]] = None):
         """
         The definition of a parameter that can be provided to the policy.
 
@@ -1456,14 +1362,14 @@ class ParameterDefinitionsValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def allowed_values(self) -> pulumi.Input[Optional[Sequence[Any]]]:
         """
         The allowed values for the parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def allowed_values(self, value: pulumi.Input[Optional[Sequence[Any]]]):
         pulumi.set(self, "allowed_values", value)
 
     @_builtins.property
@@ -1480,14 +1386,14 @@ class ParameterDefinitionsValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']]:
+    def metadata(self) -> pulumi.Input[Optional['ParameterDefinitionsValueMetadataArgs']]:
         """
         General metadata for the parameter.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']]):
+    def metadata(self, value: pulumi.Input[Optional['ParameterDefinitionsValueMetadataArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
@@ -1504,15 +1410,109 @@ class ParameterDefinitionsValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ParameterType']]]:
         """
         The data type of the parameter.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ParameterType']]]):
         pulumi.set(self, "type", value)
+
+
+class ParameterDefinitionsValueMetadataArgsDict(TypedDict):
+    """
+    General metadata for the parameter.
+    """
+    assign_permissions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the parameter.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name for the parameter.
+    """
+    strong_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+    """
+
+@pulumi.input_type
+class ParameterDefinitionsValueMetadataArgs:
+    def __init__(__self__, *,
+                 assign_permissions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strong_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        General metadata for the parameter.
+
+        :param pulumi.Input[_builtins.bool] assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        :param pulumi.Input[_builtins.str] description: The description of the parameter.
+        :param pulumi.Input[_builtins.str] display_name: The display name for the parameter.
+        :param pulumi.Input[_builtins.str] strong_type: Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+        if assign_permissions is not None:
+            pulumi.set(__self__, "assign_permissions", assign_permissions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if strong_type is not None:
+            pulumi.set(__self__, "strong_type", strong_type)
+
+    @_builtins.property
+    @pulumi.getter(name="assignPermissions")
+    def assign_permissions(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+        """
+        return pulumi.get(self, "assign_permissions")
+
+    @assign_permissions.setter
+    def assign_permissions(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "assign_permissions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the parameter.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name for the parameter.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strongType")
+    def strong_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+        """
+        return pulumi.get(self, "strong_type")
+
+    @strong_type.setter
+    def strong_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "strong_type", value)
 
 
 class ParameterValuesValueArgsDict(TypedDict):
@@ -1553,19 +1553,19 @@ class PermissionArgsDict(TypedDict):
     """
     Role definition permissions.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed actions.
     """
-    data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Allowed Data actions.
     """
-    not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Denied actions.
     """
-    not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_data_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Denied Data actions.
     """
@@ -1573,10 +1573,10 @@ class PermissionArgsDict(TypedDict):
 @pulumi.input_type
 class PermissionArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Role definition permissions.
 
@@ -1596,50 +1596,50 @@ class PermissionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed actions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="dataActions")
-    def data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed Data actions.
         """
         return pulumi.get(self, "data_actions")
 
     @data_actions.setter
-    def data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Denied actions.
         """
         return pulumi.get(self, "not_actions")
 
     @not_actions.setter
-    def not_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="notDataActions")
-    def not_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Denied Data actions.
         """
         return pulumi.get(self, "not_data_actions")
 
     @not_data_actions.setter
-    def not_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_data_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_data_actions", value)
 
 
@@ -1651,19 +1651,19 @@ class PolicyDefinitionGroupArgsDict(TypedDict):
     """
     The name of the group.
     """
-    additional_metadata_id: NotRequired[pulumi.Input[_builtins.str]]
+    additional_metadata_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A resource ID of a resource that contains additional metadata about the group.
     """
-    category: NotRequired[pulumi.Input[_builtins.str]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The group's category.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The group's description.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The group's display name.
     """
@@ -1672,10 +1672,10 @@ class PolicyDefinitionGroupArgsDict(TypedDict):
 class PolicyDefinitionGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 additional_metadata_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_metadata_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The policy definition group.
 
@@ -1709,50 +1709,50 @@ class PolicyDefinitionGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalMetadataId")
-    def additional_metadata_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_metadata_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource ID of a resource that contains additional metadata about the group.
         """
         return pulumi.get(self, "additional_metadata_id")
 
     @additional_metadata_id.setter
-    def additional_metadata_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_metadata_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_metadata_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group's category.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group's description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group's display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -1764,19 +1764,19 @@ class PolicyDefinitionReferenceArgsDict(TypedDict):
     """
     The ID of the policy definition or policy set definition.
     """
-    definition_version: NotRequired[pulumi.Input[_builtins.str]]
+    definition_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the policy definition to use.
     """
-    group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The name of the groups that this policy definition reference belongs to.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterValuesValueArgsDict']]]]]
     """
     The parameter values for the referenced policy rule. The keys are the parameter names.
     """
-    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    policy_definition_reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique id (within the policy set definition) for this policy definition reference.
     """
@@ -1785,10 +1785,10 @@ class PolicyDefinitionReferenceArgsDict(TypedDict):
 class PolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
                  policy_definition_id: pulumi.Input[_builtins.str],
-                 definition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 definition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The policy definition reference.
 
@@ -1822,50 +1822,50 @@ class PolicyDefinitionReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="definitionVersion")
-    def definition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the policy definition to use.
         """
         return pulumi.get(self, "definition_version")
 
     @definition_version.setter
-    def definition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="groupNames")
-    def group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name of the groups that this policy definition reference belongs to.
         """
         return pulumi.get(self, "group_names")
 
     @group_names.setter
-    def group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]]:
         """
         The parameter values for the referenced policy rule. The keys are the parameter names.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique id (within the policy set definition) for this policy definition reference.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
@@ -1955,17 +1955,17 @@ class PolicyVariableValueColumnValueArgs:
 
 
 class PrivateLinkAssociationPropertiesArgsDict(TypedDict):
-    private_link: NotRequired[pulumi.Input[_builtins.str]]
+    private_link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rmpl Resource ID.
     """
-    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessOptions']]]
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessOptions']]]]
 
 @pulumi.input_type
 class PrivateLinkAssociationPropertiesArgs:
     def __init__(__self__, *,
-                 private_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessOptions']]] = None):
+                 private_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessOptions']]] = None):
         """
         :param pulumi.Input[_builtins.str] private_link: The rmpl Resource ID.
         """
@@ -1976,23 +1976,23 @@ class PrivateLinkAssociationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLink")
-    def private_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rmpl Resource ID.
         """
         return pulumi.get(self, "private_link")
 
     @private_link.setter
-    def private_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessOptions']]]:
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessOptions']]]:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessOptions']]]):
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccessOptions']]]):
         pulumi.set(self, "public_network_access", value)
 
 
@@ -2000,11 +2000,11 @@ class ResourceSelectorArgsDict(TypedDict):
     """
     The resource selector to filter policies by resource properties.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the resource selector.
     """
-    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgsDict']]]]]
     """
     The list of the selector expressions.
     """
@@ -2012,8 +2012,8 @@ class ResourceSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceSelectorArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgs']]]] = None):
         """
         The resource selector to filter policies by resource properties.
 
@@ -2027,26 +2027,26 @@ class ResourceSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource selector.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgs']]]]:
         """
         The list of the selector expressions.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
@@ -2054,15 +2054,15 @@ class RoleEligibilityScheduleRequestPropertiesExpirationArgsDict(TypedDict):
     """
     Expiration of the role eligibility schedule
     """
-    duration: NotRequired[pulumi.Input[_builtins.str]]
+    duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Duration of the role eligibility schedule in TimeSpan.
     """
-    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     End DateTime of the role eligibility schedule.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Type']]]]
     """
     Type of the role eligibility schedule expiration
     """
@@ -2070,9 +2070,9 @@ class RoleEligibilityScheduleRequestPropertiesExpirationArgsDict(TypedDict):
 @pulumi.input_type
 class RoleEligibilityScheduleRequestPropertiesExpirationArgs:
     def __init__(__self__, *,
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'Type']]] = None):
         """
         Expiration of the role eligibility schedule
 
@@ -2089,38 +2089,38 @@ class RoleEligibilityScheduleRequestPropertiesExpirationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration of the role eligibility schedule in TimeSpan.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter(name="endDateTime")
-    def end_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         End DateTime of the role eligibility schedule.
         """
         return pulumi.get(self, "end_date_time")
 
     @end_date_time.setter
-    def end_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Type']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Type']]]:
         """
         Type of the role eligibility schedule expiration
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Type']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Type']]]):
         pulumi.set(self, "type", value)
 
 
@@ -2128,11 +2128,11 @@ class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict(TypedDict):
     """
     Schedule info of the role eligibility schedule
     """
-    expiration: NotRequired[pulumi.Input['RoleEligibilityScheduleRequestPropertiesExpirationArgsDict']]
+    expiration: NotRequired[pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesExpirationArgsDict']]]
     """
     Expiration of the role eligibility schedule
     """
-    start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start DateTime of the role eligibility schedule.
     """
@@ -2140,8 +2140,8 @@ class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict(TypedDict):
 @pulumi.input_type
 class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs:
     def __init__(__self__, *,
-                 expiration: Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesExpirationArgs']] = None,
-                 start_date_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration: pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesExpirationArgs']] = None,
+                 start_date_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Schedule info of the role eligibility schedule
 
@@ -2155,26 +2155,26 @@ class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesExpirationArgs']]:
+    def expiration(self) -> pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesExpirationArgs']]:
         """
         Expiration of the role eligibility schedule
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesExpirationArgs']]):
+    def expiration(self, value: pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesExpirationArgs']]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="startDateTime")
-    def start_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start DateTime of the role eligibility schedule.
         """
         return pulumi.get(self, "start_date_time")
 
     @start_date_time.setter
-    def start_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date_time", value)
 
 
@@ -2182,11 +2182,11 @@ class RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict(TypedDict):
     """
     Ticket Info of the role eligibility
     """
-    ticket_number: NotRequired[pulumi.Input[_builtins.str]]
+    ticket_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ticket number for the role eligibility
     """
-    ticket_system: NotRequired[pulumi.Input[_builtins.str]]
+    ticket_system: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ticket system name for the role eligibility
     """
@@ -2194,8 +2194,8 @@ class RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict(TypedDict):
 @pulumi.input_type
 class RoleEligibilityScheduleRequestPropertiesTicketInfoArgs:
     def __init__(__self__, *,
-                 ticket_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket_system: Optional[pulumi.Input[_builtins.str]] = None):
+                 ticket_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket_system: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Ticket Info of the role eligibility
 
@@ -2209,26 +2209,26 @@ class RoleEligibilityScheduleRequestPropertiesTicketInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="ticketNumber")
-    def ticket_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ticket_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ticket number for the role eligibility
         """
         return pulumi.get(self, "ticket_number")
 
     @ticket_number.setter
-    def ticket_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ticket_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ticket_number", value)
 
     @_builtins.property
     @pulumi.getter(name="ticketSystem")
-    def ticket_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ticket_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ticket system name for the role eligibility
         """
         return pulumi.get(self, "ticket_system")
 
     @ticket_system.setter
-    def ticket_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ticket_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ticket_system", value)
 
 
@@ -2241,15 +2241,15 @@ class RoleManagementPolicyApprovalRuleArgsDict(TypedDict):
     The type of rule
     Expected value is 'RoleManagementPolicyApprovalRule'.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the rule.
     """
-    setting: NotRequired[pulumi.Input['ApprovalSettingsArgsDict']]
+    setting: NotRequired[pulumi.Input[Optional['ApprovalSettingsArgsDict']]]
     """
     The approval setting
     """
-    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgsDict']]]
     """
     The target of the current rule.
     """
@@ -2258,9 +2258,9 @@ class RoleManagementPolicyApprovalRuleArgsDict(TypedDict):
 class RoleManagementPolicyApprovalRuleArgs:
     def __init__(__self__, *,
                  rule_type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 setting: Optional[pulumi.Input['ApprovalSettingsArgs']] = None,
-                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 setting: pulumi.Input[Optional['ApprovalSettingsArgs']] = None,
+                 target: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy approval rule.
 
@@ -2293,38 +2293,38 @@ class RoleManagementPolicyApprovalRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the rule.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def setting(self) -> Optional[pulumi.Input['ApprovalSettingsArgs']]:
+    def setting(self) -> pulumi.Input[Optional['ApprovalSettingsArgs']]:
         """
         The approval setting
         """
         return pulumi.get(self, "setting")
 
     @setting.setter
-    def setting(self, value: Optional[pulumi.Input['ApprovalSettingsArgs']]):
+    def setting(self, value: pulumi.Input[Optional['ApprovalSettingsArgs']]):
         pulumi.set(self, "setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]:
         """
         The target of the current rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -2337,19 +2337,19 @@ class RoleManagementPolicyAuthenticationContextRuleArgsDict(TypedDict):
     The type of rule
     Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
     """
-    claim_value: NotRequired[pulumi.Input[_builtins.str]]
+    claim_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The claim value.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the rule.
     """
-    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value indicating if rule is enabled.
     """
-    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgsDict']]]
     """
     The target of the current rule.
     """
@@ -2358,10 +2358,10 @@ class RoleManagementPolicyAuthenticationContextRuleArgsDict(TypedDict):
 class RoleManagementPolicyAuthenticationContextRuleArgs:
     def __init__(__self__, *,
                  rule_type: pulumi.Input[_builtins.str],
-                 claim_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+                 claim_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy authentication context rule.
 
@@ -2397,50 +2397,50 @@ class RoleManagementPolicyAuthenticationContextRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="claimValue")
-    def claim_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def claim_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The claim value.
         """
         return pulumi.get(self, "claim_value")
 
     @claim_value.setter
-    def claim_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def claim_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "claim_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the rule.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value indicating if rule is enabled.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]:
         """
         The target of the current rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -2453,15 +2453,15 @@ class RoleManagementPolicyEnablementRuleArgsDict(TypedDict):
     The type of rule
     Expected value is 'RoleManagementPolicyEnablementRule'.
     """
-    enabled_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]
+    enabled_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]]
     """
     The list of enabled rules.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the rule.
     """
-    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgsDict']]]
     """
     The target of the current rule.
     """
@@ -2470,9 +2470,9 @@ class RoleManagementPolicyEnablementRuleArgsDict(TypedDict):
 class RoleManagementPolicyEnablementRuleArgs:
     def __init__(__self__, *,
                  rule_type: pulumi.Input[_builtins.str],
-                 enabled_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+                 enabled_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy enablement rule.
 
@@ -2505,38 +2505,38 @@ class RoleManagementPolicyEnablementRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="enabledRules")
-    def enabled_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]:
+    def enabled_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]:
         """
         The list of enabled rules.
         """
         return pulumi.get(self, "enabled_rules")
 
     @enabled_rules.setter
-    def enabled_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]):
+    def enabled_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]):
         pulumi.set(self, "enabled_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the rule.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]:
         """
         The target of the current rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -2549,23 +2549,23 @@ class RoleManagementPolicyExpirationRuleArgsDict(TypedDict):
     The type of rule
     Expected value is 'RoleManagementPolicyExpirationRule'.
     """
-    exception_members: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+    exception_members: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgsDict']]]]]
     """
     The members not restricted by expiration rule.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the rule.
     """
-    is_expiration_required: NotRequired[pulumi.Input[_builtins.bool]]
+    is_expiration_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value indicating whether expiration is required.
     """
-    maximum_duration: NotRequired[pulumi.Input[_builtins.str]]
+    maximum_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum duration of expiration in timespan.
     """
-    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgsDict']]]
     """
     The target of the current rule.
     """
@@ -2574,11 +2574,11 @@ class RoleManagementPolicyExpirationRuleArgsDict(TypedDict):
 class RoleManagementPolicyExpirationRuleArgs:
     def __init__(__self__, *,
                  rule_type: pulumi.Input[_builtins.str],
-                 exception_members: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_expiration_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maximum_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+                 exception_members: pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_expiration_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maximum_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy expiration rule.
 
@@ -2617,62 +2617,62 @@ class RoleManagementPolicyExpirationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="exceptionMembers")
-    def exception_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]:
+    def exception_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]]:
         """
         The members not restricted by expiration rule.
         """
         return pulumi.get(self, "exception_members")
 
     @exception_members.setter
-    def exception_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]):
+    def exception_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserSetArgs']]]]):
         pulumi.set(self, "exception_members", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the rule.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="isExpirationRequired")
-    def is_expiration_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_expiration_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value indicating whether expiration is required.
         """
         return pulumi.get(self, "is_expiration_required")
 
     @is_expiration_required.setter
-    def is_expiration_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_expiration_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_expiration_required", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumDuration")
-    def maximum_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum duration of expiration in timespan.
         """
         return pulumi.get(self, "maximum_duration")
 
     @maximum_duration.setter
-    def maximum_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]:
         """
         The target of the current rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -2685,31 +2685,31 @@ class RoleManagementPolicyNotificationRuleArgsDict(TypedDict):
     The type of rule
     Expected value is 'RoleManagementPolicyNotificationRule'.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the rule.
     """
-    is_default_recipients_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_default_recipients_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines if the notification will be sent to the recipient type specified in the policy rule.
     """
-    notification_level: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationLevel']]]
+    notification_level: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationLevel']]]]
     """
     The notification level.
     """
-    notification_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    notification_recipients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of notification recipients.
     """
-    notification_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationDeliveryMechanism']]]
+    notification_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationDeliveryMechanism']]]]
     """
     The type of notification.
     """
-    recipient_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RecipientType']]]
+    recipient_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'RecipientType']]]]
     """
     The recipient type.
     """
-    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgsDict']]]
     """
     The target of the current rule.
     """
@@ -2718,13 +2718,13 @@ class RoleManagementPolicyNotificationRuleArgsDict(TypedDict):
 class RoleManagementPolicyNotificationRuleArgs:
     def __init__(__self__, *,
                  rule_type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default_recipients_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notification_level: Optional[pulumi.Input[Union[_builtins.str, 'NotificationLevel']]] = None,
-                 notification_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notification_type: Optional[pulumi.Input[Union[_builtins.str, 'NotificationDeliveryMechanism']]] = None,
-                 recipient_type: Optional[pulumi.Input[Union[_builtins.str, 'RecipientType']]] = None,
-                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default_recipients_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notification_level: pulumi.Input[Optional[Union[_builtins.str, 'NotificationLevel']]] = None,
+                 notification_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notification_type: pulumi.Input[Optional[Union[_builtins.str, 'NotificationDeliveryMechanism']]] = None,
+                 recipient_type: pulumi.Input[Optional[Union[_builtins.str, 'RecipientType']]] = None,
+                 target: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy notification rule.
 
@@ -2769,86 +2769,86 @@ class RoleManagementPolicyNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the rule.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefaultRecipientsEnabled")
-    def is_default_recipients_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default_recipients_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the notification will be sent to the recipient type specified in the policy rule.
         """
         return pulumi.get(self, "is_default_recipients_enabled")
 
     @is_default_recipients_enabled.setter
-    def is_default_recipients_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default_recipients_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default_recipients_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationLevel")
-    def notification_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationLevel']]]:
+    def notification_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationLevel']]]:
         """
         The notification level.
         """
         return pulumi.get(self, "notification_level")
 
     @notification_level.setter
-    def notification_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationLevel']]]):
+    def notification_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationLevel']]]):
         pulumi.set(self, "notification_level", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationRecipients")
-    def notification_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of notification recipients.
         """
         return pulumi.get(self, "notification_recipients")
 
     @notification_recipients.setter
-    def notification_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_recipients", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationDeliveryMechanism']]]:
+    def notification_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationDeliveryMechanism']]]:
         """
         The type of notification.
         """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationDeliveryMechanism']]]):
+    def notification_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationDeliveryMechanism']]]):
         pulumi.set(self, "notification_type", value)
 
     @_builtins.property
     @pulumi.getter(name="recipientType")
-    def recipient_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RecipientType']]]:
+    def recipient_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RecipientType']]]:
         """
         The recipient type.
         """
         return pulumi.get(self, "recipient_type")
 
     @recipient_type.setter
-    def recipient_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RecipientType']]]):
+    def recipient_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RecipientType']]]):
         pulumi.set(self, "recipient_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]:
         """
         The target of the current rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -2861,15 +2861,15 @@ class RoleManagementPolicyPimOnlyModeRuleArgsDict(TypedDict):
     The type of rule
     Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the rule.
     """
-    pim_only_mode_settings: NotRequired[pulumi.Input['PIMOnlyModeSettingsArgsDict']]
+    pim_only_mode_settings: NotRequired[pulumi.Input[Optional['PIMOnlyModeSettingsArgsDict']]]
     """
     The PIM Only Mode settings
     """
-    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    target: NotRequired[pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgsDict']]]
     """
     The target of the current rule.
     """
@@ -2878,9 +2878,9 @@ class RoleManagementPolicyPimOnlyModeRuleArgsDict(TypedDict):
 class RoleManagementPolicyPimOnlyModeRuleArgs:
     def __init__(__self__, *,
                  rule_type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pim_only_mode_settings: Optional[pulumi.Input['PIMOnlyModeSettingsArgs']] = None,
-                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pim_only_mode_settings: pulumi.Input[Optional['PIMOnlyModeSettingsArgs']] = None,
+                 target: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy PIM only mode rule.
 
@@ -2913,38 +2913,38 @@ class RoleManagementPolicyPimOnlyModeRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the rule.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="pimOnlyModeSettings")
-    def pim_only_mode_settings(self) -> Optional[pulumi.Input['PIMOnlyModeSettingsArgs']]:
+    def pim_only_mode_settings(self) -> pulumi.Input[Optional['PIMOnlyModeSettingsArgs']]:
         """
         The PIM Only Mode settings
         """
         return pulumi.get(self, "pim_only_mode_settings")
 
     @pim_only_mode_settings.setter
-    def pim_only_mode_settings(self, value: Optional[pulumi.Input['PIMOnlyModeSettingsArgs']]):
+    def pim_only_mode_settings(self, value: pulumi.Input[Optional['PIMOnlyModeSettingsArgs']]):
         pulumi.set(self, "pim_only_mode_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]:
         """
         The target of the current rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['RoleManagementPolicyRuleTargetArgs']]):
         pulumi.set(self, "target", value)
 
 
@@ -2952,27 +2952,27 @@ class RoleManagementPolicyRuleTargetArgsDict(TypedDict):
     """
     The role management policy rule target.
     """
-    caller: NotRequired[pulumi.Input[_builtins.str]]
+    caller: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The caller of the setting.
     """
-    enforced_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    enforced_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of enforced settings.
     """
-    inheritable_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inheritable_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of inheritable settings.
     """
-    level: NotRequired[pulumi.Input[_builtins.str]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The assignment level to which rule is applied.
     """
-    operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    operations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The type of operation.
     """
-    target_objects: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target_objects: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of target objects.
     """
@@ -2980,12 +2980,12 @@ class RoleManagementPolicyRuleTargetArgsDict(TypedDict):
 @pulumi.input_type
 class RoleManagementPolicyRuleTargetArgs:
     def __init__(__self__, *,
-                 caller: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforced_settings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inheritable_settings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_objects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 caller: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforced_settings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inheritable_settings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_objects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The role management policy rule target.
 
@@ -3011,74 +3011,74 @@ class RoleManagementPolicyRuleTargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def caller(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def caller(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The caller of the setting.
         """
         return pulumi.get(self, "caller")
 
     @caller.setter
-    def caller(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def caller(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "caller", value)
 
     @_builtins.property
     @pulumi.getter(name="enforcedSettings")
-    def enforced_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enforced_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of enforced settings.
         """
         return pulumi.get(self, "enforced_settings")
 
     @enforced_settings.setter
-    def enforced_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enforced_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enforced_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritableSettings")
-    def inheritable_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inheritable_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of inheritable settings.
         """
         return pulumi.get(self, "inheritable_settings")
 
     @inheritable_settings.setter
-    def inheritable_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inheritable_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inheritable_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The assignment level to which rule is applied.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter
-    def operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The type of operation.
         """
         return pulumi.get(self, "operations")
 
     @operations.setter
-    def operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "operations", value)
 
     @_builtins.property
     @pulumi.getter(name="targetObjects")
-    def target_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_objects(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of target objects.
         """
         return pulumi.get(self, "target_objects")
 
     @target_objects.setter
-    def target_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_objects(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_objects", value)
 
 
@@ -3086,15 +3086,15 @@ class SelectorArgsDict(TypedDict):
     """
     The selector expression.
     """
-    in_: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    in_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of values to filter in.
     """
-    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'SelectorKind']]]
+    kind: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SelectorKind']]]]
     """
     The selector kind.
     """
-    not_in: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_in: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of values to filter out.
     """
@@ -3102,9 +3102,9 @@ class SelectorArgsDict(TypedDict):
 @pulumi.input_type
 class SelectorArgs:
     def __init__(__self__, *,
-                 in_: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'SelectorKind']]] = None,
-                 not_in: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 in_: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'SelectorKind']]] = None,
+                 not_in: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The selector expression.
 
@@ -3121,38 +3121,38 @@ class SelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="in")
-    def in_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def in_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of values to filter in.
         """
         return pulumi.get(self, "in_")
 
     @in_.setter
-    def in_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def in_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "in_", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SelectorKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SelectorKind']]]:
         """
         The selector kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SelectorKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SelectorKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="notIn")
-    def not_in(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_in(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of values to filter out.
         """
         return pulumi.get(self, "not_in")
 
     @not_in.setter
-    def not_in(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_in(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_in", value)
 
 
@@ -3160,19 +3160,19 @@ class UserSetArgsDict(TypedDict):
     """
     The detail of a user.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the user.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object id of the user.
     """
-    is_backup: NotRequired[pulumi.Input[_builtins.bool]]
+    is_backup: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value indicating whether the user is a backup fallback approver
     """
-    user_type: NotRequired[pulumi.Input[Union[_builtins.str, 'UserType']]]
+    user_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UserType']]]]
     """
     The type of user.
     """
@@ -3180,10 +3180,10 @@ class UserSetArgsDict(TypedDict):
 @pulumi.input_type
 class UserSetArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_type: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_type: pulumi.Input[Optional[Union[_builtins.str, 'UserType']]] = None):
         """
         The detail of a user.
 
@@ -3203,50 +3203,50 @@ class UserSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the user.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object id of the user.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="isBackup")
-    def is_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value indicating whether the user is a backup fallback approver
         """
         return pulumi.get(self, "is_backup")
 
     @is_backup.setter
-    def is_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UserType']]]:
+    def user_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UserType']]]:
         """
         The type of user.
         """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]]):
+    def user_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UserType']]]):
         pulumi.set(self, "user_type", value)
 
 
@@ -3254,15 +3254,15 @@ class UsersOrServicePrincipalSetArgsDict(TypedDict):
     """
     The detail of a subject.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display Name of the entity.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object id of the entity.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]]
     """
     The type of user.
     """
@@ -3270,9 +3270,9 @@ class UsersOrServicePrincipalSetArgsDict(TypedDict):
 @pulumi.input_type
 class UsersOrServicePrincipalSetArgs:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]] = None):
         """
         The detail of a subject.
 
@@ -3289,38 +3289,38 @@ class UsersOrServicePrincipalSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display Name of the entity.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object id of the entity.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]:
         """
         The type of user.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]):
         pulumi.set(self, "type", value)
 
 

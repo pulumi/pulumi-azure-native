@@ -151,7 +151,7 @@ export interface ManagedClusterApplicationArgs {
     /**
      * The name of the application resource.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster resource.
      */
@@ -159,19 +159,19 @@ export interface ManagedClusterApplicationArgs {
     /**
      * Describes the managed identities for an Azure resource.
      */
-    identity?: pulumi.Input<inputs.servicefabric.ManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.servicefabric.ManagedIdentityArgs | undefined>;
     /**
      * Resource location depends on the parent resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * List of user assigned identities for the application, each mapped to a friendly name.
      */
-    managedIdentities?: pulumi.Input<pulumi.Input<inputs.servicefabric.ApplicationUserAssignedIdentityArgs>[]>;
+    managedIdentities?: pulumi.Input<pulumi.Input<inputs.servicefabric.ApplicationUserAssignedIdentityArgs>[] | undefined>;
     /**
      * List of application parameters with overridden values from their default values specified in the application manifest.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the resource group.
      */
@@ -179,14 +179,14 @@ export interface ManagedClusterApplicationArgs {
     /**
      * Azure resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Describes the policy for a monitored application upgrade.
      */
-    upgradePolicy?: pulumi.Input<inputs.servicefabric.ApplicationUpgradePolicyArgs>;
+    upgradePolicy?: pulumi.Input<inputs.servicefabric.ApplicationUpgradePolicyArgs | undefined>;
     /**
      * The version of the application type as defined in the application manifest.
      * This name must be the full Arm Resource ID for the referenced application type version.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

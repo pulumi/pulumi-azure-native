@@ -140,7 +140,6 @@ def get_connection_gateway(connection_gateway_name: Optional[_builtins.str] = No
 
     Uses Azure REST API version 2016-06-01.
 
-
     :param _builtins.str connection_gateway_name: The connection gateway name
     :param _builtins.str resource_group_name: The resource group
     :param _builtins.str subscription_id: Subscription Id
@@ -161,15 +160,14 @@ def get_connection_gateway(connection_gateway_name: Optional[_builtins.str] = No
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_connection_gateway_output(connection_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connection_gateway_output(connection_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGatewayResult]:
     """
     Gets a specific gateway under a subscription and in a specific resource group
 
     Uses Azure REST API version 2016-06-01.
-
 
     :param _builtins.str connection_gateway_name: The connection gateway name
     :param _builtins.str resource_group_name: The resource group

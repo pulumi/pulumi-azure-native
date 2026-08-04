@@ -181,7 +181,7 @@ class GetBudgetResult:
         - BillingMonth*
         - BillingQuarter*
         - BillingAnnual*
-
+          
           *only supported for Web Direct customers.
 
          Supported timeGrainTypes for **CategoryType: ReservationUtilization**
@@ -244,7 +244,6 @@ def get_budget(budget_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str budget_name: Budget Name.
     :param _builtins.str scope: The scope associated with budget operations.
            
@@ -296,8 +295,8 @@ def get_budget(budget_name: Optional[_builtins.str] = None,
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_period=pulumi.get(__ret__, 'time_period'),
         type=pulumi.get(__ret__, 'type'))
-def get_budget_output(budget_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_budget_output(budget_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      scope: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Gets the budget for the scope by budget name.
@@ -305,7 +304,6 @@ def get_budget_output(budget_name: Optional[pulumi.Input[_builtins.str]] = None,
     Uses Azure REST API version 2024-08-01.
 
     Other available API versions: 2019-04-01-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str budget_name: Budget Name.
     :param _builtins.str scope: The scope associated with budget operations.

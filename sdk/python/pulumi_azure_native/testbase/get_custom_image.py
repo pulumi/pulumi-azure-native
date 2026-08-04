@@ -263,7 +263,6 @@ def get_custom_image(custom_image_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-11-01-preview.
 
-
     :param _builtins.str custom_image_name: The resource name of the test base custom image.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str test_base_account_name: The resource name of the Test Base Account.
@@ -294,15 +293,14 @@ def get_custom_image(custom_image_name: Optional[_builtins.str] = None,
         version_name=pulumi.get(__ret__, 'version_name'),
         vhd_file_name=pulumi.get(__ret__, 'vhd_file_name'),
         vhd_id=pulumi.get(__ret__, 'vhd_id'))
-def get_custom_image_output(custom_image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_image_output(custom_image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomImageResult]:
     """
     Gets a test base custom image.
 
     Uses Azure REST API version 2023-11-01-preview.
-
 
     :param _builtins.str custom_image_name: The resource name of the test base custom image.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -22,11 +22,11 @@ __all__ = ['PlaywrightWorkspaceArgs', 'PlaywrightWorkspace']
 class PlaywrightWorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 local_auth: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 playwright_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_affinity: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 local_auth: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 playwright_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_affinity: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PlaywrightWorkspace resource.
 
@@ -67,62 +67,62 @@ class PlaywrightWorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="localAuth")
-    def local_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]:
+    def local_auth(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]:
         """
         Enables the workspace to use local authentication through service access tokens for operations.
         """
         return pulumi.get(self, "local_auth")
 
     @local_auth.setter
-    def local_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]):
+    def local_auth(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]):
         pulumi.set(self, "local_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="playwrightWorkspaceName")
-    def playwright_workspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def playwright_workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the PlaywrightWorkspace
         """
         return pulumi.get(self, "playwright_workspace_name")
 
     @playwright_workspace_name.setter
-    def playwright_workspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def playwright_workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "playwright_workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalAffinity")
-    def regional_affinity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]:
+    def regional_affinity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]:
         """
         Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         """
         return pulumi.get(self, "regional_affinity")
 
     @regional_affinity.setter
-    def regional_affinity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]]):
+    def regional_affinity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]]):
         pulumi.set(self, "regional_affinity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -132,12 +132,12 @@ class PlaywrightWorkspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_auth: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 playwright_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_affinity: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 local_auth: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 playwright_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_affinity: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Playwright workspace resource.
@@ -145,7 +145,6 @@ class PlaywrightWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-09-01, 2026-01-01-preview, 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,7 +168,6 @@ class PlaywrightWorkspace(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01, 2026-01-01-preview, 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param PlaywrightWorkspaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,12 +183,12 @@ class PlaywrightWorkspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_auth: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 playwright_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_affinity: Optional[pulumi.Input[Union[_builtins.str, 'EnablementStatus']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 local_auth: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 playwright_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_affinity: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

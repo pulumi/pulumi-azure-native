@@ -24,10 +24,10 @@ __all__ = [
     'DashboardLensArgsDict',
     'DashboardPartMetadataArgs',
     'DashboardPartMetadataArgsDict',
-    'DashboardPartsPositionArgs',
-    'DashboardPartsPositionArgsDict',
     'DashboardPartsArgs',
     'DashboardPartsArgsDict',
+    'DashboardPartsPositionArgs',
+    'DashboardPartsPositionArgsDict',
     'DashboardPropertiesWithProvisioningStateArgs',
     'DashboardPropertiesWithProvisioningStateArgsDict',
     'StorageProfileArgs',
@@ -42,7 +42,7 @@ class ConfigurationPropertiesArgsDict(TypedDict):
     """
     Tenant Configuration Properties with Provisioning state
     """
-    enforce_private_markdown_storage: NotRequired[pulumi.Input[_builtins.bool]]
+    enforce_private_markdown_storage: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
     """
@@ -50,7 +50,7 @@ class ConfigurationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 enforce_private_markdown_storage: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enforce_private_markdown_storage: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Tenant Configuration Properties with Provisioning state
 
@@ -61,14 +61,14 @@ class ConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enforcePrivateMarkdownStorage")
-    def enforce_private_markdown_storage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_private_markdown_storage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
         """
         return pulumi.get(self, "enforce_private_markdown_storage")
 
     @enforce_private_markdown_storage.setter
-    def enforce_private_markdown_storage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_private_markdown_storage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_private_markdown_storage", value)
 
 
@@ -80,11 +80,11 @@ class ConsoleCreatePropertiesArgsDict(TypedDict):
     """
     The operating system type of the cloud shell.
     """
-    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    provisioning_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]]
     """
     Provisioning state of the console.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uri of the console.
     """
@@ -93,8 +93,8 @@ class ConsoleCreatePropertiesArgsDict(TypedDict):
 class ConsoleCreatePropertiesArgs:
     def __init__(__self__, *,
                  os_type: pulumi.Input[Union[_builtins.str, 'OsType']],
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Cloud shell properties for creating a console.
 
@@ -122,26 +122,26 @@ class ConsoleCreatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         Provisioning state of the console.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri of the console.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -225,11 +225,11 @@ class DashboardPartMetadataArgsDict(TypedDict):
     """
     The type of dashboard part.
     """
-    inputs: NotRequired[pulumi.Input[Sequence[Any]]]
+    inputs: NotRequired[pulumi.Input[Optional[Sequence[Any]]]]
     """
     Inputs to dashboard part.
     """
-    settings: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    settings: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
     """
     Settings of dashboard part.
     """
@@ -238,8 +238,8 @@ class DashboardPartMetadataArgsDict(TypedDict):
 class DashboardPartMetadataArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 inputs: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 settings: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 inputs: pulumi.Input[Optional[Sequence[Any]]] = None,
+                 settings: pulumi.Input[Optional[Mapping[str, Any]]] = None):
         """
         A dashboard part metadata.
 
@@ -267,27 +267,80 @@ class DashboardPartMetadataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def inputs(self) -> pulumi.Input[Optional[Sequence[Any]]]:
         """
         Inputs to dashboard part.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def inputs(self, value: pulumi.Input[Optional[Sequence[Any]]]):
         pulumi.set(self, "inputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def settings(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
         """
         Settings of dashboard part.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def settings(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
         pulumi.set(self, "settings", value)
+
+
+class DashboardPartsArgsDict(TypedDict):
+    """
+    A dashboard part.
+    """
+    position: pulumi.Input['DashboardPartsPositionArgsDict']
+    """
+    The dashboard's part position.
+    """
+    metadata: NotRequired[pulumi.Input[Optional['DashboardPartMetadataArgsDict']]]
+    """
+    The dashboard's part metadata.
+    """
+
+@pulumi.input_type
+class DashboardPartsArgs:
+    def __init__(__self__, *,
+                 position: pulumi.Input['DashboardPartsPositionArgs'],
+                 metadata: pulumi.Input[Optional['DashboardPartMetadataArgs']] = None):
+        """
+        A dashboard part.
+
+        :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
+        :param pulumi.Input['DashboardPartMetadataArgs'] metadata: The dashboard's part metadata.
+        """
+        pulumi.set(__self__, "position", position)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def position(self) -> pulumi.Input['DashboardPartsPositionArgs']:
+        """
+        The dashboard's part position.
+        """
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: pulumi.Input['DashboardPartsPositionArgs']):
+        pulumi.set(self, "position", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Input[Optional['DashboardPartMetadataArgs']]:
+        """
+        The dashboard's part metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: pulumi.Input[Optional['DashboardPartMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
 
 
 class DashboardPartsPositionArgsDict(TypedDict):
@@ -400,64 +453,11 @@ class DashboardPartsPositionArgs:
         pulumi.set(self, "metadata", value)
 
 
-class DashboardPartsArgsDict(TypedDict):
-    """
-    A dashboard part.
-    """
-    position: pulumi.Input['DashboardPartsPositionArgsDict']
-    """
-    The dashboard's part position.
-    """
-    metadata: NotRequired[pulumi.Input['DashboardPartMetadataArgsDict']]
-    """
-    The dashboard's part metadata.
-    """
-
-@pulumi.input_type
-class DashboardPartsArgs:
-    def __init__(__self__, *,
-                 position: pulumi.Input['DashboardPartsPositionArgs'],
-                 metadata: Optional[pulumi.Input['DashboardPartMetadataArgs']] = None):
-        """
-        A dashboard part.
-
-        :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
-        :param pulumi.Input['DashboardPartMetadataArgs'] metadata: The dashboard's part metadata.
-        """
-        pulumi.set(__self__, "position", position)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-
-    @_builtins.property
-    @pulumi.getter
-    def position(self) -> pulumi.Input['DashboardPartsPositionArgs']:
-        """
-        The dashboard's part position.
-        """
-        return pulumi.get(self, "position")
-
-    @position.setter
-    def position(self, value: pulumi.Input['DashboardPartsPositionArgs']):
-        pulumi.set(self, "position", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['DashboardPartMetadataArgs']]:
-        """
-        The dashboard's part metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['DashboardPartMetadataArgs']]):
-        pulumi.set(self, "metadata", value)
-
-
 class DashboardPropertiesWithProvisioningStateArgsDict(TypedDict):
     """
     Dashboard Properties with Provisioning state
     """
-    lenses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgsDict']]]]
+    lenses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardLensArgsDict']]]]]
     """
     The dashboard lenses.
     """
@@ -469,7 +469,7 @@ class DashboardPropertiesWithProvisioningStateArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardPropertiesWithProvisioningStateArgs:
     def __init__(__self__, *,
-                 lenses: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgs']]]] = None,
+                 lenses: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardLensArgs']]]] = None,
                  metadata: Optional[Any] = None):
         """
         Dashboard Properties with Provisioning state
@@ -484,14 +484,14 @@ class DashboardPropertiesWithProvisioningStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def lenses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgs']]]]:
+    def lenses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardLensArgs']]]]:
         """
         The dashboard lenses.
         """
         return pulumi.get(self, "lenses")
 
     @lenses.setter
-    def lenses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgs']]]]):
+    def lenses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardLensArgs']]]]):
         pulumi.set(self, "lenses", value)
 
     @_builtins.property
@@ -511,15 +511,15 @@ class StorageProfileArgsDict(TypedDict):
     """
     The storage profile of the user settings.
     """
-    disk_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    disk_size_in_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of file share
     """
-    file_share_name: NotRequired[pulumi.Input[_builtins.str]]
+    file_share_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
     """
-    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Full resource ID of storage account.
     """
@@ -527,9 +527,9 @@ class StorageProfileArgsDict(TypedDict):
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 disk_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 disk_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The storage profile of the user settings.
 
@@ -546,38 +546,38 @@ class StorageProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of file share
         """
         return pulumi.get(self, "disk_size_in_gb")
 
     @disk_size_in_gb.setter
-    def disk_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="fileShareName")
-    def file_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
         """
         return pulumi.get(self, "file_share_name")
 
     @file_share_name.setter
-    def file_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Full resource ID of storage account.
         """
         return pulumi.get(self, "storage_account_resource_id")
 
     @storage_account_resource_id.setter
-    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_resource_id", value)
 
 
@@ -585,11 +585,11 @@ class TerminalSettingsArgsDict(TypedDict):
     """
     Settings for terminal appearance.
     """
-    font_size: NotRequired[pulumi.Input[Union[_builtins.str, 'FontSize']]]
+    font_size: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FontSize']]]]
     """
     Size of terminal font.
     """
-    font_style: NotRequired[pulumi.Input[Union[_builtins.str, 'FontStyle']]]
+    font_style: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'FontStyle']]]]
     """
     Style of terminal font.
     """
@@ -597,8 +597,8 @@ class TerminalSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class TerminalSettingsArgs:
     def __init__(__self__, *,
-                 font_size: Optional[pulumi.Input[Union[_builtins.str, 'FontSize']]] = None,
-                 font_style: Optional[pulumi.Input[Union[_builtins.str, 'FontStyle']]] = None):
+                 font_size: pulumi.Input[Optional[Union[_builtins.str, 'FontSize']]] = None,
+                 font_style: pulumi.Input[Optional[Union[_builtins.str, 'FontStyle']]] = None):
         """
         Settings for terminal appearance.
 
@@ -612,26 +612,26 @@ class TerminalSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="fontSize")
-    def font_size(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FontSize']]]:
+    def font_size(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FontSize']]]:
         """
         Size of terminal font.
         """
         return pulumi.get(self, "font_size")
 
     @font_size.setter
-    def font_size(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FontSize']]]):
+    def font_size(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FontSize']]]):
         pulumi.set(self, "font_size", value)
 
     @_builtins.property
     @pulumi.getter(name="fontStyle")
-    def font_style(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FontStyle']]]:
+    def font_style(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FontStyle']]]:
         """
         Style of terminal font.
         """
         return pulumi.get(self, "font_style")
 
     @font_style.setter
-    def font_style(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FontStyle']]]):
+    def font_style(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FontStyle']]]):
         pulumi.set(self, "font_style", value)
 
 

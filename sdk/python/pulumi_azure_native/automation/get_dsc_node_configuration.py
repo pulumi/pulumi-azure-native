@@ -181,7 +181,6 @@ def get_dsc_node_configuration(automation_account_name: Optional[_builtins.str] 
 
     Other available API versions: 2015-10-31, 2018-01-15, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str node_configuration_name: The Dsc node configuration name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -205,9 +204,9 @@ def get_dsc_node_configuration(automation_account_name: Optional[_builtins.str] 
         source=pulumi.get(__ret__, 'source'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      node_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dsc_node_configuration_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      node_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDscNodeConfigurationResult]:
     """
     Retrieve the Dsc node configurations by node configuration.
@@ -215,7 +214,6 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
     Uses Azure REST API version 2024-10-23.
 
     Other available API versions: 2015-10-31, 2018-01-15, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str node_configuration_name: The Dsc node configuration name.

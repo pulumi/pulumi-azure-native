@@ -114,7 +114,7 @@ export interface SchemaVersionArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SchemaVersionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.SchemaVersionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,5 +126,5 @@ export interface SchemaVersionArgs {
     /**
      * The name of the SchemaVersion
      */
-    schemaVersionName?: pulumi.Input<string>;
+    schemaVersionName?: pulumi.Input<string | undefined>;
 }

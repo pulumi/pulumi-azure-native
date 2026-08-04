@@ -22,15 +22,15 @@ class FavoriteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_type: Optional[pulumi.Input['FavoriteType']] = None,
-                 is_generated_from_template: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_type: pulumi.Input[Optional['FavoriteType']] = None,
+                 is_generated_from_template: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Favorite resource.
 
@@ -93,110 +93,110 @@ class FavoriteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Favorite category, as defined by the user at creation time.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter(name="favoriteId")
-    def favorite_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favorite_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Id of a specific favorite defined in the Application Insights component
         """
         return pulumi.get(self, "favorite_id")
 
     @favorite_id.setter
-    def favorite_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favorite_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favorite_id", value)
 
     @_builtins.property
     @pulumi.getter(name="favoriteType")
-    def favorite_type(self) -> Optional[pulumi.Input['FavoriteType']]:
+    def favorite_type(self) -> pulumi.Input[Optional['FavoriteType']]:
         """
         Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         """
         return pulumi.get(self, "favorite_type")
 
     @favorite_type.setter
-    def favorite_type(self, value: Optional[pulumi.Input['FavoriteType']]):
+    def favorite_type(self, value: pulumi.Input[Optional['FavoriteType']]):
         pulumi.set(self, "favorite_type", value)
 
     @_builtins.property
     @pulumi.getter(name="isGeneratedFromTemplate")
-    def is_generated_from_template(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_generated_from_template(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag denoting wether or not this favorite was generated from a template.
         """
         return pulumi.get(self, "is_generated_from_template")
 
     @is_generated_from_template.setter
-    def is_generated_from_template(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_generated_from_template(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_generated_from_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-defined name of the favorite.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source of the favorite definition.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of 0 or more tags that are associated with this favorite definition
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -206,23 +206,22 @@ class Favorite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_type: Optional[pulumi.Input['FavoriteType']] = None,
-                 is_generated_from_template: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_type: pulumi.Input[Optional['FavoriteType']] = None,
+                 is_generated_from_template: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Properties that define a favorite that is associated to an Application Insights component.
 
         Uses Azure REST API version 2015-05-01.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,7 +248,6 @@ class Favorite(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
-
         :param str resource_name: The name of the resource.
         :param FavoriteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,17 +263,17 @@ class Favorite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_type: Optional[pulumi.Input['FavoriteType']] = None,
-                 is_generated_from_template: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_type: pulumi.Input[Optional['FavoriteType']] = None,
+                 is_generated_from_template: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,7 +23,7 @@ class TagOperationLinkArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  tag_id: pulumi.Input[_builtins.str],
-                 operation_link_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 operation_link_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagOperationLink resource.
 
@@ -90,14 +90,14 @@ class TagOperationLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="operationLinkId")
-    def operation_link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tag-operation link identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "operation_link_id")
 
     @operation_link_id.setter
-    def operation_link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_link_id", value)
 
 
@@ -107,11 +107,11 @@ class TagOperationLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Tag-operation link details.
@@ -119,7 +119,6 @@ class TagOperationLink(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class TagOperationLink(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param TagOperationLinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class TagOperationLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_link_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_link_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

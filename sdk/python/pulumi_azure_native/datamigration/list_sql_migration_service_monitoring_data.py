@@ -72,7 +72,6 @@ def list_sql_migration_service_monitoring_data(resource_group_name: Optional[_bu
 
     Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str sql_migration_service_name: Name of the SQL Migration Service.
     """
@@ -85,8 +84,8 @@ def list_sql_migration_service_monitoring_data(resource_group_name: Optional[_bu
     return AwaitableListSqlMigrationServiceMonitoringDataResult(
         name=pulumi.get(__ret__, 'name'),
         nodes=pulumi.get(__ret__, 'nodes'))
-def list_sql_migration_service_monitoring_data_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      sql_migration_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_sql_migration_service_monitoring_data_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      sql_migration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSqlMigrationServiceMonitoringDataResult]:
     """
     Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
@@ -94,7 +93,6 @@ def list_sql_migration_service_monitoring_data_output(resource_group_name: Optio
     Uses Azure REST API version 2023-07-15-preview.
 
     Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str sql_migration_service_name: Name of the SQL Migration Service.

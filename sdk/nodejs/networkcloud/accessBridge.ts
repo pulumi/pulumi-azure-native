@@ -182,7 +182,7 @@ export interface AccessBridgeArgs {
     /**
      * The name of the access bridge.
      */
-    accessBridgeName?: pulumi.Input<string>;
+    accessBridgeName?: pulumi.Input<string | undefined>;
     /**
      * The extended location of the resource. This property is required when creating the resource.
      */
@@ -190,15 +190,15 @@ export interface AccessBridgeArgs {
     /**
      * The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
      */
-    ipv4ConnectedPrefix?: pulumi.Input<string>;
+    ipv4ConnectedPrefix?: pulumi.Input<string | undefined>;
     /**
      * The IPv6 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
      */
-    ipv6ConnectedPrefix?: pulumi.Input<string>;
+    ipv6ConnectedPrefix?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the internal network in a layer 3 isolation domain containing the IP subnets to use.
      */
@@ -210,9 +210,9 @@ export interface AccessBridgeArgs {
     /**
      * The list of security rules enforced by the access bridge.
      */
-    securityRules?: pulumi.Input<pulumi.Input<inputs.networkcloud.AccessBridgeSecurityRuleArgs>[]>;
+    securityRules?: pulumi.Input<pulumi.Input<inputs.networkcloud.AccessBridgeSecurityRuleArgs>[] | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

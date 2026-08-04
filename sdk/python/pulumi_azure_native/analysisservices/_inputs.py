@@ -32,7 +32,7 @@ class GatewayDetailsArgsDict(TypedDict):
     """
     The gateway details.
     """
-    gateway_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    gateway_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gateway resource to be associated with the server.
     """
@@ -40,7 +40,7 @@ class GatewayDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class GatewayDetailsArgs:
     def __init__(__self__, *,
-                 gateway_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 gateway_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The gateway details.
 
@@ -51,14 +51,14 @@ class GatewayDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="gatewayResourceId")
-    def gateway_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gateway resource to be associated with the server.
         """
         return pulumi.get(self, "gateway_resource_id")
 
     @gateway_resource_id.setter
-    def gateway_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_resource_id", value)
 
 
@@ -66,15 +66,15 @@ class IPv4FirewallRuleArgsDict(TypedDict):
     """
     The detail of firewall rule.
     """
-    firewall_rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_rule_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule name.
     """
-    range_end: NotRequired[pulumi.Input[_builtins.str]]
+    range_end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end range of IPv4.
     """
-    range_start: NotRequired[pulumi.Input[_builtins.str]]
+    range_start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The start range of IPv4.
     """
@@ -82,9 +82,9 @@ class IPv4FirewallRuleArgsDict(TypedDict):
 @pulumi.input_type
 class IPv4FirewallRuleArgs:
     def __init__(__self__, *,
-                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_end: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_end: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The detail of firewall rule.
 
@@ -101,38 +101,38 @@ class IPv4FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule name.
         """
         return pulumi.get(self, "firewall_rule_name")
 
     @firewall_rule_name.setter
-    def firewall_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeEnd")
-    def range_end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end range of IPv4.
         """
         return pulumi.get(self, "range_end")
 
     @range_end.setter
-    def range_end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_end", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeStart")
-    def range_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start range of IPv4.
         """
         return pulumi.get(self, "range_start")
 
     @range_start.setter
-    def range_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_start", value)
 
 
@@ -140,11 +140,11 @@ class IPv4FirewallSettingsArgsDict(TypedDict):
     """
     An array of firewall rules.
     """
-    enable_power_bi_service: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_power_bi_service: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The indicator of enabling PBI service.
     """
-    firewall_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgsDict']]]]
+    firewall_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IPv4FirewallRuleArgsDict']]]]]
     """
     An array of firewall rules.
     """
@@ -152,8 +152,8 @@ class IPv4FirewallSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class IPv4FirewallSettingsArgs:
     def __init__(__self__, *,
-                 enable_power_bi_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]] = None):
+                 enable_power_bi_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]] = None):
         """
         An array of firewall rules.
 
@@ -167,26 +167,26 @@ class IPv4FirewallSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="enablePowerBIService")
-    def enable_power_bi_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_power_bi_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The indicator of enabling PBI service.
         """
         return pulumi.get(self, "enable_power_bi_service")
 
     @enable_power_bi_service.setter
-    def enable_power_bi_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_power_bi_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_power_bi_service", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]]:
+    def firewall_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]]:
         """
         An array of firewall rules.
         """
         return pulumi.get(self, "firewall_rules")
 
     @firewall_rules.setter
-    def firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]]):
+    def firewall_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]]):
         pulumi.set(self, "firewall_rules", value)
 
 
@@ -198,11 +198,11 @@ class ResourceSkuArgsDict(TypedDict):
     """
     Name of the SKU level.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of instances in the read only query pool.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]]
     """
     The name of the Azure pricing tier to which the SKU applies.
     """
@@ -211,8 +211,8 @@ class ResourceSkuArgsDict(TypedDict):
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for Analysis Services resource.
 
@@ -242,26 +242,26 @@ class ResourceSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instances in the read only query pool.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]:
         """
         The name of the Azure pricing tier to which the SKU applies.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -269,7 +269,7 @@ class ServerAdministratorsArgsDict(TypedDict):
     """
     An array of administrator user identities.
     """
-    members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    members: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of administrator user identities.
     """
@@ -277,7 +277,7 @@ class ServerAdministratorsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerAdministratorsArgs:
     def __init__(__self__, *,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An array of administrator user identities.
 
@@ -288,14 +288,14 @@ class ServerAdministratorsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of administrator user identities.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "members", value)
 
 

@@ -119,8 +119,7 @@ def get_workload_impact(workload_impact_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
-    :param _builtins.str workload_impact_name: workloadImpact resource 
+    :param _builtins.str workload_impact_name: workloadImpact resource
     """
     __args__ = dict()
     __args__['workloadImpactName'] = workload_impact_name
@@ -134,7 +133,7 @@ def get_workload_impact(workload_impact_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_workload_impact_output(workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workload_impact_output(workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadImpactResult]:
     """
     Get a WorkloadImpact
@@ -143,8 +142,7 @@ def get_workload_impact_output(workload_impact_name: Optional[pulumi.Input[_buil
 
     Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
-    :param _builtins.str workload_impact_name: workloadImpact resource 
+    :param _builtins.str workload_impact_name: workloadImpact resource
     """
     __args__ = dict()
     __args__['workloadImpactName'] = workload_impact_name

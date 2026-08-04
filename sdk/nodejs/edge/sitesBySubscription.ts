@@ -100,9 +100,9 @@ export interface SitesBySubscriptionArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SitePropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.SitePropertiesArgs | undefined>;
     /**
      * The name of the Site
      */
-    siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

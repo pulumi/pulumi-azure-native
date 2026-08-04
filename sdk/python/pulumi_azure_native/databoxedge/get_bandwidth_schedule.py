@@ -157,7 +157,6 @@ def get_bandwidth_schedule(device_name: Optional[_builtins.str] = None,
 
     Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str device_name: The device name.
     :param _builtins.str name: The bandwidth schedule name.
     :param _builtins.str resource_group_name: The resource group name.
@@ -179,9 +178,9 @@ def get_bandwidth_schedule(device_name: Optional[_builtins.str] = None,
         stop=pulumi.get(__ret__, 'stop'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bandwidth_schedule_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBandwidthScheduleResult]:
     """
     Gets the properties of the specified bandwidth schedule.
@@ -189,7 +188,6 @@ def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2023-07-01.
 
     Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str device_name: The device name.
     :param _builtins.str name: The bandwidth schedule name.

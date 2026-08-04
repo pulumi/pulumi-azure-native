@@ -212,7 +212,7 @@ export interface BareMetalMachineKeySetArgs {
     /**
      * The name of the bare metal machine key set.
      */
-    bareMetalMachineKeySetName?: pulumi.Input<string>;
+    bareMetalMachineKeySetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster.
      */
@@ -232,11 +232,11 @@ export interface BareMetalMachineKeySetArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the group that users will be assigned to on the operating system of the machines.
      */
-    osGroupName?: pulumi.Input<string>;
+    osGroupName?: pulumi.Input<string | undefined>;
     /**
      * The access level allowed for the users in this key set.
      */
@@ -248,7 +248,7 @@ export interface BareMetalMachineKeySetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The unique list of permitted users.
      */

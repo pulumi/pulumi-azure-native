@@ -111,7 +111,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime name
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Integration runtime properties.
      */

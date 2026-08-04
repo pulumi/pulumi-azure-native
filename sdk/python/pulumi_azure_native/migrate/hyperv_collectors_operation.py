@@ -24,10 +24,10 @@ class HypervCollectorsOperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_properties: Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyperv_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None):
+                 agent_properties: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyperv_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None):
         """
         The set of arguments for constructing a HypervCollectorsOperation resource.
 
@@ -75,50 +75,50 @@ class HypervCollectorsOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentProperties")
-    def agent_properties(self) -> Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']]:
+    def agent_properties(self) -> pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]:
         """
         Gets or sets the collector agent properties.
         """
         return pulumi.get(self, "agent_properties")
 
     @agent_properties.setter
-    def agent_properties(self, value: Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']]):
+    def agent_properties(self, value: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']]):
         pulumi.set(self, "agent_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
-    def discovery_site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def discovery_site_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets the discovery site id.
         """
         return pulumi.get(self, "discovery_site_id")
 
     @discovery_site_id.setter
-    def discovery_site_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def discovery_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "discovery_site_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hypervCollectorName")
-    def hyperv_collector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyperv_collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hyper-V collector ARM name
         """
         return pulumi.get(self, "hyperv_collector_name")
 
     @hyperv_collector_name.setter
-    def hyperv_collector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyperv_collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyperv_collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]:
+    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]:
         """
         The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]):
+    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
 
@@ -128,12 +128,12 @@ class HypervCollectorsOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyperv_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_properties: pulumi.Input[Optional[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyperv_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Hyper-V collector resource.
@@ -141,7 +141,6 @@ class HypervCollectorsOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class HypervCollectorsOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param HypervCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class HypervCollectorsOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_properties: Optional[pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
-                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyperv_collector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_properties: pulumi.Input[Optional[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']]] = None,
+                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyperv_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

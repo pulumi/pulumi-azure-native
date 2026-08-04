@@ -112,12 +112,12 @@ export interface ConnectionGatewayArgs {
     /**
      * The connection gateway name
      */
-    connectionGatewayName?: pulumi.Input<string>;
+    connectionGatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
-    properties?: pulumi.Input<inputs.web.ConnectionGatewayDefinitionPropertiesArgs>;
+    location?: pulumi.Input<string | undefined>;
+    properties?: pulumi.Input<inputs.web.ConnectionGatewayDefinitionPropertiesArgs | undefined>;
     /**
      * The resource group
      */
@@ -125,9 +125,9 @@ export interface ConnectionGatewayArgs {
     /**
      * Subscription Id
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -99,8 +99,8 @@ export interface AuthorizedApplicationArgs {
     /**
      * The application ID.
      */
-    applicationId?: pulumi.Input<string>;
-    properties?: pulumi.Input<inputs.providerhub.AuthorizedApplicationPropertiesArgs>;
+    applicationId?: pulumi.Input<string | undefined>;
+    properties?: pulumi.Input<inputs.providerhub.AuthorizedApplicationPropertiesArgs | undefined>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

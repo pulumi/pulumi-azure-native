@@ -119,7 +119,6 @@ def get_monitored_resource(instance_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-07-07-preview.
 
-
     :param _builtins.str instance_name: Name of the SCOM managed instance.
     :param _builtins.str monitored_resource_name: The monitored resource name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,15 +137,14 @@ def get_monitored_resource(instance_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_monitored_resource_output(instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  monitored_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitored_resource_output(instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  monitored_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoredResourceResult]:
     """
     Retrieve the details of the monitored resource.
 
     Uses Azure REST API version 2023-07-07-preview.
-
 
     :param _builtins.str instance_name: Name of the SCOM managed instance.
     :param _builtins.str monitored_resource_name: The monitored resource name.

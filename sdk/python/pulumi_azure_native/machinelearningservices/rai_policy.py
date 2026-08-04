@@ -26,8 +26,8 @@ class RaiPolicyArgs:
                  properties: pulumi.Input['RaiPolicyPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 proxy_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RaiPolicy resource.
 
@@ -97,26 +97,26 @@ class RaiPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="proxyApiVersion")
-    def proxy_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Api version used by proxy call
         """
         return pulumi.get(self, "proxy_api_version")
 
     @proxy_api_version.setter
-    def proxy_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rai_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Rai Policy.
         """
         return pulumi.get(self, "rai_policy_name")
 
     @rai_policy_name.setter
-    def rai_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rai_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rai_policy_name", value)
 
 
@@ -126,12 +126,12 @@ class RaiPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
-                 proxy_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
+                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Azure OpenAI Content Filters resource.
@@ -139,7 +139,6 @@ class RaiPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
 
         Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +162,6 @@ class RaiPolicy(pulumi.CustomResource):
 
         Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-15-preview, 2026-03-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param RaiPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,12 +177,12 @@ class RaiPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
-                 proxy_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
+                 proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

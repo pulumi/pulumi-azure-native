@@ -25,21 +25,21 @@ class UpdateRunArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  update_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_execution_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UpdateRunPropertiesState']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]] = None,
-                 time_started: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_run_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_execution_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UpdateRunPropertiesState']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['StepArgs']]]] = None,
+                 time_started: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UpdateRun resource.
 
@@ -134,182 +134,182 @@ class UpdateRunArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         More detailed description of the step.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration of the update run.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter(name="endTimeUtc")
-    def end_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When the step reached a terminal state.
         """
         return pulumi.get(self, "end_time_utc")
 
     @end_time_utc.setter
-    def end_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message, specified if the step is in a failed state.
         """
         return pulumi.get(self, "error_message")
 
     @error_message.setter
-    def error_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_message", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedExecutionTime")
-    def expected_execution_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_execution_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
         """
         return pulumi.get(self, "expected_execution_time")
 
     @expected_execution_time.setter
-    def expected_execution_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_execution_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_execution_time", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of the most recently completed step in the update run.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTimeUtc")
-    def last_updated_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Completion time of this step or the last completed sub-step.
         """
         return pulumi.get(self, "last_updated_time_utc")
 
     @last_updated_time_utc.setter
-    def last_updated_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time_utc", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the step.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startTimeUtc")
-    def start_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When the step started, or empty if it has not started executing.
         """
         return pulumi.get(self, "start_time_utc")
 
     @start_time_utc.setter
-    def start_time_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time_utc", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpdateRunPropertiesState']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'UpdateRunPropertiesState']]]:
         """
         State of the update run.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpdateRunPropertiesState']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UpdateRunPropertiesState']]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StepArgs']]]]:
         """
         Recursive model for child steps of this step.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter(name="timeStarted")
-    def time_started(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_started(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of the update run was started.
         """
         return pulumi.get(self, "time_started")
 
     @time_started.setter
-    def time_started(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_started(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_started", value)
 
     @_builtins.property
     @pulumi.getter(name="updateRunName")
-    def update_run_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Update Run
         """
         return pulumi.get(self, "update_run_name")
 
     @update_run_name.setter
-    def update_run_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_run_name", value)
 
 
@@ -319,24 +319,24 @@ class UpdateRun(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_execution_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UpdateRunPropertiesState']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepArgs', 'StepArgsDict']]]]] = None,
-                 time_started: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_run_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_execution_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UpdateRunPropertiesState']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepArgs', 'StepArgsDict']]]]] = None,
+                 time_started: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Details of an Update run
@@ -344,7 +344,6 @@ class UpdateRun(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,7 +379,6 @@ class UpdateRun(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01, 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-04-30, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -396,24 +394,24 @@ class UpdateRun(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_execution_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'UpdateRunPropertiesState']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepArgs', 'StepArgsDict']]]]] = None,
-                 time_started: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_run_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_execution_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UpdateRunPropertiesState']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StepArgs', 'StepArgsDict']]]]] = None,
+                 time_started: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

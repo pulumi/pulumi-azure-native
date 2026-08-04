@@ -124,11 +124,11 @@ export interface ProtectionContainerArgs {
     /**
      * Name of the container to be registered.
      */
-    containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * Fabric name associated with the container.
      */
@@ -136,11 +136,11 @@ export interface ProtectionContainerArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * ProtectionContainerResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.AzureBackupServerContainerArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMContainerArgs | inputs.recoveryservices.AzureIaaSComputeVMContainerArgs | inputs.recoveryservices.AzureSQLAGWorkloadContainerProtectionContainerArgs | inputs.recoveryservices.AzureSqlContainerArgs | inputs.recoveryservices.AzureStorageContainerArgs | inputs.recoveryservices.AzureVMAppContainerProtectionContainerArgs | inputs.recoveryservices.AzureWorkloadContainerArgs | inputs.recoveryservices.DpmContainerArgs | inputs.recoveryservices.GenericContainerArgs | inputs.recoveryservices.IaaSVMContainerArgs | inputs.recoveryservices.MabContainerArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.AzureBackupServerContainerArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMContainerArgs | inputs.recoveryservices.AzureIaaSComputeVMContainerArgs | inputs.recoveryservices.AzureSQLAGWorkloadContainerProtectionContainerArgs | inputs.recoveryservices.AzureSqlContainerArgs | inputs.recoveryservices.AzureStorageContainerArgs | inputs.recoveryservices.AzureVMAppContainerProtectionContainerArgs | inputs.recoveryservices.AzureWorkloadContainerArgs | inputs.recoveryservices.DpmContainerArgs | inputs.recoveryservices.GenericContainerArgs | inputs.recoveryservices.IaaSVMContainerArgs | inputs.recoveryservices.MabContainerArgs | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -148,7 +148,7 @@ export interface ProtectionContainerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the recovery services vault.
      */

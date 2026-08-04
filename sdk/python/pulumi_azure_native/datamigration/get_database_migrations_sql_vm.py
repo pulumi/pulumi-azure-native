@@ -123,7 +123,6 @@ def get_database_migrations_sql_vm(expand: Optional[_builtins.str] = None,
 
     Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-
     :param _builtins.str expand: Complete migration details be included in the response.
     :param _builtins.str migration_operation_id: Optional migration operation ID. If this is provided, then details of migration operation for that ID are retrieved. If not provided (default), then details related to most recent or current operation are retrieved.
     :param _builtins.str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -145,11 +144,11 @@ def get_database_migrations_sql_vm(expand: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_migrations_sql_vm_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          migration_operation_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          sql_virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          target_db_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_migrations_sql_vm_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          migration_operation_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          sql_virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          target_db_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationsSqlVmResult]:
     """
     Retrieve the specified database migration for a given SQL VM.
@@ -157,7 +156,6 @@ def get_database_migrations_sql_vm_output(expand: Optional[pulumi.Input[Optional
     Uses Azure REST API version 2025-06-30.
 
     Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
 
     :param _builtins.str expand: Complete migration details be included in the response.
     :param _builtins.str migration_operation_id: Optional migration operation ID. If this is provided, then details of migration operation for that ID are retrieved. If not provided (default), then details related to most recent or current operation are retrieved.

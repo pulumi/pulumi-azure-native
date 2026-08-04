@@ -18,10 +18,10 @@ from ._enums import *
 __all__ = [
     'ContactParametersContactProfile',
     'ContactParametersContactProfileDict',
-    'ContactProfileLinkChannelArgs',
-    'ContactProfileLinkChannelArgsDict',
     'ContactProfileLinkArgs',
     'ContactProfileLinkArgsDict',
+    'ContactProfileLinkChannelArgs',
+    'ContactProfileLinkChannelArgsDict',
     'ContactProfileThirdPartyConfigurationArgs',
     'ContactProfileThirdPartyConfigurationArgsDict',
     'ContactProfilesPropertiesNetworkConfigurationArgs',
@@ -38,10 +38,10 @@ __all__ = [
     'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict',
     'L2ConnectionsPropertiesEdgeSiteArgs',
     'L2ConnectionsPropertiesEdgeSiteArgsDict',
-    'L2ConnectionsPropertiesGroundStationPartnerRouterArgs',
-    'L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict',
     'L2ConnectionsPropertiesGroundStationArgs',
     'L2ConnectionsPropertiesGroundStationArgsDict',
+    'L2ConnectionsPropertiesGroundStationPartnerRouterArgs',
+    'L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
     'SpacecraftLinkArgs',
@@ -81,6 +81,136 @@ class ContactParametersContactProfile:
         pulumi.set(self, "id", value)
 
 
+class ContactProfileLinkArgsDict(TypedDict):
+    """
+    Contact Profile Link.
+    """
+    channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgsDict']]]
+    """
+    Contact Profile Link Channel.
+    """
+    direction: pulumi.Input[Union[_builtins.str, 'Direction']]
+    """
+    Direction (Uplink or Downlink).
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Link name.
+    """
+    polarization: pulumi.Input[Union[_builtins.str, 'Polarization']]
+    """
+    Polarization. e.g. (RHCP, LHCP).
+    """
+    eirpd_bw: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
+    """
+    gain_over_temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
+    """
+
+@pulumi.input_type
+class ContactProfileLinkArgs:
+    def __init__(__self__, *,
+                 channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]],
+                 direction: pulumi.Input[Union[_builtins.str, 'Direction']],
+                 name: pulumi.Input[_builtins.str],
+                 polarization: pulumi.Input[Union[_builtins.str, 'Polarization']],
+                 eirpd_bw: pulumi.Input[Optional[_builtins.float]] = None,
+                 gain_over_temperature: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        Contact Profile Link.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: Contact Profile Link Channel.
+        :param pulumi.Input[Union[_builtins.str, 'Direction']] direction: Direction (Uplink or Downlink).
+        :param pulumi.Input[_builtins.str] name: Link name.
+        :param pulumi.Input[Union[_builtins.str, 'Polarization']] polarization: Polarization. e.g. (RHCP, LHCP).
+        :param pulumi.Input[_builtins.float] eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
+        :param pulumi.Input[_builtins.float] gain_over_temperature: Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
+        """
+        pulumi.set(__self__, "channels", channels)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "polarization", polarization)
+        if eirpd_bw is not None:
+            pulumi.set(__self__, "eirpd_bw", eirpd_bw)
+        if gain_over_temperature is not None:
+            pulumi.set(__self__, "gain_over_temperature", gain_over_temperature)
+
+    @_builtins.property
+    @pulumi.getter
+    def channels(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]:
+        """
+        Contact Profile Link Channel.
+        """
+        return pulumi.get(self, "channels")
+
+    @channels.setter
+    def channels(self, value: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]):
+        pulumi.set(self, "channels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> pulumi.Input[Union[_builtins.str, 'Direction']]:
+        """
+        Direction (Uplink or Downlink).
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: pulumi.Input[Union[_builtins.str, 'Direction']]):
+        pulumi.set(self, "direction", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Link name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def polarization(self) -> pulumi.Input[Union[_builtins.str, 'Polarization']]:
+        """
+        Polarization. e.g. (RHCP, LHCP).
+        """
+        return pulumi.get(self, "polarization")
+
+    @polarization.setter
+    def polarization(self, value: pulumi.Input[Union[_builtins.str, 'Polarization']]):
+        pulumi.set(self, "polarization", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eirpdBW")
+    def eirpd_bw(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
+        """
+        return pulumi.get(self, "eirpd_bw")
+
+    @eirpd_bw.setter
+    def eirpd_bw(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "eirpd_bw", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gainOverTemperature")
+    def gain_over_temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
+        """
+        return pulumi.get(self, "gain_over_temperature")
+
+    @gain_over_temperature.setter
+    def gain_over_temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "gain_over_temperature", value)
+
+
 class ContactProfileLinkChannelArgsDict(TypedDict):
     """
     Contact Profile Link Channel.
@@ -101,19 +231,19 @@ class ContactProfileLinkChannelArgsDict(TypedDict):
     """
     Channel name.
     """
-    decoding_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    decoding_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Currently unused.
     """
-    demodulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    demodulation_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
     """
-    encoding_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    encoding_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Currently unused.
     """
-    modulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    modulation_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
     """
@@ -125,10 +255,10 @@ class ContactProfileLinkChannelArgs:
                  center_frequency_m_hz: pulumi.Input[_builtins.float],
                  end_point: pulumi.Input['EndPointArgs'],
                  name: pulumi.Input[_builtins.str],
-                 decoding_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 demodulation_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 modulation_configuration: Optional[pulumi.Input[_builtins.str]] = None):
+                 decoding_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 demodulation_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 modulation_configuration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contact Profile Link Channel.
 
@@ -204,181 +334,51 @@ class ContactProfileLinkChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="decodingConfiguration")
-    def decoding_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def decoding_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Currently unused.
         """
         return pulumi.get(self, "decoding_configuration")
 
     @decoding_configuration.setter
-    def decoding_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def decoding_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "decoding_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="demodulationConfiguration")
-    def demodulation_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def demodulation_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         """
         return pulumi.get(self, "demodulation_configuration")
 
     @demodulation_configuration.setter
-    def demodulation_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def demodulation_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "demodulation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="encodingConfiguration")
-    def encoding_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Currently unused.
         """
         return pulumi.get(self, "encoding_configuration")
 
     @encoding_configuration.setter
-    def encoding_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="modulationConfiguration")
-    def modulation_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modulation_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
         return pulumi.get(self, "modulation_configuration")
 
     @modulation_configuration.setter
-    def modulation_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modulation_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modulation_configuration", value)
-
-
-class ContactProfileLinkArgsDict(TypedDict):
-    """
-    Contact Profile Link.
-    """
-    channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgsDict']]]
-    """
-    Contact Profile Link Channel.
-    """
-    direction: pulumi.Input[Union[_builtins.str, 'Direction']]
-    """
-    Direction (Uplink or Downlink).
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Link name.
-    """
-    polarization: pulumi.Input[Union[_builtins.str, 'Polarization']]
-    """
-    Polarization. e.g. (RHCP, LHCP).
-    """
-    eirpd_bw: NotRequired[pulumi.Input[_builtins.float]]
-    """
-    Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
-    """
-    gain_over_temperature: NotRequired[pulumi.Input[_builtins.float]]
-    """
-    Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
-    """
-
-@pulumi.input_type
-class ContactProfileLinkArgs:
-    def __init__(__self__, *,
-                 channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]],
-                 direction: pulumi.Input[Union[_builtins.str, 'Direction']],
-                 name: pulumi.Input[_builtins.str],
-                 polarization: pulumi.Input[Union[_builtins.str, 'Polarization']],
-                 eirpd_bw: Optional[pulumi.Input[_builtins.float]] = None,
-                 gain_over_temperature: Optional[pulumi.Input[_builtins.float]] = None):
-        """
-        Contact Profile Link.
-
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: Contact Profile Link Channel.
-        :param pulumi.Input[Union[_builtins.str, 'Direction']] direction: Direction (Uplink or Downlink).
-        :param pulumi.Input[_builtins.str] name: Link name.
-        :param pulumi.Input[Union[_builtins.str, 'Polarization']] polarization: Polarization. e.g. (RHCP, LHCP).
-        :param pulumi.Input[_builtins.float] eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
-        :param pulumi.Input[_builtins.float] gain_over_temperature: Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
-        """
-        pulumi.set(__self__, "channels", channels)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "polarization", polarization)
-        if eirpd_bw is not None:
-            pulumi.set(__self__, "eirpd_bw", eirpd_bw)
-        if gain_over_temperature is not None:
-            pulumi.set(__self__, "gain_over_temperature", gain_over_temperature)
-
-    @_builtins.property
-    @pulumi.getter
-    def channels(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]:
-        """
-        Contact Profile Link Channel.
-        """
-        return pulumi.get(self, "channels")
-
-    @channels.setter
-    def channels(self, value: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]):
-        pulumi.set(self, "channels", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def direction(self) -> pulumi.Input[Union[_builtins.str, 'Direction']]:
-        """
-        Direction (Uplink or Downlink).
-        """
-        return pulumi.get(self, "direction")
-
-    @direction.setter
-    def direction(self, value: pulumi.Input[Union[_builtins.str, 'Direction']]):
-        pulumi.set(self, "direction", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Link name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def polarization(self) -> pulumi.Input[Union[_builtins.str, 'Polarization']]:
-        """
-        Polarization. e.g. (RHCP, LHCP).
-        """
-        return pulumi.get(self, "polarization")
-
-    @polarization.setter
-    def polarization(self, value: pulumi.Input[Union[_builtins.str, 'Polarization']]):
-        pulumi.set(self, "polarization", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eirpdBW")
-    def eirpd_bw(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
-        """
-        return pulumi.get(self, "eirpd_bw")
-
-    @eirpd_bw.setter
-    def eirpd_bw(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "eirpd_bw", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gainOverTemperature")
-    def gain_over_temperature(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
-        """
-        return pulumi.get(self, "gain_over_temperature")
-
-    @gain_over_temperature.setter
-    def gain_over_temperature(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "gain_over_temperature", value)
 
 
 class ContactProfileThirdPartyConfigurationArgsDict(TypedDict):
@@ -626,11 +626,11 @@ class GeoCatalogPropertiesArgsDict(TypedDict):
     """
     The details of the Microsoft Planetary Computer Pro GeoCatalog.
     """
-    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]
+    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]]
     """
     The scope of the auto-generated domain name label. If not provided, defaults to TenantReuse.
     """
-    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'CatalogTier']]]
+    tier: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'CatalogTier']]]]
     """
     Tier of the catalog. This cannot be changed after the catalog is created. If not provided, defaults to Basic.
     """
@@ -638,8 +638,8 @@ class GeoCatalogPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class GeoCatalogPropertiesArgs:
     def __init__(__self__, *,
-                 auto_generated_domain_name_label_scope: Optional[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'CatalogTier']]] = None):
+                 auto_generated_domain_name_label_scope: pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]] = None,
+                 tier: pulumi.Input[Optional[Union[_builtins.str, 'CatalogTier']]] = None):
         """
         The details of the Microsoft Planetary Computer Pro GeoCatalog.
 
@@ -657,26 +657,26 @@ class GeoCatalogPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoGeneratedDomainNameLabelScope")
-    def auto_generated_domain_name_label_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]:
+    def auto_generated_domain_name_label_scope(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]:
         """
         The scope of the auto-generated domain name label. If not provided, defaults to TenantReuse.
         """
         return pulumi.get(self, "auto_generated_domain_name_label_scope")
 
     @auto_generated_domain_name_label_scope.setter
-    def auto_generated_domain_name_label_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]):
+    def auto_generated_domain_name_label_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]):
         pulumi.set(self, "auto_generated_domain_name_label_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CatalogTier']]]:
+    def tier(self) -> pulumi.Input[Optional[Union[_builtins.str, 'CatalogTier']]]:
         """
         Tier of the catalog. This cannot be changed after the catalog is created. If not provided, defaults to Basic.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CatalogTier']]]):
+    def tier(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CatalogTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -746,39 +746,6 @@ class L2ConnectionsPropertiesEdgeSiteArgs:
         pulumi.set(self, "id", value)
 
 
-class L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict(TypedDict):
-    """
-    The name of the partner router to establish a connection to within the ground station.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
-    """
-
-@pulumi.input_type
-class L2ConnectionsPropertiesGroundStationPartnerRouterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str]):
-        """
-        The name of the partner router to establish a connection to within the ground station.
-
-        :param pulumi.Input[_builtins.str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
-        """
-        pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-
 class L2ConnectionsPropertiesGroundStationArgsDict(TypedDict):
     """
     A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
@@ -812,6 +779,39 @@ class L2ConnectionsPropertiesGroundStationArgs:
         pulumi.set(self, "id", value)
 
 
+class L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict(TypedDict):
+    """
+    The name of the partner router to establish a connection to within the ground station.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+    """
+
+@pulumi.input_type
+class L2ConnectionsPropertiesGroundStationPartnerRouterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        The name of the partner router to establish a connection to within the ground station.
+
+        :param pulumi.Input[_builtins.str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
 class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Managed service identity (system assigned and/or user assigned identities)
@@ -820,7 +820,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -829,7 +829,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -854,14 +854,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

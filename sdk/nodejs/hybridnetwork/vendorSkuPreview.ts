@@ -106,7 +106,7 @@ export interface VendorSkuPreviewArgs {
     /**
      * Preview subscription ID.
      */
-    previewSubscription?: pulumi.Input<string>;
+    previewSubscription?: pulumi.Input<string | undefined>;
     /**
      * The name of the vendor sku.
      */

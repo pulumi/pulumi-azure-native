@@ -192,7 +192,6 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
 
     Uses Azure REST API version 2021-06-01-preview.
 
-
     :param _builtins.str attached_database_configuration_name: The name of the attached database configuration.
     :param _builtins.str kusto_pool_name: The name of the Kusto pool.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -219,16 +218,15 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
         system_data=pulumi.get(__ret__, 'system_data'),
         table_level_sharing_properties=pulumi.get(__ret__, 'table_level_sharing_properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_kusto_pool_attached_database_configuration_output(attached_database_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_kusto_pool_attached_database_configuration_output(attached_database_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolAttachedDatabaseConfigurationResult]:
     """
     Returns an attached database configuration.
 
     Uses Azure REST API version 2021-06-01-preview.
-
 
     :param _builtins.str attached_database_configuration_name: The name of the attached database configuration.
     :param _builtins.str kusto_pool_name: The name of the Kusto pool.
