@@ -324,7 +324,7 @@ require (
 {{ if ne .SubmoduleName "" }}
 	github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }} {{ .Version }}
 {{ end }}
-	github.com/pulumi/pulumi/sdk/v3 v3.253.0
+	github.com/pulumi/pulumi/sdk/v3 v3.256.0
 )
 
 {{ if ne .SubmoduleName "" }}
