@@ -769,7 +769,6 @@ namespace Pulumi.AzureNative.Web
             ClientAffinityEnabled = false;
             HyperV = false;
             IsXenon = false;
-            Reserved = false;
             ScmSiteAlsoStopped = false;
         }
         public static new WebAppArgs Empty => new WebAppArgs();

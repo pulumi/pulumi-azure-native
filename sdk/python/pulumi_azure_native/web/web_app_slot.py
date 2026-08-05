@@ -194,8 +194,6 @@ class WebAppSlotArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if redundancy_mode is not None:
             pulumi.set(__self__, "redundancy_mode", redundancy_mode)
-        if reserved is None:
-            reserved = False
         if reserved is not None:
             pulumi.set(__self__, "reserved", reserved)
         if resource_config is not None:
@@ -1004,8 +1002,6 @@ class WebAppSlot(pulumi.CustomResource):
             __props__.__dict__["outbound_vnet_routing"] = outbound_vnet_routing
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["redundancy_mode"] = redundancy_mode
-            if reserved is None:
-                reserved = False
             __props__.__dict__["reserved"] = reserved
             __props__.__dict__["resource_config"] = resource_config
             if resource_group_name is None and not opts.urn:

@@ -563,13 +563,14 @@ func azureResourcePropertyDefaultValue(res resources.AzureAPIResource, property 
 // calculateChangesAndReplacements compares a property diff with the old and new inputs and the
 // previous state. It returns a list of properties that will change, and a list of properties
 // that will be replaced. In some cases, entries of the diff may not lead to any change or
-// replacement, e.g., new properties set to their default value are not considered changes.
+// replacement, e.g., new properties set to their default value are not considered changes, and
+// a ForceNew property disappearing from the program's inputs entirely (as opposed to changing to
+// a different explicit value) never forces a replace -- see the DELETE_REPLACE case below.
 func calculateChangesAndReplacements(
 	detailedDiff map[string]*rpc.PropertyDiff,
 	oldInputs, newInputs, oldState resource.PropertyMap,
-	res resources.AzureAPIResource) ([]string, []string) {
+	res resources.AzureAPIResource) (changes, replaces []string) {
 
-	var changes, replaces []string
 	for k, v := range detailedDiff {
 		switch v.Kind {
 		case rpc.PropertyDiff_ADD_REPLACE:
@@ -612,7 +613,20 @@ func calculateChangesAndReplacements(
 				}
 			}
 
-		case rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
+		case rpc.PropertyDiff_DELETE_REPLACE:
+			// Special case: the property is entirely absent from the program's inputs (not set
+			// to a different explicit value -- that's UPDATE_REPLACE, handled below), and it's
+			// marked ForceNew. Absence is Pulumi's normal signal for "no opinion about this
+			// property," and that's true regardless of what value happens to be recorded for it
+			// already (whether it's the ARM-documented default or not -- Azure's real default can
+			// depend on sibling properties like `kind` in ways the spec can't express, so we can't
+			// reliably tell which case we're in). Since the property is unmanaged either way,
+			// forcing a destructive replace here would only be justified if the user had actually
+			// asked for a different value, which they haven't.
+			logging.V(9).Infof("Skipping diff for %s, deleted ForceNew property is unmanaged, not forcing a replace", k)
+			continue
+
+		case rpc.PropertyDiff_UPDATE_REPLACE:
 			replaces = append(replaces, k)
 		}
 

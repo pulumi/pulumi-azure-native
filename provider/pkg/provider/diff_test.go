@@ -817,6 +817,99 @@ func TestChangesAndReplacements_AddedPropertyWithDefaultButDifferentValueCausesD
 	assert.Len(t, replacements, 0)
 }
 
+func TestChangesAndReplacements_DeletedForceNewPropertyNeverCausesReplace(t *testing.T) {
+	// A ForceNew property (e.g. a create-only boolean like AppServicePlan's `reserved`/`hyperV`, or
+	// WebApp's `reserved` which is `true` for Linux apps despite the spec's `default: false`)
+	// disappearing from the program's inputs entirely must never force a replace, regardless of
+	// whether its stored value happens to match the ARM-documented default or not. Absence is
+	// Pulumi's normal "no opinion" signal, and Azure's *real* default for some of these properties
+	// depends on sibling properties like `kind` in ways the spec can't express -- so matching
+	// against the (possibly wrong) declared default isn't a reliable signal either way. See
+	// issue #4447 for a case where the stored value (true) does NOT match the declared default
+	// (false), which a value-matching check alone would fail to cover.
+	//
+	// A genuine, explicit value change (i.e. the user writes a different value) is a different
+	// diff kind entirely -- UPDATE_REPLACE, covered by TestChangesAndReplacements_UpdatedForceNewPropertyCausesReplace
+	// below -- and is unaffected by this.
+	for _, oldValue := range []interface{}{false, true, "defaultvalue", "somethingelse"} {
+		t.Run(fmt.Sprintf("oldValue=%v", oldValue), func(t *testing.T) {
+			changes, replacements := calculateChangesAndReplacementsForOneDeletedForceNewProperty(t, oldValue, "defaultvalue")
+			assert.Len(t, changes, 0)
+			assert.Len(t, replacements, 0)
+		})
+	}
+}
+
+func TestChangesAndReplacements_UpdatedForceNewPropertyCausesReplace(t *testing.T) {
+	// Unlike a deletion, an explicit value change on a ForceNew property must still force a
+	// replace: the user has expressed an actual opinion about the desired value.
+	detailedDiff := map[string]*rpc.PropertyDiff{
+		"p1": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+	}
+	oldInputs := resource.PropertyMap{"p1": {V: true}}
+	newInputs := resource.PropertyMap{"p1": {V: false}}
+	oldState := resource.PropertyMap{}
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"p1": {Type: "boolean", ForceNew: true},
+					},
+				},
+			},
+		},
+	}
+
+	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	assert.Len(t, changes, 1)
+	assert.Equal(t, []string{"p1"}, replacements)
+}
+
+func calculateChangesAndReplacementsForOneDeletedForceNewProperty(
+	t *testing.T, oldValue interface{}, defaultValue interface{},
+) ([]string, []string) {
+	propertyName := "p1"
+
+	detailedDiff := map[string]*rpc.PropertyDiff{
+		propertyName: {Kind: rpc.PropertyDiff_DELETE_REPLACE},
+	}
+
+	oldInputs := resource.PropertyMap{
+		resource.PropertyKey(propertyName): {V: oldValue},
+	}
+	newInputs := resource.PropertyMap{}
+	oldState := resource.PropertyMap{}
+
+	propType := "boolean"
+	if _, ok := oldValue.(string); ok {
+		propType = "string"
+	}
+
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						propertyName: {
+							Type:     propType,
+							ForceNew: true,
+							Default:  defaultValue,
+						},
+					},
+				},
+			},
+		},
+	}
+
+	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	return changes, replacements
+}
+
 func TestChangesAndReplacements_ReduceNestedPropertiesToTopLevel(t *testing.T) {
 	detailedDiff := map[string]*rpc.PropertyDiff{
 		"agentPoolProfiles[0].count": &rpc.PropertyDiff{
@@ -886,7 +979,8 @@ func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value stri
 		},
 	}
 
-	return calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	return changes, replacements
 }
 
 func TestNormalizeAzureId(t *testing.T) {

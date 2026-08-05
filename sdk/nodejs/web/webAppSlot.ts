@@ -356,7 +356,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["outboundVnetRouting"] = args?.outboundVnetRouting;
             resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["redundancyMode"] = args?.redundancyMode;
-            resourceInputs["reserved"] = (args?.reserved) ?? false;
+            resourceInputs["reserved"] = args?.reserved;
             resourceInputs["resourceConfig"] = args?.resourceConfig;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["scmSiteAlsoStopped"] = (args?.scmSiteAlsoStopped) ?? false;
