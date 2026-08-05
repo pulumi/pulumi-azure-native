@@ -146,8 +146,17 @@ var noDefaultMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 		// https://github.com/pulumi/pulumi-azure-native/issues/4782.
 		// Both resources that embed SiteConfig are listed because the type is generated once and
 		// whichever resource's pass reaches it first fixes its shape for both.
-		"WebApp":     codegen.NewStringSet("http20ProxyFlag"),
-		"WebAppSlot": codegen.NewStringSet("http20ProxyFlag"),
+		//
+		// reserved is a real, honest create-time input (x-ms-mutability: [create, read], not
+		// readOnly) that marks a Linux app: Azure genuinely expects the caller to set it, in
+		// tandem with `kind`, when creating a Linux app. But its *correct* value depends on
+		// `kind` in a way the spec's flat `default: false` can't express, so baking that default
+		// into the generated SDK (e.g. `Reserved = false` in WebAppArgs()'s constructor) means
+		// every Linux app created without explicitly setting `reserved: true` silently sends the
+		// wrong value, and any later diff against an already-Linux resource's recorded state
+		// forces an unwanted replace. See https://github.com/pulumi/pulumi-azure-native/issues/4447.
+		"WebApp":     codegen.NewStringSet("http20ProxyFlag", "reserved"),
+		"WebAppSlot": codegen.NewStringSet("http20ProxyFlag", "reserved"),
 	},
 }
 

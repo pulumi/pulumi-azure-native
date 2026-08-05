@@ -122,10 +122,14 @@ func TestNoDefault(t *testing.T) {
 
 	assert.True(t, webApp.noDefault("http20ProxyFlag"))
 	assert.True(t, webAppSlot.noDefault("http20ProxyFlag"))
+	assert.True(t, webApp.noDefault("reserved"))
+	assert.True(t, webAppSlot.noDefault("reserved"))
 	// Sibling properties of the same type keep their spec defaults.
 	assert.False(t, webApp.noDefault("http20Enabled"))
 	assert.False(t, otherResource.noDefault("http20ProxyFlag"))
 	assert.False(t, otherModule.noDefault("http20ProxyFlag"))
+	assert.False(t, otherResource.noDefault("reserved"))
+	assert.False(t, otherModule.noDefault("reserved"))
 }
 
 func TestIsReadableOutput(t *testing.T) {

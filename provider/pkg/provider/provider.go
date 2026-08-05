@@ -1701,6 +1701,9 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		}
 		inputMap := k.converter.ResponseToSdkInputs(res.PutParameters, pathItems, response)
 		inputs = resource.NewPropertyMapFromMap(inputMap)
+		if res.APIVersion != "" {
+			inputs["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
+		}
 	} else {
 		// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
 		// We can't read inputs directly, so we calculate an approximation based on old inputs,
@@ -1750,9 +1753,18 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		// If API version changed and we couldn't find old metadata, preserve old inputs to avoid spurious diffs.
 		if oldApiVersion != "" && oldApiVersion != res.APIVersion && oldRes == nil {
 			logging.V(5).Infof("%s: API version changed but old metadata not found, preserving old inputs", label)
-			// Don't apply the diff - keep old inputs as-is since we can't reliably calculate changes
+			// Don't apply the diff - keep old inputs as-is since we can't reliably calculate changes.
+			// Also leave `azureApiVersion` untouched: we can't vouch for the rest of `inputs` being
+			// reconciled against the new schema, so don't claim the transition is resolved either.
 		} else {
 			inputs = applyDiff(inputs, diff)
+			// The projections above were computed against the correct schema for each side (old
+			// schema for old outputs, current schema for new outputs), so `inputs` is now reconciled
+			// with the current API version. Record that, otherwise a stale `azureApiVersion` left over
+			// from before this refresh keeps tripping the Diff() version-transition checks forever.
+			if res.APIVersion != "" {
+				inputs["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
+			}
 		}
 	}
 
