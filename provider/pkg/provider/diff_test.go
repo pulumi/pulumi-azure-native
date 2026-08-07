@@ -817,6 +817,39 @@ func TestChangesAndReplacements_AddedPropertyWithDefaultButDifferentValueCausesD
 	assert.Len(t, replacements, 0)
 }
 
+// Same as TestChangesAndReplacements_AddedPropertyWithDefaultCausesNoDiff, but for a ForceNew
+// property (ADD_REPLACE instead of ADD) with no prior output either -- the branch that had its
+// `continue` dropped by mistake while fixing the DELETE_REPLACE case below.
+func TestChangesAndReplacements_AddedForceNewPropertyWithDefaultCausesNoDiff(t *testing.T) {
+	propertyName := "p1"
+	detailedDiff := map[string]*rpc.PropertyDiff{
+		propertyName: {Kind: rpc.PropertyDiff_ADD_REPLACE},
+	}
+	oldInputs := resource.PropertyMap{}
+	newInputs := resource.PropertyMap{
+		resource.PropertyKey(propertyName): {V: "defaultvalue"},
+	}
+	oldState := resource.PropertyMap{}
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						propertyName: {Type: "string", ForceNew: true, Default: "defaultvalue"},
+					},
+				},
+			},
+		},
+	}
+
+	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	assert.Len(t, changes, 0)
+	assert.Len(t, replacements, 0)
+	assert.Equal(t, rpc.PropertyDiff_ADD, detailedDiff[propertyName].Kind)
+}
+
 func TestChangesAndReplacements_DeletedForceNewPropertyNeverCausesReplace(t *testing.T) {
 	// A ForceNew property (e.g. a create-only boolean like AppServicePlan's `reserved`/`hyperV`, or
 	// WebApp's `reserved` which is `true` for Linux apps despite the spec's `default: false`)

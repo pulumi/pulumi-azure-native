@@ -592,6 +592,7 @@ func calculateChangesAndReplacements(
 				if found && propertyDefault != nil && reflect.DeepEqual(newInputValue.V, propertyDefault) {
 					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue.V)
 					v.Kind = rpc.PropertyDiff_ADD
+					continue
 				} else {
 					replaces = append(replaces, k)
 				}
