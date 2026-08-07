@@ -514,8 +514,14 @@ func swaggerLocations(specsDir, namespace, apiVersions string) ([]string, error)
 		return nil, err
 	}
 
+	pattern4 := filepath.Join(specsDir, "specification", "*", "resource-manager", "PaloAltoNetworks."+namespace, "*", "*", apiVersions, "*.json")
+	files4, err := filepath.Glob(pattern4)
+	if err != nil {
+		return nil, err
+	}
+
 	fileSet := codegen.NewStringSet()
-	for _, file := range append(append(files, files2...), files3...) {
+	for _, file := range append(append(append(files, files2...), files3...), files4...) {
 		// In December 2022, Azure started authoring some API specs in https://github.com/microsoft/cadl.
 		// pattern2 above matches some of these folders, like
 		// voiceservices/resource-manager/Microsoft.VoiceServices/cadl/examples/2023-01-31, so we exclude them.
@@ -545,7 +551,7 @@ var excludeRegexes = []*regexp.Regexp{
 	// This version defines two "CustomRule" types so we ignore it.
 	regexp.MustCompile(".*cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-05-01-preview.*"),
 	// Includes a type with an invalid reference.
-	regexp.MustCompile(".*azurearcdata/resource-manager/Microsoft.AzureArcData/preview/2025-06-01-preview.*"),
+	regexp.MustCompile(".*azurearcdata/resource-manager/Microsoft.AzureArcData/AzureArcData/preview/2025-06-01-preview.*"),
 }
 
 func exclude(filePath string) bool {
