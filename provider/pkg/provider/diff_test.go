@@ -817,6 +817,39 @@ func TestChangesAndReplacements_AddedPropertyWithDefaultButDifferentValueCausesD
 	assert.Len(t, replacements, 0)
 }
 
+// Same as TestChangesAndReplacements_AddedPropertyWithDefaultCausesNoDiff, but for a ForceNew
+// property (ADD_REPLACE instead of ADD) with no prior output either -- the branch that had its
+// `continue` dropped by mistake while fixing the DELETE_REPLACE case below.
+func TestChangesAndReplacements_AddedForceNewPropertyWithDefaultCausesNoDiff(t *testing.T) {
+	propertyName := "p1"
+	detailedDiff := map[string]*rpc.PropertyDiff{
+		propertyName: {Kind: rpc.PropertyDiff_ADD_REPLACE},
+	}
+	oldInputs := resource.PropertyMap{}
+	newInputs := resource.PropertyMap{
+		resource.PropertyKey(propertyName): {V: "defaultvalue"},
+	}
+	oldState := resource.PropertyMap{}
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						propertyName: {Type: "string", ForceNew: true, Default: "defaultvalue"},
+					},
+				},
+			},
+		},
+	}
+
+	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	assert.Len(t, changes, 0)
+	assert.Len(t, replacements, 0)
+	assert.Equal(t, rpc.PropertyDiff_ADD, detailedDiff[propertyName].Kind)
+}
+
 func TestChangesAndReplacements_DeletedForceNewPropertyNeverCausesReplace(t *testing.T) {
 	// A ForceNew property (e.g. a create-only boolean like AppServicePlan's `reserved`/`hyperV`, or
 	// WebApp's `reserved` which is `true` for Linux apps despite the spec's `default: false`)
@@ -833,9 +866,13 @@ func TestChangesAndReplacements_DeletedForceNewPropertyNeverCausesReplace(t *tes
 	// below -- and is unaffected by this.
 	for _, oldValue := range []interface{}{false, true, "defaultvalue", "somethingelse"} {
 		t.Run(fmt.Sprintf("oldValue=%v", oldValue), func(t *testing.T) {
-			changes, replacements := calculateChangesAndReplacementsForOneDeletedForceNewProperty(t, oldValue, "defaultvalue")
+			changes, replacements, detailedDiff := calculateChangesAndReplacementsForOneDeletedForceNewProperty(t, oldValue, "defaultvalue")
 			assert.Len(t, changes, 0)
 			assert.Len(t, replacements, 0)
+
+			// DiffResult.Replace() checks DetailedDiff before Replaces, so this must be
+			// downgraded too, not just excluded from `replacements`.
+			assert.Equal(t, rpc.PropertyDiff_DELETE, detailedDiff["p1"].Kind)
 		})
 	}
 }
@@ -870,7 +907,7 @@ func TestChangesAndReplacements_UpdatedForceNewPropertyCausesReplace(t *testing.
 
 func calculateChangesAndReplacementsForOneDeletedForceNewProperty(
 	t *testing.T, oldValue interface{}, defaultValue interface{},
-) ([]string, []string) {
+) ([]string, []string, map[string]*rpc.PropertyDiff) {
 	propertyName := "p1"
 
 	detailedDiff := map[string]*rpc.PropertyDiff{
@@ -907,7 +944,7 @@ func calculateChangesAndReplacementsForOneDeletedForceNewProperty(
 	}
 
 	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
-	return changes, replacements
+	return changes, replacements, detailedDiff
 }
 
 func TestChangesAndReplacements_ReduceNestedPropertiesToTopLevel(t *testing.T) {
@@ -944,6 +981,57 @@ func TestChangesAndReplacements_ReduceNestedPropertiesToTopLevel(t *testing.T) {
 	assert.Len(t, changes, 1)
 	assert.Equal(t, "agentPoolProfiles", changes[0])
 	assert.Empty(t, replacements)
+}
+
+// Same as above but through the full calculateDetailedDiff -> calculateChangesAndReplacements
+// pipeline, for a ForceNew property nested inside an object (e.g. WebApp's siteConfig.vnetName).
+func TestChangesAndReplacements_DeletedNestedForceNewPropertyNeverCausesReplace(t *testing.T) {
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"siteConfig": {Ref: "#/types/SiteConfig"},
+					},
+				},
+			},
+		},
+	}
+	lookupType := func(t string) (*resources.AzureAPIType, bool, error) {
+		return &resources.AzureAPIType{
+			Properties: map[string]resources.AzureAPIProperty{
+				"linuxFxVersion": {},
+				"vnetName":       {ForceNew: true},
+			},
+		}, true, nil
+	}
+
+	diff := resource.ObjectDiff{
+		Updates: map[resource.PropertyKey]resource.ValueDiff{
+			"siteConfig": {
+				Object: &resource.ObjectDiff{
+					Deletes: resource.PropertyMap{
+						"vnetName": {V: ""},
+					},
+				},
+			},
+		},
+	}
+	detailedDiff := calculateDetailedDiff(&res, lookupType, &diff)
+	require.Equal(t, rpc.PropertyDiff_DELETE_REPLACE, detailedDiff["siteConfig.vnetName"].Kind)
+
+	oldInputs := resource.PropertyMap{
+		"siteConfig": {V: resource.PropertyMap{"vnetName": {V: ""}}},
+	}
+	newInputs := resource.PropertyMap{}
+	oldState := resource.PropertyMap{}
+
+	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	assert.Len(t, replacements, 0)
+	assert.Len(t, changes, 0)
+	assert.Equal(t, rpc.PropertyDiff_DELETE, detailedDiff["siteConfig.vnetName"].Kind)
 }
 
 func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value string, defaultValue interface{}) ([]string, []string) {
