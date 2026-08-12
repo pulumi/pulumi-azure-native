@@ -591,6 +591,7 @@ func calculateChangesAndReplacements(
 				propertyDefault, found := azureResourcePropertyDefaultValue(res, k)
 				if found && propertyDefault != nil && reflect.DeepEqual(newInputValue.V, propertyDefault) {
 					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue.V)
+					v.Kind = rpc.PropertyDiff_ADD
 					continue
 				} else {
 					replaces = append(replaces, k)
@@ -624,6 +625,7 @@ func calculateChangesAndReplacements(
 			// forcing a destructive replace here would only be justified if the user had actually
 			// asked for a different value, which they haven't.
 			logging.V(9).Infof("Skipping diff for %s, deleted ForceNew property is unmanaged, not forcing a replace", k)
+			v.Kind = rpc.PropertyDiff_DELETE
 			continue
 
 		case rpc.PropertyDiff_UPDATE_REPLACE:

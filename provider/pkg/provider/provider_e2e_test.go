@@ -318,6 +318,9 @@ func TestAzidentity(t *testing.T) {
 	})
 
 	t.Run("SP_clientcert", func(t *testing.T) {
+		// TOD pulumi/pulumi-azure-native#4765
+		t.Skip("Skipping SP test with client certificate until we can get a valid cert for CI")
+
 		certPath := os.Getenv("ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
 		if certPath == "" {
 			if os.Getenv("CI") != "" {
