@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// 
     /// Uses Azure REST API version 2026-03-01-preview.
     /// 
-    /// Other available API versions: 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2026-03-15, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AiGateway")]
     public partial class AiGateway : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Web
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20260301preview:AiGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20260315:AiGateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20260715:AiGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetTenantActionGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The management group id.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public string ManagementGroupId { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetTenantActionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The management group id.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
@@ -102,15 +102,15 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string GroupShortName;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -118,11 +118,15 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly ImmutableArray<Outputs.SmsReceiverResponse> SmsReceivers;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Monitor
 
             ImmutableArray<Outputs.SmsReceiverResponse> smsReceivers,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.Monitor
             Location = location;
             Name = name;
             SmsReceivers = smsReceivers;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VoiceReceivers = voiceReceivers;

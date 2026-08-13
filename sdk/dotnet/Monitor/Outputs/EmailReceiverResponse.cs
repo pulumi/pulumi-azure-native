@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// </summary>
         public readonly string EmailAddress;
         /// <summary>
-        /// The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        /// The name of the email receiver. Names must be unique across all receivers within an action group.
         /// </summary>
         public readonly string Name;
         /// <summary>

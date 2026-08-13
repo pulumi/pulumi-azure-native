@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ConnectedCache
     /// 
     /// Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-11-30-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedcache:EnterpriseMccCacheNodesOperation")]
     public partial class EnterpriseMccCacheNodesOperation : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.ConnectedCache
                 {
                     new global::Pulumi.Alias { Type = "azure-native:connectedcache/v20230501preview:EnterpriseMccCacheNodesOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedcache/v20241130preview:EnterpriseMccCacheNodesOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedcache/v20260601:EnterpriseMccCacheNodesOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

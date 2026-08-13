@@ -18,7 +18,7 @@ export const AutoUpdateRingType = {
 } as const;
 
 /**
- * Auto Update Ring Type which is slow or fast etc.
+ * Auto Update Ring Type which is stable or beta as new values. slow or fast are legacy from version 2026-06-01.
  */
 export type AutoUpdateRingType = (typeof AutoUpdateRingType)[keyof typeof AutoUpdateRingType];
 

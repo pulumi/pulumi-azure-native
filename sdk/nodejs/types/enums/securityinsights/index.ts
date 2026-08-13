@@ -568,11 +568,29 @@ export const ConditionType = {
 export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
 export const ContentType = {
+    /**
+     * AnalyticsRule
+     */
     AnalyticsRule: "AnalyticsRule",
+    /**
+     * AutomationRule
+     */
     AutomationRule: "AutomationRule",
+    /**
+     * HuntingQuery
+     */
     HuntingQuery: "HuntingQuery",
+    /**
+     * Parser
+     */
     Parser: "Parser",
+    /**
+     * Playbook
+     */
     Playbook: "Playbook",
+    /**
+     * Workbook
+     */
     Workbook: "Workbook",
 } as const;
 
@@ -1175,7 +1193,13 @@ export const ProviderPermissionsScope = {
 export type ProviderPermissionsScope = (typeof ProviderPermissionsScope)[keyof typeof ProviderPermissionsScope];
 
 export const RepoType = {
+    /**
+     * Github
+     */
     Github: "Github",
+    /**
+     * AzureDevOps
+     */
     AzureDevOps: "AzureDevOps",
 } as const;
 
@@ -1185,8 +1209,17 @@ export const RepoType = {
 export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
 export const RepositoryAccessKind = {
+    /**
+     * OAuth
+     */
     OAuth: "OAuth",
+    /**
+     * PAT
+     */
     PAT: "PAT",
+    /**
+     * App
+     */
     App: "App",
 } as const;
 

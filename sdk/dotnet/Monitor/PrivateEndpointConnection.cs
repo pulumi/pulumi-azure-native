@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Monitor
 {
     /// <summary>
-    /// The Private Endpoint Connection resource.
+    /// The private endpoint connection resource.
     /// 
     /// Uses Azure REST API version 2023-06-01-preview.
     /// 
@@ -26,13 +26,19 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
@@ -119,7 +125,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource
+        /// The name of the private endpoint connection associated with the Azure resource.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }

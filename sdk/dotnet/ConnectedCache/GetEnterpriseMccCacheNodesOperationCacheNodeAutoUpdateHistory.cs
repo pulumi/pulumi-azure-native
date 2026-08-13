@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// This api gets ispCacheNode resource auto update histrory information
         /// 
         /// Uses Azure REST API version 2024-11-30-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryResult> InvokeAsync(GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryResult>("azure-native:connectedcache:getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory", args ?? new GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// This api gets ispCacheNode resource auto update histrory information
         /// 
         /// Uses Azure REST API version 2024-11-30-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryResult> Invoke(GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryResult>("azure-native:connectedcache:getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory", args ?? new GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// This api gets ispCacheNode resource auto update histrory information
         /// 
         /// Uses Azure REST API version 2024-11-30-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryResult> Invoke(GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryResult>("azure-native:connectedcache:getEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistory", args ?? new GetEnterpriseMccCacheNodesOperationCacheNodeAutoUpdateHistoryInvokeArgs(), options.WithDefaults());

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-09-01-preview.
  *
- * Other available API versions: 2025-12-15-preview, 2026-01-15-preview, 2026-03-15-preview, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-12-15-preview, 2026-01-15-preview, 2026-03-15-preview, 2026-04-15-preview, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ElasticCapacityPool extends pulumi.CustomResource {
     /**
@@ -119,7 +119,7 @@ export class ElasticCapacityPool extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20250901preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20251215preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20260115preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20260315preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20260415preview:ElasticCapacityPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20250901preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20251215preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20260115preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20260315preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20260415preview:ElasticCapacityPool" }, { type: "azure-native:netapp/v20260515preview:ElasticCapacityPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticCapacityPool.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
     /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
     /// </summary>
     [OutputType]
-    public sealed class MetricSettingsResponse
+    public sealed class DiagnosticsMetricSettingsResponse
     {
         /// <summary>
         /// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         public readonly string? TimeGrain;
 
         [OutputConstructor]
-        private MetricSettingsResponse(
+        private DiagnosticsMetricSettingsResponse(
             string? category,
 
             bool enabled,

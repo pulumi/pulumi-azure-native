@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     /// 
     /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview, 2026-07-01, 2026-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:NGroup")]
     public partial class NGroup : global::Pulumi.CustomResource
@@ -126,6 +126,8 @@ namespace Pulumi.AzureNative.ContainerInstance
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:NGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20250901:NGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20260601preview:NGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20260701:NGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20260801preview:NGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

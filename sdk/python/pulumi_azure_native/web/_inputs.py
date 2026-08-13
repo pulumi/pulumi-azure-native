@@ -6342,7 +6342,7 @@ class FunctionsScaleAndConcurrencyArgsDict(TypedDict):
     """
     maximum_instance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of instances for the function app.
+    The maximum number of on demand instances per function group.
     """
     triggers: NotRequired[pulumi.Input[Optional['FunctionsScaleAndConcurrencyTriggersArgsDict']]]
     """
@@ -6361,7 +6361,7 @@ class FunctionsScaleAndConcurrencyArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]] always_ready: 'Always Ready' configuration for the function app.
         :param pulumi.Input[_builtins.int] instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
-        :param pulumi.Input[_builtins.int] maximum_instance_count: The maximum number of instances for the function app.
+        :param pulumi.Input[_builtins.int] maximum_instance_count: The maximum number of on demand instances per function group.
         :param pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs'] triggers: Scale and concurrency settings for the function app triggers.
         """
         if always_ready is not None:
@@ -6401,7 +6401,7 @@ class FunctionsScaleAndConcurrencyArgs:
     @pulumi.getter(name="maximumInstanceCount")
     def maximum_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of instances for the function app.
+        The maximum number of on demand instances per function group.
         """
         return pulumi.get(self, "maximum_instance_count")
 

@@ -274,7 +274,7 @@ def get_fleet(fleet_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2024-05-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-05-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str fleet_name: The name of the Compute Fleet
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -313,7 +313,7 @@ def get_fleet_output(fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
 
     Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2024-05-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-05-01-preview, 2026-04-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str fleet_name: The name of the Compute Fleet
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -27,10 +27,21 @@ class ListDiagnosticSettingsCategoryResult:
     """
     Represents a collection of diagnostic setting category resources.
     """
-    def __init__(__self__, value=None):
+    def __init__(__self__, next_link=None, value=None):
+        if next_link and not isinstance(next_link, str):
+            raise TypeError("Expected argument 'next_link' to be a str")
+        pulumi.set(__self__, "next_link", next_link)
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
         pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[_builtins.str]:
+        """
+        The URL to get the next set of results.
+        """
+        return pulumi.get(self, "next_link")
 
     @_builtins.property
     @pulumi.getter
@@ -47,6 +58,7 @@ class AwaitableListDiagnosticSettingsCategoryResult(ListDiagnosticSettingsCatego
         if False:
             yield self
         return ListDiagnosticSettingsCategoryResult(
+            next_link=self.next_link,
             value=self.value)
 
 
@@ -57,7 +69,7 @@ def list_diagnostic_settings_category(resource_uri: Optional[_builtins.str] = No
 
     Uses Azure REST API version 2021-05-01-preview.
 
-    :param _builtins.str resource_uri: The identifier of the resource.
+    :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
@@ -65,6 +77,7 @@ def list_diagnostic_settings_category(resource_uri: Optional[_builtins.str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:monitor:listDiagnosticSettingsCategory', __args__, opts=opts, typ=ListDiagnosticSettingsCategoryResult).value
 
     return AwaitableListDiagnosticSettingsCategoryResult(
+        next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
 def list_diagnostic_settings_category_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDiagnosticSettingsCategoryResult]:
@@ -73,11 +86,12 @@ def list_diagnostic_settings_category_output(resource_uri: pulumi.Input[Optional
 
     Uses Azure REST API version 2021-05-01-preview.
 
-    :param _builtins.str resource_uri: The identifier of the resource.
+    :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:monitor:listDiagnosticSettingsCategory', __args__, opts=opts, typ=ListDiagnosticSettingsCategoryResult)
     return __ret__.apply(lambda __response__: ListDiagnosticSettingsCategoryResult(
+        next_link=pulumi.get(__response__, 'next_link'),
         value=pulumi.get(__response__, 'value')))

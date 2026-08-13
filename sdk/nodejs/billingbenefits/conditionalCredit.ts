@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-05-01-preview.
  *
- * Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-12-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConditionalCredit extends pulumi.CustomResource {
     /**
@@ -139,7 +139,7 @@ export class ConditionalCredit extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billingbenefits/v20250501preview:ConditionalCredit" }, { type: "azure-native:billingbenefits/v20251201preview:ConditionalCredit" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billingbenefits/v20250501preview:ConditionalCredit" }, { type: "azure-native:billingbenefits/v20251201preview:ConditionalCredit" }, { type: "azure-native:billingbenefits/v20260601:ConditionalCredit" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConditionalCredit.__pulumiType, name, resourceInputs, opts);
     }

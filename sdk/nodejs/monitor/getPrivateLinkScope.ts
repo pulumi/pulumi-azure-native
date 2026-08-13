@@ -46,7 +46,7 @@ export interface GetPrivateLinkScopeResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -60,7 +60,7 @@ export interface GetPrivateLinkScopeResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionPrivateLinkScopeResponse[];
+    readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionResponse[];
     /**
      * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it.
      */

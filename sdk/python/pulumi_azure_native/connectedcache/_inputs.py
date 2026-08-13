@@ -792,7 +792,7 @@ class CacheNodeEntityArgsDict(TypedDict):
     """
     auto_update_ring_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AutoUpdateRingType']]]]
     """
-    Auto Update Ring Type which is slow or fast etc.
+    Auto Update Ring Type which is stable or beta as new values. slow or fast are legacy from version 2026-06-01.
     """
     cache_node_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -878,7 +878,7 @@ class CacheNodeEntityArgs:
         :param pulumi.Input[_builtins.int] auto_update_requested_day: Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
         :param pulumi.Input[_builtins.str] auto_update_requested_time: Customer requested time of the day for mcc install of auto update cycle, should be hh:mm
         :param pulumi.Input[_builtins.int] auto_update_requested_week: Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
-        :param pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']] auto_update_ring_type: Auto Update Ring Type which is slow or fast etc.
+        :param pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']] auto_update_ring_type: Auto Update Ring Type which is stable or beta as new values. slow or fast are legacy from version 2026-06-01.
         :param pulumi.Input[_builtins.str] cache_node_id: Cache node resource identifier of the cache node
         :param pulumi.Input[_builtins.str] cache_node_name: Cache node resource name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_csv: Cache node resource comma separated values of Cidrs.
@@ -971,7 +971,7 @@ class CacheNodeEntityArgs:
     @pulumi.getter(name="autoUpdateRingType")
     def auto_update_ring_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutoUpdateRingType']]]:
         """
-        Auto Update Ring Type which is slow or fast etc.
+        Auto Update Ring Type which is stable or beta as new values. slow or fast are legacy from version 2026-06-01.
         """
         return pulumi.get(self, "auto_update_ring_type")
 

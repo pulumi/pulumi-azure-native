@@ -330,6 +330,12 @@ ContainerInstance:
         - modulename: ContainerInstance
           resourcename: NGroup
           detail: version 2026-06-01-preview is greater than 2024-11-01-preview
+        - modulename: ContainerInstance
+          resourcename: NGroup
+          detail: version 2026-07-01 is greater than 2024-11-01-preview
+        - modulename: ContainerInstance
+          resourcename: NGroup
+          detail: version 2026-08-01-preview is greater than 2024-11-01-preview
 ContainerRegistry:
     additions:
         AgentPool: 2019-06-01-preview
@@ -1666,6 +1672,7 @@ Security:
         Assignment: 2021-08-01-preview
         Automation: 2023-12-01-preview
         CustomRecommendation: "2024-08-01"
+        DataScanner: "2026-08-01"
         DefenderForStorage: 2024-10-01-preview
         DevOpsConfiguration: "2024-04-01"
         DeviceSecurityGroup: "2019-08-01"

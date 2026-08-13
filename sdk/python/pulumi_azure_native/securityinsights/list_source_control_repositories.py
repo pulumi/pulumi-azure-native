@@ -40,7 +40,7 @@ class ListSourceControlRepositoriesResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> _builtins.str:
         """
-        URL to fetch the next set of repositories.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
@@ -48,7 +48,7 @@ class ListSourceControlRepositoriesResult:
     @pulumi.getter
     def value(self) -> Sequence['outputs.RepoResponse']:
         """
-        Array of repositories.
+        The Repo items on this page
         """
         return pulumi.get(self, "value")
 
@@ -77,7 +77,7 @@ def list_source_control_repositories(client_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str client_id: OAuth ClientId. Required when `kind` is `OAuth`
     :param _builtins.str code: OAuth Code. Required when `kind` is `OAuth`
@@ -117,7 +117,7 @@ def list_source_control_repositories_output(client_id: pulumi.Input[Optional[Opt
 
     Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str client_id: OAuth ClientId. Required when `kind` is `OAuth`
     :param _builtins.str code: OAuth Code. Required when `kind` is `OAuth`

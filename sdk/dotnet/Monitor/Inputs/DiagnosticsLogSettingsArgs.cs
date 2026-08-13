@@ -7,46 +7,41 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Monitor.Outputs
+namespace Pulumi.AzureNative.Monitor.Inputs
 {
 
     /// <summary>
     /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
     /// </summary>
-    [OutputType]
-    public sealed class LogSettingsResponse
+    public sealed class DiagnosticsLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         /// </summary>
-        public readonly string? Category;
+        [Input("category")]
+        public Input<string>? Category { get; set; }
+
         /// <summary>
         /// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         /// </summary>
-        public readonly string? CategoryGroup;
+        [Input("categoryGroup")]
+        public Input<string>? CategoryGroup { get; set; }
+
         /// <summary>
         /// a value indicating whether this log is enabled.
         /// </summary>
-        public readonly bool Enabled;
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
         /// <summary>
         /// the retention policy for this log.
         /// </summary>
-        public readonly Outputs.RetentionPolicyResponse? RetentionPolicy;
+        [Input("retentionPolicy")]
+        public Input<Inputs.MicrosoftCommonRetentionPolicyArgs>? RetentionPolicy { get; set; }
 
-        [OutputConstructor]
-        private LogSettingsResponse(
-            string? category,
-
-            string? categoryGroup,
-
-            bool enabled,
-
-            Outputs.RetentionPolicyResponse? retentionPolicy)
+        public DiagnosticsLogSettingsArgs()
         {
-            Category = category;
-            CategoryGroup = categoryGroup;
-            Enabled = enabled;
-            RetentionPolicy = retentionPolicy;
         }
+        public static new DiagnosticsLogSettingsArgs Empty => new DiagnosticsLogSettingsArgs();
     }
 }

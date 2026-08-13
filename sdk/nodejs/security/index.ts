@@ -65,6 +65,11 @@ export type CustomRecommendation = import("./customRecommendation").CustomRecomm
 export const CustomRecommendation: typeof import("./customRecommendation").CustomRecommendation = null as any;
 utilities.lazyLoad(exports, ["CustomRecommendation"], () => require("./customRecommendation"));
 
+export { DataScannerArgs } from "./dataScanner";
+export type DataScanner = import("./dataScanner").DataScanner;
+export const DataScanner: typeof import("./dataScanner").DataScanner = null as any;
+utilities.lazyLoad(exports, ["DataScanner"], () => require("./dataScanner"));
+
 export { DefenderForStorageArgs } from "./defenderForStorage";
 export type DefenderForStorage = import("./defenderForStorage").DefenderForStorage;
 export const DefenderForStorage: typeof import("./defenderForStorage").DefenderForStorage = null as any;
@@ -139,6 +144,11 @@ export { GetCustomRecommendationArgs, GetCustomRecommendationResult, GetCustomRe
 export const getCustomRecommendation: typeof import("./getCustomRecommendation").getCustomRecommendation = null as any;
 export const getCustomRecommendationOutput: typeof import("./getCustomRecommendation").getCustomRecommendationOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomRecommendation","getCustomRecommendationOutput"], () => require("./getCustomRecommendation"));
+
+export { GetDataScannerArgs, GetDataScannerResult, GetDataScannerOutputArgs } from "./getDataScanner";
+export const getDataScanner: typeof import("./getDataScanner").getDataScanner = null as any;
+export const getDataScannerOutput: typeof import("./getDataScanner").getDataScannerOutput = null as any;
+utilities.lazyLoad(exports, ["getDataScanner","getDataScannerOutput"], () => require("./getDataScanner"));
 
 export { GetDefenderForStorageArgs, GetDefenderForStorageResult, GetDefenderForStorageOutputArgs } from "./getDefenderForStorage";
 export const getDefenderForStorage: typeof import("./getDefenderForStorage").getDefenderForStorage = null as any;
@@ -377,6 +387,8 @@ const _module = {
                 return new AzureServersSetting(name, <any>undefined, { urn })
             case "azure-native:security:CustomRecommendation":
                 return new CustomRecommendation(name, <any>undefined, { urn })
+            case "azure-native:security:DataScanner":
+                return new DataScanner(name, <any>undefined, { urn })
             case "azure-native:security:DefenderForStorage":
                 return new DefenderForStorage(name, <any>undefined, { urn })
             case "azure-native:security:DevOpsConfiguration":

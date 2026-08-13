@@ -58,7 +58,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * The list of logs settings.
      */
-    declare public readonly logs: pulumi.Output<outputs.monitor.LogSettingsResponse[] | undefined>;
+    declare public readonly logs: pulumi.Output<outputs.monitor.DiagnosticsLogSettingsResponse[] | undefined>;
     /**
      * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
      */
@@ -66,7 +66,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * The list of metric settings.
      */
-    declare public readonly metrics: pulumi.Output<outputs.monitor.MetricSettingsResponse[] | undefined>;
+    declare public readonly metrics: pulumi.Output<outputs.monitor.DiagnosticsMetricSettingsResponse[] | undefined>;
     /**
      * The name of the resource
      */
@@ -80,7 +80,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
-     * The system metadata related to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.SystemDataResponse>;
     /**
@@ -161,7 +161,7 @@ export interface DiagnosticSettingArgs {
     /**
      * The list of logs settings.
      */
-    logs?: pulumi.Input<pulumi.Input<inputs.monitor.LogSettingsArgs>[] | undefined>;
+    logs?: pulumi.Input<pulumi.Input<inputs.monitor.DiagnosticsLogSettingsArgs>[] | undefined>;
     /**
      * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
      */
@@ -169,13 +169,13 @@ export interface DiagnosticSettingArgs {
     /**
      * The list of metric settings.
      */
-    metrics?: pulumi.Input<pulumi.Input<inputs.monitor.MetricSettingsArgs>[] | undefined>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.monitor.DiagnosticsMetricSettingsArgs>[] | undefined>;
     /**
      * The name of the diagnostic setting.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**

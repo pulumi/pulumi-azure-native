@@ -625,11 +625,29 @@ class ContentType(_builtins.str, Enum):
     The content type of a source control path.
     """
     ANALYTICS_RULE = "AnalyticsRule"
+    """
+    AnalyticsRule
+    """
     AUTOMATION_RULE = "AutomationRule"
+    """
+    AutomationRule
+    """
     HUNTING_QUERY = "HuntingQuery"
+    """
+    HuntingQuery
+    """
     PARSER = "Parser"
+    """
+    Parser
+    """
     PLAYBOOK = "Playbook"
+    """
+    Playbook
+    """
     WORKBOOK = "Workbook"
+    """
+    Workbook
+    """
 
 
 @pulumi.type_token("azure-native:securityinsights:CustomEntityQueryKind")
@@ -1203,7 +1221,13 @@ class RepoType(_builtins.str, Enum):
     The repository type of the source control
     """
     GITHUB = "Github"
+    """
+    Github
+    """
     AZURE_DEV_OPS = "AzureDevOps"
+    """
+    AzureDevOps
+    """
 
 
 @pulumi.type_token("azure-native:securityinsights:RepositoryAccessKind")
@@ -1212,8 +1236,17 @@ class RepositoryAccessKind(_builtins.str, Enum):
     The kind of repository access credentials
     """
     O_AUTH = "OAuth"
+    """
+    OAuth
+    """
     PAT = "PAT"
+    """
+    PAT
+    """
     APP = "App"
+    """
+    App
+    """
 
 
 @pulumi.type_token("azure-native:securityinsights:RestApiPollerRequestPagingKind")

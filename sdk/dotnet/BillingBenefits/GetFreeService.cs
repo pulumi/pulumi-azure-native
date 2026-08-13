@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// This operation retrieves properties for free services.
         /// 
         /// Uses Azure REST API version 2025-12-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFreeServiceResult> InvokeAsync(GetFreeServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFreeServiceResult>("azure-native:billingbenefits:getFreeService", args ?? new GetFreeServiceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// This operation retrieves properties for free services.
         /// 
         /// Uses Azure REST API version 2025-12-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFreeServiceResult> Invoke(GetFreeServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFreeServiceResult>("azure-native:billingbenefits:getFreeService", args ?? new GetFreeServiceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// This operation retrieves properties for free services.
         /// 
         /// Uses Azure REST API version 2025-12-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFreeServiceResult> Invoke(GetFreeServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFreeServiceResult>("azure-native:billingbenefits:getFreeService", args ?? new GetFreeServiceInvokeArgs(), options.WithDefaults());

@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.type_token("azure-native:connectedcache:AutoUpdateRingType")
 class AutoUpdateRingType(_builtins.str, Enum):
     """
-    Auto Update Ring Type which is slow or fast etc.
+    Auto Update Ring Type which is stable or beta as new values. slow or fast are legacy from version 2026-06-01.
     """
     PREVIEW = "Preview"
     """

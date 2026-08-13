@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     /// 
     /// Uses Azure REST API version 2025-05-30-preview.
     /// 
-    /// Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-10-10-preview, 2026-02-06-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredatatransfer:FlowProfile")]
     public partial class FlowProfile : global::Pulumi.CustomResource
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20250530preview:FlowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20251010preview:FlowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20260206preview:FlowProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * This operation retrieves properties for free services.
  *
  * Uses Azure REST API version 2025-12-01-preview.
+ *
+ * Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFreeService(args: GetFreeServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFreeServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -128,6 +130,8 @@ export interface GetFreeServiceResult {
  * This operation retrieves properties for free services.
  *
  * Uses Azure REST API version 2025-12-01-preview.
+ *
+ * Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFreeServiceOutput(args: GetFreeServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFreeServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

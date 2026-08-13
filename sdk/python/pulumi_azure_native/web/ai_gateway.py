@@ -105,7 +105,7 @@ class AiGateway(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-03-01-preview.
 
-        Other available API versions: 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-03-15, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +125,7 @@ class AiGateway(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-03-01-preview.
 
-        Other available API versions: 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-03-15, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AiGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -165,7 +165,7 @@ class AiGateway(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20260301preview:AiGateway"), pulumi.Alias(type_="azure-native:web/v20260315:AiGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20260301preview:AiGateway"), pulumi.Alias(type_="azure-native:web/v20260315:AiGateway"), pulumi.Alias(type_="azure-native:web/v20260715:AiGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AiGateway, __self__).__init__(
             'azure-native:web:AiGateway',

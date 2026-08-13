@@ -140,7 +140,7 @@ class FleetManagedNamespace(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01-preview.
 
-        Other available API versions: 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-02-01-preview, 2026-03-02-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class FleetManagedNamespace(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01-preview.
 
-        Other available API versions: 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-02-01-preview, 2026-03-02-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FleetManagedNamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -209,7 +209,7 @@ class FleetManagedNamespace(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20250801preview:FleetManagedNamespace"), pulumi.Alias(type_="azure-native:containerservice/v20260201preview:FleetManagedNamespace"), pulumi.Alias(type_="azure-native:containerservice/v20260302preview:FleetManagedNamespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20250801preview:FleetManagedNamespace"), pulumi.Alias(type_="azure-native:containerservice/v20260201preview:FleetManagedNamespace"), pulumi.Alias(type_="azure-native:containerservice/v20260302preview:FleetManagedNamespace"), pulumi.Alias(type_="azure-native:containerservice/v20260601:FleetManagedNamespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FleetManagedNamespace, __self__).__init__(
             'azure-native:containerservice:FleetManagedNamespace',

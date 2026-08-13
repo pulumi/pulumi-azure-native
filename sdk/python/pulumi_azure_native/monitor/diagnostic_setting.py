@@ -25,9 +25,9 @@ class DiagnosticSettingArgs:
                  event_hub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Sequence[pulumi.Input['LogSettingsArgs']]]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticsLogSettingsArgs']]]] = None,
                  marketplace_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['MetricSettingsArgs']]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticsMetricSettingsArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,13 +35,13 @@ class DiagnosticSettingArgs:
         """
         The set of arguments for constructing a DiagnosticSetting resource.
 
-        :param pulumi.Input[_builtins.str] resource_uri: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[_builtins.str] log_analytics_destination_type: A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
-        :param pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]] logs: The list of logs settings.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticsLogSettingsArgs']]] logs: The list of logs settings.
         :param pulumi.Input[_builtins.str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricSettingsArgs']]] metrics: The list of metric settings.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticsMetricSettingsArgs']]] metrics: The list of metric settings.
         :param pulumi.Input[_builtins.str] name: The name of the diagnostic setting.
         :param pulumi.Input[_builtins.str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         :param pulumi.Input[_builtins.str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
@@ -73,7 +73,7 @@ class DiagnosticSettingArgs:
     @pulumi.getter(name="resourceUri")
     def resource_uri(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the resource.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "resource_uri")
 
@@ -119,14 +119,14 @@ class DiagnosticSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogSettingsArgs']]]]:
+    def logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticsLogSettingsArgs']]]]:
         """
         The list of logs settings.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogSettingsArgs']]]]):
+    def logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticsLogSettingsArgs']]]]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
@@ -143,14 +143,14 @@ class DiagnosticSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricSettingsArgs']]]]:
+    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticsMetricSettingsArgs']]]]:
         """
         The list of metric settings.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricSettingsArgs']]]]):
+    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticsMetricSettingsArgs']]]]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
@@ -211,9 +211,9 @@ class DiagnosticSetting(pulumi.CustomResource):
                  event_hub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticsLogSettingsArgs', 'DiagnosticsLogSettingsArgsDict']]]]] = None,
                  marketplace_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricSettingsArgs', 'MetricSettingsArgsDict']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticsMetricSettingsArgs', 'DiagnosticsMetricSettingsArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -230,11 +230,11 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[_builtins.str] log_analytics_destination_type: A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]] logs: The list of logs settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticsLogSettingsArgs', 'DiagnosticsLogSettingsArgsDict']]]] logs: The list of logs settings.
         :param pulumi.Input[_builtins.str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricSettingsArgs', 'MetricSettingsArgsDict']]]] metrics: The list of metric settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticsMetricSettingsArgs', 'DiagnosticsMetricSettingsArgsDict']]]] metrics: The list of metric settings.
         :param pulumi.Input[_builtins.str] name: The name of the diagnostic setting.
-        :param pulumi.Input[_builtins.str] resource_uri: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         :param pulumi.Input[_builtins.str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
         :param pulumi.Input[_builtins.str] workspace_id: The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
@@ -268,9 +268,9 @@ class DiagnosticSetting(pulumi.CustomResource):
                  event_hub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogSettingsArgs', 'LogSettingsArgsDict']]]]] = None,
+                 logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticsLogSettingsArgs', 'DiagnosticsLogSettingsArgsDict']]]]] = None,
                  marketplace_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricSettingsArgs', 'MetricSettingsArgsDict']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticsMetricSettingsArgs', 'DiagnosticsMetricSettingsArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -374,7 +374,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> pulumi.Output[Optional[Sequence['outputs.LogSettingsResponse']]]:
+    def logs(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticsLogSettingsResponse']]]:
         """
         The list of logs settings.
         """
@@ -390,7 +390,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> pulumi.Output[Optional[Sequence['outputs.MetricSettingsResponse']]]:
+    def metrics(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticsMetricSettingsResponse']]]:
         """
         The list of metric settings.
         """
@@ -424,7 +424,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata related to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

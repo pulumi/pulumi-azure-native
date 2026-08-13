@@ -942,11 +942,29 @@ namespace Pulumi.AzureNative.SecurityInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AnalyticsRule
+        /// </summary>
         public static ContentType AnalyticsRule { get; } = new ContentType("AnalyticsRule");
+        /// <summary>
+        /// AutomationRule
+        /// </summary>
         public static ContentType AutomationRule { get; } = new ContentType("AutomationRule");
+        /// <summary>
+        /// HuntingQuery
+        /// </summary>
         public static ContentType HuntingQuery { get; } = new ContentType("HuntingQuery");
+        /// <summary>
+        /// Parser
+        /// </summary>
         public static ContentType Parser { get; } = new ContentType("Parser");
+        /// <summary>
+        /// Playbook
+        /// </summary>
         public static ContentType Playbook { get; } = new ContentType("Playbook");
+        /// <summary>
+        /// Workbook
+        /// </summary>
         public static ContentType Workbook { get; } = new ContentType("Workbook");
 
         public static bool operator ==(ContentType left, ContentType right) => left.Equals(right);
@@ -2158,7 +2176,13 @@ namespace Pulumi.AzureNative.SecurityInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Github
+        /// </summary>
         public static RepoType Github { get; } = new RepoType("Github");
+        /// <summary>
+        /// AzureDevOps
+        /// </summary>
         public static RepoType AzureDevOps { get; } = new RepoType("AzureDevOps");
 
         public static bool operator ==(RepoType left, RepoType right) => left.Equals(right);
@@ -2189,8 +2213,17 @@ namespace Pulumi.AzureNative.SecurityInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// OAuth
+        /// </summary>
         public static RepositoryAccessKind OAuth { get; } = new RepositoryAccessKind("OAuth");
+        /// <summary>
+        /// PAT
+        /// </summary>
         public static RepositoryAccessKind PAT { get; } = new RepositoryAccessKind("PAT");
+        /// <summary>
+        /// App
+        /// </summary>
         public static RepositoryAccessKind App { get; } = new RepositoryAccessKind("App");
 
         public static bool operator ==(RepositoryAccessKind left, RepositoryAccessKind right) => left.Equals(right);

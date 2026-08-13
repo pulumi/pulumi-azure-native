@@ -125,7 +125,8 @@
     "2025-11-01",
     "2025-12-01-preview",
     "2026-01-01-preview",
-    "2026-06-01"
+    "2026-06-01",
+    "2026-07-01"
   ],
   "Automanage": [],
   "Automation": [
@@ -143,10 +144,12 @@
     "2025-04-11-preview",
     "2025-05-21",
     "2025-05-30-preview",
-    "2025-10-10-preview"
+    "2025-10-10-preview",
+    "2026-02-06-preview"
   ],
   "AzureFleet": [
-    "2026-04-01-preview"
+    "2026-04-01-preview",
+    "2026-06-01-preview"
   ],
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [],
@@ -201,7 +204,8 @@
   "Billing": [],
   "BillingBenefits": [
     "2025-05-01-preview",
-    "2025-12-01-preview"
+    "2025-12-01-preview",
+    "2026-06-01"
   ],
   "BillingTrust": [],
   "Blueprint": [],
@@ -217,7 +221,8 @@
     "2025-07-01-preview",
     "2025-09-01-preview",
     "2025-12-01",
-    "2025-12-01-preview"
+    "2025-12-01-preview",
+    "2026-04-01-preview"
   ],
   "CertificateRegistration": [
     "2024-11-01"
@@ -225,7 +230,8 @@
   "Chaos": [
     "2024-11-01-preview",
     "2025-01-01",
-    "2026-05-01-preview"
+    "2026-05-01-preview",
+    "2026-08-01-preview"
   ],
   "CloudHealth": [
     "2026-01-01-preview",
@@ -250,7 +256,8 @@
     "2026-03-01",
     "2026-03-15-preview",
     "2026-05-01",
-    "2026-05-15-preview"
+    "2026-05-15-preview",
+    "2026-07-01"
   ],
   "Commerce": [],
   "Communication": [
@@ -272,14 +279,16 @@
     "2025-12-03",
     "2026-03-01",
     "2026-03-02",
-    "2026-04-06-preview"
+    "2026-04-06-preview",
+    "2026-07-06-preview"
   ],
   "ComputeBulkActions": [],
   "ComputeLimit": [
     "2026-03-20",
     "2026-04-30",
     "2026-06-01",
-    "2026-07-01"
+    "2026-07-01",
+    "2026-07-31"
   ],
   "ComputeSchedule": [
     "2026-01-01-preview",
@@ -296,10 +305,12 @@
   "Confluent": [
     "2025-07-17-preview",
     "2025-08-18-preview",
-    "2026-05-01-preview"
+    "2026-05-01-preview",
+    "2026-06-02-preview"
   ],
   "ConnectedCache": [
-    "2024-11-30-preview"
+    "2024-11-30-preview",
+    "2026-06-01"
   ],
   "ConnectedVMwarevSphere": [
     "2023-10-01",
@@ -311,7 +322,9 @@
     "2024-10-01-preview",
     "2024-11-01-preview",
     "2025-09-01",
-    "2026-06-01-preview"
+    "2026-06-01-preview",
+    "2026-07-01",
+    "2026-08-01-preview"
   ],
   "ContainerRegistry": [
     "2019-12-01-preview",
@@ -444,7 +457,9 @@
     "2026-03-02-preview",
     "2026-04-01",
     "2026-04-02-preview",
-    "2026-05-02-preview"
+    "2026-05-01",
+    "2026-05-02-preview",
+    "2026-06-01"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -678,7 +693,8 @@
   "DevOpsInfrastructure": [
     "2025-09-20",
     "2026-04-17-preview",
-    "2026-06-02"
+    "2026-06-02",
+    "2026-07-03-preview"
   ],
   "DevSpaces": [],
   "DevTestLab": [],
@@ -752,7 +768,8 @@
   "EventGrid": [
     "2025-02-15",
     "2025-04-01-preview",
-    "2025-07-15-preview"
+    "2025-07-15-preview",
+    "2025-11-15-preview"
   ],
   "EventHub": [
     "2021-01-01-preview",
@@ -764,13 +781,15 @@
     "2024-01-01",
     "2024-05-01-preview",
     "2025-05-01-preview",
-    "2026-01-01"
+    "2026-01-01",
+    "2026-07-01-preview"
   ],
   "ExtendedLocation": [
     "2024-09-15-preview"
   ],
   "Fabric": [
-    "2025-01-15-preview"
+    "2025-01-15-preview",
+    "2026-08-01-preview"
   ],
   "Features": [],
   "FileShares": [
@@ -788,7 +807,8 @@
   ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
-    "2025-03-31"
+    "2025-03-31",
+    "2025-12-01-preview"
   ],
   "HealthBot": [
     "2025-05-25",
@@ -836,7 +856,11 @@
     "2025-02-19-preview",
     "2025-06-01",
     "2025-08-21-preview",
-    "2025-09-16-preview"
+    "2025-09-16-preview",
+    "2026-02-12-preview",
+    "2026-06-04-preview",
+    "2026-06-16-preview",
+    "2026-07-15"
   ],
   "HybridConnectivity": [],
   "HybridContainerService": [
@@ -864,7 +888,8 @@
   "IoTHub": [
     "2023-06-30-preview",
     "2025-08-01-preview",
-    "2026-03-01-preview"
+    "2026-03-01-preview",
+    "2026-05-01-preview"
   ],
   "IoTOperations": [
     "2025-04-01",
@@ -984,7 +1009,8 @@
     "2026-01-15-preview",
     "2026-03-01",
     "2026-03-15-preview",
-    "2026-05-01"
+    "2026-05-01",
+    "2026-05-15-preview"
   ],
   "Maintenance": [
     "2025-10-01-preview"
@@ -1058,7 +1084,8 @@
     "2025-08-01-preview",
     "2025-09-01",
     "2026-02-01-preview",
-    "2026-06-01"
+    "2026-06-01",
+    "2026-06-15-preview"
   ],
   "Monitor": [
     "2018-04-16",
@@ -1143,7 +1170,9 @@
     "2026-03-01",
     "2026-03-15-preview",
     "2026-04-01",
-    "2026-04-15-preview"
+    "2026-04-15-preview",
+    "2026-05-01",
+    "2026-05-15-preview"
   ],
   "Network": [
     "2019-04-01",
@@ -1301,7 +1330,8 @@
     "2026-01-31-preview",
     "2026-02-01",
     "2026-03-31-preview",
-    "2026-05-01"
+    "2026-05-01",
+    "2026-05-31-preview"
   ],
   "RedHatOpenShift": [
     "2024-08-12-preview",
@@ -1328,10 +1358,14 @@
   "RedisEnterprise": [
     "2025-08-01-preview",
     "2026-02-01-preview",
-    "2026-05-01-preview"
+    "2026-05-01-preview",
+    "2026-06-01-preview"
   ],
   "Relationships": [],
-  "Relay": [],
+  "Relay": [
+    "2026-01-01",
+    "2026-07-01-preview"
+  ],
   "ResourceConnector": [
     "2022-10-27",
     "2025-03-01-preview"
@@ -1362,7 +1396,8 @@
   "Scheduler": [],
   "Scom": [],
   "Search": [
-    "2026-03-01-preview"
+    "2026-03-01-preview",
+    "2026-09-01-preview"
   ],
   "SecretSyncController": [],
   "Security": [
@@ -1408,7 +1443,9 @@
     "2025-10-01-preview",
     "2025-11-01-preview",
     "2026-01-01",
-    "2026-04-01-preview"
+    "2026-01-01-preview",
+    "2026-04-01-preview",
+    "2026-08-01"
   ],
   "SecurityAndCompliance": [],
   "SecurityInsights": [
@@ -1418,7 +1455,8 @@
     "2025-04-01-preview",
     "2025-06-01",
     "2025-07-01-preview",
-    "2025-09-01"
+    "2025-09-01",
+    "2025-10-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [
@@ -1430,7 +1468,8 @@
     "2023-01-01-preview",
     "2024-01-01",
     "2025-05-01-preview",
-    "2026-01-01"
+    "2026-01-01",
+    "2026-07-01-preview"
   ],
   "ServiceFabric": [
     "2024-06-01-preview",
@@ -1486,7 +1525,8 @@
     "2024-05-01-preview",
     "2024-11-01-preview",
     "2025-01-01",
-    "2025-02-01-preview"
+    "2025-02-01-preview",
+    "2025-08-01-preview"
   ],
   "SqlVirtualMachine": [],
   "StandbyPool": [
@@ -1515,7 +1555,8 @@
   "StorageMover": [
     "2025-07-01",
     "2025-08-01",
-    "2025-12-01"
+    "2025-12-01",
+    "2026-05-01"
   ],
   "StoragePool": [],
   "StorageSync": [],
@@ -1580,7 +1621,8 @@
     "2025-03-01",
     "2025-05-01",
     "2026-03-01-preview",
-    "2026-03-15"
+    "2026-03-15",
+    "2026-07-15"
   ],
   "WebPubSub": [
     "2024-04-01-preview",

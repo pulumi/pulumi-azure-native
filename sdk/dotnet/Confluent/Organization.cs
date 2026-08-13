@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Confluent
     /// 
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
     /// 
-    /// Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview, 2026-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:Organization")]
     public partial class Organization : global::Pulumi.CustomResource
@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.Confluent
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20250717preview:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20250818preview:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20260501preview:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20260602preview:Organization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

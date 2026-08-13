@@ -29,7 +29,7 @@ class ServiceGatewayArgs:
                  service_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['ServiceGatewaySkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: pulumi.Input[Optional['CommonVirtualNetworkArgs']] = None,
+                 virtual_network: pulumi.Input[Optional['VirtualNetworkArgs']] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceGateway resource.
@@ -41,7 +41,7 @@ class ServiceGatewayArgs:
         :param pulumi.Input[_builtins.str] service_gateway_name: The name of the service gateway.
         :param pulumi.Input['ServiceGatewaySkuArgs'] sku: The service gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input['CommonVirtualNetworkArgs'] virtual_network: Reference to an existing virtual network.
+        :param pulumi.Input['VirtualNetworkArgs'] virtual_network: Reference to an existing virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the zone in which service gateway should be deployed.
                
                - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
@@ -150,14 +150,14 @@ class ServiceGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> pulumi.Input[Optional['CommonVirtualNetworkArgs']]:
+    def virtual_network(self) -> pulumi.Input[Optional['VirtualNetworkArgs']]:
         """
         Reference to an existing virtual network.
         """
         return pulumi.get(self, "virtual_network")
 
     @virtual_network.setter
-    def virtual_network(self, value: pulumi.Input[Optional['CommonVirtualNetworkArgs']]):
+    def virtual_network(self, value: pulumi.Input[Optional['VirtualNetworkArgs']]):
         pulumi.set(self, "virtual_network", value)
 
     @_builtins.property
@@ -188,7 +188,7 @@ class ServiceGateway(pulumi.CustomResource):
                  service_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[Union['ServiceGatewaySkuArgs', 'ServiceGatewaySkuArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: pulumi.Input[Optional[Union['CommonVirtualNetworkArgs', 'CommonVirtualNetworkArgsDict']]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['VirtualNetworkArgs', 'VirtualNetworkArgsDict']]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -207,7 +207,7 @@ class ServiceGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_gateway_name: The name of the service gateway.
         :param pulumi.Input[Union['ServiceGatewaySkuArgs', 'ServiceGatewaySkuArgsDict']] sku: The service gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[Union['CommonVirtualNetworkArgs', 'CommonVirtualNetworkArgsDict']] virtual_network: Reference to an existing virtual network.
+        :param pulumi.Input[Union['VirtualNetworkArgs', 'VirtualNetworkArgsDict']] virtual_network: Reference to an existing virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the zone in which service gateway should be deployed.
                
                - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
@@ -247,7 +247,7 @@ class ServiceGateway(pulumi.CustomResource):
                  service_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[Union['ServiceGatewaySkuArgs', 'ServiceGatewaySkuArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: pulumi.Input[Optional[Union['CommonVirtualNetworkArgs', 'CommonVirtualNetworkArgsDict']]] = None,
+                 virtual_network: pulumi.Input[Optional[Union['VirtualNetworkArgs', 'VirtualNetworkArgsDict']]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

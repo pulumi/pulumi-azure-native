@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly int? InstanceMemoryMB;
         /// <summary>
-        /// The maximum number of instances for the function app.
+        /// The maximum number of on demand instances per function group.
         /// </summary>
         public readonly int? MaximumInstanceCount;
         /// <summary>

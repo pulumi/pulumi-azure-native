@@ -104,7 +104,7 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["subnet"] = args ? pulumi.output(args.subnet).apply(v => v === undefined ? undefined : inputs.network.commonSubnetArgsProvideDefaults(v)) : undefined;
+            resourceInputs["subnet"] = args ? pulumi.output(args.subnet).apply(v => v === undefined ? undefined : inputs.network.subnetArgsProvideDefaults(v)) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetworkApplianceName"] = args?.virtualNetworkApplianceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -157,7 +157,7 @@ export interface VirtualNetworkApplianceArgs {
     /**
      * The reference to the subnet resource.
      */
-    subnet?: pulumi.Input<inputs.network.CommonSubnetArgs | undefined>;
+    subnet?: pulumi.Input<inputs.network.SubnetArgs | undefined>;
     /**
      * Resource tags.
      */

@@ -7,41 +7,46 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Monitor.Inputs
+namespace Pulumi.AzureNative.Monitor.Outputs
 {
 
     /// <summary>
     /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
     /// </summary>
-    public sealed class LogSettingsArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class DiagnosticsLogSettingsResponse
     {
         /// <summary>
         /// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         /// </summary>
-        [Input("category")]
-        public Input<string>? Category { get; set; }
-
+        public readonly string? Category;
         /// <summary>
         /// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         /// </summary>
-        [Input("categoryGroup")]
-        public Input<string>? CategoryGroup { get; set; }
-
+        public readonly string? CategoryGroup;
         /// <summary>
         /// a value indicating whether this log is enabled.
         /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
+        public readonly bool Enabled;
         /// <summary>
         /// the retention policy for this log.
         /// </summary>
-        [Input("retentionPolicy")]
-        public Input<Inputs.RetentionPolicyArgs>? RetentionPolicy { get; set; }
+        public readonly Outputs.RetentionPolicyResponse? RetentionPolicy;
 
-        public LogSettingsArgs()
+        [OutputConstructor]
+        private DiagnosticsLogSettingsResponse(
+            string? category,
+
+            string? categoryGroup,
+
+            bool enabled,
+
+            Outputs.RetentionPolicyResponse? retentionPolicy)
         {
+            Category = category;
+            CategoryGroup = categoryGroup;
+            Enabled = enabled;
+            RetentionPolicy = retentionPolicy;
         }
-        public static new LogSettingsArgs Empty => new LogSettingsArgs();
     }
 }

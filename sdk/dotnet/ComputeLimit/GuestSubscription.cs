@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ComputeLimit
     /// 
     /// Uses Azure REST API version 2025-08-15.
     /// 
-    /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01, 2026-07-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:computelimit:GuestSubscription")]
     public partial class GuestSubscription : global::Pulumi.CustomResource
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.ComputeLimit
                     new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260430:GuestSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260601:GuestSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260701:GuestSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260731:GuestSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

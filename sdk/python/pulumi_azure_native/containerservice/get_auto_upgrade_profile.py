@@ -182,7 +182,7 @@ def get_auto_upgrade_profile(auto_upgrade_profile_name: Optional[_builtins.str] 
 
     Uses Azure REST API version 2024-05-02-preview.
 
-    Other available API versions: 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str auto_upgrade_profile_name: The name of the AutoUpgradeProfile resource.
     :param _builtins.str fleet_name: The name of the Fleet resource.
@@ -216,7 +216,7 @@ def get_auto_upgrade_profile_output(auto_upgrade_profile_name: pulumi.Input[Opti
 
     Uses Azure REST API version 2024-05-02-preview.
 
-    Other available API versions: 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str auto_upgrade_profile_name: The name of the AutoUpgradeProfile resource.
     :param _builtins.str fleet_name: The name of the Fleet resource.

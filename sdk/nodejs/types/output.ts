@@ -12044,7 +12044,7 @@ export namespace authorization {
          */
         endDateTime?: string;
         /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -39738,7 +39738,7 @@ export namespace azuredatatransfer {
          */
         messagingOptions?: outputs.azuredatatransfer.MessagingOptionsResponse;
         /**
-         * The passphrase used for SRT streams
+         * The passphrase used for SRT streams (non-secret)
          */
         passphrase?: string;
         /**
@@ -70829,7 +70829,7 @@ export namespace connectedcache {
          */
         autoUpdateRequestedWeek?: number;
         /**
-         * Auto Update Ring Type which is slow or fast etc.
+         * Auto Update Ring Type which is stable or beta as new values. slow or fast are legacy from version 2026-06-01.
          */
         autoUpdateRingType?: string;
         /**
@@ -182687,7 +182687,7 @@ export namespace monitor {
          */
         emailAddress: string;
         /**
-         * The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+         * The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
          */
         name: string;
     }
@@ -183486,7 +183486,7 @@ export namespace monitor {
          */
         categoryType?: string;
         /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -183494,13 +183494,57 @@ export namespace monitor {
          */
         name: string;
         /**
-         * The system metadata related to this resource.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
         systemData: outputs.monitor.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
+    }
+
+    /**
+     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+     */
+    export interface DiagnosticsLogSettingsResponse {
+        /**
+         * Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        category?: string;
+        /**
+         * Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        categoryGroup?: string;
+        /**
+         * a value indicating whether this log is enabled.
+         */
+        enabled: boolean;
+        /**
+         * the retention policy for this log.
+         */
+        retentionPolicy?: outputs.monitor.RetentionPolicyResponse;
+    }
+
+    /**
+     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+     */
+    export interface DiagnosticsMetricSettingsResponse {
+        /**
+         * Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        category?: string;
+        /**
+         * a value indicating whether this category is enabled.
+         */
+        enabled: boolean;
+        /**
+         * the retention policy for this category.
+         */
+        retentionPolicy?: outputs.monitor.RetentionPolicyResponse;
+        /**
+         * the timegrain of the metric in ISO8601 format.
+         */
+        timeGrain?: string;
     }
 
     /**
@@ -183659,7 +183703,7 @@ export namespace monitor {
          */
         emailAddress: string;
         /**
-         * The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+         * The name of the email receiver. Names must be unique across all receivers within an action group.
          */
         name: string;
         /**
@@ -184391,28 +184435,6 @@ export namespace monitor {
     }
 
     /**
-     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-     */
-    export interface LogSettingsResponse {
-        /**
-         * Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-         */
-        category?: string;
-        /**
-         * Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-         */
-        categoryGroup?: string;
-        /**
-         * a value indicating whether this log is enabled.
-         */
-        enabled: boolean;
-        /**
-         * the retention policy for this log.
-         */
-        retentionPolicy?: outputs.monitor.RetentionPolicyResponse;
-    }
-
-    /**
      * A logic app receiver.
      */
     export interface LogicAppReceiverResponse {
@@ -184627,28 +184649,6 @@ export namespace monitor {
          * The namespace of the metric.
          */
         metricNamespace: string;
-    }
-
-    /**
-     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-     */
-    export interface MetricSettingsResponse {
-        /**
-         * Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-         */
-        category?: string;
-        /**
-         * a value indicating whether this category is enabled.
-         */
-        enabled: boolean;
-        /**
-         * the retention policy for this category.
-         */
-        retentionPolicy?: outputs.monitor.RetentionPolicyResponse;
-        /**
-         * the timegrain of the metric in ISO8601 format.
-         */
-        timeGrain?: string;
     }
 
     /**
@@ -184933,40 +184933,6 @@ export namespace monitor {
     }
 
     /**
-     * The Private Endpoint Connection resource.
-     */
-    export interface PrivateEndpointConnectionPrivateLinkScopeResponse {
-        /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * The resource of private end point.
-         */
-        privateEndpoint?: outputs.monitor.PrivateEndpointResponse;
-        /**
-         * A collection of information about the state of the connection between service consumer and provider.
-         */
-        privateLinkServiceConnectionState: outputs.monitor.PrivateLinkServiceConnectionStateResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.monitor.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
      * The private endpoint connection resource.
      */
     export interface PrivateEndpointConnectionResponse {
@@ -185005,11 +184971,11 @@ export namespace monitor {
     }
 
     /**
-     * The Private Endpoint resource.
+     * The private endpoint resource.
      */
     export interface PrivateEndpointResponse {
         /**
-         * The ARM identifier for Private Endpoint
+         * The ARM identifier for private endpoint.
          */
         id: string;
     }
@@ -185822,7 +185788,7 @@ export namespace monitor {
          */
         countryCode: string;
         /**
-         * The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+         * The name of the SMS receiver. Names must be unique across all receivers within an action group.
          */
         name: string;
         /**
@@ -186113,7 +186079,7 @@ export namespace monitor {
          */
         countryCode: string;
         /**
-         * The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+         * The name of the voice receiver. Names must be unique across all receivers within an action group.
          */
         name: string;
         /**
@@ -232572,6 +232538,24 @@ export namespace security {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: string;
+    }
+
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
@@ -252924,7 +252908,7 @@ export namespace web {
          */
         instanceMemoryMB?: number;
         /**
-         * The maximum number of instances for the function app.
+         * The maximum number of on demand instances per function group.
          */
         maximumInstanceCount?: number;
         /**

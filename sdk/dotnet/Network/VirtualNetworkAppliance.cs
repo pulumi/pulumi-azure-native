@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.Network
         /// The reference to the subnet resource.
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.CommonSubnetArgs>? Subnet { get; set; }
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

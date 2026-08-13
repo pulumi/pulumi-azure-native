@@ -143,7 +143,7 @@ def get_isp_cache_nodes_operation(cache_node_resource_name: Optional[_builtins.s
 
     Uses Azure REST API version 2023-05-01-preview.
 
-    Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-11-30-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource
@@ -174,7 +174,7 @@ def get_isp_cache_nodes_operation_output(cache_node_resource_name: pulumi.Input[
 
     Uses Azure REST API version 2023-05-01-preview.
 
-    Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-11-30-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource

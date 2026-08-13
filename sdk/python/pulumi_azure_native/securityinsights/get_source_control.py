@@ -251,11 +251,11 @@ def get_source_control(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str source_control_id: Source control Id
-    :param _builtins.str workspace_name: The name of the workspace.
+    :param _builtins.str workspace_name: The name of the monitor workspace.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -291,11 +291,11 @@ def get_source_control_output(resource_group_name: pulumi.Input[Optional[_builti
 
     Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str source_control_id: Source control Id
-    :param _builtins.str workspace_name: The name of the workspace.
+    :param _builtins.str workspace_name: The name of the monitor workspace.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name

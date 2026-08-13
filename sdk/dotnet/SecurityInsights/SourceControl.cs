@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// 
     /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource
@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250601:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250701preview:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250901:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20251001preview:SourceControl" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -235,7 +236,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? SourceControlId { get; set; }
 
         /// <summary>
-        /// The name of the workspace.
+        /// The name of the monitor workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

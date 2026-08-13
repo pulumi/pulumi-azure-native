@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageMover
     /// 
     /// Uses Azure REST API version 2025-08-01.
     /// 
-    /// Other available API versions: 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-12-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:Connection")]
     public partial class Connection : global::Pulumi.CustomResource
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.StorageMover
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20250801:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20251201:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagemover/v20260501:Connection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -372,6 +372,14 @@ class PrincipalType(_builtins.str, Enum):
     """
     Device
     """
+    AGENT_USER = "AgentUser"
+    """
+    Agent identity derived from a user.
+    """
+    AGENT_SERVICE_PRINCIPAL = "AgentServicePrincipal"
+    """
+    Agent identity derived from a service principal.
+    """
 
 
 @pulumi.type_token("azure-native:authorization:PublicNetworkAccessOptions")

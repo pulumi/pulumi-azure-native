@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     /// 
     /// Uses Azure REST API version 2025-07-01.
     /// 
-    /// Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:redisenterprise:AccessPolicyAssignment")]
     public partial class AccessPolicyAssignment : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
                     new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20250801preview:AccessPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20260201preview:AccessPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20260501preview:AccessPolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20260601preview:AccessPolicyAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

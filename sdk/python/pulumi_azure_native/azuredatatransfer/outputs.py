@@ -1269,7 +1269,7 @@ class FlowPropertieslistListFlowsByPipelineResponse(dict):
         :param _builtins.str flow_type: The flow type for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         :param _builtins.str key_vault_uri: URI to a Key Vault Secret containing a SAS token.
         :param 'MessagingOptionsResponse' messaging_options: The messaging options for this flow
-        :param _builtins.str passphrase: The passphrase used for SRT streams
+        :param _builtins.str passphrase: The passphrase used for SRT streams (non-secret)
         :param Sequence[_builtins.str] policies: The policies for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         :param 'SchemaResponse' schema: The selected schema for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead.
         :param _builtins.str service_bus_queue_id: Service Bus Queue ID
@@ -1469,7 +1469,7 @@ class FlowPropertieslistListFlowsByPipelineResponse(dict):
     @pulumi.getter
     def passphrase(self) -> Optional[_builtins.str]:
         """
-        The passphrase used for SRT streams
+        The passphrase used for SRT streams (non-secret)
         """
         return pulumi.get(self, "passphrase")
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridCompute
     /// 
     /// Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2023-06-20-preview.
     /// 
-    /// Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview, 2026-02-12-preview, 2026-06-04-preview, 2026-06-16-preview, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:License")]
     public partial class License : global::Pulumi.CustomResource
@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250601:License" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250821preview:License" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20250916preview:License" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20260212preview:License" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20260604preview:License" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20260616preview:License" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20260715:License" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
