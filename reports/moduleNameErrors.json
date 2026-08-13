@@ -4073,5 +4073,15 @@
     "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2026-03-15/openapi.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
+  },
+  {
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2026-07-15/openapi.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
+    "Error": "resolved module name mismatch: file: Web, uri: Resources"
+  },
+  {
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2026-07-15/openapi.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
+    "Error": "resolved module name mismatch: file: Web, uri: Resources"
   }
 ]

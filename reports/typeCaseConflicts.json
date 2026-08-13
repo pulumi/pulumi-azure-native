@@ -1,4 +1,10 @@
 {
+  "azure-native:containerservice/v20260502preview:AutoScaleProfile": [
+    "azure-native:containerservice/v20260502preview:AutoscaleProfile"
+  ],
+  "azure-native:containerservice/v20260502preview:AutoScaleProfileResponse": [
+    "azure-native:containerservice/v20260502preview:AutoscaleProfileResponse"
+  ],
   "azure-native:servicefabric/v20230901preview:IPTag": [
     "azure-native:servicefabric/v20230901preview:IpTag"
   ],

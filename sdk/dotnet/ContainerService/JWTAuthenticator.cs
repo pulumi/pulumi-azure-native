@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// 
     /// Uses Azure REST API version 2025-07-02-preview.
     /// 
-    /// Other available API versions: 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview, 2026-01-02-preview, 2026-02-02-preview, 2026-03-02-preview, 2026-04-02-preview, 2026-05-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:JWTAuthenticator")]
     public partial class JWTAuthenticator : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260202preview:JWTAuthenticator" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260302preview:JWTAuthenticator" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260402preview:JWTAuthenticator" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260502preview:JWTAuthenticator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

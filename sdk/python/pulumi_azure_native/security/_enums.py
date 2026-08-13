@@ -60,6 +60,7 @@ __all__ = [
     'Status',
     'StatusReason',
     'SubPlan',
+    'SystemAssignedServiceIdentityType',
     'Tactics',
     'Techniques',
     'Threats',
@@ -1153,6 +1154,15 @@ class SubPlan(_builtins.str, Enum):
     """
     P2
     """
+
+
+@pulumi.type_token("azure-native:security:SystemAssignedServiceIdentityType")
+class SystemAssignedServiceIdentityType(_builtins.str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 @pulumi.type_token("azure-native:security:Tactics")

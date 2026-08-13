@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-08-15.
  *
- * Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01, 2026-07-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GuestSubscription extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class GuestSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:computelimit/v20250815:GuestSubscription" }, { type: "azure-native:computelimit/v20260320:GuestSubscription" }, { type: "azure-native:computelimit/v20260430:GuestSubscription" }, { type: "azure-native:computelimit/v20260601:GuestSubscription" }, { type: "azure-native:computelimit/v20260701:GuestSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:computelimit/v20250815:GuestSubscription" }, { type: "azure-native:computelimit/v20260320:GuestSubscription" }, { type: "azure-native:computelimit/v20260430:GuestSubscription" }, { type: "azure-native:computelimit/v20260601:GuestSubscription" }, { type: "azure-native:computelimit/v20260701:GuestSubscription" }, { type: "azure-native:computelimit/v20260731:GuestSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestSubscription.__pulumiType, name, resourceInputs, opts);
     }

@@ -350,6 +350,14 @@ export const PrincipalType = {
      * Device
      */
     Device: "Device",
+    /**
+     * Agent identity derived from a user.
+     */
+    AgentUser: "AgentUser",
+    /**
+     * Agent identity derived from a service principal.
+     */
+    AgentServicePrincipal: "AgentServicePrincipal",
 } as const;
 
 /**

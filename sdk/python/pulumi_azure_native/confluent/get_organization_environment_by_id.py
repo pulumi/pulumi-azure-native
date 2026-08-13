@@ -143,7 +143,7 @@ def get_organization_environment_by_id(environment_id: Optional[_builtins.str] =
 
     Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview, 2026-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str environment_id: Confluent environment id
     :param _builtins.str organization_name: Organization resource name
@@ -174,7 +174,7 @@ def get_organization_environment_by_id_output(environment_id: pulumi.Input[Optio
 
     Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-07-17-preview, 2025-08-18-preview, 2026-05-01-preview, 2026-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str environment_id: Confluent environment id
     :param _builtins.str organization_name: Organization resource name

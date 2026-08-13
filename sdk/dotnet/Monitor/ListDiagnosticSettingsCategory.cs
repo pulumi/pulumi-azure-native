@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class ListDiagnosticSettingsCategoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class ListDiagnosticSettingsCategoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
@@ -70,13 +70,21 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class ListDiagnosticSettingsCategoryResult
     {
         /// <summary>
+        /// The URL to get the next set of results.
+        /// </summary>
+        public readonly string? NextLink;
+        /// <summary>
         /// The collection of diagnostic settings category resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.DiagnosticSettingsCategoryResourceResponse> Value;
 
         [OutputConstructor]
-        private ListDiagnosticSettingsCategoryResult(ImmutableArray<Outputs.DiagnosticSettingsCategoryResourceResponse> value)
+        private ListDiagnosticSettingsCategoryResult(
+            string? nextLink,
+
+            ImmutableArray<Outputs.DiagnosticSettingsCategoryResourceResponse> value)
         {
+            NextLink = nextLink;
             Value = value;
         }
     }

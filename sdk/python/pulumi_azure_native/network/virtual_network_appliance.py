@@ -26,7 +26,7 @@ class VirtualNetworkApplianceArgs:
                  bandwidth_in_gbps: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional['CommonSubnetArgs']] = None,
+                 subnet: pulumi.Input[Optional['SubnetArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -36,7 +36,7 @@ class VirtualNetworkApplianceArgs:
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input['CommonSubnetArgs'] subnet: The reference to the subnet resource.
+        :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] virtual_network_appliance_name: The name of the virtual network appliance.
         """
@@ -104,14 +104,14 @@ class VirtualNetworkApplianceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> pulumi.Input[Optional['CommonSubnetArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['SubnetArgs']]:
         """
         The reference to the subnet resource.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: pulumi.Input[Optional['CommonSubnetArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
@@ -149,7 +149,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['CommonSubnetArgs', 'CommonSubnetArgsDict']]] = None,
+                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -166,7 +166,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['CommonSubnetArgs', 'CommonSubnetArgsDict']] subnet: The reference to the subnet resource.
+        :param pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']] subnet: The reference to the subnet resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] virtual_network_appliance_name: The name of the virtual network appliance.
         """
@@ -202,7 +202,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['CommonSubnetArgs', 'CommonSubnetArgsDict']]] = None,
+                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

@@ -19,6 +19,7 @@ from .assignment import *
 from .automation import *
 from .azure_servers_setting import *
 from .custom_recommendation import *
+from .data_scanner import *
 from .defender_for_storage import *
 from .dev_ops_configuration import *
 from .device_security_group import *
@@ -34,6 +35,7 @@ from .get_assignment import *
 from .get_automation import *
 from .get_azure_servers_setting import *
 from .get_custom_recommendation import *
+from .get_data_scanner import *
 from .get_defender_for_storage import *
 from .get_dev_ops_configuration import *
 from .get_device_security_group import *

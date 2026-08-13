@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// </summary>
         public readonly string? CategoryType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata related to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
     /// <summary>
     /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
     /// </summary>
-    public sealed class MetricSettingsArgs : global::Pulumi.ResourceArgs
+    public sealed class DiagnosticsMetricSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         /// the retention policy for this category.
         /// </summary>
         [Input("retentionPolicy")]
-        public Input<Inputs.RetentionPolicyArgs>? RetentionPolicy { get; set; }
+        public Input<Inputs.MicrosoftCommonRetentionPolicyArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
         /// the timegrain of the metric in ISO8601 format.
@@ -39,9 +39,9 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         [Input("timeGrain")]
         public Input<string>? TimeGrain { get; set; }
 
-        public MetricSettingsArgs()
+        public DiagnosticsMetricSettingsArgs()
         {
         }
-        public static new MetricSettingsArgs Empty => new MetricSettingsArgs();
+        public static new DiagnosticsMetricSettingsArgs Empty => new DiagnosticsMetricSettingsArgs();
     }
 }

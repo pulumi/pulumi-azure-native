@@ -131,6 +131,8 @@ def get_isp_cache_nodes_operation_cache_node_mcc_issue_details_history(cache_nod
 
     Uses Azure REST API version 2024-11-30-preview.
 
+    Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -158,6 +160,8 @@ def get_isp_cache_nodes_operation_cache_node_mcc_issue_details_history_output(ca
     This api gets ispCacheNode resource issues details histrory information
 
     Uses Azure REST API version 2024-11-30-preview.
+
+    Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str cache_node_resource_name: Name of the ConnectedCache resource
     :param _builtins.str customer_resource_name: Name of the Customer resource

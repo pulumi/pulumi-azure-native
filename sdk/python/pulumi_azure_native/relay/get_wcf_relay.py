@@ -215,7 +215,7 @@ def get_wcf_relay(namespace_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-11-01, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str relay_name: The relay name.
@@ -252,7 +252,7 @@ def get_wcf_relay_output(namespace_name: pulumi.Input[Optional[_builtins.str]] =
 
     Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-11-01, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str relay_name: The relay name.

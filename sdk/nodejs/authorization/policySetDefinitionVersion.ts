@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PolicySetDefinitionVersion extends pulumi.CustomResource {
     /**
@@ -136,7 +136,7 @@ export class PolicySetDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20230401:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20250101:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20250301:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20251101:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20251201preview:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20260101preview:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20260601:PolicySetDefinitionVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20230401:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20250101:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20250301:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20251101:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20251201preview:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20260101preview:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20260601:PolicySetDefinitionVersion" }, { type: "azure-native:authorization/v20260701:PolicySetDefinitionVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinitionVersion.__pulumiType, name, resourceInputs, opts);
     }

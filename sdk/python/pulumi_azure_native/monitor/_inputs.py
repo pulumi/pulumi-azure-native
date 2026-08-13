@@ -46,8 +46,6 @@ __all__ = [
     'AutoscaleNotificationArgsDict',
     'AutoscaleProfileArgs',
     'AutoscaleProfileArgsDict',
-    'AzureAppPushReceiverArgs',
-    'AzureAppPushReceiverArgsDict',
     'AzureFunctionReceiverArgs',
     'AzureFunctionReceiverArgsDict',
     'AzureMonitorWorkspaceLogsApiConfigArgs',
@@ -98,6 +96,10 @@ __all__ = [
     'DependenciesSignalGroupArgsDict',
     'DestinationsSpecAzureMonitorMetricsArgs',
     'DestinationsSpecAzureMonitorMetricsArgsDict',
+    'DiagnosticsLogSettingsArgs',
+    'DiagnosticsLogSettingsArgsDict',
+    'DiagnosticsMetricSettingsArgs',
+    'DiagnosticsMetricSettingsArgsDict',
     'DimensionArgs',
     'DimensionArgsDict',
     'DynamicDetectionRuleArgs',
@@ -108,8 +110,6 @@ __all__ = [
     'DynamicThresholdFailingPeriodsArgsDict',
     'EmailNotificationArgs',
     'EmailNotificationArgsDict',
-    'EmailReceiverArgs',
-    'EmailReceiverArgsDict',
     'EntityAlertsArgs',
     'EntityAlertsArgsDict',
     'EntityCoordinatesArgs',
@@ -160,8 +160,6 @@ __all__ = [
     'LogFilesDataSourceArgsDict',
     'LogFilesDataSourceSettingsArgs',
     'LogFilesDataSourceSettingsArgsDict',
-    'LogSettingsArgs',
-    'LogSettingsArgsDict',
     'LogicAppReceiverArgs',
     'LogicAppReceiverArgsDict',
     'ManagedIdentityAuthenticationSettingPropertiesArgs',
@@ -180,12 +178,20 @@ __all__ = [
     'MetricCriteriaArgsDict',
     'MetricDimensionArgs',
     'MetricDimensionArgsDict',
-    'MetricSettingsArgs',
-    'MetricSettingsArgsDict',
     'MetricTriggerArgs',
     'MetricTriggerArgsDict',
+    'MicrosoftCommonAzureAppPushReceiverArgs',
+    'MicrosoftCommonAzureAppPushReceiverArgsDict',
+    'MicrosoftCommonEmailReceiverArgs',
+    'MicrosoftCommonEmailReceiverArgsDict',
     'MicrosoftCommonIdentityArgs',
     'MicrosoftCommonIdentityArgsDict',
+    'MicrosoftCommonRetentionPolicyArgs',
+    'MicrosoftCommonRetentionPolicyArgsDict',
+    'MicrosoftCommonSmsReceiverArgs',
+    'MicrosoftCommonSmsReceiverArgsDict',
+    'MicrosoftCommonVoiceReceiverArgs',
+    'MicrosoftCommonVoiceReceiverArgsDict',
     'ModelDiscoverySettingsArgs',
     'ModelDiscoverySettingsArgsDict',
     'MonitoringAccountDestinationArgs',
@@ -232,8 +238,6 @@ __all__ = [
     'ResourceMapArgsDict',
     'ResourceMetricSignalDefinitionPropertiesArgs',
     'ResourceMetricSignalDefinitionPropertiesArgsDict',
-    'RetentionPolicyArgs',
-    'RetentionPolicyArgsDict',
     'RuleResolveConfigurationArgs',
     'RuleResolveConfigurationArgsDict',
     'ScaleActionArgs',
@@ -264,8 +268,6 @@ __all__ = [
     'SliPropertiesArgsDict',
     'SliResourceArgs',
     'SliResourceArgsDict',
-    'SmsReceiverArgs',
-    'SmsReceiverArgsDict',
     'SpatialAggregationArgs',
     'SpatialAggregationArgsDict',
     'StorageBlobDestinationArgs',
@@ -290,8 +292,6 @@ __all__ = [
     'TimeWindowArgsDict',
     'UdpReceiverArgs',
     'UdpReceiverArgsDict',
-    'VoiceReceiverArgs',
-    'VoiceReceiverArgsDict',
     'WebhookNotificationArgs',
     'WebhookNotificationArgsDict',
     'WebhookReceiverArgs',
@@ -1520,58 +1520,6 @@ class AutoscaleProfileArgs:
     @recurrence.setter
     def recurrence(self, value: pulumi.Input[Optional['RecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
-
-
-class AzureAppPushReceiverArgsDict(TypedDict):
-    """
-    The Azure mobile App push notification receiver.
-    """
-    email_address: pulumi.Input[_builtins.str]
-    """
-    The email address registered for the Azure mobile app.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
-    """
-
-@pulumi.input_type
-class AzureAppPushReceiverArgs:
-    def __init__(__self__, *,
-                 email_address: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str]):
-        """
-        The Azure mobile App push notification receiver.
-
-        :param pulumi.Input[_builtins.str] email_address: The email address registered for the Azure mobile app.
-        :param pulumi.Input[_builtins.str] name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="emailAddress")
-    def email_address(self) -> pulumi.Input[_builtins.str]:
-        """
-        The email address registered for the Azure mobile app.
-        """
-        return pulumi.get(self, "email_address")
-
-    @email_address.setter
-    def email_address(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "email_address", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
 
 class AzureFunctionReceiverArgsDict(TypedDict):
@@ -3704,6 +3652,192 @@ class DestinationsSpecAzureMonitorMetricsArgs:
         pulumi.set(self, "name", value)
 
 
+class DiagnosticsLogSettingsArgsDict(TypedDict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether this log is enabled.
+    """
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+    """
+    category_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+    """
+    retention_policy: NotRequired[pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgsDict']]]
+    """
+    the retention policy for this log.
+    """
+
+@pulumi.input_type
+class DiagnosticsLogSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 category_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgs']] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+
+        :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this log is enabled.
+        :param pulumi.Input[_builtins.str] category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param pulumi.Input[_builtins.str] category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param pulumi.Input['MicrosoftCommonRetentionPolicyArgs'] retention_policy: the retention policy for this log.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category_group")
+
+    @category_group.setter
+    def category_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "category_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgs']]:
+        """
+        the retention policy for this log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
+
+
+class DiagnosticsMetricSettingsArgsDict(TypedDict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether this category is enabled.
+    """
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+    """
+    retention_policy: NotRequired[pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgsDict']]]
+    """
+    the retention policy for this category.
+    """
+    time_grain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    the timegrain of the metric in ISO8601 format.
+    """
+
+@pulumi.input_type
+class DiagnosticsMetricSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgs']] = None,
+                 time_grain: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+
+        :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this category is enabled.
+        :param pulumi.Input[_builtins.str] category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        :param pulumi.Input['MicrosoftCommonRetentionPolicyArgs'] retention_policy: the retention policy for this category.
+        :param pulumi.Input[_builtins.str] time_grain: the timegrain of the metric in ISO8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        a value indicating whether this category is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgs']]:
+        """
+        the retention policy for this category.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: pulumi.Input[Optional['MicrosoftCommonRetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        the timegrain of the metric in ISO8601 format.
+        """
+        return pulumi.get(self, "time_grain")
+
+    @time_grain.setter
+    def time_grain(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "time_grain", value)
+
+
 class DimensionArgsDict(TypedDict):
     """
     Dimension splitting and filtering definition
@@ -4224,80 +4358,6 @@ class EmailNotificationArgs:
     @send_to_subscription_co_administrators.setter
     def send_to_subscription_co_administrators(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_to_subscription_co_administrators", value)
-
-
-class EmailReceiverArgsDict(TypedDict):
-    """
-    An email receiver.
-    """
-    email_address: pulumi.Input[_builtins.str]
-    """
-    The email address of this receiver.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the email receiver. Names must be unique across all receivers within a tenant action group.
-    """
-    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Indicates whether to use common alert schema.
-    """
-
-@pulumi.input_type
-class EmailReceiverArgs:
-    def __init__(__self__, *,
-                 email_address: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
-                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
-        """
-        An email receiver.
-
-        :param pulumi.Input[_builtins.str] email_address: The email address of this receiver.
-        :param pulumi.Input[_builtins.str] name: The name of the email receiver. Names must be unique across all receivers within a tenant action group.
-        :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
-        """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
-        if use_common_alert_schema is None:
-            use_common_alert_schema = False
-        if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
-
-    @_builtins.property
-    @pulumi.getter(name="emailAddress")
-    def email_address(self) -> pulumi.Input[_builtins.str]:
-        """
-        The email address of this receiver.
-        """
-        return pulumi.get(self, "email_address")
-
-    @email_address.setter
-    def email_address(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "email_address", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Indicates whether to use common alert schema.
-        """
-        return pulumi.get(self, "use_common_alert_schema")
-
-    @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "use_common_alert_schema", value)
 
 
 class EntityAlertsArgsDict(TypedDict):
@@ -6323,99 +6383,6 @@ class LogFilesDataSourceSettingsArgs:
         pulumi.set(self, "text", value)
 
 
-class LogSettingsArgsDict(TypedDict):
-    """
-    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-    """
-    enabled: pulumi.Input[_builtins.bool]
-    """
-    a value indicating whether this log is enabled.
-    """
-    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-    """
-    category_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-    """
-    retention_policy: NotRequired[pulumi.Input[Optional['RetentionPolicyArgsDict']]]
-    """
-    the retention policy for this log.
-    """
-
-@pulumi.input_type
-class LogSettingsArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 category: pulumi.Input[Optional[_builtins.str]] = None,
-                 category_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_policy: pulumi.Input[Optional['RetentionPolicyArgs']] = None):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-
-        :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this log is enabled.
-        :param pulumi.Input[_builtins.str] category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param pulumi.Input[_builtins.str] category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for this log.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        a value indicating whether this log is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "category", value)
-
-    @_builtins.property
-    @pulumi.getter(name="categoryGroup")
-    def category_group(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category_group")
-
-    @category_group.setter
-    def category_group(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "category_group", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> pulumi.Input[Optional['RetentionPolicyArgs']]:
-        """
-        the retention policy for this log.
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['RetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
 class LogicAppReceiverArgsDict(TypedDict):
     """
     A logic app receiver.
@@ -7158,99 +7125,6 @@ class MetricDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-class MetricSettingsArgsDict(TypedDict):
-    """
-    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-    """
-    enabled: pulumi.Input[_builtins.bool]
-    """
-    a value indicating whether this category is enabled.
-    """
-    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-    """
-    retention_policy: NotRequired[pulumi.Input[Optional['RetentionPolicyArgsDict']]]
-    """
-    the retention policy for this category.
-    """
-    time_grain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    the timegrain of the metric in ISO8601 format.
-    """
-
-@pulumi.input_type
-class MetricSettingsArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 category: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_policy: pulumi.Input[Optional['RetentionPolicyArgs']] = None,
-                 time_grain: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-
-        :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this category is enabled.
-        :param pulumi.Input[_builtins.str] category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for this category.
-        :param pulumi.Input[_builtins.str] time_grain: the timegrain of the metric in ISO8601 format.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-        if time_grain is not None:
-            pulumi.set(__self__, "time_grain", time_grain)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        a value indicating whether this category is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "category", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> pulumi.Input[Optional['RetentionPolicyArgs']]:
-        """
-        the retention policy for this category.
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['RetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        the timegrain of the metric in ISO8601 format.
-        """
-        return pulumi.get(self, "time_grain")
-
-    @time_grain.setter
-    def time_grain(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "time_grain", value)
-
-
 class MetricTriggerArgsDict(TypedDict):
     """
     The trigger that results in a scaling action.
@@ -7497,6 +7371,132 @@ class MetricTriggerArgs:
         pulumi.set(self, "metric_resource_location", value)
 
 
+class MicrosoftCommonAzureAppPushReceiverArgsDict(TypedDict):
+    """
+    The Azure mobile App push notification receiver.
+    """
+    email_address: pulumi.Input[_builtins.str]
+    """
+    The email address registered for the Azure mobile app.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+    """
+
+@pulumi.input_type
+class MicrosoftCommonAzureAppPushReceiverArgs:
+    def __init__(__self__, *,
+                 email_address: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        The Azure mobile App push notification receiver.
+
+        :param pulumi.Input[_builtins.str] email_address: The email address registered for the Azure mobile app.
+        :param pulumi.Input[_builtins.str] name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The email address registered for the Azure mobile app.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "email_address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+class MicrosoftCommonEmailReceiverArgsDict(TypedDict):
+    """
+    An email receiver.
+    """
+    email_address: pulumi.Input[_builtins.str]
+    """
+    The email address of this receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the email receiver. Names must be unique across all receivers within an action group.
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether to use common alert schema.
+    """
+
+@pulumi.input_type
+class MicrosoftCommonEmailReceiverArgs:
+    def __init__(__self__, *,
+                 email_address: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 use_common_alert_schema: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        An email receiver.
+
+        :param pulumi.Input[_builtins.str] email_address: The email address of this receiver.
+        :param pulumi.Input[_builtins.str] name: The name of the email receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The email address of this receiver.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "email_address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the email receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
+
+
 class MicrosoftCommonIdentityArgsDict(TypedDict):
     """
     Identity for the resource.
@@ -7548,6 +7548,200 @@ class MicrosoftCommonIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+class MicrosoftCommonRetentionPolicyArgsDict(TypedDict):
+    """
+    Specifies the retention policy for the log.
+    """
+    days: pulumi.Input[_builtins.int]
+    """
+    the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether the retention policy is enabled.
+    """
+
+@pulumi.input_type
+class MicrosoftCommonRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[_builtins.int],
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        Specifies the retention policy for the log.
+
+        :param pulumi.Input[_builtins.int] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        :param pulumi.Input[_builtins.bool] enabled: a value indicating whether the retention policy is enabled.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[_builtins.int]:
+        """
+        the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "days", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        a value indicating whether the retention policy is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+
+class MicrosoftCommonSmsReceiverArgsDict(TypedDict):
+    """
+    An SMS receiver.
+    """
+    country_code: pulumi.Input[_builtins.str]
+    """
+    The country code of the SMS receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SMS receiver. Names must be unique across all receivers within an action group.
+    """
+    phone_number: pulumi.Input[_builtins.str]
+    """
+    The phone number of the SMS receiver.
+    """
+
+@pulumi.input_type
+class MicrosoftCommonSmsReceiverArgs:
+    def __init__(__self__, *,
+                 country_code: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 phone_number: pulumi.Input[_builtins.str]):
+        """
+        An SMS receiver.
+
+        :param pulumi.Input[_builtins.str] country_code: The country code of the SMS receiver.
+        :param pulumi.Input[_builtins.str] name: The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[_builtins.str] phone_number: The phone number of the SMS receiver.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @_builtins.property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> pulumi.Input[_builtins.str]:
+        """
+        The country code of the SMS receiver.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "country_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[_builtins.str]:
+        """
+        The phone number of the SMS receiver.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "phone_number", value)
+
+
+class MicrosoftCommonVoiceReceiverArgsDict(TypedDict):
+    """
+    A voice receiver.
+    """
+    country_code: pulumi.Input[_builtins.str]
+    """
+    The country code of the voice receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the voice receiver. Names must be unique across all receivers within an action group.
+    """
+    phone_number: pulumi.Input[_builtins.str]
+    """
+    The phone number of the voice receiver.
+    """
+
+@pulumi.input_type
+class MicrosoftCommonVoiceReceiverArgs:
+    def __init__(__self__, *,
+                 country_code: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 phone_number: pulumi.Input[_builtins.str]):
+        """
+        A voice receiver.
+
+        :param pulumi.Input[_builtins.str] country_code: The country code of the voice receiver.
+        :param pulumi.Input[_builtins.str] name: The name of the voice receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[_builtins.str] phone_number: The phone number of the voice receiver.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @_builtins.property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> pulumi.Input[_builtins.str]:
+        """
+        The country code of the voice receiver.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "country_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the voice receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[_builtins.str]:
+        """
+        The phone number of the voice receiver.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "phone_number", value)
 
 
 class ModelDiscoverySettingsArgsDict(TypedDict):
@@ -9607,58 +9801,6 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-class RetentionPolicyArgsDict(TypedDict):
-    """
-    Specifies the retention policy for the log.
-    """
-    days: pulumi.Input[_builtins.int]
-    """
-    the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-    """
-    enabled: pulumi.Input[_builtins.bool]
-    """
-    a value indicating whether the retention policy is enabled.
-    """
-
-@pulumi.input_type
-class RetentionPolicyArgs:
-    def __init__(__self__, *,
-                 days: pulumi.Input[_builtins.int],
-                 enabled: pulumi.Input[_builtins.bool]):
-        """
-        Specifies the retention policy for the log.
-
-        :param pulumi.Input[_builtins.int] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-        :param pulumi.Input[_builtins.bool] enabled: a value indicating whether the retention policy is enabled.
-        """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[_builtins.int]:
-        """
-        the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-        """
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "days", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        a value indicating whether the retention policy is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-
 class RuleResolveConfigurationArgsDict(TypedDict):
     """
     TBD. Relevant only for rules of the kind LogAlert.
@@ -10798,77 +10940,6 @@ class SliResourceArgs:
         pulumi.set(self, "sli_properties", value)
 
 
-class SmsReceiverArgsDict(TypedDict):
-    """
-    An SMS receiver.
-    """
-    country_code: pulumi.Input[_builtins.str]
-    """
-    The country code of the SMS receiver.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
-    """
-    phone_number: pulumi.Input[_builtins.str]
-    """
-    The phone number of the SMS receiver.
-    """
-
-@pulumi.input_type
-class SmsReceiverArgs:
-    def __init__(__self__, *,
-                 country_code: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
-                 phone_number: pulumi.Input[_builtins.str]):
-        """
-        An SMS receiver.
-
-        :param pulumi.Input[_builtins.str] country_code: The country code of the SMS receiver.
-        :param pulumi.Input[_builtins.str] name: The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the SMS receiver.
-        """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
-
-    @_builtins.property
-    @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The country code of the SMS receiver.
-        """
-        return pulumi.get(self, "country_code")
-
-    @country_code.setter
-    def country_code(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "country_code", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> pulumi.Input[_builtins.str]:
-        """
-        The phone number of the SMS receiver.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @phone_number.setter
-    def phone_number(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "phone_number", value)
-
-
 class SpatialAggregationArgsDict(TypedDict):
     """
     Represents the spatial aggregation model.
@@ -11634,77 +11705,6 @@ class UdpReceiverArgs:
     @read_queue_length.setter
     def read_queue_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_queue_length", value)
-
-
-class VoiceReceiverArgsDict(TypedDict):
-    """
-    A voice receiver.
-    """
-    country_code: pulumi.Input[_builtins.str]
-    """
-    The country code of the voice receiver.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
-    """
-    phone_number: pulumi.Input[_builtins.str]
-    """
-    The phone number of the voice receiver.
-    """
-
-@pulumi.input_type
-class VoiceReceiverArgs:
-    def __init__(__self__, *,
-                 country_code: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
-                 phone_number: pulumi.Input[_builtins.str]):
-        """
-        A voice receiver.
-
-        :param pulumi.Input[_builtins.str] country_code: The country code of the voice receiver.
-        :param pulumi.Input[_builtins.str] name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the voice receiver.
-        """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
-
-    @_builtins.property
-    @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The country code of the voice receiver.
-        """
-        return pulumi.get(self, "country_code")
-
-    @country_code.setter
-    def country_code(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "country_code", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> pulumi.Input[_builtins.str]:
-        """
-        The phone number of the voice receiver.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @phone_number.setter
-    def phone_number(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "phone_number", value)
 
 
 class WebhookNotificationArgsDict(TypedDict):

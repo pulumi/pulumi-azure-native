@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web
     /// 
     /// Uses Azure REST API version 2025-05-01.
     /// 
-    /// Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:SiteCertificate")]
     public partial class SiteCertificate : global::Pulumi.CustomResource
@@ -217,6 +217,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20250501:SiteCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20260301preview:SiteCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20260315:SiteCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20260715:SiteCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

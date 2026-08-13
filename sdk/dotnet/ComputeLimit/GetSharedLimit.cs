@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ComputeLimit
         /// 
         /// Uses Azure REST API version 2025-08-15.
         /// 
-        /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01, 2026-07-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSharedLimitResult> InvokeAsync(GetSharedLimitArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedLimitResult>("azure-native:computelimit:getSharedLimit", args ?? new GetSharedLimitArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ComputeLimit
         /// 
         /// Uses Azure REST API version 2025-08-15.
         /// 
-        /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01, 2026-07-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSharedLimitResult> Invoke(GetSharedLimitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedLimitResult>("azure-native:computelimit:getSharedLimit", args ?? new GetSharedLimitInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ComputeLimit
         /// 
         /// Uses Azure REST API version 2025-08-15.
         /// 
-        /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01, 2026-07-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSharedLimitResult> Invoke(GetSharedLimitInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedLimitResult>("azure-native:computelimit:getSharedLimit", args ?? new GetSharedLimitInvokeArgs(), options.WithDefaults());

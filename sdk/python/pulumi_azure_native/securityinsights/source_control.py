@@ -41,7 +41,7 @@ class SourceControlArgs:
         :param pulumi.Input[Union[_builtins.str, 'RepoType']] repo_type: The repository type of the source control
         :param pulumi.Input['RepositoryArgs'] repository: Repository metadata.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the monitor workspace.
         :param pulumi.Input[_builtins.str] description: A description of the source control
         :param pulumi.Input['RepositoryAccessArgs'] repository_access: Repository access credentials. This is write-only object and it never returns back to a user.
         :param pulumi.Input['RepositoryResourceInfoArgs'] repository_resource_info: Information regarding the resources created in user's repository.
@@ -129,7 +129,7 @@ class SourceControlArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the workspace.
+        The name of the monitor workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -221,7 +221,7 @@ class SourceControl(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +235,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']] service_principal: Service principal metadata.
         :param pulumi.Input[_builtins.str] source_control_id: Source control Id
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the monitor workspace.
         """
         ...
     @overload
@@ -248,7 +248,7 @@ class SourceControl(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.
@@ -317,7 +317,7 @@ class SourceControl(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["workload_identity_federation"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250601:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250701preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250901:SourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250601:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250701preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250901:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20251001preview:SourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SourceControl, __self__).__init__(
             'azure-native:securityinsights:SourceControl',

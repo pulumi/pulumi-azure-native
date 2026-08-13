@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource
+        /// The name of the private endpoint connection associated with the Azure resource.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource
+        /// The name of the private endpoint connection associated with the Azure resource.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
@@ -104,7 +104,11 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -112,7 +116,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Monitor
         private GetPrivateEndpointConnectionResult(
             string azureApiVersion,
 
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.Monitor
             string type)
         {
             AzureApiVersion = azureApiVersion;
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

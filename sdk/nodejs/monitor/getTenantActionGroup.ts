@@ -22,7 +22,7 @@ export function getTenantActionGroup(args: GetTenantActionGroupArgs, opts?: pulu
 
 export interface GetTenantActionGroupArgs {
     /**
-     * The management group id.
+     * The management group ID.
      */
     managementGroupId: string;
     /**
@@ -56,15 +56,15 @@ export interface GetTenantActionGroupResult {
      */
     readonly groupShortName: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -72,11 +72,15 @@ export interface GetTenantActionGroupResult {
      */
     readonly smsReceivers?: outputs.monitor.SmsReceiverResponse[];
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.monitor.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -103,7 +107,7 @@ export function getTenantActionGroupOutput(args: GetTenantActionGroupOutputArgs,
 
 export interface GetTenantActionGroupOutputArgs {
     /**
-     * The management group id.
+     * The management group ID.
      */
     managementGroupId: pulumi.Input<string>;
     /**

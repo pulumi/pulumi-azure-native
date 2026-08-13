@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-11-01-preview.
  *
- * Other available API versions: 2025-09-01, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-09-01, 2026-06-01-preview, 2026-07-01, 2026-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCGProfile(args: GetCGProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCGProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -154,7 +154,7 @@ export interface GetCGProfileResult {
  *
  * Uses Azure REST API version 2024-11-01-preview.
  *
- * Other available API versions: 2025-09-01, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-09-01, 2026-06-01-preview, 2026-07-01, 2026-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCGProfileOutput(args: GetCGProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCGProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

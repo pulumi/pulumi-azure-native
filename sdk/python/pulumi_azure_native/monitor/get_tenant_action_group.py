@@ -27,7 +27,7 @@ class GetTenantActionGroupResult:
     """
     A tenant action group resource.
     """
-    def __init__(__self__, azure_api_version=None, azure_app_push_receivers=None, email_receivers=None, enabled=None, group_short_name=None, id=None, location=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
+    def __init__(__self__, azure_api_version=None, azure_app_push_receivers=None, email_receivers=None, enabled=None, group_short_name=None, id=None, location=None, name=None, sms_receivers=None, system_data=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -55,6 +55,9 @@ class GetTenantActionGroupResult:
         if sms_receivers and not isinstance(sms_receivers, list):
             raise TypeError("Expected argument 'sms_receivers' to be a list")
         pulumi.set(__self__, "sms_receivers", sms_receivers)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -112,7 +115,7 @@ class GetTenantActionGroupResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -120,7 +123,7 @@ class GetTenantActionGroupResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -128,7 +131,7 @@ class GetTenantActionGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -141,10 +144,18 @@ class GetTenantActionGroupResult:
         return pulumi.get(self, "sms_receivers")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -152,7 +163,7 @@ class GetTenantActionGroupResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -188,6 +199,7 @@ class AwaitableGetTenantActionGroupResult(GetTenantActionGroupResult):
             location=self.location,
             name=self.name,
             sms_receivers=self.sms_receivers,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             voice_receivers=self.voice_receivers,
@@ -202,7 +214,7 @@ def get_tenant_action_group(management_group_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-05-01-preview.
 
-    :param _builtins.str management_group_id: The management group id.
+    :param _builtins.str management_group_id: The management group ID.
     :param _builtins.str tenant_action_group_name: The name of the action group.
     """
     __args__ = dict()
@@ -221,6 +233,7 @@ def get_tenant_action_group(management_group_id: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         sms_receivers=pulumi.get(__ret__, 'sms_receivers'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
@@ -233,7 +246,7 @@ def get_tenant_action_group_output(management_group_id: pulumi.Input[Optional[_b
 
     Uses Azure REST API version 2023-05-01-preview.
 
-    :param _builtins.str management_group_id: The management group id.
+    :param _builtins.str management_group_id: The management group ID.
     :param _builtins.str tenant_action_group_name: The name of the action group.
     """
     __args__ = dict()
@@ -251,6 +264,7 @@ def get_tenant_action_group_output(management_group_id: pulumi.Input[Optional[_b
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         sms_receivers=pulumi.get(__response__, 'sms_receivers'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         voice_receivers=pulumi.get(__response__, 'voice_receivers'),

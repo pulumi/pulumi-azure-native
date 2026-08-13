@@ -4162,6 +4162,7 @@ _utilities.register(
    "azure-native:security:Automation": "Automation",
    "azure-native:security:AzureServersSetting": "AzureServersSetting",
    "azure-native:security:CustomRecommendation": "CustomRecommendation",
+   "azure-native:security:DataScanner": "DataScanner",
    "azure-native:security:DefenderForStorage": "DefenderForStorage",
    "azure-native:security:DevOpsConfiguration": "DevOpsConfiguration",
    "azure-native:security:DeviceSecurityGroup": "DeviceSecurityGroup",

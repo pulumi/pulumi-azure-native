@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2026-03-01-preview.
  *
- * Other available API versions: 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2026-03-15, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AiGateway extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class AiGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20260301preview:AiGateway" }, { type: "azure-native:web/v20260315:AiGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20260301preview:AiGateway" }, { type: "azure-native:web/v20260315:AiGateway" }, { type: "azure-native:web/v20260715:AiGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AiGateway.__pulumiType, name, resourceInputs, opts);
     }

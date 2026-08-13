@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260301:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260315preview:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260501:MachineLearningDatastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260515preview:MachineLearningDatastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Datastore" },
                 },
             };

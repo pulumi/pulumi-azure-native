@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<int>? InstanceMemoryMB { get; set; }
 
         /// <summary>
-        /// The maximum number of instances for the function app.
+        /// The maximum number of on demand instances per function group.
         /// </summary>
         [Input("maximumInstanceCount")]
         public Input<int>? MaximumInstanceCount { get; set; }

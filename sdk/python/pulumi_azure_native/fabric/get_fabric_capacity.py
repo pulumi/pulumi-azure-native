@@ -178,7 +178,7 @@ def get_fabric_capacity(capacity_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-01-15-preview, 2026-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str capacity_name: The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -209,7 +209,7 @@ def get_fabric_capacity_output(capacity_name: pulumi.Input[Optional[_builtins.st
 
     Uses Azure REST API version 2023-11-01.
 
-    Other available API versions: 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-01-15-preview, 2026-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str capacity_name: The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

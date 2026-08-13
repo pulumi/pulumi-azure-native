@@ -218,7 +218,7 @@ export interface ActionGroupArgs {
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.AzureAppPushReceiverArgs>[] | undefined>;
+    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.MicrosoftCommonAzureAppPushReceiverArgs>[] | undefined>;
     /**
      * The list of azure function receivers that are part of this action group.
      */
@@ -226,7 +226,7 @@ export interface ActionGroupArgs {
     /**
      * The list of email receivers that are part of this action group.
      */
-    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.EmailReceiverArgs>[] | undefined>;
+    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.MicrosoftCommonEmailReceiverArgs>[] | undefined>;
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
@@ -266,7 +266,7 @@ export interface ActionGroupArgs {
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.SmsReceiverArgs>[] | undefined>;
+    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.MicrosoftCommonSmsReceiverArgs>[] | undefined>;
     /**
      * Resource tags.
      */
@@ -274,7 +274,7 @@ export interface ActionGroupArgs {
     /**
      * The list of voice receivers that are part of this action group.
      */
-    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.VoiceReceiverArgs>[] | undefined>;
+    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.MicrosoftCommonVoiceReceiverArgs>[] | undefined>;
     /**
      * The list of webhook receivers that are part of this action group.
      */

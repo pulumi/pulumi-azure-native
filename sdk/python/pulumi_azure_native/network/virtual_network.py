@@ -17,10 +17,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
+__all__ = ['VirtualNetworkInitArgs', 'VirtualNetwork']
 
 @pulumi.input_type
-class VirtualNetworkArgs:
+class VirtualNetworkInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  address_space: pulumi.Input[Optional['AddressSpaceArgs']] = None,
@@ -382,7 +382,7 @@ class VirtualNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkArgs,
+                 args: VirtualNetworkInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Network resource.
@@ -392,12 +392,12 @@ class VirtualNetwork(pulumi.CustomResource):
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -431,7 +431,7 @@ class VirtualNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
+            __props__ = VirtualNetworkInitArgs.__new__(VirtualNetworkInitArgs)
 
             __props__.__dict__["address_space"] = address_space
             __props__.__dict__["bgp_communities"] = bgp_communities
@@ -486,7 +486,7 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
+        __props__ = VirtualNetworkInitArgs.__new__(VirtualNetworkInitArgs)
 
         __props__.__dict__["address_space"] = None
         __props__.__dict__["azure_api_version"] = None

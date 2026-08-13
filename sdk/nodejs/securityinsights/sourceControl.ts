@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
- * Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SourceControl extends pulumi.CustomResource {
     /**
@@ -174,7 +174,7 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["workloadIdentityFederation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:SourceControl" }, { type: "azure-native:securityinsights/v20230501preview:SourceControl" }, { type: "azure-native:securityinsights/v20250601:SourceControl" }, { type: "azure-native:securityinsights/v20250701preview:SourceControl" }, { type: "azure-native:securityinsights/v20250901:SourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:SourceControl" }, { type: "azure-native:securityinsights/v20230501preview:SourceControl" }, { type: "azure-native:securityinsights/v20250601:SourceControl" }, { type: "azure-native:securityinsights/v20250701preview:SourceControl" }, { type: "azure-native:securityinsights/v20250901:SourceControl" }, { type: "azure-native:securityinsights/v20251001preview:SourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControl.__pulumiType, name, resourceInputs, opts);
     }
@@ -225,7 +225,7 @@ export interface SourceControlArgs {
      */
     sourceControlId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the workspace.
+     * The name of the monitor workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

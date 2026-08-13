@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
     /// <summary>
     /// Specifies the retention policy for the log.
     /// </summary>
-    public sealed class RetentionPolicyArgs : global::Pulumi.ResourceArgs
+    public sealed class MicrosoftCommonRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -27,9 +27,9 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        public RetentionPolicyArgs()
+        public MicrosoftCommonRetentionPolicyArgs()
         {
         }
-        public static new RetentionPolicyArgs Empty => new RetentionPolicyArgs();
+        public static new MicrosoftCommonRetentionPolicyArgs Empty => new MicrosoftCommonRetentionPolicyArgs();
     }
 }

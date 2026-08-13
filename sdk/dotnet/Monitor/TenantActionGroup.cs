@@ -48,13 +48,13 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> GroupShortName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -66,13 +66,19 @@ namespace Pulumi.AzureNative.Monitor
         public Output<ImmutableArray<Outputs.SmsReceiverResponse>> SmsReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -142,26 +148,26 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class TenantActionGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("azureAppPushReceivers")]
-        private InputList<Inputs.AzureAppPushReceiverArgs>? _azureAppPushReceivers;
+        private InputList<Inputs.MicrosoftCommonAzureAppPushReceiverArgs>? _azureAppPushReceivers;
 
         /// <summary>
         /// The list of AzureAppPush receivers that are part of this tenant action group.
         /// </summary>
-        public InputList<Inputs.AzureAppPushReceiverArgs> AzureAppPushReceivers
+        public InputList<Inputs.MicrosoftCommonAzureAppPushReceiverArgs> AzureAppPushReceivers
         {
-            get => _azureAppPushReceivers ?? (_azureAppPushReceivers = new InputList<Inputs.AzureAppPushReceiverArgs>());
+            get => _azureAppPushReceivers ?? (_azureAppPushReceivers = new InputList<Inputs.MicrosoftCommonAzureAppPushReceiverArgs>());
             set => _azureAppPushReceivers = value;
         }
 
         [Input("emailReceivers")]
-        private InputList<Inputs.EmailReceiverArgs>? _emailReceivers;
+        private InputList<Inputs.MicrosoftCommonEmailReceiverArgs>? _emailReceivers;
 
         /// <summary>
         /// The list of email receivers that are part of this tenant action group.
         /// </summary>
-        public InputList<Inputs.EmailReceiverArgs> EmailReceivers
+        public InputList<Inputs.MicrosoftCommonEmailReceiverArgs> EmailReceivers
         {
-            get => _emailReceivers ?? (_emailReceivers = new InputList<Inputs.EmailReceiverArgs>());
+            get => _emailReceivers ?? (_emailReceivers = new InputList<Inputs.MicrosoftCommonEmailReceiverArgs>());
             set => _emailReceivers = value;
         }
 
@@ -178,26 +184,26 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string> GroupShortName { get; set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The management group id.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
 
         [Input("smsReceivers")]
-        private InputList<Inputs.SmsReceiverArgs>? _smsReceivers;
+        private InputList<Inputs.MicrosoftCommonSmsReceiverArgs>? _smsReceivers;
 
         /// <summary>
         /// The list of SMS receivers that are part of this tenant action group.
         /// </summary>
-        public InputList<Inputs.SmsReceiverArgs> SmsReceivers
+        public InputList<Inputs.MicrosoftCommonSmsReceiverArgs> SmsReceivers
         {
-            get => _smsReceivers ?? (_smsReceivers = new InputList<Inputs.SmsReceiverArgs>());
+            get => _smsReceivers ?? (_smsReceivers = new InputList<Inputs.MicrosoftCommonSmsReceiverArgs>());
             set => _smsReceivers = value;
         }
 
@@ -205,7 +211,7 @@ namespace Pulumi.AzureNative.Monitor
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -220,14 +226,14 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string>? TenantActionGroupName { get; set; }
 
         [Input("voiceReceivers")]
-        private InputList<Inputs.VoiceReceiverArgs>? _voiceReceivers;
+        private InputList<Inputs.MicrosoftCommonVoiceReceiverArgs>? _voiceReceivers;
 
         /// <summary>
         /// The list of voice receivers that are part of this tenant action group.
         /// </summary>
-        public InputList<Inputs.VoiceReceiverArgs> VoiceReceivers
+        public InputList<Inputs.MicrosoftCommonVoiceReceiverArgs> VoiceReceivers
         {
-            get => _voiceReceivers ?? (_voiceReceivers = new InputList<Inputs.VoiceReceiverArgs>());
+            get => _voiceReceivers ?? (_voiceReceivers = new InputList<Inputs.MicrosoftCommonVoiceReceiverArgs>());
             set => _voiceReceivers = value;
         }
 

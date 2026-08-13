@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The list of logs settings.
         /// </summary>
         [Output("logs")]
-        public Output<ImmutableArray<Outputs.LogSettingsResponse>> Logs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DiagnosticsLogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
         /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The list of metric settings.
         /// </summary>
         [Output("metrics")]
-        public Output<ImmutableArray<Outputs.MetricSettingsResponse>> Metrics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DiagnosticsMetricSettingsResponse>> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata related to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -166,14 +166,14 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string>? LogAnalyticsDestinationType { get; set; }
 
         [Input("logs")]
-        private InputList<Inputs.LogSettingsArgs>? _logs;
+        private InputList<Inputs.DiagnosticsLogSettingsArgs>? _logs;
 
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public InputList<Inputs.LogSettingsArgs> Logs
+        public InputList<Inputs.DiagnosticsLogSettingsArgs> Logs
         {
-            get => _logs ?? (_logs = new InputList<Inputs.LogSettingsArgs>());
+            get => _logs ?? (_logs = new InputList<Inputs.DiagnosticsLogSettingsArgs>());
             set => _logs = value;
         }
 
@@ -184,14 +184,14 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string>? MarketplacePartnerId { get; set; }
 
         [Input("metrics")]
-        private InputList<Inputs.MetricSettingsArgs>? _metrics;
+        private InputList<Inputs.DiagnosticsMetricSettingsArgs>? _metrics;
 
         /// <summary>
         /// The list of metric settings.
         /// </summary>
-        public InputList<Inputs.MetricSettingsArgs> Metrics
+        public InputList<Inputs.DiagnosticsMetricSettingsArgs> Metrics
         {
-            get => _metrics ?? (_metrics = new InputList<Inputs.MetricSettingsArgs>());
+            get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticsMetricSettingsArgs>());
             set => _metrics = value;
         }
 
@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

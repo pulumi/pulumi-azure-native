@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Monitor
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LogSettingsResponse> Logs;
+        public readonly ImmutableArray<Outputs.DiagnosticsLogSettingsResponse> Logs;
         /// <summary>
         /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The list of metric settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MetricSettingsResponse> Metrics;
+        public readonly ImmutableArray<Outputs.DiagnosticsMetricSettingsResponse> Metrics;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>
-        /// The system metadata related to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -150,11 +150,11 @@ namespace Pulumi.AzureNative.Monitor
 
             string? logAnalyticsDestinationType,
 
-            ImmutableArray<Outputs.LogSettingsResponse> logs,
+            ImmutableArray<Outputs.DiagnosticsLogSettingsResponse> logs,
 
             string? marketplacePartnerId,
 
-            ImmutableArray<Outputs.MetricSettingsResponse> metrics,
+            ImmutableArray<Outputs.DiagnosticsMetricSettingsResponse> metrics,
 
             string name,
 

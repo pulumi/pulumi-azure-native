@@ -71,6 +71,8 @@ __all__ = [
     'DependenciesSignalGroupResponse',
     'DestinationsSpecResponseAzureMonitorMetrics',
     'DiagnosticSettingsCategoryResourceResponse',
+    'DiagnosticsLogSettingsResponse',
+    'DiagnosticsMetricSettingsResponse',
     'DimensionResponse',
     'DiscoveryErrorResponse',
     'DynamicDetectionRuleResponse',
@@ -110,7 +112,6 @@ __all__ = [
     'LogFileSettingsResponseText',
     'LogFilesDataSourceResponse',
     'LogFilesDataSourceResponseSettings',
-    'LogSettingsResponse',
     'LogicAppReceiverResponse',
     'ManagedIdentityAuthenticationSettingPropertiesResponse',
     'ManagedServiceIdentityResponse',
@@ -121,7 +122,6 @@ __all__ = [
     'MetricCriteriaResponse',
     'MetricDimensionResponse',
     'MetricResponse',
-    'MetricSettingsResponse',
     'MetricTriggerResponse',
     'ModelDiscoverySettingsResponse',
     'MonitoringAccountDestinationResponse',
@@ -135,7 +135,6 @@ __all__ = [
     'PipelineResponse',
     'PlatformTelemetryDataSourceResponse',
     'PredictiveAutoscalePolicyResponse',
-    'PrivateEndpointConnectionPrivateLinkScopeResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkScopedResourceResponse',
@@ -1452,7 +1451,7 @@ class AzureAppPushReceiverResponse(dict):
         The Azure mobile App push notification receiver.
 
         :param _builtins.str email_address: The email address registered for the Azure mobile app.
-        :param _builtins.str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        :param _builtins.str name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
         """
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "name", name)
@@ -1469,7 +1468,7 @@ class AzureAppPushReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
         """
         return pulumi.get(self, "name")
 
@@ -4015,9 +4014,9 @@ class DiagnosticSettingsCategoryResourceResponse(dict):
         """
         The diagnostic settings category resource.
 
-        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
-        :param 'SystemDataResponse' system_data: The system metadata related to this resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param Sequence[_builtins.str] category_groups: the collection of what category groups are supported.
         :param _builtins.str category_type: The type of the diagnostic settings category.
@@ -4035,7 +4034,7 @@ class DiagnosticSettingsCategoryResourceResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -4051,7 +4050,7 @@ class DiagnosticSettingsCategoryResourceResponse(dict):
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata related to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -4078,6 +4077,162 @@ class DiagnosticSettingsCategoryResourceResponse(dict):
         The type of the diagnostic settings category.
         """
         return pulumi.get(self, "category_type")
+
+
+@pulumi.output_type
+class DiagnosticsLogSettingsResponse(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoryGroup":
+            suggest = "category_group"
+        elif key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsLogSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsLogSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsLogSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 category: Optional[_builtins.str] = None,
+                 category_group: Optional[_builtins.str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+
+        :param _builtins.bool enabled: a value indicating whether this log is enabled.
+        :param _builtins.str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param _builtins.str category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this log.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[_builtins.str]:
+        """
+        Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category_group")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
+        """
+        the retention policy for this log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+
+@pulumi.output_type
+class DiagnosticsMetricSettingsResponse(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicy":
+            suggest = "retention_policy"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsMetricSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsMetricSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsMetricSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 category: Optional[_builtins.str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+                 time_grain: Optional[_builtins.str] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+
+        :param _builtins.bool enabled: a value indicating whether this category is enabled.
+        :param _builtins.str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
+        :param _builtins.str time_grain: the timegrain of the metric in ISO8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        a value indicating whether this category is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        """
+        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
+        """
+        the retention policy for this category.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> Optional[_builtins.str]:
+        """
+        the timegrain of the metric in ISO8601 format.
+        """
+        return pulumi.get(self, "time_grain")
 
 
 @pulumi.output_type
@@ -4568,7 +4723,7 @@ class EmailReceiverResponse(dict):
         An email receiver.
 
         :param _builtins.str email_address: The email address of this receiver.
-        :param _builtins.str name: The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        :param _builtins.str name: The name of the email receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str status: The receiver status of the e-mail.
         :param _builtins.bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
@@ -4592,7 +4747,7 @@ class EmailReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        The name of the email receiver. Names must be unique across all receivers within an action group.
         """
         return pulumi.get(self, "name")
 
@@ -6833,84 +6988,6 @@ class LogFilesDataSourceResponseSettings(dict):
 
 
 @pulumi.output_type
-class LogSettingsResponse(dict):
-    """
-    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "categoryGroup":
-            suggest = "category_group"
-        elif key == "retentionPolicy":
-            suggest = "retention_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: _builtins.bool,
-                 category: Optional[_builtins.str] = None,
-                 category_group: Optional[_builtins.str] = None,
-                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-
-        :param _builtins.bool enabled: a value indicating whether this log is enabled.
-        :param _builtins.str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param _builtins.str category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this log.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> _builtins.bool:
-        """
-        a value indicating whether this log is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @_builtins.property
-    @pulumi.getter
-    def category(self) -> Optional[_builtins.str]:
-        """
-        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category")
-
-    @_builtins.property
-    @pulumi.getter(name="categoryGroup")
-    def category_group(self) -> Optional[_builtins.str]:
-        """
-        Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category_group")
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
-        """
-        the retention policy for this log.
-        """
-        return pulumi.get(self, "retention_policy")
-
-
-@pulumi.output_type
 class LogicAppReceiverResponse(dict):
     """
     A logic app receiver.
@@ -7632,84 +7709,6 @@ class MetricResponse(dict):
         The namespace of the metric.
         """
         return pulumi.get(self, "metric_namespace")
-
-
-@pulumi.output_type
-class MetricSettingsResponse(dict):
-    """
-    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionPolicy":
-            suggest = "retention_policy"
-        elif key == "timeGrain":
-            suggest = "time_grain"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MetricSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MetricSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MetricSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: _builtins.bool,
-                 category: Optional[_builtins.str] = None,
-                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
-                 time_grain: Optional[_builtins.str] = None):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-
-        :param _builtins.bool enabled: a value indicating whether this category is enabled.
-        :param _builtins.str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        :param 'RetentionPolicyResponse' retention_policy: the retention policy for this category.
-        :param _builtins.str time_grain: the timegrain of the metric in ISO8601 format.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-        if time_grain is not None:
-            pulumi.set(__self__, "time_grain", time_grain)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> _builtins.bool:
-        """
-        a value indicating whether this category is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @_builtins.property
-    @pulumi.getter
-    def category(self) -> Optional[_builtins.str]:
-        """
-        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        return pulumi.get(self, "category")
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
-        """
-        the retention policy for this category.
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @_builtins.property
-    @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> Optional[_builtins.str]:
-        """
-        the timegrain of the metric in ISO8601 format.
-        """
-        return pulumi.get(self, "time_grain")
 
 
 @pulumi.output_type
@@ -8619,119 +8618,6 @@ class PredictiveAutoscalePolicyResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionPrivateLinkScopeResponse(dict):
-    """
-    The Private Endpoint Connection resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPrivateLinkScopeResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionPrivateLinkScopeResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionPrivateLinkScopeResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: _builtins.str,
-                 name: _builtins.str,
-                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: _builtins.str,
-                 system_data: 'outputs.SystemDataResponse',
-                 type: _builtins.str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
-        """
-        The Private Endpoint Connection resource.
-
-        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        :param _builtins.str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The resource of private end point.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-
-@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The private endpoint connection resource.
@@ -8860,14 +8746,14 @@ class PrivateEndpointConnectionResponse(dict):
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
-    The Private Endpoint resource.
+    The private endpoint resource.
     """
     def __init__(__self__, *,
                  id: _builtins.str):
         """
-        The Private Endpoint resource.
+        The private endpoint resource.
 
-        :param _builtins.str id: The ARM identifier for Private Endpoint
+        :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
 
@@ -8875,7 +8761,7 @@ class PrivateEndpointResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ARM identifier for Private Endpoint
+        The ARM identifier for private endpoint.
         """
         return pulumi.get(self, "id")
 
@@ -11341,7 +11227,7 @@ class SmsReceiverResponse(dict):
         An SMS receiver.
 
         :param _builtins.str country_code: The country code of the SMS receiver.
-        :param _builtins.str name: The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        :param _builtins.str name: The name of the SMS receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str phone_number: The phone number of the SMS receiver.
         :param _builtins.str status: The status of the receiver.
         """
@@ -11362,7 +11248,7 @@ class SmsReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        The name of the SMS receiver. Names must be unique across all receivers within an action group.
         """
         return pulumi.get(self, "name")
 
@@ -12258,7 +12144,7 @@ class VoiceReceiverResponse(dict):
         A voice receiver.
 
         :param _builtins.str country_code: The country code of the voice receiver.
-        :param _builtins.str name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        :param _builtins.str name: The name of the voice receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str phone_number: The phone number of the voice receiver.
         """
         pulumi.set(__self__, "country_code", country_code)
@@ -12277,7 +12163,7 @@ class VoiceReceiverResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        The name of the voice receiver. Names must be unique across all receivers within an action group.
         """
         return pulumi.get(self, "name")
 

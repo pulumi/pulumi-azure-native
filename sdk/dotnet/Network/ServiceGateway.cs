@@ -207,7 +207,7 @@ namespace Pulumi.AzureNative.Network
         /// Reference to an existing virtual network.
         /// </summary>
         [Input("virtualNetwork")]
-        public Input<Inputs.CommonVirtualNetworkArgs>? VirtualNetwork { get; set; }
+        public Input<Inputs.VirtualNetworkArgs>? VirtualNetwork { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

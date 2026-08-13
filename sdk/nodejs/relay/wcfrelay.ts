@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
- * Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-11-01, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**
@@ -143,7 +143,7 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:WCFRelay" }, { type: "azure-native:relay/v20170401:WCFRelay" }, { type: "azure-native:relay/v20211101:WCFRelay" }, { type: "azure-native:relay/v20240101:WCFRelay" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:WCFRelay" }, { type: "azure-native:relay/v20170401:WCFRelay" }, { type: "azure-native:relay/v20211101:WCFRelay" }, { type: "azure-native:relay/v20240101:WCFRelay" }, { type: "azure-native:relay/v20260101:WCFRelay" }, { type: "azure-native:relay/v20260701preview:WCFRelay" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WCFRelay.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
     /// <summary>
     /// A voice receiver.
     /// </summary>
-    public sealed class VoiceReceiverArgs : global::Pulumi.ResourceArgs
+    public sealed class MicrosoftCommonVoiceReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The country code of the voice receiver.
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         public Input<string> CountryCode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        /// The name of the voice receiver. Names must be unique across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -33,9 +33,9 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         [Input("phoneNumber", required: true)]
         public Input<string> PhoneNumber { get; set; } = null!;
 
-        public VoiceReceiverArgs()
+        public MicrosoftCommonVoiceReceiverArgs()
         {
         }
-        public static new VoiceReceiverArgs Empty => new VoiceReceiverArgs();
+        public static new MicrosoftCommonVoiceReceiverArgs Empty => new MicrosoftCommonVoiceReceiverArgs();
     }
 }

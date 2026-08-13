@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-05-01-preview.
  *
- * Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-12-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Source extends pulumi.CustomResource {
     /**
@@ -161,7 +161,7 @@ export class Source extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:billingbenefits/v20250501preview:Source" }, { type: "azure-native:billingbenefits/v20251201preview:Source" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billingbenefits/v20250501preview:Source" }, { type: "azure-native:billingbenefits/v20251201preview:Source" }, { type: "azure-native:billingbenefits/v20260601:Source" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Source.__pulumiType, name, resourceInputs, opts);
     }

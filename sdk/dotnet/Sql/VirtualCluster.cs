@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// 
     /// Uses Azure REST API version 2024-11-01-preview.
     /// 
-    /// Other available API versions: 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-01-01, 2025-02-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:VirtualCluster")]
     public partial class VirtualCluster : global::Pulumi.CustomResource
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20241101preview:VirtualCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20250101:VirtualCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20250201preview:VirtualCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20250801preview:VirtualCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

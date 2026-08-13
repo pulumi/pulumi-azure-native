@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// 
         /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// 
         /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// 
         /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string SourceControlId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace.
+        /// The name of the monitor workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> SourceControlId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace.
+        /// The name of the monitor workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

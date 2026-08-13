@@ -104,7 +104,7 @@ class Connection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01.
 
-        Other available API versions: 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-12-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +124,7 @@ class Connection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01.
 
-        Other available API versions: 2025-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-12-01, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -168,7 +168,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover/v20250801:Connection"), pulumi.Alias(type_="azure-native:storagemover/v20251201:Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover/v20250801:Connection"), pulumi.Alias(type_="azure-native:storagemover/v20251201:Connection"), pulumi.Alias(type_="azure-native:storagemover/v20260501:Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connection, __self__).__init__(
             'azure-native:storagemover:Connection',

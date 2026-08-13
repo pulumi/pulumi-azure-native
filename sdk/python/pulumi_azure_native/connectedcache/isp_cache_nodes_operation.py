@@ -140,7 +140,7 @@ class IspCacheNodesOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-11-30-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class IspCacheNodesOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-11-30-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param IspCacheNodesOperationArgs args: The arguments to use to populate this resource's properties.
@@ -208,7 +208,7 @@ class IspCacheNodesOperation(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedcache/v20230501preview:IspCacheNodesOperation"), pulumi.Alias(type_="azure-native:connectedcache/v20241130preview:IspCacheNodesOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedcache/v20230501preview:IspCacheNodesOperation"), pulumi.Alias(type_="azure-native:connectedcache/v20241130preview:IspCacheNodesOperation"), pulumi.Alias(type_="azure-native:connectedcache/v20260601:IspCacheNodesOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IspCacheNodesOperation, __self__).__init__(
             'azure-native:connectedcache:IspCacheNodesOperation',

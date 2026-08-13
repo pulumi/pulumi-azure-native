@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// 
     /// Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15-preview.
     /// 
-    /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20250801preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260201preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260302preview:Fleet" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260601:Fleet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

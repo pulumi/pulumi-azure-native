@@ -99,7 +99,7 @@ class GetDiagnosticSettingResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -113,7 +113,7 @@ class GetDiagnosticSettingResult:
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[Sequence['outputs.LogSettingsResponse']]:
+    def logs(self) -> Optional[Sequence['outputs.DiagnosticsLogSettingsResponse']]:
         """
         The list of logs settings.
         """
@@ -129,7 +129,7 @@ class GetDiagnosticSettingResult:
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[Sequence['outputs.MetricSettingsResponse']]:
+    def metrics(self) -> Optional[Sequence['outputs.DiagnosticsMetricSettingsResponse']]:
         """
         The list of metric settings.
         """
@@ -163,7 +163,7 @@ class GetDiagnosticSettingResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata related to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -215,7 +215,7 @@ def get_diagnostic_setting(name: Optional[_builtins.str] = None,
     Uses Azure REST API version 2021-05-01-preview.
 
     :param _builtins.str name: The name of the diagnostic setting.
-    :param _builtins.str resource_uri: The identifier of the resource.
+    :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -247,7 +247,7 @@ def get_diagnostic_setting_output(name: pulumi.Input[Optional[_builtins.str]] = 
     Uses Azure REST API version 2021-05-01-preview.
 
     :param _builtins.str name: The name of the diagnostic setting.
-    :param _builtins.str resource_uri: The identifier of the resource.
+    :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['name'] = name

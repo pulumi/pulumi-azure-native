@@ -13,19 +13,19 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// <summary>
     /// Virtual Network resource.
     /// </summary>
-    public sealed class CommonVirtualNetworkArgs : global::Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         /// </summary>
         [Input("addressSpace")]
-        public Input<Inputs.CommonAddressSpaceArgs>? AddressSpace { get; set; }
+        public Input<Inputs.AddressSpaceArgs>? AddressSpace { get; set; }
 
         /// <summary>
         /// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
         /// </summary>
         [Input("bgpCommunities")]
-        public Input<Inputs.CommonVirtualNetworkBgpCommunitiesArgs>? BgpCommunities { get; set; }
+        public Input<Inputs.VirtualNetworkBgpCommunitiesArgs>? BgpCommunities { get; set; }
 
         /// <summary>
         /// The DDoS protection plan associated with the virtual network.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         /// </summary>
         [Input("dhcpOptions")]
-        public Input<Inputs.CommonDhcpOptionsArgs>? DhcpOptions { get; set; }
+        public Input<Inputs.DhcpOptionsArgs>? DhcpOptions { get; set; }
 
         /// <summary>
         /// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
         /// </summary>
         [Input("encryption")]
-        public Input<Inputs.CommonVirtualNetworkEncryptionArgs>? Encryption { get; set; }
+        public Input<Inputs.VirtualNetworkEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// The extended location of the virtual network.
         /// </summary>
         [Input("extendedLocation")]
-        public Input<Inputs.CommonExtendedLocationArgs>? ExtendedLocation { get; set; }
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// The FlowTimeout value (in minutes) for the Virtual Network
@@ -100,14 +100,14 @@ namespace Pulumi.AzureNative.Network.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.PrivateEndpointVNetPolicies>? PrivateEndpointVNetPolicies { get; set; }
 
         [Input("subnets")]
-        private InputList<Inputs.CommonSubnetArgs>? _subnets;
+        private InputList<Inputs.SubnetArgs>? _subnets;
 
         /// <summary>
         /// A list of subnets in a Virtual Network.
         /// </summary>
-        public InputList<Inputs.CommonSubnetArgs> Subnets
+        public InputList<Inputs.SubnetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.CommonSubnetArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetArgs>());
             set => _subnets = value;
         }
 
@@ -124,22 +124,22 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         [Input("virtualNetworkPeerings")]
-        private InputList<Inputs.CommonVirtualNetworkPeeringArgs>? _virtualNetworkPeerings;
+        private InputList<Inputs.VirtualNetworkPeeringArgs>? _virtualNetworkPeerings;
 
         /// <summary>
         /// A list of peerings in a Virtual Network.
         /// </summary>
-        public InputList<Inputs.CommonVirtualNetworkPeeringArgs> VirtualNetworkPeerings
+        public InputList<Inputs.VirtualNetworkPeeringArgs> VirtualNetworkPeerings
         {
-            get => _virtualNetworkPeerings ?? (_virtualNetworkPeerings = new InputList<Inputs.CommonVirtualNetworkPeeringArgs>());
+            get => _virtualNetworkPeerings ?? (_virtualNetworkPeerings = new InputList<Inputs.VirtualNetworkPeeringArgs>());
             set => _virtualNetworkPeerings = value;
         }
 
-        public CommonVirtualNetworkArgs()
+        public VirtualNetworkArgs()
         {
             EnableDdosProtection = false;
             EnableVmProtection = false;
         }
-        public static new CommonVirtualNetworkArgs Empty => new CommonVirtualNetworkArgs();
+        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 }

@@ -55321,7 +55321,7 @@ export namespace connectedcache {
          */
         autoUpdateRequestedWeek?: pulumi.Input<number | undefined>;
         /**
-         * Auto Update Ring Type which is slow or fast etc.
+         * Auto Update Ring Type which is stable or beta as new values. slow or fast are legacy from version 2026-06-01.
          */
         autoUpdateRingType?: pulumi.Input<string | enums.connectedcache.AutoUpdateRingType | undefined>;
         /**
@@ -139544,20 +139544,6 @@ export namespace monitor {
     }
 
     /**
-     * The Azure mobile App push notification receiver.
-     */
-    export interface AzureAppPushReceiverArgs {
-        /**
-         * The email address registered for the Azure mobile app.
-         */
-        emailAddress: pulumi.Input<string>;
-        /**
-         * The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
-         */
-        name: pulumi.Input<string>;
-    }
-
-    /**
      * An azure function receiver.
      */
     export interface AzureFunctionReceiverArgs {
@@ -140133,6 +140119,50 @@ export namespace monitor {
     }
 
     /**
+     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+     */
+    export interface DiagnosticsLogSettingsArgs {
+        /**
+         * Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        category?: pulumi.Input<string | undefined>;
+        /**
+         * Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        categoryGroup?: pulumi.Input<string | undefined>;
+        /**
+         * a value indicating whether this log is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * the retention policy for this log.
+         */
+        retentionPolicy?: pulumi.Input<inputs.monitor.MicrosoftCommonRetentionPolicyArgs | undefined>;
+    }
+
+    /**
+     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+     */
+    export interface DiagnosticsMetricSettingsArgs {
+        /**
+         * Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        category?: pulumi.Input<string | undefined>;
+        /**
+         * a value indicating whether this category is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * the retention policy for this category.
+         */
+        retentionPolicy?: pulumi.Input<inputs.monitor.MicrosoftCommonRetentionPolicyArgs | undefined>;
+        /**
+         * the timegrain of the metric in ISO8601 format.
+         */
+        timeGrain?: pulumi.Input<string | undefined>;
+    }
+
+    /**
      * Dimension splitting and filtering definition
      */
     export interface DimensionArgs {
@@ -140262,33 +140292,6 @@ export namespace monitor {
             ...val,
             sendToSubscriptionAdministrator: (val.sendToSubscriptionAdministrator) ?? false,
             sendToSubscriptionCoAdministrators: (val.sendToSubscriptionCoAdministrators) ?? false,
-        };
-    }
-
-    /**
-     * An email receiver.
-     */
-    export interface EmailReceiverArgs {
-        /**
-         * The email address of this receiver.
-         */
-        emailAddress: pulumi.Input<string>;
-        /**
-         * The name of the email receiver. Names must be unique across all receivers within a tenant action group.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Indicates whether to use common alert schema.
-         */
-        useCommonAlertSchema?: pulumi.Input<boolean | undefined>;
-    }
-    /**
-     * emailReceiverArgsProvideDefaults sets the appropriate defaults for EmailReceiverArgs
-     */
-    export function emailReceiverArgsProvideDefaults(val: EmailReceiverArgs): EmailReceiverArgs {
-        return {
-            ...val,
-            useCommonAlertSchema: (val.useCommonAlertSchema) ?? false,
         };
     }
 
@@ -140839,28 +140842,6 @@ export namespace monitor {
     }
 
     /**
-     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-     */
-    export interface LogSettingsArgs {
-        /**
-         * Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-         */
-        category?: pulumi.Input<string | undefined>;
-        /**
-         * Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-         */
-        categoryGroup?: pulumi.Input<string | undefined>;
-        /**
-         * a value indicating whether this log is enabled.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * the retention policy for this log.
-         */
-        retentionPolicy?: pulumi.Input<inputs.monitor.RetentionPolicyArgs | undefined>;
-    }
-
-    /**
      * A logic app receiver.
      */
     export interface LogicAppReceiverArgs {
@@ -141052,28 +141033,6 @@ export namespace monitor {
     }
 
     /**
-     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-     */
-    export interface MetricSettingsArgs {
-        /**
-         * Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-         */
-        category?: pulumi.Input<string | undefined>;
-        /**
-         * a value indicating whether this category is enabled.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * the retention policy for this category.
-         */
-        retentionPolicy?: pulumi.Input<inputs.monitor.RetentionPolicyArgs | undefined>;
-        /**
-         * the timegrain of the metric in ISO8601 format.
-         */
-        timeGrain?: pulumi.Input<string | undefined>;
-    }
-
-    /**
      * The trigger that results in a scaling action.
      */
     export interface MetricTriggerArgs {
@@ -141128,6 +141087,47 @@ export namespace monitor {
     }
 
     /**
+     * The Azure mobile App push notification receiver.
+     */
+    export interface MicrosoftCommonAzureAppPushReceiverArgs {
+        /**
+         * The email address registered for the Azure mobile app.
+         */
+        emailAddress: pulumi.Input<string>;
+        /**
+         * The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * An email receiver.
+     */
+    export interface MicrosoftCommonEmailReceiverArgs {
+        /**
+         * The email address of this receiver.
+         */
+        emailAddress: pulumi.Input<string>;
+        /**
+         * The name of the email receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean | undefined>;
+    }
+    /**
+     * microsoftCommonEmailReceiverArgsProvideDefaults sets the appropriate defaults for MicrosoftCommonEmailReceiverArgs
+     */
+    export function microsoftCommonEmailReceiverArgsProvideDefaults(val: MicrosoftCommonEmailReceiverArgs): MicrosoftCommonEmailReceiverArgs {
+        return {
+            ...val,
+            useCommonAlertSchema: (val.useCommonAlertSchema) ?? false,
+        };
+    }
+
+    /**
      * Identity for the resource.
      */
     export interface MicrosoftCommonIdentityArgs {
@@ -141139,6 +141139,56 @@ export namespace monitor {
          * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
          */
         userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Specifies the retention policy for the log.
+     */
+    export interface MicrosoftCommonRetentionPolicyArgs {
+        /**
+         * the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+         */
+        days: pulumi.Input<number>;
+        /**
+         * a value indicating whether the retention policy is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * An SMS receiver.
+     */
+    export interface MicrosoftCommonSmsReceiverArgs {
+        /**
+         * The country code of the SMS receiver.
+         */
+        countryCode: pulumi.Input<string>;
+        /**
+         * The name of the SMS receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The phone number of the SMS receiver.
+         */
+        phoneNumber: pulumi.Input<string>;
+    }
+
+    /**
+     * A voice receiver.
+     */
+    export interface MicrosoftCommonVoiceReceiverArgs {
+        /**
+         * The country code of the voice receiver.
+         */
+        countryCode: pulumi.Input<string>;
+        /**
+         * The name of the voice receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The phone number of the voice receiver.
+         */
+        phoneNumber: pulumi.Input<string>;
     }
 
     /**
@@ -141678,20 +141728,6 @@ export namespace monitor {
     }
 
     /**
-     * Specifies the retention policy for the log.
-     */
-    export interface RetentionPolicyArgs {
-        /**
-         * the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-         */
-        days: pulumi.Input<number>;
-        /**
-         * a value indicating whether the retention policy is enabled.
-         */
-        enabled: pulumi.Input<boolean>;
-    }
-
-    /**
      * TBD. Relevant only for rules of the kind LogAlert.
      */
     export interface RuleResolveConfigurationArgs {
@@ -142001,24 +142037,6 @@ export namespace monitor {
     }
 
     /**
-     * An SMS receiver.
-     */
-    export interface SmsReceiverArgs {
-        /**
-         * The country code of the SMS receiver.
-         */
-        countryCode: pulumi.Input<string>;
-        /**
-         * The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The phone number of the SMS receiver.
-         */
-        phoneNumber: pulumi.Input<string>;
-    }
-
-    /**
      * Represents the spatial aggregation model.
      */
     export interface SpatialAggregationArgs {
@@ -142227,24 +142245,6 @@ export namespace monitor {
             jsonArrayMapper: pulumi.output(val.jsonArrayMapper).apply(v => v === undefined ? undefined : inputs.monitor.jsonArrayMapperArgsProvideDefaults(v)),
             readQueueLength: (val.readQueueLength) ?? 1000,
         };
-    }
-
-    /**
-     * A voice receiver.
-     */
-    export interface VoiceReceiverArgs {
-        /**
-         * The country code of the voice receiver.
-         */
-        countryCode: pulumi.Input<string>;
-        /**
-         * The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The phone number of the voice receiver.
-         */
-        phoneNumber: pulumi.Input<string>;
     }
 
     /**
@@ -145590,616 +145590,6 @@ export namespace network {
          * List of target locations.
          */
         targetLocations: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
-     */
-    export interface CommonAddressSpaceArgs {
-        /**
-         * A list of address blocks reserved for this virtual network in CIDR notation.
-         */
-        addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * A list of IPAM Pools allocating IP address prefixes.
-         */
-        ipamPoolPrefixAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonIpamPoolPrefixAllocationArgs>[] | undefined>;
-    }
-
-    /**
-     * IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
-     */
-    export interface CommonApplicationGatewayIPConfigurationArgs {
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Name of the IP configuration that is unique within an Application Gateway.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * Reference to the subnet resource. A subnet from where application gateway gets its private address.
-         */
-        subnet?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
-    }
-
-    /**
-     * An application security group in a resource group.
-     */
-    export interface CommonApplicationSecurityGroupArgs {
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Resource location.
-         */
-        location?: pulumi.Input<string | undefined>;
-        /**
-         * Resource tags.
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    }
-
-    /**
-     * Details the service to which the subnet is delegated.
-     */
-    export interface CommonDelegationArgs {
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * The name of the resource that is unique within a subnet. This name can be used to access the resource.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
-         */
-        serviceName?: pulumi.Input<string | undefined>;
-        /**
-         * Resource type.
-         */
-        type?: pulumi.Input<string | undefined>;
-    }
-
-    /**
-     * DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
-     */
-    export interface CommonDhcpOptionsArgs {
-        /**
-         * The list of DNS servers IP addresses.
-         */
-        dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    }
-
-    /**
-     * ExtendedLocation complex type.
-     */
-    export interface CommonExtendedLocationArgs {
-        /**
-         * The name of the extended location.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * The type of the extended location.
-         */
-        type?: pulumi.Input<string | enums.network.ExtendedLocationTypes | undefined>;
-    }
-
-    /**
-     * IpamPool prefix allocation reference.
-     */
-    export interface CommonIpamPoolPrefixAllocationArgs {
-        /**
-         * Resource id of the associated Azure IpamPool resource.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Number of IP addresses to allocate.
-         */
-        numberOfIpAddresses?: pulumi.Input<string | undefined>;
-    }
-
-    /**
-     * NetworkSecurityGroup resource.
-     */
-    export interface CommonNetworkSecurityGroupArgs {
-        /**
-         * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
-         */
-        flushConnection?: pulumi.Input<boolean | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Resource location.
-         */
-        location?: pulumi.Input<string | undefined>;
-        /**
-         * A collection of security rules of the network security group.
-         */
-        securityRules?: pulumi.Input<pulumi.Input<inputs.network.CommonSecurityRuleArgs>[] | undefined>;
-        /**
-         * Resource tags.
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    }
-
-    /**
-     * Route resource.
-     */
-    export interface CommonRouteArgs {
-        /**
-         * The destination CIDR to which the route applies.
-         */
-        addressPrefix?: pulumi.Input<string | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Name of the resource.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-         */
-        nextHopIpAddress?: pulumi.Input<string | undefined>;
-        /**
-         * The type of Azure hop the packet should be sent to.
-         */
-        nextHopType: pulumi.Input<string | enums.network.RouteNextHopType>;
-    }
-
-    /**
-     * Route table resource.
-     */
-    export interface CommonRouteTableArgs {
-        /**
-         * Whether to disable the routes learned by BGP on that route table. True means disable.
-         */
-        disableBgpRoutePropagation?: pulumi.Input<boolean | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Resource location.
-         */
-        location?: pulumi.Input<string | undefined>;
-        /**
-         * Collection of routes contained within a route table.
-         */
-        routes?: pulumi.Input<pulumi.Input<inputs.network.CommonRouteArgs>[] | undefined>;
-        /**
-         * Resource tags.
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    }
-
-    /**
-     * Network security rule.
-     */
-    export interface CommonSecurityRuleArgs {
-        /**
-         * The network traffic is allowed or denied.
-         */
-        access: pulumi.Input<string | enums.network.SecurityRuleAccess>;
-        /**
-         * A description for this rule. Restricted to 140 chars.
-         */
-        description?: pulumi.Input<string | undefined>;
-        /**
-         * The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-         */
-        destinationAddressPrefix?: pulumi.Input<string | undefined>;
-        /**
-         * The destination address prefixes. CIDR or destination IP ranges.
-         */
-        destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * The application security group specified as destination.
-         */
-        destinationApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.CommonApplicationSecurityGroupArgs>[] | undefined>;
-        /**
-         * The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-         */
-        destinationPortRange?: pulumi.Input<string | undefined>;
-        /**
-         * The destination port ranges.
-         */
-        destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-         */
-        direction: pulumi.Input<string | enums.network.SecurityRuleDirection>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Name of the resource.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-         */
-        priority: pulumi.Input<number>;
-        /**
-         * Network protocol this rule applies to.
-         */
-        protocol: pulumi.Input<string | enums.network.SecurityRuleProtocol>;
-        /**
-         * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-         */
-        sourceAddressPrefix?: pulumi.Input<string | undefined>;
-        /**
-         * The CIDR or source IP ranges.
-         */
-        sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * The application security group specified as source.
-         */
-        sourceApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.CommonApplicationSecurityGroupArgs>[] | undefined>;
-        /**
-         * The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-         */
-        sourcePortRange?: pulumi.Input<string | undefined>;
-        /**
-         * The source port ranges.
-         */
-        sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    }
-
-    /**
-     * Service End point policy resource.
-     */
-    export interface CommonServiceEndpointPolicyArgs {
-        /**
-         * A collection of contextual service endpoint policy.
-         */
-        contextualServiceEndpointPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Resource location.
-         */
-        location?: pulumi.Input<string | undefined>;
-        /**
-         * The alias indicating if the policy belongs to a service
-         */
-        serviceAlias?: pulumi.Input<string | undefined>;
-        /**
-         * A collection of service endpoint policy definitions of the service endpoint policy.
-         */
-        serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.CommonServiceEndpointPolicyDefinitionArgs>[] | undefined>;
-        /**
-         * Resource tags.
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    }
-
-    /**
-     * Service Endpoint policy definitions.
-     */
-    export interface CommonServiceEndpointPolicyDefinitionArgs {
-        /**
-         * A description for this rule. Restricted to 140 chars.
-         */
-        description?: pulumi.Input<string | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Name of the resource.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * Service endpoint name.
-         */
-        service?: pulumi.Input<string | undefined>;
-        /**
-         * A list of service resources.
-         */
-        serviceResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    }
-
-    /**
-     * The service endpoint properties.
-     */
-    export interface CommonServiceEndpointPropertiesFormatArgs {
-        /**
-         * A list of locations.
-         */
-        locations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * SubResource as network identifier.
-         */
-        networkIdentifier?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
-        /**
-         * The type of the endpoint service.
-         */
-        service?: pulumi.Input<string | undefined>;
-    }
-
-    /**
-     * Subnet in a virtual network resource.
-     */
-    export interface CommonSubnetArgs {
-        /**
-         * The address prefix for the subnet.
-         */
-        addressPrefix?: pulumi.Input<string | undefined>;
-        /**
-         * List of address prefixes for the subnet.
-         */
-        addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * Application gateway IP configurations of virtual network resource.
-         */
-        applicationGatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.CommonApplicationGatewayIPConfigurationArgs>[] | undefined>;
-        /**
-         * Set this property to false to disable default outbound connectivity for all VMs in the subnet.
-         */
-        defaultOutboundAccess?: pulumi.Input<boolean | undefined>;
-        /**
-         * An array of references to the delegations on the subnet.
-         */
-        delegations?: pulumi.Input<pulumi.Input<inputs.network.CommonDelegationArgs>[] | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Array of IpAllocation which reference this subnet.
-         */
-        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
-        /**
-         * A list of IPAM Pools for allocating IP address prefixes.
-         */
-        ipamPoolPrefixAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonIpamPoolPrefixAllocationArgs>[] | undefined>;
-        /**
-         * Name of the resource.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * Nat gateway associated with this subnet.
-         */
-        natGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
-        /**
-         * The reference to the NetworkSecurityGroup resource.
-         */
-        networkSecurityGroup?: pulumi.Input<inputs.network.CommonNetworkSecurityGroupArgs | undefined>;
-        /**
-         * Enable or Disable apply network policies on private end point in the subnet.
-         */
-        privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateEndpointNetworkPolicies | undefined>;
-        /**
-         * Enable or Disable apply network policies on private link service in the subnet.
-         */
-        privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateLinkServiceNetworkPolicies | undefined>;
-        /**
-         * The reference to the RouteTable resource.
-         */
-        routeTable?: pulumi.Input<inputs.network.CommonRouteTableArgs | undefined>;
-        /**
-         * An array of service endpoint policies.
-         */
-        serviceEndpointPolicies?: pulumi.Input<pulumi.Input<inputs.network.CommonServiceEndpointPolicyArgs>[] | undefined>;
-        /**
-         * An array of service endpoints.
-         */
-        serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.CommonServiceEndpointPropertiesFormatArgs>[] | undefined>;
-        /**
-         * Reference to an existing service gateway.
-         */
-        serviceGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
-        /**
-         * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
-         */
-        sharingScope?: pulumi.Input<string | enums.network.SharingScope | undefined>;
-    }
-    /**
-     * commonSubnetArgsProvideDefaults sets the appropriate defaults for CommonSubnetArgs
-     */
-    export function commonSubnetArgsProvideDefaults(val: CommonSubnetArgs): CommonSubnetArgs {
-        return {
-            ...val,
-            privateEndpointNetworkPolicies: (val.privateEndpointNetworkPolicies) ?? "Disabled",
-            privateLinkServiceNetworkPolicies: (val.privateLinkServiceNetworkPolicies) ?? "Enabled",
-        };
-    }
-
-    /**
-     * Virtual Network resource.
-     */
-    export interface CommonVirtualNetworkArgs {
-        /**
-         * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-         */
-        addressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs | undefined>;
-        /**
-         * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
-         */
-        bgpCommunities?: pulumi.Input<inputs.network.CommonVirtualNetworkBgpCommunitiesArgs | undefined>;
-        /**
-         * The DDoS protection plan associated with the virtual network.
-         */
-        ddosProtectionPlan?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
-        /**
-         * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-         */
-        dhcpOptions?: pulumi.Input<inputs.network.CommonDhcpOptionsArgs | undefined>;
-        /**
-         * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-         */
-        enableDdosProtection?: pulumi.Input<boolean | undefined>;
-        /**
-         * Indicates if VM protection is enabled for all the subnets in the virtual network.
-         */
-        enableVmProtection?: pulumi.Input<boolean | undefined>;
-        /**
-         * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
-         */
-        encryption?: pulumi.Input<inputs.network.CommonVirtualNetworkEncryptionArgs | undefined>;
-        /**
-         * The extended location of the virtual network.
-         */
-        extendedLocation?: pulumi.Input<inputs.network.CommonExtendedLocationArgs | undefined>;
-        /**
-         * The FlowTimeout value (in minutes) for the Virtual Network
-         */
-        flowTimeoutInMinutes?: pulumi.Input<number | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * Array of IpAllocation which reference this VNET.
-         */
-        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
-        /**
-         * Resource location.
-         */
-        location?: pulumi.Input<string | undefined>;
-        /**
-         * Private Endpoint VNet Policies.
-         */
-        privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies | undefined>;
-        /**
-         * A list of subnets in a Virtual Network.
-         */
-        subnets?: pulumi.Input<pulumi.Input<inputs.network.CommonSubnetArgs>[] | undefined>;
-        /**
-         * Resource tags.
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-        /**
-         * A list of peerings in a Virtual Network.
-         */
-        virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.CommonVirtualNetworkPeeringArgs>[] | undefined>;
-    }
-    /**
-     * commonVirtualNetworkArgsProvideDefaults sets the appropriate defaults for CommonVirtualNetworkArgs
-     */
-    export function commonVirtualNetworkArgsProvideDefaults(val: CommonVirtualNetworkArgs): CommonVirtualNetworkArgs {
-        return {
-            ...val,
-            enableDdosProtection: (val.enableDdosProtection) ?? false,
-            enableVmProtection: (val.enableVmProtection) ?? false,
-        };
-    }
-
-    /**
-     * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
-     */
-    export interface CommonVirtualNetworkBgpCommunitiesArgs {
-        /**
-         * The BGP community associated with the virtual network.
-         */
-        virtualNetworkCommunity: pulumi.Input<string>;
-    }
-
-    /**
-     * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
-     */
-    export interface CommonVirtualNetworkEncryptionArgs {
-        /**
-         * Indicates if encryption is enabled on the virtual network.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
-         */
-        enforcement?: pulumi.Input<string | enums.network.VirtualNetworkEncryptionEnforcement | undefined>;
-    }
-
-    /**
-     * Peerings in a virtual network resource.
-     */
-    export interface CommonVirtualNetworkPeeringArgs {
-        /**
-         * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-         */
-        allowForwardedTraffic?: pulumi.Input<boolean | undefined>;
-        /**
-         * If gateway links can be used in remote virtual networking to link to this virtual network.
-         */
-        allowGatewayTransit?: pulumi.Input<boolean | undefined>;
-        /**
-         * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-         */
-        allowVirtualNetworkAccess?: pulumi.Input<boolean | undefined>;
-        /**
-         * If we need to verify the provisioning state of the remote gateway.
-         */
-        doNotVerifyRemoteGateways?: pulumi.Input<boolean | undefined>;
-        /**
-         * Whether only Ipv6 address space is peered for subnet peering.
-         */
-        enableOnlyIPv6Peering?: pulumi.Input<boolean | undefined>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string | undefined>;
-        /**
-         * The local address space of the local virtual network that is peered.
-         */
-        localAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs | undefined>;
-        /**
-         * List of local subnet names that are subnet peered with remote virtual network.
-         */
-        localSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * The current local address space of the local virtual network that is peered.
-         */
-        localVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs | undefined>;
-        /**
-         * Name of the resource.
-         */
-        name?: pulumi.Input<string | undefined>;
-        /**
-         * Whether complete virtual network address space is peered.
-         */
-        peerCompleteVnets?: pulumi.Input<boolean | undefined>;
-        /**
-         * The status of the virtual network peering.
-         */
-        peeringState?: pulumi.Input<string | enums.network.VirtualNetworkPeeringState | undefined>;
-        /**
-         * The peering sync status of the virtual network peering.
-         */
-        peeringSyncLevel?: pulumi.Input<string | enums.network.VirtualNetworkPeeringLevel | undefined>;
-        /**
-         * The reference to the address space peered with the remote virtual network.
-         */
-        remoteAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs | undefined>;
-        /**
-         * The reference to the remote virtual network's Bgp Communities.
-         */
-        remoteBgpCommunities?: pulumi.Input<inputs.network.CommonVirtualNetworkBgpCommunitiesArgs | undefined>;
-        /**
-         * List of remote subnet names from remote virtual network that are subnet peered.
-         */
-        remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
-         */
-        remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
-        /**
-         * The reference to the current address space of the remote virtual network.
-         */
-        remoteVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs | undefined>;
-        /**
-         * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
-         */
-        useRemoteGateways?: pulumi.Input<boolean | undefined>;
     }
 
     /**
@@ -149996,7 +149386,7 @@ export namespace network {
         /**
          * The reference to the subnet resource.
          */
-        subnet?: pulumi.Input<inputs.network.CommonSubnetArgs | undefined>;
+        subnet?: pulumi.Input<inputs.network.SubnetArgs | undefined>;
     }
     /**
      * routeTargetAddressPropertiesFormatArgsProvideDefaults sets the appropriate defaults for RouteTargetAddressPropertiesFormatArgs
@@ -150004,7 +149394,7 @@ export namespace network {
     export function routeTargetAddressPropertiesFormatArgsProvideDefaults(val: RouteTargetAddressPropertiesFormatArgs): RouteTargetAddressPropertiesFormatArgs {
         return {
             ...val,
-            subnet: pulumi.output(val.subnet).apply(v => v === undefined ? undefined : inputs.network.commonSubnetArgsProvideDefaults(v)),
+            subnet: pulumi.output(val.subnet).apply(v => v === undefined ? undefined : inputs.network.subnetArgsProvideDefaults(v)),
         };
     }
 
@@ -150497,6 +149887,10 @@ export namespace network {
          */
         serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPropertiesFormatArgs>[] | undefined>;
         /**
+         * Reference to an existing service gateway.
+         */
+        serviceGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+        /**
          * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
          */
         sharingScope?: pulumi.Input<string | enums.network.SharingScope | undefined>;
@@ -150769,6 +150163,86 @@ export namespace network {
          * NextHops ip address.
          */
         nextHops?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Virtual Network resource.
+     */
+    export interface VirtualNetworkArgs {
+        /**
+         * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+         */
+        addressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
+        /**
+         * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+         */
+        bgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs | undefined>;
+        /**
+         * The DDoS protection plan associated with the virtual network.
+         */
+        ddosProtectionPlan?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+        /**
+         * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+         */
+        dhcpOptions?: pulumi.Input<inputs.network.DhcpOptionsArgs | undefined>;
+        /**
+         * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+         */
+        enableDdosProtection?: pulumi.Input<boolean | undefined>;
+        /**
+         * Indicates if VM protection is enabled for all the subnets in the virtual network.
+         */
+        enableVmProtection?: pulumi.Input<boolean | undefined>;
+        /**
+         * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+         */
+        encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryptionArgs | undefined>;
+        /**
+         * The extended location of the virtual network.
+         */
+        extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+        /**
+         * The FlowTimeout value (in minutes) for the Virtual Network
+         */
+        flowTimeoutInMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string | undefined>;
+        /**
+         * Array of IpAllocation which reference this VNET.
+         */
+        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
+        /**
+         * Resource location.
+         */
+        location?: pulumi.Input<string | undefined>;
+        /**
+         * Private Endpoint VNet Policies.
+         */
+        privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies | undefined>;
+        /**
+         * A list of subnets in a Virtual Network.
+         */
+        subnets?: pulumi.Input<pulumi.Input<inputs.network.SubnetArgs>[] | undefined>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * A list of peerings in a Virtual Network.
+         */
+        virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkPeeringArgs>[] | undefined>;
+    }
+    /**
+     * virtualNetworkArgsProvideDefaults sets the appropriate defaults for VirtualNetworkArgs
+     */
+    export function virtualNetworkArgsProvideDefaults(val: VirtualNetworkArgs): VirtualNetworkArgs {
+        return {
+            ...val,
+            enableDdosProtection: (val.enableDdosProtection) ?? false,
+            enableVmProtection: (val.enableVmProtection) ?? false,
+        };
     }
 
     /**
@@ -168162,6 +167636,16 @@ export namespace security {
     }
 
     /**
+     * Managed service identity (either system assigned, or none)
+     */
+    export interface SystemAssignedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (either system assigned, or none).
+         */
+        type: pulumi.Input<string | enums.security.SystemAssignedServiceIdentityType>;
+    }
+
+    /**
      * A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
      */
     export interface ThresholdCustomAlertRuleArgs {
@@ -182675,7 +182159,7 @@ export namespace web {
          */
         instanceMemoryMB?: pulumi.Input<number | undefined>;
         /**
-         * The maximum number of instances for the function app.
+         * The maximum number of on demand instances per function group.
          */
         maximumInstanceCount?: pulumi.Input<number | undefined>;
         /**

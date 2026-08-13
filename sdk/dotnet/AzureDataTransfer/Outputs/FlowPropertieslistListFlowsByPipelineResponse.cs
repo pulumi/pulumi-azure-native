@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly Outputs.MessagingOptionsResponse? MessagingOptions;
         /// <summary>
-        /// The passphrase used for SRT streams
+        /// The passphrase used for SRT streams (non-secret)
         /// </summary>
         public readonly string? Passphrase;
         /// <summary>

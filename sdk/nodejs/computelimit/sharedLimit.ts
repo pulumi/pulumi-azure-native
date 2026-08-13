@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-08-15.
  *
- * Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01, 2026-07-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SharedLimit extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class SharedLimit extends pulumi.CustomResource {
             resourceInputs["unit"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:computelimit/v20250815:SharedLimit" }, { type: "azure-native:computelimit/v20260320:SharedLimit" }, { type: "azure-native:computelimit/v20260430:SharedLimit" }, { type: "azure-native:computelimit/v20260601:SharedLimit" }, { type: "azure-native:computelimit/v20260701:SharedLimit" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:computelimit/v20250815:SharedLimit" }, { type: "azure-native:computelimit/v20260320:SharedLimit" }, { type: "azure-native:computelimit/v20260430:SharedLimit" }, { type: "azure-native:computelimit/v20260601:SharedLimit" }, { type: "azure-native:computelimit/v20260701:SharedLimit" }, { type: "azure-native:computelimit/v20260731:SharedLimit" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedLimit.__pulumiType, name, resourceInputs, opts);
     }

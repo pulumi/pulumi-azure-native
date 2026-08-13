@@ -11,25 +11,32 @@ namespace Pulumi.AzureNative.Monitor.Inputs
 {
 
     /// <summary>
-    /// The Azure mobile App push notification receiver.
+    /// An email receiver.
     /// </summary>
-    public sealed class AzureAppPushReceiverArgs : global::Pulumi.ResourceArgs
+    public sealed class MicrosoftCommonEmailReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email address registered for the Azure mobile app.
+        /// The email address of this receiver.
         /// </summary>
         [Input("emailAddress", required: true)]
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        /// The name of the email receiver. Names must be unique across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        public AzureAppPushReceiverArgs()
+        /// <summary>
+        /// Indicates whether to use common alert schema.
+        /// </summary>
+        [Input("useCommonAlertSchema")]
+        public Input<bool>? UseCommonAlertSchema { get; set; }
+
+        public MicrosoftCommonEmailReceiverArgs()
         {
+            UseCommonAlertSchema = false;
         }
-        public static new AzureAppPushReceiverArgs Empty => new AzureAppPushReceiverArgs();
+        public static new MicrosoftCommonEmailReceiverArgs Empty => new MicrosoftCommonEmailReceiverArgs();
     }
 }

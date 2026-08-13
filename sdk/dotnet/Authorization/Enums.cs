@@ -766,6 +766,14 @@ namespace Pulumi.AzureNative.Authorization
         /// Device
         /// </summary>
         public static PrincipalType Device { get; } = new PrincipalType("Device");
+        /// <summary>
+        /// Agent identity derived from a user.
+        /// </summary>
+        public static PrincipalType AgentUser { get; } = new PrincipalType("AgentUser");
+        /// <summary>
+        /// Agent identity derived from a service principal.
+        /// </summary>
+        public static PrincipalType AgentServicePrincipal { get; } = new PrincipalType("AgentServicePrincipal");
 
         public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
         public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);

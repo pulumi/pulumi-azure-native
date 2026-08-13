@@ -140,7 +140,7 @@ class Gateway(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-31-preview.
 
-        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview, 2026-02-12-preview, 2026-06-04-preview, 2026-06-16-preview, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class Gateway(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-31-preview.
 
-        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview, 2026-02-12-preview, 2026-06-04-preview, 2026-06-16-preview, 2026-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -209,7 +209,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250219preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250601:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250821preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250916preview:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250219preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250601:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250821preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20250916preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20260212preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20260604preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20260616preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20260715:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:hybridcompute:Gateway',
