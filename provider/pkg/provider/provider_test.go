@@ -747,6 +747,41 @@ func TestReadAfterWrite(t *testing.T) {
 	}
 }
 
+// TestDefaultCreateIgnoreResponseID guards against issue #4408: Azure's PUT response for some
+// resources (e.g. singleton "config" sub-resources under Microsoft.Web sites) returns the parent
+// resource's id rather than their own. defaultCreate must not adopt that id as canonical when
+// resources.IgnoreResponseID is set for the resource's path.
+func TestDefaultCreateIgnoreResponseID(t *testing.T) {
+	const (
+		constructedID = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Web/sites/site1/config/backup"
+		parentID      = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Web/sites/site1"
+	)
+
+	for _, tt := range []struct {
+		name             string
+		ignoreResponseID bool
+		expectedID       string
+	}{
+		{name: "adopts response id by default", ignoreResponseID: false, expectedID: parentID},
+		{name: "keeps constructed id when ignored", ignoreResponseID: true, expectedID: constructedID},
+	} {
+		t.Run(tt.name, func(t *testing.T) {
+			res := &resources.AzureAPIResource{}
+			azureClient := &az.MockAzureClient{
+				PutResponse: map[string]any{"id": parentID},
+			}
+			crudClient := crud.NewResourceCrudClient(azureClient, nil, &convert.SdkShapeConverter{}, "123", res)
+
+			k := &azureNativeProvider{skipReadOnUpdate: true}
+			id, _, err := k.defaultCreate(context.Background(), &rpc.CreateRequest{}, resource.PropertyMap{},
+				constructedID, nil, crudClient, nil, tt.ignoreResponseID)
+
+			require.NoError(t, err)
+			assert.Equal(t, tt.expectedID, id)
+		})
+	}
+}
+
 func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 	for expectedHost, cloudInstance := range map[string]cloud.Configuration{
 		"https://management.azure.com":         cloud.AzurePublic,

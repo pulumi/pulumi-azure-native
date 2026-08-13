@@ -1253,6 +1253,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		ReadPath:              readPath,
 		ReadQueryParams:       readUrlParams,
 		AutoLocationDisabled:  resources.AutoLocationDisabled(resource.Path),
+		IgnoreResponseID:      resources.IgnoreResponseID(resource.Path),
 		RequiredContainers:    requiredContainers,
 		DefaultProperties:     propertyDefaults(module, resource.typeName),
 		ApiVersionIsUserInput: apiVersionIsUserInput(string(g.moduleName), resource.typeName),
