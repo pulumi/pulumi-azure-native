@@ -157,6 +157,11 @@ type AzureAPIResource struct {
 	// Contains metadata for how to call the Listing operation for this resource
 	// when there is no metadata, the resource is not listable.
 	ListMetadata *AzureAPIListMetadata `json:"listMetadata,omitempty"`
+	// By default, after a successful Create the provider replaces the constructed resource ID with
+	// whatever "id" field is present in the PUT response body, on the assumption that it's the
+	// canonical ID. IgnoreResponseID overrides this for resources where that assumption is false,
+	// e.g. singleton config sub-resources whose PUT response returns their parent's id.
+	IgnoreResponseID bool `json:"ignoreResponseId,omitempty"`
 }
 
 type ResourceLookupFunc func(resourceType string) (AzureAPIResource, bool, error)
@@ -749,6 +754,41 @@ func AutoLocationDisabled(path string) bool {
 		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/sqldatabases/{databasename}/containers/{containername}",
 		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/tables/{tablename}":
 		// Child resources of Cosmos DB accounts.
+		return true
+	default:
+		return false
+	}
+}
+
+// IgnoreResponseID returns true if the "id" field of the PUT response for a given resource path
+// must not be trusted as the resource's canonical ID.
+//
+// These are all singleton "config" sub-resources nested under a Microsoft.Web site (optionally a
+// deployment slot). They aren't standalone ARM resources with their own identity: Azure's PUT
+// response for them returns the *parent* site's (or slot's) id, not a path ending in their own
+// "/config/<name>" segment. Blindly adopting that id corrupts the state's resource ID, breaking the
+// subsequent read and causing spurious creates on every refresh. See issue #4408.
+func IgnoreResponseID(path string) bool {
+	switch strings.ToLower(path) {
+	case "/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/appsettings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/appsettings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/authsettings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/authsettings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/authsettingsv2",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/authsettingsv2",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/azurestorageaccounts",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/azurestorageaccounts",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/backup",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/backup",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/connectionstrings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/connectionstrings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/logs",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/logs",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/metadata",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/metadata",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/pushsettings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/slots/{slot}/config/pushsettings",
+		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.web/sites/{name}/config/slotconfignames":
 		return true
 	default:
 		return false
