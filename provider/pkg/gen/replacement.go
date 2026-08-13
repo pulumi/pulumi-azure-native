@@ -111,6 +111,15 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 // noForceNewMap overrides forceNewMap and x-ms-mutability to *not* force
 // replacement. Appropriate when Azure previously forced replacement but no longer does.
 var noForceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
+	"ElasticSan": {
+		// baseSizeTiB and extendedCapacitySizeTiB are declared read+create (no update) on
+		// ElasticSanProperties, the PUT/GET body, which is what the codegen's mutability check
+		// consults. But the PATCH body, ElasticSanUpdateProperties, declares the very same
+		// properties as update-only -- Azure genuinely supports growing both in place (scale-up
+		// only; shrinking is rejected server-side, not a codegen concern). See
+		// https://github.com/pulumi/pulumi-azure-native/issues/4695.
+		"ElasticSan": codegen.NewStringSet("baseSizeTiB", "extendedCapacitySizeTiB"),
+	},
 	"ServiceBus": {
 		"Namespace": codegen.NewStringSet("zoneRedundant"), // https://github.com/pulumi/pulumi-azure-native/issues/4105
 	},
