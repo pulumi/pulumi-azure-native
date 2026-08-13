@@ -127,6 +127,12 @@ var caseInsensitiveDiffMap = map[openapi.ModuleName]map[string]codegen.StringSet
 	"ContainerService": {
 		"ManagedCluster": codegen.NewStringSet("backendPoolType"),
 	},
+	"Search": {
+		// hostingMode resolves to "Default"/"HighDensity" in the spec/SDK enum, but the Search RP
+		// always returns "default"/"highDensity" (lowercase), producing a spurious diff on the very
+		// first deploy or import. See https://github.com/pulumi/pulumi-azure-native/issues/1684.
+		"Service": codegen.NewStringSet("hostingMode"),
+	},
 }
 
 // noDefaultMap is a map of Module Name -> Resource Name -> properties whose spec-declared `default`

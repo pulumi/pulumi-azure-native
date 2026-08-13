@@ -112,6 +112,10 @@ func TestCaseInsensitiveDiff(t *testing.T) {
 	assert.False(t, managedCluster.caseInsensitiveDiff("someOtherProperty"))
 	assert.False(t, otherResource.caseInsensitiveDiff("backendPoolType"))
 	assert.False(t, otherModule.caseInsensitiveDiff("backendPoolType"))
+
+	searchService := moduleGenerator{moduleName: "Search", resourceName: "Service"}
+	assert.True(t, searchService.caseInsensitiveDiff("hostingMode"))
+	assert.False(t, searchService.caseInsensitiveDiff("someOtherProperty"))
 }
 
 func TestNoDefault(t *testing.T) {
