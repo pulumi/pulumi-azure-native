@@ -71,6 +71,8 @@ func TestAccKeyVaultTs_OIDCExplicit(t *testing.T) {
 }
 
 func TestAccKeyVaultTs_ClientCert(t *testing.T) {
+	// TODO[pulumi/pulumi-azure-native#4791]:
+	t.Skip("temporarily skipping until a compatible client cert has been made")
 	skipIfShort(t)
 
 	test := getJSBaseOptions(t).
