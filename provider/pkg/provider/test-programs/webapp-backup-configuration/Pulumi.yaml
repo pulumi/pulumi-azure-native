@@ -1,0 +1,57 @@
+name: webapp-backup-configuration
+runtime: yaml
+description: Repro for issue #4408 - WebAppBackupConfiguration always shows as create on refresh
+variables:
+  sasToken:
+    fn::invoke:
+      function: azure-native:storage:listStorageAccountSAS
+      arguments:
+        resourceGroupName: ${rg.name}
+        accountName: ${storage.name}
+        permissions: "rwdlacu"
+        resourceTypes: "sco"
+        services: "b"
+        sharedAccessExpiryTime: "2030-01-01T00:00:00Z"
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+  storage:
+    type: azure-native:storage:StorageAccount
+    properties:
+      resourceGroupName: ${rg.name}
+      kind: StorageV2
+      sku:
+        name: Standard_LRS
+  backupContainer:
+    type: azure-native:storage:BlobContainer
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${storage.name}
+      containerName: "backups"
+  plan:
+    type: azure-native:web:AppServicePlan
+    properties:
+      resourceGroupName: ${rg.name}
+      kind: "app"
+      sku:
+        name: "S1"
+        tier: "Standard"
+  app:
+    type: azure-native:web:WebApp
+    properties:
+      resourceGroupName: ${rg.name}
+      serverFarmId: ${plan.id}
+  backupConfig:
+    type: azure-native:web:WebAppBackupConfiguration
+    properties:
+      resourceGroupName: ${rg.name}
+      name: ${app.name}
+      enabled: true
+      storageAccountUrl: "https://${storage.name}.blob.core.windows.net/${backupContainer.name}?${sasToken.accountSasToken}"
+      backupSchedule:
+        frequencyInterval: 7
+        frequencyUnit: "Day"
+        keepAtLeastOneBackup: true
+        retentionPeriodInDays: 30
+outputs:
+  backupConfigId: ${backupConfig.id}

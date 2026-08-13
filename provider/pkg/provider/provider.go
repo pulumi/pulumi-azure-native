@@ -1396,7 +1396,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}
 
 		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient,
-			reader(customRes, crudClient, inputsForRead))
+			reader(customRes, crudClient, inputsForRead), res.IgnoreResponseID)
 		if err != nil {
 			return nil, err
 		}
@@ -1451,7 +1451,7 @@ func customCreate(ctx context.Context, inputs resource.PropertyMap, id string, c
 }
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
-	queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc) (string, map[string]any, error) {
+	queryParams map[string]any, crudClient crud.ResourceCrudClient, reader readFunc, ignoreResponseID bool) (string, map[string]any, error) {
 	bodyParams, err := crudClient.PrepareAzureRESTBody(id, inputs, nil)
 	if err != nil {
 		bodyError := fmt.Errorf("error preparing body for %s: %v", id, err)
@@ -1478,9 +1478,13 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 		return id, nil, azure.AzureError(err)
 	}
 
-	// Read the canonical ID from the response.
-	if azureId, ok := response["id"].(string); ok {
-		id = azureId
+	// Read the canonical ID from the response, unless this resource's response id is known not to
+	// be trustworthy (e.g. singleton config sub-resources whose PUT response returns their parent's
+	// id instead of their own, see resources.IgnoreResponseID).
+	if !ignoreResponseID {
+		if azureId, ok := response["id"].(string); ok {
+			id = azureId
+		}
 	}
 
 	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Create", inputs, reader); readResponse != nil {

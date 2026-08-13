@@ -177,6 +177,33 @@ func TestGenericResourceCreatingCongitiveServicesAccount(t *testing.T) {
 	assert.NotContainsf(t, upResult.StdOut, errorMsg, "Expected not to see error message '%s' in stderr", errorMsg)
 }
 
+// TestWebAppBackupConfiguration guards against issue #4408: Azure's PUT response for this resource
+// returns the parent site's id rather than the backup config's own id, which used to get adopted as
+// the resource's canonical ID (see resources.IgnoreResponseID) and broke the subsequent read.
+func TestWebAppBackupConfiguration(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "webapp-backup-configuration")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	up := pt.Up(t)
+	errorMsg := "Failed to read resource after Create. Please report this issue."
+	assert.NotContainsf(t, up.StdOut, errorMsg, "Expected not to see error message %q in stdout", errorMsg)
+
+	backupConfigId, ok := up.Outputs["backupConfigId"].Value.(string)
+	require.True(t, ok)
+	assert.Contains(t, backupConfigId, "/config/backup")
+
+	assertrefresh.HasNoChanges(t, pt.Refresh(t))
+
+	// A second Up must be a no-op: the bug caused refresh/preview to always see a new create.
+	up2 := pt.Up(t)
+	upSummary := changesummary.FromStringIntMap(*up2.Summary.ResourceChanges)
+	assert.Zero(t, upSummary[apitype.OpCreate], "expected no creates on a repeat up")
+	assert.Zero(t, upSummary[apitype.OpUpdate], "expected no updates on a repeat up")
+}
+
 func TestAutonaming(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "autonaming", opttest.Env("PULUMI_EXPERIMENTAL", "1"))

@@ -41,6 +41,8 @@ type MockAzureClient struct {
 	// Bodies that were sent via Put, in order
 	PutBodies []map[string]any
 
+	// If set, this response will be returned for all Put requests; otherwise nil.
+	PutResponse    map[string]any
 	PutResponseErr error
 
 	QueryParamsOfLastDelete map[string]any
@@ -73,7 +75,7 @@ func (m *MockAzureClient) Post(ctx context.Context, id string, bodyProps map[str
 func (m *MockAzureClient) Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
 	m.PutIds = append(m.PutIds, id)
 	m.PutBodies = append(m.PutBodies, bodyProps)
-	return nil, false, m.PutResponseErr
+	return m.PutResponse, false, m.PutResponseErr
 }
 func (m *MockAzureClient) IsNotFound(err error) bool {
 	return false
