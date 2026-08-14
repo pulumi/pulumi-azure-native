@@ -128,6 +128,12 @@ func TestCaseInsensitiveDiff(t *testing.T) {
 	searchService := moduleGenerator{moduleName: "Search", resourceName: "Service"}
 	assert.True(t, searchService.caseInsensitiveDiff("hostingMode"))
 	assert.False(t, searchService.caseInsensitiveDiff("someOtherProperty"))
+
+	vault := moduleGenerator{moduleName: "KeyVault", resourceName: "Vault"}
+	otherKeyVaultResource := moduleGenerator{moduleName: "KeyVault", resourceName: "ManagedHsm"}
+	assert.True(t, vault.caseInsensitiveDiff("name"))
+	assert.False(t, vault.caseInsensitiveDiff("someOtherProperty"))
+	assert.False(t, otherKeyVaultResource.caseInsensitiveDiff("name"))
 }
 
 func TestNoDefault(t *testing.T) {

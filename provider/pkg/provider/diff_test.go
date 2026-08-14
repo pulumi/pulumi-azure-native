@@ -720,6 +720,79 @@ func TestManagedClusterBackendPoolTypeDiffingIsCaseInsensitive(t *testing.T) {
 	})
 }
 
+// TestVaultSkuNameDiffingIsCaseInsensitive is a regression test for
+// https://github.com/pulumi/pulumi-azure-native/issues/1749: the spec/SDK enum for sku.name resolves to
+// "standard"/"premium", but a Vault created via ARM/Bicep/Portal with non-canonical casing (e.g.
+// "Standard") has the KeyVault RP echo that casing back verbatim on GET, producing a spurious diff on
+// import. Only sku.name is marked CaseInsensitive; a sibling property must still diff normally, proving
+// the exception is scoped to that one property.
+func TestVaultSkuNameDiffingIsCaseInsensitive(t *testing.T) {
+	const skuRef = "#/types/azure-native:keyvault:Sku"
+
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"sku": {Ref: skuRef},
+					},
+				},
+			},
+		},
+	}
+
+	lookupType := func(ref string) (*resources.AzureAPIType, bool, error) {
+		switch ref {
+		case skuRef:
+			return &resources.AzureAPIType{
+				Properties: map[string]resources.AzureAPIProperty{
+					"name":   {Type: "string", CaseInsensitive: true},
+					"family": {Type: "string"},
+				},
+			}, true, nil
+		}
+		return nil, false, nil
+	}
+
+	skuInputs := func(name, family string) resource.PropertyMap {
+		return resource.PropertyMap{
+			"sku": {V: resource.PropertyMap{
+				"name":   {V: name},
+				"family": {V: family},
+			}},
+		}
+	}
+
+	t.Run("casing-only difference is not a diff", func(t *testing.T) {
+		oldInputs := skuInputs("Standard", "A")
+		newInputs := skuInputs("standard", "A")
+		actual := diff(lookupType, res, oldInputs, newInputs)
+		assert.Nil(t, actual)
+	})
+
+	t.Run("a genuine value change still diffs", func(t *testing.T) {
+		oldInputs := skuInputs("standard", "A")
+		newInputs := skuInputs("premium", "A")
+		actual := diff(lookupType, res, oldInputs, newInputs)
+		expected := map[string]*rpc.PropertyDiff{
+			"sku.name": {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("casing difference on a sibling property without the exception still diffs", func(t *testing.T) {
+		oldInputs := skuInputs("standard", "A")
+		newInputs := skuInputs("standard", "a")
+		actual := diff(lookupType, res, oldInputs, newInputs)
+		expected := map[string]*rpc.PropertyDiff{
+			"sku.family": {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		assert.Equal(t, expected, actual)
+	})
+}
+
 var emptyTypes resources.TypeLookupFunc = func(t string) (*resources.AzureAPIType, bool, error) {
 	return nil, false, nil
 }
