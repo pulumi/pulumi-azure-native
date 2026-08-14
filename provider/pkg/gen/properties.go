@@ -116,12 +116,6 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 			continue
 		}
 
-		// TODO: Workaround for https://github.com/pulumi/pulumi/issues/12629 - remove once merged
-		if (name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/GovernanceRuleConditionSets") ||
-			(name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/ApplicationConditionSets") {
-			continue
-		}
-
 		// Workaround for https://github.com/Azure/azure-rest-api-specs/issues/9432
 		if m.moduleName == "KeyVault" && m.resourceName == "Vault" {
 			if name == "vaultUri" || name == "provisioningState" {
