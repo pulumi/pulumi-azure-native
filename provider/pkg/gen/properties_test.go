@@ -101,6 +101,18 @@ func TestForceNew(t *testing.T) {
 		forceNewMetadata := m.forceNew(makeSchema(), "prop", true)
 		assert.Equal(t, noForceNew, forceNewMetadata)
 	})
+
+	elasticSan := moduleGenerator{moduleName: "ElasticSan", resourceName: "ElasticSan"}
+	t.Run("noForceNewMap overrides create-only mutability", func(t *testing.T) {
+		forceNewMetadata := elasticSan.forceNew(makeSchema(extensionMutabilityCreate, extensionMutabilityRead), "baseSizeTiB", false)
+		assert.Equal(t, noForceNew, forceNewMetadata)
+		forceNewMetadata = elasticSan.forceNew(makeSchema(extensionMutabilityCreate, extensionMutabilityRead), "extendedCapacitySizeTiB", false)
+		assert.Equal(t, noForceNew, forceNewMetadata)
+	})
+	t.Run("noForceNewMap does not affect other properties", func(t *testing.T) {
+		forceNewMetadata := elasticSan.forceNew(makeSchema(extensionMutabilityCreate, extensionMutabilityRead), "sku", false)
+		assert.Equal(t, forceNew, forceNewMetadata)
+	})
 }
 
 func TestCaseInsensitiveDiff(t *testing.T) {
