@@ -26236,6 +26236,106 @@
    ],
    "type": "object"
   },
+  "azure-native:servicebus:DefaultRule": {
+   "description": "The \"$Default\" rule that Azure automatically creates alongside every ServiceBus subscription.\n\nBy default this rule has a TrueFilter, which allows all messages through to the subscription. This resource lets\nyou manage that rule directly: update its filter (e.g. to a SqlFilter or CorrelationFilter), or delete this\nresource to remove the rule entirely.\n\nUnlike `Rule`, this resource has no `ruleName` input since it always refers to the \"$Default\" rule that Azure\ncreates for you; there's no need to construct or import its resource ID by hand.\n\nNote: deleting this resource permanently removes the \"$Default\" rule from the subscription. If no other rules\nexist afterwards, the subscription will not receive any messages from the topic.\n\nSee [Issue #4489](https://github.com/pulumi/pulumi-azure-native/issues/4489) for more details on the problem this\nresource solves.\n",
+   "inputProperties": {
+    "action": {
+     "$ref": "#/types/azure-native:servicebus:Action",
+     "description": "Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.",
+     "type": "object"
+    },
+    "correlationFilter": {
+     "$ref": "#/types/azure-native:servicebus:CorrelationFilter",
+     "description": "Properties of correlationFilter",
+     "type": "object"
+    },
+    "filterType": {
+     "$ref": "#/types/azure-native:servicebus:FilterType",
+     "description": "Filter type that is evaluated against a BrokeredMessage."
+    },
+    "namespaceName": {
+     "description": "The namespace name",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "resourceGroupName": {
+     "description": "The name of the resource group. The name is case insensitive.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "sqlFilter": {
+     "$ref": "#/types/azure-native:servicebus:SqlFilter",
+     "description": "Properties of sqlFilter",
+     "type": "object"
+    },
+    "subscriptionName": {
+     "description": "The subscription name.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "topicName": {
+     "description": "The topic name.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    }
+   },
+   "properties": {
+    "action": {
+     "$ref": "#/types/azure-native:servicebus:ActionResponse",
+     "description": "Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.",
+     "type": "object"
+    },
+    "azureApiVersion": {
+     "description": "The Azure API version of the resource.",
+     "type": "string"
+    },
+    "correlationFilter": {
+     "$ref": "#/types/azure-native:servicebus:CorrelationFilterResponse",
+     "description": "Properties of correlationFilter",
+     "type": "object"
+    },
+    "filterType": {
+     "description": "Filter type that is evaluated against a BrokeredMessage.",
+     "type": "string"
+    },
+    "location": {
+     "description": "The geo-location where the resource lives",
+     "type": "string"
+    },
+    "name": {
+     "description": "The name of the resource",
+     "type": "string"
+    },
+    "sqlFilter": {
+     "$ref": "#/types/azure-native:servicebus:SqlFilterResponse",
+     "description": "Properties of sqlFilter",
+     "type": "object"
+    },
+    "systemData": {
+     "$ref": "#/types/azure-native:servicebus:SystemDataResponse",
+     "description": "The system meta data relating to this resource.",
+     "type": "object"
+    },
+    "type": {
+     "description": "The type of the resource. E.g. \"Microsoft.EventHub/Namespaces\" or \"Microsoft.EventHub/Namespaces/EventHubs\"",
+     "type": "string"
+    }
+   },
+   "required": [
+    "azureApiVersion",
+    "location",
+    "name",
+    "systemData",
+    "type"
+   ],
+   "requiredInputs": [
+    "namespaceName",
+    "resourceGroupName",
+    "subscriptionName",
+    "topicName"
+   ],
+   "type": "object"
+  },
   "azure-native:storage:Blob": {
    "description": "Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).",
    "inputProperties": {
@@ -76428,6 +76528,123 @@
     },
     "type": {}
    }
+  },
+  "azure-native:servicebus:DefaultRule": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "namespaceName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "topicName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "subscriptionName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "action": {
+        "$ref": "#/types/azure-native:servicebus:Action",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       },
+       "correlationFilter": {
+        "$ref": "#/types/azure-native:servicebus:CorrelationFilter",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       },
+       "filterType": {
+        "containers": [
+         "properties"
+        ],
+        "type": "string"
+       },
+       "sqlFilter": {
+        "$ref": "#/types/azure-native:servicebus:SqlFilter",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       }
+      }
+     },
+     "location": "body",
+     "name": "parameters",
+     "required": true,
+     "value": {}
+    },
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    }
+   ],
+   "apiVersion": "2024-01-01",
+   "defaultBody": null,
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions/{subscriptionName}/rules/$Default",
+   "response": {
+    "action": {
+     "$ref": "#/types/azure-native:servicebus:ActionResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "correlationFilter": {
+     "$ref": "#/types/azure-native:servicebus:CorrelationFilterResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "filterType": {
+     "containers": [
+      "properties"
+     ]
+    },
+    "id": {},
+    "location": {},
+    "name": {},
+    "sqlFilter": {
+     "$ref": "#/types/azure-native:servicebus:SqlFilterResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "systemData": {
+     "$ref": "#/types/azure-native:servicebus:SystemDataResponse"
+    },
+    "type": {}
+   },
+   "singleton": true
   },
   "azure-native:storage:Blob": {
    "PUT": [

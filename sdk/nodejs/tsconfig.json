@@ -4603,6 +4603,7 @@
         "serialconsole/getSerialPort.ts",
         "serialconsole/index.ts",
         "serialconsole/serialPort.ts",
+        "servicebus/defaultRule.ts",
         "servicebus/disasterRecoveryConfig.ts",
         "servicebus/getDisasterRecoveryConfig.ts",
         "servicebus/getMigrationConfig.ts",

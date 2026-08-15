@@ -251,6 +251,11 @@ func BuildCustomResources(
 		return nil, err
 	}
 
+	customDefaultRule, err := defaultRule(lookupResource, crudClientFactory, azureClient)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -266,6 +271,7 @@ func BuildCustomResources(
 		customRoleAssignment,
 		customTagAtScope,
 		securityInsightsSourceControl(azureClient),
+		customDefaultRule,
 	}
 
 	kvSecret, err := keyVaultSecret(cloud, tokenCred, crudClientFactory, lookupResource)

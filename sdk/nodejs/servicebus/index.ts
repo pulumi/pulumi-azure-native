@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DefaultRuleArgs } from "./defaultRule";
+export type DefaultRule = import("./defaultRule").DefaultRule;
+export const DefaultRule: typeof import("./defaultRule").DefaultRule = null as any;
+utilities.lazyLoad(exports, ["DefaultRule"], () => require("./defaultRule"));
+
 export { DisasterRecoveryConfigArgs } from "./disasterRecoveryConfig";
 export type DisasterRecoveryConfig = import("./disasterRecoveryConfig").DisasterRecoveryConfig;
 export const DisasterRecoveryConfig: typeof import("./disasterRecoveryConfig").DisasterRecoveryConfig = null as any;
@@ -173,6 +178,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:servicebus:DefaultRule":
+                return new DefaultRule(name, <any>undefined, { urn })
             case "azure-native:servicebus:DisasterRecoveryConfig":
                 return new DisasterRecoveryConfig(name, <any>undefined, { urn })
             case "azure-native:servicebus:MigrationConfig":
