@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .default_rule import *
 from .disaster_recovery_config import *
 from .get_disaster_recovery_config import *
 from .get_migration_config import *

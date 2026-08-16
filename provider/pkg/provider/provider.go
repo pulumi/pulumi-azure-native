@@ -1489,6 +1489,14 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 
 	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Create", inputs, reader); readResponse != nil {
 		response = readResponse
+	} else {
+		// readAfterWrite failed or was skipped, so `response` is still the raw PUT response body,
+		// which hasn't been converted to the SDK-shaped outputs (e.g. properties nested under a
+		// "properties" wrapper instead of flattened to the top level). Without this, downstream
+		// consumers of this checkpoint (e.g. other resources' inputs, or this resource's own
+		// outputs) would see missing/nil values for anything read-after-write would normally have
+		// filled in from a fresh GET.
+		response = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 
 	return id, response, nil
@@ -1985,6 +1993,9 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 
 	if readResponse := k.readAfterWrite(ctx, id, req.GetUrn(), "Update", inputs, reader); readResponse != nil {
 		response = readResponse
+	} else {
+		// See the equivalent fallback in defaultCreate for why this conversion is needed.
+		response = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 
 	return response, nil

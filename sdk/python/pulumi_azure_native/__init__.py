@@ -4269,6 +4269,7 @@ _utilities.register(
   "mod": "servicebus",
   "fqn": "pulumi_azure_native.servicebus",
   "classes": {
+   "azure-native:servicebus:DefaultRule": "DefaultRule",
    "azure-native:servicebus:DisasterRecoveryConfig": "DisasterRecoveryConfig",
    "azure-native:servicebus:MigrationConfig": "MigrationConfig",
    "azure-native:servicebus:Namespace": "Namespace",
