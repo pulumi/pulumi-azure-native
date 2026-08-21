@@ -536,10 +536,6 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "ModuleName": "ServiceBus",
-    "Detail": "expected tracking preview but found stable"
-  },
-  {
     "ModuleName": "ServiceFabric",
     "Detail": "expected tracking preview but found stable"
   },

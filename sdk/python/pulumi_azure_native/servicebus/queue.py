@@ -39,7 +39,8 @@ class QueueArgs:
                  queue_name: pulumi.Input[Optional[_builtins.str]] = None,
                  requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
                  requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None):
+                 status: pulumi.Input[Optional['EntityStatus']] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Queue resource.
 
@@ -62,6 +63,7 @@ class QueueArgs:
         :param pulumi.Input[_builtins.bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
         :param pulumi.Input[_builtins.bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input[_builtins.str] user_metadata: Gets and Sets Metadata of User.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -99,6 +101,8 @@ class QueueArgs:
             pulumi.set(__self__, "requires_session", requires_session)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if user_metadata is not None:
+            pulumi.set(__self__, "user_metadata", user_metadata)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -328,6 +332,18 @@ class QueueArgs:
     def status(self, value: pulumi.Input[Optional['EntityStatus']]):
         pulumi.set(self, "status", value)
 
+    @_builtins.property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
+
+    @user_metadata.setter
+    def user_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_metadata", value)
+
 
 @pulumi.type_token("azure-native:servicebus:Queue")
 class Queue(pulumi.CustomResource):
@@ -354,13 +370,14 @@ class Queue(pulumi.CustomResource):
                  requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['EntityStatus']] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Description of queue Resource.
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -383,6 +400,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input[_builtins.str] user_metadata: Gets and Sets Metadata of User.
         """
         ...
     @overload
@@ -393,9 +411,9 @@ class Queue(pulumi.CustomResource):
         """
         Description of queue Resource.
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.
@@ -431,6 +449,7 @@ class Queue(pulumi.CustomResource):
                  requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['EntityStatus']] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -463,6 +482,7 @@ class Queue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
+            __props__.__dict__["user_metadata"] = user_metadata
             __props__.__dict__["accessed_at"] = None
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["count_details"] = None
@@ -525,6 +545,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
+        __props__.__dict__["user_metadata"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -723,7 +744,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -731,7 +752,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -742,4 +763,12 @@ class Queue(pulumi.CustomResource):
         The exact time the message was updated.
         """
         return pulumi.get(self, "updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
 

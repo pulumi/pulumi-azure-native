@@ -12150,23 +12150,23 @@ SerialConsole:
         RpNamespace: Microsoft.SerialConsole
 ServiceBus:
     DisasterRecoveryConfig:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/DisasterRecoveryConfig.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}
         RpNamespace: Microsoft.ServiceBus
     MigrationConfig:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/migrationconfigs.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/migrationConfigurations/{configName}
         RpNamespace: Microsoft.ServiceBus
     Namespace:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/namespace-preview.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}
         RpNamespace: Microsoft.ServiceBus
     NamespaceAuthorizationRule:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/AuthorizationRules.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}
         RpNamespace: Microsoft.ServiceBus
     NamespaceIpFilterRule:
@@ -12175,8 +12175,8 @@ ServiceBus:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/ipfilterrules/{ipFilterRuleName}
         RpNamespace: Microsoft.ServiceBus
     NamespaceNetworkRuleSet:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/networksets.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default
         RpNamespace: Microsoft.ServiceBus
     NamespaceVirtualNetworkRule:
@@ -12185,59 +12185,59 @@ ServiceBus:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/virtualnetworkrules/{virtualNetworkRuleName}
         RpNamespace: Microsoft.ServiceBus
     PrivateEndpointConnection:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/namespace-preview.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.ServiceBus
     Queue:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/Queue.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}
         RpNamespace: Microsoft.ServiceBus
     QueueAuthorizationRule:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/AuthorizationRules.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}/authorizationRules/{authorizationRuleName}
         RpNamespace: Microsoft.ServiceBus
     Rule:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/Rules.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions/{subscriptionName}/rules/{ruleName}
         RpNamespace: Microsoft.ServiceBus
     Subscription:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/subscriptions.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions/{subscriptionName}
         RpNamespace: Microsoft.ServiceBus
     Topic:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/topics.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}
         RpNamespace: Microsoft.ServiceBus
     TopicAuthorizationRule:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/AuthorizationRules.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/authorizationRules/{authorizationRuleName}
         RpNamespace: Microsoft.ServiceBus
     listDisasterRecoveryConfigKeys:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/AuthorizationRules.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/authorizationRules/{authorizationRuleName}/listKeys
         RpNamespace: Microsoft.ServiceBus
     listNamespaceKeys:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/AuthorizationRules.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/listKeys
         RpNamespace: Microsoft.ServiceBus
     listQueueKeys:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/AuthorizationRules.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}/authorizationRules/{authorizationRuleName}/ListKeys
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}/authorizationRules/{authorizationRuleName}/listKeys
         RpNamespace: Microsoft.ServiceBus
     listTopicKeys:
-        ApiVersion: "2024-01-01"
-        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2024-01-01/AuthorizationRules.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/authorizationRules/{authorizationRuleName}/ListKeys
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/servicebus/resource-manager/Microsoft.ServiceBus/ServiceBus/stable/2026-01-01/servicebus.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/authorizationRules/{authorizationRuleName}/listKeys
         RpNamespace: Microsoft.ServiceBus
 ServiceFabric:
     ManagedCluster:

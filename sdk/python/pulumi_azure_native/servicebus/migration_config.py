@@ -32,7 +32,7 @@ class MigrationConfigArgs:
         :param pulumi.Input[_builtins.str] post_migration_name: Name to access Standard Namespace after migration
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] target_namespace: Existing premium Namespace ARM Id name which has no entities, will be used for migration
-        :param pulumi.Input[_builtins.str] config_name: The configuration name. Should always be "$default".
+        :param pulumi.Input[_builtins.str] config_name: The configuration name. Should always be $default.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "post_migration_name", post_migration_name)
@@ -93,7 +93,7 @@ class MigrationConfigArgs:
     @pulumi.getter(name="configName")
     def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The configuration name. Should always be "$default".
+        The configuration name. Should always be $default.
         """
         return pulumi.get(self, "config_name")
 
@@ -117,13 +117,13 @@ class MigrationConfig(pulumi.CustomResource):
         """
         Single item in List or Get Migration Config operation
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] config_name: The configuration name. Should always be "$default".
+        :param pulumi.Input[_builtins.str] config_name: The configuration name. Should always be $default.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] post_migration_name: Name to access Standard Namespace after migration
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,9 +138,9 @@ class MigrationConfig(pulumi.CustomResource):
         """
         Single item in List or Get Migration Config operation
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MigrationConfigArgs args: The arguments to use to populate this resource's properties.
@@ -280,7 +280,7 @@ class MigrationConfig(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
-        Provisioning state of Migration Configuration
+        Provisioning state of Migration ConfigurationProvisioning state of Migration Configuration
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -288,7 +288,7 @@ class MigrationConfig(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -304,7 +304,7 @@ class MigrationConfig(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets a description for the specified namespace.
         /// 
-        /// Uses Azure REST API version 2024-01-01.
+        /// Uses Azure REST API version 2026-01-01.
         /// 
-        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets a description for the specified namespace.
         /// 
-        /// Uses Azure REST API version 2024-01-01.
+        /// Uses Azure REST API version 2026-01-01.
         /// 
-        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// Gets a description for the specified namespace.
         /// 
-        /// Uses Azure REST API version 2024-01-01.
+        /// Uses Azure REST API version 2026-01-01.
         /// 
-        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -108,7 +108,11 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
-        /// Resource Id
+        /// Geo Data Replication settings for the namespace
+        /// </summary>
+        public readonly Outputs.GeoDataReplicationPropertiesResponse? GeoDataReplication;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -116,7 +120,11 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
-        /// The Geo-location where the resource lives
+        /// The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        /// </summary>
+        public readonly string? IpAddressType;
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -128,9 +136,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        public readonly Outputs.PlatformCapabilitiesResponse? PlatformCapabilities;
         /// <summary>
         /// The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
         /// </summary>
@@ -160,15 +169,15 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -176,7 +185,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string UpdatedAt;
         /// <summary>
-        /// This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         /// </summary>
         public readonly bool? ZoneRedundant;
 
@@ -192,9 +201,13 @@ namespace Pulumi.AzureNative.ServiceBus
 
             Outputs.EncryptionResponse? encryption,
 
+            Outputs.GeoDataReplicationPropertiesResponse? geoDataReplication,
+
             string id,
 
             Outputs.IdentityResponse? identity,
+
+            string? ipAddressType,
 
             string location,
 
@@ -203,6 +216,8 @@ namespace Pulumi.AzureNative.ServiceBus
             string? minimumTlsVersion,
 
             string name,
+
+            Outputs.PlatformCapabilitiesResponse? platformCapabilities,
 
             int? premiumMessagingPartitions,
 
@@ -233,12 +248,15 @@ namespace Pulumi.AzureNative.ServiceBus
             CreatedAt = createdAt;
             DisableLocalAuth = disableLocalAuth;
             Encryption = encryption;
+            GeoDataReplication = geoDataReplication;
             Id = id;
             Identity = identity;
+            IpAddressType = ipAddressType;
             Location = location;
             MetricId = metricId;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;
+            PlatformCapabilities = platformCapabilities;
             PremiumMessagingPartitions = premiumMessagingPartitions;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;

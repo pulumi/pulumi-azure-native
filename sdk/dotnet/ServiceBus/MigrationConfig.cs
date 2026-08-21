@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ServiceBus
     /// <summary>
     /// Single item in List or Get Migration Config operation
     /// 
-    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+    /// Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:MigrationConfig")]
     public partial class MigrationConfig : global::Pulumi.CustomResource
@@ -56,13 +56,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> PostMigrationName { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of Migration Configuration 
+        /// Provisioning state of Migration ConfigurationProvisioning state of Migration Configuration
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> TargetNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.ServiceBus
     public sealed class MigrationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration name. Should always be "$default".
+        /// The configuration name. Should always be $default.
         /// </summary>
         [Input("configName")]
         public Input<string>? ConfigName { get; set; }

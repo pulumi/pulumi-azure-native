@@ -34,7 +34,8 @@ class TopicArgs:
                  requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional['EntityStatus']] = None,
                  support_ordering: pulumi.Input[Optional[_builtins.bool]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -52,6 +53,7 @@ class TopicArgs:
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[_builtins.bool] support_ordering: Value that indicates whether the topic supports ordering.
         :param pulumi.Input[_builtins.str] topic_name: The topic name.
+        :param pulumi.Input[_builtins.str] user_metadata: Gets and Sets Metadata of User.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,6 +81,8 @@ class TopicArgs:
             pulumi.set(__self__, "support_ordering", support_ordering)
         if topic_name is not None:
             pulumi.set(__self__, "topic_name", topic_name)
+        if user_metadata is not None:
+            pulumi.set(__self__, "user_metadata", user_metadata)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -248,6 +252,18 @@ class TopicArgs:
     def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
+
+    @user_metadata.setter
+    def user_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_metadata", value)
+
 
 @pulumi.type_token("azure-native:servicebus:Topic")
 class Topic(pulumi.CustomResource):
@@ -269,13 +285,14 @@ class Topic(pulumi.CustomResource):
                  status: pulumi.Input[Optional['EntityStatus']] = None,
                  support_ordering: pulumi.Input[Optional[_builtins.bool]] = None,
                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Description of topic resource.
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,6 +310,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[_builtins.bool] support_ordering: Value that indicates whether the topic supports ordering.
         :param pulumi.Input[_builtins.str] topic_name: The topic name.
+        :param pulumi.Input[_builtins.str] user_metadata: Gets and Sets Metadata of User.
         """
         ...
     @overload
@@ -303,9 +321,9 @@ class Topic(pulumi.CustomResource):
         """
         Description of topic resource.
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.
@@ -336,6 +354,7 @@ class Topic(pulumi.CustomResource):
                  status: pulumi.Input[Optional['EntityStatus']] = None,
                  support_ordering: pulumi.Input[Optional[_builtins.bool]] = None,
                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -363,6 +382,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["support_ordering"] = support_ordering
             __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["user_metadata"] = user_metadata
             __props__.__dict__["accessed_at"] = None
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["count_details"] = None
@@ -420,6 +440,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
+        __props__.__dict__["user_metadata"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -578,7 +599,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -586,7 +607,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -597,4 +618,12 @@ class Topic(pulumi.CustomResource):
         The exact time the message was updated.
         """
         return pulumi.get(self, "updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
 

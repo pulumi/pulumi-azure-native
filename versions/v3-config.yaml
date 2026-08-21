@@ -647,7 +647,6 @@ SecurityInsights:
 SerialConsole:
 ServiceBus:
   expectAdditions: true
-  expectTracking: preview
   notes: |
     NamespaceIpFilterRule and NamespaceVirtualNetworkRule were only in one specific version
     Both preview and stable are documented

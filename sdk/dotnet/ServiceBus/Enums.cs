@@ -172,6 +172,37 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
     /// <summary>
+    /// GeoDR Role Types
+    /// </summary>
+    [EnumType]
+    public readonly struct GeoDRRoleType : IEquatable<GeoDRRoleType>
+    {
+        private readonly string _value;
+
+        private GeoDRRoleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GeoDRRoleType Primary { get; } = new GeoDRRoleType("Primary");
+        public static GeoDRRoleType Secondary { get; } = new GeoDRRoleType("Secondary");
+
+        public static bool operator ==(GeoDRRoleType left, GeoDRRoleType right) => left.Equals(right);
+        public static bool operator !=(GeoDRRoleType left, GeoDRRoleType right) => !left.Equals(right);
+
+        public static explicit operator string(GeoDRRoleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GeoDRRoleType other && Equals(other);
+        public bool Equals(GeoDRRoleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The IP Filter Action
     /// </summary>
     [EnumType]
@@ -195,6 +226,43 @@ namespace Pulumi.AzureNative.ServiceBus
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IPAction other && Equals(other);
         public bool Equals(IPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+    /// </summary>
+    [EnumType]
+    public readonly struct IpAddressType : IEquatable<IpAddressType>
+    {
+        private readonly string _value;
+
+        private IpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The namespace supports IPv4 addresses only.
+        /// </summary>
+        public static IpAddressType IPv4 { get; } = new IpAddressType("IPv4");
+        /// <summary>
+        /// The namespace supports both IPv4 and IPv6 addresses (dual stack).
+        /// </summary>
+        public static IpAddressType DualStack { get; } = new IpAddressType("DualStack");
+
+        public static bool operator ==(IpAddressType left, IpAddressType right) => left.Equals(right);
+        public static bool operator !=(IpAddressType left, IpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(IpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpAddressType other && Equals(other);
+        public bool Equals(IpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -258,6 +326,37 @@ namespace Pulumi.AzureNative.ServiceBus
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Setting to Enable or Disable Confidential Compute
+    /// </summary>
+    [EnumType]
+    public readonly struct Mode : IEquatable<Mode>
+    {
+        private readonly string _value;
+
+        private Mode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Mode Disabled { get; } = new Mode("Disabled");
+        public static Mode Enabled { get; } = new Mode("Enabled");
+
+        public static bool operator ==(Mode left, Mode right) => left.Equals(right);
+        public static bool operator !=(Mode left, Mode right) => !left.Equals(right);
+
+        public static explicit operator string(Mode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Mode other && Equals(other);
+        public bool Equals(Mode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -471,6 +570,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public static TlsVersion TlsVersion_1_0 { get; } = new TlsVersion("1.0");
         public static TlsVersion TlsVersion_1_1 { get; } = new TlsVersion("1.1");
         public static TlsVersion TlsVersion_1_2 { get; } = new TlsVersion("1.2");
+        public static TlsVersion TlsVersion_1_3 { get; } = new TlsVersion("1.3");
 
         public static bool operator ==(TlsVersion left, TlsVersion right) => left.Equals(right);
         public static bool operator !=(TlsVersion left, TlsVersion right) => !left.Equals(right);

@@ -18,14 +18,18 @@ from ._enums import *
 
 __all__ = [
     'ActionResponse',
+    'ConfidentialComputeResponse',
     'ConnectionStateResponse',
     'CorrelationFilterResponse',
     'EncryptionResponse',
+    'GeoDataReplicationPropertiesResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
     'MessageCountDetailsResponse',
     'NWRuleSetIpRulesResponse',
     'NWRuleSetVirtualNetworkRulesResponse',
+    'NamespaceReplicaLocationResponse',
+    'PlatformCapabilitiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'SBClientAffinePropertiesResponse',
@@ -106,6 +110,25 @@ class ActionResponse(dict):
         SQL expression. e.g. MyProperty='ABC'
         """
         return pulumi.get(self, "sql_expression")
+
+
+@pulumi.output_type
+class ConfidentialComputeResponse(dict):
+    def __init__(__self__, *,
+                 mode: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str mode: Setting to Enable or Disable Confidential Compute
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[_builtins.str]:
+        """
+        Setting to Enable or Disable Confidential Compute
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -376,6 +399,59 @@ class EncryptionResponse(dict):
         Enable Infrastructure Encryption (Double Encryption)
         """
         return pulumi.get(self, "require_infrastructure_encryption")
+
+
+@pulumi.output_type
+class GeoDataReplicationPropertiesResponse(dict):
+    """
+    GeoDR Replication properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxReplicationLagDurationInSeconds":
+            suggest = "max_replication_lag_duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GeoDataReplicationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GeoDataReplicationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GeoDataReplicationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 locations: Optional[Sequence['outputs.NamespaceReplicaLocationResponse']] = None,
+                 max_replication_lag_duration_in_seconds: Optional[_builtins.int] = None):
+        """
+        GeoDR Replication properties
+
+        :param Sequence['NamespaceReplicaLocationResponse'] locations: A list of regions where replicas of the namespace are maintained.
+        :param _builtins.int max_replication_lag_duration_in_seconds: The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if max_replication_lag_duration_in_seconds is not None:
+            pulumi.set(__self__, "max_replication_lag_duration_in_seconds", max_replication_lag_duration_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence['outputs.NamespaceReplicaLocationResponse']]:
+        """
+        A list of regions where replicas of the namespace are maintained.
+        """
+        return pulumi.get(self, "locations")
+
+    @_builtins.property
+    @pulumi.getter(name="maxReplicationLagDurationInSeconds")
+    def max_replication_lag_duration_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day.
+        """
+        return pulumi.get(self, "max_replication_lag_duration_in_seconds")
 
 
 @pulumi.output_type
@@ -735,6 +811,91 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
 
 
 @pulumi.output_type
+class NamespaceReplicaLocationResponse(dict):
+    """
+    Namespace replication properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "locationName":
+            suggest = "location_name"
+        elif key == "roleType":
+            suggest = "role_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespaceReplicaLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespaceReplicaLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespaceReplicaLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location_name: Optional[_builtins.str] = None,
+                 role_type: Optional[_builtins.str] = None):
+        """
+        Namespace replication properties
+
+        :param _builtins.str location_name: Azure regions where a replica of the namespace is maintained
+        :param _builtins.str role_type: GeoDR Role Types
+        """
+        if location_name is not None:
+            pulumi.set(__self__, "location_name", location_name)
+        if role_type is not None:
+            pulumi.set(__self__, "role_type", role_type)
+
+    @_builtins.property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> Optional[_builtins.str]:
+        """
+        Azure regions where a replica of the namespace is maintained
+        """
+        return pulumi.get(self, "location_name")
+
+    @_builtins.property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> Optional[_builtins.str]:
+        """
+        GeoDR Role Types
+        """
+        return pulumi.get(self, "role_type")
+
+
+@pulumi.output_type
+class PlatformCapabilitiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confidentialCompute":
+            suggest = "confidential_compute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlatformCapabilitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlatformCapabilitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlatformCapabilitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 confidential_compute: Optional['outputs.ConfidentialComputeResponse'] = None):
+        if confidential_compute is not None:
+            pulumi.set(__self__, "confidential_compute", confidential_compute)
+
+    @_builtins.property
+    @pulumi.getter(name="confidentialCompute")
+    def confidential_compute(self) -> Optional['outputs.ConfidentialComputeResponse']:
+        return pulumi.get(self, "confidential_compute")
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     Properties of the PrivateEndpointConnection.
@@ -774,11 +935,11 @@ class PrivateEndpointConnectionResponse(dict):
         """
         Properties of the PrivateEndpointConnection.
 
-        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
-        :param 'SystemDataResponse' system_data: The system meta data relating to this resource.
-        :param _builtins.str type: The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint resource for this Connection.
         :param 'ConnectionStateResponse' private_link_service_connection_state: Details about the state of the connection.
         :param _builtins.str provisioning_state: Provisioning state of the Private Endpoint Connection.
@@ -799,7 +960,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -823,7 +984,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -831,7 +992,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1139,7 +1300,7 @@ class SystemDataResponse(dict):
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The type of identity that last modified the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
         :param _builtins.str last_modified_by: The identity that last modified the resource.
         :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -1184,7 +1345,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[_builtins.str]:
         """
-        The type of identity that last modified the resource.
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 

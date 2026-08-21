@@ -27,7 +27,7 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, alternate_name=None, azure_api_version=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, location=None, metric_id=None, minimum_tls_version=None, name=None, premium_messaging_partitions=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, alternate_name=None, azure_api_version=None, created_at=None, disable_local_auth=None, encryption=None, geo_data_replication=None, id=None, identity=None, ip_address_type=None, location=None, metric_id=None, minimum_tls_version=None, name=None, platform_capabilities=None, premium_messaging_partitions=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if alternate_name and not isinstance(alternate_name, str):
             raise TypeError("Expected argument 'alternate_name' to be a str")
         pulumi.set(__self__, "alternate_name", alternate_name)
@@ -43,12 +43,18 @@ class GetNamespaceResult:
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if geo_data_replication and not isinstance(geo_data_replication, dict):
+            raise TypeError("Expected argument 'geo_data_replication' to be a dict")
+        pulumi.set(__self__, "geo_data_replication", geo_data_replication)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,6 +67,9 @@ class GetNamespaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if platform_capabilities and not isinstance(platform_capabilities, dict):
+            raise TypeError("Expected argument 'platform_capabilities' to be a dict")
+        pulumi.set(__self__, "platform_capabilities", platform_capabilities)
         if premium_messaging_partitions and not isinstance(premium_messaging_partitions, int):
             raise TypeError("Expected argument 'premium_messaging_partitions' to be a int")
         pulumi.set(__self__, "premium_messaging_partitions", premium_messaging_partitions)
@@ -139,10 +148,18 @@ class GetNamespaceResult:
         return pulumi.get(self, "encryption")
 
     @_builtins.property
+    @pulumi.getter(name="geoDataReplication")
+    def geo_data_replication(self) -> Optional['outputs.GeoDataReplicationPropertiesResponse']:
+        """
+        Geo Data Replication settings for the namespace
+        """
+        return pulumi.get(self, "geo_data_replication")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -155,10 +172,18 @@ class GetNamespaceResult:
         return pulumi.get(self, "identity")
 
     @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[_builtins.str]:
+        """
+        The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        The Geo-location where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -182,9 +207,14 @@ class GetNamespaceResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="platformCapabilities")
+    def platform_capabilities(self) -> Optional['outputs.PlatformCapabilitiesResponse']:
+        return pulumi.get(self, "platform_capabilities")
 
     @_builtins.property
     @pulumi.getter(name="premiumMessagingPartitions")
@@ -246,7 +276,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -254,7 +284,7 @@ class GetNamespaceResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -262,7 +292,7 @@ class GetNamespaceResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -278,7 +308,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[_builtins.bool]:
         """
-        This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -294,12 +324,15 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             created_at=self.created_at,
             disable_local_auth=self.disable_local_auth,
             encryption=self.encryption,
+            geo_data_replication=self.geo_data_replication,
             id=self.id,
             identity=self.identity,
+            ip_address_type=self.ip_address_type,
             location=self.location,
             metric_id=self.metric_id,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
+            platform_capabilities=self.platform_capabilities,
             premium_messaging_partitions=self.premium_messaging_partitions,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
@@ -320,9 +353,9 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
     """
     Gets a description for the specified namespace.
 
-    Uses Azure REST API version 2024-01-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -339,12 +372,15 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
         encryption=pulumi.get(__ret__, 'encryption'),
+        geo_data_replication=pulumi.get(__ret__, 'geo_data_replication'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         location=pulumi.get(__ret__, 'location'),
         metric_id=pulumi.get(__ret__, 'metric_id'),
         minimum_tls_version=pulumi.get(__ret__, 'minimum_tls_version'),
         name=pulumi.get(__ret__, 'name'),
+        platform_capabilities=pulumi.get(__ret__, 'platform_capabilities'),
         premium_messaging_partitions=pulumi.get(__ret__, 'premium_messaging_partitions'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -363,9 +399,9 @@ def get_namespace_output(namespace_name: pulumi.Input[Optional[_builtins.str]] =
     """
     Gets a description for the specified namespace.
 
-    Uses Azure REST API version 2024-01-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -381,12 +417,15 @@ def get_namespace_output(namespace_name: pulumi.Input[Optional[_builtins.str]] =
         created_at=pulumi.get(__response__, 'created_at'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
         encryption=pulumi.get(__response__, 'encryption'),
+        geo_data_replication=pulumi.get(__response__, 'geo_data_replication'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         location=pulumi.get(__response__, 'location'),
         metric_id=pulumi.get(__response__, 'metric_id'),
         minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
         name=pulumi.get(__response__, 'name'),
+        platform_capabilities=pulumi.get(__response__, 'platform_capabilities'),
         premium_messaging_partitions=pulumi.get(__response__, 'premium_messaging_partitions'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

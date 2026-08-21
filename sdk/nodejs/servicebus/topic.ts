@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description of topic resource.
  *
- * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+ * Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
  *
- * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -118,17 +118,21 @@ export class Topic extends pulumi.CustomResource {
      */
     declare public readonly supportOrdering: pulumi.Output<boolean | undefined>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicebus.SystemDataResponse>;
     /**
-     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The exact time the message was updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    declare public readonly userMetadata: pulumi.Output<string | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -161,6 +165,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["status"] = args?.status;
             resourceInputs["supportOrdering"] = args?.supportOrdering;
             resourceInputs["topicName"] = args?.topicName;
+            resourceInputs["userMetadata"] = args?.userMetadata;
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
@@ -195,6 +200,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20140901:Topic" }, { type: "azure-native:servicebus/v20150801:Topic" }, { type: "azure-native:servicebus/v20170401:Topic" }, { type: "azure-native:servicebus/v20180101preview:Topic" }, { type: "azure-native:servicebus/v20210101preview:Topic" }, { type: "azure-native:servicebus/v20210601preview:Topic" }, { type: "azure-native:servicebus/v20211101:Topic" }, { type: "azure-native:servicebus/v20220101preview:Topic" }, { type: "azure-native:servicebus/v20221001preview:Topic" }, { type: "azure-native:servicebus/v20230101preview:Topic" }, { type: "azure-native:servicebus/v20240101:Topic" }, { type: "azure-native:servicebus/v20250501preview:Topic" }, { type: "azure-native:servicebus/v20260101:Topic" }, { type: "azure-native:servicebus/v20260701preview:Topic" }] };
@@ -263,4 +269,8 @@ export interface TopicArgs {
      * The topic name.
      */
     topicName?: pulumi.Input<string | undefined>;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    userMetadata?: pulumi.Input<string | undefined>;
 }

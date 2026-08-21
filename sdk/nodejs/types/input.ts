@@ -169630,6 +169630,13 @@ export namespace servicebus {
         };
     }
 
+    export interface ConfidentialComputeArgs {
+        /**
+         * Setting to Enable or Disable Confidential Compute
+         */
+        mode?: pulumi.Input<string | enums.servicebus.Mode | undefined>;
+    }
+
     /**
      * ConnectionState information.
      */
@@ -169727,6 +169734,20 @@ export namespace servicebus {
     }
 
     /**
+     * GeoDR Replication properties
+     */
+    export interface GeoDataReplicationPropertiesArgs {
+        /**
+         * A list of regions where replicas of the namespace are maintained.
+         */
+        locations?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceReplicaLocationArgs>[] | undefined>;
+        /**
+         * The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day.
+         */
+        maxReplicationLagDurationInSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
      * Properties to configure User Assigned Identities for Bring your Own Keys
      */
     export interface IdentityArgs {
@@ -169794,6 +169815,24 @@ export namespace servicebus {
          * Subnet properties
          */
         subnet?: pulumi.Input<inputs.servicebus.SubnetArgs | undefined>;
+    }
+
+    /**
+     * Namespace replication properties
+     */
+    export interface NamespaceReplicaLocationArgs {
+        /**
+         * Azure regions where a replica of the namespace is maintained
+         */
+        locationName?: pulumi.Input<string | undefined>;
+        /**
+         * GeoDR Role Types
+         */
+        roleType?: pulumi.Input<string | enums.servicebus.GeoDRRoleType | undefined>;
+    }
+
+    export interface PlatformCapabilitiesArgs {
+        confidentialCompute?: pulumi.Input<inputs.servicebus.ConfidentialComputeArgs | undefined>;
     }
 
     /**

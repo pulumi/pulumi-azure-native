@@ -12,9 +12,12 @@ __all__ = [
     'EndPointProvisioningState',
     'EntityStatus',
     'FilterType',
+    'GeoDRRoleType',
     'IPAction',
+    'IpAddressType',
     'KeySource',
     'ManagedServiceIdentityType',
+    'Mode',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
     'PublicNetworkAccess',
@@ -79,6 +82,15 @@ class FilterType(_builtins.str, Enum):
     CORRELATION_FILTER = "CorrelationFilter"
 
 
+@pulumi.type_token("azure-native:servicebus:GeoDRRoleType")
+class GeoDRRoleType(_builtins.str, Enum):
+    """
+    GeoDR Role Types
+    """
+    PRIMARY = "Primary"
+    SECONDARY = "Secondary"
+
+
 @pulumi.type_token("azure-native:servicebus:IPAction")
 class IPAction(_builtins.str, Enum):
     """
@@ -86,6 +98,21 @@ class IPAction(_builtins.str, Enum):
     """
     ACCEPT = "Accept"
     REJECT = "Reject"
+
+
+@pulumi.type_token("azure-native:servicebus:IpAddressType")
+class IpAddressType(_builtins.str, Enum):
+    """
+    The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+    """
+    I_PV4 = "IPv4"
+    """
+    The namespace supports IPv4 addresses only.
+    """
+    DUAL_STACK = "DualStack"
+    """
+    The namespace supports both IPv4 and IPv6 addresses (dual stack).
+    """
 
 
 @pulumi.type_token("azure-native:servicebus:KeySource")
@@ -105,6 +132,15 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
+
+
+@pulumi.type_token("azure-native:servicebus:Mode")
+class Mode(_builtins.str, Enum):
+    """
+    Setting to Enable or Disable Confidential Compute
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 @pulumi.type_token("azure-native:servicebus:NetworkRuleIPAction")
@@ -173,3 +209,4 @@ class TlsVersion(_builtins.str, Enum):
     TLS_VERSION_1_0 = "1.0"
     TLS_VERSION_1_1 = "1.1"
     TLS_VERSION_1_2 = "1.2"
+    TLS_VERSION_1_3 = "1.3"
