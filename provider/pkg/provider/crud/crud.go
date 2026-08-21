@@ -279,7 +279,17 @@ func (r *resourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 	// Try reading its state by ID and return a partial error if succeeded.
 	checkpoint, getErr := r.currentResourceStateCheckpoint(ctx, id, inputs)
 	if getErr != nil {
-		// If reading the state failed, combine the errors but still return the partial state.
+		if azure.IsNotFound(getErr) {
+			// The resource is confirmed to not exist (e.g. a create/update's long-running
+			// operation ultimately failed after an initial 202 Accepted response, so the
+			// operation never actually completed). There is no partial state to preserve,
+			// so return the original failure directly instead of a confusing compound
+			// error like "resource created but read failed 404 ...: <original error>".
+			return azure.AzureError(err)
+		}
+		// If reading the state failed for some other, possibly transient, reason, we can't
+		// tell whether the resource exists or not. Combine the errors but still return a
+		// partial error so a subsequent operation can attempt to reconcile the state.
 		err = azure.AzureError(errors.Wrapf(err, "resource created but read failed %s", getErr))
 	}
 	return partialError(id, err, checkpoint, properties)
