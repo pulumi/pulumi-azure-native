@@ -2,11 +2,13 @@ package crud
 
 import (
 	"context"
+	"errors"
 	"net/http"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -440,4 +442,58 @@ func TestContainsNilValues(t *testing.T) {
 			},
 		}))
 	})
+}
+
+// TestHandleErrorWithCheckpoint_NotFound is a regression test for issue #2816 and related issues
+// (#867, #1126, #1138, #1681, #2633, #2916): when a create/update's long-running operation
+// ultimately fails after an initial 202 Accepted response, the resource never actually came into
+// existence. The subsequent checkpoint read confirms this with a 404. In that case, the original
+// creation/update error should be returned directly instead of being wrapped into a confusing
+// compound "resource created but read failed 404 ...: <original error>" message.
+func TestHandleErrorWithCheckpoint_NotFound(t *testing.T) {
+	originalErr := errors.New(`Code="BadRequest" Message="The provided principal ID was not found in the AAD tenant(s)"`)
+
+	client := &azure.MockAzureClient{
+		GetResponseErr: &azure.PulumiAzcoreResponseError{
+			StatusCode: http.StatusNotFound,
+			ErrorCode:  "NotFound",
+			Message:    `Unable to find a SQL Role Assignment with ID [...]`,
+		},
+	}
+	res := &resources.AzureAPIResource{APIVersion: "2023-04-15"}
+	crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
+
+	err := crudClient.HandleErrorWithCheckpoint(context.Background(), originalErr,
+		"/subscriptions/123/resourceGroups/rg/providers/Microsoft.DocumentDB/databaseAccounts/acct/sqlRoleAssignments/abc",
+		resource.PropertyMap{}, nil)
+
+	require.Error(t, err)
+	assert.Equal(t, originalErr.Error(), err.Error())
+	assert.NotContains(t, err.Error(), "read failed")
+}
+
+// TestHandleErrorWithCheckpoint_OtherReadError verifies the pre-existing behavior is preserved
+// when the checkpoint read fails for a reason other than a confirmed 404: since we can't tell
+// whether the resource exists, we still combine both errors into a partial error so a subsequent
+// operation can attempt to reconcile the state.
+func TestHandleErrorWithCheckpoint_OtherReadError(t *testing.T) {
+	originalErr := errors.New("original creation error")
+
+	client := &azure.MockAzureClient{
+		GetResponseErr: &azure.PulumiAzcoreResponseError{
+			StatusCode: http.StatusTooManyRequests,
+			ErrorCode:  "TooManyRequests",
+			Message:    "throttled",
+		},
+	}
+	res := &resources.AzureAPIResource{APIVersion: "2023-04-15"}
+	crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
+
+	err := crudClient.HandleErrorWithCheckpoint(context.Background(), originalErr,
+		"/subscriptions/123/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/sa",
+		resource.PropertyMap{}, nil)
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "read failed")
+	assert.Contains(t, err.Error(), "original creation error")
 }
