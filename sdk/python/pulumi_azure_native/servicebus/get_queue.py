@@ -27,7 +27,7 @@ class GetQueueResult:
     """
     Description of queue Resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, azure_api_version=None, count_details=None, created_at=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, location=None, lock_duration=None, max_delivery_count=None, max_message_size_in_kilobytes=None, max_size_in_megabytes=None, message_count=None, name=None, requires_duplicate_detection=None, requires_session=None, size_in_bytes=None, status=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, azure_api_version=None, count_details=None, created_at=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, location=None, lock_duration=None, max_delivery_count=None, max_message_size_in_kilobytes=None, max_size_in_megabytes=None, message_count=None, name=None, requires_duplicate_detection=None, requires_session=None, size_in_bytes=None, status=None, system_data=None, type=None, updated_at=None, user_metadata=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
@@ -112,6 +112,9 @@ class GetQueueResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if user_metadata and not isinstance(user_metadata, str):
+            raise TypeError("Expected argument 'user_metadata' to be a str")
+        pulumi.set(__self__, "user_metadata", user_metadata)
 
     @_builtins.property
     @pulumi.getter(name="accessedAt")
@@ -221,7 +224,7 @@ class GetQueueResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -317,7 +320,7 @@ class GetQueueResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -325,7 +328,7 @@ class GetQueueResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -336,6 +339,14 @@ class GetQueueResult:
         The exact time the message was updated.
         """
         return pulumi.get(self, "updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[_builtins.str]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
 
 
 class AwaitableGetQueueResult(GetQueueResult):
@@ -371,7 +382,8 @@ class AwaitableGetQueueResult(GetQueueResult):
             status=self.status,
             system_data=self.system_data,
             type=self.type,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            user_metadata=self.user_metadata)
 
 
 def get_queue(namespace_name: Optional[_builtins.str] = None,
@@ -381,9 +393,9 @@ def get_queue(namespace_name: Optional[_builtins.str] = None,
     """
     Returns a description for the specified queue.
 
-    Uses Azure REST API version 2024-01-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str queue_name: The queue name.
@@ -424,7 +436,8 @@ def get_queue(namespace_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
-        updated_at=pulumi.get(__ret__, 'updated_at'))
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        user_metadata=pulumi.get(__ret__, 'user_metadata'))
 def get_queue_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                      queue_name: pulumi.Input[Optional[_builtins.str]] = None,
                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -432,9 +445,9 @@ def get_queue_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = Non
     """
     Returns a description for the specified queue.
 
-    Uses Azure REST API version 2024-01-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str namespace_name: The namespace name
     :param _builtins.str queue_name: The queue name.
@@ -474,4 +487,5 @@ def get_queue_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = Non
         status=pulumi.get(__response__, 'status'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        user_metadata=pulumi.get(__response__, 'user_metadata')))

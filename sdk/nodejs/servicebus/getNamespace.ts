@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets a description for the specified namespace.
  *
- * Uses Azure REST API version 2024-01-01.
+ * Uses Azure REST API version 2026-01-01.
  *
- * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +58,11 @@ export interface GetNamespaceResult {
      */
     readonly encryption?: outputs.servicebus.EncryptionResponse;
     /**
-     * Resource Id
+     * Geo Data Replication settings for the namespace
+     */
+    readonly geoDataReplication?: outputs.servicebus.GeoDataReplicationPropertiesResponse;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -66,7 +70,11 @@ export interface GetNamespaceResult {
      */
     readonly identity?: outputs.servicebus.IdentityResponse;
     /**
-     * The Geo-location where the resource lives
+     * The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+     */
+    readonly ipAddressType?: string;
+    /**
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -78,9 +86,10 @@ export interface GetNamespaceResult {
      */
     readonly minimumTlsVersion?: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
+    readonly platformCapabilities?: outputs.servicebus.PlatformCapabilitiesResponse;
     /**
      * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
      */
@@ -110,15 +119,15 @@ export interface GetNamespaceResult {
      */
     readonly status: string;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.servicebus.SystemDataResponse;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -126,16 +135,16 @@ export interface GetNamespaceResult {
      */
     readonly updatedAt: string;
     /**
-     * This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+     * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
      */
     readonly zoneRedundant?: boolean;
 }
 /**
  * Gets a description for the specified namespace.
  *
- * Uses Azure REST API version 2024-01-01.
+ * Uses Azure REST API version 2026-01-01.
  *
- * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

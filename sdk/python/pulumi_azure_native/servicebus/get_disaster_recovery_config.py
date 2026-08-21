@@ -82,7 +82,7 @@ class GetDisasterRecoveryConfigResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -138,7 +138,7 @@ class GetDisasterRecoveryConfigResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -146,7 +146,7 @@ class GetDisasterRecoveryConfigResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -177,9 +177,9 @@ def get_disaster_recovery_config(alias: Optional[_builtins.str] = None,
     """
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
 
-    Uses Azure REST API version 2024-01-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str alias: The Disaster Recovery configuration name
     :param _builtins.str namespace_name: The namespace name
@@ -211,9 +211,9 @@ def get_disaster_recovery_config_output(alias: pulumi.Input[Optional[_builtins.s
     """
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
 
-    Uses Azure REST API version 2024-01-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str alias: The Disaster Recovery configuration name
     :param _builtins.str namespace_name: The namespace name

@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the primary and secondary connection strings for the topic.
  *
- * Uses Azure REST API version 2024-01-01.
+ * Uses Azure REST API version 2026-01-01.
  *
- * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,9 +76,9 @@ export interface ListTopicKeysResult {
 /**
  * Gets the primary and secondary connection strings for the topic.
  *
- * Uses Azure REST API version 2024-01-01.
+ * Uses Azure REST API version 2026-01-01.
  *
- * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTopicKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

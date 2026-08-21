@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ServiceBus
     /// <summary>
     /// Description of a namespace resource.
     /// 
-    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+    /// Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
@@ -50,13 +50,25 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
+        /// Geo Data Replication settings for the namespace
+        /// </summary>
+        [Output("geoDataReplication")]
+        public Output<Outputs.GeoDataReplicationPropertiesResponse?> GeoDataReplication { get; private set; } = null!;
+
+        /// <summary>
         /// Properties of BYOK Identity description
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The Geo-location where the resource lives
+        /// The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string?> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -74,10 +86,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("platformCapabilities")]
+        public Output<Outputs.PlatformCapabilitiesResponse?> PlatformCapabilities { get; private set; } = null!;
 
         /// <summary>
         /// The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
@@ -122,19 +137,19 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -146,7 +161,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -232,13 +247,25 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// Geo Data Replication settings for the namespace
+        /// </summary>
+        [Input("geoDataReplication")]
+        public Input<Inputs.GeoDataReplicationPropertiesArgs>? GeoDataReplication { get; set; }
+
+        /// <summary>
         /// Properties of BYOK Identity description
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The Geo-location where the resource lives
+        /// The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        /// </summary>
+        [Input("ipAddressType")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.IpAddressType>? IpAddressType { get; set; }
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -250,10 +277,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public InputUnion<string, Pulumi.AzureNative.ServiceBus.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The namespace name.
+        /// The namespace name
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
+
+        [Input("platformCapabilities")]
+        public Input<Inputs.PlatformCapabilitiesArgs>? PlatformCapabilities { get; set; }
 
         /// <summary>
         /// The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
@@ -296,7 +326,7 @@ namespace Pulumi.AzureNative.ServiceBus
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -305,7 +335,7 @@ namespace Pulumi.AzureNative.ServiceBus
         }
 
         /// <summary>
-        /// This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

@@ -61,6 +61,16 @@ export const FilterType = {
  */
 export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
+export const GeoDRRoleType = {
+    Primary: "Primary",
+    Secondary: "Secondary",
+} as const;
+
+/**
+ * GeoDR Role Types
+ */
+export type GeoDRRoleType = (typeof GeoDRRoleType)[keyof typeof GeoDRRoleType];
+
 export const IPAction = {
     Accept: "Accept",
     Reject: "Reject",
@@ -70,6 +80,22 @@ export const IPAction = {
  * The IP Filter Action
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+
+export const IpAddressType = {
+    /**
+     * The namespace supports IPv4 addresses only.
+     */
+    IPv4: "IPv4",
+    /**
+     * The namespace supports both IPv4 and IPv6 addresses (dual stack).
+     */
+    DualStack: "DualStack",
+} as const;
+
+/**
+ * The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
 
 export const KeySource = {
     Microsoft_KeyVault: "Microsoft.KeyVault",
@@ -91,6 +117,16 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity.
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const Mode = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Setting to Enable or Disable Confidential Compute
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",
@@ -160,6 +196,7 @@ export const TlsVersion = {
     TlsVersion_1_0: "1.0",
     TlsVersion_1_1: "1.1",
     TlsVersion_1_2: "1.2",
+    TlsVersion_1_3: "1.3",
 } as const;
 
 /**

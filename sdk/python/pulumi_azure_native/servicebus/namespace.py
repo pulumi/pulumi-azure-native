@@ -26,10 +26,13 @@ class NamespaceArgs:
                  alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
+                 geo_data_replication: pulumi.Input[Optional['GeoDataReplicationPropertiesArgs']] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAddressType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_capabilities: pulumi.Input[Optional['PlatformCapabilitiesArgs']] = None,
                  premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
                  private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -43,17 +46,19 @@ class NamespaceArgs:
         :param pulumi.Input[_builtins.str] alternate_name: Alternate name for namespace
         :param pulumi.Input[_builtins.bool] disable_local_auth: This property disables SAS authentication for the Service Bus namespace.
         :param pulumi.Input['EncryptionArgs'] encryption: Properties of BYOK Encryption description
+        :param pulumi.Input['GeoDataReplicationPropertiesArgs'] geo_data_replication: Geo Data Replication settings for the namespace
         :param pulumi.Input['IdentityArgs'] identity: Properties of BYOK Identity description
-        :param pulumi.Input[_builtins.str] location: The Geo-location where the resource lives
+        :param pulumi.Input[Union[_builtins.str, 'IpAddressType']] ip_address_type: The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
-        :param pulumi.Input[_builtins.str] namespace_name: The namespace name.
+        :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connections.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
         :param pulumi.Input['SBSkuArgs'] sku: Properties of SKU
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
-        :param pulumi.Input[_builtins.bool] zone_redundant: This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if alternate_name is not None:
@@ -62,14 +67,20 @@ class NamespaceArgs:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if geo_data_replication is not None:
+            pulumi.set(__self__, "geo_data_replication", geo_data_replication)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
+        if platform_capabilities is not None:
+            pulumi.set(__self__, "platform_capabilities", platform_capabilities)
         if premium_messaging_partitions is not None:
             pulumi.set(__self__, "premium_messaging_partitions", premium_messaging_partitions)
         if private_endpoint_connections is not None:
@@ -134,6 +145,18 @@ class NamespaceArgs:
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
+    @pulumi.getter(name="geoDataReplication")
+    def geo_data_replication(self) -> pulumi.Input[Optional['GeoDataReplicationPropertiesArgs']]:
+        """
+        Geo Data Replication settings for the namespace
+        """
+        return pulumi.get(self, "geo_data_replication")
+
+    @geo_data_replication.setter
+    def geo_data_replication(self, value: pulumi.Input[Optional['GeoDataReplicationPropertiesArgs']]):
+        pulumi.set(self, "geo_data_replication", value)
+
+    @_builtins.property
     @pulumi.getter
     def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
@@ -146,10 +169,22 @@ class NamespaceArgs:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IpAddressType']]]:
+        """
+        The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IpAddressType']]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Geo-location where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -173,13 +208,22 @@ class NamespaceArgs:
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The namespace name.
+        The namespace name
         """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
     def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="platformCapabilities")
+    def platform_capabilities(self) -> pulumi.Input[Optional['PlatformCapabilitiesArgs']]:
+        return pulumi.get(self, "platform_capabilities")
+
+    @platform_capabilities.setter
+    def platform_capabilities(self, value: pulumi.Input[Optional['PlatformCapabilitiesArgs']]):
+        pulumi.set(self, "platform_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="premiumMessagingPartitions")
@@ -234,7 +278,7 @@ class NamespaceArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -246,7 +290,7 @@ class NamespaceArgs:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -264,10 +308,13 @@ class Namespace(pulumi.CustomResource):
                  alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 geo_data_replication: pulumi.Input[Optional[Union['GeoDataReplicationPropertiesArgs', 'GeoDataReplicationPropertiesArgsDict']]] = None,
                  identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAddressType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_capabilities: pulumi.Input[Optional[Union['PlatformCapabilitiesArgs', 'PlatformCapabilitiesArgsDict']]] = None,
                  premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
                  private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -279,27 +326,29 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a namespace resource.
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alternate_name: Alternate name for namespace
         :param pulumi.Input[_builtins.bool] disable_local_auth: This property disables SAS authentication for the Service Bus namespace.
         :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: Properties of BYOK Encryption description
+        :param pulumi.Input[Union['GeoDataReplicationPropertiesArgs', 'GeoDataReplicationPropertiesArgsDict']] geo_data_replication: Geo Data Replication settings for the namespace
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Properties of BYOK Identity description
-        :param pulumi.Input[_builtins.str] location: The Geo-location where the resource lives
+        :param pulumi.Input[Union[_builtins.str, 'IpAddressType']] ip_address_type: The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
-        :param pulumi.Input[_builtins.str] namespace_name: The namespace name.
+        :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
         :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]] private_endpoint_connections: List of private endpoint connections.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SBSkuArgs', 'SBSkuArgsDict']] sku: Properties of SKU
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
-        :param pulumi.Input[_builtins.bool] zone_redundant: This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         ...
     @overload
@@ -310,9 +359,9 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a namespace resource.
 
-        Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -332,10 +381,13 @@ class Namespace(pulumi.CustomResource):
                  alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
+                 geo_data_replication: pulumi.Input[Optional[Union['GeoDataReplicationPropertiesArgs', 'GeoDataReplicationPropertiesArgsDict']]] = None,
                  identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ip_address_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAddressType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_capabilities: pulumi.Input[Optional[Union['PlatformCapabilitiesArgs', 'PlatformCapabilitiesArgsDict']]] = None,
                  premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
                  private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -355,10 +407,13 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["alternate_name"] = alternate_name
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["geo_data_replication"] = geo_data_replication
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["platform_capabilities"] = platform_capabilities
             __props__.__dict__["premium_messaging_partitions"] = premium_messaging_partitions
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
             if public_network_access is None:
@@ -409,11 +464,14 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["encryption"] = None
+        __props__.__dict__["geo_data_replication"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metric_id"] = None
         __props__.__dict__["minimum_tls_version"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["platform_capabilities"] = None
         __props__.__dict__["premium_messaging_partitions"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -469,6 +527,14 @@ class Namespace(pulumi.CustomResource):
         return pulumi.get(self, "encryption")
 
     @_builtins.property
+    @pulumi.getter(name="geoDataReplication")
+    def geo_data_replication(self) -> pulumi.Output[Optional['outputs.GeoDataReplicationPropertiesResponse']]:
+        """
+        Geo Data Replication settings for the namespace
+        """
+        return pulumi.get(self, "geo_data_replication")
+
+    @_builtins.property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
@@ -477,10 +543,18 @@ class Namespace(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IP address type for the namespace. Determines whether the namespace supports IPv4 only or both IPv4 and IPv6 (dual stack).
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The Geo-location where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -504,9 +578,14 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="platformCapabilities")
+    def platform_capabilities(self) -> pulumi.Output[Optional['outputs.PlatformCapabilitiesResponse']]:
+        return pulumi.get(self, "platform_capabilities")
 
     @_builtins.property
     @pulumi.getter(name="premiumMessagingPartitions")
@@ -568,7 +647,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -576,7 +655,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -584,7 +663,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -600,7 +679,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
+        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 

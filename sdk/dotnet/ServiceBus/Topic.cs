@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ServiceBus
     /// <summary>
     /// Description of topic resource.
     /// 
-    /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+    /// Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview, 2026-01-01, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01, 2025-05-01-preview, 2026-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
@@ -134,13 +134,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<bool?> SupportOrdering { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -150,6 +150,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        [Output("userMetadata")]
+        public Output<string?> UserMetadata { get; private set; } = null!;
 
 
         /// <summary>
@@ -296,6 +302,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
+
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        [Input("userMetadata")]
+        public Input<string>? UserMetadata { get; set; }
 
         public TopicArgs()
         {

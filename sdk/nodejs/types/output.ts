@@ -235400,6 +235400,13 @@ export namespace servicebus {
         };
     }
 
+    export interface ConfidentialComputeResponse {
+        /**
+         * Setting to Enable or Disable Confidential Compute
+         */
+        mode?: string;
+    }
+
     /**
      * ConnectionState information.
      */
@@ -235494,6 +235501,20 @@ export namespace servicebus {
             ...val,
             keySource: (val.keySource) ?? "Microsoft.KeyVault",
         };
+    }
+
+    /**
+     * GeoDR Replication properties
+     */
+    export interface GeoDataReplicationPropertiesResponse {
+        /**
+         * A list of regions where replicas of the namespace are maintained.
+         */
+        locations?: outputs.servicebus.NamespaceReplicaLocationResponse[];
+        /**
+         * The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day.
+         */
+        maxReplicationLagDurationInSeconds?: number;
     }
 
     /**
@@ -235601,11 +235622,29 @@ export namespace servicebus {
     }
 
     /**
+     * Namespace replication properties
+     */
+    export interface NamespaceReplicaLocationResponse {
+        /**
+         * Azure regions where a replica of the namespace is maintained
+         */
+        locationName?: string;
+        /**
+         * GeoDR Role Types
+         */
+        roleType?: string;
+    }
+
+    export interface PlatformCapabilitiesResponse {
+        confidentialCompute?: outputs.servicebus.ConfidentialComputeResponse;
+    }
+
+    /**
      * Properties of the PrivateEndpointConnection.
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -235629,11 +235668,11 @@ export namespace servicebus {
          */
         provisioningState?: string;
         /**
-         * The system meta data relating to this resource.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
         systemData: outputs.servicebus.SystemDataResponse;
         /**
-         * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
@@ -235738,7 +235777,7 @@ export namespace servicebus {
          */
         createdByType?: string;
         /**
-         * The type of identity that last modified the resource.
+         * The timestamp of resource last modification (UTC)
          */
         lastModifiedAt?: string;
         /**

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ServiceBus.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -41,11 +41,11 @@ namespace Pulumi.AzureNative.ServiceBus.Outputs
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

@@ -18,12 +18,16 @@ from ._enums import *
 __all__ = [
     'ActionArgs',
     'ActionArgsDict',
+    'ConfidentialComputeArgs',
+    'ConfidentialComputeArgsDict',
     'ConnectionStateArgs',
     'ConnectionStateArgsDict',
     'CorrelationFilterArgs',
     'CorrelationFilterArgsDict',
     'EncryptionArgs',
     'EncryptionArgsDict',
+    'GeoDataReplicationPropertiesArgs',
+    'GeoDataReplicationPropertiesArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
@@ -32,6 +36,10 @@ __all__ = [
     'NWRuleSetIpRulesArgsDict',
     'NWRuleSetVirtualNetworkRulesArgs',
     'NWRuleSetVirtualNetworkRulesArgsDict',
+    'NamespaceReplicaLocationArgs',
+    'NamespaceReplicaLocationArgsDict',
+    'PlatformCapabilitiesArgs',
+    'PlatformCapabilitiesArgsDict',
     'PrivateEndpointArgs',
     'PrivateEndpointArgsDict',
     'PrivateEndpointConnectionArgs',
@@ -122,6 +130,35 @@ class ActionArgs:
     @sql_expression.setter
     def sql_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_expression", value)
+
+
+class ConfidentialComputeArgsDict(TypedDict):
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Mode']]]]
+    """
+    Setting to Enable or Disable Confidential Compute
+    """
+
+@pulumi.input_type
+class ConfidentialComputeArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'Mode']]] = None):
+        """
+        :param pulumi.Input[Union[_builtins.str, 'Mode']] mode: Setting to Enable or Disable Confidential Compute
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Mode']]]:
+        """
+        Setting to Enable or Disable Confidential Compute
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Mode']]]):
+        pulumi.set(self, "mode", value)
 
 
 class ConnectionStateArgsDict(TypedDict):
@@ -470,6 +507,60 @@ class EncryptionArgs:
         pulumi.set(self, "require_infrastructure_encryption", value)
 
 
+class GeoDataReplicationPropertiesArgsDict(TypedDict):
+    """
+    GeoDR Replication properties
+    """
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceReplicaLocationArgsDict']]]]]
+    """
+    A list of regions where replicas of the namespace are maintained.
+    """
+    max_replication_lag_duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day.
+    """
+
+@pulumi.input_type
+class GeoDataReplicationPropertiesArgs:
+    def __init__(__self__, *,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceReplicaLocationArgs']]]] = None,
+                 max_replication_lag_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        GeoDR Replication properties
+
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceReplicaLocationArgs']]] locations: A list of regions where replicas of the namespace are maintained.
+        :param pulumi.Input[_builtins.int] max_replication_lag_duration_in_seconds: The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if max_replication_lag_duration_in_seconds is not None:
+            pulumi.set(__self__, "max_replication_lag_duration_in_seconds", max_replication_lag_duration_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceReplicaLocationArgs']]]]:
+        """
+        A list of regions where replicas of the namespace are maintained.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceReplicaLocationArgs']]]]):
+        pulumi.set(self, "locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxReplicationLagDurationInSeconds")
+    def max_replication_lag_duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum acceptable lag for data replication operations from the primary replica to a quorum of secondary replicas.  When the lag exceeds the configured amount, operations on the primary replica will be failed. The allowed values are 0 and 5 minutes to 1 day.
+        """
+        return pulumi.get(self, "max_replication_lag_duration_in_seconds")
+
+    @max_replication_lag_duration_in_seconds.setter
+    def max_replication_lag_duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_replication_lag_duration_in_seconds", value)
+
+
 class IdentityArgsDict(TypedDict):
     """
     Properties to configure User Assigned Identities for Bring your Own Keys
@@ -719,6 +810,80 @@ class NWRuleSetVirtualNetworkRulesArgs:
     @subnet.setter
     def subnet(self, value: pulumi.Input[Optional['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
+
+
+class NamespaceReplicaLocationArgsDict(TypedDict):
+    """
+    Namespace replication properties
+    """
+    location_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Azure regions where a replica of the namespace is maintained
+    """
+    role_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'GeoDRRoleType']]]]
+    """
+    GeoDR Role Types
+    """
+
+@pulumi.input_type
+class NamespaceReplicaLocationArgs:
+    def __init__(__self__, *,
+                 location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[Union[_builtins.str, 'GeoDRRoleType']]] = None):
+        """
+        Namespace replication properties
+
+        :param pulumi.Input[_builtins.str] location_name: Azure regions where a replica of the namespace is maintained
+        :param pulumi.Input[Union[_builtins.str, 'GeoDRRoleType']] role_type: GeoDR Role Types
+        """
+        if location_name is not None:
+            pulumi.set(__self__, "location_name", location_name)
+        if role_type is not None:
+            pulumi.set(__self__, "role_type", role_type)
+
+    @_builtins.property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Azure regions where a replica of the namespace is maintained
+        """
+        return pulumi.get(self, "location_name")
+
+    @location_name.setter
+    def location_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "location_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GeoDRRoleType']]]:
+        """
+        GeoDR Role Types
+        """
+        return pulumi.get(self, "role_type")
+
+    @role_type.setter
+    def role_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GeoDRRoleType']]]):
+        pulumi.set(self, "role_type", value)
+
+
+class PlatformCapabilitiesArgsDict(TypedDict):
+    confidential_compute: NotRequired[pulumi.Input[Optional['ConfidentialComputeArgsDict']]]
+
+@pulumi.input_type
+class PlatformCapabilitiesArgs:
+    def __init__(__self__, *,
+                 confidential_compute: pulumi.Input[Optional['ConfidentialComputeArgs']] = None):
+        if confidential_compute is not None:
+            pulumi.set(__self__, "confidential_compute", confidential_compute)
+
+    @_builtins.property
+    @pulumi.getter(name="confidentialCompute")
+    def confidential_compute(self) -> pulumi.Input[Optional['ConfidentialComputeArgs']]:
+        return pulumi.get(self, "confidential_compute")
+
+    @confidential_compute.setter
+    def confidential_compute(self, value: pulumi.Input[Optional['ConfidentialComputeArgs']]):
+        pulumi.set(self, "confidential_compute", value)
 
 
 class PrivateEndpointArgsDict(TypedDict):
