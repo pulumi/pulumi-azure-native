@@ -250,9 +250,7 @@ CognitiveServices:
         listAgentApplicationAgents: 2025-10-01-preview
 Commerce: {}
 Communication:
-    tracking: 2023-06-01-preview
-    additions:
-        SmtpUsername: 2024-09-01-preview
+    tracking: "2026-03-18"
 Community:
     tracking: "2023-11-01"
 Compute:
