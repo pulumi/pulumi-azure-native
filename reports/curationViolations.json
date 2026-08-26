@@ -120,10 +120,6 @@
     "Detail": "expected no additions but found some"
   },
   {
-    "ModuleName": "Communication",
-    "Detail": "expected no additions but found some"
-  },
-  {
     "ModuleName": "ComputeBulkActions",
     "Detail": "expected tracking stable but found preview"
   },

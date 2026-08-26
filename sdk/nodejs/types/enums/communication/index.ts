@@ -3,8 +3,17 @@
 
 
 export const DomainManagement = {
+    /**
+     * AzureManaged
+     */
     AzureManaged: "AzureManaged",
+    /**
+     * CustomerManaged
+     */
     CustomerManaged: "CustomerManaged",
+    /**
+     * CustomerManagedInExchangeOnline
+     */
     CustomerManagedInExchangeOnline: "CustomerManagedInExchangeOnline",
 } as const;
 
@@ -25,8 +34,34 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
-export const UserEngagementTracking = {
+export const PublicNetworkAccess = {
+    /**
+     * Allows public network access to the resource
+     */
+    Enabled: "Enabled",
+    /**
+     * Disallows public network access to the resource
+     */
     Disabled: "Disabled",
+    /**
+     * The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter.
+     */
+    SecuredByPerimeter: "SecuredByPerimeter",
+} as const;
+
+/**
+ * Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const UserEngagementTracking = {
+    /**
+     * Disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
 } as const;
 

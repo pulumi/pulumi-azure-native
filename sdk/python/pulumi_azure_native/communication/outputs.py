@@ -18,8 +18,8 @@ from ._enums import *
 
 __all__ = [
     'DnsRecordResponse',
-    'DomainPropertiesResponseVerificationRecords',
-    'DomainPropertiesResponseVerificationStates',
+    'DomainPropertiesVerificationRecordsResponse',
+    'DomainPropertiesVerificationStatesResponse',
     'ManagedServiceIdentityResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
@@ -83,7 +83,7 @@ class DnsRecordResponse(dict):
 
 
 @pulumi.output_type
-class DomainPropertiesResponseVerificationRecords(dict):
+class DomainPropertiesVerificationRecordsResponse(dict):
     """
     List of DnsRecord
     """
@@ -100,14 +100,14 @@ class DomainPropertiesResponseVerificationRecords(dict):
             suggest = "s_pf"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainPropertiesResponseVerificationRecords. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainPropertiesVerificationRecordsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainPropertiesResponseVerificationRecords.__key_warning(key)
+        DomainPropertiesVerificationRecordsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainPropertiesResponseVerificationRecords.__key_warning(key)
+        DomainPropertiesVerificationRecordsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -178,7 +178,7 @@ class DomainPropertiesResponseVerificationRecords(dict):
 
 
 @pulumi.output_type
-class DomainPropertiesResponseVerificationStates(dict):
+class DomainPropertiesVerificationStatesResponse(dict):
     """
     List of VerificationStatusRecord
     """
@@ -195,14 +195,14 @@ class DomainPropertiesResponseVerificationStates(dict):
             suggest = "s_pf"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainPropertiesResponseVerificationStates. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainPropertiesVerificationStatesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainPropertiesResponseVerificationStates.__key_warning(key)
+        DomainPropertiesVerificationStatesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainPropertiesResponseVerificationStates.__key_warning(key)
+        DomainPropertiesVerificationStatesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

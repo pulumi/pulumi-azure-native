@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Communication
     /// <summary>
     /// A class representing a Domains resource.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
+    /// Uses Azure REST API version 2026-03-18. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
     /// 
-    /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// 
     /// Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
     /// </summary>
@@ -97,13 +97,13 @@ namespace Pulumi.AzureNative.Communication
         /// List of DnsRecord
         /// </summary>
         [Output("verificationRecords")]
-        public Output<Outputs.DomainPropertiesResponseVerificationRecords> VerificationRecords { get; private set; } = null!;
+        public Output<Outputs.DomainPropertiesVerificationRecordsResponse> VerificationRecords { get; private set; } = null!;
 
         /// <summary>
         /// List of VerificationStatusRecord
         /// </summary>
         [Output("verificationStates")]
-        public Output<Outputs.DomainPropertiesResponseVerificationStates> VerificationStates { get; private set; } = null!;
+        public Output<Outputs.DomainPropertiesVerificationStatesResponse> VerificationStates { get; private set; } = null!;
 
 
         /// <summary>

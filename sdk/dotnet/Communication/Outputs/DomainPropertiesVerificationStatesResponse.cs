@@ -11,43 +11,43 @@ namespace Pulumi.AzureNative.Communication.Outputs
 {
 
     /// <summary>
-    /// List of DnsRecord
+    /// List of VerificationStatusRecord
     /// </summary>
     [OutputType]
-    public sealed class DomainPropertiesResponseVerificationRecords
+    public sealed class DomainPropertiesVerificationStatesResponse
     {
         /// <summary>
         /// A class that represents a VerificationStatus record.
         /// </summary>
-        public readonly Outputs.DnsRecordResponse? DKIM;
+        public readonly Outputs.VerificationStatusRecordResponse? DKIM;
         /// <summary>
         /// A class that represents a VerificationStatus record.
         /// </summary>
-        public readonly Outputs.DnsRecordResponse? DKIM2;
+        public readonly Outputs.VerificationStatusRecordResponse? DKIM2;
         /// <summary>
         /// A class that represents a VerificationStatus record.
         /// </summary>
-        public readonly Outputs.DnsRecordResponse? DMARC;
+        public readonly Outputs.VerificationStatusRecordResponse? DMARC;
         /// <summary>
         /// A class that represents a VerificationStatus record.
         /// </summary>
-        public readonly Outputs.DnsRecordResponse? Domain;
+        public readonly Outputs.VerificationStatusRecordResponse? Domain;
         /// <summary>
         /// A class that represents a VerificationStatus record.
         /// </summary>
-        public readonly Outputs.DnsRecordResponse? SPF;
+        public readonly Outputs.VerificationStatusRecordResponse? SPF;
 
         [OutputConstructor]
-        private DomainPropertiesResponseVerificationRecords(
-            Outputs.DnsRecordResponse? dKIM,
+        private DomainPropertiesVerificationStatesResponse(
+            Outputs.VerificationStatusRecordResponse? dKIM,
 
-            Outputs.DnsRecordResponse? dKIM2,
+            Outputs.VerificationStatusRecordResponse? dKIM2,
 
-            Outputs.DnsRecordResponse? dMARC,
+            Outputs.VerificationStatusRecordResponse? dMARC,
 
-            Outputs.DnsRecordResponse? domain,
+            Outputs.VerificationStatusRecordResponse? domain,
 
-            Outputs.DnsRecordResponse? sPF)
+            Outputs.VerificationStatusRecordResponse? sPF)
         {
             DKIM = dKIM;
             DKIM2 = dKIM2;
