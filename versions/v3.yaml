@@ -3549,48 +3549,48 @@ CognitiveServices:
 Commerce: {}
 Communication:
     CommunicationService:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/CommunicationServices.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}
         RpNamespace: Microsoft.Communication
     Domain:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/Domains.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}
         RpNamespace: Microsoft.Communication
     EmailService:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/EmailServices.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}
         RpNamespace: Microsoft.Communication
     SenderUsername:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/SenderUsernames.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/senderUsernames/{senderUsername}
         RpNamespace: Microsoft.Communication
     SmtpUsername:
-        ApiVersion: 2024-09-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2024-09-01-preview/SmtpUsernames.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}/smtpUsernames/{smtpUsername}
         RpNamespace: Microsoft.Communication
     SuppressionList:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/SuppressionLists.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/suppressionLists/{suppressionListName}
         RpNamespace: Microsoft.Communication
     SuppressionListAddress:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/SuppressionLists.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/suppressionLists/{suppressionListName}/suppressionListAddresses/{addressId}
         RpNamespace: Microsoft.Communication
     listCommunicationServiceKeys:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/CommunicationServices.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}/listKeys
         RpNamespace: Microsoft.Communication
     listEmailServiceVerifiedExchangeOnlineDomains:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/preview/2023-06-01-preview/EmailServices.json
+        ApiVersion: "2026-03-18"
+        SpecFilePath: specification/communication/resource-manager/Microsoft.Communication/stable/2026-03-18/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Communication/listVerifiedExchangeOnlineDomains
         RpNamespace: Microsoft.Communication
 Community:

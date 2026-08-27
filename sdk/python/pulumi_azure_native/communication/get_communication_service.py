@@ -27,13 +27,16 @@ class GetCommunicationServiceResult:
     """
     A class representing a CommunicationService resource.
     """
-    def __init__(__self__, azure_api_version=None, data_location=None, host_name=None, id=None, identity=None, immutable_resource_id=None, linked_domains=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, data_location=None, disable_local_auth=None, host_name=None, id=None, identity=None, immutable_resource_id=None, linked_domains=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None, version=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -61,6 +64,9 @@ class GetCommunicationServiceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -91,6 +97,14 @@ class GetCommunicationServiceResult:
         return pulumi.get(self, "data_location")
 
     @_builtins.property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[_builtins.bool]:
+        """
+        Disable local authentication for the CommunicationService.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @_builtins.property
     @pulumi.getter(name="hostName")
     def host_name(self) -> _builtins.str:
         """
@@ -110,7 +124,7 @@ class GetCommunicationServiceResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -163,6 +177,14 @@ class GetCommunicationServiceResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[_builtins.str]:
+        """
+        Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @_builtins.property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -203,6 +225,7 @@ class AwaitableGetCommunicationServiceResult(GetCommunicationServiceResult):
         return GetCommunicationServiceResult(
             azure_api_version=self.azure_api_version,
             data_location=self.data_location,
+            disable_local_auth=self.disable_local_auth,
             host_name=self.host_name,
             id=self.id,
             identity=self.identity,
@@ -212,6 +235,7 @@ class AwaitableGetCommunicationServiceResult(GetCommunicationServiceResult):
             name=self.name,
             notification_hub_id=self.notification_hub_id,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
@@ -224,9 +248,9 @@ def get_communication_service(communication_service_name: Optional[_builtins.str
     """
     Get the CommunicationService and its properties.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2026-03-18.
 
-    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str communication_service_name: The name of the CommunicationService resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -240,6 +264,7 @@ def get_communication_service(communication_service_name: Optional[_builtins.str
     return AwaitableGetCommunicationServiceResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_location=pulumi.get(__ret__, 'data_location'),
+        disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
         host_name=pulumi.get(__ret__, 'host_name'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -249,6 +274,7 @@ def get_communication_service(communication_service_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         notification_hub_id=pulumi.get(__ret__, 'notification_hub_id'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
@@ -259,9 +285,9 @@ def get_communication_service_output(communication_service_name: pulumi.Input[Op
     """
     Get the CommunicationService and its properties.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2026-03-18.
 
-    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str communication_service_name: The name of the CommunicationService resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -274,6 +300,7 @@ def get_communication_service_output(communication_service_name: pulumi.Input[Op
     return __ret__.apply(lambda __response__: GetCommunicationServiceResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_location=pulumi.get(__response__, 'data_location'),
+        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
         host_name=pulumi.get(__response__, 'host_name'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -283,6 +310,7 @@ def get_communication_service_output(communication_service_name: pulumi.Input[Op
         name=pulumi.get(__response__, 'name'),
         notification_hub_id=pulumi.get(__response__, 'notification_hub_id'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),

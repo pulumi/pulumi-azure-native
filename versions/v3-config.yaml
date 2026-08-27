@@ -158,8 +158,6 @@ Chaos:
 CognitiveServices:
 Commerce:
 Communication:
-  expectTracking: preview
-  notes: Only previews after initial 2020 stable release
 Compute:
   explicit: true
 ConfidentialLedger:

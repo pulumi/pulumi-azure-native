@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Communication
     /// <summary>
     /// A class representing a SuppressionList resource.
     /// 
-    /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+    /// Uses Azure REST API version 2026-03-18. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-06-01-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SuppressionList")]
     public partial class SuppressionList : global::Pulumi.CustomResource
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Communication
         public Output<string> LastUpdatedTimeStamp { get; private set; } = null!;
 
         /// <summary>
-        /// The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
+        /// The name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
         /// </summary>
         [Output("listName")]
         public Output<string?> ListName { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.Communication
         public Input<string> EmailServiceName { get; set; } = null!;
 
         /// <summary>
-        /// The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
+        /// The name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
         /// </summary>
         [Input("listName")]
         public Input<string>? ListName { get; set; }

@@ -25,9 +25,11 @@ class CommunicationServiceArgs:
                  data_location: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  communication_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  linked_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunicationService resource.
@@ -35,21 +37,27 @@ class CommunicationServiceArgs:
         :param pulumi.Input[_builtins.str] data_location: The location where the communication service stores its data at rest.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] communication_service_name: The name of the CommunicationService resource.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[_builtins.bool] disable_local_auth: Disable local authentication for the CommunicationService.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_domains: List of email Domain resource Ids.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "data_location", data_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if communication_service_name is not None:
             pulumi.set(__self__, "communication_service_name", communication_service_name)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if linked_domains is not None:
             pulumi.set(__self__, "linked_domains", linked_domains)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,10 +98,22 @@ class CommunicationServiceArgs:
         pulumi.set(self, "communication_service_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Disable local authentication for the CommunicationService.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @_builtins.property
     @pulumi.getter
     def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -126,6 +146,18 @@ class CommunicationServiceArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
+        """
+        Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -146,26 +178,30 @@ class CommunicationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  communication_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  linked_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A class representing a CommunicationService resource.
 
-        Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
+        Uses Azure REST API version 2026-03-18. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
 
-        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] communication_service_name: The name of the CommunicationService resource.
         :param pulumi.Input[_builtins.str] data_location: The location where the communication service stores its data at rest.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[_builtins.bool] disable_local_auth: Disable local authentication for the CommunicationService.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_domains: List of email Domain resource Ids.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -178,9 +214,9 @@ class CommunicationService(pulumi.CustomResource):
         """
         A class representing a CommunicationService resource.
 
-        Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
+        Uses Azure REST API version 2026-03-18. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
 
-        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CommunicationServiceArgs args: The arguments to use to populate this resource's properties.
@@ -199,9 +235,11 @@ class CommunicationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  communication_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  linked_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -217,9 +255,11 @@ class CommunicationService(pulumi.CustomResource):
             if data_location is None and not opts.urn:
                 raise TypeError("Missing required property 'data_location'")
             __props__.__dict__["data_location"] = data_location
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["identity"] = identity
             __props__.__dict__["linked_domains"] = linked_domains
             __props__.__dict__["location"] = location
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -259,6 +299,7 @@ class CommunicationService(pulumi.CustomResource):
 
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_location"] = None
+        __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["immutable_resource_id"] = None
@@ -267,6 +308,7 @@ class CommunicationService(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["notification_hub_id"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -290,6 +332,14 @@ class CommunicationService(pulumi.CustomResource):
         return pulumi.get(self, "data_location")
 
     @_builtins.property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Disable local authentication for the CommunicationService.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @_builtins.property
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -301,7 +351,7 @@ class CommunicationService(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -352,6 +402,14 @@ class CommunicationService(pulumi.CustomResource):
         Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

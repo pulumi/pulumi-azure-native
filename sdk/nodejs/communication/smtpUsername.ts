@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The object describing the smtp username resource.
  *
- * Uses Azure REST API version 2024-09-01-preview.
+ * Uses Azure REST API version 2026-03-18.
  *
- * Other available API versions: 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SmtpUsername extends pulumi.CustomResource {
     /**

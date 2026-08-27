@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get a SuppressionList resource.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2026-03-18.
  *
- * Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-01-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSuppressionList(args: GetSuppressionListArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +68,7 @@ export interface GetSuppressionListResult {
      */
     readonly lastUpdatedTimeStamp: string;
     /**
-     * The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
+     * The name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
      */
     readonly listName?: string;
     /**
@@ -87,9 +87,9 @@ export interface GetSuppressionListResult {
 /**
  * Get a SuppressionList resource.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2026-03-18.
  *
- * Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-01-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSuppressionListOutput(args: GetSuppressionListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

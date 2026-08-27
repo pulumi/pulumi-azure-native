@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get the CommunicationService and its properties.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2026-03-18.
  *
- * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +46,10 @@ export interface GetCommunicationServiceResult {
      */
     readonly dataLocation: string;
     /**
+     * Disable local authentication for the CommunicationService.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
      * FQDN of the CommunicationService instance.
      */
     readonly hostName: string;
@@ -54,7 +58,7 @@ export interface GetCommunicationServiceResult {
      */
     readonly id: string;
     /**
-     * Managed service identity (system assigned and/or user assigned identities)
+     * The managed service identities assigned to this resource.
      */
     readonly identity?: outputs.communication.ManagedServiceIdentityResponse;
     /**
@@ -82,6 +86,10 @@ export interface GetCommunicationServiceResult {
      */
     readonly provisioningState: string;
     /**
+     * Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.communication.SystemDataResponse;
@@ -101,9 +109,9 @@ export interface GetCommunicationServiceResult {
 /**
  * Get the CommunicationService and its properties.
  *
- * Uses Azure REST API version 2023-06-01-preview.
+ * Uses Azure REST API version 2026-03-18.
  *
- * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunicationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
