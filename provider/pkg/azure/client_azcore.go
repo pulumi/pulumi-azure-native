@@ -36,6 +36,9 @@ type azCoreClient struct {
 	// Exposed internally for tests, to set it at the minimum value for fast tests.
 	deletePollingIntervalSeconds int64
 	updatePollingIntervalSeconds int64
+	// Number of deletePollingIntervalSeconds to wait before falling back to GET-based
+	// delete confirmation. Exposed for tests.
+	deleteConfirmGraceIntervals int64
 
 	// Serialization for resources that have hit "exclusive lock" 429 errors.
 	// Maps serialization key (e.g., App Service Plan ID) to a mutex that serializes operations.
@@ -116,6 +119,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, extraUserAgent stri
 		extraUserAgent:               extraUserAgent,
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
+		deleteConfirmGraceIntervals:  4,
 		serializationsMap:            make(map[string]*sync.Mutex),
 	}, nil
 }
@@ -261,6 +265,9 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			if err != nil {
 				return err
 			}
+			if isWatchlistDelete(id) {
+				return c.pollDeleteUntilDoneOrGone(ctx, pt, id, apiVersion)
+			}
 			_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
 				Frequency: time.Duration(c.deletePollingIntervalSeconds * int64(time.Second)),
 			})
@@ -275,6 +282,70 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		}
 		return newResponseError(err.RawResponse)
 	}
+	return err
+}
+
+// watchlistResourcePattern matches Microsoft.SecurityInsights/watchlists resource IDs.
+const watchlistResourcePattern = "/providers/microsoft.securityinsights/watchlists/"
+
+func isWatchlistDelete(id string) bool {
+	return strings.Contains(strings.ToLower(id), watchlistResourcePattern)
+}
+
+func isStatusNotFound(err error) bool {
+	switch e := err.(type) {
+	case *azcore.ResponseError:
+		return e.StatusCode == http.StatusNotFound
+	case *PulumiAzcoreResponseError:
+		return e.StatusCode == http.StatusNotFound
+	default:
+		return false
+	}
+}
+
+// pollDeleteUntilDoneOrGone works around a confirmed Azure service bug where deleting a
+// Watchlist never reports a terminal status on its async-operation status monitor, even after
+// the resource itself is gone. It races the normal LRO poll against an independent GET on the
+// resource, falling back to a 404 there after a grace period. See #4816 and
+// Azure/azure-sdk-for-go#26937. Remove once Azure fixes the underlying behavior.
+func (c *azCoreClient) pollDeleteUntilDoneOrGone(ctx context.Context, pt *runtime.Poller[any], id, apiVersion string) error {
+	pollCtx, cancel := context.WithCancel(ctx)
+	defer cancel()
+
+	results := make(chan error, 2)
+	interval := time.Duration(c.deletePollingIntervalSeconds) * time.Second
+
+	go func() {
+		_, err := pt.PollUntilDone(pollCtx, &runtime.PollUntilDoneOptions{Frequency: interval})
+		results <- err
+	}()
+
+	go func() {
+		grace := interval * time.Duration(c.deleteConfirmGraceIntervals)
+		select {
+		case <-pollCtx.Done():
+			return
+		case <-time.After(grace):
+		}
+		ticker := time.NewTicker(interval)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-pollCtx.Done():
+				return
+			case <-ticker.C:
+				// Not using IsNotFound: this endpoint returns ErrorCode "404" rather than a
+				// recognized semantic code, so check the status directly.
+				if _, err := c.Get(pollCtx, id, apiVersion, nil); isStatusNotFound(err) {
+					results <- nil
+					return
+				}
+			}
+		}
+	}()
+
+	err := <-results
+	cancel()
 	return err
 }
 
