@@ -207,7 +207,11 @@ func BuildCustomResources(
 
 	logging.V(9).Infof("building custom resources for cloud %q", cloud.Name)
 
-	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
+	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{
+		ClientOptions: azcore.ClientOptions{
+			Cloud: cloud.Configuration,
+		},
+	})
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +230,7 @@ func BuildCustomResources(
 		return nil, err
 	}
 
-	protectedItem, err := recoveryServicesProtectedItem(subscriptionID, tokenCred)
+	protectedItem, err := recoveryServicesProtectedItem(subscriptionID, tokenCred, cloud)
 	if err != nil {
 		return nil, err
 	}
@@ -236,12 +240,12 @@ func BuildCustomResources(
 		return nil, err
 	}
 
-	pimRoleEligibilitySchedule, err := pimRoleEligibilitySchedule(lookupResource, crudClientFactory, tokenCred)
+	pimRoleEligibilitySchedule, err := pimRoleEligibilitySchedule(lookupResource, crudClientFactory, tokenCred, cloud)
 	if err != nil {
 		return nil, err
 	}
 
-	customRoleAssignment, err := roleAssignment(lookupResource, crudClientFactory, azureClient, tokenCred)
+	customRoleAssignment, err := roleAssignment(lookupResource, crudClientFactory, azureClient, tokenCred, cloud)
 	if err != nil {
 		return nil, err
 	}

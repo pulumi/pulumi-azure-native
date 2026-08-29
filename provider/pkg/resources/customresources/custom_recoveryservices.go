@@ -9,9 +9,11 @@ import (
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 	recovery "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup/v4"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -45,8 +47,13 @@ type protectedItemProperties struct {
 // A custom resource for Microsoft.RecoveryServices ProtectedItem, specifically the file share protected item. It looks
 // up the magic "system name" of the file share and adds it to the inputs. For other types of protected items, it does
 // nothing. #1420
-func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredential) (*CustomResource, error) {
-	clientFactory, err := recovery.NewClientFactory(subscription, cred, nil)
+func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredential, env cloud.Configuration) (*CustomResource, error) {
+	clientOptions := &arm.ClientOptions{
+		ClientOptions: azcore.ClientOptions{
+			Cloud: env.Configuration,
+		},
+	}
+	clientFactory, err := recovery.NewClientFactory(subscription, cred, clientOptions)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create recovery services client factory: %w", err)
 	}
