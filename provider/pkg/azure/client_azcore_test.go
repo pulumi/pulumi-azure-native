@@ -894,3 +894,28 @@ func TestNewResponseError(t *testing.T) {
 		assert.False(t, IsNotFound(newResponseError(resp)))
 	})
 }
+
+func TestIsWatchlistDelete(t *testing.T) {
+	watchlistID := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.OperationalInsights/" +
+		"workspaces/ws/providers/Microsoft.SecurityInsights/Watchlists/my-watchlist"
+	assert.True(t, isWatchlistDelete(watchlistID))
+
+	otherID := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/mystorage"
+	assert.False(t, isWatchlistDelete(otherID))
+}
+
+func TestIsStatusNotFound(t *testing.T) {
+	// Watchlist's own 404 uses ErrorCode "404" rather than a recognized semantic code like
+	// "ResourceNotFound" -- IsNotFound rejects that, so the delete fallback checks the status
+	// code directly instead. See #4816.
+	resp := &http.Response{
+		StatusCode: 404,
+		Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "404", "message": "does not exist"}}`)),
+	}
+	err := newResponseError(resp)
+	assert.False(t, IsNotFound(err))
+	assert.True(t, isStatusNotFound(err))
+
+	assert.False(t, isStatusNotFound(nil))
+	assert.False(t, isStatusNotFound(errors.New("some other error")))
+}

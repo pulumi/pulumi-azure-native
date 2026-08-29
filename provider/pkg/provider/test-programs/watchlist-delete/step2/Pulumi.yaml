@@ -1,0 +1,24 @@
+name: watchlist-delete
+runtime: yaml
+description: |
+  step2: remove the watchlist, triggering the delete path under test. See step1 for context.
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  workspace:
+    type: azure-native:operationalinsights:Workspace
+    properties:
+      resourceGroupName: ${rg.name}
+      retentionInDays: 30
+      sku:
+        name: PerGB2018
+
+  onboardingState:
+    type: azure-native:securityinsights:SentinelOnboardingState
+    properties:
+      resourceGroupName: ${rg.name}
+      workspaceName: ${workspace.name}
+      customerManagedKey: false
+      sentinelOnboardingStateName: default
