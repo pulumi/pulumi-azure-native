@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'DomainManagement',
     'ManagedServiceIdentityType',
+    'PublicNetworkAccess',
     'UserEngagementTracking',
 ]
 
@@ -19,8 +20,17 @@ class DomainManagement(_builtins.str, Enum):
     Describes how a Domains resource is being managed.
     """
     AZURE_MANAGED = "AzureManaged"
+    """
+    AzureManaged
+    """
     CUSTOMER_MANAGED = "CustomerManaged"
+    """
+    CustomerManaged
+    """
     CUSTOMER_MANAGED_IN_EXCHANGE_ONLINE = "CustomerManagedInExchangeOnline"
+    """
+    CustomerManagedInExchangeOnline
+    """
 
 
 @pulumi.type_token("azure-native:communication:ManagedServiceIdentityType")
@@ -34,10 +44,35 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:communication:PublicNetworkAccess")
+class PublicNetworkAccess(_builtins.str, Enum):
+    """
+    Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+    """
+    ENABLED = "Enabled"
+    """
+    Allows public network access to the resource
+    """
+    DISABLED = "Disabled"
+    """
+    Disallows public network access to the resource
+    """
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
+    """
+    The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter.
+    """
+
+
 @pulumi.type_token("azure-native:communication:UserEngagementTracking")
 class UserEngagementTracking(_builtins.str, Enum):
     """
     Describes whether user engagement tracking is enabled or disabled.
     """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """

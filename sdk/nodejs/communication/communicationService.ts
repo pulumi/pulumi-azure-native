@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A class representing a CommunicationService resource.
  *
- * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
+ * Uses Azure REST API version 2026-03-18. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
  *
- * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**
@@ -50,11 +50,15 @@ export class CommunicationService extends pulumi.CustomResource {
      */
     declare public readonly dataLocation: pulumi.Output<string>;
     /**
+     * Disable local authentication for the CommunicationService.
+     */
+    declare public readonly disableLocalAuth: pulumi.Output<boolean | undefined>;
+    /**
      * FQDN of the CommunicationService instance.
      */
     declare public /*out*/ readonly hostName: pulumi.Output<string>;
     /**
-     * Managed service identity (system assigned and/or user assigned identities)
+     * The managed service identities assigned to this resource.
      */
     declare public readonly identity: pulumi.Output<outputs.communication.ManagedServiceIdentityResponse | undefined>;
     /**
@@ -81,6 +85,10 @@ export class CommunicationService extends pulumi.CustomResource {
      * Provisioning state of the resource.
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    /**
+     * Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+     */
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -117,9 +125,11 @@ export class CommunicationService extends pulumi.CustomResource {
             }
             resourceInputs["communicationServiceName"] = args?.communicationServiceName;
             resourceInputs["dataLocation"] = args?.dataLocation;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["linkedDomains"] = args?.linkedDomains;
             resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -134,6 +144,7 @@ export class CommunicationService extends pulumi.CustomResource {
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["immutableResourceId"] = undefined /*out*/;
@@ -142,6 +153,7 @@ export class CommunicationService extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notificationHubId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -167,7 +179,11 @@ export interface CommunicationServiceArgs {
      */
     dataLocation: pulumi.Input<string>;
     /**
-     * Managed service identity (system assigned and/or user assigned identities)
+     * Disable local authentication for the CommunicationService.
+     */
+    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    /**
+     * The managed service identities assigned to this resource.
      */
     identity?: pulumi.Input<inputs.communication.ManagedServiceIdentityArgs | undefined>;
     /**
@@ -178,6 +194,10 @@ export interface CommunicationServiceArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string | undefined>;
+    /**
+     * Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.communication.PublicNetworkAccess | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

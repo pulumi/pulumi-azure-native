@@ -13,6 +13,7 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/golang-jwt/jwt"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
@@ -566,6 +567,29 @@ func TestDatabricksWorkspaceComputeModeDefault(t *testing.T) {
 		serverlessSummary[apitype.OpDeleteReplaced]
 	assert.Greater(t, replacementOpsServerless, 0,
 		"expected a replacement when changing computeMode from Hybrid to Serverless")
+}
+
+// TestSecurityInsightsWatchlistDelete is a regression test for issue #4816: Azure's delete
+// status monitor for a Watchlist never reports a terminal state, even though the resource
+// itself is deleted within seconds. Without the GET-based fallback this hangs until the
+// provider's delete timeout. See Azure/azure-sdk-for-go#26937 for the confirmed upstream bug.
+func TestSecurityInsightsWatchlistDelete(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "watchlist-delete/step1")
+	defer func() {
+		pt.Destroy(t)
+	}()
+	pt.Up(t)
+
+	pt.UpdateSource(t, "test-programs", "watchlist-delete", "step2")
+	start := time.Now()
+	up := pt.Up(t)
+	elapsed := time.Since(start)
+
+	upSummary := changesummary.FromStringIntMap(*up.Summary.ResourceChanges)
+	assert.Equal(t, 1, upSummary[apitype.OpDelete], "expected the watchlist to be deleted")
+	assert.Less(t, elapsed, 10*time.Minute,
+		"delete took too long, the GET-based fallback may not be engaging")
 }
 
 // TestStorageAccountSingletonChildAfterReplace is a regression test for issue #4738: replacing a

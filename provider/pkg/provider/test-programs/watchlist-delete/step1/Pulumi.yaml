@@ -1,0 +1,42 @@
+name: watchlist-delete
+runtime: yaml
+description: |
+  Regression test for issue #4816: deleting a securityinsights Watchlist used to hang
+  because Azure's delete status monitor never reports a terminal state, even though the
+  resource itself is already gone. step1: create the workspace and watchlist.
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  workspace:
+    type: azure-native:operationalinsights:Workspace
+    properties:
+      resourceGroupName: ${rg.name}
+      retentionInDays: 30
+      sku:
+        name: PerGB2018
+
+  onboardingState:
+    type: azure-native:securityinsights:SentinelOnboardingState
+    properties:
+      resourceGroupName: ${rg.name}
+      workspaceName: ${workspace.name}
+      customerManagedKey: false
+      sentinelOnboardingStateName: default
+
+  watchlist:
+    type: azure-native:securityinsights:Watchlist
+    properties:
+      resourceGroupName: ${rg.name}
+      workspaceName: ${workspace.name}
+      displayName: Test watchlist
+      itemsSearchKey: AssetName
+      contentType: text/csv
+      provider: Microsoft
+      source: watchlist.csv
+      sourceType: Local
+      rawContent: "AssetName,IPAddress\nweb-01,10.0.1.10"
+    options:
+      dependsOn:
+        - ${onboardingState}

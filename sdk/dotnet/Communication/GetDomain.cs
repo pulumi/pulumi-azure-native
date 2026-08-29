@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the Domains resource and its properties.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2026-03-18.
         /// 
-        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the Domains resource and its properties.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2026-03-18.
         /// 
-        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the Domains resource and its properties.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2026-03-18.
         /// 
-        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -154,11 +154,11 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// List of DnsRecord
         /// </summary>
-        public readonly Outputs.DomainPropertiesResponseVerificationRecords VerificationRecords;
+        public readonly Outputs.DomainPropertiesVerificationRecordsResponse VerificationRecords;
         /// <summary>
         /// List of VerificationStatusRecord
         /// </summary>
-        public readonly Outputs.DomainPropertiesResponseVerificationStates VerificationStates;
+        public readonly Outputs.DomainPropertiesVerificationStatesResponse VerificationStates;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -188,9 +188,9 @@ namespace Pulumi.AzureNative.Communication
 
             string? userEngagementTracking,
 
-            Outputs.DomainPropertiesResponseVerificationRecords verificationRecords,
+            Outputs.DomainPropertiesVerificationRecordsResponse verificationRecords,
 
-            Outputs.DomainPropertiesResponseVerificationStates verificationStates)
+            Outputs.DomainPropertiesVerificationStatesResponse verificationStates)
         {
             AzureApiVersion = azureApiVersion;
             DataLocation = dataLocation;

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the CommunicationService and its properties.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2026-03-18.
         /// 
-        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCommunicationServiceResult> InvokeAsync(GetCommunicationServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the CommunicationService and its properties.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2026-03-18.
         /// 
-        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCommunicationServiceResult> Invoke(GetCommunicationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get the CommunicationService and its properties.
         /// 
-        /// Uses Azure REST API version 2023-06-01-preview.
+        /// Uses Azure REST API version 2026-03-18.
         /// 
-        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCommunicationServiceResult> Invoke(GetCommunicationServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string DataLocation;
         /// <summary>
+        /// Disable local authentication for the CommunicationService.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
         /// FQDN of the CommunicationService instance.
         /// </summary>
         public readonly string HostName;
@@ -104,7 +108,7 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
@@ -132,6 +136,10 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -154,6 +162,8 @@ namespace Pulumi.AzureNative.Communication
 
             string dataLocation,
 
+            bool? disableLocalAuth,
+
             string hostName,
 
             string id,
@@ -172,6 +182,8 @@ namespace Pulumi.AzureNative.Communication
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -182,6 +194,7 @@ namespace Pulumi.AzureNative.Communication
         {
             AzureApiVersion = azureApiVersion;
             DataLocation = dataLocation;
+            DisableLocalAuth = disableLocalAuth;
             HostName = hostName;
             Id = id;
             Identity = identity;
@@ -191,6 +204,7 @@ namespace Pulumi.AzureNative.Communication
             Name = name;
             NotificationHubId = notificationHubId;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -179,9 +179,9 @@ def get_suppression_list_address(address_id: Optional[_builtins.str] = None,
     """
     Get a SuppressionListAddress.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2026-03-18.
 
-    Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-06-01-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str address_id: The id of the address in a suppression list.
     :param _builtins.str domain_name: The name of the Domains resource.
@@ -219,9 +219,9 @@ def get_suppression_list_address_output(address_id: pulumi.Input[Optional[_built
     """
     Get a SuppressionListAddress.
 
-    Uses Azure REST API version 2023-06-01-preview.
+    Uses Azure REST API version 2026-03-18.
 
-    Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-06-01-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str address_id: The id of the address in a suppression list.
     :param _builtins.str domain_name: The name of the Domains resource.

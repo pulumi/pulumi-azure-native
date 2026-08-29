@@ -153,9 +153,9 @@ class Domain(pulumi.CustomResource):
         """
         A class representing a Domains resource.
 
-        Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
+        Uses Azure REST API version 2026-03-18. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
 
-        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
 
@@ -179,9 +179,9 @@ class Domain(pulumi.CustomResource):
         """
         A class representing a Domains resource.
 
-        Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
+        Uses Azure REST API version 2026-03-18. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
 
-        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
 
@@ -378,7 +378,7 @@ class Domain(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="verificationRecords")
-    def verification_records(self) -> pulumi.Output['outputs.DomainPropertiesResponseVerificationRecords']:
+    def verification_records(self) -> pulumi.Output['outputs.DomainPropertiesVerificationRecordsResponse']:
         """
         List of DnsRecord
         """
@@ -386,7 +386,7 @@ class Domain(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="verificationStates")
-    def verification_states(self) -> pulumi.Output['outputs.DomainPropertiesResponseVerificationStates']:
+    def verification_states(self) -> pulumi.Output['outputs.DomainPropertiesVerificationStatesResponse']:
         """
         List of VerificationStatusRecord
         """

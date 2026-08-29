@@ -20,8 +20,17 @@ namespace Pulumi.AzureNative.Communication
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AzureManaged
+        /// </summary>
         public static DomainManagement AzureManaged { get; } = new DomainManagement("AzureManaged");
+        /// <summary>
+        /// CustomerManaged
+        /// </summary>
         public static DomainManagement CustomerManaged { get; } = new DomainManagement("CustomerManaged");
+        /// <summary>
+        /// CustomerManagedInExchangeOnline
+        /// </summary>
         public static DomainManagement CustomerManagedInExchangeOnline { get; } = new DomainManagement("CustomerManagedInExchangeOnline");
 
         public static bool operator ==(DomainManagement left, DomainManagement right) => left.Equals(right);
@@ -73,6 +82,47 @@ namespace Pulumi.AzureNative.Communication
     }
 
     /// <summary>
+    /// Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Allows public network access to the resource
+        /// </summary>
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Disallows public network access to the resource
+        /// </summary>
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+        /// <summary>
+        /// The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter.
+        /// </summary>
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes whether user engagement tracking is enabled or disabled.
     /// </summary>
     [EnumType]
@@ -85,7 +135,13 @@ namespace Pulumi.AzureNative.Communication
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static UserEngagementTracking Disabled { get; } = new UserEngagementTracking("Disabled");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static UserEngagementTracking Enabled { get; } = new UserEngagementTracking("Enabled");
 
         public static bool operator ==(UserEngagementTracking left, UserEngagementTracking right) => left.Equals(right);

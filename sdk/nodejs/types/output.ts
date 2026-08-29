@@ -62312,7 +62312,7 @@ export namespace communication {
     /**
      * List of DnsRecord
      */
-    export interface DomainPropertiesResponseVerificationRecords {
+    export interface DomainPropertiesVerificationRecordsResponse {
         /**
          * A class that represents a VerificationStatus record.
          */
@@ -62338,7 +62338,7 @@ export namespace communication {
     /**
      * List of VerificationStatusRecord
      */
-    export interface DomainPropertiesResponseVerificationStates {
+    export interface DomainPropertiesVerificationStatesResponse {
         /**
          * A class that represents a VerificationStatus record.
          */
