@@ -8,8 +8,10 @@ import (
 	"regexp"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armsubscriptions"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -68,6 +70,7 @@ func roleAssignment(
 	crudClientFactory crud.ResourceCrudClientFactory,
 	azureClient azure.AzureClient,
 	tokenCred azcore.TokenCredential,
+	env cloud.Configuration,
 ) (*CustomResource, error) {
 	// This func's parameters are all nil when the function is called for the first time, for
 	// `customresources.featureLookup`, so we initialize the objects we need conditionally
@@ -86,7 +89,11 @@ func roleAssignment(
 		}
 		crudClient := crudClientFactory(&res)
 
-		subsClient, err := armsubscriptions.NewClient(tokenCred, nil)
+		subsClient, err := armsubscriptions.NewClient(tokenCred, &arm.ClientOptions{
+			ClientOptions: azcore.ClientOptions{
+				Cloud: env.Configuration,
+			},
+		})
 		if err != nil {
 			return nil, err
 		}

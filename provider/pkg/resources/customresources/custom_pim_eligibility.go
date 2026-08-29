@@ -10,11 +10,13 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v3"
 	"github.com/google/uuid"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -63,6 +65,7 @@ func pimRoleEligibilitySchedule(
 	lookupResource resources.ResourceLookupFunc,
 	crudClientFactory crud.ResourceCrudClientFactory,
 	token azcore.TokenCredential,
+	env cloud.Configuration,
 ) (*CustomResource, error) {
 	// This func's parameters are all nil when the function is called for the first time, for
 	// `customresources.featureLookup`, so we initialize the objects we need conditionally
@@ -83,11 +86,16 @@ func pimRoleEligibilitySchedule(
 		}
 		crudClient = crudClientFactory(&res)
 
-		schedulesClient, err = armauthorization.NewRoleEligibilitySchedulesClient(token, nil)
+		clientOptions := &arm.ClientOptions{
+			ClientOptions: azcore.ClientOptions{
+				Cloud: env.Configuration,
+			},
+		}
+		schedulesClient, err = armauthorization.NewRoleEligibilitySchedulesClient(token, clientOptions)
 		if err != nil {
 			return nil, err
 		}
-		requestsClient, err = armauthorization.NewRoleEligibilityScheduleRequestsClient(token, nil)
+		requestsClient, err = armauthorization.NewRoleEligibilityScheduleRequestsClient(token, clientOptions)
 		if err != nil {
 			return nil, err
 		}
