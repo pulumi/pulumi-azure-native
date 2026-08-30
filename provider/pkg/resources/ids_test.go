@@ -45,13 +45,30 @@ func TestParseResourceID(t *testing.T) {
 	})
 
 	t.Run("scoped", func(t *testing.T) {
+		// `scope` occupies the path's first templated segment, so it's an embedded resource ID and
+		// must come back with its leading slash (matching the SDK shape, e.g. other resources' `.Id`
+		// outputs). `roleAssignmentName` is a plain trailing name segment and must not gain one.
 		id := "/subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev/providers/Microsoft.Authorization/roleAssignments/2a88abc7-f599-0eba-a21f-a1817e597115"
 		path := "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}"
 		actual, err := ParseResourceID(id, path)
 		assert.NoError(t, err)
 		expected := map[string]string{
-			"scope":              "subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev",
+			"scope":              "/subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev",
 			"roleAssignmentName": "2a88abc7-f599-0eba-a21f-a1817e597115",
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("scoped extension resource", func(t *testing.T) {
+		// resourceUri is the first templated path segment for extension resources like
+		// DiagnosticSetting (issue #4812), so it must also come back with its leading slash.
+		id := "/subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/providers/microsoft.insights/diagnosticSettings/setting1"
+		path := "/{resourceUri}/providers/microsoft.insights/diagnosticSettings/{name}"
+		actual, err := ParseResourceID(id, path)
+		assert.NoError(t, err)
+		expected := map[string]string{
+			"resourceUri": "/subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev/providers/Microsoft.Network/networkSecurityPerimeters/nsp1",
+			"name":        "setting1",
 		}
 		assert.Equal(t, expected, actual)
 	})

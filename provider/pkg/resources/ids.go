@@ -44,11 +44,24 @@ func ParseResourceID(id, path string) (map[string]string, error) {
 		return nil, errors.Errorf("failed to parse '%s' against the path '%s'", id, path)
 	}
 
+	// A parameter in the path's first segment (e.g. `scope` in "/{scope}/providers/...") holds an
+	// embedded resource ID, so its leading "/" is semantically part of the value even though the
+	// regex consumes it as a separator. Restore it so the parsed value matches the SDK shape.
+	var leadingParamName string
+	if len(pathParts) > 1 && pathParts[0] == "" && strings.HasPrefix(pathParts[1], "{") && strings.HasSuffix(pathParts[1], "}") {
+		// e.g. "{scope}" => "scope".
+		leadingParamName = pathParts[1][1 : len(pathParts[1])-1]
+	}
+
 	result := map[string]string{}
 	for i, regexpGroupName := range pattern.SubexpNames() {
 		if i > 0 && regexpGroupName != "" {
 			originalName := regexNames[regexpGroupName]
-			result[originalName] = match[i]
+			value := match[i]
+			if originalName == leadingParamName && value != "" && !strings.HasPrefix(value, "/") {
+				value = "/" + value
+			}
+			result[originalName] = value
 		}
 	}
 	return result, nil
