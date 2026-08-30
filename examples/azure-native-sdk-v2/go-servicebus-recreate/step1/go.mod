@@ -6,7 +6,7 @@ toolchain go1.25.12
 
 require (
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.26.0
-	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.26.0
+	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.27.0
 	github.com/pulumi/pulumi/sdk/v3 v3.224.0
 )
 
