@@ -6,9 +6,9 @@ toolchain go1.25.12
 
 require (
 	github.com/pulumi/pulumi-azure-native-sdk/authorization/v3 v3.26.0
-	github.com/pulumi/pulumi-azure-native-sdk/compute/v3 v3.26.0
+	github.com/pulumi/pulumi-azure-native-sdk/compute/v3 v3.27.0
 	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.26.0
-	github.com/pulumi/pulumi-azure-native-sdk/network/v3 v3.26.0
+	github.com/pulumi/pulumi-azure-native-sdk/network/v3 v3.27.0
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.26.0
 	github.com/pulumi/pulumi-command/sdk v1.2.1
 	github.com/pulumi/pulumi-tls/sdk/v5 v5.5.1
