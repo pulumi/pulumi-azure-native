@@ -5,13 +5,13 @@ go 1.24.7
 toolchain go1.25.12
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/authorization/v3 v3.26.0
+	github.com/pulumi/pulumi-azure-native-sdk/authorization/v3 v3.27.0
 	github.com/pulumi/pulumi-azure-native-sdk/compute/v3 v3.27.0
-	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.26.0
+	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.27.0
 	github.com/pulumi/pulumi-azure-native-sdk/network/v3 v3.27.0
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.26.0
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.27.0
 	github.com/pulumi/pulumi-command/sdk v1.2.1
-	github.com/pulumi/pulumi-tls/sdk/v5 v5.5.1
+	github.com/pulumi/pulumi-tls/sdk/v5 v5.6.0
 	github.com/pulumi/pulumi/sdk/v3 v3.224.0
 )
 
@@ -89,7 +89,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.26.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.26.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.27.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.3.1 // indirect

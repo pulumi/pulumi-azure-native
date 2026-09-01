@@ -10,7 +10,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.2.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/servicebus/armservicebus v1.2.0
 	github.com/pulumi/providertest v0.7.0
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.26.0
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.27.0
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.27.0
 	github.com/pulumi/pulumi/pkg/v3 v3.260.0
 	github.com/pulumi/pulumi/sdk/v3 v3.260.0
