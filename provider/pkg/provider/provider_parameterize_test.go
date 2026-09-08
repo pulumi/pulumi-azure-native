@@ -507,3 +507,47 @@ func TestCreateSchemaErrorChecking(t *testing.T) {
 		assert.Contains(t, err.Error(), "module compute not found. Some modules were renamed in v3 of the provider")
 	})
 }
+
+func TestParameterizedLanguage(t *testing.T) {
+	t.Parallel()
+
+	t.Run("go options are rewritten for the new package", func(t *testing.T) {
+		t.Parallel()
+
+		baseGoOptions := pschema.RawMessage(`{
+			"importBasePath": "github.com/pulumi/pulumi-azure-native-sdk/v3",
+			"importPathPattern": "github.com/pulumi/pulumi-azure-native-sdk/{module}/v3",
+			"packageImportAliases": {"github.com/pulumi/pulumi-azure-native-sdk/storage/v3": "storage"},
+			"internalModuleName": "utilities",
+			"rootPackageName": "pulumiazurenativesdk"
+		}`)
+		base := map[string]pschema.RawMessage{
+			"go":     baseGoOptions,
+			"nodejs": pschema.RawMessage(`{"respectSchemaVersion": true}`),
+		}
+
+		language, err := parameterizedLanguage(base, "azure-native_storage_v20250101")
+		require.NoError(t, err)
+
+		var goOptions map[string]any
+		require.NoError(t, json.Unmarshal(language["go"], &goOptions))
+		assert.Equal(t, map[string]any{
+			"importBasePath":     "github.com/pulumi/pulumi-azure-native-sdk/azure-native_storage_v20250101/v3",
+			"internalModuleName": "utilities",
+			"rootPackageName":    "pulumiazurenativesdk",
+		}, goOptions)
+
+		assert.Equal(t, pschema.RawMessage(`{"respectSchemaVersion": true}`), language["nodejs"])
+		// The base options belong to the unparameterized provider and must not change.
+		assert.Equal(t, baseGoOptions, base["go"])
+	})
+
+	t.Run("no go options", func(t *testing.T) {
+		t.Parallel()
+
+		base := map[string]pschema.RawMessage{"nodejs": []byte(`{}`)}
+		language, err := parameterizedLanguage(base, "azure-native_storage_v20250101")
+		require.NoError(t, err)
+		assert.Equal(t, base, language)
+	})
+}

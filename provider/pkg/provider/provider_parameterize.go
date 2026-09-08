@@ -8,7 +8,9 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
+	"maps"
 	"os"
+	"path"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -243,6 +245,11 @@ func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []
 func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule, targetApiVersion string) (*pschema.PackageSpec, *resources.APIMetadata, error) {
 	newPackageName := generateNewPackageName(schema.Name, targetModule, targetApiVersion)
 
+	language, err := parameterizedLanguage(schema.Language, newPackageName)
+	if err != nil {
+		return nil, nil, status.Errorf(codes.Internal, "%v", err)
+	}
+
 	newSchema := pschema.PackageSpec{
 		Name:        newPackageName,
 		Version:     schema.Version,
@@ -255,7 +262,7 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 		Repository:  schema.Repository,
 		Config:      schema.Config,
 		Provider:    schema.Provider,
-		Language:    schema.Language,
+		Language:    language,
 		Types:       map[string]pschema.ComplexTypeSpec{},
 		Resources:   map[string]pschema.ResourceSpec{},
 		Functions:   map[string]pschema.FunctionSpec{},
@@ -348,6 +355,46 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 	}
 
 	return &newSchema, metadata, nil
+}
+
+// parameterizedLanguage adapts the base provider's language options to the parameterized package. Only Go needs a
+// change: its options encode the module identity of the published monolithic SDK, which the locally generated SDK
+// must not claim. See https://github.com/pulumi/pulumi-azure-native/issues/4826.
+func parameterizedLanguage(base map[string]pschema.RawMessage, newPackageName string,
+) (map[string]pschema.RawMessage, error) {
+	goOptions, ok := base["go"]
+	if !ok {
+		return base, nil
+	}
+
+	var options map[string]any
+	if err := json.Unmarshal(goOptions, &options); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal Go language options: %w", err)
+	}
+	if importBasePath, ok := options["importBasePath"].(string); ok {
+		options["importBasePath"] = parameterizedGoImportBasePath(importBasePath, newPackageName)
+	}
+	// Both options name the published per-service modules, which a parameterized package does not use.
+	delete(options, "importPathPattern")
+	delete(options, "packageImportAliases")
+
+	marshalled, err := json.Marshal(options)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal Go language options: %w", err)
+	}
+
+	language := maps.Clone(base)
+	language["go"] = marshalled
+	return language, nil
+}
+
+// parameterizedGoImportBasePath gives the parameterized package its own Go module. Codegen reads the module path of
+// the generated SDK from the parent of the import base path, and the root of its source tree from the last segment.
+// Inserting the package name between the two mirrors the layout of the published per-service modules, e.g.
+// `github.com/pulumi/pulumi-azure-native-sdk/v3` becomes
+// `github.com/pulumi/pulumi-azure-native-sdk/azure-native_storage_v20250101/v3`.
+func parameterizedGoImportBasePath(baseImportBasePath, newPackageName string) string {
+	return path.Join(path.Dir(baseImportBasePath), newPackageName, path.Base(baseImportBasePath))
 }
 
 // filterTokens returns a map of tokens that match the target module and API version.
