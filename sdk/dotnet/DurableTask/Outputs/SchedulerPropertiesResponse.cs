@@ -25,9 +25,17 @@ namespace Pulumi.AzureNative.DurableTask.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IpAllowlist;
         /// <summary>
+        /// The private endpoints exposed by this resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The status of the last operation
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Allow or disallow public network access to durable task scheduler
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// SKU of the durable task scheduler
         /// </summary>
@@ -39,13 +47,19 @@ namespace Pulumi.AzureNative.DurableTask.Outputs
 
             ImmutableArray<string> ipAllowlist,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.SchedulerSkuResponse sku)
         {
             Endpoint = endpoint;
             IpAllowlist = ipAllowlist;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
         }
     }

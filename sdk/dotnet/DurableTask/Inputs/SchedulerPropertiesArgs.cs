@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DurableTask.Inputs
         }
 
         /// <summary>
+        /// Allow or disallow public network access to durable task scheduler
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DurableTask.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// SKU of the durable task scheduler
         /// </summary>
         [Input("sku", required: true)]

@@ -201,20 +201,28 @@ class SchedulerPropertiesArgsDict(TypedDict):
     """
     SKU of the durable task scheduler
     """
+    public_network_access: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]]
+    """
+    Allow or disallow public network access to durable task scheduler
+    """
 
 @pulumi.input_type
 class SchedulerPropertiesArgs:
     def __init__(__self__, *,
                  ip_allowlist: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 sku: pulumi.Input['SchedulerSkuArgs']):
+                 sku: pulumi.Input['SchedulerSkuArgs'],
+                 public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None):
         """
         Details of the Scheduler
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_allowlist: IP allow list for durable task scheduler. Values can be IPv4, IPv6 or CIDR
         :param pulumi.Input['SchedulerSkuArgs'] sku: SKU of the durable task scheduler
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Allow or disallow public network access to durable task scheduler
         """
         pulumi.set(__self__, "ip_allowlist", ip_allowlist)
         pulumi.set(__self__, "sku", sku)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
 
     @_builtins.property
     @pulumi.getter(name="ipAllowlist")
@@ -240,12 +248,24 @@ class SchedulerPropertiesArgs:
     def sku(self, value: pulumi.Input['SchedulerSkuArgs']):
         pulumi.set(self, "sku", value)
 
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]:
+        """
+        Allow or disallow public network access to durable task scheduler
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
 
 class SchedulerSkuArgsDict(TypedDict):
     """
     The SKU (Stock Keeping Unit) assigned to this durable task scheduler
     """
-    name: pulumi.Input[_builtins.str]
+    name: pulumi.Input[Union[_builtins.str, 'SchedulerSkuName']]
     """
     The name of the SKU
     """
@@ -257,12 +277,12 @@ class SchedulerSkuArgsDict(TypedDict):
 @pulumi.input_type
 class SchedulerSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Union[_builtins.str, 'SchedulerSkuName']],
                  capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The SKU (Stock Keeping Unit) assigned to this durable task scheduler
 
-        :param pulumi.Input[_builtins.str] name: The name of the SKU
+        :param pulumi.Input[Union[_builtins.str, 'SchedulerSkuName']] name: The name of the SKU
         :param pulumi.Input[_builtins.int] capacity: The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy
         """
         pulumi.set(__self__, "name", name)
@@ -271,14 +291,14 @@ class SchedulerSkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
+    def name(self) -> pulumi.Input[Union[_builtins.str, 'SchedulerSkuName']]:
         """
         The name of the SKU
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
+    def name(self, value: pulumi.Input[Union[_builtins.str, 'SchedulerSkuName']]):
         pulumi.set(self, "name", value)
 
     @_builtins.property

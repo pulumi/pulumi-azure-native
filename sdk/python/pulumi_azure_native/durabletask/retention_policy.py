@@ -87,9 +87,9 @@ class RetentionPolicy(pulumi.CustomResource):
         """
         A retention policy resource belonging to the scheduler
 
-        Uses Azure REST API version 2025-04-01-preview.
+        Uses Azure REST API version 2026-02-01.
 
-        Other available API versions: 2025-11-01, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-04-01-preview, 2025-11-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,9 +106,9 @@ class RetentionPolicy(pulumi.CustomResource):
         """
         A retention policy resource belonging to the scheduler
 
-        Uses Azure REST API version 2025-04-01-preview.
+        Uses Azure REST API version 2026-02-01.
 
-        Other available API versions: 2025-11-01, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-04-01-preview, 2025-11-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param RetentionPolicyArgs args: The arguments to use to populate this resource's properties.
