@@ -152,6 +152,13 @@ func TestNoDefault(t *testing.T) {
 	assert.False(t, otherModule.noDefault("http20ProxyFlag"))
 	assert.False(t, otherResource.noDefault("reserved"))
 	assert.False(t, otherModule.noDefault("reserved"))
+
+	ruleSet := moduleGenerator{moduleName: "ServiceBus", resourceName: "NamespaceNetworkRuleSet"}
+	// The parent namespace keeps its own publicNetworkAccess default.
+	namespace := moduleGenerator{moduleName: "ServiceBus", resourceName: "Namespace"}
+	assert.True(t, ruleSet.noDefault("publicNetworkAccess"))
+	assert.False(t, ruleSet.noDefault("defaultAction"))
+	assert.False(t, namespace.noDefault("publicNetworkAccess"))
 }
 
 func TestIsReadableOutput(t *testing.T) {

@@ -157,6 +157,17 @@ var caseInsensitiveDiffMap = map[openapi.ModuleName]map[string]codegen.StringSet
 // rejects (or misbehaves on) receiving the spec's own default value, i.e. that the spec documents a
 // default the RP won't actually accept on the wire for every flavour of the resource.
 var noDefaultMap = map[openapi.ModuleName]map[string]codegen.StringSet{
+	"ServiceBus": {
+		// The networkRuleSets/default sub-resource shares its publicNetworkAccess with the parent
+		// namespace: they are one and the same setting. The spec's `default: "Enabled"` makes the
+		// SDKs put "Enabled" in every PUT body, so applying a NamespaceNetworkRuleSet that only
+		// meant to change e.g. trustedServiceAccessEnabled silently re-enables public access on a
+		// namespace configured as Disabled. Verified live that omitting the property from the ARM
+		// PUT preserves the namespace's current value instead (and that sending "Enabled" flips it,
+		// or is rejected outright when defaultAction is Deny). See
+		// https://github.com/pulumi/pulumi-azure-native/issues/4825.
+		"NamespaceNetworkRuleSet": codegen.NewStringSet("publicNetworkAccess"),
+	},
 	"Web": {
 		// siteConfig.http20ProxyFlag was added to Microsoft.Web/sites in API version 2024-11-01
 		// with a spec default of 0, which the SDKs then send on every request. Azure Functions on

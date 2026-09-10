@@ -195,7 +195,6 @@ namespace Pulumi.AzureNative.ServiceBus
 
         public NamespaceNetworkRuleSetArgs()
         {
-            PublicNetworkAccess = "Enabled";
         }
         public static new NamespaceNetworkRuleSetArgs Empty => new NamespaceNetworkRuleSetArgs();
     }
