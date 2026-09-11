@@ -102,7 +102,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["defaultAction"] = args?.defaultAction;
             resourceInputs["ipRules"] = args?.ipRules;
             resourceInputs["namespaceName"] = args?.namespaceName;
-            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["trustedServiceAccessEnabled"] = args?.trustedServiceAccessEnabled;
             resourceInputs["virtualNetworkRules"] = args?.virtualNetworkRules;

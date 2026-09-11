@@ -46,8 +46,6 @@ class NamespaceNetworkRuleSetArgs:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
-        if public_network_access is None:
-            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if trusted_service_access_enabled is not None:
@@ -220,8 +218,6 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
-            if public_network_access is None:
-                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
