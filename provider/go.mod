@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure-native/v2/provider
 
-go 1.25.9
+go 1.26.0
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.20.0
@@ -187,7 +187,7 @@ require (
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
-	golang.org/x/crypto v0.55.0 // indirect
+	golang.org/x/crypto v0.56.0 // indirect
 	golang.org/x/mod v0.40.0 // indirect
 	golang.org/x/net v0.58.0 // indirect
 	golang.org/x/sync v0.22.0 // indirect
