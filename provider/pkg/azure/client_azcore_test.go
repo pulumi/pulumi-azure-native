@@ -721,6 +721,18 @@ func TestFailedLongRunningOperation(t *testing.T) {
 		assert.Contains(t, err.Error(), "OperationCanceled")
 	})
 
+	// Not every operation status types its error as an object, e.g. Synapse's
+	// IntegrationRuntimeOperationStatus declares it as a plain string.
+	t.Run("failed status envelope with a string error", func(t *testing.T) {
+		client := newClientWithPreparedResponses(lroResponses(http.StatusOK,
+			`{"status":"Failed","error":"the integration runtime failed to start"}`))
+
+		_, _, err := client.Put(context.Background(), id, map[string]any{"location": "westus2"}, qp, "azure-async-operation")
+
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "the integration runtime failed to start")
+	})
+
 	t.Run("succeeded status envelope", func(t *testing.T) {
 		client := newClientWithPreparedResponses(lroResponses(http.StatusOK, `{"status":"Succeeded"}`))
 
@@ -730,7 +742,7 @@ func TestFailedLongRunningOperation(t *testing.T) {
 	})
 
 	// A resource that reports its own state as failed is not a failed operation: without an `error`
-	// object there is nothing to report and the resource was created successfully.
+	// there is nothing to report and the resource was created successfully.
 	t.Run("resource whose own status is failed", func(t *testing.T) {
 		body := `{"id":"` + id + `","name":"sa","status":"Failed","properties":{"provisioningState":"Succeeded"}}`
 		client := newClientWithPreparedResponses(lroResponses(http.StatusOK, body))

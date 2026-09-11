@@ -721,8 +721,10 @@ func newResponseError(resp *http.Response) error {
 // poll with 200 and `"status": "Failed"` in the body is otherwise taken for a success and its
 // failure is handed back as the resource's outputs. See pulumi/pulumi-azure-native#4484.
 //
-// A failure envelope is required to carry an `error` object, which also keeps this from mistaking
-// a resource whose own state happens to be reported as failed for a failed operation.
+// A failure envelope is required to carry an `error`, which also keeps this from mistaking a
+// resource whose own state happens to be reported as failed for a failed operation: plenty of
+// resources have a `status` that can be "Failed" - a job run, a restore, a compilation - and carry
+// no `error` alongside it.
 func failedOperationError(body map[string]any) error {
 	status, ok := body["status"].(string)
 	if !ok {
@@ -734,12 +736,16 @@ func failedOperationError(body map[string]any) error {
 		return nil
 	}
 
-	errorBody, ok := util.GetInnerMap(body, "error")
-	if !ok {
-		return nil
+	var code, message string
+	switch errorBody := body["error"].(type) {
+	case map[string]any:
+		code, _ = errorBody["code"].(string)
+		message, _ = errorBody["message"].(string)
+	case string:
+		// Not every operation status models its error as an object: Synapse's
+		// IntegrationRuntimeOperationStatus, for one, types it as a plain message.
+		message = errorBody
 	}
-	code, _ := errorBody["code"].(string)
-	message, _ := errorBody["message"].(string)
 	if code == "" && message == "" {
 		return nil
 	}
