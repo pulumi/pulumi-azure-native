@@ -671,6 +671,77 @@ func TestCanCreate_Responses(t *testing.T) {
 	})
 }
 
+// TestFailedLongRunningOperation covers issue #4484: Azure answers the PUT with a 202 that only
+// carries a Location header, and the poll of that location reports the operation as failed in a 200
+// response. azcore's Location poller reads the state off the HTTP status code, so without an
+// explicit check the failure is handed back as the resource's outputs and the create looks like it
+// succeeded.
+func TestFailedLongRunningOperation(t *testing.T) {
+	const location = "https://management.azure.com/subscriptions/123/providers/Microsoft.Storage/locations/westus2/asyncoperations/abc?api-version=2024-01-01"
+	qp := map[string]any{"api-version": "2024-01-01"}
+	id := "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/sa"
+
+	putURL, err := url.Parse("https://management.azure.com" + id + "?api-version=2024-01-01")
+	require.NoError(t, err)
+
+	lroResponses := func(pollStatus int, pollBody string) []*http.Response {
+		return []*http.Response{
+			{
+				StatusCode: http.StatusAccepted,
+				Header:     http.Header{"Location": []string{location}},
+				Body:       io.NopCloser(strings.NewReader("")),
+				Request:    &http.Request{Method: http.MethodPut, URL: putURL},
+			},
+			{
+				StatusCode: pollStatus,
+				Header:     http.Header{"Content-Type": []string{"application/json"}},
+				Body:       io.NopCloser(strings.NewReader(pollBody)),
+			},
+		}
+	}
+
+	t.Run("failed status envelope", func(t *testing.T) {
+		client := newClientWithPreparedResponses(lroResponses(http.StatusOK,
+			`{"status":"Failed","error":{"code":"NetworkAclsValidationFailure","message":"Validation of network acls failure"}}`))
+
+		_, _, err := client.Put(context.Background(), id, map[string]any{"location": "westus2"}, qp, "azure-async-operation")
+
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "NetworkAclsValidationFailure")
+		assert.Contains(t, err.Error(), "Validation of network acls failure")
+	})
+
+	t.Run("canceled status envelope", func(t *testing.T) {
+		client := newClientWithPreparedResponses(lroResponses(http.StatusOK,
+			`{"status":"Canceled","error":{"code":"OperationCanceled","message":"The operation was canceled"}}`))
+
+		_, _, err := client.Put(context.Background(), id, map[string]any{"location": "westus2"}, qp, "azure-async-operation")
+
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "OperationCanceled")
+	})
+
+	t.Run("succeeded status envelope", func(t *testing.T) {
+		client := newClientWithPreparedResponses(lroResponses(http.StatusOK, `{"status":"Succeeded"}`))
+
+		_, _, err := client.Put(context.Background(), id, map[string]any{"location": "westus2"}, qp, "azure-async-operation")
+
+		require.NoError(t, err)
+	})
+
+	// A resource that reports its own state as failed is not a failed operation: without an `error`
+	// object there is nothing to report and the resource was created successfully.
+	t.Run("resource whose own status is failed", func(t *testing.T) {
+		body := `{"id":"` + id + `","name":"sa","status":"Failed","properties":{"provisioningState":"Succeeded"}}`
+		client := newClientWithPreparedResponses(lroResponses(http.StatusOK, body))
+
+		outputs, _, err := client.Put(context.Background(), id, map[string]any{"location": "westus2"}, qp, "azure-async-operation")
+
+		require.NoError(t, err)
+		assert.Equal(t, "sa", outputs["name"])
+	})
+}
+
 // Implements azcore's policy.Transporter by returning the given responses in order.
 type fakeTransporter struct {
 	requests  []*http.Request

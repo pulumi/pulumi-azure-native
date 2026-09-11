@@ -5,6 +5,7 @@ package azure
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -430,6 +431,9 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 			}
 			return nil, created, err
 		}
+		if err := failedOperationError(outputs); err != nil {
+			return nil, created, err
+		}
 	}
 
 	return outputs, true, nil
@@ -709,6 +713,45 @@ func newResponseError(resp *http.Response) error {
 		Message:    errMsg,
 		Details:    details,
 	}
+}
+
+// failedOperationError returns an error if the given body is a long-running operation status
+// envelope that reports a terminal failure, and nil otherwise. azcore's Location-header poller
+// derives the operation's state from the HTTP status code alone, so an operation that answers a
+// poll with 200 and `"status": "Failed"` in the body is otherwise taken for a success and its
+// failure is handed back as the resource's outputs. See pulumi/pulumi-azure-native#4484.
+//
+// A failure envelope is required to carry an `error` object, which also keeps this from mistaking
+// a resource whose own state happens to be reported as failed for a failed operation.
+func failedOperationError(body map[string]any) error {
+	status, ok := body["status"].(string)
+	if !ok {
+		return nil
+	}
+	switch strings.ToLower(status) {
+	case "failed", "canceled", "cancelled":
+	default:
+		return nil
+	}
+
+	errorBody, ok := util.GetInnerMap(body, "error")
+	if !ok {
+		return nil
+	}
+	code, _ := errorBody["code"].(string)
+	message, _ := errorBody["message"].(string)
+	if code == "" && message == "" {
+		return nil
+	}
+
+	parts := []string{fmt.Sprintf("the operation completed with status %q", status)}
+	if code != "" {
+		parts = append(parts, fmt.Sprintf("Code=%q", code))
+	}
+	if message != "" {
+		parts = append(parts, fmt.Sprintf("Message=%q", message))
+	}
+	return errors.New(strings.Join(parts, " "))
 }
 
 type PulumiAzcoreErrorDetail struct {
