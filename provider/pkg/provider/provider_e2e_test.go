@@ -205,6 +205,23 @@ func TestWebAppBackupConfiguration(t *testing.T) {
 	assert.Zero(t, upSummary[apitype.OpUpdate], "expected no updates on a repeat up")
 }
 
+// TestStorageAccountNetworkAclsFailure guards against issue #4484: Azure accepts the storage
+// account's PUT with a 202, then fails the long-running operation with NetworkAclsValidationFailure
+// and rolls the account back. The user must see that error, not a compound "resource created but
+// read failed 404 StorageAccountNotFound" one that hides it.
+func TestStorageAccountNetworkAclsFailure(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "storage-account-network-acls-failure")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	_, err := pt.UpErr(t)
+	require.Error(t, err, "expected the storage account creation to fail")
+	assert.Contains(t, err.Error(), "NetworkAclsValidationFailure")
+	assert.NotContains(t, err.Error(), "resource created but read failed")
+}
+
 func TestAutonaming(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "autonaming", opttest.Env("PULUMI_EXPERIMENTAL", "1"))

@@ -1,0 +1,38 @@
+name: storageaclsfailure
+runtime: yaml
+description: |
+  A storage account whose network ACLs reference a subnet without a Microsoft.Storage service
+  endpoint. Azure accepts the PUT with a 202, fails the long-running operation and rolls the
+  account back, so the creation is expected to fail. See issue #4484.
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  vnet:
+    type: azure-native:network:VirtualNetwork
+    properties:
+      resourceGroupName: ${rg.name}
+      addressSpace:
+        addressPrefixes:
+          - 10.0.0.0/16
+
+  subnet:
+    type: azure-native:network:Subnet
+    properties:
+      resourceGroupName: ${rg.name}
+      virtualNetworkName: ${vnet.name}
+      addressPrefix: 10.0.1.0/24
+      # Deliberately no Microsoft.Storage service endpoint, which is what makes the account fail.
+
+  store:
+    type: azure-native:storage:StorageAccount
+    properties:
+      resourceGroupName: ${rg.name}
+      kind: StorageV2
+      sku:
+        name: Standard_LRS
+      networkRuleSet:
+        defaultAction: Deny
+        bypass: AzureServices
+        virtualNetworkRules:
+          - virtualNetworkResourceId: ${subnet.id}
