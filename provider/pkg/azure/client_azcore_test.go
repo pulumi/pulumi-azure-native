@@ -490,6 +490,27 @@ func TestErrorStatusCodes(t *testing.T) {
 		require.Equal(t, "BadRequest", err.(*PulumiAzcoreResponseError).ErrorCode)
 	})
 
+	// A poll that reports the deletion as failed in a 200 response: azcore's Location poller reads
+	// the terminal state off the HTTP status code, so without an explicit check the resource would
+	// be reported as deleted while it is still there.
+	t.Run("DELETE polling failure reported as a status envelope", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 202,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 200,
+				Body:       io.NopCloser(strings.NewReader(`{"status":"Failed","error":{"code":"InUseSubnetCannotBeDeleted","message":"Subnet is in use"}}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "InUseSubnetCannotBeDeleted")
+		assert.Contains(t, err.Error(), "Subnet is in use")
+	})
+
 	t.Run("DELETE polling failure when asyncStyle is given", func(t *testing.T) {
 		client := newClientWithPreparedResponses([]*http.Response{
 			{

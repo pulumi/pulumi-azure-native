@@ -262,17 +262,23 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
 		// poll for the deletion result in that case.
 		if asyncStyle != "" {
-			pt, err := runtime.NewPoller[any](resp, c.pipeline, nil)
+			pt, err := runtime.NewPoller[map[string]any](resp, c.pipeline, nil)
 			if err != nil {
 				return err
 			}
 			if isWatchlistDelete(id) {
+				// Deliberately not checking the operation's status here: this path already races the
+				// poll against a GET that confirms the watchlist is gone, precisely because the API
+				// misreports the deletion. See #4816.
 				return c.pollDeleteUntilDoneOrGone(ctx, pt, id, apiVersion)
 			}
-			_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
+			result, err := pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
 				Frequency: time.Duration(c.deletePollingIntervalSeconds * int64(time.Second)),
 			})
-			return err
+			if err != nil {
+				return err
+			}
+			return failedOperationError(result)
 		}
 		return nil
 	}()
@@ -309,7 +315,7 @@ func isStatusNotFound(err error) bool {
 // the resource itself is gone. It races the normal LRO poll against an independent GET on the
 // resource, falling back to a 404 there after a grace period. See #4816 and
 // Azure/azure-sdk-for-go#26937. Remove once Azure fixes the underlying behavior.
-func (c *azCoreClient) pollDeleteUntilDoneOrGone(ctx context.Context, pt *runtime.Poller[any], id, apiVersion string) error {
+func (c *azCoreClient) pollDeleteUntilDoneOrGone(ctx context.Context, pt *runtime.Poller[map[string]any], id, apiVersion string) error {
 	pollCtx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
@@ -718,8 +724,9 @@ func newResponseError(resp *http.Response) error {
 // failedOperationError returns an error if the given body is a long-running operation status
 // envelope that reports a terminal failure, and nil otherwise. azcore's Location-header poller
 // derives the operation's state from the HTTP status code alone, so an operation that answers a
-// poll with 200 and `"status": "Failed"` in the body is otherwise taken for a success and its
-// failure is handed back as the resource's outputs. See pulumi/pulumi-azure-native#4484.
+// poll with 200 and `"status": "Failed"` in the body is otherwise taken for a success: a create
+// hands the failure back as the resource's outputs, and a delete reports a resource that is still
+// there as gone. See pulumi/pulumi-azure-native#4484.
 //
 // A failure envelope is required to carry an `error`, which also keeps this from mistaking a
 // resource whose own state happens to be reported as failed for a failed operation: plenty of
