@@ -104860,6 +104860,10 @@ export namespace durabletask {
          */
         ipAllowlist: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * Allow or disallow public network access to durable task scheduler
+         */
+        publicNetworkAccess?: pulumi.Input<string | enums.durabletask.PublicNetworkAccess | undefined>;
+        /**
          * SKU of the durable task scheduler
          */
         sku: pulumi.Input<inputs.durabletask.SchedulerSkuArgs>;
@@ -104876,7 +104880,7 @@ export namespace durabletask {
         /**
          * The name of the SKU
          */
-        name: pulumi.Input<string>;
+        name: pulumi.Input<string | enums.durabletask.SchedulerSkuName>;
     }
 
 }

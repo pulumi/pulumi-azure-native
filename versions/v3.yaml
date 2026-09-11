@@ -6315,13 +6315,13 @@ DomainRegistration:
         RpNamespace: Microsoft.DomainRegistration
 DurableTask:
     RetentionPolicy:
-        ApiVersion: 2025-04-01-preview
-        SpecFilePath: specification/durabletask/resource-manager/Microsoft.DurableTask/DurableTask/preview/2025-04-01-preview/durabletask.json
+        ApiVersion: "2026-02-01"
+        SpecFilePath: specification/durabletask/resource-manager/Microsoft.DurableTask/DurableTask/stable/2026-02-01/durabletask.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}/retentionPolicies/default
         RpNamespace: Microsoft.DurableTask
     Scheduler:
-        ApiVersion: 2024-10-01-preview
-        SpecFilePath: specification/durabletask/resource-manager/Microsoft.DurableTask/DurableTask/preview/2024-10-01-preview/durabletask.json
+        ApiVersion: "2026-02-01"
+        SpecFilePath: specification/durabletask/resource-manager/Microsoft.DurableTask/DurableTask/stable/2026-02-01/durabletask.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}
         RpNamespace: Microsoft.DurableTask
     SchedulerPrivateEndpointConnection:
@@ -6330,8 +6330,8 @@ DurableTask:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.DurableTask
     TaskHub:
-        ApiVersion: 2024-10-01-preview
-        SpecFilePath: specification/durabletask/resource-manager/Microsoft.DurableTask/DurableTask/preview/2024-10-01-preview/durabletask.json
+        ApiVersion: "2026-02-01"
+        SpecFilePath: specification/durabletask/resource-manager/Microsoft.DurableTask/DurableTask/stable/2026-02-01/durabletask.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}/taskHubs/{taskHubName}
         RpNamespace: Microsoft.DurableTask
 Dynamics365Fraudprotection:

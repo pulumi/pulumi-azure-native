@@ -40,6 +40,43 @@ namespace Pulumi.AzureNative.DurableTask
     }
 
     /// <summary>
+    /// Allow or disallow public network access to durable task scheduler
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The public network access is enabled
+        /// </summary>
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// The public network access is disabled
+        /// </summary>
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
     /// </summary>
     [EnumType]
@@ -77,6 +114,43 @@ namespace Pulumi.AzureNative.DurableTask
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PurgeableOrchestrationState other && Equals(other);
         public bool Equals(PurgeableOrchestrationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the SKU
+    /// </summary>
+    [EnumType]
+    public readonly struct SchedulerSkuName : IEquatable<SchedulerSkuName>
+    {
+        private readonly string _value;
+
+        private SchedulerSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Dedicated SKU
+        /// </summary>
+        public static SchedulerSkuName Dedicated { get; } = new SchedulerSkuName("Dedicated");
+        /// <summary>
+        /// Consumption SKU
+        /// </summary>
+        public static SchedulerSkuName Consumption { get; } = new SchedulerSkuName("Consumption");
+
+        public static bool operator ==(SchedulerSkuName left, SchedulerSkuName right) => left.Equals(right);
+        public static bool operator !=(SchedulerSkuName left, SchedulerSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SchedulerSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SchedulerSkuName other && Equals(other);
+        public bool Equals(SchedulerSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -252,14 +252,6 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "ModuleName": "DurableTask",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
-    "ModuleName": "DurableTask",
-    "Detail": "expected no additions but found some"
-  },
-  {
     "ModuleName": "Edge",
     "Detail": "expected tracking stable but found preview"
   },

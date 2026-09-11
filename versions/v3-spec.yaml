@@ -864,10 +864,7 @@ DnsResolver:
 DomainRegistration:
     tracking: "2024-04-01"
 DurableTask:
-    tracking: 2024-10-01-preview
-    additions:
-        RetentionPolicy: 2025-04-01-preview
-        SchedulerPrivateEndpointConnection: "2026-02-01"
+    tracking: "2026-02-01"
 Dynamics365Fraudprotection:
     tracking: 2021-02-01-preview
 DynamicsTelemetry: {}

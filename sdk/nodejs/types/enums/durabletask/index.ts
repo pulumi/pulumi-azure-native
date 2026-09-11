@@ -13,6 +13,22 @@ export const PrivateEndpointServiceConnectionStatus = {
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
+export const PublicNetworkAccess = {
+    /**
+     * The public network access is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * The public network access is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Allow or disallow public network access to durable task scheduler
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const PurgeableOrchestrationState = {
     /**
      * The orchestration is completed
@@ -36,3 +52,19 @@ export const PurgeableOrchestrationState = {
  * The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
  */
 export type PurgeableOrchestrationState = (typeof PurgeableOrchestrationState)[keyof typeof PurgeableOrchestrationState];
+
+export const SchedulerSkuName = {
+    /**
+     * Dedicated SKU
+     */
+    Dedicated: "Dedicated",
+    /**
+     * Consumption SKU
+     */
+    Consumption: "Consumption",
+} as const;
+
+/**
+ * The name of the SKU
+ */
+export type SchedulerSkuName = (typeof SchedulerSkuName)[keyof typeof SchedulerSkuName];

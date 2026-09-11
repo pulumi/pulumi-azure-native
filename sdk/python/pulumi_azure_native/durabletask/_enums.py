@@ -8,7 +8,9 @@ from enum import Enum
 
 __all__ = [
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'PurgeableOrchestrationState',
+    'SchedulerSkuName',
 ]
 
 
@@ -20,6 +22,21 @@ class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+@pulumi.type_token("azure-native:durabletask:PublicNetworkAccess")
+class PublicNetworkAccess(_builtins.str, Enum):
+    """
+    Allow or disallow public network access to durable task scheduler
+    """
+    ENABLED = "Enabled"
+    """
+    The public network access is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    The public network access is disabled
+    """
 
 
 @pulumi.type_token("azure-native:durabletask:PurgeableOrchestrationState")
@@ -42,4 +59,19 @@ class PurgeableOrchestrationState(_builtins.str, Enum):
     CANCELED = "Canceled"
     """
     The orchestration is canceled
+    """
+
+
+@pulumi.type_token("azure-native:durabletask:SchedulerSkuName")
+class SchedulerSkuName(_builtins.str, Enum):
+    """
+    The name of the SKU
+    """
+    DEDICATED = "Dedicated"
+    """
+    Dedicated SKU
+    """
+    CONSUMPTION = "Consumption"
+    """
+    Consumption SKU
     """
