@@ -5,6 +5,7 @@ package azure
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -261,17 +262,23 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
 		// poll for the deletion result in that case.
 		if asyncStyle != "" {
-			pt, err := runtime.NewPoller[any](resp, c.pipeline, nil)
+			pt, err := runtime.NewPoller[map[string]any](resp, c.pipeline, nil)
 			if err != nil {
 				return err
 			}
 			if isWatchlistDelete(id) {
+				// Deliberately not checking the operation's status here: this path already races the
+				// poll against a GET that confirms the watchlist is gone, precisely because the API
+				// misreports the deletion. See #4816.
 				return c.pollDeleteUntilDoneOrGone(ctx, pt, id, apiVersion)
 			}
-			_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
+			result, err := pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
 				Frequency: time.Duration(c.deletePollingIntervalSeconds * int64(time.Second)),
 			})
-			return err
+			if err != nil {
+				return err
+			}
+			return failedOperationError(result)
 		}
 		return nil
 	}()
@@ -308,7 +315,7 @@ func isStatusNotFound(err error) bool {
 // the resource itself is gone. It races the normal LRO poll against an independent GET on the
 // resource, falling back to a 404 there after a grace period. See #4816 and
 // Azure/azure-sdk-for-go#26937. Remove once Azure fixes the underlying behavior.
-func (c *azCoreClient) pollDeleteUntilDoneOrGone(ctx context.Context, pt *runtime.Poller[any], id, apiVersion string) error {
+func (c *azCoreClient) pollDeleteUntilDoneOrGone(ctx context.Context, pt *runtime.Poller[map[string]any], id, apiVersion string) error {
 	pollCtx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
@@ -428,6 +435,9 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 			if err, ok := err.(*azcore.ResponseError); ok {
 				return nil, created, newResponseError(err.RawResponse)
 			}
+			return nil, created, err
+		}
+		if err := failedOperationError(outputs); err != nil {
 			return nil, created, err
 		}
 	}
@@ -709,6 +719,52 @@ func newResponseError(resp *http.Response) error {
 		Message:    errMsg,
 		Details:    details,
 	}
+}
+
+// failedOperationError returns an error if the given body is a long-running operation status
+// envelope that reports a terminal failure, and nil otherwise. azcore's Location-header poller
+// derives the operation's state from the HTTP status code alone, so an operation that answers a
+// poll with 200 and `"status": "Failed"` in the body is otherwise taken for a success: a create
+// hands the failure back as the resource's outputs, and a delete reports a resource that is still
+// there as gone. See pulumi/pulumi-azure-native#4484.
+//
+// A failure envelope is required to carry an `error`, which also keeps this from mistaking a
+// resource whose own state happens to be reported as failed for a failed operation: plenty of
+// resources have a `status` that can be "Failed" - a job run, a restore, a compilation - and carry
+// no `error` alongside it.
+func failedOperationError(body map[string]any) error {
+	status, ok := body["status"].(string)
+	if !ok {
+		return nil
+	}
+	switch strings.ToLower(status) {
+	case "failed", "canceled", "cancelled":
+	default:
+		return nil
+	}
+
+	var code, message string
+	switch errorBody := body["error"].(type) {
+	case map[string]any:
+		code, _ = errorBody["code"].(string)
+		message, _ = errorBody["message"].(string)
+	case string:
+		// Not every operation status models its error as an object: Synapse's
+		// IntegrationRuntimeOperationStatus, for one, types it as a plain message.
+		message = errorBody
+	}
+	if code == "" && message == "" {
+		return nil
+	}
+
+	parts := []string{fmt.Sprintf("the operation completed with status %q", status)}
+	if code != "" {
+		parts = append(parts, fmt.Sprintf("Code=%q", code))
+	}
+	if message != "" {
+		parts = append(parts, fmt.Sprintf("Message=%q", message))
+	}
+	return errors.New(strings.Join(parts, " "))
 }
 
 type PulumiAzcoreErrorDetail struct {

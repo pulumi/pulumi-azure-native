@@ -57,6 +57,9 @@ func IsNotFound(err error) bool {
 		"EntityNotFound":         true,
 		"SubscriptionNotFound":   true,
 		"RoleAssignmentNotFound": true,
+		// A storage account's PUT is accepted with a 202 and can still fail asynchronously, after
+		// which Azure rolls the account back. See pulumi/pulumi-azure-native#4484.
+		"StorageAccountNotFound": true,
 		// For resources of type azure-native:sql:DatabaseVulnerabilityAssessmentRuleBaseline
 		// See pulumi/pulumi-azure-native#4721 for more details
 		"VulnerabilityAssessmentBaselineDoesNotExists": true,
