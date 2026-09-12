@@ -343,6 +343,49 @@ func TestUpdateMetadataRefs(t *testing.T) {
 		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", prop.Properties["prop1"].Ref)
 	})
 
+	// oneOf entries are bare strings rather than $ref objects, so they need matching on the reference itself. When
+	// they were left stale, the runtime failed to resolve the union's members and sent the SDK shape to Azure
+	// verbatim, without un-flattening nested properties. See #4477.
+	t.Run("Updates refs in oneOf unions", func(t *testing.T) {
+		t.Parallel()
+		metadata := &resources.APIMetadata{
+			Types: resources.GoMap[resources.AzureAPIType]{
+				"type1": {
+					Properties: map[string]resources.AzureAPIProperty{
+						"destination": {
+							OneOf: []string{
+								"#/types/azure-native:storage/v20240101:WebHookDestination",
+								"#/types/azure-native:commontypes:EventHubDestination",
+								"#/types/azure-native:other/v20240101:OtherModuleDestination",
+							},
+						},
+						"destinations": {
+							Type: "array",
+							Items: &resources.AzureAPIProperty{
+								OneOf: []string{"#/types/azure-native:storage/v20240101:WebHookDestination"},
+							},
+						},
+					},
+				},
+			},
+		}
+
+		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
+		require.NoError(t, err)
+
+		typ, ok, err := updated.Types.Get("type1")
+		require.NoError(t, err)
+		require.True(t, ok)
+		assert.Equal(t, []string{
+			"#/types/azure-native_storage_v20240101:storage:WebHookDestination",
+			"#/types/azure-native_storage_v20240101:commontypes:EventHubDestination",
+			// A different module isn't part of the parameterized package, so it's left alone.
+			"#/types/azure-native:other/v20240101:OtherModuleDestination",
+		}, typ.Properties["destination"].OneOf)
+		assert.Equal(t, []string{"#/types/azure-native_storage_v20240101:storage:WebHookDestination"},
+			typ.Properties["destinations"].Items.OneOf)
+	})
+
 	t.Run("Updates refs in resources", func(t *testing.T) {
 		t.Parallel()
 		metadata := &resources.APIMetadata{
