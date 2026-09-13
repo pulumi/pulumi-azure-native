@@ -186,22 +186,24 @@ func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiV
 	return strings.Join([]string{unparameterizedPackageName, targetModule, targetApiVersion}, parameterizedNameSeparator)
 }
 
-// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name, e.g., from `"$ref":
-// "#/types/azure-native:..."` to `"$ref": "#/types/azure-native_resources_20240101:..."`.
+// updateRefs updates all type references in the serialized schema or metadata to use the new package name, e.g., from
+// `"#/types/azure-native:resources/v20240101:Foo"` to `"#/types/azure-native_resources_v20240101:resources:Foo"`.
+// References appear as `$ref` values but also, in the metadata, as bare strings in `oneOf` arrays, so we match the
+// reference itself rather than the `$ref` key. See #4477.
 func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []byte {
-	oldRefPrefix := fmt.Sprintf(`"$ref":"#/types/azure-native:%s/%s`, module, apiVersion)
-	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s`, newPackageName, module)
+	oldRefPrefix := fmt.Sprintf(`"#/types/azure-native:%s/%s`, module, apiVersion)
+	newRefPrefix := fmt.Sprintf(`"#/types/%s:%s`, newPackageName, module)
 	newSchema := bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
 
 	// update common types refs as well
-	oldCommonRefPrefix := `"$ref":"#/types/azure-native:commontypes`
-	newCommonRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:commontypes`, newPackageName)
+	oldCommonRefPrefix := `"#/types/azure-native:commontypes`
+	newCommonRefPrefix := fmt.Sprintf(`"#/types/%s:commontypes`, newPackageName)
 	newSchemaWithModifiedCommonTypes := bytes.ReplaceAll(newSchema, []byte(oldCommonRefPrefix), []byte(newCommonRefPrefix))
 	return newSchemaWithModifiedCommonTypes
 }
 
-// updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
-// This implementation uses a JSON round-trip to update the `$ref`'s via a global string-replacement. Not elegant, but effective.
+// updateMetadataRefs updates all type references in the metadata to use the new package name.
+// This implementation uses a JSON round-trip to update the references via a global string-replacement. Not elegant, but effective.
 func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module, apiVersion string) (*resources.APIMetadata, error) {
 	m, err := json.Marshal(metadata)
 	if err != nil {
