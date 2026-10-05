@@ -5,6 +5,7 @@ package provider
 import (
 	"context"
 	_ "embed"
+	"errors"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -80,6 +81,8 @@ func TestGetAuthConfig(t *testing.T) {
 		require.False(t, c.useOidc)
 		require.False(t, c.useMsi)
 		require.Nil(t, c.cloud)
+		// Resolves a custom cloud the Azure CLI is configured with, see NewAzCoreIdentity.
+		require.NotNil(t, c.showCloud)
 	})
 
 	t.Run("values from config take precedence", func(t *testing.T) {
@@ -676,4 +679,93 @@ func TestReadCloudConfiguration(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestNewAzCoreIdentityWithAzureCLI(t *testing.T) {
+	const subscriptionID = "0282681f-7a9e-424b-80b2-96babd57a8a1"
+	azureStackHub := cloud.Configuration{
+		Name: "AzureStackUser",
+		Configuration: azcloud.Configuration{
+			ActiveDirectoryAuthorityHost: "https://login.microsoftonline.com/",
+			Services: map[azcloud.ServiceName]azcloud.ServiceConfiguration{
+				azcloud.ResourceManager: {
+					Audience: "https://management.contoso.onmicrosoft.com/71fa64d0-6c18-4fef-9b3a-0a4c6e8f3c1d",
+					Endpoint: "https://management.local.azurestack.external",
+				},
+			},
+		},
+	}
+	// The Azure CLI's `az account show`, for an account in the given cloud.
+	accountIn := func(cloudName string) azSubscriptionProvider {
+		return func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+			return &Subscription{ID: subscriptionID, EnvironmentName: cloudName, IsDefault: true}, nil
+		}
+	}
+
+	t.Run("an account in a built-in cloud uses the provider's configuration of that cloud", func(t *testing.T) {
+		conf := &authConfiguration{
+			subscriptionId:   subscriptionID,
+			showSubscription: accountIn("AzureCloud"),
+			showCloud: func(ctx context.Context, cloudName string) (*cloud.Configuration, error) {
+				t.Errorf("the Azure CLI was asked to show the built-in cloud %q", cloudName)
+				return nil, errors.New("unexpected")
+			},
+		}
+
+		account, err := NewAzCoreIdentity(context.Background(), conf, policy.ClientOptions{})
+
+		require.NoError(t, err)
+		assert.Equal(t, cloud.AzurePublic, account.Cloud)
+		assert.Equal(t, subscriptionID, account.SubscriptionId)
+	})
+
+	t.Run("an account in a custom cloud uses the cloud the Azure CLI describes", func(t *testing.T) {
+		var shownCloud string
+		conf := &authConfiguration{
+			subscriptionId:   subscriptionID,
+			showSubscription: accountIn("AzureStackUser"),
+			showCloud: func(ctx context.Context, cloudName string) (*cloud.Configuration, error) {
+				shownCloud = cloudName
+				return &azureStackHub, nil
+			},
+		}
+
+		account, err := NewAzCoreIdentity(context.Background(), conf, policy.ClientOptions{})
+
+		require.NoError(t, err)
+		assert.Equal(t, "AzureStackUser", shownCloud)
+		assert.Equal(t, azureStackHub, account.Cloud)
+		assert.Equal(t, subscriptionID, account.SubscriptionId)
+	})
+
+	t.Run("an account in a custom cloud the Azure CLI cannot describe fails with the reason", func(t *testing.T) {
+		conf := &authConfiguration{
+			subscriptionId:   subscriptionID,
+			showSubscription: accountIn("AzureStackUser"),
+			showCloud: func(ctx context.Context, cloudName string) (*cloud.Configuration, error) {
+				return nil, errors.New("ERROR: The cloud 'AzureStackUser' is not registered.")
+			},
+		}
+
+		_, err := NewAzCoreIdentity(context.Background(), conf, policy.ClientOptions{})
+
+		require.Error(t, err)
+		assert.ErrorContains(t, err, "'AzureStackUser'")
+		assert.ErrorContains(t, err, "is not registered")
+	})
+
+	t.Run("a configured cloud must still be the Azure CLI's active cloud", func(t *testing.T) {
+		conf := &authConfiguration{
+			cloud:            &cloud.AzurePublic,
+			subscriptionId:   subscriptionID,
+			showSubscription: accountIn("AzureStackUser"),
+			showCloud: func(ctx context.Context, cloudName string) (*cloud.Configuration, error) {
+				return &azureStackHub, nil
+			},
+		}
+
+		_, err := NewAzCoreIdentity(context.Background(), conf, policy.ClientOptions{})
+
+		assert.ErrorContains(t, err, "does not match the active environment 'AzureStackUser'")
+	})
 }
