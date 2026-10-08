@@ -586,6 +586,28 @@ func TestDatabricksWorkspaceComputeModeDefault(t *testing.T) {
 		"expected a replacement when changing computeMode from Hybrid to Serverless")
 }
 
+// TestScheduledQueryRuleScopesForceNew is a regression test for issue #4839: Azure rejects any
+// change to a ScheduledQueryRule's scopes with 400 "Scope can not be updated", so the provider must
+// replace the rule (see forceNewMap in provider/pkg/gen/replacement.go) rather than update it.
+func TestScheduledQueryRuleScopesForceNew(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "scheduledqueryrule-scopes-forcenew/step1")
+	defer func() {
+		pt.Destroy(t)
+	}()
+	pt.Up(t)
+
+	pt.UpdateSource(t, "test-programs", "scheduledqueryrule-scopes-forcenew", "step2")
+	up := pt.Up(t)
+
+	upSummary := changesummary.FromStringIntMap(*up.Summary.ResourceChanges)
+	assert.Equal(t, 1, upSummary[apitype.OpReplace], "expected the rule to be replaced")
+	assert.Equal(t, []any{up.Outputs["workspaceId"].Value}, up.Outputs["scopes"].Value)
+
+	pt.Refresh(t)
+	assertpreview.HasNoChanges(t, pt.Preview(t))
+}
+
 // TestSecurityInsightsWatchlistDelete is a regression test for issue #4816: Azure's delete
 // status monitor for a Watchlist never reports a terminal state, even though the resource
 // itself is deleted within seconds. Without the GET-based fallback this hangs until the

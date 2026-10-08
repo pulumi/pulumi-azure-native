@@ -113,6 +113,16 @@ func TestForceNew(t *testing.T) {
 		forceNewMetadata := elasticSan.forceNew(makeSchema(extensionMutabilityCreate, extensionMutabilityRead), "sku", false)
 		assert.Equal(t, forceNew, forceNewMetadata)
 	})
+
+	scheduledQueryRule := moduleGenerator{moduleName: "Monitor", resourceName: "ScheduledQueryRule"}
+	t.Run("forceNewMap forces replacement without mutability spec", func(t *testing.T) {
+		forceNewMetadata := scheduledQueryRule.forceNew(makeSchema(), "scopes", false)
+		assert.Equal(t, forceNew, forceNewMetadata)
+		forceNewMetadata = scheduledQueryRule.forceNew(makeSchema(), "criteria", false)
+		assert.Equal(t, noForceNew, forceNewMetadata)
+		assert.True(t, scheduledQueryRule.listedInForceNewMap("scopes"))
+		assert.False(t, scheduledQueryRule.listedInForceNewMap("criteria"))
+	})
 }
 
 func TestCaseInsensitiveDiff(t *testing.T) {

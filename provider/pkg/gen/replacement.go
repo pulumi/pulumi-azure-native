@@ -8,7 +8,8 @@ import (
 )
 
 // forceNewMap is a map of Module Name -> Resource Name -> Properties that cause replacements.
-// API Versions are currently ignored.
+// API Versions are currently ignored. Listed array properties also force a replacement when their
+// elements change, unlike ForceNew arrays from x-ms-mutability (see ForceNewOnElementChanges).
 var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 	"Authorization": {
 		"RoleAssignment": codegen.NewStringSet("principalId", "scope"),
@@ -81,6 +82,12 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 	},
 	"Insights": {
 		"Component": codegen.NewStringSet(), // covered by x-ms-mutability
+	},
+	"Monitor": {
+		// scopes has no x-ms-mutability extension in the spec, but Azure rejects any change to it with
+		// 400 "Scope can not be updated" (verified live, including same-type and multi-resource
+		// scopes). See https://github.com/pulumi/pulumi-azure-native/issues/4839.
+		"ScheduledQueryRule": codegen.NewStringSet("scopes"),
 	},
 	"Network": {
 		// https://github.com/pulumi/pulumi-azure-native/issues/3883
