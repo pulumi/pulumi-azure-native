@@ -71,6 +71,10 @@ type AzureAPIProperty struct {
 	// (i.e., no in-place updates allowed).
 	ForceNew                            bool `json:"forceNew,omitempty"`
 	ForceNewInferredFromReferencedTypes bool `json:"forceNewInferredFromReferencedTypes,omitempty"`
+	// Whether adding, removing or changing an element of this ForceNew array also requires a
+	// replacement. Only set for arrays listed in forceNewMap: ForceNew arrays derived from the spec's
+	// x-ms-mutability only force a replacement when the whole array is added.
+	ForceNewOnElementChanges bool `json:"forceNewOnElementChanges,omitempty"`
 	// If the property is a resource name where we should apply auto-naming, this will contain the kind of
 	// auto-naming strategy. Possible values are:
 	// - "copy" for 1-to-1 copy of the resource's logical name.

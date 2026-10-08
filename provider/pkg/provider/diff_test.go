@@ -377,6 +377,99 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 		}
 		test(t, property, refProperties, diff, expected)
 	})
+
+	arrayElementUpdated := resource.ObjectDiff{
+		Updates: map[resource.PropertyKey]resource.ValueDiff{
+			topLevelProperty: {
+				Array: &resource.ArrayDiff{
+					Updates: map[int]resource.ValueDiff{0: oldToNew},
+				},
+			},
+		},
+	}
+
+	t.Run("array of primitives with updates", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Type: "array", Items: &resources.AzureAPIProperty{Type: "string"}}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + "[0]": {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		test(t, property, nil, arrayElementUpdated, expected)
+	})
+
+	// ForceNew arrays derived from x-ms-mutability don't force a replacement on element changes.
+	t.Run("array of primitives with updates and forceNew", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Type: "array", Items: &resources.AzureAPIProperty{Type: "string"}, ForceNew: true}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + "[0]": {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		test(t, property, nil, arrayElementUpdated, expected)
+	})
+
+	// https://github.com/pulumi/pulumi-azure-native/issues/4839
+	t.Run("array of primitives with updates and forceNewOnElementChanges", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Type: "array", Items: &resources.AzureAPIProperty{Type: "string"}, ForceNew: true, ForceNewOnElementChanges: true}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + "[0]": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		}
+		test(t, property, nil, arrayElementUpdated, expected)
+	})
+
+	t.Run("array of primitives with additions and deletions and forceNewOnElementChanges", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Type: "array", Items: &resources.AzureAPIProperty{Type: "string"}, ForceNew: true, ForceNewOnElementChanges: true}
+		for name, arrayDiff := range map[string]*resource.ArrayDiff{
+			"added":   {Adds: map[int]resource.PropertyValue{1: {V: "added"}}},
+			"deleted": {Deletes: map[int]resource.PropertyValue{1: {V: "removed"}}},
+		} {
+			t.Run(name, func(t *testing.T) {
+				diff := resource.ObjectDiff{
+					Updates: map[resource.PropertyKey]resource.ValueDiff{
+						topLevelProperty: {Array: arrayDiff},
+					},
+				}
+				kind := rpc.PropertyDiff_ADD
+				if name == "deleted" {
+					kind = rpc.PropertyDiff_DELETE
+				}
+				expected := map[string]*rpc.PropertyDiff{
+					topLevelProperty:         {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+					topLevelProperty + "[1]": {Kind: kind},
+				}
+				test(t, property, nil, diff, expected)
+			})
+		}
+	})
+
+	t.Run("array of object with updates and forceNewOnElementChanges", func(t *testing.T) {
+		property := resources.AzureAPIProperty{
+			Items:                    &resources.AzureAPIProperty{Ref: "#/types/foo"},
+			ForceNew:                 true,
+			ForceNewOnElementChanges: true,
+		}
+		refProperties := map[string]resources.AzureAPIProperty{
+			"inner1": {},
+		}
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				topLevelProperty: {
+					Array: &resource.ArrayDiff{
+						Updates: map[int]resource.ValueDiff{
+							0: {
+								Object: &resource.ObjectDiff{
+									Updates: map[resource.PropertyKey]resource.ValueDiff{
+										"inner1": oldToNew,
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + "[0].inner1": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		}
+		test(t, property, refProperties, diff, expected)
+	})
 }
 
 func TestApplyDiff(t *testing.T) {

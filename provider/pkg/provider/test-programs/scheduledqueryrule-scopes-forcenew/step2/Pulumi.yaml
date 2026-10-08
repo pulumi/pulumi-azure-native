@@ -1,0 +1,53 @@
+name: scheduledqueryrule-scopes-forcenew
+runtime: yaml
+description: |
+  Regression test for issue #4839: Azure rejects any change to a ScheduledQueryRule's scopes with
+  400 "Scope can not be updated", so changing it must replace the rule instead of updating it in
+  place. step2: rescope the rule to the Log Analytics workspace (the query changes too, since the
+  table names differ between the two scopes).
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  workspace:
+    type: azure-native:operationalinsights:Workspace
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      sku:
+        name: PerGB2018
+      retentionInDays: 30
+
+  appInsights:
+    type: azure-native:applicationinsights:Component
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      kind: web
+      applicationType: web
+      ingestionMode: LogAnalytics
+      workspaceResourceId: ${workspace.id}
+
+  rule:
+    type: azure-native:monitor:ScheduledQueryRule
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      ruleName: scopes-forcenew-rule
+      severity: 3
+      enabled: true
+      evaluationFrequency: PT5M
+      windowSize: PT5M
+      scopes:
+        - ${workspace.id}
+      criteria:
+        allOf:
+          - query: "AppRequests | summarize Count = count()"
+            operator: GreaterThan
+            threshold: 0
+            timeAggregation: Count
+
+outputs:
+  workspaceId: ${workspace.id}
+  scopes: ${rule.scopes}

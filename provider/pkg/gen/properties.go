@@ -446,6 +446,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		AdditionalProperties:                m.itemTypeToProperty(typeSpec.AdditionalProperties),
 		ForceNew:                            forceNewSpec == forceNew,
 		ForceNewInferredFromReferencedTypes: forceNewSpec == forceNewSetOnReferencedType,
+		ForceNewOnElementChanges:            forceNewSpec == forceNew && schemaProperty.Type == "array" && m.listedInForceNewMap(name),
 		IsStringSet:                         isStringSet,
 		Default:                             defaultValue,
 		MaintainSubResourceIfUnset:          maintainSubResourceIfUnset,
@@ -569,15 +570,22 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 		return forceNew
 	}
 
-	if resourceMap, ok := forceNewMap[m.moduleName]; ok {
-		if properties, ok := resourceMap[m.resourceName]; ok {
-			if properties.Has(propertyName) {
-				return forceNew
-			}
-		}
+	if m.listedInForceNewMap(propertyName) {
+		return forceNew
 	}
 
 	return noForceNew
+}
+
+// listedInForceNewMap returns true if propertyName is listed in forceNewMap for the resource that
+// is currently being generated.
+func (m *moduleGenerator) listedInForceNewMap(propertyName string) bool {
+	if resourceMap, ok := forceNewMap[m.moduleName]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			return properties.Has(propertyName)
+		}
+	}
+	return false
 }
 
 // enumOverride returns the EnumOverride for propertyName on the resource currently being
