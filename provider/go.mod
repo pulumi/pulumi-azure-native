@@ -32,10 +32,10 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi-labs/pulumi-hcl v0.3.0
 	github.com/pulumi/providertest v0.7.0
-	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.106.1
-	github.com/pulumi/pulumi-java v1.26.1
-	github.com/pulumi/pulumi-yaml v1.33.1
-	github.com/pulumi/pulumi/pkg/v3 v3.237.0
+	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.114.2
+	github.com/pulumi/pulumi-java v1.37.4
+	github.com/pulumi/pulumi-yaml v1.38.9
+	github.com/pulumi/pulumi/pkg/v3 v3.268.0
 	github.com/pulumi/pulumi/sdk/v3 v3.237.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.6
@@ -108,7 +108,7 @@ require (
 	github.com/pjbgf/sha1cd v0.6.0 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.23.0 // indirect
+	github.com/pulumi/esc v0.26.0 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
