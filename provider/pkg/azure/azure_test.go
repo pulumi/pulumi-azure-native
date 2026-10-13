@@ -53,7 +53,9 @@ func TestBuildUserAgent(t *testing.T) {
 func TestIsNotFound(t *testing.T) {
 	t.Run("azcore with valid error code", func(t *testing.T) {
 		// Test all valid "not found" error codes
-		validCodes := []string{"NotFound", "ResourceNotFound", "ResourceGroupNotFound", "LockNotFound", "StorageAccountNotFound"}
+		validCodes := []string{"NotFound", "ResourceNotFound", "ResourceGroupNotFound", "LockNotFound", "StorageAccountNotFound",
+			"ContainerNotFound", "ShareNotFound", "QueueNotFound", "ManagementPolicyNotFound", "BlobInventoryPolicyNotFound",
+			"ObjectReplicationPolicyNotFound"}
 		for _, code := range validCodes {
 			assert.True(t, IsNotFound(&azcore.ResponseError{
 				StatusCode: http.StatusNotFound,
@@ -87,7 +89,9 @@ func TestIsNotFound(t *testing.T) {
 
 	t.Run("provider with valid error code", func(t *testing.T) {
 		// Test all valid "not found" error codes
-		validCodes := []string{"NotFound", "ResourceNotFound", "ResourceGroupNotFound", "LockNotFound", "StorageAccountNotFound"}
+		validCodes := []string{"NotFound", "ResourceNotFound", "ResourceGroupNotFound", "LockNotFound", "StorageAccountNotFound",
+			"ContainerNotFound", "ShareNotFound", "QueueNotFound", "ManagementPolicyNotFound", "BlobInventoryPolicyNotFound",
+			"ObjectReplicationPolicyNotFound"}
 		for _, code := range validCodes {
 			assert.True(t, IsNotFound(&PulumiAzcoreResponseError{
 				StatusCode: http.StatusNotFound,

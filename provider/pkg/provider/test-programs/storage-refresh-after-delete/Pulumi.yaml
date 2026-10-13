@@ -1,0 +1,89 @@
+name: storage-refresh-after-delete
+runtime: yaml
+description: |
+  Storage sub-resources whose GET returns a service-specific 404 code (ContainerNotFound,
+  ShareNotFound, ...) once deleted. The test deletes them outside of Pulumi and expects a
+  refresh to drop them from state. See issue #4841.
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  store:
+    type: azure-native:storage:StorageAccount
+    properties:
+      resourceGroupName: ${rg.name}
+      kind: StorageV2
+      sku:
+        name: Standard_LRS
+
+  container:
+    type: azure-native:storage:BlobContainer
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+
+  share:
+    type: azure-native:storage:FileShare
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+
+  queue:
+    type: azure-native:storage:Queue
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+
+  managementPolicy:
+    type: azure-native:storage:ManagementPolicy
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+      managementPolicyName: default
+      policy:
+        rules:
+          - name: deleteOld
+            enabled: true
+            type: Lifecycle
+            definition:
+              filters:
+                blobTypes: [blockBlob]
+              actions:
+                baseBlob:
+                  delete:
+                    daysAfterModificationGreaterThan: 30
+
+  inventoryContainer:
+    type: azure-native:storage:BlobContainer
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+      containerName: inventory
+
+  inventoryPolicy:
+    type: azure-native:storage:BlobInventoryPolicy
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+      blobInventoryPolicyName: default
+      policy:
+        enabled: true
+        type: Inventory
+        rules:
+          - name: inventory
+            enabled: true
+            destination: ${inventoryContainer.name}
+            definition:
+              format: Csv
+              schedule: Daily
+              objectType: Blob
+              schemaFields: [Name, Content-Length]
+              filters:
+                blobTypes: [blockBlob]
+
+outputs:
+  containerId: ${container.id}
+  shareId: ${share.id}
+  queueId: ${queue.id}
+  managementPolicyId: ${managementPolicy.id}
+  inventoryPolicyId: ${inventoryPolicy.id}
