@@ -15,7 +15,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/golang-jwt/jwt"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -627,6 +629,38 @@ func TestStorageAccountSingletonChildAfterReplace(t *testing.T) {
 	// Removing isHnsEnabled forces the replace; pt.Up fails the test on any error.
 	pt.UpdateSource(t, "test-programs", "storage-sa-replace-singleton-child", "step2")
 	pt.Up(t)
+}
+
+// TestStorageRefreshAfterOutOfBandDelete is a regression test for issue #4841: Storage sub-resources
+// return service-specific 404 codes such as ContainerNotFound, which IsNotFound must recognize so that
+// a refresh drops resources deleted outside of Pulumi from state instead of failing.
+func TestStorageRefreshAfterOutOfBandDelete(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "storage-refresh-after-delete")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	up := pt.Up(t)
+
+	ctx := context.Background()
+	authConf, err := readAuthConfig(ctx, func(_, envName string) string { return os.Getenv(envName) }, nil)
+	require.NoError(t, err)
+	account, err := NewAzCoreIdentity(ctx, authConf, policy.ClientOptions{})
+	require.NoError(t, err)
+	client, err := azure.NewAzCoreClient(account.TokenCredential, "", account.Cloud.Configuration, nil)
+	require.NoError(t, err)
+
+	outputs := []string{"containerId", "shareId", "queueId", "managementPolicyId", "inventoryPolicyId"}
+	for _, output := range outputs {
+		id, ok := up.Outputs[output].Value.(string)
+		require.True(t, ok, "expected output %q", output)
+		require.NoError(t, client.Delete(ctx, id, "2024-01-01", "", nil), "deleting %s", id)
+	}
+
+	refresh := pt.Refresh(t)
+	refreshSummary := changesummary.FromStringIntMap(*refresh.Summary.ResourceChanges)
+	assert.Equal(t, len(outputs), refreshSummary[apitype.OpDelete], "expected deleted resources to be dropped from state")
 }
 
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {

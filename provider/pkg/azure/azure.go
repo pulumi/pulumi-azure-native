@@ -60,6 +60,13 @@ func IsNotFound(err error) bool {
 		// A storage account's PUT is accepted with a 202 and can still fail asynchronously, after
 		// which Azure rolls the account back. See pulumi/pulumi-azure-native#4484.
 		"StorageAccountNotFound": true,
+		// Storage sub-resources return service-specific codes. See pulumi/pulumi-azure-native#4841.
+		"ContainerNotFound":               true,
+		"ShareNotFound":                   true,
+		"QueueNotFound":                   true,
+		"ManagementPolicyNotFound":        true,
+		"BlobInventoryPolicyNotFound":     true,
+		"ObjectReplicationPolicyNotFound": true,
 		// For resources of type azure-native:sql:DatabaseVulnerabilityAssessmentRuleBaseline
 		// See pulumi/pulumi-azure-native#4721 for more details
 		"VulnerabilityAssessmentBaselineDoesNotExists": true,
