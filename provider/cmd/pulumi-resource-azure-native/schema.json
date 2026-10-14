@@ -869461,7 +869461,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of resource id's that this scheduled query rule is scoped to."
+                    "description": "The list of resource id's that this scheduled query rule is scoped to.",
+                    "willReplaceOnChanges": true
                 },
                 "severity": {
                     "type": "number",

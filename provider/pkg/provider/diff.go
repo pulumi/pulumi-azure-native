@@ -307,6 +307,9 @@ func findForceNew(base string, props map[string]resources.AzureAPIProperty, repl
 				name = prop.SdkName
 			}
 			replaceKeys.Add(base + name)
+			if prop.ForceNewOnElementChanges {
+				replaceKeys.Add(base + name + "[]")
+			}
 		}
 	}
 }
@@ -391,6 +394,12 @@ func (d *differ) calculateValueDiff(v *resource.ValueDiff, diffBase, replaceBase
 		for idx := range v.Array.Deletes {
 			key := fmt.Sprintf("%s[%d]", diffBase, idx)
 			detailedDiff[key] = &rpc.PropertyDiff{Kind: rpc.PropertyDiff_DELETE}
+		}
+
+		// Element updates of a ForceNewOnElementChanges array are covered by its "[]" replace key
+		// above, but adding or removing elements also causes its replacement.
+		if (len(v.Array.Adds) > 0 || len(v.Array.Deletes) > 0) && d.replaceKeys.Has(replaceBase+"[]") {
+			detailedDiff[diffBase] = &rpc.PropertyDiff{Kind: rpc.PropertyDiff_UPDATE_REPLACE}
 		}
 	default:
 		kind := rpc.PropertyDiff_UPDATE
