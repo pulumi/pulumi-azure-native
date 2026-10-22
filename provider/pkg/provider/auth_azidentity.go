@@ -28,7 +28,8 @@ The configured Azure environment '%s' does not match the active environment '%s'
 When authenticating using the Azure CLI, the configured environment needs to match the one shown by 'az account show'.
 You can change environments using 'az cloud set --name <cloud>'.`
 	cliCloudUnsupportedMessage = `
-The active Azure environment '%s' is not supported directly by the provider, and an Azure Metadata Server was not available.
+The active Azure environment '%s' is not supported directly by the provider, and the Azure CLI could not describe it: %w
+Alternatively, configure an Azure Metadata Server for the environment with metadataHost/ARM_METADATA_HOSTNAME.
 `
 )
 
@@ -78,13 +79,17 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 		}
 		if authConf.cloud == nil {
 			// Automatically use the Azure CLI's current environment.
-			wellknown, ok := cloud.FromName(activeSubscription.EnvironmentName)
-			if !ok {
-				// The CLI is configured with a custom environment.
-				// FUTURE: use `az cloud show` to automatically obtain the environment configuration.
-				return nil, fmt.Errorf(cliCloudUnsupportedMessage, activeSubscription.EnvironmentName)
+			if wellknown, ok := cloud.FromName(activeSubscription.EnvironmentName); ok {
+				account.Cloud = wellknown
+			} else {
+				// The CLI is configured with a custom environment, registered with `az cloud register`:
+				// use the endpoints the Azure CLI itself uses for it.
+				custom, err := authConf.showCloud(ctx, activeSubscription.EnvironmentName)
+				if err != nil {
+					return nil, fmt.Errorf(cliCloudUnsupportedMessage, activeSubscription.EnvironmentName, err)
+				}
+				account.Cloud = *custom
 			}
-			account.Cloud = wellknown
 		} else {
 			account.Cloud = *authConf.cloud
 		}
@@ -399,6 +404,9 @@ type authConfiguration struct {
 
 	// showSubscription invokes `az account show` and is overridable by tests to fake invoking the az CLI.
 	showSubscription azSubscriptionProvider
+
+	// showCloud invokes `az cloud show` and is overridable by tests to fake invoking the az CLI.
+	showCloud azCloudProvider
 }
 
 type configGetter func(configName, envName string) string
@@ -447,6 +455,7 @@ func readAuthConfig(ctx context.Context, getConfig configGetter, getMetadata met
 		disableInstanceDiscovery: getConfig("disableInstanceDiscovery", "ARM_DISABLE_INSTANCE_DISCOVERY") == "true",
 
 		showSubscription: defaultAzSubscriptionProvider,
+		showCloud:        defaultAzCloudProvider,
 	}
 
 	return authConf, nil
