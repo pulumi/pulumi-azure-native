@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieve an scheduled query rule definition.
  *
- * Uses Azure REST API version 2025-01-01-preview.
+ * Uses Azure REST API version 2026-03-01.
  *
- * Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,7 +60,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria?: outputs.monitor.ScheduledQueryRuleCriteriaResponse;
+    readonly criteria: outputs.monitor.ScheduledQueryRuleCriteriaResponse;
     /**
      * The description of the scheduled query rule.
      */
@@ -72,9 +72,9 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled?: boolean;
+    readonly enabled: boolean;
     /**
-     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     readonly etag: string;
     /**
@@ -82,7 +82,7 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly evaluationFrequency?: string;
     /**
-     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -124,7 +124,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly scopes?: string[];
+    readonly scopes: string[];
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
      */
@@ -134,7 +134,7 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly skipQueryValidation?: boolean;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * SystemData of ScheduledQueryRule.
      */
     readonly systemData: outputs.monitor.SystemDataResponse;
     /**
@@ -157,9 +157,9 @@ export interface GetScheduledQueryRuleResult {
 /**
  * Retrieve an scheduled query rule definition.
  *
- * Uses Azure REST API version 2025-01-01-preview.
+ * Uses Azure REST API version 2026-03-01.
  *
- * Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

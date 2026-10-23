@@ -99,69 +99,21 @@ export const ComparisonOperationType = {
 export type ComparisonOperationType = (typeof ComparisonOperationType)[keyof typeof ComparisonOperationType];
 
 export const ConditionOperator = {
-    /**
-     * Equal to.
-     */
-    Equal: "eq",
-    /**
-     * Not equal to.
-     */
-    NotEqual: "ne",
-    /**
-     * Less than.
-     */
-    LessThan: "lt",
-    /**
-     * Less than or equal to.
-     */
-    LessThanOrEqual: "lte",
-    /**
-     * Greater than.
-     */
-    GreaterThan: "gt",
-    /**
-     * Greater than or equal to.
-     */
-    GreaterThanOrEqual: "gte",
-    /**
-     * Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
-     */
-    In: "in",
-    /**
-     * Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
-     */
-    NotIn: "notin",
-    /**
-     * Starts with.
-     */
-    StartsWith: "startswith",
-    /**
-     * Does not start with.
-     */
-    NotStartsWith: "notstartswith",
-    /**
-     * Contains the value.
-     */
-    Contains: "contains",
-    /**
-     * Does not contain the value.
-     */
-    NotContains: "notcontains",
+    Equals: "Equals",
+    GreaterThan: "GreaterThan",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThan: "LessThan",
+    LessThanOrEqual: "LessThanOrEqual",
+    GreaterOrLessThan: "GreaterOrLessThan",
 } as const;
 
 /**
- * Operator used in the filtering condition.
+ * The criteria operator. Relevant and required only for rules of the kind LogAlert.
  */
 export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
 
 export const CriterionType = {
-    /**
-     * StaticThresholdCriterion
-     */
     StaticThresholdCriterion: "StaticThresholdCriterion",
-    /**
-     * DynamicThresholdCriterion
-     */
     DynamicThresholdCriterion: "DynamicThresholdCriterion",
 } as const;
 
@@ -187,13 +139,7 @@ export const DependenciesAggregationType = {
 export type DependenciesAggregationType = (typeof DependenciesAggregationType)[keyof typeof DependenciesAggregationType];
 
 export const DimensionOperator = {
-    /**
-     * Include
-     */
     Include: "Include",
-    /**
-     * Exclude
-     */
     Exclude: "Exclude",
 } as const;
 
@@ -395,17 +341,8 @@ export const ExternalNetworkingMode = {
 export type ExternalNetworkingMode = (typeof ExternalNetworkingMode)[keyof typeof ExternalNetworkingMode];
 
 export const IdentityType = {
-    /**
-     * SystemAssigned
-     */
     SystemAssigned: "SystemAssigned",
-    /**
-     * UserAssigned
-     */
     UserAssigned: "UserAssigned",
-    /**
-     * None
-     */
     None: "None",
 } as const;
 
@@ -443,17 +380,8 @@ export const JsonMapperElement = {
 export type JsonMapperElement = (typeof JsonMapperElement)[keyof typeof JsonMapperElement];
 
 export const Kind = {
-    /**
-     * LogAlert
-     */
     LogAlert: "LogAlert",
-    /**
-     * SimpleLogAlert
-     */
     SimpleLogAlert: "SimpleLogAlert",
-    /**
-     * LogToMetric
-     */
     LogToMetric: "LogToMetric",
 } as const;
 
@@ -970,6 +898,62 @@ export const SignalOperator = {
  */
 export type SignalOperator = (typeof SignalOperator)[keyof typeof SignalOperator];
 
+export const SliConditionOperator = {
+    /**
+     * Equal to.
+     */
+    Equal: "eq",
+    /**
+     * Not equal to.
+     */
+    NotEqual: "ne",
+    /**
+     * Less than.
+     */
+    LessThan: "lt",
+    /**
+     * Less than or equal to.
+     */
+    LessThanOrEqual: "lte",
+    /**
+     * Greater than.
+     */
+    GreaterThan: "gt",
+    /**
+     * Greater than or equal to.
+     */
+    GreaterThanOrEqual: "gte",
+    /**
+     * Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+     */
+    In: "in",
+    /**
+     * Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+     */
+    NotIn: "notin",
+    /**
+     * Starts with.
+     */
+    StartsWith: "startswith",
+    /**
+     * Does not start with.
+     */
+    NotStartsWith: "notstartswith",
+    /**
+     * Contains the value.
+     */
+    Contains: "contains",
+    /**
+     * Does not contain the value.
+     */
+    NotContains: "notcontains",
+} as const;
+
+/**
+ * Operator used in the filtering condition.
+ */
+export type SliConditionOperator = (typeof SliConditionOperator)[keyof typeof SliConditionOperator];
+
 export const SpatialAggregationType = {
     /**
      * Average value.
@@ -1119,25 +1103,10 @@ export const TemporalAggregationType = {
 export type TemporalAggregationType = (typeof TemporalAggregationType)[keyof typeof TemporalAggregationType];
 
 export const TimeAggregation = {
-    /**
-     * Count
-     */
     Count: "Count",
-    /**
-     * Average
-     */
     Average: "Average",
-    /**
-     * Minimum
-     */
     Minimum: "Minimum",
-    /**
-     * Maximum
-     */
     Maximum: "Maximum",
-    /**
-     * Total
-     */
     Total: "Total",
 } as const;
 

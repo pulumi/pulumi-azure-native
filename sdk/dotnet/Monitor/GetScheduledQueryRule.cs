@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Retrieve an scheduled query rule definition.
         /// 
-        /// Uses Azure REST API version 2025-01-01-preview.
+        /// Uses Azure REST API version 2026-03-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:monitor:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Retrieve an scheduled query rule definition.
         /// 
-        /// Uses Azure REST API version 2025-01-01-preview.
+        /// Uses Azure REST API version 2026-03-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:monitor:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Retrieve an scheduled query rule definition.
         /// 
-        /// Uses Azure REST API version 2025-01-01-preview.
+        /// Uses Azure REST API version 2026-03-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:monitor:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithDefaults());
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
-        public readonly Outputs.ScheduledQueryRuleCriteriaResponse? Criteria;
+        public readonly Outputs.ScheduledQueryRuleCriteriaResponse Criteria;
         /// <summary>
         /// The description of the scheduled query rule.
         /// </summary>
@@ -122,9 +122,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
-        public readonly bool? Enabled;
+        public readonly bool Enabled;
         /// <summary>
-        /// "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string? EvaluationFrequency;
         /// <summary>
-        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly bool? SkipQueryValidation;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// SystemData of ScheduledQueryRule.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -216,13 +216,13 @@ namespace Pulumi.AzureNative.Monitor
 
             string createdWithApiVersion,
 
-            Outputs.ScheduledQueryRuleCriteriaResponse? criteria,
+            Outputs.ScheduledQueryRuleCriteriaResponse criteria,
 
             string? description,
 
             string? displayName,
 
-            bool? enabled,
+            bool enabled,
 
             string etag,
 

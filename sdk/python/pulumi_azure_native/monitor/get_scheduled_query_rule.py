@@ -158,7 +158,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> Optional['outputs.ScheduledQueryRuleCriteriaResponse']:
+    def criteria(self) -> 'outputs.ScheduledQueryRuleCriteriaResponse':
         """
         The rule criteria that defines the conditions of the scheduled query rule.
         """
@@ -182,7 +182,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[_builtins.bool]:
+    def enabled(self) -> _builtins.bool:
         """
         The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
@@ -192,7 +192,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter
     def etag(self) -> _builtins.str:
         """
-        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -208,7 +208,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -286,7 +286,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[Sequence[_builtins.str]]:
+    def scopes(self) -> Sequence[_builtins.str]:
         """
         The list of resource id's that this scheduled query rule is scoped to.
         """
@@ -312,7 +312,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        SystemData of ScheduledQueryRule.
         """
         return pulumi.get(self, "system_data")
 
@@ -392,9 +392,9 @@ def get_scheduled_query_rule(resource_group_name: Optional[_builtins.str] = None
     """
     Retrieve an scheduled query rule definition.
 
-    Uses Azure REST API version 2025-01-01-preview.
+    Uses Azure REST API version 2026-03-01.
 
-    Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_name: The name of the rule.
@@ -441,9 +441,9 @@ def get_scheduled_query_rule_output(resource_group_name: pulumi.Input[Optional[_
     """
     Retrieve an scheduled query rule definition.
 
-    Uses Azure REST API version 2025-01-01-preview.
+    Uses Azure REST API version 2026-03-01.
 
-    Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rule_name: The name of the rule.

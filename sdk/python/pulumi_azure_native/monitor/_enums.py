@@ -70,6 +70,7 @@ __all__ = [
     'ScopedResourceKind',
     'SignalKind',
     'SignalOperator',
+    'SliConditionOperator',
     'SpatialAggregationType',
     'Status',
     'StreamEncodingType',
@@ -174,56 +175,14 @@ class ComparisonOperationType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:monitor:ConditionOperator")
 class ConditionOperator(_builtins.str, Enum):
     """
-    Operator used in the filtering condition.
+    The criteria operator. Relevant and required only for rules of the kind LogAlert.
     """
-    EQUAL = "eq"
-    """
-    Equal to.
-    """
-    NOT_EQUAL = "ne"
-    """
-    Not equal to.
-    """
-    LESS_THAN = "lt"
-    """
-    Less than.
-    """
-    LESS_THAN_OR_EQUAL = "lte"
-    """
-    Less than or equal to.
-    """
-    GREATER_THAN = "gt"
-    """
-    Greater than.
-    """
-    GREATER_THAN_OR_EQUAL = "gte"
-    """
-    Greater than or equal to.
-    """
-    IN_ = "in"
-    """
-    Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
-    """
-    NOT_IN = "notin"
-    """
-    Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
-    """
-    STARTS_WITH = "startswith"
-    """
-    Starts with.
-    """
-    NOT_STARTS_WITH = "notstartswith"
-    """
-    Does not start with.
-    """
-    CONTAINS = "contains"
-    """
-    Contains the value.
-    """
-    NOT_CONTAINS = "notcontains"
-    """
-    Does not contain the value.
-    """
+    EQUALS = "Equals"
+    GREATER_THAN = "GreaterThan"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    LESS_THAN = "LessThan"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    GREATER_OR_LESS_THAN = "GreaterOrLessThan"
 
 
 @pulumi.type_token("azure-native:monitor:CriterionType")
@@ -232,13 +191,7 @@ class CriterionType(_builtins.str, Enum):
     Specifies the type of threshold criteria
     """
     STATIC_THRESHOLD_CRITERION = "StaticThresholdCriterion"
-    """
-    StaticThresholdCriterion
-    """
     DYNAMIC_THRESHOLD_CRITERION = "DynamicThresholdCriterion"
-    """
-    DynamicThresholdCriterion
-    """
 
 
 @pulumi.type_token("azure-native:monitor:DependenciesAggregationType")
@@ -262,13 +215,7 @@ class DimensionOperator(_builtins.str, Enum):
     Operator for dimension values
     """
     INCLUDE = "Include"
-    """
-    Include
-    """
     EXCLUDE = "Exclude"
-    """
-    Exclude
-    """
 
 
 @pulumi.type_token("azure-native:monitor:DiscoveryRuleKind")
@@ -456,17 +403,8 @@ class IdentityType(_builtins.str, Enum):
     Type of managed service identity.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-    """
-    SystemAssigned
-    """
     USER_ASSIGNED = "UserAssigned"
-    """
-    UserAssigned
-    """
     NONE = "None"
-    """
-    None
-    """
 
 
 @pulumi.type_token("azure-native:monitor:IncidentManagementService")
@@ -501,17 +439,8 @@ class Kind(_builtins.str, Enum):
     Indicates the type of scheduled query rule. The default is LogAlert.
     """
     LOG_ALERT = "LogAlert"
-    """
-    LogAlert
-    """
     SIMPLE_LOG_ALERT = "SimpleLogAlert"
-    """
-    SimpleLogAlert
-    """
     LOG_TO_METRIC = "LogToMetric"
-    """
-    LogToMetric
-    """
 
 
 @pulumi.type_token("azure-native:monitor:KnownColumnDefinitionType")
@@ -986,6 +915,61 @@ class SignalOperator(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:SliConditionOperator")
+class SliConditionOperator(_builtins.str, Enum):
+    """
+    Operator used in the filtering condition.
+    """
+    EQUAL = "eq"
+    """
+    Equal to.
+    """
+    NOT_EQUAL = "ne"
+    """
+    Not equal to.
+    """
+    LESS_THAN = "lt"
+    """
+    Less than.
+    """
+    LESS_THAN_OR_EQUAL = "lte"
+    """
+    Less than or equal to.
+    """
+    GREATER_THAN = "gt"
+    """
+    Greater than.
+    """
+    GREATER_THAN_OR_EQUAL = "gte"
+    """
+    Greater than or equal to.
+    """
+    IN_ = "in"
+    """
+    Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+    """
+    NOT_IN = "notin"
+    """
+    Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+    """
+    STARTS_WITH = "startswith"
+    """
+    Starts with.
+    """
+    NOT_STARTS_WITH = "notstartswith"
+    """
+    Does not start with.
+    """
+    CONTAINS = "contains"
+    """
+    Contains the value.
+    """
+    NOT_CONTAINS = "notcontains"
+    """
+    Does not contain the value.
+    """
+
+
 @pulumi.type_token("azure-native:monitor:SpatialAggregationType")
 class SpatialAggregationType(_builtins.str, Enum):
     """
@@ -1135,25 +1119,10 @@ class TimeAggregation(_builtins.str, Enum):
     Aggregation type. Relevant and required only for rules of the kind LogAlert.
     """
     COUNT = "Count"
-    """
-    Count
-    """
     AVERAGE = "Average"
-    """
-    Average
-    """
     MINIMUM = "Minimum"
-    """
-    Minimum
-    """
     MAXIMUM = "Maximum"
-    """
-    Maximum
-    """
     TOTAL = "Total"
-    """
-    Total
-    """
 
 
 @pulumi.type_token("azure-native:monitor:TimeAggregationType")
