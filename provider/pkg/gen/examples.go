@@ -21,8 +21,8 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
-	hclgen "github.com/pulumi-labs/pulumi-hcl/pkg/codegen"
 	dotnet "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
+	hclgen "github.com/pulumi/pulumi-hcl/pkg/codegen"
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -64,15 +64,15 @@ func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.A
 
 	// cache to speed up code generation
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
-	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{
+	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.NewNullLoader(), schema.ValidationOptions{
 		AllowDanglingReferences: true,
 	})
 	if err != nil {
 		return err
 	}
-	loaderOption := hcl2.Loader(InMemoryPackageLoader(map[string]*schema.Package{
+	loader := InMemoryPackageLoader(map[string]*schema.Package{
 		"azure-native": pkg,
-	}))
+	})
 	for _, pulumiToken := range sortedKeys {
 		err := bar.Add(1)
 		if err != nil {
@@ -176,7 +176,7 @@ func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.A
 				}
 				body := &model.Body{Items: []model.BodyItem{&block}}
 				pcl.FormatBody(body)
-				languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption, hcl2.AllowMissingVariables, hcl2.AllowMissingProperties)
+				languageExample, err := generateExamplePrograms(example, body, languages, loader, hcl2Cache, hcl2.AllowMissingVariables, hcl2.AllowMissingProperties)
 				if err != nil {
 					fmt.Printf("skipping example %s for resource %s: %v", example.Description, pulumiToken, err)
 					continue
@@ -249,7 +249,7 @@ func extractExampleResponseNameId(exampleJSON map[string]interface{}) (string, s
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
 
 func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body, languages []string,
-	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
+	loader schema.Loader, bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
 
 	writeDebugProgram("pp", programBody, example.Location)
@@ -270,7 +270,7 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 	languageExample := languageToExampleProgram{}
 
 	for _, lang := range languages {
-		program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
+		program, diags, err := hcl2.BindProgram(parser.Files, loader, bindOptions...)
 		if err != nil {
 			return nil, fmt.Errorf("failed to bind program for example %s. %v", example.Location, err)
 		}
