@@ -244,7 +244,7 @@ func emitMetadata(metadata *resources.AzureAPIMetadata, outputPath string) error
 func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 	moduleVersionPath := gen.GoModulePathVersion(pkgSpec.Version)
 
-	ppkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{
+	ppkg, err := schema.ImportSpec(*pkgSpec, nil, schema.NewNullLoader(), schema.ValidationOptions{
 		AllowDanglingReferences: true,
 	})
 	if err != nil {

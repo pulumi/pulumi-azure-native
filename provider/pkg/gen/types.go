@@ -16,6 +16,7 @@ package gen
 
 import (
 	"fmt"
+	"reflect"
 	"strconv"
 	"strings"
 
@@ -435,7 +436,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			Items: &itemsSpec.TypeSpec,
 		}, nil
 
-	case resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil:
+	case resolvedSchema.AdditionalProperties != nil && !isEmptySchema(resolvedSchema.AdditionalProperties.Schema):
 		schema := resolvedSchema.AdditionalProperties.Schema
 
 		// special case for userAssignedIdentities where element type is an array of objects,
@@ -467,6 +468,12 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		// Primitive type ('string', 'integer', etc.)
 		return &pschema.TypeSpec{Type: primitiveTypeName}, nil
 	}
+}
+
+// isEmptySchema reports whether s is nil or `{}`. go-openapi/spec v0.20 dropped an `additionalProperties: {}` schema
+// while parsing, so such properties have always been typed as Any; keep it that way rather than map[string]Any.
+func isEmptySchema(s *spec.Schema) bool {
+	return s == nil || reflect.DeepEqual(*s, spec.Schema{})
 }
 
 // inlineTypeName returns a type name suffix to be used as a type name for properties defined inline in the spec.
