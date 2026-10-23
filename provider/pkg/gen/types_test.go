@@ -1,6 +1,7 @@
 package gen
 
 import (
+	"encoding/json"
 	"strconv"
 	"testing"
 
@@ -131,6 +132,47 @@ func TestMergeTypesBasic(t *testing.T) {
 			assert.Equal(t, 2, len(merged.Properties))
 			assert.Contains(t, merged.Properties, "buildResultId")
 			assert.Contains(t, merged.Properties, "type")
+		})
+	}
+}
+
+func TestGenTypeSpecAdditionalProperties(t *testing.T) {
+	for _, tc := range []struct {
+		name     string
+		json     string
+		expected schema.TypeSpec
+	}{
+		{
+			name:     "empty additionalProperties is Any",
+			json:     `{"type": "object", "additionalProperties": {}}`,
+			expected: schema.TypeSpec{Ref: "pulumi.json#/Any"},
+		},
+		{
+			name:     "additionalProperties true is Any",
+			json:     `{"type": "object", "additionalProperties": true}`,
+			expected: schema.TypeSpec{Ref: "pulumi.json#/Any"},
+		},
+		{
+			name: "typed additionalProperties is a map",
+			json: `{"type": "object", "additionalProperties": {"type": "string"}}`,
+			expected: schema.TypeSpec{
+				Type:                 "object",
+				AdditionalProperties: &schema.TypeSpec{Type: "string"},
+			},
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			var s spec.Schema
+			require.NoError(t, json.Unmarshal([]byte(tc.json), &s))
+
+			generator := moduleGenerator{
+				pkg:    &schema.PackageSpec{Name: "azure-native", Types: map[string]schema.ComplexTypeSpec{}},
+				module: "MyModule",
+			}
+			typeSpec, err := generator.genTypeSpec("myProp", &s, &openapi.ReferenceContext{}, false)
+			require.NoError(t, err)
+			require.NotNil(t, typeSpec)
+			assert.Equal(t, tc.expected, *typeSpec)
 		})
 	}
 }
