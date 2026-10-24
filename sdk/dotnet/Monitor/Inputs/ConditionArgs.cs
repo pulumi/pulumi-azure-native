@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         private InputList<Inputs.DimensionArgs>? _dimensions;
 
         /// <summary>
-        /// List of Dimensions conditions
+        /// List of Dimensions conditions. Relevant only for rules of the kind LogAlert and LogToMetric.
         /// </summary>
         public InputList<Inputs.DimensionArgs> Dimensions
         {

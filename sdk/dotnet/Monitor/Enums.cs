@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
-    /// Operator used in the filtering condition.
+    /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
     /// </summary>
     [EnumType]
     public readonly struct ConditionOperator : IEquatable<ConditionOperator>
@@ -242,54 +242,12 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// Equal to.
-        /// </summary>
-        public static ConditionOperator Equal { get; } = new ConditionOperator("eq");
-        /// <summary>
-        /// Not equal to.
-        /// </summary>
-        public static ConditionOperator NotEqual { get; } = new ConditionOperator("ne");
-        /// <summary>
-        /// Less than.
-        /// </summary>
-        public static ConditionOperator LessThan { get; } = new ConditionOperator("lt");
-        /// <summary>
-        /// Less than or equal to.
-        /// </summary>
-        public static ConditionOperator LessThanOrEqual { get; } = new ConditionOperator("lte");
-        /// <summary>
-        /// Greater than.
-        /// </summary>
-        public static ConditionOperator GreaterThan { get; } = new ConditionOperator("gt");
-        /// <summary>
-        /// Greater than or equal to.
-        /// </summary>
-        public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("gte");
-        /// <summary>
-        /// Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
-        /// </summary>
-        public static ConditionOperator In { get; } = new ConditionOperator("in");
-        /// <summary>
-        /// Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
-        /// </summary>
-        public static ConditionOperator NotIn { get; } = new ConditionOperator("notin");
-        /// <summary>
-        /// Starts with.
-        /// </summary>
-        public static ConditionOperator StartsWith { get; } = new ConditionOperator("startswith");
-        /// <summary>
-        /// Does not start with.
-        /// </summary>
-        public static ConditionOperator NotStartsWith { get; } = new ConditionOperator("notstartswith");
-        /// <summary>
-        /// Contains the value.
-        /// </summary>
-        public static ConditionOperator Contains { get; } = new ConditionOperator("contains");
-        /// <summary>
-        /// Does not contain the value.
-        /// </summary>
-        public static ConditionOperator NotContains { get; } = new ConditionOperator("notcontains");
+        public static ConditionOperator EqualsValue { get; } = new ConditionOperator("Equals");
+        public static ConditionOperator GreaterThan { get; } = new ConditionOperator("GreaterThan");
+        public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("GreaterThanOrEqual");
+        public static ConditionOperator LessThan { get; } = new ConditionOperator("LessThan");
+        public static ConditionOperator LessThanOrEqual { get; } = new ConditionOperator("LessThanOrEqual");
+        public static ConditionOperator GreaterOrLessThan { get; } = new ConditionOperator("GreaterOrLessThan");
 
         public static bool operator ==(ConditionOperator left, ConditionOperator right) => left.Equals(right);
         public static bool operator !=(ConditionOperator left, ConditionOperator right) => !left.Equals(right);
@@ -319,13 +277,7 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// StaticThresholdCriterion
-        /// </summary>
         public static CriterionType StaticThresholdCriterion { get; } = new CriterionType("StaticThresholdCriterion");
-        /// <summary>
-        /// DynamicThresholdCriterion
-        /// </summary>
         public static CriterionType DynamicThresholdCriterion { get; } = new CriterionType("DynamicThresholdCriterion");
 
         public static bool operator ==(CriterionType left, CriterionType right) => left.Equals(right);
@@ -393,13 +345,7 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// Include
-        /// </summary>
         public static DimensionOperator Include { get; } = new DimensionOperator("Include");
-        /// <summary>
-        /// Exclude
-        /// </summary>
         public static DimensionOperator Exclude { get; } = new DimensionOperator("Exclude");
 
         public static bool operator ==(DimensionOperator left, DimensionOperator right) => left.Equals(right);
@@ -895,17 +841,8 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// SystemAssigned
-        /// </summary>
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
-        /// <summary>
-        /// UserAssigned
-        /// </summary>
         public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
-        /// <summary>
-        /// None
-        /// </summary>
         public static IdentityType None { get; } = new IdentityType("None");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
@@ -1006,17 +943,8 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// LogAlert
-        /// </summary>
         public static Kind LogAlert { get; } = new Kind("LogAlert");
-        /// <summary>
-        /// SimpleLogAlert
-        /// </summary>
         public static Kind SimpleLogAlert { get; } = new Kind("SimpleLogAlert");
-        /// <summary>
-        /// LogToMetric
-        /// </summary>
         public static Kind LogToMetric { get; } = new Kind("LogToMetric");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
@@ -2299,6 +2227,83 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Operator used in the filtering condition.
+    /// </summary>
+    [EnumType]
+    public readonly struct SliConditionOperator : IEquatable<SliConditionOperator>
+    {
+        private readonly string _value;
+
+        private SliConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Equal to.
+        /// </summary>
+        public static SliConditionOperator Equal { get; } = new SliConditionOperator("eq");
+        /// <summary>
+        /// Not equal to.
+        /// </summary>
+        public static SliConditionOperator NotEqual { get; } = new SliConditionOperator("ne");
+        /// <summary>
+        /// Less than.
+        /// </summary>
+        public static SliConditionOperator LessThan { get; } = new SliConditionOperator("lt");
+        /// <summary>
+        /// Less than or equal to.
+        /// </summary>
+        public static SliConditionOperator LessThanOrEqual { get; } = new SliConditionOperator("lte");
+        /// <summary>
+        /// Greater than.
+        /// </summary>
+        public static SliConditionOperator GreaterThan { get; } = new SliConditionOperator("gt");
+        /// <summary>
+        /// Greater than or equal to.
+        /// </summary>
+        public static SliConditionOperator GreaterThanOrEqual { get; } = new SliConditionOperator("gte");
+        /// <summary>
+        /// Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+        /// </summary>
+        public static SliConditionOperator In { get; } = new SliConditionOperator("in");
+        /// <summary>
+        /// Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+        /// </summary>
+        public static SliConditionOperator NotIn { get; } = new SliConditionOperator("notin");
+        /// <summary>
+        /// Starts with.
+        /// </summary>
+        public static SliConditionOperator StartsWith { get; } = new SliConditionOperator("startswith");
+        /// <summary>
+        /// Does not start with.
+        /// </summary>
+        public static SliConditionOperator NotStartsWith { get; } = new SliConditionOperator("notstartswith");
+        /// <summary>
+        /// Contains the value.
+        /// </summary>
+        public static SliConditionOperator Contains { get; } = new SliConditionOperator("contains");
+        /// <summary>
+        /// Does not contain the value.
+        /// </summary>
+        public static SliConditionOperator NotContains { get; } = new SliConditionOperator("notcontains");
+
+        public static bool operator ==(SliConditionOperator left, SliConditionOperator right) => left.Equals(right);
+        public static bool operator !=(SliConditionOperator left, SliConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(SliConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SliConditionOperator other && Equals(other);
+        public bool Equals(SliConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of spatial aggregation.
     /// </summary>
     [EnumType]
@@ -2564,25 +2569,10 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// Count
-        /// </summary>
         public static TimeAggregation Count { get; } = new TimeAggregation("Count");
-        /// <summary>
-        /// Average
-        /// </summary>
         public static TimeAggregation Average { get; } = new TimeAggregation("Average");
-        /// <summary>
-        /// Minimum
-        /// </summary>
         public static TimeAggregation Minimum { get; } = new TimeAggregation("Minimum");
-        /// <summary>
-        /// Maximum
-        /// </summary>
         public static TimeAggregation Maximum { get; } = new TimeAggregation("Maximum");
-        /// <summary>
-        /// Total
-        /// </summary>
         public static TimeAggregation Total { get; } = new TimeAggregation("Total");
 
         public static bool operator ==(TimeAggregation left, TimeAggregation right) => left.Equals(right);

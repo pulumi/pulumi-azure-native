@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         /// Operator used in the filtering condition.
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Monitor.ConditionOperator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Monitor.SliConditionOperator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Defines the sampling type.

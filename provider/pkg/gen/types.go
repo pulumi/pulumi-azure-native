@@ -729,6 +729,8 @@ var typeNameOverrides = map[string]string{
 	"Insights.MyWorkbook.ManagedIdentity":                  "MyManagedIdentity",
 	"Insights.MyWorkbook.UserAssignedIdentities":           "MyUserAssignedIdentities",
 	"ManagedNetworkFabric.NetworkFabric.OptionBProperties": "FabricOptionBProperties",
+	// Sli's ConditionOperator (eq, gt, ...) would otherwise overwrite ScheduledQueryRule's (Equals, GreaterThan, ...).
+	"Monitor.Sli.ConditionOperator": "SliConditionOperator",
 	// Experiment's endpoint is a much narrower type compared to endpoints in other network resources.
 	"Network.Experiment.Endpoint": "ExperimentEndpoint",
 	// These are all FrontDoor types. FrontDoor shares a bunch of type names with generate Network provider,

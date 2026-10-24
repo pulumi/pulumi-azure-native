@@ -9345,8 +9345,8 @@ Monitor:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/relationships/{relationshipName}
         RpNamespace: Microsoft.Monitor
     ScheduledQueryRule:
-        ApiVersion: 2025-01-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2025-01-01-preview/scheduledQueryRule.json
+        ApiVersion: "2026-03-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2026-03-01/scheduledQueryRule_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}
         RpNamespace: Microsoft.Insights
     SignalDefinition:

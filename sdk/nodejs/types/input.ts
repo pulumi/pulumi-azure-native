@@ -139802,7 +139802,7 @@ export namespace monitor {
          */
         criterionType?: pulumi.Input<string | enums.monitor.CriterionType | undefined>;
         /**
-         * List of Dimensions conditions
+         * List of Dimensions conditions. Relevant only for rules of the kind LogAlert and LogToMetric.
          */
         dimensions?: pulumi.Input<pulumi.Input<inputs.monitor.DimensionArgs>[] | undefined>;
         /**
@@ -139891,7 +139891,7 @@ export namespace monitor {
         /**
          * Operator used in the filtering condition.
          */
-        operator: pulumi.Input<string | enums.monitor.ConditionOperator>;
+        operator: pulumi.Input<string | enums.monitor.SliConditionOperator>;
         /**
          * Defines the sampling type.
          */
@@ -140550,6 +140550,20 @@ export namespace monitor {
     }
 
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityArgs {
+        /**
+         * Type of managed service identity.
+         */
+        type: pulumi.Input<enums.monitor.IdentityType>;
+        /**
+         * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
      * Enables IIS logs to be collected by this data collection rule.
      */
     export interface IisLogsDataSourceArgs {
@@ -141129,20 +141143,6 @@ export namespace monitor {
             ...val,
             useCommonAlertSchema: (val.useCommonAlertSchema) ?? false,
         };
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface MicrosoftCommonIdentityArgs {
-        /**
-         * Type of managed service identity.
-         */
-        type: pulumi.Input<enums.monitor.IdentityType>;
-        /**
-         * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     /**
