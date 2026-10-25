@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
     /// <summary>
     /// Identity for the resource.
     /// </summary>
-    public sealed class MicrosoftCommonIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of managed service identity.
@@ -33,9 +33,9 @@ namespace Pulumi.AzureNative.Monitor.Inputs
             set => _userAssignedIdentities = value;
         }
 
-        public MicrosoftCommonIdentityArgs()
+        public IdentityArgs()
         {
         }
-        public static new MicrosoftCommonIdentityArgs Empty => new MicrosoftCommonIdentityArgs();
+        public static new IdentityArgs Empty => new IdentityArgs();
     }
 }

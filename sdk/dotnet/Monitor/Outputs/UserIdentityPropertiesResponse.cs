@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 {
 
     /// <summary>
-    /// Properties of the user assigned identity.
+    /// User assigned identity properties.
     /// </summary>
     [OutputType]
     public sealed class UserIdentityPropertiesResponse
     {
         /// <summary>
-        /// The client ID of resource identity.
+        /// The client id of user assigned identity.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The principal ID of resource identity.
+        /// The principal id of user assigned identity.
         /// </summary>
         public readonly string PrincipalId;
 

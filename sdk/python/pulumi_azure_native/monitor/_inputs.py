@@ -132,6 +132,8 @@ __all__ = [
     'HealthModelPropertiesArgsDict',
     'IconDefinitionArgs',
     'IconDefinitionArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
     'IisLogsDataSourceArgs',
     'IisLogsDataSourceArgsDict',
     'IncidentReceiverArgs',
@@ -184,8 +186,6 @@ __all__ = [
     'MicrosoftCommonAzureAppPushReceiverArgsDict',
     'MicrosoftCommonEmailReceiverArgs',
     'MicrosoftCommonEmailReceiverArgsDict',
-    'MicrosoftCommonIdentityArgs',
-    'MicrosoftCommonIdentityArgsDict',
     'MicrosoftCommonRetentionPolicyArgs',
     'MicrosoftCommonRetentionPolicyArgsDict',
     'MicrosoftCommonSmsReceiverArgs',
@@ -2355,7 +2355,7 @@ class ConditionArgsDict(TypedDict):
     """
     dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DimensionArgsDict']]]]]
     """
-    List of Dimensions conditions
+    List of Dimensions conditions. Relevant only for rules of the kind LogAlert and LogToMetric.
     """
     failing_periods: NotRequired[pulumi.Input[Optional['ConditionFailingPeriodsArgsDict']]]
     """
@@ -2419,7 +2419,7 @@ class ConditionArgs:
 
         :param pulumi.Input[_builtins.str] alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         :param pulumi.Input[Union[_builtins.str, 'CriterionType']] criterion_type: Specifies the type of threshold criteria
-        :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
+        :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions. Relevant only for rules of the kind LogAlert and LogToMetric.
         :param pulumi.Input['ConditionFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[_builtins.str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         :param pulumi.Input[_builtins.str] metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
@@ -2486,7 +2486,7 @@ class ConditionArgs:
     @pulumi.getter
     def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DimensionArgs']]]]:
         """
-        List of Dimensions conditions
+        List of Dimensions conditions. Relevant only for rules of the kind LogAlert and LogToMetric.
         """
         return pulumi.get(self, "dimensions")
 
@@ -2677,7 +2677,7 @@ class ConditionV1ArgsDict(TypedDict):
     """
     Represents a filtering condition.
     """
-    operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]
+    operator: pulumi.Input[Union[_builtins.str, 'SliConditionOperator']]
     """
     Operator used in the filtering condition.
     """
@@ -2701,7 +2701,7 @@ class ConditionV1ArgsDict(TypedDict):
 @pulumi.input_type
 class ConditionV1Args:
     def __init__(__self__, *,
-                 operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']],
+                 operator: pulumi.Input[Union[_builtins.str, 'SliConditionOperator']],
                  value: pulumi.Input[_builtins.str],
                  dimension_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sampling_type: pulumi.Input[Optional[Union[_builtins.str, 'SamplingType']]] = None,
@@ -2709,7 +2709,7 @@ class ConditionV1Args:
         """
         Represents a filtering condition.
 
-        :param pulumi.Input[Union[_builtins.str, 'ConditionOperator']] operator: Operator used in the filtering condition.
+        :param pulumi.Input[Union[_builtins.str, 'SliConditionOperator']] operator: Operator used in the filtering condition.
         :param pulumi.Input[_builtins.str] value: Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
         :param pulumi.Input[_builtins.str] dimension_name: Dimension name used in filtering.
         :param pulumi.Input[Union[_builtins.str, 'SamplingType']] sampling_type: Defines the sampling type.
@@ -2726,14 +2726,14 @@ class ConditionV1Args:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[Union[_builtins.str, 'ConditionOperator']]:
+    def operator(self) -> pulumi.Input[Union[_builtins.str, 'SliConditionOperator']]:
         """
         Operator used in the filtering condition.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]):
+    def operator(self, value: pulumi.Input[Union[_builtins.str, 'SliConditionOperator']]):
         pulumi.set(self, "operator", value)
 
     @_builtins.property
@@ -5294,6 +5294,59 @@ class IconDefinitionArgs:
         pulumi.set(self, "custom_data", value)
 
 
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: pulumi.Input['IdentityType']
+    """
+    Type of managed service identity.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['IdentityType'],
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Identity for the resource.
+
+        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['IdentityType']:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['IdentityType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
 class IisLogsDataSourceArgsDict(TypedDict):
     """
     Enables IIS logs to be collected by this data collection rule.
@@ -7495,59 +7548,6 @@ class MicrosoftCommonEmailReceiverArgs:
     @use_common_alert_schema.setter
     def use_common_alert_schema(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
-
-
-class MicrosoftCommonIdentityArgsDict(TypedDict):
-    """
-    Identity for the resource.
-    """
-    type: pulumi.Input['IdentityType']
-    """
-    Type of managed service identity.
-    """
-    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-    """
-
-@pulumi.input_type
-class MicrosoftCommonIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input['IdentityType'],
-                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Identity for the resource.
-
-        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['IdentityType']:
-        """
-        Type of managed service identity.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['IdentityType']):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
 
 
 class MicrosoftCommonRetentionPolicyArgsDict(TypedDict):

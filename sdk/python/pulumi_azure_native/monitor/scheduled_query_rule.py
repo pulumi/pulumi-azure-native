@@ -22,23 +22,23 @@ __all__ = ['ScheduledQueryRuleArgs', 'ScheduledQueryRule']
 @pulumi.input_type
 class ScheduledQueryRuleArgs:
     def __init__(__self__, *,
+                 criteria: pulumi.Input['ScheduledQueryRuleCriteriaArgs'],
+                 enabled: pulumi.Input[_builtins.bool],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  actions: pulumi.Input[Optional['ActionsArgs']] = None,
                  auto_mitigate: pulumi.Input[Optional[_builtins.bool]] = None,
                  check_workspace_alerts_storage_configured: pulumi.Input[Optional[_builtins.bool]] = None,
-                 criteria: pulumi.Input[Optional['ScheduledQueryRuleCriteriaArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional['MicrosoftCommonIdentityArgs']] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mute_actions_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  override_query_time_range: pulumi.Input[Optional[_builtins.str]] = None,
                  resolve_configuration: pulumi.Input[Optional['RuleResolveConfigurationArgs']] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  severity: pulumi.Input[Optional[_builtins.float]] = None,
                  skip_query_validation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -47,44 +47,43 @@ class ScheduledQueryRuleArgs:
         """
         The set of arguments for constructing a ScheduledQueryRule resource.
 
+        :param pulumi.Input['ScheduledQueryRuleCriteriaArgs'] criteria: The rule criteria that defines the conditions of the scheduled query rule.
+        :param pulumi.Input[_builtins.bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input['ActionsArgs'] actions: Actions to invoke when the alert fires.
         :param pulumi.Input[_builtins.bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         :param pulumi.Input[_builtins.bool] check_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
-        :param pulumi.Input['ScheduledQueryRuleCriteriaArgs'] criteria: The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[_builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[_builtins.str] display_name: The display name of the alert rule
-        :param pulumi.Input[_builtins.bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[_builtins.str] evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
-        :param pulumi.Input['MicrosoftCommonIdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Indicates the type of scheduled query rule. The default is LogAlert.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[_builtins.str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
         :param pulumi.Input['RuleResolveConfigurationArgs'] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input[_builtins.float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[_builtins.bool] skip_query_validation: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
         :param pulumi.Input[_builtins.str] window_size: The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
         """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scopes", scopes)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if auto_mitigate is not None:
             pulumi.set(__self__, "auto_mitigate", auto_mitigate)
         if check_workspace_alerts_storage_configured is not None:
             pulumi.set(__self__, "check_workspace_alerts_storage_configured", check_workspace_alerts_storage_configured)
-        if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
         if evaluation_frequency is not None:
             pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
         if identity is not None:
@@ -101,8 +100,6 @@ class ScheduledQueryRuleArgs:
             pulumi.set(__self__, "resolve_configuration", resolve_configuration)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
-        if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
         if skip_query_validation is not None:
@@ -115,6 +112,30 @@ class ScheduledQueryRuleArgs:
             pulumi.set(__self__, "window_size", window_size)
 
     @_builtins.property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input['ScheduledQueryRuleCriteriaArgs']:
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input['ScheduledQueryRuleCriteriaArgs']):
+        pulumi.set(self, "criteria", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -125,6 +146,18 @@ class ScheduledQueryRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of resource id's that this scheduled query rule is scoped to.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
@@ -164,18 +197,6 @@ class ScheduledQueryRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input[Optional['ScheduledQueryRuleCriteriaArgs']]:
-        """
-        The rule criteria that defines the conditions of the scheduled query rule.
-        """
-        return pulumi.get(self, "criteria")
-
-    @criteria.setter
-    def criteria(self, value: pulumi.Input[Optional['ScheduledQueryRuleCriteriaArgs']]):
-        pulumi.set(self, "criteria", value)
-
-    @_builtins.property
-    @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the scheduled query rule.
@@ -199,18 +220,6 @@ class ScheduledQueryRuleArgs:
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
     def evaluation_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -224,14 +233,14 @@ class ScheduledQueryRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['MicrosoftCommonIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['MicrosoftCommonIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
@@ -308,18 +317,6 @@ class ScheduledQueryRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of resource id's that this scheduled query rule is scoped to.
-        """
-        return pulumi.get(self, "scopes")
-
-    @scopes.setter
-    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "scopes", value)
-
-    @_builtins.property
-    @pulumi.getter
     def severity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
@@ -393,7 +390,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['MicrosoftCommonIdentityArgs', 'MicrosoftCommonIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mute_actions_duration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -411,9 +408,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
         """
         The scheduled query rule resource.
 
-        Uses Azure REST API version 2025-01-01-preview.
+        Uses Azure REST API version 2026-03-01.
 
-        Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -425,7 +422,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The display name of the alert rule
         :param pulumi.Input[_builtins.bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[_builtins.str] evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
-        :param pulumi.Input[Union['MicrosoftCommonIdentityArgs', 'MicrosoftCommonIdentityArgsDict']] identity: The identity of the resource.
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Indicates the type of scheduled query rule. The default is LogAlert.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
@@ -449,9 +446,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
         """
         The scheduled query rule resource.
 
-        Uses Azure REST API version 2025-01-01-preview.
+        Uses Azure REST API version 2026-03-01.
 
-        Other available API versions: 2023-12-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryRuleArgs args: The arguments to use to populate this resource's properties.
@@ -476,7 +473,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['MicrosoftCommonIdentityArgs', 'MicrosoftCommonIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mute_actions_duration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -502,9 +499,13 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__.__dict__["actions"] = actions
             __props__.__dict__["auto_mitigate"] = auto_mitigate
             __props__.__dict__["check_workspace_alerts_storage_configured"] = check_workspace_alerts_storage_configured
+            if criteria is None and not opts.urn:
+                raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            if enabled is None and not opts.urn:
+                raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["evaluation_frequency"] = evaluation_frequency
             __props__.__dict__["identity"] = identity
@@ -517,6 +518,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_name"] = rule_name
+            if scopes is None and not opts.urn:
+                raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["severity"] = severity
             __props__.__dict__["skip_query_validation"] = skip_query_validation
@@ -627,7 +630,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output[Optional['outputs.ScheduledQueryRuleCriteriaResponse']]:
+    def criteria(self) -> pulumi.Output['outputs.ScheduledQueryRuleCriteriaResponse']:
         """
         The rule criteria that defines the conditions of the scheduled query rule.
         """
@@ -651,7 +654,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
@@ -661,7 +664,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -747,7 +750,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    def scopes(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         The list of resource id's that this scheduled query rule is scoped to.
         """
@@ -773,7 +776,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        SystemData of ScheduledQueryRule.
         """
         return pulumi.get(self, "system_data")
 

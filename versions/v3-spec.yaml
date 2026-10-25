@@ -1248,7 +1248,7 @@ Monitor:
         PrivateLinkScope: 2023-06-01-preview
         PrivateLinkScopedResource: 2023-06-01-preview
         Relationship: 2025-05-03-preview
-        ScheduledQueryRule: 2025-01-01-preview
+        ScheduledQueryRule: "2026-03-01"
         SignalDefinition: 2025-05-03-preview
         Sli: 2025-03-01-preview
         SubscriptionDiagnosticSetting: 2021-05-01-preview

@@ -47,8 +47,8 @@ __all__ = [
     'CacheConfigurationResponse',
     'ColumnDefinitionResponse',
     'ConcurrencyConfigurationResponse',
-    'ConditionFailingPeriodsResponse',
     'ConditionResponse',
+    'ConditionResponseFailingPeriods',
     'ConditionSliResponse',
     'DataCollectionEndpointResourceResponseIdentity',
     'DataCollectionEndpointResourceResponseSystemData',
@@ -2237,65 +2237,6 @@ class ConcurrencyConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class ConditionFailingPeriodsResponse(dict):
-    """
-    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "minFailingPeriodsToAlert":
-            suggest = "min_failing_periods_to_alert"
-        elif key == "numberOfEvaluationPeriods":
-            suggest = "number_of_evaluation_periods"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConditionFailingPeriodsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConditionFailingPeriodsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConditionFailingPeriodsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 min_failing_periods_to_alert: Optional[_builtins.float] = None,
-                 number_of_evaluation_periods: Optional[_builtins.float] = None):
-        """
-        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-
-        :param _builtins.float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        :param _builtins.float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-        """
-        if min_failing_periods_to_alert is None:
-            min_failing_periods_to_alert = 1
-        if min_failing_periods_to_alert is not None:
-            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
-        if number_of_evaluation_periods is None:
-            number_of_evaluation_periods = 1
-        if number_of_evaluation_periods is not None:
-            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
-
-    @_builtins.property
-    @pulumi.getter(name="minFailingPeriodsToAlert")
-    def min_failing_periods_to_alert(self) -> Optional[_builtins.float]:
-        """
-        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        """
-        return pulumi.get(self, "min_failing_periods_to_alert")
-
-    @_builtins.property
-    @pulumi.getter(name="numberOfEvaluationPeriods")
-    def number_of_evaluation_periods(self) -> Optional[_builtins.float]:
-        """
-        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-        """
-        return pulumi.get(self, "number_of_evaluation_periods")
-
-
-@pulumi.output_type
 class ConditionResponse(dict):
     """
     A condition of the scheduled query rule.
@@ -2337,7 +2278,7 @@ class ConditionResponse(dict):
                  alert_sensitivity: Optional[_builtins.str] = None,
                  criterion_type: Optional[_builtins.str] = None,
                  dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
-                 failing_periods: Optional['outputs.ConditionFailingPeriodsResponse'] = None,
+                 failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
                  ignore_data_before: Optional[_builtins.str] = None,
                  metric_measure_column: Optional[_builtins.str] = None,
                  metric_name: Optional[_builtins.str] = None,
@@ -2352,8 +2293,8 @@ class ConditionResponse(dict):
 
         :param _builtins.str alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         :param _builtins.str criterion_type: Specifies the type of threshold criteria
-        :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
-        :param 'ConditionFailingPeriodsResponse' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions. Relevant only for rules of the kind LogAlert and LogToMetric.
+        :param 'ConditionResponseFailingPeriods' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         :param _builtins.str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         :param _builtins.str metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         :param _builtins.str metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
@@ -2411,13 +2352,13 @@ class ConditionResponse(dict):
     @pulumi.getter
     def dimensions(self) -> Optional[Sequence['outputs.DimensionResponse']]:
         """
-        List of Dimensions conditions
+        List of Dimensions conditions. Relevant only for rules of the kind LogAlert and LogToMetric.
         """
         return pulumi.get(self, "dimensions")
 
     @_builtins.property
     @pulumi.getter(name="failingPeriods")
-    def failing_periods(self) -> Optional['outputs.ConditionFailingPeriodsResponse']:
+    def failing_periods(self) -> Optional['outputs.ConditionResponseFailingPeriods']:
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         """
@@ -2494,6 +2435,65 @@ class ConditionResponse(dict):
         Aggregation type. Relevant and required only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "time_aggregation")
+
+
+@pulumi.output_type
+class ConditionResponseFailingPeriods(dict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minFailingPeriodsToAlert":
+            suggest = "min_failing_periods_to_alert"
+        elif key == "numberOfEvaluationPeriods":
+            suggest = "number_of_evaluation_periods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConditionResponseFailingPeriods. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConditionResponseFailingPeriods.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConditionResponseFailingPeriods.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[_builtins.float] = None,
+                 number_of_evaluation_periods: Optional[_builtins.float] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+
+        :param _builtins.float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param _builtins.float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is None:
+            min_failing_periods_to_alert = 1
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is None:
+            number_of_evaluation_periods = 1
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @_builtins.property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[_builtins.float]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[_builtins.float]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
 
 
 @pulumi.output_type
@@ -12062,7 +12062,7 @@ class UserAssignedIdentityResponse(dict):
 @pulumi.output_type
 class UserIdentityPropertiesResponse(dict):
     """
-    Properties of the user assigned identity.
+    User assigned identity properties.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -12087,10 +12087,10 @@ class UserIdentityPropertiesResponse(dict):
                  client_id: _builtins.str,
                  principal_id: _builtins.str):
         """
-        Properties of the user assigned identity.
+        User assigned identity properties.
 
-        :param _builtins.str client_id: The client ID of resource identity.
-        :param _builtins.str principal_id: The principal ID of resource identity.
+        :param _builtins.str client_id: The client id of user assigned identity.
+        :param _builtins.str principal_id: The principal id of user assigned identity.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -12099,7 +12099,7 @@ class UserIdentityPropertiesResponse(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> _builtins.str:
         """
-        The client ID of resource identity.
+        The client id of user assigned identity.
         """
         return pulumi.get(self, "client_id")
 
@@ -12107,7 +12107,7 @@ class UserIdentityPropertiesResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
         """
-        The principal ID of resource identity.
+        The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
 
