@@ -45,7 +45,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:1.21.3")
+    implementation("com.pulumi:pulumi:1.37.4")
 }
 
 task sourcesJar(type: Jar) {
@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-azure-native"
                 packaging = "jar"
-                description = "A native Pulumi package for creating and managing Azure resources."
+                description = $/A native Pulumi package for creating and managing Azure resources./$
 
                 url = "https://github.com/pulumi/pulumi-azure-native"
 

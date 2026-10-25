@@ -184,7 +184,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 				},
 			},
 		},
-		Provider: pschema.ResourceSpec{
+		Provider: &pschema.ResourceSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
 				Description: "The provider type for the native Azure package.",
 				Type:        "object",
