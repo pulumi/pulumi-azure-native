@@ -10,7 +10,7 @@ require (
 	github.com/pulumi/pulumi-azure-native-sdk/managedidentity/v3 v3.29.0
 	github.com/pulumi/pulumi-azure-native-sdk/network/v3 v3.29.0
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.29.0
-	github.com/pulumi/pulumi-command/sdk v1.2.1
+	github.com/pulumi/pulumi-command/sdk v1.3.0
 	github.com/pulumi/pulumi-tls/sdk/v5 v5.6.2
 	github.com/pulumi/pulumi/sdk/v3 v3.224.0
 )
