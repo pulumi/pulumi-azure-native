@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure-native/v2/provider
 
-go 1.26.6
+go 1.26.10
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.22.0
@@ -18,7 +18,7 @@ require (
 	github.com/deckarep/golang-set/v2 v2.9.0
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813
 	github.com/gkampitakis/go-snaps v0.4.10
-	github.com/go-openapi/jsonreference v1.0.2
+	github.com/go-openapi/jsonreference v1.0.3
 	github.com/go-openapi/spec v1.0.1
 	github.com/go-openapi/swag v0.29.2
 	github.com/golang-jwt/jwt v3.2.1+incompatible
@@ -31,17 +31,17 @@ require (
 	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.7.0
-	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.114.2
-	github.com/pulumi/pulumi-java v1.37.4
-	github.com/pulumi/pulumi-yaml v1.38.10
-	github.com/pulumi/pulumi/pkg/v3 v3.269.0
-	github.com/pulumi/pulumi/sdk/v3 v3.269.0
+	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.116.2
+	github.com/pulumi/pulumi-java v1.38.0
+	github.com/pulumi/pulumi-yaml v1.38.15
+	github.com/pulumi/pulumi/pkg/v3 v3.273.0
+	github.com/pulumi/pulumi/sdk/v3 v3.273.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.6
 	github.com/stretchr/testify v1.12.1
 	github.com/zclconf/go-cty v1.18.1
 	golang.org/x/exp v0.0.0-20261014143641-f0251eb4aa3e
-	google.golang.org/grpc v1.84.0
+	google.golang.org/grpc v1.85.0
 	google.golang.org/protobuf v1.36.12
 	gopkg.in/yaml.v3 v3.0.1
 	pgregory.net/rapid v1.3.0
@@ -79,7 +79,7 @@ require (
 	github.com/go-git/gcfg/v2 v2.0.2 // indirect
 	github.com/go-git/go-billy/v6 v6.0.0-beta.1 // indirect
 	github.com/go-git/go-git/v6 v6.0.0-beta.1 // indirect
-	github.com/go-jose/go-jose/v4 v4.1.4 // indirect
+	github.com/go-jose/go-jose/v4 v4.1.6 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-openapi/swag/cmdutils v0.29.2 // indirect
@@ -98,7 +98,7 @@ require (
 	github.com/golang/glog v1.2.5 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/go-tpm v0.9.8 // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.32.0 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.33.0 // indirect
 	github.com/hashicorp/go-cty v1.5.0 // indirect
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
@@ -138,7 +138,7 @@ require (
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
-	github.com/pulumi/pulumi-cloud-sdk/go v1.20261015.0 // indirect
+	github.com/pulumi/pulumi-cloud-sdk/go v1.20261030.1400 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.138.0 // indirect
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/std-uritemplate/std-uritemplate/go/v2 v2.0.3 // indirect
@@ -154,8 +154,8 @@ require (
 	github.com/zclconf/go-cty-yaml v1.2.0 // indirect
 	go.mongodb.org/mongo-driver v1.17.10 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
-	go.opentelemetry.io/collector/featuregate v1.69.0 // indirect
-	go.opentelemetry.io/collector/pdata v1.69.0 // indirect
+	go.opentelemetry.io/collector/featuregate v1.70.0 // indirect
+	go.opentelemetry.io/collector/pdata v1.70.0 // indirect
 	go.opentelemetry.io/contrib/bridges/otelslog v0.21.0 // indirect
 	go.opentelemetry.io/otel v1.47.0 // indirect
 	go.opentelemetry.io/otel/bridge/opentracing v1.47.0 // indirect
@@ -171,8 +171,8 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20261012220534-4341edf3f941 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20261012220534-4341edf3f941 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20261026165753-2ffab32bce7e // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20261026165753-2ffab32bce7e // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 )
 
@@ -184,7 +184,7 @@ require (
 	github.com/djherbis/times v1.6.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
-	github.com/go-openapi/jsonpointer v1.0.1 // indirect
+	github.com/go-openapi/jsonpointer v1.0.2 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
@@ -203,7 +203,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
 	github.com/pkg/term v1.1.0 // indirect
-	github.com/pulumi/pulumi-hcl v0.18.6
+	github.com/pulumi/pulumi-hcl v0.19.0
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -219,7 +219,7 @@ require (
 	go.uber.org/atomic v1.12.0 // indirect
 	golang.org/x/crypto v0.58.0 // indirect
 	golang.org/x/mod v0.42.0 // indirect
-	golang.org/x/net v0.61.0 // indirect
+	golang.org/x/net v0.62.0 // indirect
 	golang.org/x/sync v0.24.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 	golang.org/x/term v0.47.0 // indirect
