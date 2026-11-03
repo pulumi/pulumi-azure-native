@@ -44,7 +44,7 @@ type AzureRESTConverter interface {
 // See AzureRESTConverter for creating proper inputs and converting outputs.
 // It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
 type ResourceCrudOperations interface {
-	CanCreate(ctx context.Context, id string) error
+	CanCreate(ctx context.Context, id string, inputs resource.PropertyMap) error
 	CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error)
 	// `overrideApiVersion` is (rarely) used for generic resources like resources:Resource where the API version is
 	// specified by the user and passed on to another Azure service. Leaving it empty means use the API version from
@@ -56,7 +56,7 @@ type ResourceCrudOperations interface {
 // SubresourceMaintainer is an interface for handling sub-resource properties.
 // It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
 type SubresourceMaintainer interface {
-	MaintainSubResourcePropertiesIfNotSet(ctx context.Context, id string, bodyParams map[string]any) error
+	MaintainSubResourcePropertiesIfNotSet(ctx context.Context, id string, bodyParams map[string]any, inputs resource.PropertyMap) error
 	// Properties pointing to sub-resources that can be maintained as separate resources might not be
 	// present in the inputs because the user wants to manage them as standalone resources. However,
 	// such a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
@@ -130,17 +130,19 @@ func (r *resourceCrudClient) ApiVersionIsUserInput() bool {
 	return r.res.ApiVersionIsUserInput
 }
 
-func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
-	apiVersion := r.res.APIVersion
+func (r *resourceCrudClient) apiVersion(inputs resource.PropertyMap) string {
 	if r.ApiVersionIsUserInput() {
 		if apiVersionInput, ok := inputs["apiVersion"]; ok {
-			apiVersion = apiVersionInput.StringValue()
+			return apiVersionInput.StringValue()
 		}
 	}
+	return r.res.APIVersion
+}
 
+func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
 	return PrepareAzureRESTIdAndQuery(r.res.Path, r.res.PutParameters, inputs.Mappable(), map[string]any{
 		"subscriptionId": r.subscriptionID,
-		"api-version":    apiVersion,
+		"api-version":    r.apiVersion(inputs),
 	})
 }
 
@@ -298,7 +300,7 @@ func (r *resourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (r *resourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResponse, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion, r.res.ReadQueryParams)
+	getResponse, getErr := r.azureClient.Get(ctx, id, r.apiVersion(inputs), r.res.ReadQueryParams)
 	if getErr != nil {
 		return nil, getErr
 	}
@@ -325,7 +327,7 @@ func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{
 	return object
 }
 
-func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.Context, id string, bodyParams map[string]interface{}) error {
+func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.Context, id string, bodyParams map[string]interface{}, inputs resource.PropertyMap) error {
 	// Identify the properties we need to read
 	missingProperties := findUnsetPropertiesToMaintain(r.res, bodyParams, true /* returnApiShapePaths */, r.lookupType)
 
@@ -335,7 +337,7 @@ func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 	}
 
 	// Read the current resource state.
-	state, err := r.azureClient.Get(ctx, id+r.res.ReadPath, r.res.APIVersion, r.res.ReadQueryParams)
+	state, err := r.azureClient.Get(ctx, id+r.res.ReadPath, r.apiVersion(inputs), r.res.ReadQueryParams)
 	if err != nil {
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
@@ -417,7 +419,7 @@ func (r *resourceCrudClient) SdkInputsToRequestBody(properties map[string]any, i
 	return nil, nil
 }
 
-func (r *resourceCrudClient) CanCreate(ctx context.Context, id string) error {
+func (r *resourceCrudClient) CanCreate(ctx context.Context, id string, inputs resource.PropertyMap) error {
 	if r.res.Singleton {
 		// Singleton resources have no DELETE operation and always exist once their parent
 		// does, so the existence check is unnecessary. Skipping it also avoids spurious
@@ -425,7 +427,7 @@ func (r *resourceCrudClient) CanCreate(ctx context.Context, id string) error {
 		// still propagating for a just-recreated parent. See issue #4738.
 		return nil
 	}
-	return r.azureClient.CanCreate(ctx, id, r.res.ReadPath, r.res.APIVersion, r.res.ReadMethod, r.res.Singleton, r.res.DefaultBody != nil, func(outputs map[string]any) bool {
+	return r.azureClient.CanCreate(ctx, id, r.res.ReadPath, r.apiVersion(inputs), r.res.ReadMethod, r.res.Singleton, r.res.DefaultBody != nil, func(outputs map[string]any) bool {
 		return r.converter.IsDefaultResponse(r.res.PutParameters, outputs, r.res.DefaultBody)
 	})
 }

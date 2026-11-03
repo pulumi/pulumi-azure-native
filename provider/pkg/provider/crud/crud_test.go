@@ -279,7 +279,7 @@ func TestCanCreateSkipsNetworkCallForSingleton(t *testing.T) {
 	require.NoError(t, err)
 
 	crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
-	err = crudClient.CanCreate(context.Background(), "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/sa/fileServices/default")
+	err = crudClient.CanCreate(context.Background(), "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/sa/fileServices/default", nil)
 
 	assert.NoError(t, err)
 	assert.False(t, called, "CanCreate should not make a network call for singleton resources")
@@ -496,4 +496,76 @@ func TestHandleErrorWithCheckpoint_OtherReadError(t *testing.T) {
 	require.Error(t, err)
 	assert.Contains(t, err.Error(), "read failed")
 	assert.Contains(t, err.Error(), "original creation error")
+}
+
+func TestUserInputApiVersionUsedForAllRequests(t *testing.T) {
+	const resourceId = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Example/widgets/widget"
+	inputs := resource.PropertyMap{
+		"apiVersion": resource.NewStringProperty("2099-01-01-preview"),
+	}
+	genericResource := resources.AzureAPIResource{
+		APIVersion:            "2024-03-01",
+		ApiVersionIsUserInput: true,
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"subResource": {
+							Type:                       "string",
+							MaintainSubResourceIfUnset: true,
+						},
+					},
+				},
+			},
+		},
+	}
+	var dummyLookupType resources.TypeLookupFunc = func(ref string) (*resources.AzureAPIType, bool, error) {
+		return nil, false, nil
+	}
+
+	t.Run("CanCreate", func(t *testing.T) {
+		var apiVersions []string
+		client, err := azure.CreateTestClient(t, func(t *testing.T, req *http.Request) {
+			apiVersions = append(apiVersions, req.URL.Query().Get("api-version"))
+		})
+		require.NoError(t, err)
+
+		crudClient := NewResourceCrudClient(client, nil, nil, "123", &genericResource)
+		_ = crudClient.CanCreate(context.Background(), resourceId, inputs)
+
+		assert.Equal(t, []string{"2099-01-01-preview"}, apiVersions)
+	})
+
+	t.Run("HandleErrorWithCheckpoint", func(t *testing.T) {
+		client := &azure.MockAzureClient{GetResponseErr: errors.New("read failed")}
+
+		crudClient := NewResourceCrudClient(client, nil, nil, "123", &genericResource)
+		_ = crudClient.HandleErrorWithCheckpoint(context.Background(), errors.New("create failed"), resourceId, inputs, nil)
+
+		assert.Equal(t, []string{"2099-01-01-preview"}, client.GetApiVersions)
+	})
+
+	t.Run("MaintainSubResourcePropertiesIfNotSet", func(t *testing.T) {
+		client := &azure.MockAzureClient{GetResponseErr: errors.New("read failed")}
+
+		crudClient := NewResourceCrudClient(client, dummyLookupType, nil, "123", &genericResource)
+		_ = crudClient.MaintainSubResourcePropertiesIfNotSet(context.Background(), resourceId, map[string]any{}, inputs)
+
+		assert.Equal(t, []string{"2099-01-01-preview"}, client.GetApiVersions)
+	})
+
+	t.Run("metadata API version when not a user input", func(t *testing.T) {
+		var apiVersions []string
+		client, err := azure.CreateTestClient(t, func(t *testing.T, req *http.Request) {
+			apiVersions = append(apiVersions, req.URL.Query().Get("api-version"))
+		})
+		require.NoError(t, err)
+
+		typedResource := resources.AzureAPIResource{APIVersion: "2099-02-01"}
+		crudClient := NewResourceCrudClient(client, nil, nil, "123", &typedResource)
+		_ = crudClient.CanCreate(context.Background(), resourceId, inputs)
+
+		assert.Equal(t, []string{"2099-02-01"}, apiVersions)
+	})
 }
