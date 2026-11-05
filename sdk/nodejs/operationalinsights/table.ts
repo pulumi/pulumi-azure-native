@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Workspace data table definition.
  *
- * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+ * Uses Azure REST API version 2026-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  *
- * Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -42,7 +42,7 @@ export class Table extends pulumi.CustomResource {
     }
 
     /**
-     * The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
+     * The tables long-term retention in days. Calculated as (totalRetentionInDays-retentionInDays).
      */
     declare public /*out*/ readonly archiveRetentionInDays: pulumi.Output<number>;
     /**
@@ -62,6 +62,10 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly plan: pulumi.Output<string | undefined>;
     /**
+     * The protection level of the table. Determines the default data access isolation behavior.
+     */
+    declare public readonly protectionLevel: pulumi.Output<string | undefined>;
+    /**
      * Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
@@ -74,7 +78,7 @@ export class Table extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resultStatistics: pulumi.Output<outputs.operationalinsights.ResultStatisticsResponse>;
     /**
-     * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+     * In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
      */
     declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
@@ -90,11 +94,11 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly searchResults: pulumi.Output<outputs.operationalinsights.SearchResultsResponse | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
     /**
-     * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+     * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
      */
     declare public readonly totalRetentionInDays: pulumi.Output<number | undefined>;
     /**
@@ -124,6 +128,7 @@ export class Table extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["plan"] = args?.plan;
+            resourceInputs["protectionLevel"] = args?.protectionLevel;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["restoredLogs"] = args?.restoredLogs;
             resourceInputs["retentionInDays"] = args?.retentionInDays;
@@ -148,6 +153,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["lastPlanModifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["protectionLevel"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["restoredLogs"] = undefined /*out*/;
             resourceInputs["resultStatistics"] = undefined /*out*/;
@@ -161,7 +167,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20211201preview:Table" }, { type: "azure-native:operationalinsights/v20221001:Table" }, { type: "azure-native:operationalinsights/v20230901:Table" }, { type: "azure-native:operationalinsights/v20250201:Table" }, { type: "azure-native:operationalinsights/v20250701:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20211201preview:Table" }, { type: "azure-native:operationalinsights/v20221001:Table" }, { type: "azure-native:operationalinsights/v20230901:Table" }, { type: "azure-native:operationalinsights/v20250201:Table" }, { type: "azure-native:operationalinsights/v20250701:Table" }, { type: "azure-native:operationalinsights/v20260301:Table" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }
@@ -176,6 +182,10 @@ export interface TableArgs {
      */
     plan?: pulumi.Input<string | enums.operationalinsights.TablePlanEnum | undefined>;
     /**
+     * The protection level of the table. Determines the default data access isolation behavior.
+     */
+    protectionLevel?: pulumi.Input<string | enums.operationalinsights.TableProtectionLevelEnum | undefined>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -184,7 +194,7 @@ export interface TableArgs {
      */
     restoredLogs?: pulumi.Input<inputs.operationalinsights.RestoredLogsArgs | undefined>;
     /**
-     * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+     * In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
      */
     retentionInDays?: pulumi.Input<number | undefined>;
     /**
@@ -200,7 +210,7 @@ export interface TableArgs {
      */
     tableName?: pulumi.Input<string | undefined>;
     /**
-     * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+     * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
      */
     totalRetentionInDays?: pulumi.Input<number | undefined>;
     /**

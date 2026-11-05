@@ -52344,6 +52344,50 @@
         "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/listCredentials",
         "RpNamespace": "Microsoft.ContainerService"
       }
+    },
+    "2026-08-02-preview": {
+      "AIManager": {
+        "ApiVersion": "2026-08-02-preview",
+        "SpecFilePath": "specification/containerservice/resource-manager/Microsoft.ContainerService/aimanager/preview/2026-08-02-preview/aimanagers.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/aiManagers/{aiManagerName}",
+        "RpNamespace": "Microsoft.ContainerService"
+      },
+      "AIManagerNamespace": {
+        "ApiVersion": "2026-08-02-preview",
+        "SpecFilePath": "specification/containerservice/resource-manager/Microsoft.ContainerService/aimanager/preview/2026-08-02-preview/aimanagers.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/aiManagers/{aiManagerName}/namespaces/{namespaceName}",
+        "RpNamespace": "Microsoft.ContainerService"
+      },
+      "ModelDeployment": {
+        "ApiVersion": "2026-08-02-preview",
+        "SpecFilePath": "specification/containerservice/resource-manager/Microsoft.ContainerService/aimanager/preview/2026-08-02-preview/aimanagers.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/aiManagers/{aiManagerName}/namespaces/{namespaceName}/modelDeployments/{modelDeploymentName}",
+        "RpNamespace": "Microsoft.ContainerService"
+      },
+      "ModelSource": {
+        "ApiVersion": "2026-08-02-preview",
+        "SpecFilePath": "specification/containerservice/resource-manager/Microsoft.ContainerService/aimanager/preview/2026-08-02-preview/aimanagers.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/aiManagers/{aiManagerName}/modelSources/{modelSourceName}",
+        "RpNamespace": "Microsoft.ContainerService"
+      },
+      "listAIManagerCredential": {
+        "ApiVersion": "2026-08-02-preview",
+        "SpecFilePath": "specification/containerservice/resource-manager/Microsoft.ContainerService/aimanager/preview/2026-08-02-preview/aimanagers.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/aiManagers/{aiManagerName}/listCredential",
+        "RpNamespace": "Microsoft.ContainerService"
+      },
+      "listAIManagerNamespaceAccessKeys": {
+        "ApiVersion": "2026-08-02-preview",
+        "SpecFilePath": "specification/containerservice/resource-manager/Microsoft.ContainerService/aimanager/preview/2026-08-02-preview/aimanagers.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/aiManagers/{aiManagerName}/namespaces/{namespaceName}/listAccessKeys",
+        "RpNamespace": "Microsoft.ContainerService"
+      },
+      "listAIManagerNamespaceCredential": {
+        "ApiVersion": "2026-08-02-preview",
+        "SpecFilePath": "specification/containerservice/resource-manager/Microsoft.ContainerService/aimanager/preview/2026-08-02-preview/aimanagers.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/aiManagers/{aiManagerName}/namespaces/{namespaceName}/listCredential",
+        "RpNamespace": "Microsoft.ContainerService"
+      }
     }
   },
   "ContainerStorage": {
@@ -141666,6 +141710,86 @@
       "getSharedKeys": {
         "ApiVersion": "2025-07-01",
         "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2025-07-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/sharedKeys",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      }
+    },
+    "2026-03-01": {
+      "Cluster": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/clusters/{clusterName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "DataExport": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/dataExports/{dataExportName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "DataSource": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/dataSources/{dataSourceName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "LinkedService": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "LinkedStorageAccount": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "Query": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}/queries/{id}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "QueryPack": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "SavedSearch": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/savedSearches/{savedSearchId}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "StorageInsightConfig": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/storageInsightConfigs/{storageInsightName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "SummaryLog": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/summaryLogs/{summaryLogsName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "Table": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "Workspace": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
+        "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}",
+        "RpNamespace": "Microsoft.OperationalInsights"
+      },
+      "getSharedKeys": {
+        "ApiVersion": "2026-03-01",
+        "SpecFilePath": "specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json",
         "ResourceUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/sharedKeys",
         "RpNamespace": "Microsoft.OperationalInsights"
       }

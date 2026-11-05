@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics workspace table.
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2026-03-01.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics workspace table.
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2026-03-01.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a Log Analytics workspace table.
         /// 
-        /// Uses Azure REST API version 2023-09-01.
+        /// Uses Azure REST API version 2026-03-01.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class GetTableResult
     {
         /// <summary>
-        /// The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
+        /// The tables long-term retention in days. Calculated as (totalRetentionInDays-retentionInDays).
         /// </summary>
         public readonly int ArchiveRetentionInDays;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -124,6 +124,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string? Plan;
         /// <summary>
+        /// The protection level of the table. Determines the default data access isolation behavior.
+        /// </summary>
+        public readonly string? ProtectionLevel;
+        /// <summary>
         /// Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
         /// </summary>
         public readonly string ProvisioningState;
@@ -136,7 +140,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly Outputs.ResultStatisticsResponse ResultStatistics;
         /// <summary>
-        /// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        /// In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         /// </summary>
         public readonly int? RetentionInDays;
         /// <summary>
@@ -152,11 +156,11 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly Outputs.SearchResultsResponse? SearchResults;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         /// </summary>
         public readonly int? TotalRetentionInDays;
         /// <summary>
@@ -181,6 +185,8 @@ namespace Pulumi.AzureNative.OperationalInsights
             string name,
 
             string? plan,
+
+            string? protectionLevel,
 
             string provisioningState,
 
@@ -210,6 +216,7 @@ namespace Pulumi.AzureNative.OperationalInsights
             LastPlanModifiedDate = lastPlanModifiedDate;
             Name = name;
             Plan = plan;
+            ProtectionLevel = protectionLevel;
             ProvisioningState = provisioningState;
             RestoredLogs = restoredLogs;
             ResultStatistics = resultStatistics;

@@ -118,7 +118,7 @@ class ColumnArgsDict(TypedDict):
     """
     display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Column display name.
+    Column display name. Can be set at creation time; after creation, updates must either match column name or set to null/empty. If not provided, defaults to column name.
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -142,7 +142,7 @@ class ColumnArgs:
 
         :param pulumi.Input[Union[_builtins.str, 'ColumnDataTypeHintEnum']] data_type_hint: Column data type logical hint.
         :param pulumi.Input[_builtins.str] description: Column description.
-        :param pulumi.Input[_builtins.str] display_name: Column display name.
+        :param pulumi.Input[_builtins.str] display_name: Column display name. Can be set at creation time; after creation, updates must either match column name or set to null/empty. If not provided, defaults to column name.
         :param pulumi.Input[_builtins.str] name: Column name.
         :param pulumi.Input[Union[_builtins.str, 'ColumnTypeEnum']] type: Column data type.
         """
@@ -185,7 +185,7 @@ class ColumnArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Column display name.
+        Column display name. Can be set at creation time; after creation, updates must either match column name or set to null/empty. If not provided, defaults to column name.
         """
         return pulumi.get(self, "display_name")
 

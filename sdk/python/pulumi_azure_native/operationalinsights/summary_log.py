@@ -157,6 +157,8 @@ class SummaryLog(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
+        Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Summary rule.
@@ -177,6 +179,8 @@ class SummaryLog(pulumi.CustomResource):
         Workspace data summary rules definition.
 
         Uses Azure REST API version 2025-07-01.
+
+        Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SummaryLogArgs args: The arguments to use to populate this resource's properties.
@@ -227,7 +231,7 @@ class SummaryLog(pulumi.CustomResource):
             __props__.__dict__["status_code"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20250701:SummaryLog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20250701:SummaryLog"), pulumi.Alias(type_="azure-native:operationalinsights/v20260301:SummaryLog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SummaryLog, __self__).__init__(
             'azure-native:operationalinsights:SummaryLog',

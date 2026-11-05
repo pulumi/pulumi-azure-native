@@ -10741,8 +10741,8 @@ OperationalInsights:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/summaryLogs/{summaryLogsName}
         RpNamespace: Microsoft.OperationalInsights
     Table:
-        ApiVersion: "2023-09-01"
-        SpecFilePath: specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2023-09-01/Tables.json
+        ApiVersion: "2026-03-01"
+        SpecFilePath: specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2026-03-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}
         RpNamespace: Microsoft.OperationalInsights
     Workspace:

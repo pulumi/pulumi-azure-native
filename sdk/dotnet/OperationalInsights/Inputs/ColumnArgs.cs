@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Column display name.
+        /// Column display name. Can be set at creation time; after creation, updates must either match column name or set to null/empty. If not provided, defaults to column name.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

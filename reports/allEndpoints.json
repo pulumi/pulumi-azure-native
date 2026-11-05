@@ -73405,7 +73405,8 @@
           "POST"
         ],
         "PostOperations": [
-          "purge"
+          "purge",
+          "purgeLakeData"
         ]
       },
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/operations/{purgeId}": {
