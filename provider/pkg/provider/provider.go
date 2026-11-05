@@ -1432,7 +1432,7 @@ func customCreate(ctx context.Context, inputs resource.PropertyMap, id string, c
 	} else if customRes.Read != nil {
 		_, exists, err = customRes.Read(ctx, id, inputs)
 	} else {
-		err = crudClient.CanCreate(ctx, id)
+		err = crudClient.CanCreate(ctx, id, inputs)
 		exists = err != nil
 	}
 	if err != nil {
@@ -1463,7 +1463,7 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	err = crudClient.CanCreate(ctx, id)
+	err = crudClient.CanCreate(ctx, id, inputs)
 	if err != nil {
 		return id, nil, err
 	}
@@ -1978,7 +1978,7 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 	ctx, cancel := azureContext(ctx, req.Timeout)
 	defer cancel()
 
-	err = crudClient.MaintainSubResourcePropertiesIfNotSet(ctx, id, bodyParams)
+	err = crudClient.MaintainSubResourcePropertiesIfNotSet(ctx, id, bodyParams, inputs)
 	if err != nil {
 		return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
 	}
