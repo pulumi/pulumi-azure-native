@@ -191,6 +191,8 @@ def get_summary_log(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-07-01.
 
+    Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str summary_logs_name: The name of the summary logs. Must not contain '/'.
     :param _builtins.str workspace_name: The name of the workspace.
@@ -223,6 +225,8 @@ def get_summary_log_output(resource_group_name: pulumi.Input[Optional[_builtins.
     Gets Log Analytics workspace Summary rules.
 
     Uses Azure REST API version 2025-07-01.
+
+    Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str summary_logs_name: The name of the summary logs. Must not contain '/'.

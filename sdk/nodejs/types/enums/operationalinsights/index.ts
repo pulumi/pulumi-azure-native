@@ -38,6 +38,10 @@ export const ColumnDataTypeHintEnum = {
      * A standard V4/V6 ip address following the standard shape, x.x.x.x/y:y:y:y:y:y:y:y
      */
     Ip: "ip",
+    /**
+     * A vector of single-precision floating-point values used for semantic / similarity search.
+     */
+    Vector16: "vector16",
 } as const;
 
 /**
@@ -46,13 +50,37 @@ export const ColumnDataTypeHintEnum = {
 export type ColumnDataTypeHintEnum = (typeof ColumnDataTypeHintEnum)[keyof typeof ColumnDataTypeHintEnum];
 
 export const ColumnTypeEnum = {
+    /**
+     * string
+     */
     String: "string",
+    /**
+     * int
+     */
     Int: "int",
+    /**
+     * long
+     */
     Long: "long",
+    /**
+     * real
+     */
     Real: "real",
+    /**
+     * boolean
+     */
     Boolean: "boolean",
+    /**
+     * dateTime
+     */
     DateTime: "dateTime",
+    /**
+     * guid
+     */
     Guid: "guid",
+    /**
+     * dynamic
+     */
     Dynamic: "dynamic",
 } as const;
 
@@ -180,19 +208,39 @@ export type RuleTypeEnum = (typeof RuleTypeEnum)[keyof typeof RuleTypeEnum];
 
 export const TablePlanEnum = {
     /**
-     * Logs that are adjusted to support high volume low value verbose logs.
+     * Medium-touch logs needed for troubleshooting and incident response.
      */
     Basic: "Basic",
     /**
-     * Logs  that allow monitoring and analytics.
+     * High-value logs used for continuous monitoring, real-time detection, and performance analytics.
      */
     Analytics: "Analytics",
+    /**
+     * Low-touch logs, such as verbose logs, and data required for auditing and compliance.
+     */
+    Auxiliary: "Auxiliary",
 } as const;
 
 /**
  * Instruct the system how to handle and charge the logs ingested to this table.
  */
 export type TablePlanEnum = (typeof TablePlanEnum)[keyof typeof TablePlanEnum];
+
+export const TableProtectionLevelEnum = {
+    /**
+     * The default protection level. Table data is accessible through standard permissions.
+     */
+    General: "General",
+    /**
+     * Table data is isolated by default. Accessing or exporting data requires explicit, scoped authorization.
+     */
+    Protected: "Protected",
+} as const;
+
+/**
+ * The protection level of the table. Determines the default data access isolation behavior.
+ */
+export type TableProtectionLevelEnum = (typeof TableProtectionLevelEnum)[keyof typeof TableProtectionLevelEnum];
 
 export const TimeSelectorEnum = {
     /**

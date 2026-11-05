@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets Log Analytics workspace Summary rules.
         /// 
         /// Uses Azure REST API version 2025-07-01.
+        /// 
+        /// Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSummaryLogResult> InvokeAsync(GetSummaryLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSummaryLogResult>("azure-native:operationalinsights:getSummaryLog", args ?? new GetSummaryLogArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets Log Analytics workspace Summary rules.
         /// 
         /// Uses Azure REST API version 2025-07-01.
+        /// 
+        /// Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSummaryLogResult> Invoke(GetSummaryLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSummaryLogResult>("azure-native:operationalinsights:getSummaryLog", args ?? new GetSummaryLogInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets Log Analytics workspace Summary rules.
         /// 
         /// Uses Azure REST API version 2025-07-01.
+        /// 
+        /// Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSummaryLogResult> Invoke(GetSummaryLogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSummaryLogResult>("azure-native:operationalinsights:getSummaryLog", args ?? new GetSummaryLogInvokeArgs(), options.WithDefaults());

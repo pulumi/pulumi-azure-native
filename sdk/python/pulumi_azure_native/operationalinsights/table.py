@@ -25,6 +25,7 @@ class TableArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  plan: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]] = None,
+                 protection_level: pulumi.Input[Optional[Union[_builtins.str, 'TableProtectionLevelEnum']]] = None,
                  restored_logs: pulumi.Input[Optional['RestoredLogsArgs']] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  schema: pulumi.Input[Optional['SchemaArgs']] = None,
@@ -37,17 +38,20 @@ class TableArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[Union[_builtins.str, 'TablePlanEnum']] plan: Instruct the system how to handle and charge the logs ingested to this table.
+        :param pulumi.Input[Union[_builtins.str, 'TableProtectionLevelEnum']] protection_level: The protection level of the table. Determines the default data access isolation behavior.
         :param pulumi.Input['RestoredLogsArgs'] restored_logs: Parameters of the restore operation that initiated this table.
-        :param pulumi.Input[_builtins.int] retention_in_days: The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        :param pulumi.Input[_builtins.int] retention_in_days: In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         :param pulumi.Input['SchemaArgs'] schema: Table schema.
         :param pulumi.Input['SearchResultsArgs'] search_results: Parameters of the search job that initiated this table.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        :param pulumi.Input[_builtins.int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
+        if protection_level is not None:
+            pulumi.set(__self__, "protection_level", protection_level)
         if restored_logs is not None:
             pulumi.set(__self__, "restored_logs", restored_logs)
         if retention_in_days is not None:
@@ -98,6 +102,18 @@ class TableArgs:
         pulumi.set(self, "plan", value)
 
     @_builtins.property
+    @pulumi.getter(name="protectionLevel")
+    def protection_level(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TableProtectionLevelEnum']]]:
+        """
+        The protection level of the table. Determines the default data access isolation behavior.
+        """
+        return pulumi.get(self, "protection_level")
+
+    @protection_level.setter
+    def protection_level(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TableProtectionLevelEnum']]]):
+        pulumi.set(self, "protection_level", value)
+
+    @_builtins.property
     @pulumi.getter(name="restoredLogs")
     def restored_logs(self) -> pulumi.Input[Optional['RestoredLogsArgs']]:
         """
@@ -113,7 +129,7 @@ class TableArgs:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -161,7 +177,7 @@ class TableArgs:
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         """
         return pulumi.get(self, "total_retention_in_days")
 
@@ -177,6 +193,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]] = None,
+                 protection_level: pulumi.Input[Optional[Union[_builtins.str, 'TableProtectionLevelEnum']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  restored_logs: pulumi.Input[Optional[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -189,20 +206,21 @@ class Table(pulumi.CustomResource):
         """
         Workspace data table definition.
 
-        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2026-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'TablePlanEnum']] plan: Instruct the system how to handle and charge the logs ingested to this table.
+        :param pulumi.Input[Union[_builtins.str, 'TableProtectionLevelEnum']] protection_level: The protection level of the table. Determines the default data access isolation behavior.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']] restored_logs: Parameters of the restore operation that initiated this table.
-        :param pulumi.Input[_builtins.int] retention_in_days: The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        :param pulumi.Input[_builtins.int] retention_in_days: In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         :param pulumi.Input[Union['SchemaArgs', 'SchemaArgsDict']] schema: Table schema.
         :param pulumi.Input[Union['SearchResultsArgs', 'SearchResultsArgsDict']] search_results: Parameters of the search job that initiated this table.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.
-        :param pulumi.Input[_builtins.int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        :param pulumi.Input[_builtins.int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
         ...
@@ -214,9 +232,9 @@ class Table(pulumi.CustomResource):
         """
         Workspace data table definition.
 
-        Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+        Uses Azure REST API version 2026-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
@@ -234,6 +252,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan: pulumi.Input[Optional[Union[_builtins.str, 'TablePlanEnum']]] = None,
+                 protection_level: pulumi.Input[Optional[Union[_builtins.str, 'TableProtectionLevelEnum']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  restored_logs: pulumi.Input[Optional[Union['RestoredLogsArgs', 'RestoredLogsArgsDict']]] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -252,6 +271,7 @@ class Table(pulumi.CustomResource):
             __props__ = TableArgs.__new__(TableArgs)
 
             __props__.__dict__["plan"] = plan
+            __props__.__dict__["protection_level"] = protection_level
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -274,7 +294,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["total_retention_in_days_as_default"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20250701:Table")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20250701:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20260301:Table")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Table, __self__).__init__(
             'azure-native:operationalinsights:Table',
@@ -303,6 +323,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["last_plan_modified_date"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["plan"] = None
+        __props__.__dict__["protection_level"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["restored_logs"] = None
         __props__.__dict__["result_statistics"] = None
@@ -320,7 +341,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="archiveRetentionInDays")
     def archive_retention_in_days(self) -> pulumi.Output[_builtins.int]:
         """
-        The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
+        The tables long-term retention in days. Calculated as (totalRetentionInDays-retentionInDays).
         """
         return pulumi.get(self, "archive_retention_in_days")
 
@@ -357,6 +378,14 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "plan")
 
     @_builtins.property
+    @pulumi.getter(name="protectionLevel")
+    def protection_level(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The protection level of the table. Determines the default data access isolation behavior.
+        """
+        return pulumi.get(self, "protection_level")
+
+    @_builtins.property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
@@ -384,7 +413,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -416,7 +445,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -424,7 +453,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         """
         return pulumi.get(self, "total_retention_in_days")
 

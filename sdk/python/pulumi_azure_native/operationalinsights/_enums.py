@@ -19,6 +19,7 @@ __all__ = [
     'PublicNetworkAccessType',
     'RuleTypeEnum',
     'TablePlanEnum',
+    'TableProtectionLevelEnum',
     'TimeSelectorEnum',
     'WorkspaceSkuNameEnum',
 ]
@@ -62,6 +63,10 @@ class ColumnDataTypeHintEnum(_builtins.str, Enum):
     """
     A standard V4/V6 ip address following the standard shape, x.x.x.x/y:y:y:y:y:y:y:y
     """
+    VECTOR16 = "vector16"
+    """
+    A vector of single-precision floating-point values used for semantic / similarity search.
+    """
 
 
 @pulumi.type_token("azure-native:operationalinsights:ColumnTypeEnum")
@@ -70,13 +75,37 @@ class ColumnTypeEnum(_builtins.str, Enum):
     Column data type.
     """
     STRING = "string"
+    """
+    string
+    """
     INT = "int"
+    """
+    int
+    """
     LONG = "long"
+    """
+    long
+    """
     REAL = "real"
+    """
+    real
+    """
     BOOLEAN = "boolean"
+    """
+    boolean
+    """
     DATE_TIME = "dateTime"
+    """
+    dateTime
+    """
     GUID = "guid"
+    """
+    guid
+    """
     DYNAMIC = "dynamic"
+    """
+    dynamic
+    """
 
 
 @pulumi.type_token("azure-native:operationalinsights:DataSourceKind")
@@ -196,11 +225,30 @@ class TablePlanEnum(_builtins.str, Enum):
     """
     BASIC = "Basic"
     """
-    Logs that are adjusted to support high volume low value verbose logs.
+    Medium-touch logs needed for troubleshooting and incident response.
     """
     ANALYTICS = "Analytics"
     """
-    Logs  that allow monitoring and analytics.
+    High-value logs used for continuous monitoring, real-time detection, and performance analytics.
+    """
+    AUXILIARY = "Auxiliary"
+    """
+    Low-touch logs, such as verbose logs, and data required for auditing and compliance.
+    """
+
+
+@pulumi.type_token("azure-native:operationalinsights:TableProtectionLevelEnum")
+class TableProtectionLevelEnum(_builtins.str, Enum):
+    """
+    The protection level of the table. Determines the default data access isolation behavior.
+    """
+    GENERAL = "General"
+    """
+    The default protection level. Table data is accessible through standard permissions.
+    """
+    PROTECTED = "Protected"
+    """
+    Table data is isolated by default. Accessing or exporting data requires explicit, scoped authorization.
     """
 
 

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// Workspace data table definition.
     /// 
-    /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+    /// Uses Azure REST API version 2026-03-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
-    /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
+        /// The tables long-term retention in days. Calculated as (totalRetentionInDays-retentionInDays).
         /// </summary>
         [Output("archiveRetentionInDays")]
         public Output<int> ArchiveRetentionInDays { get; private set; } = null!;
@@ -50,6 +50,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string?> Plan { get; private set; } = null!;
 
         /// <summary>
+        /// The protection level of the table. Determines the default data access isolation behavior.
+        /// </summary>
+        [Output("protectionLevel")]
+        public Output<string?> ProtectionLevel { get; private set; } = null!;
+
+        /// <summary>
         /// Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
         /// </summary>
         [Output("provisioningState")]
@@ -68,7 +74,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<Outputs.ResultStatisticsResponse> ResultStatistics { get; private set; } = null!;
 
         /// <summary>
-        /// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        /// In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
@@ -92,13 +98,13 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<Outputs.SearchResultsResponse?> SearchResults { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         /// </summary>
         [Output("totalRetentionInDays")]
         public Output<int?> TotalRetentionInDays { get; private set; } = null!;
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250201:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250701:Table" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20260301:Table" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,6 +182,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         public InputUnion<string, Pulumi.AzureNative.OperationalInsights.TablePlanEnum>? Plan { get; set; }
 
         /// <summary>
+        /// The protection level of the table. Determines the default data access isolation behavior.
+        /// </summary>
+        [Input("protectionLevel")]
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.TableProtectionLevelEnum>? ProtectionLevel { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -187,7 +200,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<Inputs.RestoredLogsArgs>? RestoredLogs { get; set; }
 
         /// <summary>
-        /// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        /// In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
@@ -211,7 +224,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         /// </summary>
         [Input("totalRetentionInDays")]
         public Input<int>? TotalRetentionInDays { get; set; }

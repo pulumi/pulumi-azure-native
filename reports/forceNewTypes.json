@@ -6223,6 +6223,41 @@
     "Property": "nodeImageSelection"
   },
   {
+    "VersionedModule": "containerservice/v20260802preview",
+    "Module": "ContainerService",
+    "ResourceName": "AIManager",
+    "ReferenceName": "ClusterResourceId",
+    "Property": "clusterResourceId"
+  },
+  {
+    "VersionedModule": "containerservice/v20260802preview",
+    "Module": "ContainerService",
+    "ResourceName": "ModelDeployment",
+    "ReferenceName": "AIModelResourceId",
+    "Property": "modelResourceId"
+  },
+  {
+    "VersionedModule": "containerservice/v20260802preview",
+    "Module": "ContainerService",
+    "ResourceName": "ModelDeployment",
+    "ReferenceName": "ModelSourceResourceId",
+    "Property": "modelSourceResourceId"
+  },
+  {
+    "VersionedModule": "containerservice/v20260802preview",
+    "Module": "ContainerService",
+    "ResourceName": "ModelDeployment",
+    "ReferenceName": "ModelDeploymentProperties",
+    "Property": "vmSize"
+  },
+  {
+    "VersionedModule": "containerservice/v20260802preview",
+    "Module": "ContainerService",
+    "ResourceName": "ModelSource",
+    "ReferenceName": "ModelSourceType",
+    "Property": "sourceType"
+  },
+  {
     "VersionedModule": "containerstorage",
     "Module": "ContainerStorage",
     "ResourceName": "Pool",
@@ -140092,6 +140127,20 @@
   },
   {
     "VersionedModule": "operationalinsights/v20250701",
+    "Module": "OperationalInsights",
+    "ResourceName": "Workspace",
+    "ReferenceName": "WorkspaceReplicationProperties",
+    "Property": "location"
+  },
+  {
+    "VersionedModule": "operationalinsights/v20260301",
+    "Module": "OperationalInsights",
+    "ResourceName": "Cluster",
+    "ReferenceName": "ClusterReplicationProperties",
+    "Property": "location"
+  },
+  {
+    "VersionedModule": "operationalinsights/v20260301",
     "Module": "OperationalInsights",
     "ResourceName": "Workspace",
     "ReferenceName": "WorkspaceReplicationProperties",

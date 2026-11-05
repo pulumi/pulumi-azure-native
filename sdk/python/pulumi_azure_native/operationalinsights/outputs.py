@@ -254,7 +254,7 @@ class ColumnResponse(dict):
         :param _builtins.bool is_hidden: Is column hidden.
         :param _builtins.str data_type_hint: Column data type logical hint.
         :param _builtins.str description: Column description.
-        :param _builtins.str display_name: Column display name.
+        :param _builtins.str display_name: Column display name. Can be set at creation time; after creation, updates must either match column name or set to null/empty. If not provided, defaults to column name.
         :param _builtins.str name: Column name.
         :param _builtins.str type: Column data type.
         """
@@ -307,7 +307,7 @@ class ColumnResponse(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[_builtins.str]:
         """
-        Column display name.
+        Column display name. Can be set at creation time; after creation, updates must either match column name or set to null/empty. If not provided, defaults to column name.
         """
         return pulumi.get(self, "display_name")
 
