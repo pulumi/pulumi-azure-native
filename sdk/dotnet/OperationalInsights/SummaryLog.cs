@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Workspace data summary rules definition.
     /// 
     /// Uses Azure REST API version 2025-07-01.
+    /// 
+    /// Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:SummaryLog")]
     public partial class SummaryLog : global::Pulumi.CustomResource
@@ -109,6 +111,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20250701:SummaryLog" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20260301:SummaryLog" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

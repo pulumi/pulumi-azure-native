@@ -116586,6 +116586,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -116650,12 +116651,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "clusters"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -116719,7 +116724,10 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "deletedWorkspaces"
       },
@@ -116753,6 +116761,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2021-10-01"
@@ -116815,6 +116824,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -116887,12 +116897,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "locations/operationStatuses"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01"
         ],
@@ -116950,12 +116964,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "locations/workspaces"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -116973,6 +116991,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117032,7 +117051,10 @@
           "Poland Central",
           "Spain Central",
           "Chile Central",
-          "Indonesia Central"
+          "Indonesia Central",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "querypacks"
       },
@@ -117048,6 +117070,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117119,7 +117142,10 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces"
       },
@@ -117135,6 +117161,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117196,12 +117223,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/dataExports"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117263,12 +117294,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/dataSources"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117331,12 +117366,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/linkedServices"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117398,7 +117437,10 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/linkedStorageAccounts"
       },
@@ -117412,6 +117454,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2021-10-01"
@@ -117473,6 +117516,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2021-10-01"
@@ -117534,6 +117578,7 @@
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117560,6 +117605,14 @@
         "defaultApiVersion": null,
         "locations": [],
         "resourceType": "workspaces/purge"
+      },
+      {
+        "apiVersions": [
+          "2026-03-01"
+        ],
+        "defaultApiVersion": null,
+        "locations": [],
+        "resourceType": "workspaces/purgeLakeData"
       },
       {
         "apiVersions": [
@@ -117629,12 +117682,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/scopedPrivateLinkProxies"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117701,12 +117758,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/storageInsightConfigs"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2023-01-01-preview"
         ],
@@ -117764,12 +117825,16 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/summaryLogs"
       },
       {
         "apiVersions": [
+          "2026-03-01",
           "2025-07-01",
           "2025-02-01",
           "2023-09-01",
@@ -117834,7 +117899,10 @@
           "Malaysia West",
           "Chile Central",
           "Indonesia Central",
-          "Austria East"
+          "Austria East",
+          "Denmark East",
+          "Belgium Central",
+          "India South Central"
         ],
         "resourceType": "workspaces/tables"
       }

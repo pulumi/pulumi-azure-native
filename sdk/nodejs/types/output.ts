@@ -208887,7 +208887,7 @@ export namespace operationalinsights {
          */
         description?: string;
         /**
-         * Column display name.
+         * Column display name. Can be set at creation time; after creation, updates must either match column name or set to null/empty. If not provided, defaults to column name.
          */
         displayName?: string;
         /**

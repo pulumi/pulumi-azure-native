@@ -27,7 +27,7 @@ class GetTableResult:
     """
     Workspace data table definition.
     """
-    def __init__(__self__, archive_retention_in_days=None, azure_api_version=None, id=None, last_plan_modified_date=None, name=None, plan=None, provisioning_state=None, restored_logs=None, result_statistics=None, retention_in_days=None, retention_in_days_as_default=None, schema=None, search_results=None, system_data=None, total_retention_in_days=None, total_retention_in_days_as_default=None, type=None):
+    def __init__(__self__, archive_retention_in_days=None, azure_api_version=None, id=None, last_plan_modified_date=None, name=None, plan=None, protection_level=None, provisioning_state=None, restored_logs=None, result_statistics=None, retention_in_days=None, retention_in_days_as_default=None, schema=None, search_results=None, system_data=None, total_retention_in_days=None, total_retention_in_days_as_default=None, type=None):
         if archive_retention_in_days and not isinstance(archive_retention_in_days, int):
             raise TypeError("Expected argument 'archive_retention_in_days' to be a int")
         pulumi.set(__self__, "archive_retention_in_days", archive_retention_in_days)
@@ -46,6 +46,9 @@ class GetTableResult:
         if plan and not isinstance(plan, str):
             raise TypeError("Expected argument 'plan' to be a str")
         pulumi.set(__self__, "plan", plan)
+        if protection_level and not isinstance(protection_level, str):
+            raise TypeError("Expected argument 'protection_level' to be a str")
+        pulumi.set(__self__, "protection_level", protection_level)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -84,7 +87,7 @@ class GetTableResult:
     @pulumi.getter(name="archiveRetentionInDays")
     def archive_retention_in_days(self) -> _builtins.int:
         """
-        The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
+        The tables long-term retention in days. Calculated as (totalRetentionInDays-retentionInDays).
         """
         return pulumi.get(self, "archive_retention_in_days")
 
@@ -100,7 +103,7 @@ class GetTableResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -127,6 +130,14 @@ class GetTableResult:
         Instruct the system how to handle and charge the logs ingested to this table.
         """
         return pulumi.get(self, "plan")
+
+    @_builtins.property
+    @pulumi.getter(name="protectionLevel")
+    def protection_level(self) -> Optional[_builtins.str]:
+        """
+        The protection level of the table. Determines the default data access isolation behavior.
+        """
+        return pulumi.get(self, "protection_level")
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -156,7 +167,7 @@ class GetTableResult:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[_builtins.int]:
         """
-        The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+        In Analytics table: the tables analytics retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention. In Basic and Auxiliary table: read only property.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -188,7 +199,7 @@ class GetTableResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -196,7 +207,7 @@ class GetTableResult:
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> Optional[_builtins.int]:
         """
-        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
+        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to retentionInDays.
         """
         return pulumi.get(self, "total_retention_in_days")
 
@@ -229,6 +240,7 @@ class AwaitableGetTableResult(GetTableResult):
             last_plan_modified_date=self.last_plan_modified_date,
             name=self.name,
             plan=self.plan,
+            protection_level=self.protection_level,
             provisioning_state=self.provisioning_state,
             restored_logs=self.restored_logs,
             result_statistics=self.result_statistics,
@@ -249,9 +261,9 @@ def get_table(resource_group_name: Optional[_builtins.str] = None,
     """
     Gets a Log Analytics workspace table.
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2026-03-01.
 
-    Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str table_name: The name of the table.
@@ -271,6 +283,7 @@ def get_table(resource_group_name: Optional[_builtins.str] = None,
         last_plan_modified_date=pulumi.get(__ret__, 'last_plan_modified_date'),
         name=pulumi.get(__ret__, 'name'),
         plan=pulumi.get(__ret__, 'plan'),
+        protection_level=pulumi.get(__ret__, 'protection_level'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         restored_logs=pulumi.get(__ret__, 'restored_logs'),
         result_statistics=pulumi.get(__ret__, 'result_statistics'),
@@ -289,9 +302,9 @@ def get_table_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] 
     """
     Gets a Log Analytics workspace table.
 
-    Uses Azure REST API version 2023-09-01.
+    Uses Azure REST API version 2026-03-01.
 
-    Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-12-01-preview, 2022-10-01, 2023-09-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str table_name: The name of the table.
@@ -310,6 +323,7 @@ def get_table_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] 
         last_plan_modified_date=pulumi.get(__response__, 'last_plan_modified_date'),
         name=pulumi.get(__response__, 'name'),
         plan=pulumi.get(__response__, 'plan'),
+        protection_level=pulumi.get(__response__, 'protection_level'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         restored_logs=pulumi.get(__response__, 'restored_logs'),
         result_statistics=pulumi.get(__response__, 'result_statistics'),

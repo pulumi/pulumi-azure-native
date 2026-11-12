@@ -1532,7 +1532,7 @@ OperationalInsights:
         SavedSearch: "2023-09-01"
         StorageInsightConfig: "2023-09-01"
         SummaryLog: "2025-07-01"
-        Table: "2023-09-01"
+        Table: "2026-03-01"
         Workspace: "2023-09-01"
         getSharedKeys: "2023-09-01"
         getWorkspaceSharedKeys: 2015-11-01-preview

@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// A standard V4/V6 ip address following the standard shape, x.x.x.x/y:y:y:y:y:y:y:y
         /// </summary>
         public static ColumnDataTypeHintEnum Ip { get; } = new ColumnDataTypeHintEnum("ip");
+        /// <summary>
+        /// A vector of single-precision floating-point values used for semantic / similarity search.
+        /// </summary>
+        public static ColumnDataTypeHintEnum Vector16 { get; } = new ColumnDataTypeHintEnum("vector16");
 
         public static bool operator ==(ColumnDataTypeHintEnum left, ColumnDataTypeHintEnum right) => left.Equals(right);
         public static bool operator !=(ColumnDataTypeHintEnum left, ColumnDataTypeHintEnum right) => !left.Equals(right);
@@ -126,13 +130,37 @@ namespace Pulumi.AzureNative.OperationalInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// string
+        /// </summary>
         public static ColumnTypeEnum @String { get; } = new ColumnTypeEnum("string");
+        /// <summary>
+        /// int
+        /// </summary>
         public static ColumnTypeEnum @Int { get; } = new ColumnTypeEnum("int");
+        /// <summary>
+        /// long
+        /// </summary>
         public static ColumnTypeEnum @Long { get; } = new ColumnTypeEnum("long");
+        /// <summary>
+        /// real
+        /// </summary>
         public static ColumnTypeEnum Real { get; } = new ColumnTypeEnum("real");
+        /// <summary>
+        /// boolean
+        /// </summary>
         public static ColumnTypeEnum Boolean { get; } = new ColumnTypeEnum("boolean");
+        /// <summary>
+        /// dateTime
+        /// </summary>
         public static ColumnTypeEnum DateTime { get; } = new ColumnTypeEnum("dateTime");
+        /// <summary>
+        /// guid
+        /// </summary>
         public static ColumnTypeEnum Guid { get; } = new ColumnTypeEnum("guid");
+        /// <summary>
+        /// dynamic
+        /// </summary>
         public static ColumnTypeEnum @Dynamic { get; } = new ColumnTypeEnum("dynamic");
 
         public static bool operator ==(ColumnTypeEnum left, ColumnTypeEnum right) => left.Equals(right);
@@ -428,13 +456,17 @@ namespace Pulumi.AzureNative.OperationalInsights
         }
 
         /// <summary>
-        /// Logs that are adjusted to support high volume low value verbose logs.
+        /// Medium-touch logs needed for troubleshooting and incident response.
         /// </summary>
         public static TablePlanEnum Basic { get; } = new TablePlanEnum("Basic");
         /// <summary>
-        /// Logs  that allow monitoring and analytics.
+        /// High-value logs used for continuous monitoring, real-time detection, and performance analytics.
         /// </summary>
         public static TablePlanEnum Analytics { get; } = new TablePlanEnum("Analytics");
+        /// <summary>
+        /// Low-touch logs, such as verbose logs, and data required for auditing and compliance.
+        /// </summary>
+        public static TablePlanEnum Auxiliary { get; } = new TablePlanEnum("Auxiliary");
 
         public static bool operator ==(TablePlanEnum left, TablePlanEnum right) => left.Equals(right);
         public static bool operator !=(TablePlanEnum left, TablePlanEnum right) => !left.Equals(right);
@@ -444,6 +476,43 @@ namespace Pulumi.AzureNative.OperationalInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TablePlanEnum other && Equals(other);
         public bool Equals(TablePlanEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protection level of the table. Determines the default data access isolation behavior.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableProtectionLevelEnum : IEquatable<TableProtectionLevelEnum>
+    {
+        private readonly string _value;
+
+        private TableProtectionLevelEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The default protection level. Table data is accessible through standard permissions.
+        /// </summary>
+        public static TableProtectionLevelEnum General { get; } = new TableProtectionLevelEnum("General");
+        /// <summary>
+        /// Table data is isolated by default. Accessing or exporting data requires explicit, scoped authorization.
+        /// </summary>
+        public static TableProtectionLevelEnum Protected { get; } = new TableProtectionLevelEnum("Protected");
+
+        public static bool operator ==(TableProtectionLevelEnum left, TableProtectionLevelEnum right) => left.Equals(right);
+        public static bool operator !=(TableProtectionLevelEnum left, TableProtectionLevelEnum right) => !left.Equals(right);
+
+        public static explicit operator string(TableProtectionLevelEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableProtectionLevelEnum other && Equals(other);
+        public bool Equals(TableProtectionLevelEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
