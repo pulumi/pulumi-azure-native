@@ -33,6 +33,7 @@ import (
 
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/debug"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optrefresh"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
@@ -683,6 +684,31 @@ func TestStorageRefreshAfterOutOfBandDelete(t *testing.T) {
 	refresh := pt.Refresh(t)
 	refreshSummary := changesummary.FromStringIntMap(*refresh.Summary.ResourceChanges)
 	assert.Equal(t, len(outputs), refreshSummary[apitype.OpDelete], "expected deleted resources to be dropped from state")
+}
+
+// TestRefreshAcrossApiVersions is a regression test for issue #4904: refreshing state written with
+// another API version copied schema differences between the two versions into inputs, so the next
+// preview wanted to remove properties the program never set.
+func TestRefreshAcrossApiVersions(t *testing.T) {
+	t.Parallel()
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without cloud credentials")
+	}
+	dir := filepath.Join("test-programs", "refresh-across-api-versions")
+
+	v2 := pulumitest.NewPulumiTest(t, filepath.Join(dir, "v2"), opttest.DownloadProviderVersion("azure-native", "2.90.0"))
+	toDestroy := v2
+	defer func() {
+		toDestroy.Destroy(t)
+	}()
+	v2.Up(t)
+
+	v3 := newPulumiTest(t, filepath.Join("refresh-across-api-versions", "v3"))
+	v3.ImportStack(t, v2.ExportStack(t))
+	toDestroy = v3
+
+	v3.Refresh(t, optrefresh.RunProgram(true))
+	assertpreview.HasNoChanges(t, v3.Preview(t))
 }
 
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
