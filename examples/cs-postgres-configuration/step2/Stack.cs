@@ -18,8 +18,8 @@ class MyStack : Stack
             Version = "14",
             Sku = new SkuArgs
             {
-                Name = "Standard_B1ms",
-                Tier = SkuTier.Burstable
+                Name = "Standard_D2s_v3",
+                Tier = SkuTier.GeneralPurpose
             },
             Storage = new StorageArgs
             {
