@@ -55,8 +55,8 @@ func TestDeletePostgresConfiguration(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cs-postgres-configuration"),
 			Config: map[string]string{
-				// Postgres was region-restricted at the time of writing.
-				"azure-native:location": "North Europe",
+				// Postgres Burstable SKUs are region-restricted; this region accepted Standard_B1ms on 2026-11-16.
+				"azure-native:location": "West US 2",
 			},
 			EditDirs: []integration.EditDir{
 				{

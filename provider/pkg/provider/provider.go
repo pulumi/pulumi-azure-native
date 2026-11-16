@@ -1738,22 +1738,45 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		removeDefaults(*resForDefaults, plainOldState, previousInputs.Mappable())
 
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
-		// Use old resource metadata if API version changed to ensure schema-correct conversion.
-		var oldInputProjection map[string]interface{}
-		if oldRes != nil {
-			// API version changed: use old schema for converting old state
-			oldInputProjection = k.converter.SdkOutputsToSdkInputs(oldRes.PutParameters, plainOldState)
-		} else {
-			// Same API version: use current schema
-			oldInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
-		}
-
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
-		outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, res)
 		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
-		// Always use new schema for new outputs from Azure.
-		newInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
+		var oldInputProjection, newInputProjection map[string]interface{}
+		if oldRes == nil {
+			oldInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
+			outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, res)
+			newInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
+		} else {
+			// The API version changed, so the old outputs and the outputs we just read have different schemas.
+			// Differences between the schemas aren't changes made in Azure and must not end up in the inputs.
+			oldInputProjection = k.converter.SdkOutputsToSdkInputs(oldRes.PutParameters, plainOldState)
+
+			canReadOldVersion := !(isCustom && customRes.Read != nil) && res.ReadMethod != "HEAD"
+			var oldVersionOutputs map[string]interface{}
+			var oldVersionErr error
+			if canReadOldVersion {
+				oldVersionOutputs, oldVersionErr = k.readWithOldApiVersion(ctx, id, oldRes, previousInputs)
+			}
+
+			if canReadOldVersion && oldVersionErr == nil {
+				// Compare like with like: the old outputs against the current state of the resource as
+				// the old API version sees it.
+				outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, oldVersionOutputs, inputs, oldRes)
+				newInputProjection = k.converter.SdkOutputsToSdkInputs(oldRes.PutParameters, outputsWithoutIgnores)
+				// Only keep what the current API version accepts as input.
+				oldInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, oldInputProjection)
+				newInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, newInputProjection)
+			} else {
+				// Fall back to comparing across versions, limited to properties that both schemas accept
+				// as input.
+				logging.V(5).Infof("%s: could not read with old API version %s, comparing across API versions: %v",
+					label, oldApiVersion, oldVersionErr)
+				outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, res)
+				newInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
+				oldInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, oldInputProjection)
+				newInputProjection = k.converter.SdkOutputsToSdkInputs(oldRes.PutParameters, newInputProjection)
+			}
+		}
 
 		// 4. Calculate the difference between two projections. This should give us actual significant changes
 		// that happened in Azure between the last resource update and its current state.
@@ -1770,10 +1793,9 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 			// reconciled against the new schema, so don't claim the transition is resolved either.
 		} else {
 			inputs = applyDiff(inputs, diff)
-			// The projections above were computed against the correct schema for each side (old
-			// schema for old outputs, current schema for new outputs), so `inputs` is now reconciled
-			// with the current API version. Record that, otherwise a stale `azureApiVersion` left over
-			// from before this refresh keeps tripping the Diff() version-transition checks forever.
+			// `inputs` is now reconciled with the current API version. Record that, otherwise a stale
+			// `azureApiVersion` left over from before this refresh keeps tripping the Diff()
+			// version-transition checks forever.
 			if res.APIVersion != "" {
 				inputs["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
 			}
@@ -1801,6 +1823,27 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	return &rpc.ReadResponse{Id: id, Properties: checkpoint, Inputs: inputsRecord}, nil
+}
+
+// oldApiVersionReadTimeout bounds the extra read in readWithOldApiVersion so retries can't hold up a refresh.
+const oldApiVersionReadTimeout = 30 * time.Second
+
+// readWithOldApiVersion reads the resource with the API version it was last written with and returns
+// SDK-shaped outputs. It is best-effort: callers fall back to a cross-version comparison on any error.
+func (k *azureNativeProvider) readWithOldApiVersion(ctx context.Context, id string, oldRes *resources.AzureAPIResource,
+	previousInputs resource.PropertyMap) (map[string]interface{}, error) {
+	ctx, cancel := context.WithTimeout(ctx, oldApiVersionReadTimeout)
+	defer cancel()
+
+	oldClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, oldRes)
+	response, err := oldClient.Read(ctx, id, getApiVersion(oldRes, previousInputs))
+	if err != nil {
+		return nil, err
+	}
+	if response == nil {
+		return nil, errors.New("empty response")
+	}
+	return oldClient.ResponseBodyToSdkOutputs(response), nil
 }
 
 // removeDefaults removes the resource's default values from the given state, modifying the map in place.

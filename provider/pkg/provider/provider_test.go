@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
@@ -1256,9 +1257,9 @@ func TestConfigureRejectsDisabledAzcoreBackend(t *testing.T) {
 	}
 
 	req := &rpc.ConfigureRequest{
-		Variables:            map[string]string{},
-		AcceptSecrets:        true,
-		SendsOldInputs:       true,
+		Variables:              map[string]string{},
+		AcceptSecrets:          true,
+		SendsOldInputs:         true,
 		SendsOldInputsToDelete: true,
 	}
 
@@ -1280,4 +1281,162 @@ func TestConfigureRejectsDisabledAzcoreBackend(t *testing.T) {
 	// the provider requires full initialization to proceed past the safeguard.
 	// The safeguard passes when set to "true" - this is implicitly tested by
 	// all other Configure tests that run without setting this env var.
+}
+
+// versionedGetClient returns a different GET response per API version.
+type versionedGetClient struct {
+	*az.MockAzureClient
+	responses map[string]map[string]any
+	errs      map[string]error
+}
+
+func (c *versionedGetClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (map[string]any, error) {
+	_, _ = c.MockAzureClient.Get(ctx, id, apiVersion, queryParams)
+	return c.responses[apiVersion], c.errs[apiVersion]
+}
+
+// TestReadAcrossApiVersionsOnlyCopiesRealChanges is a regression test for issue #4904: refreshing state
+// written with another API version must not copy schema differences between the versions into inputs.
+func TestReadAcrossApiVersionsOnlyCopiesRealChanges(t *testing.T) {
+	const (
+		oldApiVersion = "2020-01-01"
+		newApiVersion = "2021-01-01"
+		id            = "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/things/thing"
+	)
+
+	stringMap := resources.AzureAPIProperty{Type: "object", AdditionalProperties: &resources.AzureAPIProperty{Type: "string"}}
+	newResource := func(apiVersion string, body, response map[string]resources.AzureAPIProperty) resources.AzureAPIResource {
+		return resources.AzureAPIResource{
+			Path:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Test/things/{name}",
+			APIVersion:    apiVersion,
+			PutParameters: []resources.AzureAPIParameter{{Location: "body", Name: "properties", Body: &resources.AzureAPIType{Properties: body}}},
+			Response:      response,
+		}
+	}
+	// `profile.effective` is writable in the old version and read-only in the new one.
+	// `size` is a string in the old version and an object in the new one.
+	oldProps := map[string]resources.AzureAPIProperty{
+		"tags":    stringMap,
+		"profile": {Type: "object", Ref: "#/types/azure-native:test/v20200101:Profile"},
+		"size":    {Type: "string"},
+	}
+	oldResource := newResource(oldApiVersion, oldProps, oldProps)
+	currentResource := newResource(newApiVersion,
+		map[string]resources.AzureAPIProperty{
+			"tags":    stringMap,
+			"profile": {Type: "object", Ref: "#/types/azure-native:test/v20210101:Profile"},
+			"size":    {Type: "object", Ref: "#/types/azure-native:test/v20210101:Size"},
+		},
+		map[string]resources.AzureAPIProperty{
+			"tags":    stringMap,
+			"profile": {Type: "object", Ref: "#/types/azure-native:test/v20210101:ProfileResponse"},
+			"size":    {Type: "object", Ref: "#/types/azure-native:test/v20210101:Size"},
+		})
+	types := resources.GoMap[resources.AzureAPIType]{
+		"azure-native:test/v20200101:Profile": {Properties: map[string]resources.AzureAPIProperty{
+			"mode": {Type: "string"}, "effective": {Type: "string"},
+		}},
+		"azure-native:test/v20210101:Profile": {Properties: map[string]resources.AzureAPIProperty{
+			"mode": {Type: "string"},
+		}},
+		"azure-native:test/v20210101:ProfileResponse": {Properties: map[string]resources.AzureAPIProperty{
+			"mode": {Type: "string"}, "effective": {Type: "string"},
+		}},
+		"azure-native:test/v20210101:Size": {Properties: map[string]resources.AzureAPIProperty{
+			"name": {Type: "string"},
+		}},
+	}
+
+	oldInputs := resource.PropertyMap{"resourceGroupName": resource.NewStringProperty("rg")}
+	oldState := resource.PropertyMap{
+		"azureApiVersion": resource.NewStringProperty(oldApiVersion),
+		"profile": resource.NewObjectProperty(resource.PropertyMap{
+			"mode":      resource.NewStringProperty("auto"),
+			"effective": resource.NewStringProperty("x"),
+		}),
+		"size": resource.NewStringProperty("big"),
+	}
+	profile := map[string]any{"mode": "auto", "effective": "x"}
+
+	read := func(t *testing.T, client *versionedGetClient) resource.PropertyMap {
+		converter := convert.NewSdkShapeConverterPartial(types)
+		provider := &azureNativeProvider{
+			resourceMap: &resources.APIMetadata{Resources: resources.GoMap[resources.AzureAPIResource]{
+				"azure-native:test/v20200101:Thing": oldResource,
+				"azure-native:test:Thing":           currentResource,
+			}},
+			context: context.Background(),
+			lookupType: func(ref string) (*resources.AzureAPIType, bool, error) {
+				typ, ok := types[strings.TrimPrefix(ref, "#/types/")]
+				return &typ, ok, nil
+			},
+			azureClient:     client,
+			converter:       &converter,
+			subscriptionID:  "sub",
+			customResources: make(map[string]*customresources.CustomResource),
+		}
+		properties, err := plugin.MarshalProperties(oldState, plugin.MarshalOptions{})
+		require.NoError(t, err)
+		inputs, err := plugin.MarshalProperties(oldInputs, plugin.MarshalOptions{})
+		require.NoError(t, err)
+
+		resp, err := provider.Read(context.Background(), &rpc.ReadRequest{
+			Id:         id,
+			Urn:        "urn:pulumi:test::test-project::azure-native:test:Thing::thing",
+			Properties: properties,
+			Inputs:     inputs,
+		})
+		require.NoError(t, err)
+
+		newInputs, err := plugin.UnmarshalProperties(resp.Inputs, plugin.MarshalOptions{})
+		require.NoError(t, err)
+		assert.Equal(t, newApiVersion, newInputs["azureApiVersion"].StringValue())
+		delete(newInputs, "azureApiVersion")
+		return newInputs
+	}
+
+	tags := resource.NewObjectProperty(resource.PropertyMap{"drift": resource.NewStringProperty("yes")})
+	withTags := oldInputs.Copy()
+	withTags["tags"] = tags
+
+	t.Run("old API version readable", func(t *testing.T) {
+		newClient := func(oldVersionResponse map[string]any) *versionedGetClient {
+			return &versionedGetClient{MockAzureClient: &az.MockAzureClient{}, responses: map[string]map[string]any{
+				oldApiVersion: oldVersionResponse,
+				newApiVersion: {"profile": profile, "size": map[string]any{"name": "big"}},
+			}}
+		}
+
+		t.Run("no change in Azure", func(t *testing.T) {
+			client := newClient(map[string]any{"profile": profile, "size": "big"})
+			assert.Equal(t, oldInputs, read(t, client))
+			assert.ElementsMatch(t, []string{oldApiVersion, newApiVersion}, client.GetApiVersions)
+		})
+
+		t.Run("change in Azure", func(t *testing.T) {
+			client := newClient(map[string]any{"profile": profile, "size": "big", "tags": map[string]any{"drift": "yes"}})
+			assert.Equal(t, withTags, read(t, client))
+		})
+	})
+
+	t.Run("old API version not readable", func(t *testing.T) {
+		newClient := func(newVersionResponse map[string]any) *versionedGetClient {
+			return &versionedGetClient{MockAzureClient: &az.MockAzureClient{},
+				responses: map[string]map[string]any{newApiVersion: newVersionResponse},
+				errs:      map[string]error{oldApiVersion: fmt.Errorf("api version no longer supported")},
+			}
+		}
+		// Properties whose type changed between versions aren't handled by the fallback, so leave `size` out.
+		oldState = oldState.Copy()
+		delete(oldState, "size")
+
+		t.Run("no change in Azure", func(t *testing.T) {
+			assert.Equal(t, oldInputs, read(t, newClient(map[string]any{"profile": profile})))
+		})
+
+		t.Run("change in Azure", func(t *testing.T) {
+			client := newClient(map[string]any{"profile": profile, "tags": map[string]any{"drift": "yes"}})
+			assert.Equal(t, withTags, read(t, client))
+		})
+	})
 }

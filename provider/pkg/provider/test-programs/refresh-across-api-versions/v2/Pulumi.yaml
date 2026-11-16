@@ -1,0 +1,32 @@
+name: refresh-across-api-versions
+runtime: yaml
+description: |
+  Regression test for issue #4904. The v2 program is deployed with provider v2.90.0 and API version
+  2024-10-02-preview. The v3 program is the same cluster on the default API version, where
+  networkProfile.loadBalancerProfile.effectiveOutboundIPs is read-only instead of writable.
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      location: eastus
+
+  cluster:
+    type: azure-native:containerservice/v20241002preview:ManagedCluster
+    properties:
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      identity:
+        type: SystemAssigned
+      dnsPrefix: test-aks-4904
+      agentPoolProfiles:
+        - name: agentpool
+          count: 1
+          vmSize: Standard_DS2_v2
+          mode: System
+      networkProfile:
+        networkPlugin: azure
+        networkPluginMode: overlay
+        podCidr: 10.244.0.0/16
+        serviceCidr: 10.0.0.0/16
+        dnsServiceIP: 10.0.0.10

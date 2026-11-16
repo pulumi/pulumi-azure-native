@@ -15,7 +15,7 @@ class MyStack : Stack
         {
             ResourceGroupName = resourceGroup.Name,
             Location = resourceGroup.Location,
-            Version = "14",
+            Version = "17",
             Sku = new SkuArgs
             {
                 Name = "Standard_B1ms",
