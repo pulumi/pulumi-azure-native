@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 	"strings"
 	"time"
 
@@ -47,6 +48,10 @@ API to create and delete the schedules.
 	pimRoleEligibilityScheduleRequestTok          = "azure-native:authorization:" + pimRoleEligibilityScheduleRequestResourceName
 	PimRoleEligibilityScheduleRequestPath         = "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName}"
 
+	// The API version of the spec the schema is generated from. ARM doesn't support the newer versions that the
+	// armauthorization SDK defaults to, so we pin it on the SDK clients. See #4908.
+	pimRoleEligibilityScheduleAPIVersion = "2020-10-01"
+
 	pimRoleEligibilityScheduleMaxWaitForCreate        = 10 * time.Minute
 	pimRoleEligibilityScheduleMaxWaitForDelete        = 10 * time.Minute
 	pimRoleEligibilityScheduleMaxWaitForDeleteRequest = 2 * time.Minute
@@ -86,11 +91,7 @@ func pimRoleEligibilitySchedule(
 		}
 		crudClient = crudClientFactory(&res)
 
-		clientOptions := &arm.ClientOptions{
-			ClientOptions: azcore.ClientOptions{
-				Cloud: env.Configuration,
-			},
-		}
+		clientOptions := pimClientOptions(env)
 		schedulesClient, err = armauthorization.NewRoleEligibilitySchedulesClient(token, clientOptions)
 		if err != nil {
 			return nil, err
@@ -111,7 +112,7 @@ func pimRoleEligibilitySchedule(
 		tok:                pimRoleEligibilityScheduleRequestTok,
 		CustomResourceName: pimRoleEligibilityScheduleResourceName,
 		path:               PimRoleEligibilityScheduleRequestPath,
-		apiVersion:         pulumi.StringRef("2020-10-01"),
+		apiVersion:         pulumi.StringRef(pimRoleEligibilityScheduleAPIVersion),
 		Schema:             genSchema,
 		Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
 			return read(ctx, id, inputs, client)
@@ -123,6 +124,24 @@ func pimRoleEligibilitySchedule(
 			return deletePimEligibilitySchedule(ctx, id, state, client, pimRoleEligibilityScheduleMaxWaitForDelete)
 		},
 	}, nil
+}
+
+func pimClientOptions(env cloud.Configuration) *arm.ClientOptions {
+	return &arm.ClientOptions{
+		ClientOptions: azcore.ClientOptions{
+			Cloud:      env.Configuration,
+			APIVersion: pimRoleEligibilityScheduleAPIVersion,
+		},
+	}
+}
+
+// scheduleNotFound reports whether err means the schedule doesn't exist. That's a 404 without a body, whereas an
+// unsupported API version is a 404 with code InvalidResourceType, which must not be mistaken for a deletion.
+func scheduleNotFound(err error) bool {
+	var responseErr *azcore.ResponseError
+	return errors.As(err, &responseErr) &&
+		responseErr.StatusCode == http.StatusNotFound &&
+		responseErr.ErrorCode != "InvalidResourceType"
 }
 
 // genSchema modifies the schema extracted from the Azure spec.
@@ -336,9 +355,7 @@ func deletePimEligibilitySchedule(ctx context.Context,
 	// Check the current status of the schedule
 	schedule, err := client.getSchedule(ctx, scope, scheduleName)
 	if err != nil {
-		var responseErr *azcore.ResponseError
-		if errors.As(err, &responseErr) && responseErr.StatusCode == 404 {
-			// Schedule not found, nothing to delete
+		if scheduleNotFound(err) {
 			return nil
 		}
 		return fmt.Errorf("retrieving role eligibility schedule: %w", err)
@@ -394,8 +411,7 @@ func deletePimEligibilitySchedule(ctx context.Context,
 	err = util.RetryOperation(maxWait, pimRoleEligibilityScheduleTickerInterval, "role eligibility schedule deletion", func() (bool, error) {
 		_, err := client.getSchedule(ctx, scope, scheduleName)
 		if err != nil {
-			var responseErr *azcore.ResponseError
-			if errors.As(err, &responseErr) && responseErr.StatusCode == 404 {
+			if scheduleNotFound(err) {
 				return true, nil
 			}
 			return false, fmt.Errorf("retrieving role eligibility schedule: %w", err)
