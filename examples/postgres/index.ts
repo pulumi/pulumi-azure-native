@@ -12,16 +12,17 @@ const resourceGroup = new resources.ResourceGroup("rg", {
 const flexibleServer = new postgresql.Server("server", {
     location: resourceGroup.location,
     resourceGroupName: resourceGroup.name,
+    // Standard_D2s_v3 fails with SkuNotAvailable in westus since 2026-11-16.
     sku: {
         tier: "GeneralPurpose",
-        name: "Standard_D2s_v3",
+        name: "Standard_D2ds_v5",
     },
     highAvailability: {
         mode: postgresql.PostgreSqlFlexibleServerHighAvailabilityMode.SameZone,
     },
     administratorLogin: "cloudsa",
     administratorLoginPassword: `pa$$w0rd`,
-    version: "14",
+    version: "17",
     storage: {
         storageSizeGB: 64,
     },
