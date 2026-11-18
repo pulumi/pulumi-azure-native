@@ -292,8 +292,8 @@ github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.30.0 h1:I144y4cSF3zU0
 github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.30.0/go.mod h1:hv7A4nIWjDKlTi9CjAmN0/ZymJpXiuYXBA5T2Vj9AT8=
 github.com/pulumi/pulumi-azure-native-sdk/v3 v3.30.0 h1:2UD+rW9/ddm+GVdF/dUw2ZswaSPJ99mEGyyDqgVHVKs=
 github.com/pulumi/pulumi-azure-native-sdk/v3 v3.30.0/go.mod h1:uama5sNC6cETJlZo8yeAQYoNl/LXe5LifboTthg9+Wo=
-github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.0 h1:LCEahuc8cQmKar/KaY42mn8ByP8UjNmlypi7kkWrWq8=
-github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.0/go.mod h1:aMwd3130zrFnJzpXi0X+Jd9DidPGT2I5zwGOhqqQ/GA=
+github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.1124 h1:ZRVyXpEa6P7p2M284fdTXw60AUikZLFDHcCmXJF3vOI=
+github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.1124/go.mod h1:aMwd3130zrFnJzpXi0X+Jd9DidPGT2I5zwGOhqqQ/GA=
 github.com/pulumi/pulumi/pkg/v3 v3.277.0 h1:dzhb2VsqmVTVoFwHyRG5s9eK/wH8byt+96d6888j+p0=
 github.com/pulumi/pulumi/pkg/v3 v3.277.0/go.mod h1:smRlDtGHw5PQX8JCyU2uz1RH35nQmiNtX6IwKx4MgPA=
 github.com/pulumi/pulumi/sdk/v3 v3.277.0 h1:RtkvbNSWGfWMCKpzTPuTzcdFF9hifstkSw7gPVwUPZ0=
