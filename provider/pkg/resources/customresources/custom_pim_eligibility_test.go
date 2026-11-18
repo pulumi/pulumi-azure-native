@@ -4,14 +4,19 @@ package customresources
 
 import (
 	"context"
+	"io"
+	"net/http"
 	"slices"
+	"strings"
 	"testing"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v3"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -243,6 +248,36 @@ func TestDeletePimEligibilitySchedule(t *testing.T) {
 		assert.True(t, isValidGUID(client.capturedCreate.name), client.capturedCreate.name)
 	})
 
+	t.Run("schedule already gone", func(t *testing.T) {
+		t.Parallel()
+
+		validInputs, _ := createScheduleData(armauthorization.StatusScheduleCreated)
+		client := &fakePimEligibilityScheduleClient{
+			schedule: func(_ int) (*armauthorization.RoleEligibilitySchedule, error) {
+				return nil, &azcore.ResponseError{StatusCode: 404}
+			},
+		}
+		err := deletePimEligibilitySchedule(context.Background(), "/id/is/not/used", validInputs, client, 3*time.Second)
+		require.NoError(t, err)
+		assert.Nil(t, client.capturedCreate)
+	})
+
+	// An unsupported API version is also a 404, but it says nothing about the schedule. See #4908.
+	t.Run("unsupported API version is not a deletion", func(t *testing.T) {
+		t.Parallel()
+
+		validInputs, _ := createScheduleData(armauthorization.StatusScheduleCreated)
+		client := &fakePimEligibilityScheduleClient{
+			schedule: func(_ int) (*armauthorization.RoleEligibilitySchedule, error) {
+				return nil, &azcore.ResponseError{StatusCode: 404, ErrorCode: "InvalidResourceType"}
+			},
+		}
+		err := deletePimEligibilitySchedule(context.Background(), "/id/is/not/used", validInputs, client, 3*time.Second)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "InvalidResourceType")
+		assert.Nil(t, client.capturedCreate)
+	})
+
 	t.Run("active schedule, deletion times out", func(t *testing.T) {
 		t.Parallel()
 
@@ -259,6 +294,55 @@ func TestDeletePimEligibilitySchedule(t *testing.T) {
 		assert.True(t, isValidGUID(client.capturedCreate.name), client.capturedCreate.name)
 		assert.Equal(t, armauthorization.RequestTypeAdminRemove, *client.capturedCreate.parameters.Properties.RequestType)
 	})
+}
+
+// requestRecorder is a policy.Transporter that records requests and replies with an empty success response.
+type requestRecorder struct {
+	requests []*http.Request
+}
+
+func (r *requestRecorder) Do(req *http.Request) (*http.Response, error) {
+	r.requests = append(r.requests, req)
+	status := http.StatusOK
+	if req.Method == http.MethodPut {
+		status = http.StatusCreated
+	}
+	return &http.Response{
+		StatusCode: status,
+		Header:     http.Header{"Content-Type": []string{"application/json"}},
+		Body:       io.NopCloser(strings.NewReader("{}")),
+		Request:    req,
+	}, nil
+}
+
+// The armauthorization SDK's default API versions aren't supported by ARM for PIM resources. See #4908.
+func TestPimClientsUseSupportedAPIVersion(t *testing.T) {
+	t.Parallel()
+
+	transport := &requestRecorder{}
+	opts := pimClientOptions(cloud.AzurePublic)
+	opts.Transport = transport
+	schedulesClient, err := armauthorization.NewRoleEligibilitySchedulesClient(&fake.TokenCredential{}, opts)
+	require.NoError(t, err)
+	requestsClient, err := armauthorization.NewRoleEligibilityScheduleRequestsClient(&fake.TokenCredential{}, opts)
+	require.NoError(t, err)
+	client := &pimEligibilityScheduleClientImpl{schedulesClient: schedulesClient, requestsClient: requestsClient}
+
+	ctx := context.Background()
+	scope := "subscriptions/sub/resourceGroups/rg/providers/Microsoft.ContainerService/managedClusters/aks"
+	_, err = client.findSchedule(ctx, scope, "principalID", "roleDefinitionID")
+	require.NoError(t, err)
+	_, err = client.getSchedule(ctx, scope, "schedule")
+	require.NoError(t, err)
+	_, err = client.createSchedule(ctx, scope, "request", armauthorization.RoleEligibilityScheduleRequest{})
+	require.NoError(t, err)
+	_, err = client.cancelSchedule(ctx, scope, "request")
+	require.NoError(t, err)
+
+	require.Len(t, transport.requests, 4)
+	for _, req := range transport.requests {
+		assert.Equal(t, "2020-10-01", req.URL.Query().Get("api-version"), "%s %s", req.Method, req.URL.Path)
+	}
 }
 
 // isValidGUID checks if the provided string is a valid GUID/UUID.
