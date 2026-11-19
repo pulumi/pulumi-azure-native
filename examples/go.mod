@@ -10,8 +10,8 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.2.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/servicebus/armservicebus v1.2.0
 	github.com/pulumi/providertest v0.8.0
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.30.0
-	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.30.0
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.32.0
+	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.32.0
 	github.com/pulumi/pulumi/pkg/v3 v3.277.0
 	github.com/pulumi/pulumi/sdk/v3 v3.277.0
 	github.com/stretchr/testify v1.12.1
@@ -125,7 +125,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.30.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.32.0 // indirect
 	github.com/pulumi/pulumi-cloud-sdk/go v1.20261118.1124 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
