@@ -18,7 +18,7 @@ runs:
           examples/go.sum
 
     - name: Install Pulumi CLI
-      uses: pulumi/actions@8e5e406f4007fca908480587cb9893c07090f58d # v7
+      uses: pulumi/actions@0ce33695f880624d4f27bd6db25e680c7df4d551 # v7
       with:
         pulumi-version: dev
 
